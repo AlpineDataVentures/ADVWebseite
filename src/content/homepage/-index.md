@@ -2,10 +2,10 @@
 # Banner
 banner:
   title: "Alpine Data Ventures"
-  content: "Unsere Seite ist gerade im Relaunch, freut euch drauf!"
+  content: "Unsere Seite ist gerade im Relaunch. Wir freuen uns euch bald mit allem rund um Daten begrüßen zu dürfen!"
   image: "/images/work_in_progress.webp"
   button:
-    enable: true
+    enable: false
     label: "Kennenlernen!"
     link: "https://outlook.office365.com/owa/calendar/HofITB@hof-itb.de/bookings/"
 
