@@ -24,3 +24,7 @@ package-lock.json
 
 # ignore .astro directory
 .astro
+public/images/removed
+
+# concepts, ideas, removed things
+.concepts
