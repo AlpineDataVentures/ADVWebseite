@@ -1,5 +1,22 @@
 {
-  "main": [],
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Unsere Leistungen",
+      "url": "/services"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "Über uns",
+      "url": "/about"
+    }
+  ],
   "footer": [
     {
       "name": "Impressum",
