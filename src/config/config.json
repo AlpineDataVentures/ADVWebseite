@@ -4,12 +4,16 @@
     "base_url": "https://alpinedata.de",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
+    "favicon": "/images/favicon.ico",
+    "icon512": "/images/icon-512x512.png",
+    "icon_apple_touch": "/images/apple-touch-icon.png",
+    "language": "de",
     "logo": "/images/logo.png",
     "logo_darkmode": "/images/logo-darkmode.png",
     "logo_width": "225",
     "logo_height": "58",
-    "logo_text": "Alpine Data Ventures"
+    "logo_text": "Alpine Data Ventures",
+    "site_webmanifest": "/site.webmanifest"
   },
   "settings": {
     "search": false,
