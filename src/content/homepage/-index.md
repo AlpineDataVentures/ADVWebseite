@@ -1,13 +1,13 @@
 ---
 # Banner
 banner:
-  title: "The Ultimate Starter Template You Need To Start Your Astro Project"
-  content: "Astroplate is a free starter template built with Astro and TailwindCSS, providing everything you need to jumpstart your Astro project and save valuable time."
-  image: "/images/banner.png"
+  title: "Alpine Data Ventures"
+  content: "Unsere Seite ist gerade im Relaunch, freut euch drauf!"
+  image: "/images/work_in_progress.webp"
   button:
     enable: true
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/astroplate"
+    label: "Kennenlernen!"
+    link: "https://outlook.office365.com/owa/calendar/HofITB@hof-itb.de/bookings/"
 
 # Features
 features:
