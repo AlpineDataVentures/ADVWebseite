@@ -21,8 +21,8 @@ draft: false
 #### Kontakt
 <p>
 Telefon: +49 160 8014 812<br>
-E-Mail: <a href="mailto:info@alpinedata.de">info(at)hof-itb.de</a> <br>
-Internet: <a href="https://alpinedata.de">https://hof-itb.de</a>
+E-Mail: <a href="mailto:info@alpinedata.de">info(at)alpinedata.de</a> <br>
+Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
 </p>
 
 #### Vertretungsberechtigter Geschäftsführer
