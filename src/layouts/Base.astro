@@ -42,7 +42,7 @@ const { title, meta_title, description, image, noindex, canonical } =
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={config.site.language}>
   <head>
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
@@ -100,14 +100,26 @@ const { title, meta_title, description, image, noindex, canonical } =
     <!-- canonical url -->
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
 
-    <!-- noindex robots -->
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <!-- add sitemap for crawlers convenience -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- index robots -->
+    {
+      (process.env.CONTEXT === "branch-deploy" || noindex) && (
+        <meta name="robots" content="noindex,nofollow" />
+      )
+    }
+    {
+      process.env.CONTEXT === "production" && !noindex && noindex == false && (
+        <meta name="robots" content="index,follow" />
+      )
+    }
 
     <!-- meta-description -->
     <meta
       name="description"
       content={plainify(
-        description ? description : config.metadata.meta_description
+        description ? description : config.metadata.meta_description,
       )}
     />
 
@@ -120,7 +132,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta
       property="og:title"
       content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title
+        meta_title ? meta_title : title ? title : config.site.title,
       )}
     />
 
@@ -128,7 +140,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta
       property="og:description"
       content={plainify(
-        description ? description : config.metadata.meta_description
+        description ? description : config.metadata.meta_description,
       )}
     />
     <meta property="og:type" content="website" />
@@ -141,7 +153,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta
       name="twitter:title"
       content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title
+        meta_title ? meta_title : title ? title : config.site.title,
       )}
     />
 
@@ -149,7 +161,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta
       name="twitter:description"
       content={plainify(
-        description ? description : config.metadata.meta_description
+        description ? description : config.metadata.meta_description,
       )}
     />
 
@@ -169,6 +181,10 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <script
+      defer
+      data-domain="alpinedata.de"
+      src="http://analytics.beta-its.de/js/script.js"></script>
   </head>
   <body>
     <TwSizeIndicator />
