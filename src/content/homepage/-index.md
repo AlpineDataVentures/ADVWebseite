@@ -5,7 +5,7 @@ banner:
   content: "Unsere Seite ist gerade im Relaunch, freut euch drauf!"
   image: "/images/work_in_progress.webp"
   button:
-    enable: true
+    enable: false
     label: "Kennenlernen!"
     link: "https://outlook.office365.com/owa/calendar/HofITB@hof-itb.de/bookings/"
 
