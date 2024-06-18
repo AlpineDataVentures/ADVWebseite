@@ -69,7 +69,7 @@ const { banner, features }: Homepage = homepage.data;
   <!-- /Banner -->
 
   <!-- Features -->
-  <!--
+
   {
     features.map((feature, index: number) => (
       <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
@@ -108,10 +108,9 @@ const { banner, features }: Homepage = homepage.data;
       </section>
     ))
   }
-  -->
 
   <!-- /Features -->
 
-  <!-- Testimonial testimonial={testimonial} /-->
+  <Testimonial testimonial={testimonial} />
   <CallToAction call_to_action={call_to_action} />
 </Base>
