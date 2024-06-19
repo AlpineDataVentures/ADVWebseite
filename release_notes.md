@@ -12,6 +12,7 @@
 
 - Deployment via Netlify
 - Einrichten und Dokumentation der VS Code Umgebung
+- Nutzung von GitHub mit ssh-Keys
 
 ------
 
