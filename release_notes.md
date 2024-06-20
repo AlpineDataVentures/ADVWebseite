@@ -4,7 +4,7 @@
 
 ### Fachliche Änderungen
 
-- Impressum hinzugefügt
+- Impressum hinzugefügt, TMG => DDG
 - Komplett überarbeitete Start-Seite
 - Datenschutz & Impressum
 

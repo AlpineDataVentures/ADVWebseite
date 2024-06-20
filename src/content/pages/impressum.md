@@ -8,10 +8,10 @@ draft: false
 ---
 
 <p>
-  <em>letztes Update:</em> 18. Juni 2024
+  <em>letztes Update:</em> 20. Juni 2024
 </p>
 
-### Angaben gemäß § 5 TMG
+#### Anbieter gemäß dem Gesetz für Digitale Dienste (DDG)
 <p>
   Hof IT-Beratung GmbH<br>
   Mühlhölzlweg 30<br> 
@@ -45,7 +45,7 @@ Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
 DE363918826<br>
 </p>
 
-### Inhaltlich Verantwortlicher gemäß § 55 RStV
+#### Inhaltlich Verantwortlicher gemäß § 55 RStV
 <p>
   Dr. Carsten Hof<br>
   Mühlhölzlweg 30<br>
