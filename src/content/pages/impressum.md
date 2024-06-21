@@ -9,6 +9,7 @@ draft: false
 
 <p>
   <em>letztes Update:</em> 20. Juni 2024
+  <em>letztes Update:</em> 20. Juni 2024
 </p>
 
 #### Anbieter gemäß dem Gesetz für Digitale Dienste (DDG)
