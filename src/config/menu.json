@@ -6,15 +6,87 @@
     },
     {
       "name": "Unsere Leistungen",
-      "url": "/services"
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Portfolio",
+          "url": "/services"
+        },
+        {
+          "name": "Success Stories",
+          "url": "/successStories"
+        },
+        {
+          "name": "Branchen",
+          "url": "/industries"
+        }
+      ]
     },
     {
-      "name": "Blog",
-      "url": "/blog"
+      "name": "Unsere Expertise",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Blog",
+          "url": "/blog"
+        },
+        {
+          "name": "Termine",
+          "url": "/events"
+        }
+      ]
     },
     {
       "name": "Über uns",
-      "url": "/about"
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Unsere Philosophie",
+          "url": "/about"
+        },
+        {
+          "name": "Das Team",
+          "url": "/team"
+        },
+        {
+          "name": "Karriere",
+          "url": "/career"
+        }
+      ]
+    },
+    {
+      "name": "Test",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Kontakt",
+          "url": "/contact"
+        },
+        {
+          "name": "Elemente",
+          "url": "/elements"
+        },
+        {
+          "name": "Authors",
+          "url": "/authors"
+        },
+        {
+          "name": "Categories",
+          "url": "/categories"
+        },
+        {
+          "name": "Suche",
+          "url": "/search"
+        },
+        {
+          "name": "404 Seite",
+          "url": "/404"
+        }
+      ]
     }
   ],
   "footer": [
