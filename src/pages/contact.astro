@@ -103,7 +103,7 @@ const { title, description, meta_title, image } = contact.data;
     };
 
     // Set POST request method to our netlify function
-    const res = xhr.open("POST", ".netlify/functions/contact");
+    const res = xhr.open("POST", "/.netlify/functions/contact");
     console.log(res);
     // Set the request headers
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
