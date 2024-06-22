@@ -14,6 +14,9 @@ pnpm-debug.log*
 yarn.lock
 package-lock.json
 
+# ignore lock-files
+*.lock
+
 
 # environment variables
 .env
@@ -28,3 +31,6 @@ public/images/removed
 
 # concepts, ideas, removed things
 .concepts
+
+# Local Netlify folder
+.netlify

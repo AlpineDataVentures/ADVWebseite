@@ -20,46 +20,110 @@ const { title, description, meta_title, image } = contact.data;
     <div class="container">
       <div class="row">
         <div class="mx-auto md:col-10 lg:col-6">
-          <form action={contact_form_action} method="POST">
+          <form
+            id="contact"
+            name="contact"
+            action={contact_form_action}
+            method="GET"
+          >
             <div class="mb-6">
-              <label for="name" class="form-label">
-                Full Name <span class="text-red-500">*</span>
+              <label for="firstname" class="form-label">
+                Vorname <span class="text-red-500">*</span>
               </label>
               <input
-                id="name"
-                name="name"
+                id="firstname"
+                name="firstname"
                 class="form-input"
-                placeholder="John Doe"
+                placeholder="Erika"
                 type="text"
+                required
+              />
+            </div>
+            <div class="mb-6">
+              <label for="lastname" class="form-label">
+                Nachname <span class="text-red-500">*</span>
+              </label>
+              <input
+                id="lastname"
+                name="lastname"
+                class="form-input"
+                placeholder="Mustermann"
+                type="text"
+                required
               />
             </div>
             <div class="mb-6">
               <label for="email" class="form-label">
-                Working Mail <span class="text-red-500">*</span>
+                E-Mail-Adresse <span class="text-red-500">*</span>
               </label>
               <input
                 id="email"
                 name="email"
                 class="form-input"
-                placeholder="john.doe@email.com"
+                placeholder="erika.mustermann@email.com"
                 type="email"
+                required
               />
             </div>
             <div class="mb-6">
               <label for="message" class="form-label">
-                Anything else? <span class="text-red-500">*</span>
+                Nachricht <span class="text-red-500">*</span>
               </label>
               <textarea
                 id="message"
                 name="message"
                 class="form-input"
-                placeholder="Message goes here..."
+                placeholder="Ihre Nachricht..."
+                required
                 rows="8"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Absenden</button>
           </form>
         </div>
       </div>
     </div>
   </section>
 </Base>
+<script>
+  const form = document.getElementById("contact");
+  var xhr = new XMLHttpRequest();
+
+  const handleFormSubmission = (event) => {
+    // prevent page from reloading
+    event.preventDefault();
+
+    const data = event.target.elements;
+
+    // put into JSON object
+    const formData = {
+      firstname: data.firstname.value,
+      lastname: data.lastname.value,
+      email: data.email.value,
+      message: data.message.value,
+    };
+
+    // Set POST request method to our netlify function
+    const res = xhr.open("POST", ".netlify/functions/contact");
+    console.log(res);
+    // Set the request headers
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+    // Send the data as JSON to our netlify function
+    xhr.send(JSON.stringify(formData));
+
+    // Handle the response
+    xhr.onload = function () {
+      const response = JSON.parse(xhr.responseText);
+
+      if (xhr.status === 200) {
+        // The request was successful
+        console.log("success");
+      } else {
+        // The request failed
+        console.log("fail");
+      }
+    };
+  };
+  // add the submission event listener
+  form.addEventListener("submit", handleFormSubmission, true);
+</script>

@@ -1,5 +1,5 @@
 ---
-title: "Blog Posts"
-meta_title: ""
-description: "this is meta description"
+title: "Unser Blog"
+meta_title: "Alles rund um Daten"
+description: "Alles rund um Daten"
 ---
