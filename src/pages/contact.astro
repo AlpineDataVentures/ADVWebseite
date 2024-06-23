@@ -88,23 +88,24 @@ const { title, description, meta_title, image } = contact.data;
   const form = document.getElementById("contact");
   var xhr = new XMLHttpRequest();
 
-  const handleFormSubmission = (event) => {
+  const handleFormSubmission = (event: SubmitEvent) => {
     // prevent page from reloading
     event.preventDefault();
 
-    const data = event.target.elements;
+    const target = event.target as HTMLFormElement;
+    const data = target.elements as HTMLFormControlsCollection;
 
     // put into JSON object
     const formData = {
-      firstname: data.firstname.value,
-      lastname: data.lastname.value,
-      email: data.email.value,
-      message: data.message.value,
+      firstname: (data.namedItem("firstname") as HTMLInputElement).value,
+      lastname: (data.namedItem("lastname") as HTMLInputElement).value,
+      email: (data.namedItem("email") as HTMLInputElement).value,
+      message: (data.namedItem("message") as HTMLTextAreaElement).value,
     };
 
     // Set POST request method to our netlify function
     const res = xhr.open("POST", "/.netlify/functions/contact");
-    console.log(res);
+
     // Set the request headers
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 
@@ -125,5 +126,5 @@ const { title, description, meta_title, image } = contact.data;
     };
   };
   // add the submission event listener
-  form.addEventListener("submit", handleFormSubmission, true);
+  form?.addEventListener("submit", handleFormSubmission, true);
 </script>
