@@ -1,5 +1,5 @@
 ---
 title: "Unser Blog"
-meta_title: "Alles rund um Daten"
+meta_title: "ADV - Unser Blog"
 description: "Alles rund um Daten"
 ---
