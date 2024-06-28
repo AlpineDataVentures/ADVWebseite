@@ -10,21 +10,52 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Portfolio",
-          "url": "/services"
+          "name": "Data Strategy",
+          "url": "/strategy"
         },
         {
-          "name": "Success Stories",
-          "url": "/successStories"
+          "name": "Governance & Culture",
+          "url": "/culture"
         },
         {
-          "name": "Branchen",
-          "url": "/industries"
+          "name": "Data Architecture",
+          "url": "/architecture"
+        },
+        {
+          "name": "BI & Analytics",
+          "url": "/analytics"
+        },
+        {
+          "name": "AI & Data Science",
+          "url": "/datascience"
+        },
+        {
+          "name": "Data Knowledge",
+          "url": "/knowledge"
+        },
+        {
+          "name": "Operations",
+          "url": "/operations"
         }
       ]
     },
     {
-      "name": "Unsere Expertise",
+      "name": "Unsere Projekte",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Case Studies",
+          "url": "/caseStudies"
+        },
+        {
+          "name": "Referenzen",
+          "url": "/voc"
+        }
+      ]
+    },
+    {
+      "name": "Wissenswertes",
       "url": "",
       "hasChildren": true,
       "children": [
@@ -33,7 +64,7 @@
           "url": "/blog"
         },
         {
-          "name": "Termine",
+          "name": "Events",
           "url": "/events"
         }
       ]
