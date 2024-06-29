@@ -129,10 +129,17 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta name="author" content={config.metadata.meta_author} />
 
     <!-- og-title -->
+    <!-- og-title -->
     <meta
       property="og:title"
       content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title,
+        meta_title
+          ? meta_title
+          : title
+            ? title
+            : config.site.title + config.site.slogan
+              ? " - " + config.site.slogan
+              : "",
       )}
     />
 
