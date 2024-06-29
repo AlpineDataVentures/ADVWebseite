@@ -1,7 +1,8 @@
 {
   "site": {
     "title": "Alpine Data Ventures",
-    "base_url": "https://alpinedata.de",
+    "slogan": "Where Data meets Strategy",
+    "base_url": "https://dev--soft-daifuku-1e7992.netlify.app/",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.ico",
@@ -34,13 +35,13 @@
     "link": "https://alpinedata.de"
   },
   "disqus": {
-    "enable": true,
+    "enable": false,
     "shortname": "themefisher-template",
     "settings": {}
   },
   "metadata": {
     "meta_author": "Alpine Data Ventures",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "astro and tailwind boilerplate"
+    "meta_image": "/images/icon-512x512.png",
+    "meta_description": "Ihr Partner für daten-getriebene Innovationen und maßgeschneiderte Strategien, basierend auf unseren langjährigen Erfahrungen, starken Kundenbeziehungen und Vertrauen."
   }
 }
