@@ -33,12 +33,13 @@ export interface Props {
   meta_title?: string;
   description?: string;
   image?: string;
+  image_alt?: string;
   noindex?: boolean;
   canonical?: string;
 }
 
 // destructure frontmatter
-const { title, meta_title, description, image, noindex, canonical } =
+const { title, meta_title, description, image, image_alt, noindex, canonical } =
   Astro.props;
 ---
 
@@ -195,6 +196,12 @@ const { title, meta_title, description, image, noindex, canonical } =
       property="og:image"
       content={`${config.site.base_url}${
         image ? image : config.metadata.meta_image
+      }`}
+    />
+    <meta
+      property="og:image:alt"
+      content={`${config.site.base_url}${
+        image_alt ? image_alt : config.metadata.meta_image_alt
       }`}
     />
 
