@@ -9,6 +9,7 @@ import "@/styles/main.scss";
 import { AstroFont } from "astro-font";
 import { ViewTransitions } from "astro:transitions";
 import SearchModal from "./helpers/SearchModal";
+import { join } from "node:path";
 
 // font families
 const pf = theme.fonts.font_family.primary;
@@ -66,22 +67,42 @@ const { title, meta_title, description, image, noindex, canonical } =
     <AstroFont
       config={[
         {
-          src: [],
+          src: [
+            {
+              style: "400",
+              weight: "normal",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Poppins-Regular.woff2",
+              ),
+            },
+          ],
           preload: false,
           display: "swap",
           name: fontPrimary!,
           fallback: "sans-serif",
           cssVariable: "font-primary",
-          googleFontsURL: `https://fonts.googleapis.com/css2?family=${pf}&display=swap`,
         },
         {
-          src: [],
+          src: [
+            {
+              style: "500",
+              weight: "normal",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Poppins-Medium.woff2",
+              ),
+            },
+          ],
           preload: false,
           display: "swap",
           name: fontSecondary!,
           fallback: "sans-serif",
           cssVariable: "font-secondary",
-          googleFontsURL: `https://fonts.googleapis.com/css2?family=${sf}&display=swap`,
         },
       ]}
     />
