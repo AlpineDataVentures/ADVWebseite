@@ -4,7 +4,18 @@ const { SENDGRID_API_KEY } = process.env;
 
 exports.handler = async (event) => {
   // get data from body
-  const { firstname, lastname, email, message } = JSON.parse(event.body);
+  const { firstname, lastname, email, message, reason, website } = JSON.parse(event.body);
+
+  // check Honeypot field
+  if (website !== "Deine Webseite")
+    return {
+      statusCode: 400,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ msg: "Ungültige Anfrage" }),
+    };
+
 
   // set API key
   sgMail.setApiKey(SENDGRID_API_KEY);
@@ -12,9 +23,9 @@ exports.handler = async (event) => {
   // setup data for email
   // NOTE: THIS IS NOT SECURE. YOU NEED TO SANITIZE THE INPUTS
   const data = {
-    to: "info@alpinedata.de", // Change to your recipient (your email in this case)
+    to: "carsten_hof@web.de", // Change to your recipient (your email in this case)
     from: "info@alpinedata.de", // Change to your verified sender
-    subject: `ADV Webseite: Neue Nachricht von ${firstname} ${lastname}`,
+    subject: `${reason} über ADV Webseite: Neue Nachricht von ${firstname} ${lastname}`,
     html: `${firstname} ${lastname} (${email}) schreibt: <br> <br> <p>${message}</p>`,
   };
 

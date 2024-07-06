@@ -53,6 +53,19 @@ const { title, description, meta_title, image } = contact.data;
               />
             </div>
             <div class="mb-6">
+              <label for="reason" class="form-label">
+                Ihr Anliegen <span class="text-red-500">*</span>
+              </label>
+              <select id="reason" name="reason" class="form-input" required>
+                <option value="" disabled selected>Bitte auswählen</option>
+                <option value="Kennenlerntermin">Kennenlerntermin</option>
+                <option value="Projektanfrage">Projektanfrage</option>
+                <option value="Bewerbung">Bewerbung</option>
+                <option value="Kooperationsanfrage">Kooperationsanfrage</option>
+                <option value="Sonstiges">Sonstiges</option>
+              </select>
+            </div>
+            <div class="mb-6">
               <label for="email" class="form-label">
                 E-Mail-Adresse <span class="text-red-500">*</span>
               </label>
@@ -63,6 +76,16 @@ const { title, description, meta_title, image } = contact.data;
                 placeholder="erika.mustermann@email.com"
                 type="email"
                 required
+              />
+            </div>
+            <div class="mb-6">
+              <label for="phone" class="form-label"> Telefonnnummer </label>
+              <input
+                id="phone"
+                name="phone"
+                class="form-input"
+                placeholder="+49 89 1234567"
+                type="tel"
               />
             </div>
             <div class="mb-6">
@@ -77,8 +100,40 @@ const { title, description, meta_title, image } = contact.data;
                 required
                 rows="8"></textarea>
             </div>
+            <div class="mb-6 flex items-start">
+              <input
+                id="consent"
+                name="consent"
+                type="checkbox"
+                class="form-checkbox mr-2"
+                required
+              />
+              <label for="consent" class="form-label inline text-sm">
+                Ich willige ein, dass meine Daten verarbeitet werden und einzig
+                zur Kontaktaufnahme durch die ADV verwendet werden. <span
+                  class="text-red-500">*</span
+                >
+              </label>
+            </div>
             <button type="submit" class="btn btn-primary">Absenden</button>
+            <!-- Honeypot field (hidden) -->
+            <div class="hidden">
+              <label for="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                value="Deine Webseite"
+              />
+            </div>
           </form>
+          <div id="feedback" class="hidden mt-4 text-green-500">
+            Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
+          </div>
+          <div id="fail_feedback" class="hidden mt-4 text-red-500">
+            Leider konnte Ihre Nachricht konnte nicht übermittelt werden. Bitte
+            schreiben Sie eine Mail an info(at)alpinedata.de!
+          </div>
         </div>
       </div>
     </div>
@@ -101,6 +156,9 @@ const { title, description, meta_title, image } = contact.data;
       lastname: (data.namedItem("lastname") as HTMLInputElement).value,
       email: (data.namedItem("email") as HTMLInputElement).value,
       message: (data.namedItem("message") as HTMLTextAreaElement).value,
+      phone: (data.namedItem("phone") as HTMLTextAreaElement).value,
+      reason: (data.namedItem("reason") as HTMLTextAreaElement).value,
+      website: (data.namedItem("website") as HTMLTextAreaElement).value,
     };
 
     // Set POST request method to our netlify function
@@ -118,10 +176,12 @@ const { title, description, meta_title, image } = contact.data;
 
       if (xhr.status === 200) {
         // The request was successful
-        console.log("success");
+        // show feedback message
+        document.getElementById("feedback")?.classList.remove("hidden");
+        target.reset();
       } else {
         // The request failed
-        console.log("fail");
+        document.getElementById("fail_feedback")?.classList.remove("hidden");
       }
     };
   };

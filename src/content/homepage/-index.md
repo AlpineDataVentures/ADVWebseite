@@ -1,7 +1,7 @@
 ---
 # Banner
 banner:
-  title: "Alpine Data Ventures"
+  title: "Where Data meets Strategy"
   content: "Unsere Seite ist gerade im Relaunch. Wir freuen uns euch bald mit allem rund um Daten begrüßen zu dürfen!"
   image: "/images/work_in_progress.webp"
   button:
