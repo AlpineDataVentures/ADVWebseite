@@ -23,7 +23,7 @@ exports.handler = async (event) => {
   // setup data for email
   // NOTE: THIS IS NOT SECURE. YOU NEED TO SANITIZE THE INPUTS
   const data = {
-    to: "carsten_hof@web.de", // Change to your recipient (your email in this case)
+    to: "info@alpinedata.de", // Change to your recipient (your email in this case)
     from: "info@alpinedata.de", // Change to your verified sender
     subject: `${reason} über ADV Webseite: Neue Nachricht von ${firstname} ${lastname}`,
     html: `${firstname} ${lastname} (${email}) schreibt: <br> <br> <p>${message}</p>`,
