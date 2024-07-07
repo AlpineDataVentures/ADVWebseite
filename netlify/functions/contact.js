@@ -7,14 +7,14 @@ exports.handler = async (event) => {
   const { firstname, lastname, email, message, reason, website } = JSON.parse(event.body);
 
   // check Honeypot field
-  if (website !== "Deine Webseite")
-    return {
-      statusCode: 400,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ msg: "Ungültige Anfrage" }),
-    };
+  // if (website !== "Deine Webseite")
+  //  return {
+  //    statusCode: 400,
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({ msg: "Ungültige Anfrage" }),
+  // };
 
 
   // set API key

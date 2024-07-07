@@ -94,10 +94,6 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Kontakt",
-          "url": "/contact"
-        },
-        {
           "name": "Kontakt (neu)",
           "url": "/contact_new"
         },

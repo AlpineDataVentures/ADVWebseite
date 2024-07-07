@@ -18,65 +18,68 @@ const ContactForm = () => {
     resolver: zodResolver(schema)
   });
 
-  const onSubmit = data => {
-    // Submit your data to Netlify or another service
-    console.log(data);
-    var xhr = new XMLHttpRequest();
-    // Set POST request method to our netlify function
-    const res = xhr.open("POST", "/.netlify/functions/contact");
+  const onSubmit = async (data, event) => {
+    console.log("OnSubmit ContactForm.jsx called");
 
-    // Set the request headers
-    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    // Prevent default form submission
+    event.preventDefault();
 
-    // Send the data as JSON to our netlify function
-    xhr.send(JSON.stringify(data));
+    // Convert form data to URL encoded string
+    const formData = new URLSearchParams(data).toString();
 
-    xhr.onload = function () {
-      const response = JSON.parse(xhr.responseText);
+    // Use fetch API to send data to Netlify function
+    try {
+      const response = await fetch("/.netlify/functions/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData
+      });
 
-      if (xhr.status === 200) {
-        // The request was successful
-        // show feedback message
-
-
+      if (response.ok) {
+        console.log("Form successfully submitted");
+        // Show success message to user
+        document.getElementById("feedback").classList.remove("hidden");
       } else {
-        // The request failed
-
+        console.error("Form submission error");
+        // Show error message to user
       }
-    };
+    } catch (error) {
+      console.error("Form submission error", error);
+      // Show error message to user
+    }
   };
 
   return (
+    <section className="section-sm">
+      <div className="container">
+        <div className="row">
+          <div className="mx-auto md:col-10 lg:col-6">
+            <form id="contact_new" name="contact_new" method="POST" onSubmit={handleSubmit(onSubmit)} data-netlify="true" netlify-honeypot="website">
+              <input type="hidden" name="form-name" value="contact_new" />
 
-    <section class="section-sm">
-      <div class="container">
-        <div class="row">
-          <div class="mx-auto md:col-10 lg:col-6">
-            <form id="contact_new" name="contact_new" method="GET" onSubmit={handleSubmit(onSubmit)}>
-
-              <div class="mb-6">
-                <label htmlFor="firstname" class="form-label">Vorname <span class="text-red-500">*</span></label>
+              <div className="mb-6">
+                <label htmlFor="firstname" className="form-label">Vorname <span className="text-red-500">*</span></label>
                 <input id="firstname"
-                  class="form-input"
+                  className="form-input"
                   placeholder="Erika"
                   type="text"
                   required
                   {...register("firstname")} />
                 {errors.firstname && <p>{errors.firstname.message}</p>}
               </div>
-              <div class="mb-6">
-                <label htmlFor="lastname" class="form-label">Nachname <span class="text-red-500">*</span></label>
+              <div className="mb-6">
+                <label htmlFor="lastname" className="form-label">Nachname <span className="text-red-500">*</span></label>
                 <input id="lastname"
                   name="lastname"
-                  class="form-input"
+                  className="form-input"
                   placeholder="Mustermann"
                   type="text"
-                  required{...register("lastname")} />
+                  required {...register("lastname")} />
                 {errors.lastname && <p>{errors.lastname.message}</p>}
               </div>
-              <div class="mb-6">
-                <label htmlFor="reason" class="form-label" >Ihr Anliegen <span class="text-red-500">*</span></label>
-                <select id="reason" class="form-input" required {...register("reason")}>
+              <div className="mb-6">
+                <label htmlFor="reason" className="form-label">Ihr Anliegen <span className="text-red-500">*</span></label>
+                <select id="reason" className="form-input" required {...register("reason")}>
                   <option value="" disabled>Bitte auswählen</option>
                   <option value="Kennenlerntermin">Kennenlerntermin</option>
                   <option value="Projektanfrage">Projektanfrage</option>
@@ -86,22 +89,22 @@ const ContactForm = () => {
                 </select>
                 {errors.reason && <p>{errors.reason.message}</p>}
               </div>
-              <div class="mb-6">
-                <label htmlFor="email" class="form-label">E-Mail-Adresse <span class="text-red-500">*</span></label>
+              <div className="mb-6">
+                <label htmlFor="email" className="form-label">E-Mail-Adresse <span className="text-red-500">*</span></label>
                 <input id="email"
                   name="email"
-                  class="form-input"
+                  className="form-input"
                   placeholder="erika.mustermann@email.com"
                   type="email"
                   required {...register("email")} />
                 {errors.email && <p>{errors.email.message}</p>}
               </div>
 
-              <div class="mb-6">
-                <label htmlFor="message" class="form-label">Nachricht <span class="text-red-500">*</span></label>
+              <div className="mb-6">
+                <label htmlFor="message" className="form-label">Nachricht <span className="text-red-500">*</span></label>
                 <textarea id="message"
                   name="message"
-                  class="form-input"
+                  className="form-input"
                   placeholder="Ihre Nachricht..."
                   required
                   {...register("message")} rows="8"></textarea>
@@ -111,18 +114,21 @@ const ContactForm = () => {
                 <label htmlFor="website">Website</label>
                 <input id="website" {...register("website")} />
               </div>
-              <div class="mb-6 flex items-start">
+              <div className="mb-6 flex items-start">
                 <input id="consent"
                   name="consent"
-                  class="form-checkbox mr-2"
+                  className="form-checkbox mr-2"
                   required type="checkbox" {...register("consent")} />
-                <label htmlFor="consent" class="form-label inline text-sm">Ich willige ein, dass meine Daten verarbeitet werden und einzig zur Kontaktaufnahme durch die ADV verwendet werden.</label>
+                <label htmlFor="consent" className="form-label inline text-sm">Ich willige ein, dass meine Daten verarbeitet werden und einzig zur Kontaktaufnahme durch die ADV verwendet werden.</label>
                 {errors.consent && <p>{errors.consent.message}</p>}
               </div>
 
-              <button type="submit" class="btn btn-primary">Absenden</button>
+              <button type="submit" className="btn btn-primary">Absenden</button>
 
             </form>
+            <div id="feedback" className="hidden mt-4 text-green-500">
+              Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
+            </div>
           </div>
         </div>
       </div>
