@@ -56,8 +56,13 @@ const { title, description, meta_title, image } = contact.data;
               <label for="reason" class="form-label">
                 Ihr Anliegen <span class="text-red-500">*</span>
               </label>
-              <select id="reason" name="reason" class="form-input" required>
-                <option value="" disabled selected>Bitte auswählen</option>
+              <select
+                id="reason"
+                name="reason"
+                aria-placeholder="Bitte auswählen"
+                class="form-input"
+                required
+              >
                 <option value="Kennenlerntermin">Kennenlerntermin</option>
                 <option value="Projektanfrage">Projektanfrage</option>
                 <option value="Bewerbung">Bewerbung</option>

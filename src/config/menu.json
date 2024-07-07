@@ -98,6 +98,10 @@
           "url": "/contact"
         },
         {
+          "name": "Kontakt (neu)",
+          "url": "/contact_new"
+        },
+        {
           "name": "Elemente",
           "url": "/elements"
         },
