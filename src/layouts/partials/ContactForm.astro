@@ -1,0 +1,110 @@
+---
+// ContactForm.astro
+
+const { contact_form_action } = Astro.props;
+---
+
+<form id="contact" name="contact" action={contact_form_action} method="POST">
+  <div class="mb-6">
+    <label for="firstname" class="form-label">
+      Vorname <span class="text-red-500">*</span>
+    </label>
+    <input
+      id="firstname"
+      name="firstname"
+      class="form-input"
+      placeholder="Erika"
+      type="text"
+      required
+    />
+  </div>
+  <div class="mb-6">
+    <label for="lastname" class="form-label">
+      Nachname <span class="text-red-500">*</span>
+    </label>
+    <input
+      id="lastname"
+      name="lastname"
+      class="form-input"
+      placeholder="Mustermann"
+      type="text"
+      required
+    />
+  </div>
+  <div class="mb-6">
+    <label for="reason" class="form-label">
+      Ihr Anliegen <span class="text-red-500">*</span>
+    </label>
+    <select id="reason" name="reason" class="form-input" required>
+      <option value="" disabled selected>Bitte auswählen</option>
+      <option value="Kennenlerntermin">Kennenlerntermin</option>
+      <option value="Projektanfrage">Projektanfrage</option>
+      <option value="Bewerbung">Bewerbung</option>
+      <option value="Kooperationsanfrage">Kooperationsanfrage</option>
+      <option value="Sonstiges">Sonstiges</option>
+    </select>
+  </div>
+  <div class="mb-6">
+    <label for="email" class="form-label">
+      E-Mail-Adresse <span class="text-red-500">*</span>
+    </label>
+    <input
+      id="email"
+      name="email"
+      class="form-input"
+      placeholder="erika.mustermann@email.com"
+      type="email"
+      required
+    />
+  </div>
+  <div class="mb-6">
+    <label for="phone" class="form-label"> Telefonnnummer </label>
+    <input
+      id="phone"
+      name="phone"
+      class="form-input"
+      placeholder="+49 89 1234567"
+      type="tel"
+    />
+  </div>
+  <div class="mb-6">
+    <label for="message" class="form-label">
+      Nachricht <span class="text-red-500">*</span>
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      class="form-input"
+      placeholder="Ihre Nachricht..."
+      required
+      rows="8"></textarea>
+  </div>
+  <div class="mb-6 flex items-start">
+    <input
+      id="consent"
+      name="consent"
+      type="checkbox"
+      class="form-checkbox mr-2"
+      required
+    />
+    <label for="consent" class="form-label inline text-sm">
+      Ich willige ein, dass meine Daten verarbeitet werden und einzig zur
+      Kontaktaufnahme durch die ADV verwendet werden. <span class="text-red-500"
+        >*</span
+      >
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Absenden</button>
+  <!-- Honeypot field (hidden) -->
+  <div class="hidden">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website" value="Deine Webseite" />
+  </div>
+</form>
+<div id="feedback" class="hidden mt-4 text-green-500">
+  Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
+</div>
+<div id="fail_feedback" class="hidden mt-4 text-red-500">
+  Leider konnte Ihre Nachricht nicht übermittelt werden. Bitte schreiben Sie
+  eine Mail an info(at)alpinedata.de!
+</div>
