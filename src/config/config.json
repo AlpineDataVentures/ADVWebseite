@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Alpine Data Ventures",
-    "slogan": "Where Data meets Strategy",
+    "slogan": "Data. Decision. Done.",
     "base_url": "https://dev--soft-daifuku-1e7992.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
