@@ -1,3 +1,9 @@
+export type Values = {
+  title: string;
+  image: string;
+  content: string;
+};
+
 export type Feature = {
   button: button;
   image: string;

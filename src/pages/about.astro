@@ -1,42 +1,60 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import { markdownify } from "@/lib/utils/textConverter";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { Values } from "@/types";
 import { getEntry } from "astro:content";
+import TextBlock from "@/partials/TextBlock.astro";
+import DoubleTextBlock from "@/partials/DoubleTextBlock.astro";
+import ImageMod from "@/components/ImageMod.astro";
+
+interface About {
+  title: string;
+  description: string;
+  meta_title: string;
+  image: string;
+  vision_method: {
+    title_1: string;
+    content_1: string;
+    title_2: string;
+    content_2: string;
+  };
+  values: Values[];
+}
 
 const about = await getEntry("about", "-index");
-const { Content } = await about.render();
+const vision_method = await getEntry("about", "vision_method");
+const collaboration = await getEntry("about", "collaboration");
 const { title, description, meta_title, image } = about.data;
 ---
 
 <Base
   title={title}
   meta_title={meta_title}
-  description={description}
   image={image}
+  description={description}
 >
-  <section class="section-sm">
+  <PageHeader title={title} />
+
+  <!-- Vision & Mission -->
+  <DoubleTextBlock double_text_block={vision_method} />
+  <!-- /Vision & Mission -->
+  <section class="mb-16">
     <div class="container">
       <div class="row justify-center">
-        <div class="text-center md:col-10 lg:col-7">
-          {
-            image && (
-              <ImageMod
-                class="mx-auto mb-6 rounded-lg"
-                src={image}
-                width={200}
-                height={200}
-                alt={title}
-                format="webp"
-              />
-            )
-          }
-          <h2 set:html={markdownify(title)} class="h3 mb-6" />
-          <div class="content">
-            <Content />
-          </div>
-        </div>
+        <ImageMod
+          src={image}
+          height={491}
+          width={876}
+          alt="Das Team"
+          format="png"
+        />
       </div>
     </div>
   </section>
+  <!-- Values -->
+  <!-- /Values -->
+
+  <!-- Collaboration -->
+  <TextBlock text_block={collaboration} />
+  <!-- /Collaboration -->
 </Base>
