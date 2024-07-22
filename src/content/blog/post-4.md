@@ -1,13 +1,14 @@
 ---
-title: "How to build an Application with modern Technology"
+title: "Was ist eigentlich ein Data Warehouse?"
 meta_title: ""
 description: "this is meta description"
 date: 2022-04-04T05:00:00Z
-image: "/images/image-placeholder_4.png"
+image: "/images/blog/DataBoys_Blog.png"
 categories: ["Architecture"]
-author: "John Doe"
+author: "Carsten Hof"
 tags: ["silicon", "technology"]
 draft: false
+summary: "Das ist die Zusammenfassung. Diese wird nach genau 200 Zeichen einfach abgeschnitten, mehr passt hier einfach nicht bin. Wer mehr haben will meldet sich entweder beim Admin und bekommt haue oder kürzt einfach seinen Text. Ganz einfach - oder :-) "
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.

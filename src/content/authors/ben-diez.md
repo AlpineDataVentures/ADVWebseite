@@ -1,12 +1,12 @@
 ---
-title: Sam Wilson
-email: samwilson@email.com
+title: "Benjamin Diez"
+email: benjamin.diez@alpinedata.de
 image: "/images/avatar.png"
 description: this is meta description
 social:
   - name: github
     icon: FaGithub
-    link: https://github.com
+    link: https://github.com/AlpineDataVentures
 
   - name: twitter
     icon: FaTwitter
