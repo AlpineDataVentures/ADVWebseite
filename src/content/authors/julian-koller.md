@@ -1,6 +1,6 @@
 ---
-title: Sam Wilson
-email: samwilson@email.com
+title: Julian Koller
+email: julian.koller@alpinedata.de
 image: "/images/avatar.png"
 description: this is meta description
 social:

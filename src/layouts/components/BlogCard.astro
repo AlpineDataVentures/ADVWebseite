@@ -46,7 +46,7 @@ const { title, image, date, author, categories, summary } = data.data;
         categories.map((category: string, index: number) => (
           <a href={`/categories/${slugify(category)}`}>
             {humanize(category)}
-            {index !== categories.length - 1 && ","}
+            {index !== categories.length - 1 && "|"}
           </a>
         ))
       }
