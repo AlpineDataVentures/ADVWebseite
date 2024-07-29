@@ -24,6 +24,7 @@ const authorsCollection = defineCollection({
     email: z.string().optional(),
     image: z.string().optional(),
     description: z.string().optional(),
+    bullet_points: z.array(z.string()).default([]),
     social: z
       .array(
         z

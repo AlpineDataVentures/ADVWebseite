@@ -1,20 +1,13 @@
 ---
 title: "Andreas Klostermann"
 email: andreas.klostermann@alpinedata.de
-image: "/images/avatar.png"
-description: "this is meta description"
+image: "/images/authors/andy.jpeg"
+description: "Andreas Klostermann - Unternehmer, Spezialist für Vertriebs- und Unternehmensstrategie"
+bullet_points: ["Vertriebsgenie", "Immer für ein Bier zu haben", "Unternehmensstratege", "Es gibt kein DataMesh das ich nicht persönlich kenne"]
 social:
-  - name: github
-    icon: FaGithub
-    link: https://github.com/AlpineDataVentures
-
-  - name: xing
-    icon: FaXing
-    link: https://www.xing.com
-
   - name: linkedin
     icon: FaLinkedin
-    link: https://linkedin.com
+    link: https://www.linkedin.com/in/andyklostermann/
 ---
 
-lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.
+Andreas Klostermann ist Jungunternehmer mit über 10 Jahren Erfahrung in Vertrieb und Strategieberatung. Seine Leidenschaft ist die Verankerung von Vertrauen in Organisationen und der Erforschung neuer Wertschöpfungsansätze.

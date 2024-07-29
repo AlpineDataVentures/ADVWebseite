@@ -6,6 +6,7 @@ import { getEntry } from "astro:content";
 import TextBlock from "@/partials/TextBlock.astro";
 import DoubleTextBlock from "@/partials/DoubleTextBlock.astro";
 import ImageMod from "@/components/ImageMod.astro";
+import ContactForm from "@/partials/ContactForm.astro";
 
 interface About {
   title: string;
@@ -20,6 +21,8 @@ interface About {
   };
   values: Values[];
 }
+
+const { contact_form_action } = Astro.props;
 
 const about = await getEntry("about", "-index");
 const vision_method = await getEntry("about", "vision_method");
@@ -57,4 +60,17 @@ const { title, description, meta_title, image } = about.data;
   <!-- Collaboration -->
   <TextBlock text_block={collaboration} />
   <!-- /Collaboration -->
+
+  <!-- contact form -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto md:col-10 lg:col-6">
+          <ContactForm contact_form_action={contact_form_action} />
+        </div>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+  <!-- /contact form -->
 </Base>
