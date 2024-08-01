@@ -1,0 +1,85 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry } from "astro:content";
+import ImageMod from "@/components/ImageMod.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { FaCheck } from "react-icons/fa6";
+import CallToAction from "@/partials/CallToAction.astro";
+
+const team = await getEntry("team", "-index");
+const COLLECTION_FOLDER = "authors";
+const authors = await getSinglePage(COLLECTION_FOLDER);
+const call_to_action = await getEntry("team", "call-to-action");
+
+const { title, description, meta_title, image } = team.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  image={image}
+  description={description}
+>
+  <PageHeader title={title} />
+
+  <!-- Hero's Image -->
+  <section class="mb-16">
+    <div class="container">
+      <div class="row justify-center">
+        <ImageMod
+          src={image}
+          height={1152}
+          width={2048}
+          alt="Das Team"
+          format="webp"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Text aus -index -->
+  <section class="mb-16">
+    <div class="container">
+      <p set:html={markdownify(team.body)} class="mb-8 text-xl" />
+    </div>
+  </section>
+  <!-- Profile from authors -->
+  {
+    authors.map((author, index: number) => (
+      <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
+        <div class="container">
+          <div class="row items-center justify-between">
+            <div
+              class={`mb:md-0 mb-6 md:col-5 ${index % 2 !== 0 && "md:order-2"}`}
+            >
+              <ImageMod
+                src={author.data.image ? author.data.image : ""}
+                height={480}
+                width={520}
+                alt={author.data.title}
+                format="webp"
+              />
+            </div>
+            <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
+              <h2 set:html={markdownify(author.data.title)} class="mb-4" />
+              <p set:html={markdownify(author.body)} class="mb-8 text-base" />
+              <ul>
+                {author.data.bullet_points.map((bullet: string) => (
+                  <li class="relative mb-4 pl-6">
+                    <FaCheck className={"absolute left-0 top-1.5"} />
+                    <span set:html={markdownify(bullet)} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+  <!-- /Profile -->
+
+  <CallToAction call_to_action={call_to_action} />
+</Base>
