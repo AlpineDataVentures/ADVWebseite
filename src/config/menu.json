@@ -36,6 +36,10 @@
         {
           "name": "Operations",
           "url": "/operations"
+        },
+        {
+          "name": "Architecture Management",
+          "url": "/eam"
         }
       ]
     },
