@@ -2,7 +2,8 @@
 title: "Dr. Carsten Hof"
 email: carsten.hof@alpinedata.de
 image: "/images/authors/carsten.jpeg"
-description: "Dr. Carsten Hof - Senior IT Consultant Digitale Transformation, Enterprise & Data Architecture"
+description: "Dr. Carsten Hof - Digitale Transformation, Enterprise & Data Architecture"
+bullet_points: ["Führung großer globaler Teams", "IT- und Daten-Nerd", "Architekturexperte", "Es gibt kaum einen Berg, den er nicht erklommen hat"]
 social:
   - name: github
     icon: FaGithub
@@ -17,4 +18,4 @@ social:
     link: https://www.linkedin.com/in/carstenhof/
 ---
 
-Carsten Hof ist promovierter Physiker und IT Leader mit über 15 Jahren Erfahrung in der Steuerung von Teams und innovativen IT-Projekten von internationalen Konzernen mit dem Schwerpunkt digitaler Transformationen und Unternehmensarchitekturen im Bereich Daten und Cloud.
+Carsten Hof ist promovierter Physiker, Big Data Experte und globaler IT-Leader. Er bringt 15 Jahre Erfahrung in globalen Konzernen und komplexen Datenlandschaften mit. Seine Schwerpunkte Enterprise- & IT- Architektur, digitale Transformation, Datenplattformen und Automatisierung von Geschäftsprozessen wendet er stets an der Strategie des Kunden ausgerichtet effizient in den Projekten an. Seine Vorliebe für's Detail lässt keine Stolpersteine unentdeckt.

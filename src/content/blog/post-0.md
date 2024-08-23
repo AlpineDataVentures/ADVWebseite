@@ -33,7 +33,7 @@ Ihre Vision ist einfach: Daten sollten so demokratisiert werden, dass jeder Kund
 
 **Dr. Carsten Hof:** Als ehemaliger Mitarbeiter am CERN und Leiter von IT-Teams in einem DAX Konzern Unternehmen ist Carsten der technische Zauberer der Gruppe. Dank seiner umfassenden Kenntnisse in den Bereichen Softwareentwicklung, Datenanalyse und Cloud-Computing kann Alpine Data Ventures seinen Kunden robuste und skalierbare Lösungen anbieten. Carstens analytische Denkweise und seine Problemlösungsfähigkeiten sorgen dafür, dass die technischen Aspekte der Projekte immer auf höchstem Niveau sind. 
 
-**Julian „Der Julian“ Koller:** mit seiner Erfahrung als Berater und Dozent ist sein Fachwissen in den Bereichen Business Intelligence und Data Science unübertroffen. Julians Fähigkeit, komplexe Datenkonzepte in umsetzbare Insights herunterzubrechen, ist ein weiterer Eckpfeiler der Alpine Data Ventures. Seine Leidenschaft für Lehre und Mentoring bedeute auch, dass ADV nicht nur Lösungen anbietet, sondern seine Kunden auch befähigt, diese in die Praxis umzusetzen 
+**Julian Koller:** mit seiner Erfahrung als Berater und Dozent ist sein Fachwissen in den Bereichen Business Intelligence und Data Science unübertroffen. Julians Fähigkeit, komplexe Datenkonzepte in umsetzbare Insights herunterzubrechen, ist ein weiterer Eckpfeiler der Alpine Data Ventures. Seine Leidenschaft für Lehre und Mentoring bedeute auch, dass ADV nicht nur Lösungen anbietet, sondern seine Kunden auch befähigt, diese in die Praxis umzusetzen. 
 
 ### Die Reise beginnt 
 
