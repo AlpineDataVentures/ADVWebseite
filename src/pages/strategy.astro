@@ -5,12 +5,11 @@ import { getEntry } from "astro:content";
 import ContactForm from "@/partials/ContactForm.astro";
 import { FaCheck } from "react-icons/fa6";
 import { markdownify } from "@/lib/utils/textConverter";
+import CoreValues from "@/partials/CoreValues.astro";
 
 const { contact_form_action } = Astro.props;
 
 const strategy = await getEntry("portfolio", "strategy");
-
-console.log(strategy);
 
 const { title, description, meta_title, image } = strategy.data;
 ---
@@ -24,9 +23,9 @@ const { title, description, meta_title, image } = strategy.data;
   <PageHeader title={title} />
 
   <!-- Intro -->
-  <section class="mb-16">
+  <section class="mb-8 mt-16">
     <div class="container">
-      <div class="px-4 py-16 xl:p-20">
+      <div class="px-4 xl:p-12">
         <div class="row">
           <div class="w-full">
             <ul>
@@ -47,19 +46,43 @@ const { title, description, meta_title, image } = strategy.data;
   <!-- /Intro -->
 
   <!-- Our Task -->
-
-  <!-- /Our Tasks -->
-
-  <!-- contact form -->
-  <section class="section-sm">
+  <section>
     <div class="container">
-      <div class="row">
-        <div class="mx-auto md:col-10 lg:col-6">
-          <ContactForm contact_form_action={contact_form_action} />
+      <div class="px-4 xl:p-12">
+        <div class="row">
+          <div class="w-full">
+            {
+              strategy.data.subsections.map((subsection) => (
+                <>
+                  <h2 set:html={markdownify(subsection.title)} class="mb-4" />
+                  <p
+                    set:html={markdownify(subsection.description)}
+                    class="mb-8 text-base"
+                  />
+                  <CoreValues core_values={subsection.tasks} />
+                </>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
-  <!-- /contact form -->
+  <!-- /Our Tasks -->
+
+  <!-- contact form -->
+  <section class="mt-0">
+    <div class="container">
+      <div class="px-4 xl:p-12">
+        <div class="row">
+          <h2 class="mb-4 w-full">Kontakt</h2>
+          <div class="mx-auto md:col-10 lg:col-6">
+            <ContactForm contact_form_action={contact_form_action} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+    <!-- /contact form -->
+  </section>
 </Base>
