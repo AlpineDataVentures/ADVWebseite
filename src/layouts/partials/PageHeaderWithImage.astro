@@ -30,7 +30,7 @@ const { title, title_image } = Astro.props;
       <!-- Text über dem Bild -->
       <div
         class="text-overlay"
-        style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);"
+        style="position: absolute; top: 20%; left: 50%; width: 100%; transform: translate(-50%, -50%);"
       >
         <h1 set:text={humanize(title)} />
       </div>
