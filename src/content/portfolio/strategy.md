@@ -26,8 +26,13 @@ subsections:
        description: "Wir definieren die notwendigen Skills und FTEs, die Sie für den Zielzustand benötigen, unterstützen bei Rollendefinitionen und führen entsprechende Schulungen durch​." 
      - title: "Aufbau der Data Culture"
        icon: FaHammer
-       description: "Um die Datenstrategie in Ihrem Unternehmen fest zu verankern, entwerfen wir einen Action Plan, wie Data Literacy und datengetriebene Entscheidungsfindung zu einem Teil Ihrer Unternehmenskultur wird​" 
+       description: "Um die Datenstrategie in Ihrem Unternehmen fest zu verankern, entwerfen wir einen Action Plan, wie Data Literacy und daten-getriebene Entscheidungsfindung zu einem Teil Ihrer Unternehmenskultur wird​" 
      - title: "Begleitung bei der Umsetzung Ihrer Strategie"
        icon: FaHammer
        description: "Wir definieren notwendige KPI zum Tracken des Fortschritts entlang Ihrer Reise zum Data Driven Unternehmen und unterstützen Sie bei der Implementierung​"
+customer_value:
+  title: ""
+  image: "/images/customer_success.png"
+  description: "allgemeiner Einleitungstext"
+  values: ["Mehrwert 1", "Mehrwert 2", "Mehrwert 3"]    
 ---
