@@ -12,6 +12,19 @@ export type Feature = {
   title: string;
 };
 
+export type Task =
+  {
+    title: string;
+    icon: string;
+    description: string;
+  }
+
+export type SubSection = {
+  title: string;
+  description: string;
+  tasks: Task[];
+}
+
 export type Button = {
   enable: boolean;
   label: string;

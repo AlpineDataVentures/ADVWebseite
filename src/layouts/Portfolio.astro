@@ -1,0 +1,100 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry } from "astro:content";
+import ContactForm from "@/partials/ContactForm.astro";
+import { FaCheck } from "react-icons/fa";
+import { markdownify } from "@/lib/utils/textConverter";
+import CoreValues from "@/partials/CoreValues.astro";
+import PageHeaderWithImage from "@/partials/PageHeaderWithImage.astro";
+import CustomerValue from "@/partials/CustomerValue.astro";
+import type { SubSection } from "@/types";
+
+const {
+  title,
+  description,
+  meta_title,
+  image,
+  title_image,
+  customer_value,
+  contact_form_action,
+  overview,
+  subsections,
+} = Astro.props;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  image={image}
+  description={description}
+>
+  <PageHeaderWithImage title={title} title_image={title_image} />
+
+  <!-- Intro -->
+  <section class="mb-8 mt-16">
+    <div class="container">
+      <div class="px-4 xl:p-6">
+        <div class="row">
+          <div class="w-full">
+            <ul>
+              {
+                overview.map((bullet: string) => (
+                  <li class="relative mb-4 pl-6">
+                    <FaCheck className={"absolute left-0 top-1.5"} />
+                    <span set:html={markdownify(bullet)} />
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Intro -->
+
+  <!-- Our Task -->
+  <section>
+    <div class="container">
+      <div class="px-4 xl:p-6">
+        <div class="row">
+          <div class="w-full">
+            {
+              subsections.map((subsection: SubSection) => (
+                <>
+                  <h2 set:html={markdownify(subsection.title)} class="mb-4" />
+                  <p
+                    set:html={markdownify(subsection.description)}
+                    class="mb-8 text-base"
+                  />
+                  <CoreValues core_values={subsection.tasks} />
+                </>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Our Tasks -->
+
+  <!-- Customer value added -->
+  <CustomerValue customer_value={customer_value} />
+
+  <!-- contact form -->
+  <section class="mt-0">
+    <div class="container">
+      <div class="px-4 xl:p-6">
+        <div class="row">
+          <h2 class="mb-4 w-full">Kontakt</h2>
+          <div class="mx-auto md:col-10 lg:col-6">
+            <ContactForm contact_form_action={contact_form_action} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+    <!-- /contact form -->
+  </section>
+</Base>
