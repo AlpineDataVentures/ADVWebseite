@@ -3,18 +3,18 @@ import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { getEntry } from "astro:content";
 import ContactForm from "@/partials/ContactForm.astro";
-import { FaCheck } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa";
 import { markdownify } from "@/lib/utils/textConverter";
 import CoreValues from "@/partials/CoreValues.astro";
 import PageHeaderWithImage from "@/partials/PageHeaderWithImage.astro";
+import CustomerValue from "@/partials/CustomerValue.astro";
 
 const { contact_form_action } = Astro.props;
 
 const strategy = await getEntry("portfolio", "strategy");
 
-const { title, description, meta_title, image, title_image } = strategy.data;
-console.log(title);
-console.log(title_image);
+const { title, description, meta_title, image, title_image, customer_value } =
+  strategy.data;
 ---
 
 <Base
@@ -28,7 +28,7 @@ console.log(title_image);
   <!-- Intro -->
   <section class="mb-8 mt-16">
     <div class="container">
-      <div class="px-4 xl:p-12">
+      <div class="px-4 xl:p-6">
         <div class="row">
           <div class="w-full">
             <ul>
@@ -51,7 +51,7 @@ console.log(title_image);
   <!-- Our Task -->
   <section>
     <div class="container">
-      <div class="px-4 xl:p-12">
+      <div class="px-4 xl:p-6">
         <div class="row">
           <div class="w-full">
             {
@@ -73,10 +73,13 @@ console.log(title_image);
   </section>
   <!-- /Our Tasks -->
 
+  <!-- Customer value added -->
+  <CustomerValue customer_value={customer_value} />
+
   <!-- contact form -->
   <section class="mt-0">
     <div class="container">
-      <div class="px-4 xl:p-12">
+      <div class="px-4 xl:p-6">
         <div class="row">
           <h2 class="mb-4 w-full">Kontakt</h2>
           <div class="mx-auto md:col-10 lg:col-6">

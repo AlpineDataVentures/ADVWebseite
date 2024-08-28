@@ -32,8 +32,12 @@ subsections:
        icon: FaHammer
        description: "Wir definieren notwendige KPI zum Tracken des Fortschritts entlang Ihrer Reise zum Data Driven Unternehmen und unterstützen Sie bei der Implementierung​"
 customer_value:
-  title: ""
+  title: "Ihre Vorteile einer Datenstrategie"
   image: "/images/customer_success.png"
-  description: "allgemeiner Einleitungstext"
-  values: ["Mehrwert 1", "Mehrwert 2", "Mehrwert 3"]    
+  description: ""
+  values: ["Verbesserte Entscheidungen durch qualitativ hochwertige & akkurate Daten", "Schnell und jederzeit verfügbare Analysen und Insights lassen Sie Trends früher erkennen, Kundenverhalten voraussagen und verschaffen Ihnen einen Wettbewerbsvorteil", "Verbesserte operative Prozesse dank Identifikation von Ineffizienzen oder Eröffnen von Potenzialen", "Ihre Mitarbeiter verstehen und nutzen die Vorteile von Daten bei der Entscheidungsfindung und Weiterentwicklung der Geschäftsprozesse"]  
+  button:
+    enable: true
+    label: "Kennenlernen"
+    link: "https://outlook.office365.com/owa/calendar/HofITB@hof-itb.de/bookings/"  
 ---
