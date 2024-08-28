@@ -30,7 +30,7 @@ subsections:
        description: "Um die Datenstrategie in Ihrem Unternehmen fest zu verankern, entwerfen wir einen Action Plan, wie Data Literacy und daten-getriebene Entscheidungsfindung zu einem Teil Ihrer Unternehmenskultur wird​" 
      - title: "Begleitung bei der Umsetzung Ihrer Strategie"
        icon: FaHammer
-       description: "Wir definieren notwendige KPI zum Tracken des Fortschritts entlang Ihrer Reise zum Data Driven Unternehmen und unterstützen Sie bei der Implementierung​"
+       description: "Wir definieren notwendige KPI zum Nachvollziehen des Fortschritts entlang Ihrer Reise zum Data Driven Unternehmen und unterstützen Sie bei der Implementierung​"
 customer_value:
   title: "Ihre Vorteile einer Datenstrategie"
   image: "/images/customer_success.png"
