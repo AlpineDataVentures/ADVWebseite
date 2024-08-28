@@ -91,37 +91,6 @@
           "url": "/career"
         }
       ]
-    },
-    {
-      "name": "Test",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Kontakt",
-          "url": "/contact"
-        },
-        {
-          "name": "Elemente",
-          "url": "/elements"
-        },
-        {
-          "name": "Authors",
-          "url": "/authors"
-        },
-        {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Suche",
-          "url": "/search"
-        },
-        {
-          "name": "404 Seite",
-          "url": "/404"
-        }
-      ]
     }
   ],
   "footer": [
