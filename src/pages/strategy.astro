@@ -6,12 +6,15 @@ import ContactForm from "@/partials/ContactForm.astro";
 import { FaCheck } from "react-icons/fa6";
 import { markdownify } from "@/lib/utils/textConverter";
 import CoreValues from "@/partials/CoreValues.astro";
+import PageHeaderWithImage from "@/partials/PageHeaderWithImage.astro";
 
 const { contact_form_action } = Astro.props;
 
 const strategy = await getEntry("portfolio", "strategy");
 
-const { title, description, meta_title, image } = strategy.data;
+const { title, description, meta_title, image, title_image } = strategy.data;
+console.log(title);
+console.log(title_image);
 ---
 
 <Base
@@ -20,7 +23,7 @@ const { title, description, meta_title, image } = strategy.data;
   image={image}
   description={description}
 >
-  <PageHeader title={title} />
+  <PageHeaderWithImage title={title} title_image={title_image} />
 
   <!-- Intro -->
   <section class="mb-8 mt-16">
