@@ -1,0 +1,39 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry } from "astro:content";
+import ContactForm from "@/partials/ContactForm.astro";
+import { FaCheck } from "react-icons/fa";
+import { markdownify } from "@/lib/utils/textConverter";
+import CoreValues from "@/partials/CoreValues.astro";
+import PageHeaderWithImage from "@/partials/PageHeaderWithImage.astro";
+import CustomerValue from "@/partials/CustomerValue.astro";
+import type { SubSection } from "@/types";
+import Portfolio from "@/layouts/Portfolio.astro";
+
+const { contact_form_action } = Astro.props;
+
+const culture = await getEntry("portfolio", "culture");
+
+const {
+  title,
+  description,
+  meta_title,
+  image,
+  title_image,
+  customer_value,
+  overview,
+  subsections,
+} = culture.data;
+---
+
+<Portfolio
+  title={title}
+  description={description}
+  meta_title={meta_title}
+  image={image}
+  title_image={title_image}
+  customer_value={customer_value}
+  overview={overview}
+  subsections={subsections}
+/>
