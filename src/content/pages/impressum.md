@@ -1,7 +1,7 @@
 ---
 title: "Impressum"
 meta_title: "Impressum der Alpine Data Ventures"
-description: "Impressum Alpine Data Ventures eine Marke der Hof IT-Beratung GmbH"
+description: "Impressum Alpine Data Ventures GmbH i.Gr."
 noindex: false
 canonical: "https://alpinedata.de/impressum"
 draft: false
@@ -9,14 +9,13 @@ draft: false
 
 <p>
   <em>letztes Update:</em> 20. Juni 2024
-  <em>letztes Update:</em> 20. Juni 2024
 </p>
 
 #### Anbieter gemäß dem Gesetz für Digitale Dienste (DDG)
 <p>
-  Hof IT-Beratung GmbH<br>
-  Mühlhölzlweg 30<br> 
-  80999 München<br>  
+  Alpine Data Ventures GmbH i.Gr.<br>
+  Leopoldstraße 31<br> 
+  80802 München<br>  
 </p>
 
 #### Kontakt
@@ -26,14 +25,17 @@ E-Mail: <a href="mailto:info@alpinedata.de">info(at)alpinedata.de</a> <br>
 Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
 </p>
 
-#### Vertretungsberechtigter Geschäftsführer
+#### Geschäftsführerer
   <p>
     Dr. Carsten Hof<br>
+    Andreas Klostermann<br>
+    Julian Koller<br>
+    Ben Diez<br>    
   </p>
 
 #### Registernummer 
 <p>
-  HRB 286754<br>
+  in Beantragung<br>
 </p>
 
 #### Registergericht
@@ -43,15 +45,15 @@ Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
 
 #### Umsatzsteueridentifikationsnummer gemäß § 27a Umsatzsteuergesetz   
 <p>
-DE363918826<br>
+in Beantragung<br>
 </p>
 
 #### Inhaltlich Verantwortlicher gemäß § 55 RStV
 <p>
-  Dr. Carsten Hof<br>
-  Mühlhölzlweg 30<br>
-  80999 München <br>
-  Deutschland <br>
+  Alpine Data Ventures GmbH i.Gr.<br>
+  vertreten durch die Geschäftsführer <br>
+  Leopoldstraße 31<br> 
+  80802 München<br>  
 </p>
 Plattform der EU-Kommission zur Online-Streitbeilegung: <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a><br>
 Der Verkäufer ist weder verpflichtet noch bereit, an einem Streitbeilegungsverfahren vor einer alternativen Streitbeilegungsstelle teilzunehmen. 
