@@ -1,7 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
-import PageHeader from "@/partials/PageHeader.astro";
-import { getEntry } from "astro:content";
+
 import ContactForm from "@/partials/ContactForm.astro";
 import { FaCheck } from "react-icons/fa";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -95,6 +94,6 @@ const {
       </div>
     </div>
     <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
-    <!-- /contact form -->
   </section>
+  <!-- /contact form -->
 </Base>
