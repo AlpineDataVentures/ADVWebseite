@@ -1,7 +1,7 @@
 ---
 title: "Benjamin Diez"
 email: benjamin.diez@alpinedata.de
-image: "/images/authors/ben.jpeg"
+image: "/images/authors/BenDiez.jpg"
 description: "Benjman Diez - Spezialist für Datenstrategie, -Kultur und -Governance"
 bullet_points: ["Leader mit Vision", "Vom Soldaten zum Datenexperten – taktische Exzellenz für Ihre Datenstrategie", "Finanz und Steuerungsprofi ", "Als neu gewordener Vater ist ihm kein Witz zu schlecht"]
 social:

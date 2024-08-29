@@ -1,7 +1,7 @@
 ---
 title: "Dr. Carsten Hof"
 email: carsten.hof@alpinedata.de
-image: "/images/authors/carsten.jpeg"
+image: "/images/authors/CarstenHof.jpg"
 description: "Dr. Carsten Hof - Digitale Transformation, Enterprise & Data Architecture"
 bullet_points: ["Führung großer globaler Teams", "IT- und Daten-Nerd", "Architekturexperte", "Es gibt kaum einen Berg, den er nicht erklommen hat"]
 social:
