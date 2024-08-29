@@ -1,12 +1,15 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
+import ContactForm from "@/partials/ContactForm.astro";
 import Testimonial from "@/partials/Testimonial.astro";
 import type { Button, Feature } from "@/types";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
+import LandingSwiper from "@/partials/LandingSwiper.astro";
 
 interface Homepage {
   banner: {
@@ -21,6 +24,7 @@ interface Homepage {
 const homepage = await getEntry("homepage", "-index");
 const testimonial = await getEntry("sections", "testimonial");
 const call_to_action = await getEntry("sections", "call-to-action");
+const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features }: Homepage = homepage.data;
 ---
 
@@ -68,6 +72,8 @@ const { banner, features }: Homepage = homepage.data;
   </section>
   <!-- /Banner -->
 
+  <LandingSwiper testimonial={testimonial} />
+
   <!-- Features -->
 
   {
@@ -113,4 +119,20 @@ const { banner, features }: Homepage = homepage.data;
 
   <Testimonial testimonial={testimonial} />
   <CallToAction call_to_action={call_to_action} />
+
+  <!-- contact form -->
+  <section class="mt-0">
+    <div class="container">
+      <div class="px-4 xl:p-6">
+        <div class="row">
+          <h2 class="mb-4 w-full">Kontakt</h2>
+          <div class="mx-auto md:col-10 lg:col-6">
+            <ContactForm contact_form_action={contact_form_action} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+  </section>
+  <!-- /contact form -->
 </Base>
