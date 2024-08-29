@@ -11,25 +11,25 @@ subsections:
      description: "Wir entwickeln gemeinsam mit Ihnen eine maßgeschneiderte BI- und Analytics-Strategie, die eng mit Ihrer Unternehmensstrategie verknüpft ist. Nach einer Bestandsaufnahme Ihrer aktuellen Daten- und Tool-Landschaft erarbeiten wir einen Fahrplan, der die notwendigen Schritte zur optimalen Nutzung Ihrer Daten aufzeigt."
      tasks: 
      - title: "Erarbeitung eine BI- und Analytics-Konzepts​"
-       icon: FaHammer
-       description: "Auf Grundlage Ihrer Unternehmensziele entwerfen wir ein BI- und Analytics-Konzeppt, das Ihre geschäftlichen Anforderungen unterstützt und Ihnen hilft, Ihre Ziele schneller zu erreichen." 
+       icon: FaMap
+       description: "Auf Grundlage Ihrer Unternehmensziele entwerfen wir ein BI- und Analytics-Konzept, das Ihre geschäftlichen Anforderungen unterstützt und Ihnen hilft, Ihre Ziele schneller zu erreichen." 
      - title: "Aufbau Datenverständnis​"
-       icon: FaHammer
+       icon: FaRegLightbulb
        description: "Wir führen eine umfassende Analyse Ihrer bestehenden Datenquellen, Tools und Prozesse durch und identifizieren Optimierungspotenziale sowie notwendige Schritte zur Verbesserung Ihrer BI- und Analytics-Kompetenzen."  
      - title: "Definition der Infrastruktur"
-       icon: FaHammer
+       icon: FaRoadBridge
        description: "Basierend auf der Analyse entwickeln wir ein BI-Framework, das die richtige Infrastruktur, die passenden Analysetools und klar definierte Rollen und Prozesse umfasst, um Ihre Daten effektiv zu nutzen."  
    - title: "Realisieren des Business Intelligence Konzeptes​"
      description: "Nachdem die BI-Strategie definiert ist, begleiten wir Sie aktiv bei der Umsetzung. Dies umfasst die Implementierung, präzise Planung der benötigten Ressourcen, die Einführung neuer Technologien und Tools sowie die gezielte Weiterentwicklung Ihres Teams, um die erforderlichen Fähigkeiten zu etablieren."
      tasks: 
      - title: "Reporting und Dashboarding"
-       icon: FaHammer
+       icon: FaChartColumn
        description: "Wir erstellen maßgeschneiderte Dashboards und Berichte, die Ihnen helfen, Ihre KPIs und Geschäftskennzahlen in Echtzeit zu überwachen und schneller auf Veränderungen zu reagieren. Für Unternehmen, die noch weiter gehen möchten, bieten wir ebenfalls fortgeschrittene Analysemethoden wie Predictive Analytics, Machine Learning und Künstlicher Intelligenz.​"
      - title: "Stärkung von BI-Kompetenzen"
-       icon: FaHammer
+       icon: FaPersonCirclePlus
        description: "Wir identifizieren die spezifischen Kompetenzen und Ressourcen, die für den Erfolg Ihrer BI- und Analytics-Projekte erforderlich sind. Anschließend unterstützen wir Sie bei der gezielten Change Management, Schulung und Entwicklung Ihrer Mitarbeiter, um sicherzustellen, dass Ihr Team bestens gerüstet ist." 
      - title: "Datenqualitätssicherung, Datensicherheit und Compliance"
-       icon: FaHammer
+       icon: FaHeartCircleCheck
        description: "Ein zentrales Element erfolgreicher BI-Projekte ist die Sicherstellung einer hohen Datenqualität. Wir helfen Ihnen dabei, Prozesse zur kontinuierlichen Überprüfung und Verbesserung der Datenqualität zu implementierenund unterstützen sie bei der Implementierung von Sicherheitsmaßnahmen und der Einhaltung gesetzlicher Vorschriften." 
      
 customer_value:

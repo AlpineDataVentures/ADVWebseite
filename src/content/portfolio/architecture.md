@@ -12,25 +12,25 @@ subsections:
      description: "Grundsätzlich richten wir uns bei der Auswahl der Architektur an Ihr Unternehmens- architektur-Framework (z.B. TOGAF). Ausgehend davon analysieren wir, welche Datenarchitektur & -infrastruktur für Sie am sinnvollsten geeignet ist:"
      tasks: 
      - title: "Data Warehouse​"
-       icon: FaHammer
+       icon: FaHouseChimney
        description: "Eine zentrale Lösung für die Speicherung strukturierter Daten, optimiert für schnelle Abfragen und Analysen. Sie aggregiert, bereinigt und transformiert Daten, um konsistente Analysen zu ermöglichen. Vorteile: schnelle, fundierte Entscheidungen, verbesserte Datenqualität und Unterstützung von historischen Analysen und Reporting." 
      - title: "Data Lake​"
-       icon: FaHammer
+       icon: FaWater
        description: "Ein zentrales Repository, das große Mengen strukturierter und unstrukturierter Daten im Rohformat speichert. Data Lakes bieten Flexibilität bei der Datenspeicherung in jeder Form und Größe. Sie unterstützen Analysen und  maschinelles Lernen. Vorteile: Speicherung von Daten im ursprünglichen Format, fördert fortschrittliche Analyseanwendungen, keine Vorstrukturierung erforderlich."  
      - title: "Data Lakehouse"
-       icon: FaHammer
+       icon: FaHouseTsunami
        description: "Eine Architektur, die Data Warehouses und Data Lakes kombiniert, um strukturierte und unstrukturierte Daten effizient zu speichern und zu analysieren. Data Lakehouses bieten eine einheitliche Plattform, die Flexibilität und Leistung vereint. Vorteile: reduziert Kosten und Komplexität, ermöglicht nahtlose Datenanalysen und unterstützt Echtzeit- und Batch-Verarbeitung."  
    - title: "Zwischentext​"
      description: "ZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentext"
      tasks: 
      - title: "Data Mesh"
-       icon: FaHammer
+       icon: FaConnectdevelop
        description: "Ein dezentraler Datenarchitektur-Ansatz, bei dem Datenverantwortung auf verschiedene Domänen verteilt wird. Data Mesh ist eine organisatorisch / kulturelle Architekturart, keine rein technologisch Getriebene. Dies fördert Autonomie, verbessert Datenverfügbarkeit und Skalierbarkeit. Vorteile: erhöhte Agilität, bessere Datenqualität durch Domänenexpertise und erleichterte Zusammenarbeit.​"
      - title: "Data Hub"
-       icon: FaHammer
+       icon: FaHouseChimneyUser
        description: "Ein zentraler Knotenpunkt, der Daten aus verschiedenen Quellen zusammenführt, um Integration und Verwaltung zu erleichtern. Data Hubs bieten zentralen Zugriff und Mechanismen zur Datenverwaltung und - verteilung. Vorteile: einfacher Datenzugriff, geförderte Zusammenarbeit, reduzierte Redundanzen und konsistente Integration über verschiedene Systeme." 
      - title: "Data Fabric"
-       icon: FaHammer
+       icon: FaDiagramProject
        description: "Eine Architektur, die integrierte Datenverwaltung über verschiedene Plattformen ermöglicht. Data Fabrics bieten nahtlose Integration durch Virtualisierung und einen einheitlichen Zugriffspunkt. Vorteile: nahtlose Datenverfügbarkeit, reduzierte Komplexität, schnellere Entscheidungen durch konsistente Zugriffe und einheitliche Verwaltung." 
      
 customer_value:

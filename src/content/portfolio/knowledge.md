@@ -11,13 +11,13 @@ subsections:
      description: "Der erste Schwerpunkt des Data Knowledge liegt darin, ein grundlegendes Verständnis zu Datenthemen zu schaffen. Darauf aufbauend bieten sich weiterführende Workshops an, die sich mit speziellen Themen, Tools oder Konzepten auseinandersetzen, um zielgerichtet Wissen in unternehmensrelevanten Bereichen aufzubauen.​ Der zweite Schwerpunkt liegt im Aufbau einer für alle Stakeholder zugänglichen Wissensdatenbank. Diese Enthält Informationen zu unternehmensspezifischen Datenbanken, KPIs, Reports u.v.m.​ Somit ist nach dem Aufbau von Fachwissen und der stetigen Weiterbildung gewährleistet, dass dieses Wissen nicht mehr verloren gehen kann.​"
      tasks: 
      - title: "Grundlagenschulungen​"
-       icon: FaHammer
+       icon: FaPersonCirclePlus
        description: "​Hier vermitteln wir die wesentlichen Kenntnisse zum Thema „Daten“ einschließlich grundlegender Konzepte, und relevanter Werkzeuge, um eine solide Basis für weiterführendes Wissen zu schaffen" 
      - title: "Weiterführende Seminare​​"
-       icon: FaHammer
+       icon: FaPersonChalkboard
        description: "Wir vertiefen Ihr Wissen durch spezialisierte Themen, fortgeschrittene Techniken und Tools sowie komplexere Anwendungen, um Expertenkenntnisse und -fähigkeiten in einem bestimmten Bereich aufzubauen​"  
      - title: "Aufbau Wissensdatenbank"
-       icon: FaHammer
+       icon: FaReadme
        description: "Aufbau einer Wissensdatenbank zur systematischen Erfassung, Organisation und Strukturierung von Informationen und Wissen, um einen zentralen Zugriffspunkt für Data Knowledge zu schaffen"  
 customer_value:
   title: "Die Vorteile eines Data Knowledge Plans"
