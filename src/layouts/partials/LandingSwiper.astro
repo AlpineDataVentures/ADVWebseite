@@ -5,7 +5,7 @@ const { testimonial } = Astro.props;
 ---
 
 {
-  testimonial.data.enable && (
+  (
     <section class="section">
       <div class="container">
         <div class="row">
@@ -14,7 +14,7 @@ const { testimonial } = Astro.props;
             <p set:html={markdownify(testimonial.data.description)} />
           </div>
           <div class="col-12">
-            <div class="swiper testimonial-slider">
+            <div class="swiper landing-slider">
               <div class="swiper-wrapper">
                 {testimonial.data.testimonials.map(
                   (item: {
@@ -72,7 +72,7 @@ const { testimonial } = Astro.props;
               </div>
               <div class="swiper-button-next" />
               <div class="swiper-button-prev" />
-              <div class="testimonial-slider-pagination mt-9 flex items-center justify-center text-center" />
+              <div class="landing-slider-pagination mt-9 flex items-center justify-center text-center" />
             </div>
           </div>
         </div>
@@ -90,9 +90,9 @@ const { testimonial } = Astro.props;
 
   // astro:page-load event is fired when the page is loaded
   document.addEventListener("astro:page-load", () => {
-    new Swiper(".testimonial-slider", {
+    new Swiper(".landing-slider", {
       modules: [Pagination, Autoplay, Navigation],
-      spaceBetween: 24,
+      spaceBetween: 0,
       loop: true,
       centeredSlides: true,
       autoplay: {
@@ -100,7 +100,7 @@ const { testimonial } = Astro.props;
         disableOnInteraction: false,
       },
       pagination: {
-        el: ".testimonial-slider-pagination",
+        el: ".landing-slider-pagination",
         type: "bullets",
         clickable: true,
       },

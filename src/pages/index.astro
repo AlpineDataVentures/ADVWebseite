@@ -10,6 +10,8 @@ import type { Button, Feature } from "@/types";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
 import LandingSwiper from "@/partials/LandingSwiper.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
 
 interface Homepage {
   banner: {
@@ -26,6 +28,16 @@ const testimonial = await getEntry("sections", "testimonial");
 const call_to_action = await getEntry("sections", "call-to-action");
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features }: Homepage = homepage.data;
+
+// Alle Blog-Posts laden
+const posts = await getSinglePage("blog");
+
+// Posts nach Datum sortieren und die drei aktuellsten auswählen
+const latestPosts = posts
+  .sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+  )
+  .slice(0, 3);
 ---
 
 <Base>
@@ -119,6 +131,24 @@ const { banner, features }: Homepage = homepage.data;
 
   <Testimonial testimonial={testimonial} />
   <CallToAction call_to_action={call_to_action} />
+
+  <!-- Teaser from Blog -->
+  <section class="section pt-14">
+    <div class="container">
+      <div class="section pb-0">
+        <h2 class="h3 mb-12 text-center">Teaser aus dem ADV Blog</h2>
+        <div class="row justify-center">
+          {
+            latestPosts.map((post) => (
+              <div class="lg:col-4 md:col-6 mb-14">
+                <BlogCard data={post} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- contact form -->
   <section class="mt-0">
