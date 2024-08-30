@@ -34,11 +34,11 @@
           "url": "/knowledge"
         },
         {
-          "name": "Operations",
+          "name": "Data Operations",
           "url": "/operations"
         },
         {
-          "name": "Architecture Management",
+          "name": "Enterprise Architecture Mgmt",
           "url": "/eam"
         }
       ]
