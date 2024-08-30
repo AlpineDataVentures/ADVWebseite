@@ -25,6 +25,7 @@ interface Homepage {
 
 const homepage = await getEntry("homepage", "-index");
 const testimonial = await getEntry("sections", "testimonial");
+const services = await getEntry("sections", "landing_slider_portfolio");
 const call_to_action = await getEntry("sections", "call-to-action");
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features }: Homepage = homepage.data;
@@ -84,7 +85,7 @@ const latestPosts = posts
   </section>
   <!-- /Banner -->
 
-  <LandingSwiper testimonial={testimonial} />
+  <LandingSwiper services={services} />
 
   <!-- Features -->
 
@@ -136,7 +137,7 @@ const latestPosts = posts
   <section class="section pt-14">
     <div class="container">
       <div class="section pb-0">
-        <h2 class="h3 mb-12 text-center">Teaser aus dem ADV Blog</h2>
+        <h2 class="h3 mb-12 text-center">Neues aus dem ADV Blog</h2>
         <div class="row justify-center">
           {
             latestPosts.map((post) => (
