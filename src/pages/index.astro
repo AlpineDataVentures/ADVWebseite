@@ -51,43 +51,15 @@ const latestPosts = posts
             set:html={markdownify(banner.title)}
             class="mb-4 text-h3 lg:text-h1"
           />
-          <p set:html={markdownify(banner.content)} class="mb-8" />
-          {
-            banner.button.enable && (
-              <a
-                class="btn btn-primary"
-                href={banner.button.link}
-                target={
-                  banner.button.link.startsWith("http") ? "_blank" : "_self"
-                }
-                rel="noopener"
-              >
-                {banner.button.label}
-              </a>
-            )
-          }
+          <p set:html={markdownify(banner.content)} />
         </div>
-        {
-          banner.image && (
-            <div class="col-8">
-              <ImageMod
-                src={banner.image}
-                height={378}
-                width={1200}
-                alt="banner"
-                format="webp"
-              />
-            </div>
-          )
-        }
       </div>
     </div>
-  </section>
-  <!-- /Banner -->
+    <!-- /Banner -->
 
-  <LandingSwiper services={services} />
+    <LandingSwiper services={services} />
 
-  <!-- Features -->
+    <!-- Features
 
   {
     features.map((feature, index: number) => (
@@ -128,42 +100,43 @@ const latestPosts = posts
     ))
   }
 
-  <!-- /Features -->
+  /Features -->
 
-  <Testimonial testimonial={testimonial} />
-  <CallToAction call_to_action={call_to_action} />
+    <!-- Testimonial testimonial={testimonial} /-->
+    <!--CallToAction call_to_action={call_to_action} /-->
 
-  <!-- Teaser from Blog -->
-  <section class="section pt-14">
-    <div class="container">
-      <div class="section pb-0">
-        <h2 class="h3 mb-12 text-center">Neues aus dem ADV Blog</h2>
-        <div class="row justify-center">
-          {
-            latestPosts.map((post) => (
-              <div class="lg:col-4 md:col-6 mb-14">
-                <BlogCard data={post} />
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- contact form -->
-  <section class="mt-0">
-    <div class="container">
-      <div class="px-4 xl:p-6">
-        <div class="row">
-          <h2 class="mb-4 w-full">Kontakt</h2>
-          <div class="mx-auto md:col-10 lg:col-6">
-            <ContactForm contact_form_action={contact_form_action} />
+    <!-- Teaser from Blog -->
+    <section class="section pt-14">
+      <div class="container">
+        <div class="section pb-0">
+          <h2 class="h3 mb-12 text-center">Neues aus dem ADV Blog</h2>
+          <div class="row justify-center">
+            {
+              latestPosts.map((post) => (
+                <div class="lg:col-4 md:col-6 mb-14">
+                  <BlogCard data={post} />
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
-    </div>
-    <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+    </section>
+
+    <!-- contact form -->
+    <section class="mt-0">
+      <div class="container">
+        <div class="px-4 xl:p-6">
+          <div class="row">
+            <h2 class="mb-4 w-full text-center">Kontakt</h2>
+            <div class="mx-auto md:col-10 lg:col-6">
+              <ContactForm contact_form_action={contact_form_action} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+    </section>
+    <!-- /contact form -->
   </section>
-  <!-- /contact form -->
 </Base>
