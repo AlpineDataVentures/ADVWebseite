@@ -1,8 +1,8 @@
 ---
-title: "Data Architecture"
+title: "Datenarchitektur"
 title_image: "/images/portfolio/strategy_title_image_sm.png"
-meta_title: "Data Architecture"
-description: "Business Intelligence (BI) und Analytics ermöglichen es Ihnen, die in Ihrem Unternehmen generierten Daten effektiv zu nutzen, um fundierte Entscheidungen zu treffen und Geschäftspotenziale zu identifizieren."
+meta_title: "Datenarchitektur"
+description: "Eine zukunftsorientierte Datenarchitektur legt das Fundament für eine robuste und skalierbare Datenlandschaft, die es Ihnen ermöglicht, den vollen Wert Ihrer Daten zu erschließen und neue Geschäftsmöglichkeiten zu identifizieren."
 image: ""
 draft: false
 overview: ["Eine zukunftsorientierte Datenarchitektur legt das Fundament für eine robuste und skalierbare Datenlandschaft, die es Ihnen ermöglicht, den vollen Wert Ihrer Daten zu erschließen und neue Geschäftsmöglichkeiten zu identifizieren.", "Auf dem Weg zu einer datengetriebenen Organisation müssen bestehende Systemlandschaften überarbeitet, IT-Infrastrukturen modernisiert und die richtigen Technologien integriert werden – ein tiefgreifender Wandel der technischen
@@ -20,8 +20,8 @@ subsections:
      - title: "Data Lakehouse"
        icon: FaHouseTsunami
        description: "Eine Architektur, die Data Warehouses und Data Lakes kombiniert, um strukturierte und unstrukturierte Daten effizient zu speichern und zu analysieren. Data Lakehouses bieten eine einheitliche Plattform, die Flexibilität und Leistung vereint. Vorteile: reduziert Kosten und Komplexität, ermöglicht nahtlose Datenanalysen und unterstützt Echtzeit- und Batch-Verarbeitung."  
-   - title: "Zwischentext​"
-     description: "ZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentextZwischentext"
+   - title: " ​"
+     description: " "
      tasks: 
      - title: "Data Mesh"
        icon: FaConnectdevelop
@@ -34,7 +34,7 @@ subsections:
        description: "Eine Architektur, die integrierte Datenverwaltung über verschiedene Plattformen ermöglicht. Data Fabrics bieten nahtlose Integration durch Virtualisierung und einen einheitlichen Zugriffspunkt. Vorteile: nahtlose Datenverfügbarkeit, reduzierte Komplexität, schnellere Entscheidungen durch konsistente Zugriffe und einheitliche Verwaltung." 
      
 customer_value:
-  title: "Ihre Vorteile durch Business Intelligence und Analytics"
+  title: "Ihre Vorteile durch gute Datenarchitektur"
   image: "/images/customer_success.png"
   description: ""
   values: ["Skalierbarkeit: Mit der richtigen Datenarchitektur von Beginn an, können Sie auf dem Weg der Implementierung Ihrer Strategie beruhigt in passende Strukturen wachsen, ohne stetige Migrationsprojekte.", "Kostenoptimiertes Datamanagement: Wir achten bei der Architekturkonstruktion stets auf Ihren Business Case - heute, wie auch in 5 Jahren - sodass Sie jederzeit optimierte Kosten bei voller Operabilität genießen", "Struktur und Einheitlichkeit: Mit der richtigen Architektur vermeiden Sie Kosten, welche durch Inkonsistenz und uneinheitlicher Datennutzung im Business entstehen können. Jeder arbeitet auf gleicher Basis.", "Innovationskraft: Für diverse innovative Use Cases, wie KI und Advanced Analytics Modelle, benötigt man unterschiedliche Architekturen für die Durchführbarkeit. Wir bereiten Sie auf alle Innovationen mit der richtigen Architekturwahl vor."]  
