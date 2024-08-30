@@ -17,7 +17,7 @@ subsections:
        icon: FaCameraRetro
        description: "Wir führen eine Standortbestimmung Ihrer aktuellen Datenlandschaft (Datenquellen, Infrastruktur, Skills, …) durch und leiten auf Basis der Ergebnisse die notwendigen Schritte ab"  
      - title: "Konzipieren des Data Frameworks"
-       icon: FaDataBase
+       icon: FaDatabase
        description: "Auf Grundlage des Deltas zwischen Soll und Ist Zustand konzipieren wir Governance, Architektur, Infrastruktur, Prozesse, Rollen"  
    - title: "Realisieren der Strategie​"
      description: "Nachdem der Fahrplan für die Data Journey steht, geht es an die konkrete Umsetzung der einzelnen Schritte in die Praxis. Wir helfen Ihnen bei der Planung der benötigten Ressourcen, dem Entwickeln der notwendigen Skills und bei der Weiterentwicklung Ihrer Unternehmenskultur, indem wir den Fokus auf das Nutzen von Daten bei der Entscheidungsfindung legen."
