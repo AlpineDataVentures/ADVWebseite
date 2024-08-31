@@ -43,23 +43,20 @@ const latestPosts = posts
 
 <Base>
   <!-- Banner -->
-  <section class="section pt-14">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-7 md:col-9 mb-8 text-center">
-          <h1
-            set:html={markdownify(banner.title)}
-            class="mb-4 text-h3 lg:text-h1"
-          />
-          <p set:html={markdownify(banner.content)} />
-        </div>
-      </div>
+  <section>
+    <div class="claim-container animate-fly-in mt-12">
+      <h1 class="claim text-center">
+        <div class="line animate-move-left text-5xl mb-4">Data.</div>
+        <div class="line text-5xl mb-4">Decision.</div>
+        <div class="line animate-move-right text-5xl">Done.</div>
+      </h1>
     </div>
-    <!-- /Banner -->
+  </section>
+  <!-- /Banner -->
 
-    <LandingSwiper services={services} />
+  <LandingSwiper services={services} />
 
-    <!-- Features
+  <!-- Features
 
   {
     features.map((feature, index: number) => (
@@ -102,41 +99,40 @@ const latestPosts = posts
 
   /Features -->
 
-    <!-- Testimonial testimonial={testimonial} /-->
-    <!--CallToAction call_to_action={call_to_action} /-->
+  <!-- Testimonial testimonial={testimonial} /-->
+  <!--CallToAction call_to_action={call_to_action} /-->
 
-    <!-- Teaser from Blog -->
-    <section class="section pt-14">
-      <div class="container">
-        <div class="section pb-0">
-          <h2 class="h3 mb-12 text-center">Neues aus dem ADV Blog</h2>
-          <div class="row justify-center">
-            {
-              latestPosts.map((post) => (
-                <div class="lg:col-4 md:col-6 mb-14">
-                  <BlogCard data={post} />
-                </div>
-              ))
-            }
-          </div>
+  <!-- Teaser from Blog -->
+  <section class="section pt-14">
+    <div class="container">
+      <div class="section pb-0">
+        <h2 class="h3 mb-12 text-center">Neues aus dem ADV Blog</h2>
+        <div class="row justify-center">
+          {
+            latestPosts.map((post) => (
+              <div class="lg:col-4 md:col-6 mb-14">
+                <BlogCard data={post} />
+              </div>
+            ))
+          }
         </div>
       </div>
-    </section>
-
-    <!-- contact form -->
-    <section class="mt-0">
-      <div class="container">
-        <div class="px-4 xl:p-6">
-          <div class="row">
-            <h2 class="mb-4 w-full text-center">Kontakt</h2>
-            <div class="mx-auto md:col-10 lg:col-6">
-              <ContactForm contact_form_action={contact_form_action} />
-            </div>
-          </div>
-        </div>
-      </div>
-      <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
-    </section>
-    <!-- /contact form -->
+    </div>
   </section>
+
+  <!-- contact form -->
+  <section class="mt-0">
+    <div class="container">
+      <div class="px-4 xl:p-6">
+        <div class="row">
+          <h2 class="mb-4 w-full text-center">Kontakt</h2>
+          <div class="mx-auto md:col-10 lg:col-6">
+            <ContactForm contact_form_action={contact_form_action} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+  </section>
+  <!-- /contact form -->
 </Base>

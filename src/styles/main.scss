@@ -15,4 +15,60 @@
 
 @layer utilities {
   @import "utilities";
+
+    // Keyframe für das Fly-In von unten nach oben
+    @keyframes flyIn {
+      0% {
+        opacity: 0;
+        transform: translateY(60px); /* Startet leicht unterhalb */
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0); /* Endet in der normalen Position */
+      }
+    }
+
+    // Keyframe für das Fade-In (für den Fall, dass es nicht vorhanden ist)
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes moveLeft {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-110px);
+      }
+    }
+
+    @keyframes moveRight {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(60px);
+      }
+    }
+    // Definition der Klassen für Animationen
+    .animate-fly-in {
+      animation: flyIn 0.8s ease-out forwards; /* Fly-In-Animation */
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s forwards;
+    }
+
+    .animate-move-left {
+      animation: moveLeft 1s 2s forwards;
+    }
+
+    .animate-move-right {
+      animation: moveRight 1s 2s forwards;
+    }
 }
