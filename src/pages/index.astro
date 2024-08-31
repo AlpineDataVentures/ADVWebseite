@@ -44,19 +44,39 @@ const latestPosts = posts
 <Base>
   <!-- Banner -->
   <section>
-    <div class="claim-container animate-fly-in mt-12">
-      <h1 class="claim text-center">
-        <div class="line animate-move-left text-5xl mb-4">Data.</div>
-        <div class="line text-5xl mb-4">Decision.</div>
-        <div class="line animate-move-right text-5xl">Done.</div>
-      </h1>
-    </div>
-  </section>
-  <!-- /Banner -->
+    <section class="mb-4">
+      <div class="container">
+        <div class="px-4 py-16 xl:p-12">
+          <div class="row justify-between">
+            <!--div class="row items-center justify-between "-->
+            <div class="w-full md:w-1/2 mb-10 md:mb-0 md:pr-6 xl:pr-12">
+              <div class="claim-container animate-fly-in mt-12 mb-12">
+                <h1 class="claim text-center">
+                  <div class="line animate-move-left text-5xl mb-4">Data.</div>
+                  <div class="line text-5xl mb-4">Decision.</div>
+                  <div class="line animate-move-right text-5xl">Done.</div>
+                </h1>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 md:pl-6 xl:pl-12">
+              <!-- div class="md:col-6 md:order-1" -->
+              <p
+                set:html={markdownify(
+                  "Wir bei ADV begleiten und beraten mittelständische Unternehmen als auch Konzerne auf Ihrem Weg zur Data Driven Company. Durch unsere 4 Gründer vereinen wir Kompetenzen aus allen Bereichen der Data-Domain. Wir stehen für unsere Strategien ein - Skin in the game - wir begleiten bei der Implementierung unserer Strategien.",
+                )}
+                class="mb-4 text-justify mt-12"
+              />
+              <a class="btn btn-primary mt-5" href="/about"> Mehr erfahren! </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Banner -->
 
-  <LandingSwiper services={services} />
+    <LandingSwiper services={services} />
 
-  <!-- Features
+    <!-- Features
 
   {
     features.map((feature, index: number) => (
@@ -99,40 +119,41 @@ const latestPosts = posts
 
   /Features -->
 
-  <!-- Testimonial testimonial={testimonial} /-->
-  <!--CallToAction call_to_action={call_to_action} /-->
+    <!-- Testimonial testimonial={testimonial} /-->
+    <!--CallToAction call_to_action={call_to_action} /-->
 
-  <!-- Teaser from Blog -->
-  <section class="section pt-14">
-    <div class="container">
-      <div class="section pb-0">
-        <h2 class="h3 mb-12 text-center">Neues aus dem ADV Blog</h2>
-        <div class="row justify-center">
-          {
-            latestPosts.map((post) => (
-              <div class="lg:col-4 md:col-6 mb-14">
-                <BlogCard data={post} />
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- contact form -->
-  <section class="mt-0">
-    <div class="container">
-      <div class="px-4 xl:p-6">
-        <div class="row">
-          <h2 class="mb-4 w-full text-center">Kontakt</h2>
-          <div class="mx-auto md:col-10 lg:col-6">
-            <ContactForm contact_form_action={contact_form_action} />
+    <!-- Teaser from Blog -->
+    <section class="section pt-14">
+      <div class="container">
+        <div class="section pb-0">
+          <h2 class="h3 mb-12 text-center">Neues aus dem ADV Blog</h2>
+          <div class="row justify-center">
+            {
+              latestPosts.map((post) => (
+                <div class="lg:col-4 md:col-6 mb-14">
+                  <BlogCard data={post} />
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
-    </div>
-    <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+    </section>
+
+    <!-- contact form -->
+    <section class="mt-0">
+      <div class="container">
+        <div class="px-4 xl:p-6">
+          <div class="row">
+            <h2 class="mb-4 w-full text-center">Kontakt</h2>
+            <div class="mx-auto md:col-10 lg:col-6">
+              <ContactForm contact_form_action={contact_form_action} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="module" src="/src/lib/utils/contactFormScript.ts"></script>
+    </section>
+    <!-- /contact form -->
   </section>
-  <!-- /contact form -->
 </Base>
