@@ -12,6 +12,7 @@ import { FaCheck } from "react-icons/fa";
 import LandingSwiper from "@/partials/LandingSwiper.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
 
 interface Homepage {
   banner: {
@@ -26,6 +27,8 @@ interface Homepage {
 const homepage = await getEntry("homepage", "-index");
 const testimonial = await getEntry("sections", "testimonial");
 const services = await getEntry("sections", "landing_slider_portfolio");
+const cards = await getEntry("sections", "service_cards");
+console.log(cards);
 const call_to_action = await getEntry("sections", "call-to-action");
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features }: Homepage = homepage.data;
@@ -73,6 +76,35 @@ const latestPosts = posts
     <!-- /Banner -->
 
     <LandingSwiper services={services} />
+
+    <!-- Second MVP for Portfolio -->
+    <!-- Teaser from Blog -->
+    <section class="section pt-14">
+      <div class="container">
+        <div class="section pb-0">
+          <div class="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
+            <h2 set:html={markdownify(cards.data.title)} class="mb-4" />
+            <p set:html={markdownify(cards.data.description)} />
+          </div>
+          <div class="row justify-center">
+            {
+              cards.data.services.map(
+                (service: {
+                  title: string;
+                  description: string;
+                  image: string;
+                  link: string;
+                }) => (
+                  <div class="xl:col-3 lg:col-4 col-6 mb-14">
+                    <ServiceCard service={service} />
+                  </div>
+                ),
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Features
 
