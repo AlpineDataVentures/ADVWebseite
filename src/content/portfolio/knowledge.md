@@ -1,6 +1,6 @@
 ---
 title: "Data Knowledge"
-title_image: "/images/portfolio/strategy_title_image_sm.png"
+title_image: "/images/portfolio/Data Knowledge.png"
 meta_title: "Data Knowledge"
 description: "Zum nachhaltigen Aufbau von Data Knowledge werden die Inhalte von Seminaren und Workshops gezielt auf das Vorwissen und die spezifischen Bedürfnisse der Teilnehmer abgestimmt."
 image: ""

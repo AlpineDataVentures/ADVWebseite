@@ -1,6 +1,6 @@
 ---
 title: "Data Governance & Culture"
-title_image: "/images/portfolio/strategy_title_image_sm.png"
+title_image: "/images/portfolio/Data Culture.png"
 meta_title: "Data Governance & Culture"
 description: "Damit Sie zuverlässige Entscheidungen treffen und ihr Unternehmen vor Risiken optimal vor Risiken schützen können, muss gewährleistet werden, dass Ihre Daten korrekt, sicher und gesetzeskonform sind"
 image: ""

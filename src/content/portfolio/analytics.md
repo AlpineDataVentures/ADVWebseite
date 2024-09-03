@@ -1,6 +1,6 @@
 ---
 title: "Business Intelligence & Analytics"
-title_image: "/images/portfolio/strategy_title_image_sm.png"
+title_image: "/images/portfolio/Business Intelligence.png"
 meta_title: "Business Intelligence & Analytics"
 description: "Business Intelligence (BI) und Analytics ermöglichen es Ihnen, die in Ihrem Unternehmen generierten Daten effektiv zu nutzen, um fundierte Entscheidungen zu treffen und Geschäftspotenziale zu identifizieren."
 image: ""
