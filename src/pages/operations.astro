@@ -1,0 +1,28 @@
+---
+import { getEntry } from "astro:content";
+import Portfolio from "@/layouts/Portfolio.astro";
+
+const operations = await getEntry("portfolio", "operations");
+
+const {
+  title,
+  description,
+  meta_title,
+  image,
+  title_image,
+  customer_value,
+  overview,
+  subsections,
+} = operations.data;
+---
+
+<Portfolio
+  title={title}
+  description={description}
+  meta_title={meta_title}
+  image={image}
+  title_image={title_image}
+  customer_value={customer_value}
+  overview={overview}
+  subsections={subsections}
+/>
