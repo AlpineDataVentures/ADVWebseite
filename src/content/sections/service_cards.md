@@ -9,7 +9,7 @@ services:
     image: "/images/portfolio/strategy_slice.png"
     link: "/strategy"
 
-  - title: "Data Governance & Culture"
+  - title: "Data Culture"
     description: "Eine korrekte, sichere und gesetzeskonforme Datenverwaltung ist entscheidend, um zuverlässige Entscheidungen zu treffen und Risiken zu minimieren. Starke Data Governance und etablierte Datenkultur steigern die betriebliche Effizienz, fördern Innovationen und verschaffen Ihrem Unternehmen einen Wettbewerbsvorteil."
     image: "/images/portfolio/strategy_slice.png"
     link: "/culture"

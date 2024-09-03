@@ -6,48 +6,45 @@ import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 import ImageMod from "./ImageMod.astro";
 
 const { service } = Astro.props;
-console.log(service);
 ---
 
-<!-- ServiceCard: displays a single service.
+<!-- ServiceCard Component -->
+<div
+  class="service-card relative overflow-hidden bg-body dark:bg-darkmode-body rounded-lg"
+>
+  <!-- Background Image -->
+  <a href={service.link} class="block">
+    <ImageMod
+      class="w-full h-auto"
+      src={service.image}
+      alt={service.title}
+      width={400}
+      height={600}
+      format="webp"
+    />
+  </a>
 
-Initial representation:
-- Title
-- Background-Image
-- Description + Link to full service description
-
-More fancy: Show title and background-image only. Once you hover over the card, the image will fly-out and the description will fly-in
--->
-<div class="row">
-  <div class="bg-body dark:bg-darkmode-body">
-    <div
-      class="relative-container"
-      style="position: relative; display: inline-block;"
+  <!-- Title and Content Overlay -->
+  <div
+    class="service-card-content absolute inset-0 flex flex-col items-center justify-center p-5 transition-transform duration-300"
+  >
+    <!-- Title -->
+    <h4
+      class="service-card-title text-black dark:text-white text-xl font-bold transition-transform duration-300"
     >
-      <a href={service.link}>
-        <ImageMod
-          class="mb-6 w-full rounded"
-          src={service.image}
-          alt={service.title}
-          width={400}
-          height={600}
-          format="webp"
-        />
+      <a href={service.link} class="block w-full">{service.title}</a>
+    </h4>
+
+    <!-- Description and Button -->
+    <div
+      class="service-card-description opacity-0 mt-4 transition-opacity duration-300"
+    >
+      <p class="mb-4 text-sm text-black dark:text-white">
+        {plainify(service.description)}
+      </p>
+      <a class="btn btn-outline-primary btn-sm" href={service.link}>
+        Weiterlesen
       </a>
-      <div
-        class="text-overlay"
-        style="position: absolute; top: 0%; left: 0%; width: 100%;padding: 20px; border-radius: 8px;"
-      >
-        <h4 class="mb-3 text-center">
-          <a href={service.link}>
-            {service.title}
-          </a>
-        </h4>
-        <p class="mb-6 text-sm">{plainify(service.description)}</p>
-        <a class="btn btn-outline-primary btn-sm" href={service.link}>
-          Weiterlesen
-        </a>
-      </div>
     </div>
   </div>
 </div>

@@ -109,6 +109,35 @@ color: #00CE7F;
 }
 
 
+/* ServiceCard Styling */
+.service-card {
+  @apply relative overflow-hidden rounded-lg; /* Beispielhöhen- und Hintergrundstile */
+}
+
+.service-card-title {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-black  dark:text-white;
+  transition: all 0.3s ease;
+}
+
+.service-card-content {
+  @apply absolute top-full left-0 w-full p-5 text-center text-black dark:text-white;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.service-card:hover .service-card-title {
+  transform: translate(-50%, -150%); /* Überschrift nach oben verschieben */
+}
+
+.service-card:hover .service-card-content {
+  @apply top-1/2; /* Inhalt von unten nach oben bringen */
+  transform: translateY(-100%);
+}
+
+.service-card:hover .service-card-description {
+  @apply opacity-100; /* Make description visible */
+}
+
 // tab
 .tab {
   @apply overflow-hidden rounded-lg border border-border dark:border-darkmode-border;
