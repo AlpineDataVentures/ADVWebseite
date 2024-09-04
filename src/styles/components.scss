@@ -131,7 +131,7 @@ color: #00CE7F;
 
 /* Hover Effects */
 .service-card:hover .service-card-title {
-  transform: translate(-50%, -180px); /* Überschrift nach oben verschieben */
+  transform: translate(-50%, calc(-7em - 20%)); /* Überschrift nach oben verschieben */
 }
 
 .service-card:hover .service-card-description {
