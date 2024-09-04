@@ -1,13 +1,14 @@
 ---
 # Banner
 banner:
-  title: "Data. Decision. Done."
-  content: "Unsere Seite ist gerade im Relaunch. Wir freuen uns euch bald mit allem rund um Daten begrüßen zu dürfen!"
-  image: "/images/work_in_progress.webp"
+  title1: "Data."
+  title2: "Decision."
+  title3: "Done."
+  content: "Alpine Data Ventures begleitet und berät mittelständische Unternehmen als auch Konzerne auf Ihrem Weg zur Data Driven Company. Durch unsere vier Gründer vereinen wir Kompetenzen aus allen Bereichen der Data-Domain. Wir stehen für unsere Strategien ein - Skin in the game - wir begleiten bei der Implementierung unserer Strategien."
   button:
-    enable: false
-    label: "Kennenlernen!"
-    link: "https://outlook.office365.com/owa/calendar/HofITB@hof-itb.de/bookings/"
+    enable: true
+    label: "Mehr erfahren!"
+    link: "/about"
 
 # Features
 features:
