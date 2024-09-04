@@ -44,19 +44,8 @@
       ]
     },
     {
-      "name": "Unsere Projekte",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Case Studies",
-          "url": "/caseStudies"
-        },
-        {
-          "name": "Referenzen",
-          "url": "/voc"
-        }
-      ]
+      "name": "Case Studies",
+      "url": "/casestudies"
     },
     {
       "name": "Blog",
