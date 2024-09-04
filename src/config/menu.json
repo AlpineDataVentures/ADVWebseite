@@ -59,19 +59,8 @@
       ]
     },
     {
-      "name": "Wissenswertes",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Blog",
-          "url": "/blog"
-        },
-        {
-          "name": "Events",
-          "url": "/events"
-        }
-      ]
+      "name": "Blog",
+      "url": "/blog"
     },
     {
       "name": "Über uns",
@@ -85,10 +74,6 @@
         {
           "name": "Das Team",
           "url": "/team"
-        },
-        {
-          "name": "Karriere",
-          "url": "/career"
         }
       ]
     }
