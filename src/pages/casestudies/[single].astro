@@ -1,0 +1,30 @@
+---
+import Base from "@/layouts/Base.astro";
+import CaseStudySingle from "@/layouts/CaseStudySingle.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+
+export async function getStaticPaths() {
+  const CASE_STUDY_FOLDER = "casestudies";
+  const casestudies = await getSinglePage(CASE_STUDY_FOLDER);
+
+  const paths = casestudies.map((casestudy) => ({
+    params: {
+      single: casestudy.slug,
+    },
+    props: { casestudy },
+  }));
+  return paths;
+}
+
+const { casestudy } = Astro.props;
+const { title, meta_title, description, image } = casestudy.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <CaseStudySingle casestudy={casestudy} />
+</Base>
