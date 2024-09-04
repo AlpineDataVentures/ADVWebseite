@@ -31,10 +31,9 @@ const cards = await getEntry("sections", "service_cards");
 
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features }: Homepage = homepage.data;
-console.log(banner);
+
 // Alle Blog-Posts laden
 const posts = await getSinglePage("blog");
-
 // Posts nach Datum sortieren und die drei aktuellsten auswählen
 const latestPosts = posts
   .sort(
