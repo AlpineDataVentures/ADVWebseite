@@ -1,0 +1,37 @@
+---
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
+import ImageMod from "./components/ImageMod.astro";
+
+const { casestudy } = Astro.props;
+
+const { Content } = await casestudy.render();
+const { title, image } = casestudy.data;
+---
+
+<section class="section pt-7">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        {
+          image && (
+            <div class="mb-10">
+              <ImageMod
+                src={image}
+                height={500}
+                width={1200}
+                alt={title}
+                class="w-full rounded"
+                format="webp"
+              />
+            </div>
+          )
+        }
+        <h1 set:html={markdownify(title)} class="h2 mb-4" />
+        <div class="content mb-10">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

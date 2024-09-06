@@ -18,24 +18,12 @@ export default defineConfig({
     sitemap(),
     tailwind({
       filter: (page) =>
-        page !== 'https://alpinedata.de/about' &&
-        page !== 'https://alpinedata.de/authors' &&
-        page !== 'https://alpinedata.de/authors/john-doe' &&
-        page !== 'https://alpinedata.de/authors/sam-wilson' &&
-        page !== 'https://alpinedata.de/authors/william-jacob' &&
-        page !== 'https://alpinedata.de/blog' &&
-        page !== 'https://alpinedata.de/blog/page/2' &&
-        page !== 'https://alpinedata.de/blog/post-1' &&
-        page !== 'https://alpinedata.de/blog/post-2' &&
-        page !== 'https://alpinedata.de/blog/post-3' &&
-        page !== 'https://alpinedata.de/blog/post-4' &&
         page !== 'https://alpinedata.de/categories' &&
         page !== 'https://alpinedata.de/categories/application' &&
         page !== 'https://alpinedata.de/categories/architecture' &&
         page !== 'https://alpinedata.de/categories/data' &&
         page !== 'https://alpinedata.de/categories/software' &&
         page !== 'https://alpinedata.de/categories/technology' &&
-        page !== 'https://alpinedata.de/contact' &&
         page !== 'https://alpinedata.de/elements' &&
         page !== 'https://alpinedata.de/tags' &&
         page !== 'https://alpinedata.de/tags/nextjs' &&

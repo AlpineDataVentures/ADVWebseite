@@ -1,0 +1,50 @@
+---
+import config from "@/config/config.json";
+import dateFormat from "@/lib/utils/dateFormat";
+import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
+import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
+import ImageMod from "./ImageMod.astro";
+
+const { service } = Astro.props;
+---
+
+<!-- ServiceCard Component -->
+<div
+  class="service-card relative overflow-hidden bg-body dark:bg-darkmode-body rounded-lg"
+>
+  <!-- Background Image -->
+  <a href={service.link} class="block">
+    <ImageMod
+      class="w-full h-auto"
+      src={service.image}
+      alt={service.title}
+      width={400}
+      height={600}
+      format="webp"
+    />
+  </a>
+
+  <!-- Title and Content Overlay -->
+  <div
+    class="service-card-content absolute inset-0 flex flex-col items-center justify-center p-5"
+  >
+    <!-- Title -->
+    <h4
+      class="service-card-title text-black dark:text-white text-xl font-bold transition-transform duration-300"
+    >
+      <a href={service.link} class="block w-full">{service.title}</a>
+    </h4>
+
+    <!-- Description and Button -->
+    <div
+      class="service-card-description opacity-0 transition-opacity duration-500 mt-16"
+    >
+      <p class="mb-12 text-sm text-black dark:text-white">
+        {plainify(service.description)}
+      </p>
+      <a class="btn btn-outline-primary btn-sm" href={service.link}>
+        Weiterlesen
+      </a>
+    </div>
+  </div>
+</div>

@@ -12,10 +12,13 @@ import { FaCheck } from "react-icons/fa";
 import LandingSwiper from "@/partials/LandingSwiper.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
 
 interface Homepage {
   banner: {
-    title: string;
+    title1: string;
+    title2: string;
+    title3: string;
     content: string;
     image: string;
     button: Button;
@@ -24,15 +27,13 @@ interface Homepage {
 }
 
 const homepage = await getEntry("homepage", "-index");
-const testimonial = await getEntry("sections", "testimonial");
-const services = await getEntry("sections", "landing_slider_portfolio");
-const call_to_action = await getEntry("sections", "call-to-action");
+const cards = await getEntry("sections", "service_cards");
+
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features }: Homepage = homepage.data;
 
 // Alle Blog-Posts laden
 const posts = await getSinglePage("blog");
-
 // Posts nach Datum sortieren und die drei aktuellsten auswählen
 const latestPosts = posts
   .sort(
@@ -51,20 +52,28 @@ const latestPosts = posts
             <div class="w-full md:w-1/2 mb-10 md:mb-0 md:pr-6 xl:pr-12">
               <div class="claim-container animate-fly-in mt-16 mb-12">
                 <h1 class="claim text-center">
-                  <div class="line animate-move-left text-5xl mb-4">Data.</div>
-                  <div class="line text-5xl mb-4">Decision.</div>
-                  <div class="line animate-move-right text-5xl">Done.</div>
+                  <div class="line animate-move-left text-5xl mb-4">
+                    {banner.title1}
+                  </div>
+                  <div class="line text-5xl mb-4">{banner.title2}</div>
+                  <div class="line animate-move-right text-5xl">
+                    {banner.title3}
+                  </div>
                 </h1>
               </div>
             </div>
             <div class="w-full md:w-1/2 md:pl-6 xl:pl-12">
               <p
-                set:html={markdownify(
-                  "Wir bei ADV begleiten und beraten mittelständische Unternehmen als auch Konzerne auf Ihrem Weg zur Data Driven Company. Durch unsere 4 Gründer vereinen wir Kompetenzen aus allen Bereichen der Data-Domain. Wir stehen für unsere Strategien ein - Skin in the game - wir begleiten bei der Implementierung unserer Strategien.",
-                )}
+                set:html={markdownify(banner.content)}
                 class="mb-4 text-justify mt-16"
               />
-              <a class="btn btn-primary mt-5" href="/about"> Mehr erfahren! </a>
+              {
+                banner.button.enable && (
+                  <a class="btn btn-primary mt-5" href={banner.button.link}>
+                    {banner.button.label}
+                  </a>
+                )
+              }
             </div>
           </div>
         </div>
@@ -72,7 +81,34 @@ const latestPosts = posts
     </section>
     <!-- /Banner -->
 
-    <LandingSwiper services={services} />
+    <!-- Second MVP for Portfolio -->
+    <!-- Teaser from Blog -->
+    <section class="section pt-0">
+      <div class="container">
+        <div class="section pb-0">
+          <div class="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
+            <h2 set:html={markdownify(cards.data.title)} class="mb-4" />
+            <p set:html={markdownify(cards.data.description)} />
+          </div>
+          <div class="row justify-center">
+            {
+              cards.data.services.map(
+                (service: {
+                  title: string;
+                  description: string;
+                  image: string;
+                  link: string;
+                }) => (
+                  <div class="xl:col-3 lg:col-4 md:col-6 col-8 mb-8">
+                    <ServiceCard service={service} />
+                  </div>
+                ),
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Features
 

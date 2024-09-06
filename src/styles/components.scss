@@ -109,6 +109,35 @@ color: #00CE7F;
 }
 
 
+/* ServiceCard Styling */
+.service-card {
+  @apply relative overflow-hidden rounded-lg; /* Grundlegende Kartengestaltung */
+}
+
+.service-card-title {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-black dark:text-white;
+  transition: transform 0.3s ease; /* Übergang für die Verschiebung der Überschrift */
+}
+
+.service-card-content {
+  @apply absolute inset-0 flex flex-col items-center justify-center p-5 text-center text-black dark:text-white;
+  /* Entfernen der Übergangseffekte für die Position */
+}
+
+.service-card-description {
+  @apply opacity-0; /* Anfangszustand: unsichtbar */
+  transition: opacity 1s 0.2s ease; /* Übergang für die Sichtbarkeit */
+}
+
+/* Hover Effects */
+.service-card:hover .service-card-title {
+  transform: translate(-50%, calc(-7em - 20%)); /* Überschrift nach oben verschieben */
+}
+
+.service-card:hover .service-card-description {
+  @apply opacity-100; /* Beschreibung und Button sichtbar machen */
+}
+
 // tab
 .tab {
   @apply overflow-hidden rounded-lg border border-border dark:border-darkmode-border;

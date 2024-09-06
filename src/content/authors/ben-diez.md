@@ -7,7 +7,7 @@ bullet_points: ["Leader mit Vision", "Vom Soldaten zum Datenexperten – taktisc
 social:
   - name: linkedin
     icon: FaLinkedin
-    link: https://www.linkedin.com/in/benjamin-diez-96244468/
+    link: https://www.linkedin.com/in/bendiez/
 ---
 
 Benjamin Diez kombiniert militärische Präzision und Startup-Dynamik mit über 10 Jahren Erfahrung in der Datenstrategie und Governance. Er hat mehrere internationale Unternehmen zu datengestützten Entscheidungen geführt. Seine Lebensphilosophie: Total Ownership 

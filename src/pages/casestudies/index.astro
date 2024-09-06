@@ -1,0 +1,40 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry } from "astro:content";
+
+const CASE_STUDY_FOLDER = "casestudies";
+
+const casestudyIndex = await getEntry(CASE_STUDY_FOLDER, "-index");
+const casestudies = await getSinglePage(CASE_STUDY_FOLDER);
+---
+
+<Base
+  title={casestudyIndex.data.title}
+  meta_title={casestudyIndex.data.meta_title}
+  image={casestudyIndex.data.image}
+  description={casestudyIndex.data.description}
+>
+  <PageHeader title={casestudyIndex.data.title} />
+  <section class="section">
+    <div class="container">
+      <div class="row gx-5">
+        <!-- CaseStudy Summaries -->
+        <div class="lg:col-8">
+          <div class="row">
+            {
+              casestudies.map((casestudy) => (
+                <div class="mb-14 md:col-6">
+
+                  <!-- representation of Summar for a Casestudy -->
+
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
