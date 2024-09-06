@@ -12,7 +12,7 @@ banner:
 
 # Features
 features:
-  - title: "ADV - Unsere Anspruch"
+  - title: "ADV - Unser Anspruch"
     image: "/images/team_feature.png"
     content: "Wir bei Alpine Data Ventures kombinieren unsere langjährige Erfahrung in Vertrieb, Datenstrategie, IT-Architektur und Data Science, um maßgeschneiderte Lösungen für unsere Kunden zu entwickeln. Mit unserer Leidenschaft für Daten unterstützen wir Unternehmen dabei, daten-gestützte Entscheidungen zu treffen und nachhaltiges Wachstum zu erreichen."
     bulletpoints:
@@ -21,12 +21,22 @@ features:
       label: "Mehr über ADV!"
       link: "/about"
 
+  - title: "ADV - So arbeiten wir"
+    image: "/images/casestudy_feature.jpg"
+    content: "Sie möchten mehr zu unserer Arbeitsweise erfahren? Tauchen Sie hier tiefer ein in unsere vergangenen Projekte, unsere Arbeitsweise und den gewählten Lösungsansätzen zu spezifischen Problemstellungen"
+    bulletpoints:
+    button:
+      enable: true
+      label: "Case Studies"
+      link: "/casestudies"
+
   - title: "ADV - Das Team"
     image: "/images/team_feature.png"
-    content: "Sie möchten mehr zu unserer Arbeitsweise erfahren? Tauchen Sie hier tiefer ein in unsere vergangenen Projekte, unsere Arbeitsweise und den gewählten Lösungsansätzen zu spezifischen Problemstellungen"
+    content: "ein paar nette Worte zu uns"
     bulletpoints:
     button:
       enable: true
       label: "Mehr über uns!"
       link: "/team"
+
 ---

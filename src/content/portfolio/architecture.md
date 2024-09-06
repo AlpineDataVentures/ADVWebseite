@@ -1,7 +1,7 @@
 ---
-title: "Datenarchitektur"
+title: "Data Architecture"
 title_image: "/images/portfolio/Datenarchitektur.png"
-meta_title: "Datenarchitektur"
+meta_title: "Data Architecture"
 description: "Eine zukunftsorientierte Datenarchitektur legt das Fundament für eine robuste und skalierbare Datenlandschaft, die es Ihnen ermöglicht, den vollen Wert Ihrer Daten zu erschließen und neue Geschäftsmöglichkeiten zu identifizieren."
 image: ""
 draft: false

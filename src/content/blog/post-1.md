@@ -1,17 +1,17 @@
 ---
 title: "Willkommen auf unserem Blog – Was Sie hier erwartet (und warum es sich lohnt, zu bleiben)"
 meta_title: "Willkommen auf unserem Blog – Was Sie hier erwartet (und warum es sich lohnt, zu bleiben)"
-description: "Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur datengetriebenen Organisation zu ebnen. Doch neben der harten Arbeit gibt es auch viel zu lernen, zu entdecken und zu diskutieren – und genau dafür haben wir diesen Blog ins Leben gerufen."
+description: "Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur daten-getriebenen Organisation zu ebnen. Doch neben der harten Arbeit gibt es auch viel zu lernen, zu entdecken und zu diskutieren – und genau dafür haben wir diesen Blog ins Leben gerufen."
 date: 2024-09-06T07:00:00Z
 image: "/images/blog/ADV_Blog.jpg"
 categories: ["ADV"]
 author: "Ben Diez"
 tags: ["Intern"]
 draft: false
-summary: "Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur datengetriebenen Organisation zu ebnen. Hier erfahren Sie, was Sie auf unserem Blog erwarten können und warum es sich lohnt, regelmäßig vorbeizuschauen. "
+summary: "Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur daten-getriebenen Organisation zu ebnen. Hier erfahren Sie, was Sie auf unserem Blog erwarten können und warum es sich lohnt, regelmäßig vorbeizuschauen. "
 ---
 
-Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur datengetriebenen Organisation zu ebnen. Doch neben der harten Arbeit gibt es auch viel zu lernen, zu entdecken und zu diskutieren – und genau dafür haben wir diesen Blog ins Leben gerufen. Hier erfahren Sie, was Sie auf unserem Blog erwarten können und warum es sich lohnt, regelmäßig vorbeizuschauen. 
+Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur daten-getriebenen Organisation zu ebnen. Doch neben der harten Arbeit gibt es auch viel zu lernen, zu entdecken und zu diskutieren – und genau dafür haben wir diesen Blog ins Leben gerufen. Hier erfahren Sie, was Sie auf unserem Blog erwarten können und warum es sich lohnt, regelmäßig vorbeizuschauen. 
 
 ### How-to-Anleitungen: Der Werkzeugkasten für Datenflüsterer 
 
