@@ -34,7 +34,7 @@ subsections:
      
 customer_value:
   title: "Ihre Vorteile durch Business Intelligence und Analytics"
-  image: "/images/customer_success.png"
+  image: "/images/Vorteile.png"
   description: ""
   values: ["Fundierte Entscheidungen: Treffen Sie bessere Entscheidungen durch den Zugang zu tiefgehenden Analysen und präzisen Daten", "Zukunftsorientierte Einblicke: Nutzen Sie Analysen, um Trends frühzeitig zu erkennen und strategische Chancen zu identifizieren und sich so einen Vorsprung gegenüber der Konkurrenz verschaffen", "Risikominimierung: Identifizieren Sie potenzielle Risiken frühzeitig durch präzise Datenanalysen und treffen Sie proaktive Maßnahmen, um negative Auswirkungen auf Ihr Geschäft zu minimieren.", "Innovationsförderung: Nutzen Sie Daten, um neue Geschäftsmöglichkeiten zu entdecken, Produkte zu verbessern und innovative Lösungen zu entwickeln, die Ihrem Unternehmen helfen, kontinuierlich zu wachsen."]  
   button:
