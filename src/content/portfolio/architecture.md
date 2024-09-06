@@ -1,6 +1,6 @@
 ---
 title: "Data Architecture"
-title_image: "/images/portfolio/Datenarchitektur.png"
+title_image: "/images/portfolio/EAM.png"
 meta_title: "Data Architecture"
 description: "Eine zukunftsorientierte Datenarchitektur legt das Fundament für eine robuste und skalierbare Datenlandschaft, die es Ihnen ermöglicht, den vollen Wert Ihrer Daten zu erschließen und neue Geschäftsmöglichkeiten zu identifizieren."
 image: ""
@@ -35,7 +35,7 @@ subsections:
      
 customer_value:
   title: "Ihre Vorteile durch gute Datenarchitektur"
-  image: "/images/customer_success.png"
+  image: "/images/Vorteile.png"
   description: ""
   values: ["Skalierbarkeit: Mit der richtigen Datenarchitektur von Beginn an, können Sie auf dem Weg der Implementierung Ihrer Strategie beruhigt in passende Strukturen wachsen, ohne stetige Migrationsprojekte.", "Kostenoptimiertes Datamanagement: Wir achten bei der Architekturkonstruktion stets auf Ihren Business Case - heute, wie auch in 5 Jahren - sodass Sie jederzeit optimierte Kosten bei voller Operabilität genießen", "Struktur und Einheitlichkeit: Mit der richtigen Architektur vermeiden Sie Kosten, welche durch Inkonsistenz und uneinheitlicher Datennutzung im Business entstehen können. Jeder arbeitet auf gleicher Basis.", "Innovationskraft: Für diverse innovative Use Cases, wie KI und Advanced Analytics Modelle, benötigt man unterschiedliche Architekturen für die Durchführbarkeit. Wir bereiten Sie auf alle Innovationen mit der richtigen Architekturwahl vor."]  
   button:

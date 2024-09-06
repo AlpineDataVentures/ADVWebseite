@@ -1,6 +1,6 @@
 ---
 title: "Data Operations"
-title_image: "/images/portfolio/strategy_title_image_sm.png"
+title_image: "/images/portfolio/DataOps.png"
 meta_title: "Data Operations"
 description: "DataOps umfasst alle Prozesse, die notwendig sind, um Ihre Dateninfrastruktur reibungslos am Laufen zu halten und kontinuierlich zu optimieren."
 image: ""
@@ -33,7 +33,7 @@ subsections:
        description: "Indem sie einen Finger am Puls Ihrer Daten haben, brechen sie Silos zwischen Teams auf und fördern eine enge Zusammenarbeit zwischen Fachabteilung, Entwicklern und IT-Teams, was so laufend die Prozesseffizienz und Innovationskultur fördert.​"
 customer_value:
   title: "Ihre Vorteile einer Datenstrategie"
-  image: "/images/customer_success.png"
+  image: "/images/Vorteile.png"
   description: ""
   values: ["Zuverlässige Datenverarbeitung: Stellen Sie sicher, dass Ihre Dateninfrastruktur stets stabil und leistungsfähig bleibt, um zuverlässige Geschäftsergebnisse zu gewährleisten.", "Schnelle Problemerkennung: Erkennen und beheben Sie Probleme in Ihrer Dateninfrastruktur frühzeitig, bevor sie zu größeren Ausfällen führen.", "Kontinuierliche Verbesserung: Fördern Sie eine Kultur der kontinuierlichen Verbesserung, um Ihre DataOps-Prozesse stets auf dem neuesten Stand zu halten", "Skalierbare Prozesse: Passen Sie Ihre Datenverarbeitungsprozesse flexibel an wachsende Anforderungen an, ohne die Effizienz zu beeinträchtigen."]  
   button:

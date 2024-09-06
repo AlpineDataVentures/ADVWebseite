@@ -21,7 +21,7 @@ subsections:
        description: "Aufbau einer Wissensdatenbank zur systematischen Erfassung, Organisation und Strukturierung von Informationen und Wissen, um einen zentralen Zugriffspunkt für Data Knowledge zu schaffen"  
 customer_value:
   title: "Die Vorteile eines Data Knowledge Plans"
-  image: "/images/customer_success.png"
+  image: "/images/Vorteile.png"
   description: ""
   values: ["Ermöglicht es, Daten richtig zu interpretieren und faktenbasierte Entscheidungen schneller zu treffen", "Datengeschulte Mitarbeiter erkennen Trends schneller und kommunizieren Daten klarer, was Innovation und Zusammenarbeit fördert", "Wichtiges Wissen bleibt erhalten und zugänglich, auch wenn Mitarbeiter das Unternehmen verlassen", "Data Knowledge erleichtert den Wissensaustausch zwischen Teams und Abteilungen."]  
   button:

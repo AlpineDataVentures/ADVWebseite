@@ -8,7 +8,7 @@ categories: ["ADV"]
 author: "Ben Diez"
 tags: ["Intern"]
 draft: false
-summary: "Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur daten-getriebenen Organisation zu ebnen. Hier erfahren Sie, was Sie auf unserem Blog erwarten können und warum es sich lohnt, regelmäßig vorbeizuschauen. "
+summary: "Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur datengetriebenen Organisation zu ebnen."
 ---
 
 Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und ihnen den Weg zur daten-getriebenen Organisation zu ebnen. Doch neben der harten Arbeit gibt es auch viel zu lernen, zu entdecken und zu diskutieren – und genau dafür haben wir diesen Blog ins Leben gerufen. Hier erfahren Sie, was Sie auf unserem Blog erwarten können und warum es sich lohnt, regelmäßig vorbeizuschauen. 

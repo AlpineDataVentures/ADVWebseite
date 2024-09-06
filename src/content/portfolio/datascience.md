@@ -34,7 +34,7 @@ subsections:
      
 customer_value:
   title: "Ihre Vorteile durch Künstliche Intelligenz & Data Science"
-  image: "/images/customer_success.png"
+  image: "/images/Vorteile.png"
   description: ""
   values: ["Lösungen für komplexe Probleme: KI und Data Science ermöglichen es Ihnen, hochkomplexe Geschäftsprobleme zu analysieren und innovative Lösungen zu entwickeln, die mit herkömmlichen Methoden nicht erreichbar wären.", "Präzise Vorhersagen: Treffen Sie fundierte Entscheidungen auf Basis von präzisen Vorhersagemodellen und datengetriebenen Einblicken, die zukünftige Trends und Entwicklungen abbilden.", "Erhöhte Mitarbeiterzufriedenheit:KI kann monotone, zeitaufwendige Aufgaben automatisieren, was Ihre Mitarbeiter entlastet und ihnen ermöglicht, sich auf wertschöpfende Tätigkeiten zu konzentrieren.", "Skalierbare Lösungen: KI-gestützte Systeme passen sich flexibel an wachsende Datenmengen und Geschäftsanforderungen an, sodass Sie Ihre Infrastruktur effizient und kostengünstig skalieren können."]  
   button:

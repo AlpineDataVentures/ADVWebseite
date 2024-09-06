@@ -34,7 +34,7 @@ subsections:
      
 customer_value:
   title: "Ihre Vorteile durch gutes Enterprise Architecture Management"
-  image: "/images/customer_success.png"
+  image: "/images/Vorteile.png"
   description: ""
   values: ["Transparenz: Schafft Klarheit über die gesamte IT-Landschaft und ihre Beziehungen.", "Bessere Zusammenarbeit: Fördert die Integration von IT und Fachbereichen, um Geschäftsanforderungen effizienter zu erfüllen.", "Nachhaltige IT-Strategie: Stellt sicher, dass die technologische Entwicklung mit den langfristigen Geschäftszielen im Einklang steht.", "Kosteneffizienz: Reduziert redundante Systeme und optimiert IT-Ressourcen."]  
   button:

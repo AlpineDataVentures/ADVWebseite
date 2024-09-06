@@ -33,7 +33,7 @@ subsections:
        description: "Erwartungsmanagement in Bezug auf die Dauer und den Nutzen von Datenprojekten, um den Buy In des Leadership Teams zu gewährleisten​​"
 customer_value:
   title: "Ihre Vorteile einer etablierten Data Governance und Datenkultur​"
-  image: "/images/customer_success.png"
+  image: "/images/Vorteile.png"
   description: ""
   values: ["Verbesserte Datenqualität führt zu vertrauenswürdigeren Insights und somit zu besseren Entscheidungen", "Durch Schutz sensibler Daten und Einhaltung gesetzlicher Vorschriften trägt solide Data Governance zu  reduziertem Risko von Datenschutzverletzungen", "Datenkompetenz führt zu mehr Verantwortlichkeit und Engagement Ihrer Mitarbeiter, da sie befähigt werden, Daten für strategische Erkenntnisse zu nutzen​", "Klare Datenverwaltungsprozesse und standardisierte Verfahren helfen, Fehler zu minimieren und Abläufe zu rationalisieren"]  
   button:
