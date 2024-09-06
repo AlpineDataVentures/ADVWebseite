@@ -1,6 +1,8 @@
 ---
+import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader.astro";
 import { getEntry } from "astro:content";
 
@@ -17,24 +19,39 @@ const casestudies = await getSinglePage(CASE_STUDY_FOLDER);
   description={casestudyIndex.data.description}
 >
   <PageHeader title={casestudyIndex.data.title} />
-  <section class="section">
-    <div class="container">
-      <div class="row gx-5">
-        <!-- CaseStudy Summaries -->
-        <div class="lg:col-8">
-          <div class="row">
-            {
-              casestudies.map((casestudy) => (
-                <div class="mb-14 md:col-6">
 
-                  <!-- representation of Summar for a Casestudy -->
-
-                </div>
-              ))
-            }
+  {
+    casestudies.map((casestudy, index: number) => (
+      <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
+        <div class="container">
+          <div class="row items-center justify-between">
+            <div
+              class={`mb:md-0 mb-6 md:col-5 ${index % 2 !== 0 && "md:order-2"}`}
+            >
+              <ImageMod
+                src={casestudy.data.image}
+                height={480}
+                width={520}
+                alt={casestudy.data.title}
+                format="webp"
+              />
+            </div>
+            <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
+              <h2 set:html={markdownify(casestudy.data.title)} class="mb-4" />
+              <p
+                set:html={markdownify(casestudy.data.summary)}
+                class="mb-8 text-lg"
+              />
+              <a
+                class="btn btn-outline-primary btn-sm"
+                href={`/${CASE_STUDY_FOLDER}/${casestudy.slug}`}
+              >
+                Weiterlesen
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+    ))
+  }
 </Base>
