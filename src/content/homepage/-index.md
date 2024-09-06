@@ -23,7 +23,7 @@ features:
 
   - title: "ADV - Das Team"
     image: "/images/team_feature.png"
-    content: ""
+    content: "Mit dieser klaren Vision haben wir Alpine Data Ventures gegründet, um den Mittelstand in Deutschland dabei zu unterstützen, die Kraft der Daten voll auszuschöpfen. Wir sind ein Team aus vier leidenschaftlichen Datenexperten mit unterschiedlichen, sich ergänzenden Fähigkeiten, die gemeinsam einen ganzheitlichen Ansatz bieten"
     bulletpoints:
     button:
       enable: true
