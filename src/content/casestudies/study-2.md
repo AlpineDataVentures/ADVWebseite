@@ -1,6 +1,6 @@
 ---
-title: "IT-Strategie"
-meta_title: "IT-Strategie"
+title: "Einführung eines Data Meshs"
+meta_title: "Einführung eines Data Mesh Ansatzes bei einem FMCG Unternehmen"
 image: "/images/team_feature.png"
 draft: false
 summary: "Hier fehlt noch eine Zusammenfassung für die Übersichtsseite"
@@ -8,29 +8,41 @@ summary: "Hier fehlt noch eine Zusammenfassung für die Übersichtsseite"
 
 ### Ausgangssituation
 
-Der Kunde ist ein mittelständisches Unternehmen mit einer fast 100-jährigen Firmengeschichte. Bis zum Anbruch von Corona gab es ausschließlich florierende Wirtschaftsjahre. Corona hat den Kunden vor enorme Herausforderungen gestellt.
-Durch den schnellen Wandel und die geänderten Anforderungen des Markts musste nun ein höherer Grad an Formalisierung etabliert werden. Der Kunde hat sowohl eine Unternehmensstrategie etabliert als auch daraus abgeleitet den Bedarf gesehen, eine IT-Strategie zu implementieren. Die große Anzahl an Herausforderungen in der IT und die steigende Komplexität der Themen lasten die IT-Abteilung unter Anleitung des CIO’s enorm aus, wodurch gezielte Strategiearbeit erschwert wurde.
+Unser Kunde, ein FMCG-Unternehmen aus Süddeutschland, stand vor erheblichen Herausforderungen, die durch Datensilos, mangelnde Datenkompetenz und eine zentralisierte Datenverantwortung verursacht wurden. Diese Faktoren wirkten als Engpass und erschwerten die Effizienz im Unternehmen. 
+
+Die rasche technische Weiterentwicklung sowie die veränderten Marktanforderungen machten es notwendig, die Effizienz bei Dateninitiativen deutlich zu steigern und einen höheren Grad an Formalisierung einzuführen.
+
+Darüber hinaus belasteten die Vielzahl an Baustellen im Bereich Data und die zunehmende Komplexität der Themen die zentralisierte Fachabteilung stark und erschwerte die gezielte Weiterentwicklung der Kompetenzen, da neben dem Tagesgeschäft kaum Zeit dafür blieb.
+
+Anhand der Herausforderungen und der bestehenden Unternehmensstrategie konnten wir unseren Kunden von den Vorteilen eines Data Mesh Ansatzes überzeugen.
 
 ### Herausforderung
-Es blieb sehr wenig Zeit bis eine greifbare und umsetzbare IT-Strategie, welche nicht nur im Elfenbeinturm entwickelt wird, eingeführt werden musste. Zudem gab es einige blinde Flecken, zu wenig Zeit für ausführliche Konzeptarbeit und Budgetrestriktionen. Der Kunde selbst hatte wenig Zeit für die Mitwirkung an der Strategie. Es gibt eine Vielzahl diverser Business Funktionen, die maßgebliche Anforderungen an die IT der Zukunft des Kunden haben.
 
-### Projektscope:
-2 Monate
+Die Herausforderungen bei der Umsetzung dieses Projekts waren erheblich. Es fehlte im Unternehmen an klar definierten Zuständigkeiten, was dazu führte, dass niemand die Verantwortung für die notwendigen Schritte übernehmen wollte. 
+
+Weiterhin waren erforderliche technische Kompetenzen kaum vorhanden, was die Umsetzung zusätzlich erschwerte. 
+
+Die gesamte Dateninfrastruktur stellte sich als eine riesige Blackbox dar: Es gab kaum Transparenz, und niemand fühlte sich für die Verwaltung oder den Zustand der Daten verantwortlich. Diese Faktoren zusammen führten zu erheblichen Verzögerungen, Reibungen und Qualitätsproblemen bei der Arbeit mit Daten.
 
 ### Herangehensweise
-Wir haben zusammen mit dem Kunden einen Strategy as a Journey Ansatz gewählt, welcher Prinzipien orientiert vornehms dem Business und den Mitarbeitern ausreichend Halt gibt und ein Big Picture aufzeigt, worauf sich alle committen können. Wir haben zunächst die Organisation interviewed und mittels verschiedenen Workshop-Formaten das vorhandene Wissen, die Herausforderungen und Anforderungen der mittelbaren, wie unmittelbaren Kunden extrahiert.
-Diese haben wir auf ein greifbares Aggregationsniveau gehoben und in Business-IT-Alignment fähige Sprache und Modelle überführt. Nach ausführlicher IST-Analyse haben wir die Teilstrategien der IT-Strategie tiefergelegt, unter Berücksichtigung der Ungewissheiten wie Kapazitäten, Unternehmensstrategie und Marktveränderungen Modelle und Prinzipien entworfen, die für den Kunden umsetzbar sind und zuletzt Ziele, Maßnahmen und eine Roadmap abgeleitet, welche mit den strategischen Zielen des Kunden einhergehen und darauf einzahlen.
 
-Da der Kunde bislang weder aktive Strategiearbeit noch ein Business-Controlling sowie IT-Controlling betreibt, haben wir eine einfache Balanced Score Card gewählt, um die Ziel-gesteuerte Arbeitsweise leicht einzuführen.
-Wir konnten die Teilstrategien Infrastruktur-Strategie, Applikationsstrategie und Datenstrategie umstandsbedingt nicht auf eine Tiefe legen, bei jener alles 3 Jahre im Voraus planbar und umsetzbar ist, dennoch haben wir es geschafft, greifbare Prinzipien für kommende Entscheidungen abzuleiten, erste grundlegende Architekturentscheidungen zu treffen und Projekte zur weiteren Tieferlegung als Perspektive abzuleiten, welche die Strategie binnen 6 – 12 Monaten um einen weiteren Detailgrad greifbarer macht.
+Bei der Einführung des Data Meshes sind wir strukturiert vorgegangen, um sicherzustellen, dass alle relevanten Aspekte berücksichtigt wurden. 
+
+Zunächst lag der Fokus darauf, in den jeweiligen Domänen erfahrene Datenexperten zu identifizieren und zu gewinnen. Diese Experten spielen eine Schlüsselrolle, da sie die spezifischen Datenbedürfnisse ihrer Domänen am besten verstehen und somit als Bindeglied zwischen den technischen Anforderungen und den geschäftlichen Zielen fungieren.
+
+Parallel dazu begannen wir mit der Suche nach einer geeigneten Datenplattform, die den Anforderungen eines Data Meshes gerecht wird. Nach einem umfassenden Evaluierungsprozess haben wir mit Databricks eine Plattform gefunden, die sowohl skalierbar als auch flexibel genug ist, um die dezentrale Verwaltung von Datenprodukten zu unterstützen. Die Implementierung dieser Plattform war ein kritischer Schritt, da sie die technologische Grundlage für das gesamte Vorhaben bildet.
+
+Um sicherzustellen, dass die Datenexperten in den Domänen diese Plattform effektiv nutzen können, haben wir gezielte Schulungen durchgeführt. Diese Schulungen umfassten nicht nur die technischen Aspekte der Plattform, sondern auch das Konzept "Data as a Product". Es war uns wichtig, dass die Experten das Prinzip verstehen, Daten als eigenständige Produkte zu betrachten, mit klar definierten Eigentümern, Qualitätsstandards und Lebenszyklen.
+
+Ein weiterer wesentlicher Aspekt unserer Herangehensweise war die Sicherstellung des Buy-Ins des Leaderships. Ohne die Unterstützung der Führungsebene wäre eine erfolgreiche Implementierung und langfristige Etablierung des Data Meshes nicht möglich gewesen. Durch frühzeitige Einbindung und klare Kommunikation der Vorteile und Ziele dieser Initiative konnten wir das notwendige Engagement auf Führungsebene gewinnen. Dies ermöglichte es uns, die erforderlichen Ressourcen und die organisatorische Unterstützung zu sichern, um das Data Mesh erfolgreich umzusetzen und nachhaltig im Unternehmen zu verankern.
 
 ### Outcome
-Wir haben für den Kunden ein ausführliches, lebendiges und sehr konkret greifbares Strategiedokument erarbeitet. Zudem haben wir eine Version für alle Mitarbeiter und eine Management Summary als Präsentation erarbeitet, um die Ergebnisse und weiteren Maßnahmen, sowie Prinzipien und Grundsätze, allen gleichermaßen auf Augenhöhe zu präsentieren. 
 
-Zusammen mit dem Strategy as a Journey Ansatz haben wir ein Quartals-Town-Hall etabliert, in jenem die weiteren Entwicklungen der IT-Strategie der Organisation präsentiert werden.
-Zudem haben wir begonnen einfaches Enterprise Architecture Management einzuführen, um alle Architektur Perspektiven der Soll-Architektur strukturiert abzubilden und allen durch interaktive Live-Ansichten einen Entwicklungsstand kommunizieren zu können.
+Die Einführung des Data Meshes hat zu einer Reihe positiver Ergebnisse geführt, die das Unternehmen nachhaltig voranbringen. Durch die Dezentralisierung der Datenverantwortung konnten wir eine stärkere Autonomie und Eigenverantwortung in den einzelnen Domänen etablieren, was die Geschwindigkeit und Qualität der daten-getriebenen Entscheidungen erheblich verbessert hat. 
 
-Mittels einer interaktiven Roadmap (abgebildet in MS Project) hat jeder Mitarbeiter jederzeit einen Einblick in die bevorstehenden und laufenden Projektvorhaben, sodass der Großteil an Kommunikation zu Unsicherheiten hierzu eingespart werden konnte. Diese Transparenz schafft Zusammenhalt und Sicherheit in der gesamten Belegschaft, was wiederum zu höherer Zufriedenheit und Mitarbeiter-Bindung führt.
+Die Datenexperten in den Domänen nutzen die implementierte Plattform nun effizient, was zu einer höheren Datenverfügbarkeit und besseren Datenqualität führt. Das Prinzip "Data as a Product" hat zudem dazu beigetragen, dass Daten konsequent als wertvolle Unternehmensressourcen betrachtet werden, die strategisch verwaltet und genutzt werden. 
+
+Durch das frühzeitige Buy-In der Führungsriege konnte die Initiative auf allen Ebenen des Unternehmens unterstützt und erfolgreich skaliert werden, was zu einer starken Akzeptanz von Anfang an und somit einer geschmeidigeren Implementierung geführt hat.
 
 > Kundenstimme:
-  CIO - „Sehr geil! Endlich haben wir ein ordentliches Rahmenwerk, an dem sich alle orientieren können und welches umsetzbar ist. Kein Dokument, das für 3 Jahre in der Schublade verschwindet. So kann ich endlich gut arbeiten!“
+  CDO - „Ich bin super zufrieden mit den Ergebnissen unseres Projekts. Durch die Dezentralisierung der Datenverantwortung und das 'Data as a Product'-Prinzip sind wir deutlich effizienter geworden. Die bessere Datenqualität und -verfügbarkeit zahlen sich direkt in schnelleren, besseren Entscheidungen aus. Ein echter Erfolg, auf den unser Team und das Leadership stolz sein können!“
