@@ -15,28 +15,28 @@ subsections:
        description: "Wir führen eine präzise Anforderungsaufnahme durch, um ihre Bedürfnisse und Herausforderungen vollständig zu verstehen. Parallel dazu identifizieren wir Maßnahmen, die schnell umsetzbar sind und sofortige Erfolge bringen, um frühzeitig Nutzen aus den KI-Investitionen zu ziehen und Vertrauen aufzubauen." 
      - title: "Machbarkeits- und Mehrwertanalysen​"
        icon: FaHandHoldingMedical
-       description: "Wir führen quantitative Machbarkeitstests durch, um die technischen und wirtschaftlichen Realisierbarkeit der vorgeschlagenen KI-Lösungen zu prüfen. Gleichzeitig bewerten wir den potenziellen Mehrwert dieser Lösungen für Ihr Unternehmen, um sicherzustellen, dass die Investition in KI und Data Science die erwarteten Ergebnisse liefert."  
+       description: "Wir führen quantitative Machbarkeitstests durch, um die technische und wirtschaftliche Realisierbarkeit der vorgeschlagenen KI-Lösungen zu prüfen. Gleichzeitig bewerten wir den potenziellen Mehrwert dieser Lösungen für Ihr Unternehmen, um sicherzustellen, dass die Investition in KI und Data Science die erwarteten Ergebnisse liefert."  
      - title: "Modellierung und Implementierung​"
        icon: FaGears
        description: "Auf Basis unserer Analyse erstellen wir prädiktive Modelle und Algorithmen, die gezielt auf Ihre geschäftlichen Herausforderungen abgestimmt sind. Wir unterstützen Sie bei der Implementierung dieser Modelle in Ihre bestehenden Systeme und Prozesse. Dazu gehört auch die schnelle Umsetzung von kurzfristigen Maßnahmen, die schnelle Ergebnisse liefern und die Akzeptanz der neuen Technologien fördern."  
    - title: "Erweiterung und Pflege einer datengesteuerten KI und Data Science Landschaft​"
-     description: "Um den vollen Nutzen aus Ihren Daten zu ziehen, ist es entscheidend, Ihre Systeme und Modelle regelmäßig zu aktualisieren und zu erweitern. Dies beinhaltet die Integration neuer Datenquellen, die Optimierung bestehender Algorithmen und die Anpassung an sich verändernde geschäftliche Anforderungen. Durch gezielte Pflege und Erweiterung Ihrer datengesteuerten Landschaft stellen Sie sicher, dass Ihre KI-Lösungen stets auf dem neuesten Stand bleiben und den größtmöglichen Mehrwert liefern."
+     description: "Um den vollen Nutzen aus Ihren Daten zu ziehen, ist es entscheidend, Ihre Systeme und Modelle regelmäßig zu aktualisieren und zu erweitern. Dies beinhaltet die Integration neuer Datenquellen, die Optimierung bestehender Algorithmen und die Anpassung an sich verändernde geschäftliche Anforderungen. Durch gezielte Pflege und Erweiterung Ihrer Datenlandschaft stellen Sie sicher, dass Ihre KI-Lösungen stets auf dem neuesten Stand bleiben und den größtmöglichen Mehrwert liefern."
      tasks: 
      - title: "Monitoring und Optimierung"
        icon: FaScrewdriverWrench
-       description: "Kontinuierliches Monitoring und gezielte Optimierung sind entscheidend, um Ihre KI- und Data-Science-Lösungen leistungsfähig zu halten. Durch regelmäßige Überwachung und Anpassung an neue Daten und Geschäftsanforderungen stellen Wir mit Ihnen sicher, dass Ihre Systeme effizient bleiben und langfristig erfolgreich arbeiten.​"
+       description: "Kontinuierliches Monitoring und gezielte Optimierung sind entscheidend, um Ihre KI- und Data-Science-Lösungen leistungsfähig zu halten. Durch regelmäßige Überwachung und Anpassung an neue Daten und Geschäftsanforderungen stellen wir gemeinsam mit Ihnen sicher, dass Ihre Systeme effizient bleiben und langfristig erfolgreich arbeiten.​"
      - title: "Kompetenzaufbau und Schulung"
        icon: FaPersonCirclePlus
        description: "Gezielter Kompetenzaufbau und Schulungen befähigen Ihr Team, KI- und Data-Science-Technologien effektiv zu nutzen. Wir unterstützen Sie dabei, die nötigen Fähigkeiten zu entwickeln und sicherzustellen, dass Ihr Team stets auf dem neuesten Stand bleibt, um das volle Potenzial Ihrer Daten auszuschöpfen." 
      - title: "Kulturelle Integration und Veränderungsmanagement"
        icon: FaGlobe
-       description: "Um KI und Data Science erfolgreich zu verankern, ist die kulturelle Integration entscheidend. Durch Change-Eanagement fördern wir eine datengestützte Entscheidungsfindungskultur und begleiten Ihr Team dabei, sich auf neue Arbeitsweisen wohlwollend einzustellen und die Technologien nachhaltig in den Unternehmensalltag zu integrieren." 
+       description: "Um KI und Data Science erfolgreich zu verankern, ist die kulturelle Integration entscheidend. Durch Change-Management fördern wir eine datengestützte Entscheidungsfindungskultur und begleiten Ihr Team dabei, sich auf neue Arbeitsweisen einzustellen und die Technologien nachhaltig in den Unternehmensalltag zu integrieren." 
      
 customer_value:
   title: "Ihre Vorteile durch Künstliche Intelligenz & Data Science"
   image: "/images/Vorteile.png"
   description: ""
-  values: ["Lösungen für komplexe Probleme: KI und Data Science ermöglichen es Ihnen, hochkomplexe Geschäftsprobleme zu analysieren und innovative Lösungen zu entwickeln, die mit herkömmlichen Methoden nicht erreichbar wären.", "Präzise Vorhersagen: Treffen Sie fundierte Entscheidungen auf Basis von präzisen Vorhersagemodellen und datengetriebenen Einblicken, die zukünftige Trends und Entwicklungen abbilden.", "Erhöhte Mitarbeiterzufriedenheit:KI kann monotone, zeitaufwendige Aufgaben automatisieren, was Ihre Mitarbeiter entlastet und ihnen ermöglicht, sich auf wertschöpfende Tätigkeiten zu konzentrieren.", "Skalierbare Lösungen: KI-gestützte Systeme passen sich flexibel an wachsende Datenmengen und Geschäftsanforderungen an, sodass Sie Ihre Infrastruktur effizient und kostengünstig skalieren können."]  
+  values: ["Lösungen für komplexe Probleme: KI und Data Science ermöglichen es Ihnen, hochkomplexe Geschäftsprobleme zu analysieren und innovative Lösungen zu entwickeln, die mit herkömmlichen Methoden nicht erreichbar wären.", "Präzise Vorhersagen: Treffen Sie fundierte Entscheidungen auf Basis von präzisen Vorhersagemodellen und datengetriebenen Einblicken, die zukünftige Trends und Entwicklungen abbilden.", "Erhöhte Mitarbeiterzufriedenheit: KI kann monotone, zeitaufwendige Aufgaben automatisieren, was Ihre Mitarbeiter entlastet und ihnen ermöglicht, sich auf wertschöpfende Tätigkeiten zu konzentrieren.", "Skalierbare Lösungen: KI-gestützte Systeme passen sich flexibel an wachsende Datenmengen und Geschäftsanforderungen an, sodass Sie Ihre Infrastruktur effizient und kostengünstig skalieren können."]  
   button:
     enable: true
     label: "Kennenlernen"

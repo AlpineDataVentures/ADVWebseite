@@ -38,7 +38,7 @@ Ein weiterer wesentlicher Aspekt unserer Herangehensweise war die Sicherstellung
 
 ### Outcome
 
-Die Einführung des Data Meshes hat zu einer Reihe positiver Ergebnisse geführt, die das Unternehmen nachhaltig voranbringen. Durch die Dezentralisierung der Datenverantwortung konnten wir eine stärkere Autonomie und Eigenverantwortung in den einzelnen Domänen etablieren, was die Geschwindigkeit und Qualität der daten-getriebenen Entscheidungen erheblich verbessert hat. 
+Die Einführung des Data Meshes hat zu einer Reihe positiver Ergebnisse geführt, die das Unternehmen nachhaltig voranbringen. Durch die Dezentralisierung der Datenverantwortung konnten wir eine stärkere Autonomie und Eigenverantwortung in den einzelnen Domänen etablieren, was die Geschwindigkeit und Qualität der datengetriebenen Entscheidungen erheblich verbessert hat. 
 
 Die Datenexperten in den Domänen nutzen die implementierte Plattform nun effizient, was zu einer höheren Datenverfügbarkeit und besseren Datenqualität führt. Das Prinzip "Data as a Product" hat zudem dazu beigetragen, dass Daten konsequent als wertvolle Unternehmensressourcen betrachtet werden, die strategisch verwaltet und genutzt werden. 
 

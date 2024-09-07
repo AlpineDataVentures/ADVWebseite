@@ -1,6 +1,6 @@
 ---
 title: "So heben wir Ihren Datenschatz"
-description: "Unsere Lösungen heben Ihre Daten auf das nächste Level. Erfahren Sie hier, mit welchen innovativen Ansätzen wir Ihre Daten auf das nächste Level heben und in präzise Insights und strategische Vorteile verwandeln."
+description: "Unsere Lösungen bringen Ihre Daten auf ein neues Niveau. Entdecken Sie, wie wir mit innovativen Ansätzen Ihre Daten transformieren und in wertvolle Einblicke sowie strategische Vorteile umwandeln."
 
 # Services:
 services:
@@ -9,7 +9,7 @@ services:
     image: "/images/portfolio/Landing_slice01.jpg"
     link: "/strategy"
 
-  - title: "Data Culture"
+  - title: "Governance & Culture"
     description: "Eine starke Datenkultur und effektive Data Governance sind entscheidend für fundierte, datenbasierte Entscheidungen, steigern die Effizienz und sorgen so für Wettbewerbsvorteile."
     image: "/images/portfolio/Landing_slice02.jpg"
     link: "/culture"
@@ -30,7 +30,7 @@ services:
     link: "/datascience"
 
   - title: "Data Knowledge"
-    description: "Unsere maßgeschneiderten Seminare und Workshops bieten praxisnahes Lernen, während kontinuierliche Schulungen und eine aktuelle Wissensdatenbank das Know-how im Unternehmen sicher."
+    description: "Unsere maßgeschneiderten Seminare und Workshops bieten praxisnahes Lernen, während kontinuierliche Schulungen und eine aktuelle Wissensdatenbank das Know-how im Unternehmen sichern."
     image: "/images/portfolio/Landing_slice06.jpg"
     link: "/knowledge"
 
