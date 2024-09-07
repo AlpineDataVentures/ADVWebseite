@@ -14,8 +14,8 @@ const BLOG_FOLDER = "blog";
 
 const postIndex = await getEntry(BLOG_FOLDER, "-index");
 const posts = await getSinglePage(BLOG_FOLDER);
-const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories");
-const categories = await getTaxonomy(BLOG_FOLDER, "categories");
+const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories", true);
+const categories = await getTaxonomy(BLOG_FOLDER, "categories", true);
 const tags = await getTaxonomy(BLOG_FOLDER, "tags");
 const sortedPosts = sortByDate(posts);
 const totalPages: number = Math.ceil(posts.length / config.settings.pagination);
