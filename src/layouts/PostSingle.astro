@@ -61,7 +61,7 @@ const { title, description, author, categories, summary, image, date, tags } =
             {dateFormat(date)}
           </li>
         </ul>
-        <div class="content mb-10">
+        <div class="content mb-6">
           <Content />
         </div>
         <div class="row items-start justify-between">
@@ -83,7 +83,7 @@ const { title, description, author, categories, summary, image, date, tags } =
             </ul>
           </div>
           <div class="flex items-center lg:col-4">
-            <h5 class="mr-3">Share :</h5>
+            <h5 class="mr-3">Teilen:</h5>
             <Share
               className="social-icons"
               title={title}
@@ -92,8 +92,10 @@ const { title, description, author, categories, summary, image, date, tags } =
             />
           </div>
         </div>
-        <Disqus className="mt-20" client:load />
       </article>
+      <div class="mt-10 lg:col-3 flex justify-center">
+        <a href="/blog" class="btn btn-outline-primary">Zurück zum Blog</a>
+      </div>
     </div>
 
     <!-- Related posts -->
