@@ -7,6 +7,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { FaCheck } from "react-icons/fa";
 import CallToAction from "@/partials/CallToAction.astro";
+import Social from "@/components/Social.astro";
 
 const team = await getEntry("team", "-index");
 const COLLECTION_FOLDER = "authors";
@@ -73,6 +74,10 @@ const { title, description, meta_title, image } = team.data;
                   </li>
                 ))}
               </ul>
+              <div class="mt-8 flex items-center lg:col-6">
+                <h5 class="mr-3">Kontakt:</h5>
+                <Social source={author.data.social} className="social-icons" />
+              </div>
             </div>
           </div>
         </div>
