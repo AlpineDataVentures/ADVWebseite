@@ -13,7 +13,7 @@ banner:
 # Features
 features:
   - title: "ADV - Unser Anspruch"
-    image: "/images/team_feature.png"
+    image: "/images/OurVision.png"
     content: "Wir bei Alpine Data Ventures kombinieren unsere langjährige Erfahrung in Vertrieb, Datenstrategie, IT-Architektur und Data Science, um maßgeschneiderte Lösungen für unsere Kunden zu entwickeln. Mit unserer Leidenschaft für Daten unterstützen wir Unternehmen dabei, datengestützte Entscheidungen zu treffen und nachhaltiges Wachstum zu erreichen."
     bulletpoints:
     button:
