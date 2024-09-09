@@ -1,36 +1,49 @@
 ---
-title: "IT-Strategie"
-meta_title: "IT-Strategie"
+title: "Pricing-Automatisierung mit Machine Learning und Aufbau BI Landschaft"
+meta_title: "Pricing-Automatisierung mit Machine Learning und Aufbau BI Landschaft"
 image: "/images/team_feature.png"
 draft: false
-summary: "Hier fehlt noch eine Zusammenfassung für die Übersichtsseite"
+summary: "Mit der Entwicklung einer automatisierten Bepreisungs-Engine und der Integration einer flexiblen Business Intelligence-Lösung haben wir für unser Unternehmen eine zukunftssichere Grundlage geschaffen, die datengetriebene Entscheidungen einfach macht. Dank Marktanalysen und optimierter Preisstrategien konnte die Wettbewerbsfähigkeit nachhaltig gestärkt werden. Entdecken Sie, wie diese innovative Lösung maßgeschneiderte Ergebnisse liefert und langfristige strategische Vorteile bietet."
 ---
 
 ### Ausgangssituation
 
-Der Kunde ist ein mittelständisches Unternehmen mit einer fast 100-jährigen Firmengeschichte. Bis zum Anbruch von Corona gab es ausschließlich florierende Wirtschaftsjahre. Corona hat den Kunden vor enorme Herausforderungen gestellt.
-Durch den schnellen Wandel und die geänderten Anforderungen des Markts musste nun ein höherer Grad an Formalisierung etabliert werden. Der Kunde hat sowohl eine Unternehmensstrategie etabliert als auch daraus abgeleitet den Bedarf gesehen, eine IT-Strategie zu implementieren. Die große Anzahl an Herausforderungen in der IT und die steigende Komplexität der Themen lasten die IT-Abteilung unter Anleitung des CIO’s enorm aus, wodurch gezielte Strategiearbeit erschwert wurde.
+Das Unternehmen erkannte den Bedarf an einer skalierbaren und präzisen Bepreisungsstrategie. Die bisher manuelle Vorgehensweise war fehleranfällig, zeitaufwendig und konnte nur bedingt externe Einflussfaktoren berücksichtigen. Zusätzlich fehlten der Geschäftsführung umfassende Einblicke in das Marktgeschehen und Wettbewerber, um fundierte Entscheidungen in Echtzeit treffen zu können.
+Vor diesem Hintergrund wurde entschieden, Machine Learning-Modelle zur Automatisierung der Opportunity-Bepreisung einzusetzen und gleichzeitig eine integrierte BI-Landschaft zu schaffen, die sowohl Wettbewerbsanalysen als auch detaillierte Unternehmensdaten in Echtzeit zugänglich macht.
 
 ### Herausforderung
-Es blieb sehr wenig Zeit bis eine greifbare und umsetzbare IT-Strategie, welche nicht nur im Elfenbeinturm entwickelt wird, eingeführt werden musste. Zudem gab es einige blinde Flecken, zu wenig Zeit für ausführliche Konzeptarbeit und Budgetrestriktionen. Der Kunde selbst hatte wenig Zeit für die Mitwirkung an der Strategie. Es gibt eine Vielzahl diverser Business Funktionen, die maßgebliche Anforderungen an die IT der Zukunft des Kunden haben.
+Das Projekt brachte mehrere Herausforderungen mit sich:
+
+Datenkomplexität: Die Datenbasis des Unternehmens musste nicht nur analysiert, sondern auch mit externen Umweltfaktoren angereichert werden, um die Genauigkeit des Machine Learning Modells sicherzustellen.
+Technische Integration: Der Aufbau einer konsistenten BI-Landschaft und die Integration der verschiedenen Komponenten, wie Machine Learning Modelle, Datenpipelines und User-Interfaces, mussten reibungslos erfolgen.
+Benutzerfreundlichkeit: Es war uns besonders wichtig, eine intuitive und benutzerfreundliche Oberfläche zu schaffen, die dem Fachbereich ermöglicht, das System nahtlos zu steuern.
+Datenmanagement und Governance: Die Sicherstellung der Datenqualität und Einhaltung internationaler Data Governance-Standards war essenziell für den langfristigen Erfolg der Lösung.
 
 ### Projektscope:
-2 Monate
+1,5 Jahre
+
+Der Projektscope umfasste:
+
+Entwicklung einer automatisierten Bepreisungs-Engine auf Basis von Machine Learning Modellen, die historische Unternehmensdaten und externe Umweltfaktoren verwendet.
+Aufbau einer Business Intelligence Applikation zur Unterstützung der Geschäftsführung in der Entscheidungsfindung und Marktanalyse.
+Bereitstellung eines Wettbewerbs-Cockpits, um eine vollständige Marktübersicht und Wettbewerbsanalysen für den deutschen Raum zu ermöglichen.
+Erstellung einer benutzerfreundlichen Web-Eingabemaske für den Fachbereich zur Steuerung der Engine.
+Entwicklung automatisierter Datenpipelines zur kontinuierlichen Verbesserung des Machine Learning Modells.
 
 ### Herangehensweise
-Wir haben zusammen mit dem Kunden einen Strategy as a Journey Ansatz gewählt, welcher Prinzipien orientiert vornehms dem Business und den Mitarbeitern ausreichend Halt gibt und ein Big Picture aufzeigt, worauf sich alle committen können. Wir haben zunächst die Organisation interviewed und mittels verschiedenen Workshop-Formaten das vorhandene Wissen, die Herausforderungen und Anforderungen der mittelbaren, wie unmittelbaren Kunden extrahiert.
-Diese haben wir auf ein greifbares Aggregationsniveau gehoben und in Business-IT-Alignment fähige Sprache und Modelle überführt. Nach ausführlicher IST-Analyse haben wir die Teilstrategien der IT-Strategie tiefergelegt, unter Berücksichtigung der Ungewissheiten wie Kapazitäten, Unternehmensstrategie und Marktveränderungen Modelle und Prinzipien entworfen, die für den Kunden umsetzbar sind und zuletzt Ziele, Maßnahmen und eine Roadmap abgeleitet, welche mit den strategischen Zielen des Kunden einhergehen und darauf einzahlen.
+Um den Projekterfolg sicherzustellen, verfolgten wir einen agilen Ansatz, bei dem die regelmäßige Abstimmung mit der Geschäftsführung und den Fachbereichen im Vordergrund stand. Die wichtigsten Schritte waren:
 
-Da der Kunde bislang weder aktive Strategiearbeit noch ein Business-Controlling sowie IT-Controlling betreibt, haben wir eine einfache Balanced Score Card gewählt, um die Ziel-gesteuerte Arbeitsweise leicht einzuführen.
-Wir konnten die Teilstrategien Infrastruktur-Strategie, Applikationsstrategie und Datenstrategie umstandsbedingt nicht auf eine Tiefe legen, bei jener alles 3 Jahre im Voraus planbar und umsetzbar ist, dennoch haben wir es geschafft, greifbare Prinzipien für kommende Entscheidungen abzuleiten, erste grundlegende Architekturentscheidungen zu treffen und Projekte zur weiteren Tieferlegung als Perspektive abzuleiten, welche die Strategie binnen 6 – 12 Monaten um einen weiteren Detailgrad greifbarer macht.
+Datenanalyse und Modellentwicklung: Zu Beginn des Projekts führten wir eine umfangreiche Analyse der historischen Unternehmensdaten durch. Diese Daten wurden mit externen Umweltfaktoren (z.B. wirtschaftliche Trends, Marktdaten) angereichert, um die Modelle so präzise wie möglich zu gestalten.
+
+Unter Verwendung von Python und speziellen Machine Learning Frameworks entwickelten wir eine Bepreisungs-Engine, die autonom und kontinuierlich durch historische Daten trainiert wird und sich dynamisch an Marktentwicklungen anpasst.
+
+Aufbau der BI-Landschaft: Parallel zur Modellentwicklung haben wir eine umfassende BI-Landschaft unter Einsatz von Qlik aufgebaut. Diese BI-Lösung ermöglichte der Geschäftsführung einen schnellen Zugang zu Dashboards, die sowohl historische als auch aktuelle Daten visualisieren. Außerdem wurde ein Wettbewerbs-Cockpit entwickelt, das eine vollständige Analyse aller Wettbewerber im deutschen Markt bietet.
+
+Technische Implementierung: Wir entwickelten eine Web-Eingabemaske, die es dem Fachbereich ermöglichte, auf einfache Weise mit der Bepreisungs-Engine zu interagieren. Dabei legten wir besonderen Wert auf eine intuitive Benutzerführung und ein robustes Berechtigungskonzept, das den Zugriff auf sensible Daten regelt.
+
+Datenarchitektur und Governance: Es wurde eine interaktive Datenbankstruktur implementiert, die durch automatisierte Datenpipelines kontinuierlich Daten sammelt und verarbeitet. Dies stellte sicher, dass das Machine Learning Modell laufend aktualisiert und verbessert wird, während gleichzeitig internationale Data Governance Standards eingehalten wurden.
 
 ### Outcome
-Wir haben für den Kunden ein ausführliches, lebendiges und sehr konkret greifbares Strategiedokument erarbeitet. Zudem haben wir eine Version für alle Mitarbeiter und eine Management Summary als Präsentation erarbeitet, um die Ergebnisse und weiteren Maßnahmen, sowie Prinzipien und Grundsätze, allen gleichermaßen auf Augenhöhe zu präsentieren. 
+Das Projekt wurde von der Geschäftsführung als großer Erfolg gewertet. Die implementierte Lösung bietet nicht nur eine solide und zukunftssichere Basis für datengetriebene Entscheidungen, sondern schafft zugleich ein hohes Maß an Transparenz und Vertrauen im gesamten Unternehmen. Besonders das Competitor-Cockpit und die Business Intelligence-Anwendung haben sich als zentrale Werkzeuge erwiesen, da sie der Geschäftsführung nun tiefgehende Marktanalysen auf einen Blick ermöglichen.
 
-Zusammen mit dem Strategy as a Journey Ansatz haben wir ein Quartals-Town-Hall etabliert, in jenem die weiteren Entwicklungen der IT-Strategie der Organisation präsentiert werden.
-Zudem haben wir begonnen einfaches Enterprise Architecture Management einzuführen, um alle Architektur Perspektiven der Soll-Architektur strukturiert abzubilden und allen durch interaktive Live-Ansichten einen Entwicklungsstand kommunizieren zu können.
-
-Mittels einer interaktiven Roadmap (abgebildet in MS Project) hat jeder Mitarbeiter jederzeit einen Einblick in die bevorstehenden und laufenden Projektvorhaben, sodass der Großteil an Kommunikation zu Unsicherheiten hierzu eingespart werden konnte. Diese Transparenz schafft Zusammenhalt und Sicherheit in der gesamten Belegschaft, was wiederum zu höherer Zufriedenheit und Mitarbeiter-Bindung führt.
-
-> Kundenstimme:
-  CIO - „Sehr geil! Endlich haben wir ein ordentliches Rahmenwerk, an dem sich alle orientieren können und welches umsetzbar ist. Kein Dokument, das für 3 Jahre in der Schublade verschwindet. So kann ich endlich gut arbeiten!“
+Durch den Einsatz modernster Machine Learning-Modelle und die Integration einer flexiblen BI-Landschaft konnte eine Lösung geschaffen werden, die dem Unternehmen sowohl kurzfristig als auch langfristig strategische Vorteile bietet. Die Fähigkeit, Preisentscheidungen auf Grundlage von Echtzeitdaten und umfassenden Marktanalysen zu treffen, verschaffte dem Unternehmen einen erheblichen Wettbewerbsvorteil. Insbesondere die deutlich verbesserte Bepreisungsgenauigkeit, die durch die Kombination historischer Unternehmensdaten mit externen Faktoren erreicht wurde, ermöglichte präzisere und marktorientierte Preisstrategien.
