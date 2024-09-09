@@ -25,7 +25,7 @@ E-Mail: <a href="mailto:info@alpinedata.de">info(at)alpinedata.de</a> <br>
 Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
 </p>
 
-#### Geschäftsführerer
+#### Geschäftsführer
   <p>
     Dr. Carsten Hof<br>
     Andreas Klostermann<br>
