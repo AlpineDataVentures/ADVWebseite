@@ -21,7 +21,7 @@ Die Idee zur Gründung der ADV wird während einer spontanen, aber schicksalhaft
 
 Ihr kollaborativer Ansatz erregt schnell die Aufmerksamkeit weiterer Mittelständler. Kunden sind beeindruckt davon, wie nahtlos die unterschiedlichen Fähigkeiten des Teams - Andys Verkaufsgeschick, Bens Fachwissen in Sachen Datenstrategie, Carstens technisches Können und Julians Talent im Bereich Business Intelligence - zusammenkommen, um ihre Projekte voranzutreiben.  
 
-Die vier Gründer erkennen das Potenzial ihrer Zusammenarbeit und beschließen, aus der einmaligen Zusammenarbeit ein Unternehmen zu machen, das mittelständischen Unternehmen dabei helfen soll, das volle Potenzial ihrer Datenbestände zu erschließen und die Kraft daten-gestützter Entscheidungsfindung nutzbar zu machen 
+Die vier Gründer erkennen das Potenzial ihrer Zusammenarbeit und beschließen, aus der einmaligen Zusammenarbeit ein Unternehmen zu machen, das mittelständischen Unternehmen dabei helfen soll, das volle Potenzial ihrer Datenbestände zu erschließen und die Kraft datengestützter Entscheidungsfindung nutzbar zu machen 
 
 Ihre Vision ist einfach: Daten sollten so demokratisiert werden, dass jeder Kunde die Macht der Daten nutzen kann, um mit den Giganten zu konkurrieren. Die Robin Hoods der Daten, wenn man so will. 
 
@@ -45,7 +45,7 @@ Mit dem neuen Namen und einer klaren Mission machte sich das Team daran, die Dat
 
 Die Kernidee von Alpine Data Ventures ist es, den Kunden auf sie zugeschnittene Lösungen für ihre spezifischen Datenanforderungen zu bieten. Dank der vielfältigen Fähigkeiten der Gründer können die Datenprobleme ganzheitlich betrachtet und umfassende Strategien zur Lösung dieser Probleme entwickelt werden. 
 
-Was ADV heraushebt, ist ihr Ansatz, den sie „Skin in the Game“ nennen. Statt ein Konzept zu erstellen und danach wieder von Parkplatz zu rollen, bietet Alpine Data Ventures seinen Kunden an, sie während des gesamten Implementierungsprozesses zu begleiten. Durch diese praktische Beteiligung wird sichergestellt, dass die Lösungen effektiv ausgeführt und in den Geschäftsbetrieb integriert werden. Auf diese Weise wird ein echtes Engagement für den nachhaltigen Einfluss auf den Erfolg ihrer Kunden geboten. Mit diesem Ansatz werden nicht nur unmittelbare Datenprobleme gelöst, sondern auch Unternehmen in die Lage versetzt, langfristig erfolgreich zu sein. 
+Was ADV heraushebt, ist ihr Ansatz, den sie „Skin in the Game“ nennen. Statt ein Konzept zu erstellen und danach wieder von Parkplatz zu rollen, bietet Alpine Data Ventures seinen Kunden an, Sie während des gesamten Implementierungsprozesses zu begleiten. Durch diese praktische Beteiligung wird sichergestellt, dass die Lösungen effektiv ausgeführt und in den Geschäftsbetrieb integriert werden. Auf diese Weise wird ein echtes Engagement für den nachhaltigen Einfluss auf den Erfolg ihrer Kunden geboten. Mit diesem Ansatz werden nicht nur unmittelbare Datenprobleme gelöst, sondern auch Unternehmen in die Lage versetzt, langfristig erfolgreich zu sein. 
 
 ### Ein Blick in die Zukunft 
 Alpine Data Ventures hat sich zum Ziel gesetzt, die Landschaft des Mittelstandes zu verändern und sie zu Data Champions zu machen. Ihr Augenmerk liegt darauf, diese Unternehmen dabei zu unterstützen, die Macht der Daten zu nutzen, um Wachstum und Innovation voranzutreiben. Durch die Bereitstellung individueller, praxisnaher Lösungen und die intensive Einbindung in den Implementierungsprozess hilft ADV Unternehmen dabei, ihr volles Potenzial auszuschöpfen. 

@@ -18,25 +18,25 @@ subsections:
        description: "Wir führen eine umfassende Analyse Ihrer bestehenden Datenquellen, Tools und Prozesse durch und identifizieren Optimierungspotenziale sowie notwendige Schritte zur Verbesserung Ihrer BI- und Analytics-Kompetenzen."  
      - title: "Definition der Infrastruktur"
        icon: FaRoadBridge
-       description: "Basierend auf der Analyse entwickeln wir ein BI-Framework, das die richtige Infrastruktur, die passenden Analysetools und klar definierte Rollen und Prozesse umfasst, um Ihre Daten effektiv zu nutzen."  
+       description: "Wir entwickeln ein BI-Framework, das die richtige Infrastruktur, die passenden Analysetools und klar definierte Rollen und Prozesse umfasst, um Ihre Daten effektiv zu nutzen."  
    - title: "Realisieren des Business Intelligence Konzeptes​"
      description: "Nachdem die BI-Strategie definiert ist, begleiten wir Sie aktiv bei der Umsetzung. Dies umfasst die Implementierung, präzise Planung der benötigten Ressourcen, die Einführung neuer Technologien und Tools sowie die gezielte Weiterentwicklung Ihres Teams, um die erforderlichen Fähigkeiten zu etablieren."
      tasks: 
      - title: "Reporting und Dashboarding"
        icon: FaChartColumn
-       description: "Wir erstellen maßgeschneiderte Dashboards und Berichte, die Ihnen helfen, Ihre KPIs und Geschäftskennzahlen in Echtzeit zu überwachen und schneller auf Veränderungen zu reagieren. Für Unternehmen, die noch weiter gehen möchten, bieten wir ebenfalls fortgeschrittene Analysemethoden wie Predictive Analytics, Machine Learning und Künstlicher Intelligenz.​"
+       description: "Wir erstellen maßgeschneiderte Dashboards und Berichte, die Ihnen helfen, Ihre KPIs und Geschäftskennzahlen in Echtzeit zu überwachen und schneller auf Veränderungen zu reagieren. Für Unternehmen, die noch weiter gehen möchten, bieten wir ebenfalls fortgeschrittene Analysemethoden wie Predictive Analytics, Machine Learning und Künstliche Intelligenz.​"
      - title: "Stärkung von BI-Kompetenzen"
        icon: FaPersonCirclePlus
-       description: "Wir identifizieren die spezifischen Kompetenzen und Ressourcen, die für den Erfolg Ihrer BI- und Analytics-Projekte erforderlich sind. Anschließend unterstützen wir Sie bei der gezielten Change Management, Schulung und Entwicklung Ihrer Mitarbeiter, um sicherzustellen, dass Ihr Team bestens gerüstet ist." 
+       description: "Wir identifizieren die spezifischen Kompetenzen und Ressourcen, die für den Erfolg Ihrer BI- und Analytics-Projekte erforderlich sind. Anschließend unterstützen wir Sie bei der gezielten Schulung und Entwicklung Ihrer Mitarbeiter, um sicherzustellen, dass Ihr Team bestens gerüstet ist." 
      - title: "Datenqualitätssicherung, Datensicherheit und Compliance"
        icon: FaHeartCircleCheck
-       description: "Ein zentrales Element erfolgreicher BI-Projekte ist die Sicherstellung einer hohen Datenqualität. Wir helfen Ihnen dabei, Prozesse zur kontinuierlichen Überprüfung und Verbesserung der Datenqualität zu implementierenund unterstützen sie bei der Implementierung von Sicherheitsmaßnahmen und der Einhaltung gesetzlicher Vorschriften." 
+       description: "Ein zentrales Element erfolgreicher BI-Projekte ist die Sicherstellung einer hohen Datenqualität. Wir helfen Ihnen dabei, Prozesse zur kontinuierlichen Überprüfung und Verbesserung der Datenqualität zu implementieren. Dazu unterstützen wir sie bei der Implementierung von Sicherheitsmaßnahmen und der Einhaltung gesetzlicher Vorschriften." 
      
 customer_value:
   title: "Ihre Vorteile durch Business Intelligence und Analytics"
   image: "/images/Vorteile.png"
   description: ""
-  values: ["Fundierte Entscheidungen: Treffen Sie bessere Entscheidungen durch den Zugang zu tiefgehenden Analysen und präzisen Daten", "Zukunftsorientierte Einblicke: Nutzen Sie Analysen, um Trends frühzeitig zu erkennen und strategische Chancen zu identifizieren und sich so einen Vorsprung gegenüber der Konkurrenz verschaffen", "Risikominimierung: Identifizieren Sie potenzielle Risiken frühzeitig durch präzise Datenanalysen und treffen Sie proaktive Maßnahmen, um negative Auswirkungen auf Ihr Geschäft zu minimieren.", "Innovationsförderung: Nutzen Sie Daten, um neue Geschäftsmöglichkeiten zu entdecken, Produkte zu verbessern und innovative Lösungen zu entwickeln, die Ihrem Unternehmen helfen, kontinuierlich zu wachsen."]  
+  values: ["Fundierte Entscheidungen: Treffen Sie bessere Entscheidungen durch den Zugang zu tiefergehenden Analysen und präzisen Daten", "Zukunftsorientierte Einblicke: Nutzen Sie Analysen, um Trends frühzeitig zu erkennen, strategische Chancen zu identifizieren und sich so einen Vorsprung gegenüber der Konkurrenz verschaffen", "Risikominimierung: Identifizieren Sie potenzielle Risiken frühzeitig durch präzise Datenanalysen und treffen Sie proaktive Maßnahmen, um negative Auswirkungen auf Ihr Geschäft zu minimieren.", "Innovationsförderung: Nutzen Sie Daten, um neue Geschäftsmöglichkeiten zu entdecken, Produkte zu verbessern und innovative Lösungen zu entwickeln, die Ihrem Unternehmen helfen, kontinuierlich zu wachsen."]  
   button:
     enable: true
     label: "Kennenlernen"

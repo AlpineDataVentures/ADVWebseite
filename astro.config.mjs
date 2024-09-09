@@ -19,18 +19,10 @@ export default defineConfig({
     tailwind({
       filter: (page) =>
         page !== 'https://alpinedata.de/categories' &&
-        page !== 'https://alpinedata.de/categories/application' &&
-        page !== 'https://alpinedata.de/categories/architecture' &&
-        page !== 'https://alpinedata.de/categories/data' &&
-        page !== 'https://alpinedata.de/categories/software' &&
-        page !== 'https://alpinedata.de/categories/technology' &&
+        page !== 'https://alpinedata.de/categories/*' &&
         page !== 'https://alpinedata.de/elements' &&
         page !== 'https://alpinedata.de/tags' &&
-        page !== 'https://alpinedata.de/tags/nextjs' &&
-        page !== 'https://alpinedata.de/tags/silicon' &&
-        page !== 'https://alpinedata.de/tags/software' &&
-        page !== 'https://alpinedata.de/tags/tailwind' &&
-        page !== 'https://alpinedata.de/tags/technology',
+        page !== 'https://alpinedata.de/tags/*'
     }),
     tailwind({
       config: {

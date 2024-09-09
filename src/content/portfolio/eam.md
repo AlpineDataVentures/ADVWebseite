@@ -1,6 +1,6 @@
 ---
 title: "Enterprise Architecture Management"
-title_image: "/images/portfolio/Artificial Intelligence.png"
+title_image: "/images/portfolio/EAM.png"
 meta_title: "Enterprise Architecture Management"
 description: "Enterprise Architecture Management (EAM) gewährleistet, dass Ihre IT-Systeme effizient zusammenarbeiten, flexibel bleiben und langfristig den Unternehmenszielen dienen. EAM unterstützt den kontinuierlichen Abgleich von Technologie und Geschäftsstrategie, um sicherzustellen, dass Ihre IT-Infrastruktur anpassungsfähig und zukunftssicher ist."
 image: ""
