@@ -30,7 +30,7 @@ Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
     Dr. Carsten Hof<br>
     Andreas Klostermann<br>
     Julian Koller<br>
-    Ben Diez<br>    
+    Benjamin Diez<br>    
   </p>
 
 #### Registernummer 
