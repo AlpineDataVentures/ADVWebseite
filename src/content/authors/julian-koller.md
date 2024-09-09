@@ -3,7 +3,7 @@ title: Julian Koller
 email: julian.koller@alpinedata.de
 image: "/images/authors/JulianKoller.jpg"
 description: "Julian Koller - Experte für Data Science und Business Intelligence"
-bullet_points: ["Datenexperte und -stratege", "Verdient sein Haupteinkommen beim Schafkopf", "Spezialist für datengestützte Entscheidungsfindung", "Mathematik ist die Sprache der Logik"]
+bullet_points: ["Datenexperte und -stratege", "Innovationsdrang gepaart mit kreativem Denken", "Spezialist für datengestützte Entscheidungsfindung", "Verdient sein Haupteinkommen beim Schafkopf"]
 social:
   - name: linkedin
     icon: FaLinkedin
