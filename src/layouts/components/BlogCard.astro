@@ -53,7 +53,9 @@ const { title, image, date, author, categories, summary } = data.data;
     </li>
     {date && <li class="inline-block">{dateFormat(date)}</li>}
   </ul>
-  <p class="mb-6">{plainify(summary?.slice(0, Number(summary_length)))}</p>
+  <p class="mb-6 text-justify">
+    {plainify(summary?.slice(0, Number(summary_length)))}
+  </p>
   <a
     class="btn btn-outline-primary btn-sm"
     href={`/${blog_folder}/${data.slug}`}

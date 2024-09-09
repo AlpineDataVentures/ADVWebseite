@@ -87,7 +87,7 @@ const latestPosts = posts
         <div class="section pb-0">
           <div class="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
             <h2 set:html={markdownify(cards.data.title)} class="mb-4" />
-            <p set:html={markdownify(cards.data.description)} />
+            <p set:html={markdownify(cards.data.description)} class="text-lg" />
           </div>
           <div class="row justify-center">
             {
