@@ -3,7 +3,7 @@ title: "Andreas Klostermann"
 email: andreas.klostermann@alpinedata.de
 image: "/images/authors/AndreasKlostermann.jpg"
 description: "Andreas Klostermann - Unternehmer, Spezialist für Vertriebs- und Unternehmensstrategie"
-bullet_points: ["Vertriebsgenie", "Immer für ein Bier zu haben", "Unternehmensstratege", "Es gibt kein DataMesh das ich nicht persönlich kenne"]
+bullet_points: ["Vertriebsgenie", "Immer für ein Bier zu haben", "Unternehmensstratege", "Es gibt keine Herausforderung, die ihm zu groß ist - außer Bügeln"]
 social:
   - name: linkedin
     icon: FaLinkedin
