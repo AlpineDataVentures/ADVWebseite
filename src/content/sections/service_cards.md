@@ -31,7 +31,7 @@ services:
 
   - title: "Data Knowledge"
     description: "Unsere maßgeschneiderten Seminare und Workshops bieten praxisnahes Lernen, während kontinuierliche Schulungen und eine aktuelle Wissensdatenbank das Know-how im Unternehmen sichern."
-    image: "/images/portfolio/Landing_slice06.jpg"
+    image: "/images/portfolio/strategy_slice02.jpg"
     link: "/knowledge"
 
   - title: "Data Operations"
