@@ -3,7 +3,7 @@ title: "Einführung eines Data Meshs"
 meta_title: "Einführung eines Data Mesh Ansatzes bei einem FMCG-Unternehmen"
 image: "/images/casestudies/OfficeMountain.png"
 draft: false
-summary: "Ein FMCG-Unternehmen aus Süddeutschland steigerte durch unseren Data Mesh Ansatz die Effizienz und Datenqualität erheblich. Mit Databricks, gezielten Schulungen und dezentraler Datenverantwortung konnten wir die Dateninfrastruktur transformieren und bessere, schnellere Entscheidungen ermöglichen"
+summary: "Ein FMCG-Unternehmen aus Süddeutschland steigerte durch unseren Data Mesh Ansatz die Effizienz und Datenqualität erheblich. Mit Databricks, gezielten Schulungen und dezentraler Datenverantwortung konnten wir die Dateninfrastruktur transformieren und bessere, schnellere Entscheidungen ermöglichen."
 ---
 
 ### Ausgangssituation
