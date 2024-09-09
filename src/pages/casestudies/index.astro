@@ -40,7 +40,7 @@ const casestudies = await getSinglePage(CASE_STUDY_FOLDER);
               <h2 set:html={markdownify(casestudy.data.title)} class="mb-4" />
               <p
                 set:html={markdownify(casestudy.data.summary)}
-                class="mb-8 text-lg"
+                class="mb-8 text-lg text-justify"
               />
               <a
                 class="btn btn-outline-primary btn-sm"
