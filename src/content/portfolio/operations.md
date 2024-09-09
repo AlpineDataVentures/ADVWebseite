@@ -32,10 +32,10 @@ subsections:
        icon: FaUsersGear
        description: "Indem sie einen Finger am Puls Ihrer Daten haben, brechen sie Silos zwischen Teams auf und fördern eine enge Zusammenarbeit zwischen Fachabteilungen, Entwicklern und IT-Teams, was so laufend die Prozesseffizienz und Innovationskultur fördert.​"
 customer_value:
-  title: "Ihre Vorteile einer Datenstrategie"
+  title: "Ihre Vorteile gut geführter Data Operations"
   image: "/images/Vorteile.png"
   description: ""
-  values: ["Zuverlässige Datenverarbeitung: Stellen Sie sicher, dass Ihre Dateninfrastruktur stets stabil und leistungsfähig bleibt, um zuverlässige Geschäftsergebnisse zu gewährleisten.", "Schnelle Problemerkennung: Erkennen und beheben Sie Probleme in Ihrer Dateninfrastruktur frühzeitig, bevor sie zu größeren Ausfällen führen.", "Kontinuierliche Verbesserung: Fördern Sie eine Kultur der kontinuierlichen Verbesserung, um Ihre DataOps-Prozesse stets auf dem neuesten Stand zu halten", "Skalierbare Prozesse: Passen Sie Ihre Datenverarbeitungsprozesse flexibel an wachsende Anforderungen an, ohne die Effizienz zu beeinträchtigen."]  
+  values: ["Datenbasierte Entscheidungsfindung: DataOps stellt sicher, dass stets qualitativ hochwertige und aktuelle Daten zur Verfügung stehen. Dies ermöglicht es Unternehmen, fundierte, datenbasierte Entscheidungen zu treffen und Risiken zu minimieren.", "Effizientere Zusammenarbeit: DataOps fördert eine enge Zusammenarbeit zwischen Datenwissenschaftlern, IT-Teams und Entwicklern, indem es Silos aufbricht und gemeinsame Workflows schafft.", "Verbesserte Skalierbarkeit: Mit einem durchdachten DataOps-Ansatz lassen sich Datenprozesse flexibel und skalierbar gestalten, sodass Unternehmen effizient auf steigende Datenmengen und neue Anforderungen reagieren können, ohne ihre Systeme zu überlasten.", "Höhere Datenqualität: Durch automatisierte Tests und kontinuierliche Überwachung sorgt DataOps für konsistente Datenqualität. Fehler und Unstimmigkeiten werden frühzeitig erkannt und behoben, was zu zuverlässigeren Analysen und Entscheidungsgrundlagen führt."]  
   button:
     enable: true
     label: "Kennenlernen"
