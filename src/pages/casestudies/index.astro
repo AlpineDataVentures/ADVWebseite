@@ -22,7 +22,7 @@ const casestudies = await getSinglePage(CASE_STUDY_FOLDER);
 
   {
     casestudies.map((casestudy, index: number) => (
-      <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
+      <section class={`section-sm ${index % 2 === 1 && "bg-gradient"}`}>
         <div class="container">
           <div class="row items-center justify-between">
             <div
