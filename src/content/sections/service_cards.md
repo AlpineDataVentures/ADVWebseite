@@ -40,7 +40,7 @@ services:
     link: "/operations"
 
   - title: "Enterprise Architecture"
-    description: "Enterprise Architecture Management unterstützt den kontinuierlichen Abgleich von Technologie und Geschäftsstrategie, um sicherzustellen, dass Ihre IT-Infrastruktur anpassungsfähig und zukunftssicher ist."
+    description: "Enterprise Architecture Management unterstützt den kontinuierlichen Abgleich von Technologie und Geschäftsstrategie, um sicherzustellen, dass Ihre IT anpassungsfähig & zukunftssicher ist."
     image: "/images/portfolio/strategy_slice04.jpg"
     link: "/eam"
 ---
