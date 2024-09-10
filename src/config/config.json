@@ -32,7 +32,7 @@
   "navigation_button": {
     "enable": false,
     "label": "Get Started",
-    "link": "https://alpinedata.de"
+    "link": "https://alpinedata.de/"
   },
   "disqus": {
     "enable": false,

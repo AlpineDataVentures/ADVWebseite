@@ -18,10 +18,10 @@ export default defineConfig({
     sitemap(),
     tailwind({
       filter: (page) =>
-        page !== 'https://alpinedata.de/categories' &&
-        page !== 'https://alpinedata.de/categories/*' &&
-        page !== 'https://alpinedata.de/tags' &&
-        page !== 'https://alpinedata.de/tags/*'
+        page !== 'https://alpinedata.de/authors/' &&
+        page !== 'https://alpinedata.de/categories/' &&
+        page !== 'https://alpinedata.de/contact/' &&
+        page !== 'https://alpinedata.de/tags/'
     }),
     tailwind({
       config: {
