@@ -49,7 +49,7 @@ const {
   image_alt,
   image_width,
   image_height,
-  noindex,
+  noindex = false,
   canonical,
 } = Astro.props;
 ---
@@ -143,7 +143,7 @@ const {
       )
     }
     {
-      process.env.CONTEXT === "production" && !noindex && noindex == false && (
+      process.env.CONTEXT === "production" && !noindex && (
         <meta name="robots" content="index,follow" />
       )
     }
