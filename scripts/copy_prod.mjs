@@ -13,11 +13,3 @@ unlink('./public/robot_prod.txt', (err) => {
   if (err) throw err;
   console.log('./public/robot_prod.txt was deleted');
 });
-unlink('./robot_branch.txt', (err) => {
-  if (err) throw err;
-  console.log('./robot_branch.txt was deleted');
-});
-unlink('./robot_prod.txt', (err) => {
-  if (err) throw err;
-  console.log('./robot_prod.txt was deleted');
-});
