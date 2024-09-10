@@ -8,7 +8,7 @@ banner:
   button:
     enable: true
     label: "Mehr erfahren!"
-    link: "/about"
+    link: "/about/"
 
 # Features
 features:
@@ -19,7 +19,7 @@ features:
     button:
       enable: true
       label: "Mehr über ADV!"
-      link: "/about"
+      link: "/about/"
 
   - title: "ADV - So arbeiten wir"
     image: "/images/casestudy_feature.jpg"
@@ -28,7 +28,7 @@ features:
     button:
       enable: true
       label: "Case Studies"
-      link: "/casestudies"
+      link: "/casestudies/"
 
   - title: "ADV - Das Team"
     image: "/images/team_feature.png"
@@ -37,6 +37,6 @@ features:
     button:
       enable: true
       label: "Mehr über uns!"
-      link: "/team"
+      link: "/team/"
 
 ---

@@ -11,7 +11,7 @@ social:
 
   - name: xing
     icon: FaXing
-    link: https://www.xing.com/profile/Carsten_Hof2
+    link: https://www.xing.com/profile/Carsten_Hof2/
 
   - name: linkedin
     icon: FaLinkedin
