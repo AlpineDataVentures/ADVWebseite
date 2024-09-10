@@ -30,7 +30,7 @@ Bei Fragen zu unserem Datenschutz nehmen Sie bitte mit unserem Datenschutzbeauft
 
 ### Zugriffsdaten
 
-Wir, die Hof IT-Beratung GmbH, erheben Daten nur auf Grund unseres berechtigten Interesses (s. Art. 6 Abs. 1 lit. f. DSGVO). So werden beispielsweise sog. Server-Logs von unserem Web-Seiten-Host aus Sicherheitsgründen erhoben, um z. B. Missbrauchsfälle aufklären zu können. Müssen Daten aus Beweisgründen aufgehoben werden, sind sie solange von der Löschung ausgenommen bis der Vorfall endgültig geklärt ist.
+Wir, die Alpine Data Ventures GmbH i.Gr., erheben Daten nur auf Grund unseres berechtigten Interesses (s. Art. 6 Abs. 1 lit. f. DSGVO). So werden beispielsweise sog. Server-Logs von unserem Web-Seiten-Host aus Sicherheitsgründen erhoben, um z. B. Missbrauchsfälle aufklären zu können. Müssen Daten aus Beweisgründen aufgehoben werden, sind sie solange von der Löschung ausgenommen bis der Vorfall endgültig geklärt ist.
 
 ### Cookies
 
