@@ -11,45 +11,45 @@
       "children": [
         {
           "name": "Data Strategy",
-          "url": "/strategy"
+          "url": "/strategy/"
         },
         {
           "name": "Governance & Culture",
-          "url": "/culture"
+          "url": "/culture/"
         },
         {
           "name": "Data Architecture",
-          "url": "/architecture"
+          "url": "/architecture/"
         },
         {
           "name": "BI & Analytics",
-          "url": "/analytics"
+          "url": "/analytics/"
         },
         {
           "name": "AI & Data Science",
-          "url": "/datascience"
+          "url": "/datascience/"
         },
         {
           "name": "Data Knowledge",
-          "url": "/knowledge"
+          "url": "/knowledge/"
         },
         {
           "name": "Data Operations",
-          "url": "/operations"
+          "url": "/operations/"
         },
         {
           "name": "Enterprise Architecture",
-          "url": "/eam"
+          "url": "/eam/"
         }
       ]
     },
     {
       "name": "Case Studies",
-      "url": "/casestudies"
+      "url": "/casestudies/"
     },
     {
       "name": "Blog",
-      "url": "/blog"
+      "url": "/blog/"
     },
     {
       "name": "Über uns",
@@ -58,11 +58,11 @@
       "children": [
         {
           "name": "Unsere Philosophie",
-          "url": "/about"
+          "url": "/about/"
         },
         {
           "name": "Das Team",
-          "url": "/team"
+          "url": "/team/"
         }
       ]
     }
@@ -70,11 +70,11 @@
   "footer": [
     {
       "name": "Impressum",
-      "url": "/impressum"
+      "url": "/impressum/"
     },
     {
       "name": "Datenschutz",
-      "url": "/datenschutz"
+      "url": "/datenschutz/"
     }
   ]
 }

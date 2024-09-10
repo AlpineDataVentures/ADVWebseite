@@ -1,6 +1,6 @@
 ---
 title: "Data Operations"
-title_image: "/images/portfolio/DataOps.png"
+title_image: "/images/portfolio/DataOps.webp"
 meta_title: "Data Operations"
 description: "DataOps umfasst alle Prozesse, die notwendig sind, um Ihre Dateninfrastruktur reibungslos am Laufen zu halten und kontinuierlich zu optimieren."
 image: ""

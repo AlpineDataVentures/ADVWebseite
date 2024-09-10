@@ -40,7 +40,7 @@ const { title, description, author, categories, summary, image, date, tags } =
         <h1 set:html={markdownify(title)} class="h2 mb-4" />
         <ul class="mb-4">
           <li class="mr-4 inline-block">
-            <a href={`/authors/${slugify(author)}`}>
+            <a href={`/authors/${slugify(author)}/`}>
               <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
               {humanize(author)}
             </a>
@@ -49,7 +49,7 @@ const { title, description, author, categories, summary, image, date, tags } =
             <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
             {
               categories.map((category: string, index: number) => (
-                <a href={`/categories/${slugify(category)}`}>
+                <a href={`/categories/${slugify(category)}/`}>
                   {humanize(category)}
                   {index !== categories.length - 1 && ","}
                 </a>
@@ -73,7 +73,7 @@ const { title, description, author, categories, summary, image, date, tags } =
                   <li class="inline-block">
                     <a
                       class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark"
-                      href={`/tags/${slugify(tag)}`}
+                      href={`/tags/${slugify(tag)}/`}
                     >
                       {humanize(tag)}
                     </a>
@@ -94,7 +94,7 @@ const { title, description, author, categories, summary, image, date, tags } =
         </div>
       </article>
       <div class="mt-10 lg:col-3 flex justify-center">
-        <a href="/blog" class="btn btn-outline-primary">Zurück zum Blog</a>
+        <a href="/blog/" class="btn btn-outline-primary">Zurück zum Blog</a>
       </div>
     </div>
 

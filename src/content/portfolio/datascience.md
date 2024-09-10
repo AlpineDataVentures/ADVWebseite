@@ -1,6 +1,6 @@
 ---
 title: "Artificial Intelligence & Data Science"
-title_image: "/images/portfolio/Artificial Intelligence.png"
+title_image: "/images/portfolio/Artificial Intelligence.webp"
 meta_title: "Artificial Intelligence & Data Science"
 description: "Künstliche Intelligenz (KI) und Data Science eröffnen Ihnen die Möglichkeit, Ihre Unternehmensdaten auf völlig neue Weise zu nutzen. Durch fortschrittliche Algorithmen und datengestützte Modelle können Sie präzisere Vorhersagen treffen, komplexe Muster erkennen und so Ihre Geschäftsstrategien optimieren."
 image: ""

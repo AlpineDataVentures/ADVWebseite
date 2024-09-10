@@ -1,6 +1,6 @@
 ---
 title: "Data Strategy"
-title_image: "/images/portfolio/strategy_title_image_sm.png"
+title_image: "/images/portfolio/strategy_title_image_sm.webp"
 meta_title: "Data Strategy"
 description: "Die richtige Datenstrategie versetzt Sie in die Lage, Ihre Datenlandschaft zukunftsfähig zu machen, Mehrwert aus Ihren Daten zu generieren und potenzielle neue Geschäftsfelder zu entwickeln."
 image: ""
