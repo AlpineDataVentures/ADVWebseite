@@ -15,8 +15,7 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   integrations: [
     react(),
-    sitemap(),
-    tailwind({
+    sitemap({
       filter: (page) =>
         page !== 'https://alpinedata.de/authors/' &&
         page !== 'https://alpinedata.de/categories/' &&
