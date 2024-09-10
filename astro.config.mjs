@@ -20,7 +20,6 @@ export default defineConfig({
       filter: (page) =>
         page !== 'https://alpinedata.de/categories' &&
         page !== 'https://alpinedata.de/categories/*' &&
-        page !== 'https://alpinedata.de/elements' &&
         page !== 'https://alpinedata.de/tags' &&
         page !== 'https://alpinedata.de/tags/*'
     }),

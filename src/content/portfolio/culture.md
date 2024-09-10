@@ -5,10 +5,10 @@ meta_title: "Data Governance & Culture"
 description: "Damit Sie zuverlässige Entscheidungen treffen und ihr Unternehmen optimal vor Risiken schützen können, muss gewährleistet werden, dass Ihre Daten korrekt, sicher und gesetzeskonform sind"
 image: ""
 draft: false
-overview: ["Damit Sie zuverlässige Entscheidungen treffen und ihr Unternehmen optimal vor Risiken schützen können, muss gewährleistet werden, dass Ihre Daten korrekt, sicher und gesetzeskonform sind", "Eine Datenkultur etabliert ein datengesteuertes Umfeld, in dem fundierte Entscheidungen die Norm sind. Ihr Team wird so befähigt, auf der Grundlage von Erkenntnissen zu handeln und kontinuierliche Verbesserungen vorzunehmen.", "Eine starke Data Governance in Verbindung mit einer robusten Datenkultur verbessern die betriebliche Effizienz, fördern Innovationen und verschaffen Ihrem Unternehmen einen Wettbewerbsvorteil auf dem Markt gegenüber Unternehmen, die den Mehrwert von Daten noch nicht zu nutzen wissen."]
+overview: ["Damit Sie zuverlässige Entscheidungen treffen und Ihr Unternehmen optimal vor Risiken schützen können, muss gewährleistet werden, dass Ihre Daten korrekt, sicher und gesetzeskonform sind", "Eine Datenkultur etabliert ein datengesteuertes Umfeld, in dem fundierte Entscheidungen die Norm sind. Ihr Team wird so befähigt, auf der Grundlage von Erkenntnissen zu handeln und kontinuierliche Verbesserungen vorzunehmen.", "Eine starke Data Governance in Verbindung mit einer robusten Datenkultur verbessern die betriebliche Effizienz, fördern Innovationen und verschaffen Ihrem Unternehmen einen Wettbewerbsvorteil auf dem Markt gegenüber Unternehmen, die den Mehrwert von Daten noch nicht zu nutzen wissen."]
 subsections: 
    - title: "Entwicklung und Implementierung der Data Governance Prozesse​"
-     description: "Die Konzeptionierung einer Data Governance Struktur ist umfangreich. Sie umfasst neben dem Definieren von Zielen, dem Zusammenstellen eines Teams und Entwicklung eines Governance Rahmens auch die Implementierung von Prozessen und Technologien zur Sicherstellung der Datenqualität, Sicherheit und Compliance. Eine effektive Data Governance fördert eine datengesteuerte Unternehmenskultur und optimiert die Nutzung von Daten als strategisches Asset​"
+     description: "Die Konzeptionierung einer Data Governance Struktur ist umfangreich. Sie umfasst neben dem Definieren von Zielen, dem Zusammenstellen eines Teams und Entwicklung eines Governance Rahmens auch die Implementierung von Prozessen und Technologien zur Sicherstellung der Datenqualität, Sicherheit und Compliance. Eine effektive Data Governance fördert eine datengesteuerte Unternehmenskultur und optimiert die Nutzung von Daten als strategisches Asset.​"
      tasks: 
      - title: "Definition der Zielsetzung​​"
        icon: FaMapPin
@@ -27,7 +27,7 @@ subsections:
        description: "Wir zeigen Ihnen, wie Sie abteilungsübergreifende Zusammenarbeit, durch das Aufbrechen von Datensilos und das Stärken des Datenaustausches fördern​" 
      - title: "Aufbau der Datenkompetenz​"
        icon: FaPersonChalkboard
-       description: "Wir entwickeln auf Ihr Unternehmen zugeschnittene Schulungsprogramme zur Verbesserung der Datenkenntnisse auf allen Ebenen, die Ihre Mitarbeiter befähigen, Daten in ihren Aufgaben effektiv zu nutzen​​" 
+       description: "Wir entwickeln auf Ihr Unternehmen zugeschnittene Schulungsprogramme zur Verbesserung der Datenkenntnisse auf allen Ebenen, die Ihre Mitarbeiter befähigen, Daten in Ihren Aufgaben effektiv zu nutzen​​" 
      - title: "Unterstützung durch die Führung gewinnen​"
        icon: FaPeopleRoof
        description: "Erwartungsmanagement in Bezug auf die Dauer und den Nutzen von Datenprojekten, um den Buy In des Leadership Teams zu gewährleisten​​"

@@ -12,7 +12,7 @@ subsections:
      tasks: 
      - title: "Anforderungsaufnahme​​"
        icon: FaClipboardList
-       description: "Wir führen eine präzise Anforderungsaufnahme durch, um ihre Bedürfnisse und Herausforderungen vollständig zu verstehen. Parallel dazu identifizieren wir Maßnahmen, die schnell umsetzbar sind und sofortige Erfolge bringen, um frühzeitig Nutzen aus den KI-Investitionen zu ziehen und Vertrauen aufzubauen." 
+       description: "Wir führen eine präzise Anforderungsaufnahme durch, um Ihre Bedürfnisse und Herausforderungen vollständig zu verstehen. Parallel dazu identifizieren wir Maßnahmen, die schnell umsetzbar sind und sofortige Erfolge bringen, um frühzeitig Nutzen aus den KI-Investitionen zu ziehen und Vertrauen aufzubauen." 
      - title: "Machbarkeits- und Mehrwertanalysen​"
        icon: FaHandHoldingMedical
        description: "Wir führen quantitative Machbarkeitstests durch, um die technische und wirtschaftliche Realisierbarkeit der vorgeschlagenen KI-Lösungen zu prüfen. Gleichzeitig bewerten wir den potenziellen Mehrwert dieser Lösungen für Ihr Unternehmen, um sicherzustellen, dass die Investition in KI und Data Science die erwarteten Ergebnisse liefert."  
