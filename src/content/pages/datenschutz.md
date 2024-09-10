@@ -46,6 +46,6 @@ Sofern Ihr Wunsch nicht mit einer gesetzlichen Pflicht zur Aufbewahrung von Date
 
 ### Widerspruchsrecht
 
-Nutzer dieser Webseite können von ihrem Widerspruchsrecht Gebrauch machen und der Verarbeitung ihrer personenbezogenen Daten zu jeder Zeit widersprechen.
+Nutzer dieser Webseite können von Ihrem Widerspruchsrecht Gebrauch machen und der Verarbeitung Ihrer personenbezogenen Daten zu jeder Zeit widersprechen.
 
 Wenn Sie eine Auskunft, Berichtigung, Sperrung oder Löschung über die zu Ihrer Person gespeicherten personenbezogenen Daten wünschen oder Fragen bzgl. der Erhebung, Verarbeitung oder Verwendung Ihrer personenbezogenen Daten haben oder erteilte Einwilligungen widerrufen möchten, wenden Sie sich bitte an folgende E-Mail-Adresse: <a href="mailto:datenschutz@alpinedata.de">datenschutz(at)alpinedata.de</a>
