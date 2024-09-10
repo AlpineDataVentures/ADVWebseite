@@ -40,5 +40,5 @@ customer_value:
   button:
     enable: true
     label: "Kennenlernen"
-    link: "https://outlook.office365.com/owa/calendar/HofITB@hof-itb.de/bookings/"  
+    link: "mailto:info@alpinedata.de"  
 ---
