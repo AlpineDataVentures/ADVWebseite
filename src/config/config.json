@@ -34,11 +34,6 @@
     "label": "Get Started",
     "link": "https://alpinedata.de/"
   },
-  "disqus": {
-    "enable": false,
-    "shortname": "themefisher-template",
-    "settings": {}
-  },
   "metadata": {
     "meta_author": "Alpine Data Ventures",
     "meta_image": "/images/logo_only-1200x630.png",

@@ -29,7 +29,6 @@
 - 📞 Support contact form
 - 📱 Fully responsive
 - 📝 Write and update content in Markdown / MDX
-- 💬 Disqus Comment
 - 🔳 Syntax Highlighting
 
 ### 📄 15+ Pre-designed Pages
