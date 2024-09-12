@@ -31,10 +31,11 @@ const categories = await getTaxonomy(BLOG_FOLDER, "categories", true);
 const category_no_slug = categories.find(
   (element: string) => slugify(element) === category,
 );
+const categoryLabel = category_no_slug ? `Kategorie: ${category_no_slug}` : "";
 ---
 
-<Base title={category_no_slug}>
-  <PageHeader title={category_no_slug} />
+<Base title={categoryLabel}>
+  <PageHeader title={categoryLabel} />
   <div class="section-sm pb-0">
     <div class="container">
       <div class="row">

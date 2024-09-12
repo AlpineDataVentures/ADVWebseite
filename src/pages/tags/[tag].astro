@@ -25,10 +25,12 @@ const BLOG_FOLDER = "blog";
 const posts = await getSinglePage(BLOG_FOLDER);
 const filterByTags = taxonomyFilter(posts, "tags", tag!);
 const sortedPosts = sortByDate(filterByTags);
+
+const tagLabel = tag ? `Tag-Suche: ${tag}` : "";
 ---
 
-<Base title={tag}>
-  <PageHeader title={tag} />
+<Base title={tagLabel}>
+  <PageHeader title={tagLabel} />
   <div class="section-sm pb-0">
     <div class="container">
       <div class="row">
