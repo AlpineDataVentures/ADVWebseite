@@ -27,12 +27,12 @@
   },
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [Alpine Data Ventures](https://alpinedata.de) · Bilder von [Unsplash](https://unsplash.com/) · Alle Rechte vorbehalten."
+    "copyright": "Designed And Developed by [Alpine Data Ventures](https://alpinedata.de) · Alle Rechte vorbehalten."
   },
   "navigation_button": {
-    "enable": false,
-    "label": "Get Started",
-    "link": "https://alpinedata.de/"
+    "enable": true,
+    "label": "Termin vereinbaren",
+    "link": "https://calendly.com/andreas-klostermann-alpinedata/adv/"
   },
   "metadata": {
     "meta_author": "Alpine Data Ventures",

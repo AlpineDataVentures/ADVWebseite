@@ -21,7 +21,7 @@ Die Idee zur Gründung der ADV wird während einer spontanen, aber schicksalhaft
 
 Ihr kollaborativer Ansatz erregt schnell die Aufmerksamkeit weiterer Mittelständler. Kunden sind beeindruckt davon, wie nahtlos die unterschiedlichen Fähigkeiten des Teams - Andys Verkaufsgeschick, Bens Fachwissen in Sachen Datenstrategie, Carstens technisches Können und Julians Talent im Bereich Business Intelligence - zusammenkommen, um ihre Projekte voranzutreiben.  
 
-Die vier Gründer erkennen das Potenzial ihrer Zusammenarbeit und beschließen, aus der einmaligen Zusammenarbeit ein Unternehmen zu machen, das mittelständischen Unternehmen dabei helfen soll, das volle Potenzial ihrer Datenbestände zu erschließen und die Kraft datengestützter Entscheidungsfindung nutzbar zu machen 
+Die vier Gründer erkennen das Potenzial ihrer Zusammenarbeit und beschließen, aus der einmaligen Zusammenarbeit ein Unternehmen zu machen, das mittelständischen Unternehmen dabei helfen soll, das volle Potenzial ihrer Datenbestände zu erschließen und die Kraft datengestützter Entscheidungsfindung nutzbar zu machen. 
 
 Ihre Vision ist einfach: Daten sollten so demokratisiert werden, dass jeder Kunde die Macht der Daten nutzen kann, um mit den Giganten zu konkurrieren. Die Robin Hoods der Daten, wenn man so will. 
 
@@ -29,7 +29,7 @@ Ihre Vision ist einfach: Daten sollten so demokratisiert werden, dass jeder Kund
 
 **Andreas Klostermann:** Als dynamischer Vertriebsexperte ist Andy seit vielen Jahren erfolgreich als selbständiger Berater tätig. Er hat ein Händchen dafür, die Bedürfnisse des Kunden zu verstehen und sie in umsetzbare Strategien zu verwandeln. Andys umfangreiches Netzwerk und seine praktische Erfahrung bei der Förderung des Umsatzwachstums machen ihn zu einer unschätzbaren Bereicherung für das Team. 
 
-**Benjamin Diez:** mit seinem Hintergrund, der sowohl Militär auch Startups und internationale Konzerne umfasst, ist Ben der Datenstratege der Gruppe. Er ist darüber hinaus versiert in den Bereichen Data Governance und dem Aufbau einer datengesteuerten Kultur in Unternehmen. Bens Fähigkeit, die Kluft zwischen starren Unternehmensstrukturen und der Agilität von Startups zu überbrücken, ist entscheidend für die strategische Ausrichtung der ADV. 
+**Benjamin Diez:** mit seinem Hintergrund, der sowohl Militär als auch Startups und internationale Konzerne umfasst, ist Ben der Datenstratege der Gruppe. Er ist darüber hinaus versiert in den Bereichen Data Governance und dem Aufbau einer datengesteuerten Kultur in Unternehmen. Bens Fähigkeit, die Kluft zwischen starren Unternehmensstrukturen und der Agilität von Startups zu überbrücken, ist entscheidend für die strategische Ausrichtung der ADV. 
 
 **Dr. Carsten Hof:** Als ehemaliger Mitarbeiter am CERN und Leiter von IT-Teams in einem DAX Konzern Unternehmen ist Carsten der technische Zauberer der Gruppe. Dank seiner umfassenden Kenntnisse in den Bereichen Softwareentwicklung, Datenanalyse und Cloud-Computing kann Alpine Data Ventures seinen Kunden robuste und skalierbare Lösungen anbieten. Carstens analytische Denkweise und seine Problemlösungsfähigkeiten sorgen dafür, dass die technischen Aspekte der Projekte immer auf höchstem Niveau sind. 
 
