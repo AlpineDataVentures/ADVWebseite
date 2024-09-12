@@ -23,9 +23,7 @@ export default defineConfig({
         page !== 'https://alpinedata.de/tags/'
     }),
     tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
+      applyBaseStyles: false,
     }),
     AutoImport({
       imports: [
