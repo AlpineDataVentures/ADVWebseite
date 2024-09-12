@@ -47,13 +47,15 @@ const latestPosts = posts
         <div class="px-4 py-20 xl:p-12">
           <div class="row justify-between">
             <div class="w-full md:w-1/2 mb-10 md:mb-0 md:pr-6 xl:pr-12">
-              <div class="claim-container animate-fly-in mt-16 mb-12">
+              <div
+                class="claim-container animate-fly-in mt-16 mb-12 overflow-hidden"
+              >
                 <h1 class="claim text-center">
-                  <div class="line animate-move-left text-5xl mb-4">
+                  <div class="animate-move-left text-5xl mb-4">
                     {banner.title1}
                   </div>
-                  <div class="line text-5xl mb-4">{banner.title2}</div>
-                  <div class="line animate-move-right text-5xl">
+                  <div class="text-5xl mb-4">{banner.title2}</div>
+                  <div class="animate-move-right text-5xl">
                     {banner.title3}
                   </div>
                 </h1>
