@@ -1,6 +1,6 @@
 ---
 title: "Willkommen auf unserem Blog!"
-meta_title: "Willkommen auf unserem Blog! Was Sie hier erwartet (und warum es sich lohnt, zu bleiben)"
+meta_title: "Willkommen auf unserem Blog!"
 description: "Was Sie hier auf dem Blog erwartet und warum es sich lohnt, zu bleiben! "
 date: 2024-09-06T07:00:00Z
 image: "/images/blog/ADV_Blog.jpg"
@@ -8,7 +8,7 @@ categories: ["ADV"]
 author: "Ben Diez"
 tags: ["Intern"]
 draft: false
-summary: "Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und Ihnen den Weg zur datengetriebenen Organisation zu ebnen."
+summary: " Was Sie hier erwartet (und warum es sich lohnt, zu bleiben). Der erste Blog-Artikel gibt eine Einführung in das was Sie hier zukünftig lesen können. Spoiler: es geht um Daten..."
 ---
 
 Bei Alpine Data Ventures nehmen wir die Herausforderung an, Unternehmen in der digitalen Transformation zu unterstützen und Ihnen den Weg zur datengetriebenen Organisation zu ebnen. Doch neben der harten Arbeit gibt es auch viel zu lernen, zu entdecken und zu diskutieren – und genau dafür haben wir diesen Blog ins Leben gerufen. Hier erfahren Sie, was Sie auf unserem Blog erwarten können und warum es sich lohnt, regelmäßig vorbeizuschauen. 
