@@ -3,6 +3,7 @@ title: "Pricing-Automatisierung mit Machine Learning und Aufbau BI Landschaft"
 meta_title: "Pricing-Automatisierung mit Machine Learning und Aufbau BI Landschaft"
 image: "/images/portfolio/Business Intelligence 2.webp"
 draft: false
+description: "Mit der Entwicklung einer automatisierten Bepreisungs-Engine und der Integration einer flexiblen Business Intelligence datengetriebene Entscheidungen treffen."
 summary: "Mit der Entwicklung einer automatisierten Bepreisungs-Engine und der Integration einer flexiblen Business Intelligence-Lösung haben wir für unser Unternehmen eine zukunftssichere Grundlage geschaffen, die datengetriebene Entscheidungen einfach macht. Dank Marktanalysen und optimierter Preisstrategien konnte die Wettbewerbsfähigkeit nachhaltig gestärkt werden. Entdecken Sie, wie diese innovative Lösung maßgeschneiderte Ergebnisse liefert und langfristige strategische Vorteile bietet."
 ---
 

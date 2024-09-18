@@ -2,7 +2,7 @@
 title: "Data Governance & Culture"
 title_image: "/images/portfolio/Data Culture.webp"
 meta_title: "Data Governance & Culture"
-description: "Damit Sie zuverlässige Entscheidungen treffen und ihr Unternehmen optimal vor Risiken schützen können, muss gewährleistet werden, dass Ihre Daten korrekt, sicher und gesetzeskonform sind"
+description: "Um zuverlässige Entscheidungen zu treffen & Ihr Unternehmen optimal vor Risiken zu schützen, muss gesichert sein, dass Ihre Daten korrekt und compliant sind."
 image: ""
 draft: false
 overview: ["Damit Sie zuverlässige Entscheidungen treffen und Ihr Unternehmen optimal vor Risiken schützen können, muss gewährleistet werden, dass Ihre Daten korrekt, sicher und gesetzeskonform sind", "Eine Datenkultur etabliert ein datengesteuertes Umfeld, in dem fundierte Entscheidungen die Norm sind. Ihr Team wird so befähigt, auf der Grundlage von Erkenntnissen zu handeln und kontinuierliche Verbesserungen vorzunehmen.", "Eine starke Data Governance in Verbindung mit einer robusten Datenkultur verbessern die betriebliche Effizienz, fördern Innovationen und verschaffen Ihrem Unternehmen einen Wettbewerbsvorteil auf dem Markt gegenüber Unternehmen, die den Mehrwert von Daten noch nicht zu nutzen wissen."]

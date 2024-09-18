@@ -1,14 +1,14 @@
 ---
 title: "Alpine Data Ventures – Die Origins Story"
 meta_title: "Alpine Data Ventures – Die Origins Story"
-description: "Wenn vier Datenenthusiasten eine gemeinsame Unternehmung planen, kann das in der Regel nur eines heißen: ein weiterer Data Podcast, auf den die Welt so sehnlich gewartet hat, steht in den Startlöchern. Ausnahmen bestätigen die Regel, sowie im Frühjahr 2024, als unter dem Arbeitstitel „Data Boys“ die Grundlage für die Alpine Data Ventures (ADV) gelegt wird."
+description: "Wenn vier Datenenthusiasten eine gemeinsame Unternehmung planen, kann das in der Regel nur eines heißen: ein weiterer Data Podcast ... Nicht so bei den ADVs."
 date: 2024-07-29T05:00:00Z
 image: "/images/blog/DataBoys_Blog.png"
 categories: ["ADV"]
 author: "Ben Diez"
 tags: ["Intern"]
 draft: false
-summary: "Wenn vier Datenenthusiasten eine gemeinsame Unternehmung planen, kann das in der Regel nur eines heißen: ein weiterer Data Podcast ... Nicht so bei den ADVs. "
+summary: "Wenn vier Datenenthusiasten eine gemeinsame Unternehmung planen, kann das in der Regel nur eines heißen: ein weiterer Data Podcast ... Nicht so bei den ADVs."
 ---
 
 > Your data and their insights are your core differentiators in the age of AI

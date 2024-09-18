@@ -2,7 +2,7 @@
 title: "Business Intelligence & Analytics"
 title_image: "/images/portfolio/Business Intelligence 2.webp"
 meta_title: "Business Intelligence & Analytics"
-description: "Business Intelligence (BI) und Analytics ermöglichen es Ihnen, die in Ihrem Unternehmen generierten Daten effektiv zu nutzen, um fundierte Entscheidungen zu treffen und Geschäftspotenziale zu identifizieren."
+description: "Mit Business Intelligence & Analytics nutzen Sie die Daten in Ihrem Unternehmen, um fundierte Entscheidungen zu treffen & Geschäftspotenziale zu identifizieren"
 image: ""
 draft: false
 overview: ["Business Intelligence (BI) und Analytics ermöglichen es Ihnen, die in Ihrem Unternehmen generierten Daten effektiv zu nutzen, um fundierte Entscheidungen zu treffen und Geschäftspotenziale zu identifizieren. Durch den Einsatz modernster Analysetools und -methoden erhalten Sie tiefe Einblicke in Ihre Geschäftsprozesse und können so Ihre Strategie datenbasiert optimieren.", "BI und Analytics unterstützen Sie dabei, operative und strategische Entscheidungen auf einer soliden Datenbasis zu treffen. Der Wandel hin zu einem datengestützten Unternehmen erfordert die richtige Infrastruktur, passende Tools und die nötigen Skills innerhalb Ihres Teams", "Wie können Sie Ihre bestehenden Datenquellen bestmöglich nutzen, um operative Exzellenz zu erreichen? Welche Analysemethoden sind für Ihr Unternehmen am effektivsten? Wie können Sie sicherstellen, dass Ihre Mitarbeiter in der Lage sind, die gewonnenen Erkenntnisse gewinnbringend einzusetzen? Business Intelligence und Analytics geben Ihnen Antworten auf diese Fragen"]
