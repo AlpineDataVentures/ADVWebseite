@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { author } = Astro.props;
-const { title, social, meta_title, description, image } = author.data;
+const { title, role, social, meta_title, description, image } = author.data;
 const { Content } = await author.render();
 
 // get all posts by author
@@ -30,10 +30,11 @@ const posts = await getSinglePage(BLOG_FOLDER);
 const postFilterByAuthor = posts.filter(
   (post) => slugify(post.data.author) === slugify(title),
 );
+const role_title = `${role} ${title}`;
 ---
 
 <Base
-  title={title}
+  title={role_title}
   meta_title={meta_title}
   description={description}
   image={image}
@@ -56,7 +57,7 @@ const postFilterByAuthor = posts.filter(
               />
             )
           }
-          <h1 class="h3 mb-6">{title}</h1>
+          <h1 class="h3 mb-6">{role_title}</h1>
           <div class="content">
             <Content />
           </div>

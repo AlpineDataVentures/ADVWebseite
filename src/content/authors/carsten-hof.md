@@ -1,5 +1,6 @@
 ---
 title: "Dr. Carsten Hof"
+role: "Geschäftsführer"
 email: carsten.hof@alpinedata.de
 image: "/images/authors/CarstenHof.jpg"
 description: "Dr. Carsten Hof - Digitale Transformation, Enterprise & Data Architecture"

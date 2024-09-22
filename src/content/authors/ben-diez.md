@@ -1,5 +1,6 @@
 ---
 title: "Benjamin Diez"
+role: "Geschäftsführer"
 email: benjamin.diez@alpinedata.de
 image: "/images/authors/BenDiez.jpg"
 description: "Benjamin Diez - Spezialist für Datenstrategie, -Kultur und -Governance"

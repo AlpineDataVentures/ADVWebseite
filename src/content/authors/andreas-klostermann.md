@@ -1,5 +1,6 @@
 ---
 title: "Andreas Klostermann"
+role: "Geschäftsführer"
 email: andreas.klostermann@alpinedata.de
 image: "/images/authors/AndreasKlostermann.jpg"
 description: "Andreas Klostermann - Unternehmer, Spezialist für Vertriebs- und Unternehmensstrategie"

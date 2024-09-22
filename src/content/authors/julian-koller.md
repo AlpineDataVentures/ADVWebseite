@@ -1,5 +1,6 @@
 ---
-title: Julian Koller
+title: "Julian Koller"
+role: "Geschäftsführer"
 email: julian.koller@alpinedata.de
 image: "/images/authors/JulianKoller.jpg"
 description: "Julian Koller - Experte für Data Science und Business Intelligence"
