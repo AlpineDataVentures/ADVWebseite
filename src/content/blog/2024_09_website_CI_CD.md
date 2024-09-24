@@ -1,9 +1,9 @@
 ---
-title: "Webseite vs Moderne Entwicklungspipeline"
-meta_title: "Webseite vs Moderne Entwicklungspipeline"
+title: "Webseite mit agilem Entwicklungsprozess"
+meta_title: "Webseite vs Moderne Entwicklungspipeline, agiler Entwicklungsprozess, DevOps"
 description: "Bei Alpine Data Ventures setzen wir auf Innovation und Struktur. Das zeigen wir auch mit unserer Webseite, die auf einem modernsten Entwicklungsprozess basiert."
-date: 2024-09-23T07:00:00Z
-image: "/images/blog/2024_09_website_CICD.png"
+date: 2024-09-24T07:00:00Z
+image: "/images/blog/BTS_Website.png"
 categories: ["Tech"]
 author: "Carsten Hof"
 tags: ["DevOps", "Webseite", "Intern"]
@@ -11,9 +11,9 @@ draft: false
 summary: "Bei Alpine Data Ventures setzen wir auf Innovation & Struktur. Das zeigen wir auch mit unserer Webseite, die auf einem modernsten Entwicklungsprozess basiert, den wir auch in Daten-Projekten einsetzen."
 ---
 
-Unsere kürzlich live gegangene Webseite ist für uns mehr als nur ein digitales Aushängeschild – sie zeigt, wie wir modernste Technologien und innovative Arbeitsprozesse effizient einsetzen. Die Vorteile liegen auf der Hand: maximale Automatisierung, einfache Erweiterbarkeit und eine hohe Qualität. Viele der Bausteine sind auch Grundlage für das strukturierte Vorgehen in den Daten-Projekten gemeinsam mit unseren Kunden. 
+Unsere kürzlich live gegangene Webseite ist für uns mehr als nur ein digitales Aushängeschild – sie zeigt, wie wir modernste Technologien und einen agilen Entwicklungsprozess (DevOps) einsetzen. Die Vorteile liegen auf der Hand: maximale Automatisierung, einfache Erweiterbarkeit und eine hohe Qualität. Viele der Bausteine sind auch Grundlage für das strukturierte Vorgehen in den Daten-Projekten gemeinsam mit unseren Kunden. 
 
-In diesem Beitrag möchten wir einen Blick hinter die Kulissen unseres Webseiten-Projekts werfen und zeigen, mit welchem Tech-Stack und welchen agilen Entwicklungsprozess (DevOps) wir automatisiert und professionell unsere Webseite entwickeln, ihre Qualität sichern und automatisch live schalten. Und das ohne eigenen Server...
+In diesem Beitrag werfen wir einen Blick hinter die Kulissen unseres Webseiten-Projekts und zeigen wie wir automatisiert und professionell unsere Webseite entwickeln, ihre Qualität sichern und automatisch live schalten. Und das ohne eigenen Server...
 
 ### 1. Plan – Anforderungen und Struktur als Basis
 Jedes erfolgreiche Projekt beginnt mit einer klaren Planung. In der Planungsphase nutzen wir Projekt-Management- und Anforderungs-Tools, um sicherzustellen, dass alle Anforderungen und Ziele klar definiert sind.
@@ -49,7 +49,7 @@ Sobald die Entwicklung voranschreitet, greifen unsere automatisierten Build- und
 ### 4. Run – Betrieb und kontinuierliche Verbesserung
 Nach dem Launch der Webseite endet unsere Arbeit nicht. Im Run-Modus nutzen wir fortlaufend die Daten aus Web-Analytics-Tools, um die Performance der Webseite zu überwachen und kontinuierlich Verbesserungen vorzunehmen. Unser Ansatz der datengetriebenen Entscheidungen hilft uns, nicht nur kurzfristige Optimierungen vorzunehmen, sondern die Webseite langfristig auf Erfolgskurs zu halten.
 
-Die folgende Grafik gibt eine übersicht über alle Einzelschritte und zeigt wie sie im Zusammenwirken zur Entwicklung unserer Webseite beitragen: 
+Die folgende Grafik gibt eine übersicht über alle Einzelschritte und zeigt wie sie im Zusammenwirken zur Entwicklung unserer Webseite beitragen:
 
 ![Übersicht: DevOps-Prozess unserer Webseite](/images/blog/2024_09_website_CICD.png)
 
@@ -72,4 +72,4 @@ Der agile Entwicklungsprozess für Webseiten und die automatisierte Bereitstellu
 
 
 ## Fazit 
-Skin in the Game – Wir leben, was wir predigen: Mit unserer Webseite zeigen wir, dass wir die agilen, strukturierten und datenbasierten Prinzipien, die wir unseren Kunden empfehlen, selbst umsetzen. Wir setzen auf stabile Abläufe, modernste Technologien und kontinuierliche Optimierung – die Basis für jedes datengetriebene Unternehmen.
+Skin in the Game – Wir leben, was wir predigen: Mit unserer neuen Webseite zeigen wir, wie wir mit agilen, strukturierten und datenbasierten Prinzipien, auch unseren Kunden helfen können ihre Ziele effizient zu erreichen. Wir setzen auf stabile Abläufe, modernste Technologien und kontinuierliche Optimierung – die Basis für jedes datengetriebene Unternehmen.
