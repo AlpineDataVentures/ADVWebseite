@@ -37,14 +37,13 @@ Für die Umsetzung der Webseite setzen wir auf [Astro](https://astro.build/), ei
 Sobald die Entwicklung voranschreitet, greifen unsere automatisierten Build- und Testprozesse. Der gesamte Workflow ist so optimiert, dass jede Codeänderung nahtlos in unser System integriert wird. Hier setzen wir auf den dreistufigen Ansatz:
 
 - <h6>Entwicklung (DEV)</h6> 
-  Unser Prozess besteht aus einer Entwicklungsumgebung (DEV), in der die Entwickler lokal
-  arbeiten, den Quellcode versionieren <a href="https://git-scm.com/">Git</a> und auf ihrem Rechner auch gleich die gesamte Webseite und ihre Änderungen einsehen. 
+  Unsere Tool-Kette startet in der lokalen Entwicklungsumgebung (DEV). Hier wird die Webseite weiterentwickelt oder neue Inhalte eingepflegt. Dabei wird der Quellcode gleich mit <a href="https://git-scm.com/">Git</a> versioniert und es kann auf dem Rechner auch gleich die gesamte Webseite und ihre Änderungen eingesehen werden. 
 
 - <h6>Qualitätssicherung (INT)</h6> 
   Ist die Entwicklung von neuen Features oder das Schreiben eines neuen Blog-Artikels abgeschlossen, so werden die Änderungen in den Integrations-Branch (INT) auf <a href="https://github.com/">GitHub</a> gepusht. Dadurch wird ein automatisierter Build angestoßen und die Webseite zur internen Qualitätssicherung bereitgestellt. 
   
 - <h6> Produktion (PROD)</h6>
-  Nach Freigabe und etwaigen Korrekturen wird der Code in den Produktions-Branch (PROD) übertragen. Diese triggert wiederum die Build & Deploy-Kette: ohne händisches Zutun wird die Webseite erstellt, serverless über <a href="https://www.netlify.com/">Netlify</a> bereitgestellt und damit auch gleich live geschaltet.
+  Nach Freigabe und etwaigen Korrekturen wird der Code in den Produktions-Branch (PROD) übertragen. Dies triggert wiederum die Build & Deploy-Kette: ohne händisches Zutun wird die Webseite erstellt, serverless über <a href="https://www.netlify.com/">Netlify</a> bereitgestellt und damit auch gleich live geschaltet.
 
 ### 4. Run – Betrieb und kontinuierliche Verbesserung
 Nach dem Launch der Webseite endet unsere Arbeit nicht. Im Run-Modus nutzen wir fortlaufend die Daten aus Web-Analytics-Tools, um die Performance der Webseite zu überwachen und kontinuierlich Verbesserungen vorzunehmen. Unser Ansatz der datengetriebenen Entscheidungen hilft uns, nicht nur kurzfristige Optimierungen vorzunehmen, sondern die Webseite langfristig auf Erfolgskurs zu halten.
