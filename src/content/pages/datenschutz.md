@@ -8,21 +8,21 @@ draft: false
 ---
 
 <p>
-  <em>letztes Update:</em> 18. Juni 2024
+  <em>letztes Update:</em> 25. September 2024
 </p>
 
 ### Verantwortliche Stelle
 
 Verantwortlicher im Sinne der DSGVO und anderer nationaler Datenschutzgesetze der EU-Mitgliedstaaten sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
 <p>
-  Hof IT-Beratung GmbH<br>
-  Mühlhölzlweg 30<br> 
-  80999 München<br>  
+  Alpine Data Ventures GmbH i.Gr.<br>
+  Leopoldstraße 31<br> 
+  80802 München<br>  
 </p>
 <p>
   Telefon: +491608014812<br>
   E-Mail: <a href="mailto:info@alpinedata.de">info(at)alpinedata.de</a> <br>
-  Vertreten durch: Dr. Carsten Hof <br>
+  Vertreten durch die Geschäftsführer <br>
 </p>
 
 Bei Fragen zu unserem Datenschutz nehmen Sie bitte mit unserem Datenschutzbeauftragten Kontakt auf: <a href="mailto:datenschutz@alpinedata.de">datenschutz(at)alpinedata.de</a>
@@ -31,6 +31,8 @@ Bei Fragen zu unserem Datenschutz nehmen Sie bitte mit unserem Datenschutzbeauft
 ### Zugriffsdaten
 
 Wir, die Alpine Data Ventures GmbH i.Gr., erheben Daten nur auf Grund unseres berechtigten Interesses (s. Art. 6 Abs. 1 lit. f. DSGVO). So werden beispielsweise sog. Server-Logs von unserem Web-Seiten-Host aus Sicherheitsgründen erhoben, um z. B. Missbrauchsfälle aufklären zu können. Müssen Daten aus Beweisgründen aufgehoben werden, sind sie solange von der Löschung ausgenommen bis der Vorfall endgültig geklärt ist.
+
+Um unsere Inhalte zu optimieren, erheben wir in anonymisierter Form Daten zum Besuch unserer Webseite (Anzahl der Besucher/Seite, verwendeter Browser, IP-Adresse, Quelle/Verweis, von welchem Sie auf die Seite gelangten). 
 
 ### Cookies
 
