@@ -1,0 +1,157 @@
+<title>Excel oder Data Warehouse?</title>
+<style>
+  .question-block,
+  .result-block {
+    margin: 20px;
+  }
+  .question {
+    margin-bottom: 20px;
+  }
+  .result-block {
+    margin-top: 30px;
+  }
+  button {
+    margin: 5px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="survey-container">
+  <div id="question-block" class="question-block">
+    <div class="question">
+      <h5>
+        Verwalten Sie große Datenmengen (Tausende oder Millionen von Zeilen)?
+      </h5>
+      <label><input type="radio" name="q1" value="2" /> Ja, häufig</label><br />
+      <label><input type="radio" name="q1" value="1" /> Manchmal</label><br />
+      <label><input type="radio" name="q1" value="0" /> Selten</label>
+    </div>
+
+    <div class="question">
+      <h5>
+        Arbeiten Sie mit mehreren Datenquellen (z.B. Verkaufsplattformen,
+        Marketing-Systeme)?
+      </h5>
+      <label
+        ><input type="radio" name="q2" value="2" /> Ja, wir haben viele Quellen</label
+      ><br />
+      <label
+        ><input type="radio" name="q2" value="1" /> Einige, aber überschaubar</label
+      ><br />
+      <label
+        ><input type="radio" name="q2" value="0" /> Nein, alles in einer Quelle</label
+      >
+    </div>
+
+    <div class="question">
+      <h5>Müssen Sie Ihre Daten häufig manuell aktualisieren?</h5>
+      <label><input type="radio" name="q3" value="2" /> Ja, regelmäßig</label
+      ><br />
+      <label><input type="radio" name="q3" value="1" /> Gelegentlich</label><br
+      />
+      <label><input type="radio" name="q3" value="0" /> Nein, selten</label>
+    </div>
+
+    <div class="question">
+      <h5>
+        Erleben Sie inkonsistente Berichte aufgrund von Daten in mehreren
+        Tabellen?
+      </h5>
+      <label
+        ><input type="radio" name="q4" value="2" /> Ja, das ist ein Problem</label
+      ><br />
+      <label><input type="radio" name="q4" value="1" /> Gelegentlich</label><br
+      />
+      <label
+        ><input type="radio" name="q4" value="0" /> Nein, unsere Berichte sind konsistent</label
+      >
+    </div>
+
+    <div class="question">
+      <h5>
+        Wird die Zusammenarbeit an den Daten schwierig, wenn mehrere Personen
+        beteiligt sind?
+      </h5>
+      <label
+        ><input type="radio" name="q5" value="2" /> Ja, es ist problematisch</label
+      ><br />
+      <label
+        ><input type="radio" name="q5" value="1" /> Manchmal, aber handhabbar</label
+      ><br />
+      <label
+        ><input type="radio" name="q5" value="0" /> Nein, keine Probleme</label
+      >
+    </div>
+
+    <div class="question">
+      <h5>
+        Finden Sie, dass Ihre Tabellenkalkulationen schlecht skalieren, wenn es
+        um fortgeschrittene Analysen geht?
+      </h5>
+      <label
+        ><input type="radio" name="q6" value="2" /> Ja, das ist ein großes Problem</label
+      ><br />
+      <label
+        ><input type="radio" name="q6" value="1" /> Ein bisschen, aber machbar</label
+      ><br />
+      <label
+        ><input type="radio" name="q6" value="0" /> Nein, es funktioniert gut</label
+      >
+    </div>
+
+    <button show-result class="btn btn-primary">Ergebnis anzeigen</button>
+  </div>
+
+  <div id="result-block" class="result-block" style="display: none;"></div>
+</div>
+
+<script>
+  // Find our component DOM on the page.
+  const buttons = document.querySelectorAll("[show-result]");
+
+  // Add event listeners to fire confetti when a button is clicked.
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => showResult());
+  });
+
+  function showResult() {
+    const questionBlock = document.getElementById("question-block");
+    const resultBlock = document.getElementById("result-block");
+    let score = 0;
+
+    // Summiere die Werte der ausgewählten Antworten
+    score += parseInt(
+      document.querySelector('input[name="q1"]:checked')?.value || 0,
+    );
+    score += parseInt(
+      document.querySelector('input[name="q2"]:checked')?.value || 0,
+    );
+    score += parseInt(
+      document.querySelector('input[name="q3"]:checked')?.value || 0,
+    );
+    score += parseInt(
+      document.querySelector('input[name="q4"]:checked')?.value || 0,
+    );
+    score += parseInt(
+      document.querySelector('input[name="q5"]:checked')?.value || 0,
+    );
+    score += parseInt(
+      document.querySelector('input[name="q6"]:checked')?.value || 0,
+    );
+
+    //questionBlock.style.display = "none";
+    resultBlock.style.display = "block";
+
+    const resultText = document.createElement("p");
+    if (score >= 8) {
+      resultText.textContent =
+        "Ein Data Warehouse wäre für Ihre Anforderungen besser geeignet.";
+    } else {
+      resultText.textContent =
+        "Eine Tabellenkalkulation wie Excel ist für Ihre Anforderungen ausreichend.";
+    }
+    resultBlock.textContent = resultText.textContent;
+  }
+</script>

@@ -9,6 +9,8 @@ import { FaCheck } from "react-icons/fa";
 import CallToAction from "@/partials/CallToAction.astro";
 import Social from "@/components/Social.astro";
 
+import ExcelSurvey from "@/components/ExcelSurvey.astro";
+
 const team = await getEntry("team", "-index");
 const COLLECTION_FOLDER = "authors";
 const authors = await getSinglePage(COLLECTION_FOLDER);
@@ -84,7 +86,12 @@ const { title, description, meta_title, image } = team.data;
       </section>
     ))
   }
-  <!-- /Profile -->
-
   <CallToAction call_to_action={call_to_action} />
+
+  <!-- /Profile -->
+  <section class="mb-16">
+    <div class="container">
+      <ExcelSurvey />
+    </div>
+  </section>
 </Base>
