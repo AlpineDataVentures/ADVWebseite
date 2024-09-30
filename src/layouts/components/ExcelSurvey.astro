@@ -123,27 +123,34 @@
 
     // Summiere die Werte der ausgewählten Antworten
     score += parseInt(
-      document.querySelector('input[name="q1"]:checked')?.value || 0,
+      (document.querySelector('input[name="q1"]:checked') as HTMLInputElement)
+        ?.value || "0",
     );
     score += parseInt(
-      document.querySelector('input[name="q2"]:checked')?.value || 0,
+      (document.querySelector('input[name="q2"]:checked') as HTMLInputElement)
+        ?.value || "0",
     );
     score += parseInt(
-      document.querySelector('input[name="q3"]:checked')?.value || 0,
+      (document.querySelector('input[name="q3"]:checked') as HTMLInputElement)
+        ?.value || "0",
     );
     score += parseInt(
-      document.querySelector('input[name="q4"]:checked')?.value || 0,
+      (document.querySelector('input[name="q4"]:checked') as HTMLInputElement)
+        ?.value || "0",
     );
     score += parseInt(
-      document.querySelector('input[name="q5"]:checked')?.value || 0,
+      (document.querySelector('input[name="q5"]:checked') as HTMLInputElement)
+        ?.value || "0",
     );
     score += parseInt(
-      document.querySelector('input[name="q6"]:checked')?.value || 0,
+      (document.querySelector('input[name="q6"]:checked') as HTMLInputElement)
+        ?.value || "0",
     );
 
     //questionBlock.style.display = "none";
-    resultBlock.style.display = "block";
-
+    if (resultBlock) {
+      resultBlock.style.display = "block";
+    }
     const resultText = document.createElement("p");
     if (score >= 8) {
       resultText.textContent =
@@ -152,6 +159,8 @@
       resultText.textContent =
         "Eine Tabellenkalkulation wie Excel ist für Ihre Anforderungen ausreichend.";
     }
-    resultBlock.textContent = resultText.textContent;
+    if (resultBlock) {
+      resultBlock.textContent = resultText.textContent;
+    }
   }
 </script>
