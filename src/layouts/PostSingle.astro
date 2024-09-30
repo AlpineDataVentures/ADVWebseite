@@ -98,17 +98,19 @@ const { title, description, author, categories, summary, image, date, tags } =
     </div>
 
     <!-- Related posts -->
-    <div class="section pb-0">
-      <h2 class="h3 mb-12 text-center">Related Posts</h2>
-      <div class="row justify-center">
-        {
-          similarPosts.map((post) => (
-            <div class="lg:col-4 md:col-6 mb-14">
-              <BlogCard data={post} />
-            </div>
-          ))
-        }
-      </div>
-    </div>
+    {
+      similarPosts.length > 0 && (
+        <div class="section pb-0">
+          <h2 class="h3 mb-12 text-center">Related Posts</h2>
+          <div class="row justify-center">
+            {similarPosts.map((post) => (
+              <div class="lg:col-4 md:col-6 mb-14">
+                <BlogCard data={post} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
   </div>
 </section>
