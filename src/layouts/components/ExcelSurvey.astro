@@ -9,95 +9,94 @@
   }
   .result-block {
     margin-top: 30px;
-  }
-  button {
-    margin: 5px 0;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+    margin-bottom: 30px;
   }
 </style>
 
 <div class="survey-container">
   <div id="question-block" class="question-block">
     <div class="question">
-      <h5>
-        Verwalten Sie große Datenmengen (Tausende oder Millionen von Zeilen)?
-      </h5>
-      <label><input type="radio" name="q1" value="2" /> Ja, häufig</label><br />
-      <label><input type="radio" name="q1" value="1" /> Manchmal</label><br />
-      <label><input type="radio" name="q1" value="0" /> Selten</label>
-    </div>
-
-    <div class="question">
-      <h5>
-        Arbeiten Sie mit mehreren Datenquellen (z.B. Verkaufsplattformen,
-        Marketing-Systeme)?
-      </h5>
-      <label
-        ><input type="radio" name="q2" value="2" /> Ja, wir haben viele Quellen</label
+      <h5>1. Datenmengen</h5>
+      <h6>
+        „Die Datenmengen, mit denen wir arbeiten, überfordern Excel häufig (z.B.
+        langsame Verarbeitung, Aufteilen von Dateien).“
+      </h6>
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q1" value="1" /> Stimme nicht zu</label
       ><br />
-      <label
-        ><input type="radio" name="q2" value="1" /> Einige, aber überschaubar</label
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q1" value="3" /> Neutral</label
       ><br />
-      <label
-        ><input type="radio" name="q2" value="0" /> Nein, alles in einer Quelle</label
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q1" value="5" /> Stimme voll zu</label
       >
     </div>
 
     <div class="question">
-      <h5>Müssen Sie Ihre Daten häufig manuell aktualisieren?</h5>
-      <label><input type="radio" name="q3" value="2" /> Ja, regelmäßig</label
+      <h5>2. Datenquellen</h5>
+      <h6>
+        „Wir arbeiten mit mehreren Datenquellen, die schwierig in einer
+        Excel-Datei zusammenzuführen sind.“
+      </h6>
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q2" value="1" /> Stimme nicht zu</label
       ><br />
-      <label><input type="radio" name="q3" value="1" /> Gelegentlich</label><br
-      />
-      <label><input type="radio" name="q3" value="0" /> Nein, selten</label>
-    </div>
-
-    <div class="question">
-      <h5>
-        Erleben Sie inkonsistente Berichte aufgrund von Daten in mehreren
-        Tabellen?
-      </h5>
-      <label
-        ><input type="radio" name="q4" value="2" /> Ja, das ist ein Problem</label
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q2" value="3" /> Neutral</label
       ><br />
-      <label><input type="radio" name="q4" value="1" /> Gelegentlich</label><br
-      />
-      <label
-        ><input type="radio" name="q4" value="0" /> Nein, unsere Berichte sind konsistent</label
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q2" value="5" /> Stimme voll zu</label
       >
     </div>
 
     <div class="question">
-      <h5>
-        Wird die Zusammenarbeit an den Daten schwierig, wenn mehrere Personen
-        beteiligt sind?
-      </h5>
-      <label
-        ><input type="radio" name="q5" value="2" /> Ja, es ist problematisch</label
+      <h5>3. Manuelle Datenpflege</h5>
+      <h6>
+        „Die manuelle Pflege und Aktualisierung von Daten in Excel kostet uns
+        viel Zeit und führt häufig zu Fehlern.“
+      </h6>
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q3" value="1" /> Stimme nicht zu</label
       ><br />
-      <label
-        ><input type="radio" name="q5" value="1" /> Manchmal, aber handhabbar</label
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q3" value="3" /> Neutral</label
       ><br />
-      <label
-        ><input type="radio" name="q5" value="0" /> Nein, keine Probleme</label
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q3" value="5" /> Stimme voll zu</label
       >
     </div>
 
     <div class="question">
-      <h5>
-        Finden Sie, dass Ihre Tabellenkalkulationen schlecht skalieren, wenn es
-        um fortgeschrittene Analysen geht?
-      </h5>
-      <label
-        ><input type="radio" name="q6" value="2" /> Ja, das ist ein großes Problem</label
+      <h5>4. Berichterstellung</h5>
+      <h6>
+        „Unsere Berichterstellung mit Excel ist oft inkonsistent und führt zu
+        unterschiedlichen Ergebnissen in verschiedenen Abteilungen.“
+      </h6>
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q4" value="1" /> Stimme nicht zu</label
       ><br />
-      <label
-        ><input type="radio" name="q6" value="1" /> Ein bisschen, aber machbar</label
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q4" value="3" /> Neutral</label
       ><br />
-      <label
-        ><input type="radio" name="q6" value="0" /> Nein, es funktioniert gut</label
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q4" value="5" /> Stimme voll zu</label
+      >
+    </div>
+
+    <div class="question">
+      <h5>5. Analysefähigkeit</h5>
+      <h6>
+        „Für komplexe Datenanalysen und Berichte stoßen wir in Excel regelmäßig
+        an Grenzen.“
+      </h6>
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q5" value="1" /> Stimme nicht zu</label
+      ><br />
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q5" value="3" /> Neutral</label
+      ><br />
+      <label class="text-primary-label pl-3"
+        ><input type="radio" name="q5" value="5" /> Stimme voll zu</label
       >
     </div>
 
@@ -117,7 +116,6 @@
   });
 
   function showResult() {
-    const questionBlock = document.getElementById("question-block");
     const resultBlock = document.getElementById("result-block");
     let score = 0;
 
@@ -142,25 +140,25 @@
       (document.querySelector('input[name="q5"]:checked') as HTMLInputElement)
         ?.value || "0",
     );
-    score += parseInt(
-      (document.querySelector('input[name="q6"]:checked') as HTMLInputElement)
-        ?.value || "0",
-    );
 
-    //questionBlock.style.display = "none";
     if (resultBlock) {
       resultBlock.style.display = "block";
     }
     const resultText = document.createElement("p");
-    if (score >= 8) {
-      resultText.textContent =
-        "Ein Data Warehouse wäre für Ihre Anforderungen besser geeignet.";
-    } else {
-      resultText.textContent =
-        "Eine Tabellenkalkulation wie Excel ist für Ihre Anforderungen ausreichend.";
+    if (score < 10) {
+      resultText.innerHTML = `<h5>Ihr Ergebnis: Excel reicht aus</h5> Ihre aktuellen Anforderungen können problemlos mit Excel abgedeckt werden. Ein Data Warehouse ist momentan nicht erforderlich.`;
+    } else if (score < 14) {
+      resultText.innerHTML = `<h5>Ihr Ergebnis: Excel kommt an seine Grenzen</h5> Sie erleben gelegentlich Herausforderungen mit Excel, aber es ist noch nutzbar. Ein Data Warehouse könnte in Zukunft in Betracht gezogen werden, wenn die Datenmenge oder -komplexität weiter steigt.`;
+    } else if (score < 18) {
+      resultText.innerHTML = `<h5>Ihr Ergebnis: Wechsel auf ein Data Warehouse erwägen</h5> Sie stoßen zunehmend auf Probleme, die durch Excel verursacht werden. Es ist ratsam, über den Umstieg auf ein Data Warehouse nachzudenken, um die Effizienz und Datenintegrität zu verbessern.`;
+    } else if (score < 22) {
+      resultText.innerHTML = `<h5>Ihr Ergebnis: Data Warehouse wird sinnvoll</h5> Excel ist nicht mehr ausreichend. Der Umstieg auf ein Data Warehouse bietet Ihnen klare Vorteile und könnte die Datenprozesse in Ihrem Unternehmen deutlich effizienter gestalten.`;
+    } else if (score < 26) {
+      resultText.innerHTML = `<h5>Ihr Ergebnis: Dringender Bedarf an einem Data Warehouse</h5> Excel behindert Ihre Arbeit erheblich. Ein Data Warehouse ist dringend notwendig, um Ihre Datenmengen und -prozesse effektiv zu verwalten und eine reibungslose Berichterstellung und Analyse zu gewährleisten.`;
     }
+
     if (resultBlock) {
-      resultBlock.textContent = resultText.textContent;
+      resultBlock.innerHTML = resultText.innerHTML;
     }
   }
 </script>
