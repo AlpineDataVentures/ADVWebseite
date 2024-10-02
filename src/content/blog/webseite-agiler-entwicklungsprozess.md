@@ -1,6 +1,6 @@
 ---
 title: "Webseite mit agilem Entwicklungsprozess"
-meta_title: "Webseite vs Moderne Entwicklungspipeline, agiler Entwicklungsprozess, DevOps"
+meta_title: "Webseite vs Moderne Entwicklungspipeline"
 description: "Bei Alpine Data Ventures setzen wir auf Innovation und Struktur. Das zeigen wir auch mit unserer Webseite, die auf einem modernsten Entwicklungsprozess basiert."
 date: 2024-09-24T07:00:00Z
 image: "/images/blog/BTS_Website.png"
