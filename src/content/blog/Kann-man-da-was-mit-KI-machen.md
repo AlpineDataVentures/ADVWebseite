@@ -19,11 +19,11 @@ Bei all den Vorteilen der KI sollte die **Sicherheit Ihrer Daten** stets im Vord
 
 ---
 
-### **Was ist möglich in 10 Minuten?**
+### Was ist möglich in 10 Minuten?
 
 Sie glauben, 10 Minuten sind zu kurz, um wirklich etwas zu bewegen? Nicht mit der richtigen KI! Innerhalb kürzester Zeit kann KI eine Vielzahl von Aufgaben übernehmen, von Marketingtexten bis zur Codeoptimierung.
 
-| **Aufgabe**                               | **Abteilung**      | **Beschreibung**                                                                                          | **Beispiel**                                                                                       | **Link zum Ausprobieren** |
+| <h6>Aufgabe</h6>                              | <h6>Abteilung</h6>       | <h6>Beschreibung</h6>                                                                                          | <h6>Beispiel</h6>                                                                                        | <h6>Link zum Ausprobieren</h6>  |
 |-------------------------------------------|--------------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------|
 | Marketing-Texte generieren                | Marketing           | Erstellen Sie innerhalb von Minuten einen ansprechenden Newsletter, Produkttexte oder Social Media Posts.   | Mit **ChatGPT** oder **Jasper AI** einen Newsletter für Ihre Kampagne schreiben.                    | [ChatGPT ausprobieren](https://chat.openai.com) |
 | Kunden-E-Mails automatisieren             | Kundenservice, HR   | Automatisieren Sie standardisierte Antworten auf Kunden- oder Mitarbeiteranfragen.                          | Nutzen Sie **Grammarly** und **ChatGPT**, um höfliche, professionelle Antworten zu generieren.      | [Grammarly entdecken](https://www.grammarly.com/) |
@@ -31,14 +31,14 @@ Sie glauben, 10 Minuten sind zu kurz, um wirklich etwas zu bewegen? Nicht mit de
 | Bilder für Präsentationen erstellen       | Marketing, Vertrieb | KI-generierte Bilder für Präsentationen, Social Media oder Produktseiten – alles in wenigen Minuten.         | Mit **DALL·E** oder **Canva AI** ein Visual für den nächsten Blogbeitrag generieren.               | [DALL·E ausprobieren](https://openai.com/dall-e) |
 | Code verbessern und dokumentieren         | IT, Entwicklung     | Verbessern Sie bestehenden Code und erstellen Sie automatisch die Dokumentation.                            | Mit **GitHub Copilot** oder **OpenAI Codex** Ihren Code strukturieren und Kommentare hinzufügen.    | [GitHub Copilot](https://github.com/features/copilot) |
 
-**Was bedeutet das für Sie?**
+<h6> Was bedeutet das für Sie?</h6> 
 - **Newsletter** oder **Marketingtexte**? Fertig, bevor Ihr Kaffee kalt wird.
 - **Automatische E-Mail-Antworten** schreiben, ohne sich Gedanken über den richtigen Ton zu machen.
 - Komplexe **Excel-Makros** erstellen und im Handumdrehen **Code dokumentieren** – alles in weniger als 10 Minuten!
 
 ---
 
-### **Was ist möglich an einem Tag?**
+### Was ist möglich an einem Tag?
 
 Was lässt sich mit einem vollen Arbeitstag erreichen? Mit KI eröffnen sich ganz neue Möglichkeiten, um Projekte erheblich zu beschleunigen. Egal, ob es um die Automatisierung von Excel-Dateien oder die Erstellung einer Social-Media-Kampagne geht – in 24 Stunden kann KI viel bewegen.
 
@@ -50,14 +50,14 @@ Was lässt sich mit einem vollen Arbeitstag erreichen? Mit KI eröffnen sich gan
 | Präsentationen automatisch erstellen          | Vertrieb, Marketing       | Designen Sie in wenigen Stunden eine überzeugende, vollwertige Präsentation.                                | Mit **Beautiful.AI** oder **Tome** eine Vertriebspräsentation gestalten, inklusive aller Visualisierungen. | [Beautiful.AI testen](https://www.beautiful.ai/) |
 | Reporting-Dashboards aufsetzen                | Controlling, Finanzen     | Erstellen Sie automatisierte Dashboards, die wichtige KPIs in Echtzeit überwachen und Berichte generieren.   | Mit **Power BI** oder **Google Data Studio** Ihr eigenes Sales-Dashboard aufsetzen.                  | [Google Data Studio](https://datastudio.google.com/) |
 
-**In einem Tag erreichen Sie:**
+<h6> In einem Tag erreichen Sie:</h6> 
 - Eine voll funktionsfähige **Web-App** oder eine komplett **automatisierte Excel-Datei**.
 - Ihre nächste **Social Media-Kampagne** ist fix und fertig, und Sie haben mehr Zeit, um sich auf die Strategie zu konzentrieren.
 - Die perfekte **Präsentation** für Ihr nächstes Meeting – optisch überzeugend und inhaltlich auf den Punkt.
 
 ---
 
-### **Was ist möglich in einer Woche?**
+### Was ist möglich in einer Woche?
 
 Eine Woche mit KI? Da lassen sich bereits tiefgreifende Änderungen im Unternehmen implementieren. Innerhalb von nur fünf Tagen können Sie auf KI-gestützte Systeme umsteigen, die Effizienz und Produktivität maßgeblich verbessern.
 
@@ -75,9 +75,7 @@ Eine Woche mit KI? Da lassen sich bereits tiefgreifende Änderungen im Unternehm
 
 ---
 
-### **Was ist möglich in einem Monat?**
-
-### **Was ist möglich in einem Monat?**
+### Was ist möglich in einem Monat?
 
 Wenn Sie einen Monat investieren, eröffnet KI ganz neue Möglichkeiten. Hier sprechen wir über die Automatisierung von Kernprozessen, die sonst eine Vielzahl von Ressourcen binden würden.
 
@@ -89,7 +87,7 @@ Wenn Sie einen Monat investieren, eröffnet KI ganz neue Möglichkeiten. Hier sp
 | **Einführung eines dynamischen Preismodells**  | Vertrieb, E-Commerce      | Automatisieren Sie die Preisgestaltung basierend auf Nachfrage, Wettbewerb und internen Daten.                | Nutzen Sie KI-Modelle, um Preise dynamisch anzupassen und den Umsatz zu maximieren.                 | [Preismodell mit KI](https://www.huggingface.co/) |
 | **Automatisierung der Personalplanung**        | HR, Einzelhandel, Fertigung | Optimieren Sie Schichtpläne dynamisch basierend auf Nachfrage und Mitarbeiterverfügbarkeit.                   | Mit KI können Schichtpläne flexibel erstellt werden, um Kosten zu senken und die Effizienz zu steigern. | [AI Schichtplanung](https://www.blueprism.com/) |
 
-**Nach einem Monat:**
+<h6>Nach einem Monat:</h6> 
 - Ihr **Kundenservice** wird durch einen intelligenten Chatbot unterstützt, der 24/7 Anfragen beantwortet.
 - Das **Recruiting** ist automatisiert – Kandidaten werden gescreent und nach Eignung priorisiert.
 - Ihr Unternehmen hat ein **KI-gestütztes Archiv**, das innerhalb von Sekunden die richtige Information liefert.
@@ -98,7 +96,7 @@ Wenn Sie einen Monat investieren, eröffnet KI ganz neue Möglichkeiten. Hier sp
 
 ---
 
-### **Was ist möglich in einem Jahr?**
+### Was ist möglich in einem Jahr?
 
 Ein Jahr KI – das bedeutet: große Transformationen. Hier schaffen Sie nachhaltige Automatisierung, die Ihr Unternehmen grundlegend verändert. Geschäftsprozesse, die bisher manuell erledigt wurden, werden durch KI optimiert und automatisiert.
 
@@ -110,7 +108,7 @@ Ein Jahr KI – das bedeutet: große Transformationen. Hier schaffen Sie nachhal
 | Automatisierung und Optimierung der Arbeitsprozesse | Unternehmensleitung, HR | Automatisieren Sie Arbeitsabläufe über Abteilungen hinweg und steigern Sie die Effizienz durch Prozessoptimierung. | Setzen Sie **Robotic Process Automation (RPA)** und KI-Modelle wie **Blue Prism** ein, um Abläufe zu automatisieren und Teams zu entlasten. | [Blue Prism entdecken](https://www.blueprism.com/) |
 | KI-gestützte Personalisierung für alle Kundeninteraktionen | Vertrieb, Marketing, IT  | Optimieren Sie die gesamte Customer Journey durch KI-basierte Personalisierung von Produktangeboten, Inhalten und Kommunikation. | Nutzen Sie **Dynamic Yield** oder **Segment** für die Automatisierung personalisierter Kundeninteraktionen. | [Dynamic Yield entdecken](https://www.dynamicyield.com/) |
 
-**Nach einem Jahr:**
+<h6> Nach einem Jahr:</h6> 
 - Ihre gesamte **Buchhaltung** ist automatisiert – Rechnungen, Zahlungen und Reporting werden ohne menschliches Eingreifen erledigt.
 - Ihre Produktion wird zur **Smart Factory**, wo Predictive Maintenance und das IIoT die Effizienz steigern.
 - Ihre **Lieferketten und Lagerbestände** sind optimiert – immer die richtige Menge an Produkten und just-in-time Lieferungen.
@@ -118,7 +116,7 @@ Ein Jahr KI – das bedeutet: große Transformationen. Hier schaffen Sie nachhal
 
 ---
 
-### **Fazit: Ihr Weg zur Automatisierung mit Alpine Data Ventures**
+### Fazit: Ihr Weg zur Automatisierung mit Alpine Data Ventures
 
 Von kleinen Aufgaben, die in 10 Minuten erledigt werden können, bis hin zu vollautomatisierten Prozessen in einem Jahr – die Möglichkeiten, die KI bietet, sind enorm. Unternehmen, die diese Chancen nutzen, können ihre Effizienz drastisch steigern und ihre Wettbewerbsfähigkeit sichern. Dabei darf die **Datensicherheit** nie außer Acht gelassen werden: Viele Unternehmen entscheiden sich für **On-Premise-Lösungen** oder die **Eigenentwicklung von KI-Systemen**, um die volle Kontrolle über ihre Daten zu behalten.
 
