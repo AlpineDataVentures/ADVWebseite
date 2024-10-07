@@ -17,7 +17,7 @@ summary: "KI kann Unternehmensprozesse von einfachen Aufgaben in 10 Minuten bis 
 
 Bei all den Vorteilen der KI sollte die **Sicherheit Ihrer Daten** stets im Vordergrund stehen. KI-Modelle greifen oft auf sensible Informationen zu, daher ist es wichtig, **Datenschutzbestimmungen** wie die DSGVO zu beachten. Viele Unternehmen entscheiden sich für die **eigene Entwicklung** von KI-Lösungen oder On-Premise-Systeme, um die volle Kontrolle über ihre Daten zu behalten und potenzielle Risiken zu minimieren.
 
-<h6>!Es ist wichtig zu berückichtigen, dass alle folgend vorgeschlagenen Beispiele auch in Eigenentwicklung umgesetzt werden können, die beigefügten Links sind lediglich als kleine Übersicht und Sammlung gedacht.</h6>
+Es ist wichtig zu berücksichtigen, dass alle folgend vorgeschlagenen Beispiele auch in Eigenentwicklung umgesetzt werden können, die beigefügten Links und Tools sind lediglich als kleine Übersicht und Sammlung gedacht.
 
 ---
 
@@ -132,6 +132,6 @@ Sie fragen sich, wie Sie das in Ihrem Unternehmen umsetzen können? **Alpine Dat
 <h6> Interesse?</h6>
 
 Schreiben Sie eine E-Mail an **Julian Koller**, KI-Spezialist bei Alpine Data Ventures, unter:  
-[julian.koller@alpinedata.com](mailto:julian.koller@alpinedata.com)
+[julian.koller@alpinedata.com](mailto:julian.koller@alpinedata.de)
 
 Lassen Sie uns gemeinsam herausfinden, wie KI Ihnen helfen kann, Ihr Unternehmen auf die nächste Stufe zu heben.
