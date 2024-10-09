@@ -1,5 +1,6 @@
 ---
 title: "Julian Koller"
+blog_name: "Julian Koller" 
 role: "Geschäftsführer"
 email: julian.koller@alpinedata.de
 image: "/images/authors/JulianKoller.jpg"
