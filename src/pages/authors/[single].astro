@@ -28,7 +28,6 @@ const { Content } = await author.render();
 // get all posts by author
 const BLOG_FOLDER = "blog";
 const posts = await getSinglePage(BLOG_FOLDER);
-console.log(`Title: ${title}`);
 const postFilterByAuthor = posts.filter(
   (post) => slugify(post.data.author) === slugify(blog_name),
 );
