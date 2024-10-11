@@ -1,5 +1,6 @@
 ---
 title: "Dr. Carsten Hof"
+blog_name: "Carsten Hof" 
 role: "Geschäftsführer"
 email: carsten.hof@alpinedata.de
 image: "/images/authors/CarstenHof.jpg"

@@ -31,6 +31,7 @@ const casesCollection = defineCollection({
 const authorsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
+    blog_name: z.string(),
     role: z.string(),
     meta_title: z.string().optional(),
     email: z.string().optional(),

@@ -1,5 +1,6 @@
 ---
 title: "Andreas Klostermann"
+blog_name: "Andreas Klostermann" 
 role: "Geschäftsführer"
 email: andreas.klostermann@alpinedata.de
 image: "/images/authors/AndreasKlostermann.jpg"
