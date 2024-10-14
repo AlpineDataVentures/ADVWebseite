@@ -17,10 +17,9 @@ export default defineConfig({
     react(),
     sitemap({
       filter: (page) =>
-        page !== 'https://alpinedata.de/authors/' &&
-        page !== 'https://alpinedata.de/categories/' &&
-        page !== 'https://alpinedata.de/contact/' &&
-        page !== 'https://alpinedata.de/tags/'
+        !page.includes('/tags/') &&
+        !page.includes('/categories/') &&
+        !page.includes('/page/')
     }),
     tailwind({
       applyBaseStyles: false,
