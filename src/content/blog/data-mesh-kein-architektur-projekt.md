@@ -6,7 +6,7 @@ date: 2024-10-14T07:00:00Z
 image: "/images/blog/DataMesh_Blog.png"
 categories: ["Data Architecture"]
 author: "Andreas Klostermann"
-tags: ["Architecture", "DataMesh", "Data Culture", "Transformation"]
+tags: ["Architecture", "DataMesh", "DataCulture", "HowTo"]
 draft: false
 summary: "Data Mesh erfordert einen kulturellen Wandel im Unternehmen, nicht nur neue Technologie. Der Einstieg beginnt mit der Definition von Daten als Produkt, der Identifizierung von Domain-Teams und der schrittweisen Einführung einer Self-Service-Infrastruktur."
 ---
