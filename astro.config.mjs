@@ -19,7 +19,9 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/tags/') &&
         !page.includes('/categories/') &&
-        !page.includes('/page/')
+        !page.includes('/page/') &&
+        page !== 'https://alpinedata.de/authors/' &&
+        page !== 'https://alpinedata.de/contact/'
     }),
     tailwind({
       applyBaseStyles: false,
