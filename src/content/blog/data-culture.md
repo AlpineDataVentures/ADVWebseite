@@ -29,7 +29,7 @@ Genauso wird jeder in die Lage versetzt, die richtigen Fragen an die Daten zu st
 
 Eine gute Datenkultur hilft, Entscheidungen nicht auf Bauchgefühl oder Erfahrungen allein zu stützen, sondern objektiv und nachvollziehbar zu treffen. Das Ziel ist, dass Daten die Basis aller Entscheidungen im Unternehmen werden und zu besseren, fundierteren Entscheidungen beitragen.
 
-Klar sollte auch sein, dass die Voraussetzung dafür ist, dass Daten verfügbar und korrekt sind, um das notwendige Vertrauen aufzubauen. Zudem müssen die notwendigen Skills vorhanden sind, um aus scheinbar endlosen Tabellen mit Zahlen die richtigen Insights zu finden.
+Klar sollte auch sein, dass die Voraussetzung dafür ist, dass Daten verfügbar und korrekt sind, um das notwendige Vertrauen aufzubauen. Zudem müssen die notwendigen Skills vorhanden sein, um aus scheinbar endlosen Tabellen mit Zahlen die richtigen Insights zu finden.
 
 ### Warum ist Data Culture für Ihr Unternehmen wichtig?
 
@@ -50,7 +50,7 @@ Die Einführung einer Datenkultur ist kein Projekt, das von heute auf morgen abg
 
 Die größte Herausforderung bei diesem Prozess liegt darin, die zu erwartenden Vorbehalte bei Teilen der Belegschaft, die sich nicht mit der neuen Art zu arbeiten anfreunden können, aufzufangen. Wie der Bäcker in der Nachbarschaft seine Antwort auf meine Frage, warum nicht mit Karte zahlen könnte, passend formulierte: „Das haben wir schon immer so gemacht!“. Dieser Einstellung können Sie mit der richtigen Herangehensweise entgegenwirken, auch wenn Sie sich bewusst sein müssen, dass es immer den einen oder anderen Nörgler geben wird:
 
-- **Schaffen Sie eine Vision und betonen Sie den Nutzen von Daten**: Zeigen Sie auf, warum Daten wichtig sind und wie sie dem Unternehmen und dem einzelnen Mitarbeiter nützen können („What´s in it for you“). Wenn die Mitarbeiter erkennen, dass Daten ihre Arbeit erleichtern und verbessern, werden Akzeptanz und die Bereitschaft, bei dieer Transformation mitzumachen, steigen.
+- **Schaffen Sie eine Vision und betonen Sie den Nutzen von Daten**: Zeigen Sie auf, warum Daten wichtig sind und wie sie dem Unternehmen und dem einzelnen Mitarbeiter nützen können („What's in it for you“). Wenn die Mitarbeiter erkennen, dass Daten ihre Arbeit erleichtern und verbessern, werden Akzeptanz und die Bereitschaft, bei dieser Transformation mitzumachen, steigen.
 
 - **Investieren Sie in Schulungen und Weiterbildungen**: Sorgen Sie dafür, dass Ihre Mitarbeiter die Fähigkeiten und das Wissen haben, um Daten zu verstehen und zu nutzen. Ein gut geschultes Team kann Daten besser interpretieren und anwenden.
 
