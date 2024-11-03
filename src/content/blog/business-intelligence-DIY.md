@@ -1,5 +1,5 @@
 ---
-title: "Respekt, wer’s selber macht! – Die Philosophie hinter dem Eigenbau einer BI-Landschaft"
+title: "Respekt, wer’s selber macht! – Die Philosophie hinter dem BI-Eigenbau"
 meta_title: "Respekt, wer’s selber macht! – Die Philosophie hinter dem internen Aufbau einer BI-Landschaft"
 description: "Was wäre, wenn Ihr Unternehmen seine Daten in die eigenen Hände nehmen könnte – schneller, flexibler und selbstbestimmt? Unser Artikel zeigt, wie das konkret aussieht."
 date: 2024-11-04T07:00:00Z
@@ -11,9 +11,9 @@ draft: false
 summary: "Was wäre, wenn Ihr Unternehmen seine Daten in die eigenen Hände nehmen könnte – schneller, flexibler und selbstbestimmt? Unser Artikel zeigt, wie das konkret aussieht."
 ---
 
-Selbst Dinge zu tun – und nicht auszulagern – hatte schon immer einen tiefen Wert, vor allem für die Zukunft und das vollständige Verständnis. Wenn wir selbst tätig werden, erschaffen wir nicht nur greifbare Ergebnisse, sondern auch ein unvergleichliches Wissen. Durch eigenes Handeln wird Wissen vertieft und zu einem integralen Bestandteil unserer Kompetenzen, die uns auf lange Sicht weiter tragen.
-
 > „Der beste Weg, die Welt zu verstehen, ist, in jedem Detail zu leben.“ – *Marcus Aurelius*
+
+Selbst Dinge zu tun – und nicht auszulagern – hatte schon immer einen tiefen Wert, vor allem für die Zukunft und das vollständige Verständnis. Wenn wir selbst tätig werden, erschaffen wir nicht nur greifbare Ergebnisse, sondern auch ein unvergleichliches Wissen. Durch eigenes Handeln wird Wissen vertieft und zu einem integralen Bestandteil unserer Kompetenzen, die uns auf lange Sicht weiter tragen.
 
 Indem wir selbst den Prozess durchlaufen, lernen wir, besser auf komplexe Situationen zu reagieren, weil wir eine fundamentale Verbindung zu dem aufgebaut haben, was wir tun.
 
@@ -21,18 +21,18 @@ Eine eigene BI-Landschaft bedeutet, dass ein Unternehmen seine Daten und Strateg
 
 ---
 
-### **Prioritäten setzen: Wie man BI-Themen strategisch auswählt**
+### Prioritäten setzen: Wie man BI-Themen strategisch auswählt
 
 Der Weg zu einer eigenen BI-Landschaft beginnt mit dem richtigen Fokus. Unternehmen stehen vor einer Vielzahl möglicher Fragestellungen, und nur durch Priorisierung entsteht aus dieser Vielfalt eine wirkungsvolle BI-Strategie. Ein strukturiertes Vorgehen, das Themen nach ihrem potenziellen Mehrwert und ihrer Umsetzungskomplexität bewertet, ist hier entscheidend. Ein klarer Blick auf die eigenen Ziele hilft dabei, **Themen gezielt zu priorisieren** und sicherzustellen, dass BI-Initiativen effizient und erfolgsorientiert umgesetzt werden.
 
-#### **1. Themensammlung und Bewertung**
+#### 1. Themensammlung und Bewertung
 Beginnen Sie mit einer offenen Themensammlung in den Abteilungen, die BI-Lösungen nutzen wollen. Dazu gehört es, alle möglichen Fragen, Analysen und Berichte, die einen Mehrwert bieten könnten, aufzulisten. Hier einige typische Fragen, die helfen, BI-Themen zu identifizieren:
 
 - Welche Daten werden häufig genutzt, um Entscheidungen zu treffen?
 - Wo gibt es immer wieder Lücken in der Transparenz oder Aktualität von Berichten?
 - Welche Prozesse könnten durch eine bessere Datenübersicht effizienter gestaltet werden?
 
-#### **2. Mehrwert und Komplexität bewerten**
+#### 2. Mehrwert und Komplexität bewerten
 Sobald die Themen gesammelt wurden, bewerten Sie sie anhand von zwei zentralen Kriterien:
 
 - **Mehrwert**: Welchen potenziellen Nutzen bringt die Lösung eines BI-Themas? Beispiel: Umsatzberichte für den Vertrieb haben oft einen hohen Mehrwert, da sie Verkaufschancen und Schwachstellen in Echtzeit sichtbar machen.
@@ -43,7 +43,7 @@ Eine Bewertungstabelle, in der Mehrwert und Komplexität auf einer Skala von 1 b
 
 ---
 
-### **Das BI-Team: Rollen und wichtige Eigenschaften**
+### Das BI-Team: Rollen und wichtige Eigenschaften
 
 Das Herzstück einer erfolgreichen BI-Landschaft ist das Team, das sie aufbaut. Es braucht engagierte, vielseitige Mitglieder, die sich in ihren Aufgaben und Rollen ergänzen. Jede Rolle hat ihre eigenen Anforderungen, und die passende Auswahl der Teammitglieder kann den Erfolg maßgeblich beeinflussen.
 
@@ -57,7 +57,7 @@ Ein Team, das motiviert ist und die richtige Mischung an Kompetenzen und Interes
 
 ---
 
-### **BI im Unternehmen verankern und die Akzeptanz steigern**
+### BI im Unternehmen verankern und die Akzeptanz steigern
 
 Das Beste aus BI-Systemen herauszuholen, funktioniert nur, wenn alle Abteilungen den Mehrwert erkennen und das System akzeptieren. Die Kultur der **datengetriebenen Entscheidungsfindung** wird am besten gefördert, wenn Mitarbeitende aktiv in den BI-Prozess integriert werden und die Vorteile für ihre Arbeit klar erkennbar sind. Hier einige Maßnahmen zur Förderung der Akzeptanz:
 
@@ -69,25 +69,26 @@ Das Beste aus BI-Systemen herauszuholen, funktioniert nur, wenn alle Abteilungen
 
 ---
 
-### **Enablement der Mitarbeiter: Schlüssel zur nachhaltigen BI-Kultur**
+### Enablement der Mitarbeiter: Schlüssel zur nachhaltigen BI-Kultur
 
-Eine BI-Landschaft kann nur dann erfolgreich sein, wenn alle Mitarbeitenden in die Lage versetzt werden, eigenständig damit zu arbeiten. Enablement bedeutet, nicht nur den Zugang zu Tools zu ermöglichen, sondern die Fähigkeiten und das Vertrauen in den Umgang mit BI-Daten zu fördern. 
+Eine BI-Landschaft kann nur dann erfolgreich sein, wenn alle Mitarbeitenden in die Lage versetzt werden, eigenständig damit zu arbeiten. Enablement bedeutet, nicht nur den Zugang zu Tools zu ermöglichen, sondern die Fähigkeiten und das Vertrauen in den Umgang mit Daten zu fördern. 
 
 **Schritte zur Mitarbeiter-Enablement-Strategie:**
 
-1. **Grundlagenschulungen**: Einsteiger-Workshops machen die grundlegenden Funktionen der BI-Tools verständlich und ermöglichen einen leichten Einstieg. [Workshop anfordern](mailto:julian.koller@alpinedata.de?subject=Grundlagenschulung%20BI)
+1. **Grundlagenschulungen**: Einsteiger-Workshops machen die grundlegenden Funktionen der BI-Tools verständlich und ermöglichen einen leichten Einstieg.
+[Beginner Workshop anfordern](mailto:julian.koller@alpinedata.de?subject=Grundlagenschulung%20BI)
 
-2. **Fortgeschrittenenkurse**: Aufbauende Schulungen für spezifische Anwendungen oder fortgeschrittene Analysen geben auch erfahrenen Nutzern Raum zur Weiterentwicklung. [Workshop anfordern](mailto:julian.koller@alpinedata.de?subject=Fortgeschrittenen%20Kurse%20BI)
+2. **Fortgeschrittenenkurse**: Aufbauende Schulungen für spezifische Anwendungen oder fortgeschrittene Analysen geben auch erfahrenen Nutzern Raum zur Weiterentwicklung.
+[Advanced Workshop anfordern](mailto:julian.koller@alpinedata.de?subject=Fortgeschrittenen%20Kurse%20BI)
 
-3. **Coaching und direkte Unterstützung**: Durch individuelles Coaching können konkrete Anwendungsfragen direkt geklärt werden. Zudem werden durch regelmäßige Sprechstunden Unsicherheiten ausgeräumt und die Tool-Nutzung vertieft.[Coaching anfordern](mailto:julian.koller@alpinedata.de?subject=Direkte%20Unterstützung%20BI)
+3. **Coaching und direkte Unterstützung**: Durch individuelles Coaching können konkrete Anwendungsfragen direkt geklärt werden. Zudem werden durch regelmäßige Sprechstunden Unsicherheiten ausgeräumt und die Tool-Nutzung vertieft.
+[Coaching anfordern](mailto:julian.koller@alpinedata.de?subject=Direkte%20Unterstützung%20BI)
 
 **Warum das Enablement wichtig ist:** Mit kontinuierlichem Support und gezieltem Wissenstransfer wird BI nicht nur akzeptiert, sondern langfristig in den Arbeitsalltag integriert. Eine hohe Datenkompetenz ermöglicht fundierte, datengetriebene Entscheidungen und schafft eine zukunftssichere, agile Unternehmenskultur.
 
 > „Die Zukunft hängt davon ab, was du heute tust.“ – *Mahatma Gandhi*
 
----
-
-### **Roadmap zur Einführung: BI strategisch verankern**
+### Roadmap zur Einführung: BI strategisch verankern
 
 Eine strukturierte Roadmap stellt sicher, dass BI im Unternehmen richtig Fuß fasst und der Wert von Anfang an erkennbar ist. Die folgenden Schritte zeigen, wie Unternehmen BI sinnvoll implementieren und die Akzeptanz langfristig steigern können:
 
@@ -107,7 +108,7 @@ Eine strukturierte Roadmap stellt sicher, dass BI im Unternehmen richtig Fuß fa
 
 ---
 
-### **Dashboard-Ideen nach Branche und Abteilung**
+### Dashboard-Ideen nach Branche und Abteilung
 
 Hier finden Sie eine Brainstorm-Matrix mit spezifischen Dashboard-Ideen für verschiedene Branchen und Abteilungen. Diese Beispiele bieten Anregungen, wie BI für gezielte Fragestellungen genutzt werden kann:
 
@@ -121,23 +122,9 @@ Hier finden Sie eine Brainstorm-Matrix mit spezifischen Dashboard-Ideen für ver
 
 ---
 
-### **Tools für Self-Service-BI: Auswahl und Beschreibung**
+### Lust bekommen, BI in Ihrem Unternehmen umzusetzen?
 
-Die Auswahl des richtigen Tools ist entscheidend für eine erfolgreiche Einführung von Self-Service-BI. Hier sind einige empfohlene Tools:
-
-- **Power BI**: Ein benutzerfreundliches Tool von Microsoft, das gut in bestehende Systeme integriert werden kann und zahlreiche Visualisierungsoptionen bietet.
-  
-- **Tableau**: Stark in der Datenvisualisierung und ideal für interaktive Dashboards. Besonders geeignet für Unternehmen, die umfangreiche Visualisierungen benötigen.
-  
-- **Google Data Studio**: Ein kostenfreies Tool für grundlegende Berichte und Analysen, das sich besonders für kleinere Teams und erste BI-Schritte eignet.
-  
-- **Qlik Sense**: Bietet interaktive Dashboards und umfangreiche Analysemöglichkeiten und ist speziell für größere Unternehmen geeignet.
-
----
-
-### **Bereit, BI in Ihrem Unternehmen umzusetzen?**
-
-Von der Identifikation der wichtigsten Themen bis zur vollständigen Integration von BI-Prozessen – die Möglichkeiten, die Self-Service-BI bietet, sind enorm. Unternehmen, die diese Chancen nutzen, können ihre Effizienz drastisch steigern und ihre Wettbewerbsfähigkeit sichern. 
+Von der Identifikation der wichtigsten Themen bis zur vollständigen Integration von BI-Prozessen – die Möglichkeiten, die Business Intelligence Lösungen bieten, sind enorm. Unternehmen, die diese Chancen nutzen, können ihre Effizienz drastisch steigern und ihre Wettbewerbsfähigkeit sichern. 
 
 Sie fragen sich, wie Sie Self-Service-BI in Ihrem Unternehmen konkret umsetzen können? **Alpine Data Ventures** bietet Ihnen ein kostenloses Beratungsgespräch an, um die richtigen Lösungen für Ihre Bedürfnisse zu finden.
 
