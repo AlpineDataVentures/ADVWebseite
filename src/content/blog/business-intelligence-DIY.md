@@ -1,9 +1,9 @@
 ---
-title: "Respekt, wer’s selber macht! – Die Philosophie hinter dem BI-Eigenbau"
-meta_title: "Respekt, wer’s selber macht! – Die Philosophie hinter dem internen Aufbau einer BI-Landschaft"
+title: "Respekt, wer’s selber macht! – Wie funktioniert der BI-Eigenbau?"
+meta_title: "Respekt, wer’s selber macht! – Wie funktioniert der BI-Eigenbau?"
 description: "Was wäre, wenn Ihr Unternehmen seine Daten in die eigenen Hände nehmen könnte – schneller, flexibler und selbstbestimmt? Unser Artikel zeigt, wie das konkret aussieht."
 date: 2024-11-04T07:00:00Z
-image: "/images/blog/data_culture.png"
+image: "/images/blog/BIDIY-Blog.png"
 categories: ["Business Intelligence"]
 author: "Julian Koller"
 tags: ["Business Intelligence", "Data Strategy", "HowTo"]
@@ -11,7 +11,7 @@ draft: false
 summary: "Was wäre, wenn Ihr Unternehmen seine Daten in die eigenen Hände nehmen könnte – schneller, flexibler und selbstbestimmt? Unser Artikel zeigt, wie das konkret aussieht."
 ---
 
-> „Der beste Weg, die Welt zu verstehen, ist, in jedem Detail zu leben.“ – *Marcus Aurelius*
+> Der beste Weg, die Welt zu verstehen, ist, in jedem Detail zu leben. – *Marcus Aurelius*
 
 Selbst Dinge zu tun – und nicht auszulagern – hatte schon immer einen tiefen Wert, vor allem für die Zukunft und das vollständige Verständnis. Wenn wir selbst tätig werden, erschaffen wir nicht nur greifbare Ergebnisse, sondern auch ein unvergleichliches Wissen. Durch eigenes Handeln wird Wissen vertieft und zu einem integralen Bestandteil unserer Kompetenzen, die uns auf lange Sicht weiter tragen.
 
@@ -19,6 +19,12 @@ Indem wir selbst den Prozess durchlaufen, lernen wir, besser auf komplexe Situat
 
 Eine eigene BI-Landschaft bedeutet, dass ein Unternehmen seine Daten und Strategien wirklich versteht und flexibel darauf reagieren kann. Selbst zu gestalten, fördert nicht nur die Datenkompetenz und eine [Datenkultur](https://alpinedata.de/blog/data-culture/), sondern baut eine robuste, langfristige Infrastruktur auf, die perfekt auf die individuellen Unternehmensziele zugeschnitten ist. Durch den eigenständigen Aufbau wird BI zu einem wertvollen Teil der Unternehmenskultur und einer nachhaltigen Grundlage für die Zukunft.
 
+#### Die 5 "Why"s für BI
+- BI ermöglicht fundierte Entscheidungen auf Basis aktueller Daten anstelle von Intuition oder Schätzungen.
+- Routinetätigkeiten lassen sich durch BI und Automatisierung schneller und fehlerfrei durchführen.
+- BI entlastet Mitarbeiter von monotonen Aufgaben, sodass sie sich auf strategischere Tätigkeiten konzentrieren können.
+- BI unterstützt langfristige Planungen und Prognosen, indem es Muster und Trends in den Daten aufzeigt.
+- BI ermöglicht, potenzielle Risiken und Chancen frühzeitig zu erkennen und gezielt und proaktiv darauf zu reagieren.
 ---
 
 ### Prioritäten setzen: Wie man BI-Themen strategisch auswählt
@@ -86,7 +92,7 @@ Eine BI-Landschaft kann nur dann erfolgreich sein, wenn alle Mitarbeitenden in d
 
 **Warum das Enablement wichtig ist:** Mit kontinuierlichem Support und gezieltem Wissenstransfer wird BI nicht nur akzeptiert, sondern langfristig in den Arbeitsalltag integriert. Eine hohe Datenkompetenz ermöglicht fundierte, datengetriebene Entscheidungen und schafft eine zukunftssichere, agile Unternehmenskultur.
 
-> „Die Zukunft hängt davon ab, was du heute tust.“ – *Mahatma Gandhi*
+> Die Zukunft hängt davon ab, was du heute tust. – *Mahatma Gandhi*
 
 ### Roadmap zur Einführung: BI strategisch verankern
 
@@ -106,6 +112,7 @@ Eine strukturierte Roadmap stellt sicher, dass BI im Unternehmen richtig Fuß fa
 
 7. **Langfristige Integration und Skalierung**: Entwickeln Sie eine Langzeitstrategie für Self-Service-BI und sorgen Sie dafür, dass BI-Analysen Teil der täglichen Entscheidungsfindung in allen Abteilungen werden. Erweitern Sie nach und nach die BI-Lösungen und passen Sie sie an die wachsenden Anforderungen des Unternehmens an.
 
+![Übersicht: Roadmap für die Einführung von BI](/images/blog/BIDIY.png)
 ---
 
 ### Dashboard-Ideen nach Branche und Abteilung
