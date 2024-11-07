@@ -4,7 +4,7 @@ blog_name: "Andreas Klostermann"
 role: "Geschäftsführer"
 email: andreas.klostermann@alpinedata.de
 image: "/images/authors/AndreasKlostermann.jpg"
-description: "Andreas Klostermann - Unternehmer, Spezialist für Vertriebs- und Unternehmensstrategie"
+description: "Andreas Klostermann – Unternehmer und Spezialist für Vertriebs- und Unternehmensstrategie. Er hilft Firmen, Wachstum und Marktposition gezielt zu stärken."
 bullet_points: ["Vertriebsgenie", "Immer für ein Bier zu haben", "Unternehmensstratege", "Es gibt keine Herausforderung, die ihm zu groß ist - außer Bügeln"]
 social:
   - name: linkedin

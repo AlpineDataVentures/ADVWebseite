@@ -1,5 +1,5 @@
 ---
 title: "Case Studies"
 meta_title: "ADV Case Studies"
-description: "Beispiele für unser Herangehensweise zur Lösungen von spezifischen Herausforderungen"
+description: "Beispiele unserer Herangehensweise zur Lösung spezifischer Herausforderungen: maßgeschneiderte Strategien und datenbasierte Ansätze für nachhaltigen Erfolg."
 ---

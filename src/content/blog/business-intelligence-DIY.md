@@ -1,7 +1,7 @@
 ---
 title: "Respekt, wer’s selber macht! – Wie funktioniert der BI-Eigenbau?"
 meta_title: "Respekt, wer’s selber macht! – Wie funktioniert der BI-Eigenbau?"
-description: "Was wäre, wenn Ihr Unternehmen seine Daten in die eigenen Hände nehmen könnte – schneller, flexibler und selbstbestimmt? Unser Artikel zeigt, wie das konkret aussieht."
+description: "Wenn Ihr Unternehmen seine Daten in die eigenen Hände nehmen könnte – schneller, flexibler und selbstbestimmt? Unser Artikel zeigt, wie das konkret aussieht."
 date: 2024-11-04T07:00:00Z
 image: "/images/blog/BIDIY-Blog.png"
 categories: ["Business Intelligence"]

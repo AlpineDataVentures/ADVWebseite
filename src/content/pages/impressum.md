@@ -1,7 +1,7 @@
 ---
 title: "Impressum"
 meta_title: "Impressum der Alpine Data Ventures"
-description: "Impressum Alpine Data Ventures GmbH i.Gr."
+description: "Impressum der Alpine Data Ventures GmbH – Ihr Unternehmensberater im Herzen Münchens, spezialisiert auf Datenstrategie und digitale Transformation."
 noindex: false
 canonical: "https://alpinedata.de/impressum"
 draft: false

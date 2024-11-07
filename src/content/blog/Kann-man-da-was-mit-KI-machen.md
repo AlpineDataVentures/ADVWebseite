@@ -1,7 +1,7 @@
 ---
 title: "Kann man da nicht was mit KI machen?"
 meta_title: "Kann man da nicht was mit KI machen?"
-description: "KI kann Unternehmensprozesse von einfachen Aufgaben in 10 Minuten bis hin zur vollständigen Automatisierung in einem Jahr erheblich beschleunigen aber nur mit den richtigen Tools."
+description: "KI beschleunigt Prozesse von einfachen Aufgaben in 10 Min. bis zur kompletten Automatisierung in einem Jahr – aber nur mit den richtigen Tools."
 date: 2024-10-07T07:00:00Z
 image: "/images/blog/Blog_KI.png"
 categories: ["Tech"]

@@ -1,7 +1,7 @@
 ---
 title: "Data Mesh: Wie man startet und warum es kein IT-Projekt ist"
 meta_title: "Data Mesh: Wie man startet und warum es kein IT-Projekt ist"
-description: "Data Mesh erfordert einen kulturellen Wandel im Unternehmen, nicht nur neue Technologie. Der Einstieg beginnt mit der Definition von Daten als Produkt, der Identifizierung von Domain-Teams und der schrittweisen Einführung einer Self-Service-Infrastruktur."
+description: "Data Mesh erfordert kulturellen Wandel, nicht nur neue Technologie. Start: Daten als Produkt definieren, Domain-Teams bestimmen, Self-Service-Infrastruktur einführen."
 date: 2024-10-14T07:00:00Z
 image: "/images/blog/DataMesh_Blog.png"
 categories: ["Data Architecture"]
