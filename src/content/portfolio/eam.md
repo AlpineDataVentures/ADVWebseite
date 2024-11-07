@@ -2,7 +2,7 @@
 title: "Enterprise Architecture Management"
 title_image: "/images/portfolio/EAM.webp"
 meta_title: "Enterprise Architecture Management"
-description: "Enterprise Architecture Management (EAM) gewährleistet, dass Ihre IT-Systeme effizient zusammenarbeiten, flexibel bleiben und langfristig den Unternehmenszielen dienen. EAM unterstützt den kontinuierlichen Abgleich von Technologie und Geschäftsstrategie, um sicherzustellen, dass Ihre IT-Infrastruktur anpassungsfähig und zukunftssicher ist."
+description: "EAM sorgt dafür, dass Ihre IT-Systeme effizient und flexibel sind und den Unternehmenszielen dienen. So bleibt Ihre IT-Infrastruktur anpassungsfähig und zukunftssicher."
 image: ""
 draft: false
 overview: ["Enterprise Architecture Management (EAM) gewährleistet, dass Ihre IT-Systeme effizient zusammenarbeiten, flexibel bleiben und langfristig den Unternehmenszielen dienen. EAM unterstützt den kontinuierlichen Abgleich von Technologie und Geschäftsstrategie, um sicherzustellen, dass Ihre IT-Infrastruktur anpassungsfähig und zukunftssicher ist.", "Ein gut umgesetztes EAM stellt sicher, dass Ihre IT-Governance optimal funktioniert, indem klare Richtlinien für die Systemintegration und Technologieeinsätze entwickelt werden. Es reduziert Redundanzen, erhöht die Effizienz und schafft eine solide Grundlage, auf der neue Systeme und Technologien nahtlos integriert werden können.", "EAM hilft, Kosten durch die Konsolidierung von Systemen und die gezielte Nutzung von IT-Ressourcen zu senken. Durch eine systematische Analyse der bestehenden IT-Infrastruktur werden ungenutzte Potenziale identifiziert und Prozesse optimiert, was langfristig zu niedrigeren Betriebskosten führt und die Effizienz der gesamten IT-Landschaft erhöht."]

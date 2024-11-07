@@ -4,7 +4,7 @@ blog_name: "Carsten Hof"
 role: "Geschäftsführer"
 email: carsten.hof@alpinedata.de
 image: "/images/authors/CarstenHof.jpg"
-description: "Dr. Carsten Hof – Experte für Digitale Transformation sowie Enterprise und Data Architecture. Er unterstützt Unternehmen beim Aufbau zukunftssicherer Strukturen."
+description: "Dr. Carsten Hof – Experte für Digitale Transformation sowie Enterprise Architecture. Er unterstützt Unternehmen beim Aufbau zukunftssicherer Strukturen."
 bullet_points: ["Führung großer globaler Teams", "IT- und Daten-Nerd", "Architekturexperte", "Es gibt kaum einen Berg in der Nähe von München, den er nicht erklommen hat"]
 social:
   - name: github

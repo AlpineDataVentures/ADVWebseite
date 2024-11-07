@@ -1,7 +1,7 @@
 ---
 title: "Willkommen auf unserem Blog!"
 meta_title: "Willkommen auf unserem Blog!"
-description: "Was Sie hier auf dem Blog erwartet und warum es sich lohnt, zu bleiben! "
+description: "Erfahren Sie auf unserem Blog alles über Datenstrategie, digitale Transformation und erfolgreiche Geschäftsmodelle. Bleiben Sie dran – es lohnt sich!"
 date: 2024-09-06T07:00:00Z
 image: "/images/blog/ADV_Blog.jpg"
 categories: ["ADV"]
