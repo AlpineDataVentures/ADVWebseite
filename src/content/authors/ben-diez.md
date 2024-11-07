@@ -4,7 +4,7 @@ blog_name: "Ben Diez"
 role: "Geschäftsführer"
 email: benjamin.diez@alpinedata.de
 image: "/images/authors/BenDiez.jpg"
-description: "Benjamin Diez - Spezialist für Datenstrategie, -Kultur und -Governance"
+description: "Benjamin Diez – Spezialist für Datenstrategie, Datenkultur und Governance. Er unterstützt Unternehmen beim Aufbau einer nachhaltigen Dateninfrastruktur."
 bullet_points: ["Leader mit Vision", "Vom Soldaten zum Datenexperten – taktische Exzellenz für Ihre Datenstrategie", "Finanz- und Steuerungsprofi", "Benutzt als begeisterter Taucher viel zu oft den Begriff „Deep Dive“"]
 social:
   - name: linkedin

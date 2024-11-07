@@ -1,7 +1,7 @@
 ---
 title: "Datenschutz"
 meta_title: "Datenschutz - Alpine Data Ventures"
-description: "Der Schutz Ihrer persönlichen Daten ist uns wichtig"
+description: "Der Schutz Ihrer persönlichen Daten ist uns wichtig: Wir setzen auf höchste Sicherheitsstandards, um Ihre Daten vertraulich und sicher zu verwalten."
 noindex: false
 canonical: "https://alpinedata.de/datenschutz"
 draft: false

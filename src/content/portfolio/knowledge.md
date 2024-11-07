@@ -1,8 +1,8 @@
 ---
 title: "Data Knowledge"
 title_image: "/images/portfolio/Data Knowledge.webp"
-meta_title: "Data Knowledge"
-description: "Zum nachhaltigen Aufbau von Data Knowledge werden die Inhalte von Seminaren und Workshops gezielt auf das Vorwissen und die spezifischen Bedürfnisse der Teilnehmer abgestimmt."
+meta_title: "Data Knowledge: Fundament für datenbasierte Entscheidungen."
+description: "Nachhaltiges Data Knowledge entsteht, wenn Seminar- und Workshop-Inhalte auf das Vorwissen und die Bedürfnisse der Teilnehmer abgestimmt werden."
 image: ""
 draft: false
 overview: ["Zum nachhaltigen Aufbau von Data Knowledge werden die Inhalte von Seminaren und Workshops gezielt auf das Vorwissen und die spezifischen Bedürfnisse der Teilnehmer abgestimmt. Durch praxisnahe Übungen und reale Beispiele wird das Gelernte direkt anwendbar und der Bezug zur täglichen Arbeit gestärkt​", "Langfristige Pläne zur kontinuierlichen Schulung und regelmäßige Auffrischungskurse stellen sicher, dass das erworbene Wissen aktuell bleibt und stetig weiterentwickelt wird, was zu einem nachhaltigen Lernerfolg führt", "Durch den Aufbau einer Wissensdatenbank (Knowledge Management) bleiben Wissen und Fachkenntnisse erhalten und zugänglich, auch wenn Mitarbeiter das Unternehmen verlassen"]
