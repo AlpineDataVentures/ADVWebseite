@@ -68,9 +68,11 @@ Ein Beratungsunternehmen aus München hat vier Vertriebskanäle im Fokus:
 Blicken wir nun zunächst auf den Veranstaltungszweig:
 Wir beginnen mit der Zielstellung: Wie viele Aufträge erhoffen wir uns in welchem Volumen und bei welcher Zielgruppe durch diesen Vertriebsweg? Daraus lässt sich ableiten, wie viele Veranstaltungen über das Jahr besucht werden müssen, wenn:
 
-a.	Unterschiedlich hohe Leads pro Veranstaltung entstehen
-b.	Unterschiedlich hohe Conversion Rates berücksichtigt werden
-c.	Verschiedene platzierte Volumina pro Auftrag herauskommen
+<ol type="a">
+<li>Unterschiedlich hohe Leads pro Veranstaltung entstehen</li>
+<li>Unterschiedlich hohe Conversion Rates berücksichtigt werden</li>
+<li>Verschiedene platzierte Volumina pro Auftrag herauskommen</li>
+</ol>
 
 Infolgedessen kann man (Basic mit einer Excel oder fortgeschritten mit einem CRM-System) beginnen, eine Veranstaltungsliste zu erstellen. Die recherchierten Veranstaltungen in geeigneter Anzahl werden um die Felder angereichert:
 
