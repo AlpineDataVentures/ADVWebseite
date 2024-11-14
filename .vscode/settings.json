@@ -3,7 +3,11 @@
     "source.fixAll.eslint": "explicit"
   },
   "cSpell.words": [
-    "advwebseite"
+    "advwebseite",
+    "BIDIY",
+    "datengetriebener",
+    "reinholen",
+    "wirtschaftlichkeit"
   ],
   "editor.formatOnSave": true,
   "files.associations": {
