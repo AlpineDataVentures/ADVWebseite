@@ -3,7 +3,7 @@ title: "Data Driven Sales – Der Weg zum modernen und effizienten Vertrieb"
 meta_title: "Data Driven Sales – Der Weg zum modernen und effizienten Vertrieb"
 description: "Echte Einblicke statt Floskeln: Wie datengetriebener Vertrieb wirklich funktioniert – mit Strategien, die nicht nur auf KPIs setzen, sondern Effizienz und Kundennutzen in den Mittelpunkt stellen."
 date: 2024-11-11T07:00:00Z
-image: "/images/blog/BIDIY-Blog.png"
+image: "/images/blog/data_driven_sales.png"
 categories: ["Sales"]
 author: "Andreas Klostermann"
 tags: ["Sales", "Data Driven", "HowTo"]
