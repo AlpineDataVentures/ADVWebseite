@@ -4,21 +4,21 @@ meta_title: "KI und BI: Der modernste Schritt der Datenanalyse – Das A(I), B(I
 description: "Wie Künstliche Intelligenz und Business Intelligence kombiniert werden können, um datengetriebene Unternehmen flexibler, effizienter und zukunftsfähig zu machen."
 date: 2024-11-18T07:00:00Z
 image: "/images/blog/BIDIY-Blog.png"
-categories: ["Business Intelligence", "Artificial Intelligence"]
+categories: ["Artificial Intelligence"]
 author: "Julian Koller"
 tags: ["Business Intelligence", "Artificial Intelligence", "Data Strategy"]
 draft: false
 summary: "KI und BI: Die unschlagbare Kombination, um Ihr Unternehmen zukunftssicher, datengetrieben und effizient zu machen. Lesen Sie jetzt, wie Sie den Einstieg finden."
 ---
 
-## **KI und BI: Der modernste Schritt der Datenanalyse – Das A(I), B(I), C(I) für Unternehmen**
-
-> Die Zukunft ist nicht vorherbestimmt. Es gibt kein Schicksal außer dem, das wir uns selbst schaffen – *Terminator 2: Judgment Day*
-
-
 Daten sind das Rückgrat moderner Unternehmen, doch der Umgang mit ihnen steckt oft noch in den Kinderschuhen. Business Intelligence (BI) sorgt seit Jahren für Transparenz und liefert die Grundlagen für fundierte Entscheidungen. Doch BI allein bleibt oft reaktiv – ein Instrument, das erklärt, was passiert ist. Künstliche Intelligenz (KI) hingegen ermöglicht es, in die Zukunft zu blicken, Muster zu erkennen und proaktiv zu handeln.  
 
 Die Kombination von **KI und BI** ist keine Spielerei, sondern ein essenzieller Schritt für Unternehmen, die zur echten **Data-Driven Company** werden wollen. Was bedeutet das für Ihr Unternehmen? Und wie können Sie den Einstieg finden?
+
+[Informationen zu KI](https://alpinedata.de/blog/kann-man-da-was-mit-ki-machen/)
+[Informationen zu KBI](https://alpinedata.de/blog/business-intelligence-diy/)
+
+> Die Zukunft ist nicht vorherbestimmt. Es gibt kein Schicksal außer dem, das wir uns selbst schaffen – *Terminator 2: Judgment Day*
 
 ---
 
@@ -51,52 +51,59 @@ Diese Beispiele zeigen, wie KI und BI nicht nur Einblicke liefern, sondern auch 
 
 ### **Erste Schritte: So integrieren Sie KI in Ihre BI-Strategie**
 
-Der Einstieg in KI-gestützte BI muss nicht kompliziert sein. Die richtigen ersten Schritte schaffen eine solide Basis und garantieren schnelle Erfolge. Mit einem klaren Plan und einem praktischen Beispiel wie der Verbesserung der Lagerbestände lassen sich sichtbare Ergebnisse erzielen, hier analysiert KI Verkaufsdaten und prognostiziert künftige Bestellungen, um Engpässe und Überbestände zu vermeiden. BI visualisiert die Ergebnisse und zeigt konkrete Maßnahmen auf.
+Wir haben bereits in vorherigen [Artikeln](https://alpinedata.de/blog/kann-man-da-was-mit-ki-machen/) beleuchtet wie schnell und intuitiv man einzelne KI Projekte entwerfen und vorantreiben kann. Wie bekomme ich das nun aber Unternehmensweit deployed? Der Einstieg in KI-gestützte BI muss nicht kompliziert sein. Die richtigen ersten Schritte schaffen eine solide Basis und garantieren schnelle Erfolge. Mit einem klaren Plan und einem praktischen Beispiel wie der Verbesserung der Lagerbestände lassen sich sichtbare Ergebnisse erzielen, hier analysiert KI Verkaufsdaten und prognostiziert künftige Bestellungen, um Engpässe und Überbestände zu vermeiden. BI visualisiert die Ergebnisse und zeigt konkrete Maßnahmen auf.
 
 #### **1. Datenanalyse und Ist-Stand bewerten**
+
 Eine umfassende Analyse Ihrer Datenlandschaft ist entscheidend. Sie stellt sicher, dass Ihre Datenquellen zugänglich, aktuell und konsistent sind. Ohne diese Basis ist jede Initiative zum Scheitern verurteilt.
----
+
 **Praxis:**  
 Ein Unternehmen erkennt, dass Verkaufs- und Bestelldaten in getrennten Systemen liegen. Dies führt zu Verzögerungen bei der Nachbestellung und Überbeständen. Durch die Konsolidierung der Daten auf einer Plattform wie Snowflake können alle Beteiligten in Echtzeit auf dieselben Informationen zugreifen. Dies bildet die Grundlage für präzise Analysen und Empfehlungen.
 
 #### **2. Ziel definieren und priorisieren**
+
 Ein klar definiertes Ziel sorgt dafür, dass Projekte fokussiert bleiben und schnell greifbare Ergebnisse liefern. Priorisieren Sie Ziele, die sowohl strategischen Mehrwert bieten als auch kurzfristig umsetzbar sind.
----
+
 **Praxis:**  
 Das Unternehmen legt fest, dass es die durchschnittliche Lagerdauer der Top-10-Produkte um 20 % reduzieren möchte. Gleichzeitig soll sichergestellt werden, dass keine Engpässe auftreten. Dieses Ziel ist greifbar und schafft direkten Mehrwert.
 
 #### **3. Minimum Lovable Product (MLP) entwickeln**
+
 Ein MLP liefert erste Ergebnisse, ohne den Aufwand eines vollständigen Rollouts zu erfordern. Es zeigt, dass KI und BI Mehrwert schaffen, und dient als Grundlage für weitere Iterationen.
----
+
 **Praxis:**  
 Ein erstes Dashboard wird entwickelt, das KI-gestützt die Bestellzyklen für drei Hauptprodukte vorhersagt. Dieses Dashboard zeigt, wie sich Verkaufszahlen entwickeln, und empfiehlt basierend auf Vergangenheitsdaten und Prognosen die optimale Nachbestellmenge. Erste Erfolge schaffen Vertrauen und Motivation im Team.
 
 #### **4. Datenbereitstellung und KI-Integration**
+
 Eine solide Datenbereitstellung sorgt dafür, dass Modelle effektiv arbeiten und Ergebnisse liefern. Daten sind der Treibstoff für KI – ohne hochwertige Daten verpufft jedes Projekt.
----
+
 **Praxis:**  
 Die Verkaufsdaten des Unternehmens werden mit externen Marktdaten (z. B. saisonalen Trends) angereichert. Eine KI analysiert diese kombinierten Daten und passt die Bestellprognosen entsprechend an. So wird die Planung nicht nur präziser, sondern auch flexibler.
 
 #### **5. Leuchtturmprojekt umsetzen**
+
 Ein erfolgreiches Leuchtturmprojekt dient als Vorbild für weitere Initiativen und zeigt den Mehrwert von KI und BI im Unternehmen.
----
+
 **Praxis:**  
 Ein fertiges Dashboard ermöglicht es dem Logistik-Team, sofort zu sehen, welche Produkte nachbestellt werden müssen, und zeigt auch die geschätzte Auswirkung auf die Lagerkosten. Die erzielten Einsparungen und Effizienzsteigerungen schaffen Akzeptanz und Begeisterung.
 
 #### **6. Schulung und Empowerment**
+
 Die beste Theorie hilft wenig, wenn das Know-how im Team fehlt. Mitarbeitende müssen verstehen, wie sie die neuen Systeme nutzen und wie KI-gestützte BI ihre Arbeit erleichtert. Letztendlich sind sie der entscheidende Faktor für den Erfolg solcher Projekte. Regelmäßige Schulungen und praxisnahe Workshops sind daher essenziell.
-> **„Stärke kommt nicht aus der Maschine. Sie kommt aus uns selbst.“**  
+> **Stärke kommt nicht aus der Maschine. Sie kommt aus uns selbst.**  
 > – *Terminator, 1984*
 
 #### **7. Ergebnisse kommunizieren und skalieren**
+
 Erfolgsgeschichten fördern die Akzeptanz und schaffen die Grundlage für die Skalierung der Lösung auf andere Abteilungen oder Geschäftsbereiche.
----
+
 **Praxis:**  
 Das Unternehmen zeigt, dass durch die optimierten Lagerbestände die Kosten um 15 % gesenkt wurden, und rollt das Konzept auf weitere Produktgruppen und Standorte aus.
 
 
 Wir bieten hierfür Konzeptions- und AI-Workshops, um den Einstieg zu erleichtern. Hier [kostenlose Brainstorming-Session anfragen](mailto:julian.koller@alpinedata.de?subject=Kostenloses%Brainstorming)
----
+
 
 ### **Was bringt die Zukunft?**
 
