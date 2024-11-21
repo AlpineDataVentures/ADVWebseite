@@ -51,7 +51,7 @@ Durch BI können Unternehmen ihre Datenquellen an einem zentralen Ort bündeln. 
 - Beispiel: Eine zentrale BI-Datenbank stellt sicher, dass das Marketing, der Vertrieb und die Produktion stets auf die aktuellsten Informationen zugreifen können.
 
 
-## **Technische Voraussetzungen: Worauf Unternehmen achten sollten**
+#### **Technische Voraussetzungen: Worauf Unternehmen achten sollten**
 
 Die Kombination von KI und BI setzt eine solide technische Basis voraus:
 - **Datenplattformen:** Tools wie [Snowflake](https://www.snowflake.com) oder [Google BigQuery](https://cloud.google.com/bigquery) helfen, große Datenmengen effizient zu verwalten.  
@@ -60,7 +60,7 @@ Die Kombination von KI und BI setzt eine solide technische Basis voraus:
 
 ---
 
-## **Anwendungsfälle: Was KI und BI gemeinsam leisten können**
+#### **Anwendungsfälle: Was KI und BI gemeinsam leisten können**
 
 | **Abteilung**      | **Anwendungsfall**                                                                                                     | **Nutzen**                                                                                                   |
 |--------------------|---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -69,11 +69,6 @@ Die Kombination von KI und BI setzt eine solide technische Basis voraus:
 | **Logistik**       | KI optimiert Routen und BI visualisiert den Effekt auf Lieferzeiten und CO₂-Emissionen.                              | Effizientere Lieferketten und Kostensenkung.                                                                |
 | **HR**             | KI prognostiziert Mitarbeiterfluktuation und BI zeigt mögliche Maßnahmen zur Mitarbeiterbegeisterung auf.                 | Verbesserte Arbeitszufriedenheit und geringere Rekrutierungskosten.                                         |
 
----
-
-## **Fazit: Warum die Symbiose von KI und BI unverzichtbar ist**
-
-Saubere Daten sind die Grundlage jeder erfolgreichen datengetriebenen Strategie. BI stellt sicher, dass diese Qualität erreicht wird, und KI bringt die Analysen auf ein neues Level. Gemeinsam bieten sie Unternehmen die Chance, **fundierte Entscheidungen zu treffen**, **Prozesse zu optimieren** und **Wettbewerbsvorteile** zu sichern.
 
 >Die Zukunft gehört denen, die sie vorbereiten.“ – *Napoleon Bonaparte*  
 
