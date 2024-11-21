@@ -3,7 +3,7 @@ title: "KI trifft BI: Saubere Daten als Basis für die Zukunft"
 meta_title: "KI trifft BI: Saubere Daten als Basis für die Zukunft"
 description: "Wie Unternehmen mit KI-gestützter BI datengetrieben arbeiten und saubere Daten zur Grundlage ihrer Entscheidungen machen können."
 date: 2024-11-18T07:00:00Z
-image: "/images/blog/KIBI-Blog.png"
+image: "/images/blog/KIBI_Blog.png"
 categories: ["Artificial Intelligence"]
 author: "Julian Koller"
 tags: ["Business Intelligence", "Artificial Intelligence", "Data Strategy"]
