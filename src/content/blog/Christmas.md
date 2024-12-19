@@ -5,7 +5,7 @@ description: "Ein Blick hinter die Kulissen der Weihnachtslogistik: Was der Weih
 date: 2024-12-20T07:00:00Z
 image: "/images/blog/KIBI_Blog.png"
 categories: ["Mathematik", "Weihnachten", "Data Science", Data Strategy"]
-author: ["Julian Koller"]
+author: "Julian Koller"
 tags: ["TSP", "Weihnachten", "Optimierung", "Mathematik"]
 draft: false
 summary: "Der Weihnachtsmann steht jedes Jahr vor einer enormen logistischen Herausforderung: Milliarden Haushalte in einer Nacht. Wie schafft er das? Mit einem Lächeln und ein wenig Magie – oder moderner Mathematik?"
