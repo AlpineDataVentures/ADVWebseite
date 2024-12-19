@@ -5,7 +5,7 @@ description: "Ein Blick hinter die Kulissen der Weihnachtslogistik: Was der Weih
 date: 2024-12-20T07:00:00Z
 image: "/images/blog/KIBI_Blog.png"
 categories: ["Data Science"]
-author: ["Andreas Klostermann", "Julian Koller"]
+author: "Andreas Klostermann"
 tags: ["Weihnachten", "Data Science", "Mathematik"]
 draft: false
 summary: "Der Weihnachtsmann steht jedes Jahr vor einer logistischen Herausforderung: Milliarden Haushalte in einer Nacht. Wie schafft er das? Mit einem Lächeln, ein wenig Magie – oder moderner Mathematik?"
