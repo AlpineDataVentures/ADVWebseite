@@ -1,14 +1,14 @@
 ---
-title: "Komplexität in der Weihnachtszeit: Wie der Weihnachtsmann das Travelling Salesman Problem löst"
-meta_title: "Komplexität in der Weihnachtszeit: Wie der Weihnachtsmann das Travelling Salesman Problem löst"
+title: "Wie der Weihnachtsmann das Travelling Salesman Problem löst"
+meta_title: "Wie der Weihnachtsmann das Travelling Salesman Problem löst"
 description: "Ein Blick hinter die Kulissen der Weihnachtslogistik: Was der Weihnachtsmann mit Supercomputern und Algorithmen zu tun hat."
 date: 2024-12-20T07:00:00Z
 image: "/images/blog/KIBI_Blog.png"
-categories: ["Mathematik", "Weihnachten", "Data Science", Data Strategy"]
-author: "Julian Koller"
-tags: ["TSP", "Weihnachten", "Optimierung", "Mathematik"]
+categories: ["Data Science"]
+author: ["Andreas Klostermann", "Julian Koller"]
+tags: ["Weihnachten", "Data Science", "Mathematik"]
 draft: false
-summary: "Der Weihnachtsmann steht jedes Jahr vor einer enormen logistischen Herausforderung: Milliarden Haushalte in einer Nacht. Wie schafft er das? Mit einem Lächeln und ein wenig Magie – oder moderner Mathematik?"
+summary: "Der Weihnachtsmann steht jedes Jahr vor einer logistischen Herausforderung: Milliarden Haushalte in einer Nacht. Wie schafft er das? Mit einem Lächeln, ein wenig Magie – oder moderner Mathematik?"
 ---
 
 **Komplexität in der Weihnachtszeit - Wie der Weihnachtsmann das Travelling Salesman Problem löst**
