@@ -1,4 +1,5 @@
 ---
+type: "call-to-action"
 enable: true
 title: "Werde Teil unseres Teams"
 image: "/images/TeilTeams.jpg"

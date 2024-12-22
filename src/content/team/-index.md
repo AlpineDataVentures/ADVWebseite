@@ -1,4 +1,5 @@
 ---
+type: "index"
 title: "Das Team hinter Alpine Data Ventures"
 meta_title: "Das Team hinter Alpine Data Ventures"
 description: "Das Team von Alpine Data Ventures: Andreas Klostermann, Benjamin Diez, Dr. Carsten Hof und Julian Koller – Experten für Datenstrategie und BI für Ihren Erfolg."
