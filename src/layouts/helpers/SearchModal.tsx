@@ -1,6 +1,8 @@
 import searchData from ".json/search.json";
 import React, { useEffect, useState } from "react";
 import SearchResult, { type ISearchItem } from "./SearchResult";
+import { performSearch } from '@/utils/SearchHelpers';
+
 
 const SearchModal = () => {
   const [searchString, setSearchString] = useState("");
@@ -12,31 +14,9 @@ const SearchModal = () => {
 
   // generate search result
   const doSearch = (searchData: ISearchItem[]) => {
-    const regex = new RegExp(`${searchString}`, "gi");
-    if (searchString === "") {
-      return [];
-    } else {
-      const searchResult = searchData.filter((item) => {
-        const title = item.frontmatter.title.toLowerCase().match(regex);
-        const description = item.frontmatter.description
-          ?.toLowerCase()
-          .match(regex);
-        const categories = item.frontmatter.categories
-          ?.join(" ")
-          .toLowerCase()
-          .match(regex);
-        const tags = item.frontmatter.tags
-          ?.join(" ")
-          .toLowerCase()
-          .match(regex);
-        const content = item.content.toLowerCase().match(regex);
+    const searchResult = performSearch(searchString, searchData);
 
-        if (title || content || description || categories || tags) {
-          return item;
-        }
-      });
-      return searchResult;
-    }
+    return searchResult;
   };
 
   // get search result
