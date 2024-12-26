@@ -1,5 +1,41 @@
 import { defineCollection, z } from "astro:content";
 
+// schema of the about section
+const aboutCollection = defineCollection({
+  schema: z.discriminatedUnion('type', [
+    z.object({
+      type: z.literal('index'),
+      title: z.string(),
+      meta_title: z.string(),
+      description: z.string(),
+      image: z.string().optional(),
+      draft: z.boolean().optional(),
+    }),
+    z.object({
+      type: z.literal('collaboration'),
+      title: z.string(),
+      content: z.string(),
+    }),
+    z.object({
+      type: z.literal('corevalues'),
+      corevalues: z.array(
+        z.object({
+          title: z.string(),
+          icon: z.string(),
+          description: z.string(),
+        })
+      ),
+    }),
+    z.object({
+      type: z.literal('vision_method'),
+      title_1: z.string(),
+      content_1: z.string(),
+      title_2: z.string(),
+      content_2: z.string(),
+    }),
+  ]),
+});
+
 // Author collection schema
 const authorsCollection = defineCollection({
   schema: z.object({
@@ -130,6 +166,7 @@ const teamCollection = defineCollection({
 
 // Export collections
 export const collections = {
+  about: aboutCollection,
   authors: authorsCollection,
   blog: blogCollection,
   casestudies: casestudiesCollection,
