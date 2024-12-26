@@ -1,8 +1,14 @@
 import searchData from ".json/search.json";
 import React, { useEffect, useState } from "react";
 import SearchResult, { type ISearchItem } from "./SearchResult";
-import { performSearch } from '@/utils/SearchHelpers';
 
+// This file is buggy. React is complaining:
+// Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+// 1. You might have mismatching versions of React and the renderer (such as React DOM)
+// 2. You might be breaking the Rules of Hooks
+// 3. You might have more than one copy of React in the same app
+// See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+// I can exclude 1. and 3. However I do not yet understand which Rules of Hooks is broken ..
 
 const SearchModal = () => {
   const [searchString, setSearchString] = useState("");
@@ -14,9 +20,31 @@ const SearchModal = () => {
 
   // generate search result
   const doSearch = (searchData: ISearchItem[]) => {
-    const searchResult = performSearch(searchString, searchData);
+    const regex = new RegExp(`${searchString}`, "gi");
+    if (searchString === "") {
+      return [];
+    } else {
+      const searchResult = searchData.filter((item) => {
+        const title = item.frontmatter.title.toLowerCase().match(regex);
+        const description = item.frontmatter.description
+          ?.toLowerCase()
+          .match(regex);
+        const categories = item.frontmatter.categories
+          ?.join(" ")
+          .toLowerCase()
+          .match(regex);
+        const tags = item.frontmatter.tags
+          ?.join(" ")
+          .toLowerCase()
+          .match(regex);
+        const content = item.content.toLowerCase().match(regex);
 
-    return searchResult;
+        if (title || content || description || categories || tags) {
+          return item;
+        }
+      });
+      return searchResult;
+    }
   };
 
   // get search result
