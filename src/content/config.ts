@@ -90,6 +90,57 @@ const casestudiesCollection = defineCollection({
   }),
 });
 
+// contact collection
+export const contactCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string(),
+    description: z.string(),
+    draft: z.boolean(),
+    image: z.string().optional(),
+  }),
+});
+
+export const dictionaryCollection = defineCollection({
+  schema: z.object({
+    items: z.array(
+      z.object({
+        item: z.string().optional(), // Abkürzungen sind optional,
+        abbreviation: z.string().optional(), // Abkürzungen sind optional
+        description: z.string().optional(), // Beschreibungen sind optional
+      })
+    ),
+  }),
+});
+
+export const homepageCollection = defineCollection({
+  schema: z.object({
+    banner: z.object({
+      title1: z.string(),
+      title2: z.string(),
+      title3: z.string(),
+      content: z.string(),
+      button: z.object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      }),
+    }),
+    features: z.array(
+      z.object({
+        title: z.string(),
+        image: z.string(),
+        content: z.string(),
+        bulletpoints: z.array(z.string()).optional(), // Bulletpoints sind optional
+        button: z.object({
+          enable: z.boolean(),
+          label: z.string(),
+          link: z.string(),
+        }),
+      })
+    ),
+  }),
+});
 
 // Pages collection schema
 const pagesCollection = defineCollection({
@@ -139,6 +190,53 @@ const portfolioCollection = defineCollection({
   }),
 });
 
+export const sectionsCollection = defineCollection({
+  schema: z.union([
+    // Schema für Call-to-Action
+    z.object({
+      type: z.literal("call-to-action"),
+      enable: z.boolean(),
+      title: z.string(),
+      image: z.string(),
+      description: z.string(),
+      button: z.object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      }),
+    }),
+    // Schema für Service Cards
+    z.object({
+      type: z.literal("service_cards"),
+      title: z.string(),
+      description: z.string(),
+      services: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          image: z.string(),
+          link: z.string(),
+        })
+      ),
+    }),
+    // Schema für Testimonials
+    z.object({
+      type: z.literal("testimonial"),
+      enable: z.boolean(),
+      title: z.string(),
+      description: z.string(),
+      testimonials: z.array(
+        z.object({
+          name: z.string(),
+          designation: z.string(),
+          avatar: z.string(),
+          content: z.string(),
+        })
+      ),
+    }),
+  ]),
+});
+
 const teamCollection = defineCollection({
   schema: z.discriminatedUnion('type', [
     z.object({
@@ -163,14 +261,17 @@ const teamCollection = defineCollection({
   ]),
 });
 
-
 // Export collections
 export const collections = {
   about: aboutCollection,
   authors: authorsCollection,
   blog: blogCollection,
   casestudies: casestudiesCollection,
+  contact: contactCollection,
+  dictionary: dictionaryCollection,
+  homepage: homepageCollection,
   pages: pagesCollection,
   portfolio: portfolioCollection,
+  sections: sectionsCollection,
   team: teamCollection,
 };

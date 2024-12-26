@@ -1,4 +1,5 @@
 ---
+type: "call-to-action"
 enable: true
 title: "Ready to build your next project with Astro?"
 image: "/images/call-to-action.png"
