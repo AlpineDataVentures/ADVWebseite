@@ -2,13 +2,18 @@ import searchData from ".json/search.json";
 import React, { useEffect, useState } from "react";
 import SearchResult, { type ISearchItem } from "./SearchResult";
 
-// This file is buggy. React is complaining:
+// With Astro 5 and React 19. You will see the following while running "npm run dev"
 // Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
 // 1. You might have mismatching versions of React and the renderer (such as React DOM)
 // 2. You might be breaking the Rules of Hooks
 // 3. You might have more than one copy of React in the same app
 // See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
-// I can exclude 1. and 3. However I do not yet understand which Rules of Hooks is broken ..
+//
+// I can exclude 1. and 3. (check npm ls and reinstalled all libs)
+//
+// As I do not see any violated Hook Rules, NOR any errors while running the site in the browser (even not
+// with react dev tools) NOR when I properly build the site: npm run build + npm preview
+// I assume that there is a glitch in the dev tools.
 
 const SearchModal = () => {
   const [searchString, setSearchString] = useState("");
