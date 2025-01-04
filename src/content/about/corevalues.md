@@ -1,5 +1,6 @@
 ---
 # Our core values
+type: "corevalues"
 corevalues:
   - title: "Verpflichtung zur Umsetzung"
     icon: FaHammer

@@ -1,4 +1,5 @@
 ---
+type: "vision_method"
 title_1: "Unsere Vision"
 content_1: "Bei Alpine Data Ventures haben wir eine klare Vision: Wir streben danach, ungenutztes wirtschaftliches Potenzial in Mittelständen und Konzernen durch die Nutzung von Daten zu erschließen. Unser Ziel ist es, eine datengetriebene Kultur in allen Organisationen zu verankern und Sie dabei zu unterstützen, Ihre Daten als wertvolles Gut zu betrachten und optimal zu nutzen. In einer zunehmend digitalisierten Welt, in der sich die Datenlandschaft stetig verändert, setzen wir uns dafür ein, dass Ihr Unternehmen Daten nicht nur als Ressource erkennen, sondern als treibende Kraft für Wachstum, Innovation und nachhaltigen Erfolg nutzt."
 title_2: "Unser Ansatz"

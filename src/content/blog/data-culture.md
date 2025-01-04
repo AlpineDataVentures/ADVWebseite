@@ -4,7 +4,7 @@ meta_title: "Erfolg durch Data Culture: Mit Datenpower der Konkurrenz voraus"
 description: "Warum Data Culture? Eine starke Datenkultur fördert fundierte Entscheidungen, senkt Risiken und schafft Vorteile. Daten werden Basis für Erfolg und Effizienz."
 date: 2024-10-28T07:00:00Z
 image: "/images/blog/data_culture.png"
-categories: ["Culture"]
+categories: ["Data Culture"]
 author: "Ben Diez"
 tags: ["Data Culture", "Data Strategy"]
 draft: false

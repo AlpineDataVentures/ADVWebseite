@@ -1,4 +1,5 @@
 ---
+type: "service_cards"
 title: "So heben wir Ihren Datenschatz"
 description: "Unsere Lösungen bringen Ihre Daten auf ein neues Niveau. Entdecken Sie, wie wir mit innovativen Ansätzen Ihre Daten transformieren und in wertvolle Einblicke sowie strategische Vorteile umwandeln."
 
