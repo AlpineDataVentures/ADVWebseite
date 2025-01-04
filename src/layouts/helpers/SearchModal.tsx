@@ -9,11 +9,11 @@ import SearchResult, { type ISearchItem } from "./SearchResult";
 // 3. You might have more than one copy of React in the same app
 // See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
 //
-// I can exclude 1. and 3. (check npm ls and reinstalled all libs)
+// I can exclude 1. and 3. (checked npm ls and reinstalled all libs)
 //
 // As I do not see any violated Hook Rules, NOR any errors while running the site in the browser (even not
 // with react dev tools) NOR when I properly build the site: npm run build + npm preview
-// I assume that there is a glitch in the dev tools.
+// I assume that there is a glitch in the dev tools. => NOTHING TO FIX HERE
 
 const SearchModal = () => {
   const [searchString, setSearchString] = useState("");
