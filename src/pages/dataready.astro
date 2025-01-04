@@ -1,0 +1,43 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry } from "astro:content";
+import TextBlock from "@/partials/TextBlock.astro";
+import DoubleTextBlock from "@/partials/DoubleTextBlock.astro";
+import ImageMod from "@/components/ImageMod.astro";
+
+const dataready = await getEntry("dataready", "-index")!;
+
+const { title, description, meta_title, image, collaboration, vision_method } =
+  dataready.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  image={image}
+  description={description}
+>
+  <PageHeader title={title} />
+
+  <!-- Vision & Mission -->
+  <DoubleTextBlock double_text_block={vision_method} />
+
+  <!-- Hero's Image -->
+  <section class="mb-16">
+    <div class="container">
+      <div class="row justify-center">
+        <ImageMod
+          src={image}
+          height={1152}
+          width={2048}
+          alt="Das Team"
+          format="webp"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaboration -->
+  <TextBlock text_block={collaboration} />
+</Base>
