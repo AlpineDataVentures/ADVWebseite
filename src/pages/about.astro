@@ -10,10 +10,10 @@ import CoreValues from "@/partials/CoreValues.astro";
 
 const { contact_form_action } = Astro.props;
 
-const about = await getEntry("about", "-index");
-const vision_method = await getEntry("about", "vision_method");
-const collaboration = await getEntry("about", "collaboration");
-const entry = await getEntry("about", "corevalues");
+const about = await getEntry("about", "-index")!;
+const vision_method = await getEntry("about", "vision_method")!;
+const collaboration = await getEntry("about", "collaboration")!;
+const entry = await getEntry("about", "corevalues")!;
 const corevalues = entry.data.corevalues;
 
 const { title, description, meta_title, image } = about.data;
@@ -28,7 +28,7 @@ const { title, description, meta_title, image } = about.data;
   <PageHeader title={title} />
 
   <!-- Vision & Mission -->
-  <DoubleTextBlock double_text_block={vision_method} />
+  <DoubleTextBlock double_text_block={vision_method.data} />
 
   <!-- Hero's Image -->
   <section class="mb-16">
@@ -49,7 +49,7 @@ const { title, description, meta_title, image } = about.data;
   <CoreValues core_values={corevalues} />
 
   <!-- Collaboration -->
-  <TextBlock text_block={collaboration} />
+  <TextBlock text_block={collaboration.data} />
 
   <!-- contact form -->
   <section class="section-sm">
