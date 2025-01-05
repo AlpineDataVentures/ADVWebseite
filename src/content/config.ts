@@ -108,7 +108,7 @@ export const datareadyCollection = defineCollection({
     meta_title: z.string(),
     description: z.string(),
     button1: z.object({
-      title: z.string(),
+      label: z.string(),
       link: z.string()
     }),
     added_value: z.object({
@@ -127,7 +127,7 @@ export const datareadyCollection = defineCollection({
       result: z.string()
     }),
     button2: z.object({
-      title: z.string(),
+      label: z.string(),
       link: z.string()
     })
   })
