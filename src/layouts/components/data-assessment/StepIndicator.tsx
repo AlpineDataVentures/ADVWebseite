@@ -1,6 +1,7 @@
 import { useStore } from "@nanostores/react";
 import { motion } from "framer-motion";
 import { currentStep } from "./StepProvider";
+import React from "react";
 
 const indicator = {
   active: {

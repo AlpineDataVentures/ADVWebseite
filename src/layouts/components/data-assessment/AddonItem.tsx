@@ -1,6 +1,7 @@
 import { useStore } from "@nanostores/react";
 import type { AddonType } from "./StepProvider";
 import { addons, isSubscriptionTimeMonthly } from "./StepProvider";
+import React from "react";
 
 type Props = {
   addon: AddonType;
@@ -27,14 +28,14 @@ function AddonItem({ addon }: Props) {
   return (
     <>
       <input
-        id={`addon-${lowerCaseTitle.replaceAll(" ", "-")}`}
+        id={`addon-${lowerCaseTitle.replace(" ", "-")}`}
         type="checkbox"
         name="addon"
         checked={$addons.find((a) => a.title === addon.title) !== undefined}
         value={addon.title}
         onChange={handleAddonChange}
       />
-      <label htmlFor={`addon-${lowerCaseTitle.replaceAll(" ", "-")}`}>
+      <label htmlFor={`addon-${lowerCaseTitle.replace(" ", "-")}`}>
         <span className="checkmark"></span>
         <div className="input-info">
           <h3>{addon.title}</h3>

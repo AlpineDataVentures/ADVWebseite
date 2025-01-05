@@ -4,7 +4,7 @@ meta_title: "Data Maturity Assessment"
 description: "Finden Sie in nur 10 Minuten heraus, wie datengetrieben Ihr Unternehmen wirklich ist: <br><br> Mit unserem kostenlosen Data-Maturity-Assessment"
 button1: 
   label: "Jetzt kostenloses Assessment starten"
-  link: "/assessment/"
+  link: "/data-assessment/assess/"
 added_value: 
   title: "Ihr Nutzen auf einen Blick:"
   bulletpoints: 
@@ -21,5 +21,5 @@ instructions:
   result: "Sie erhalten in Kürze Ihre Auswertung per Mail, wie datengetrieben Ihr Unternehmen ist und welche Use-Cases Sie als nächstes angehen können."
 button2: 
   label: "Jetzt starten!"
-  link: "/assessment/"
+  link: "/data-assessment/assess/"
 ---

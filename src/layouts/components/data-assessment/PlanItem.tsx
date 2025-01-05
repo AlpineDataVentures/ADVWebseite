@@ -4,6 +4,7 @@ import {
   isSubscriptionTimeMonthly,
   subscriptionPlan,
 } from "./StepProvider";
+import React from "react";
 
 type Props = {
   src: string;
