@@ -107,19 +107,30 @@ export const datareadyCollection = defineCollection({
     title: z.string(),
     meta_title: z.string(),
     description: z.string(),
-    image: z.string(),
-    draft: z.boolean().optional(),
-    collaboration: z.object({
+    button1: z.object({
       title: z.string(),
-      content: z.string(),
+      link: z.string()
     }),
-    vision_method: z.object({
-      title_1: z.string(),
-      content_1: z.string(),
-      title_2: z.string(),
-      content_2: z.string(),
+    added_value: z.object({
+      title: z.string(),
+      bulletpoints: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string()
+        })
+      )
     }),
-  }),
+    image: z.string(),
+    instructions: z.object({
+      title: z.string(),
+      bullets: z.array(z.string()),
+      result: z.string()
+    }),
+    button2: z.object({
+      title: z.string(),
+      link: z.string()
+    })
+  })
 });
 
 export const dictionaryCollection = defineCollection({
