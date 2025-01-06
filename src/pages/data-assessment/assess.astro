@@ -1,5 +1,5 @@
 ---
-import ChallengeLayout from "@/layouts/ChallengeLayout.astro";
+import AssessmentLayout from "@/layouts/AssessmentLayout.astro";
 
 import Step from "@/components/data-assessment/Step";
 import StepIndicator from "@/components/data-assessment/StepIndicator";
@@ -13,7 +13,7 @@ import { planData, addonData } from "@/components/data-assessment/StepProvider";
 import CheckoutList from "@/components/data-assessment/CheckoutList";
 ---
 
-<ChallengeLayout title="Job Listings with Filtering">
+<AssessmentLayout title="Job Listings with Filtering">
   <Fragment slot="links"></Fragment>
   <nav>
     <StepIndicator client:only="react" />
@@ -108,7 +108,7 @@ import CheckoutList from "@/components/data-assessment/CheckoutList";
   </main>
 
   <StepNavigation client:only="react" />
-</ChallengeLayout>
+</AssessmentLayout>
 
 <style is:inline>
   @font-face {

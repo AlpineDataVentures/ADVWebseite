@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { useStore } from "@nanostores/react";
 import { currentStep, user } from "./StepProvider";
+import React from "react";
 
 const maxSteps = 5;
 

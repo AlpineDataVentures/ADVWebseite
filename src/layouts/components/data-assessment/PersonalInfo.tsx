@@ -1,5 +1,6 @@
 import { useStore } from "@nanostores/react";
 import { user } from "./StepProvider";
+import React from "react";
 
 function PersonalInfo() {
   const $user = useStore(user);

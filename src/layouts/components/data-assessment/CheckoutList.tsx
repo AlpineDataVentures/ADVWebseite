@@ -5,6 +5,7 @@ import {
   subscriptionPlan,
   addons,
 } from "./StepProvider";
+import React from "react";
 
 function CheckoutList() {
   const $isSubscriptionTimeMonthly = useStore(isSubscriptionTimeMonthly);
@@ -16,9 +17,8 @@ function CheckoutList() {
     $subscriptionPlan.dollarPerMonth
   );
 
-  const totalCostText = `+$${
-    $isSubscriptionTimeMonthly ? totalCost : totalCost * 10
-  }/${$isSubscriptionTimeMonthly ? "mo" : "yr"}`;
+  const totalCostText = `+$${$isSubscriptionTimeMonthly ? totalCost : totalCost * 10
+    }/${$isSubscriptionTimeMonthly ? "mo" : "yr"}`;
 
   return (
     <ul className="finishing-up">
