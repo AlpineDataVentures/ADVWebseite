@@ -4,13 +4,19 @@ import {
   isSubscriptionTimeMonthly,
   subscriptionPlan,
   addons,
+  answersStore,
 } from "./StepProvider";
 import React from "react";
+
+//
+// CheckoutList holt die Zustände aus dem Store und stellt diese in einer Übersicht dar
+//
 
 function CheckoutList() {
   const $isSubscriptionTimeMonthly = useStore(isSubscriptionTimeMonthly);
   const $subscriptionPlan = useStore(subscriptionPlan);
   const $addons = useStore(addons);
+  const $answers = useStore(answersStore);
 
   const totalCost = $addons.reduce(
     (total, addon) => total + addon.dollarPerMonth,
@@ -55,6 +61,11 @@ function CheckoutList() {
         <p>Total (per {$isSubscriptionTimeMonthly ? "month" : "year"})</p>
         <strong>{totalCostText}</strong>
       </li>
+      {Object.entries($answers).map(([questionId, answer]) => (
+        <li key={questionId}>
+          <strong>Frage {questionId}:</strong> {answer}
+        </li>
+      ))}
     </ul>
   );
 }

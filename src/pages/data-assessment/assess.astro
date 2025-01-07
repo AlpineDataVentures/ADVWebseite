@@ -7,13 +7,38 @@ import PersonalInfo from "@/components/data-assessment/PersonalInfo";
 import StepNavigation from "@/components/data-assessment/StepNavigation";
 import SubscriptionTimeToggle from "@/components/data-assessment/SubscriptionTimeToggle";
 import PlanItem from "@/components/data-assessment/PlanItem";
+import AssessItem from "@/components/data-assessment/AssessItem";
 import AddonItem from "@/components/data-assessment/AddonItem";
 
-import { planData, addonData } from "@/components/data-assessment/StepProvider";
+import {
+  planData,
+  addonData,
+  assessItems,
+} from "@/components/data-assessment/StepProvider";
 import CheckoutList from "@/components/data-assessment/CheckoutList";
+
+//
+// Data-Readiness Assessment
+//
+// linker Teil: Fortschritts-Anzeige: Wo bin ich gerade? (StepIndicator)
+// rechter Teil: Einzelne "Steps"
+//
+// Wie / wo wird geregelt welcher Step sichtbar ist?
+// Wie werden die Zustände gesammelt? Wie kann ich die am Ende in eine Mail packen und an ADV schicken?
+//
+// Wie baue ich das Ganze auf Fragen um?
+// - ich brauche eine Element, dass meine Fragen & Antwort-Möglichkeiten darstellt!
+//   Brauche ich dazu eine React Komponente oder reicht HTML? Das hängt wahrscheinlich auch davon ab wie ich
+//   den Zustand (sprich welche Antworten ausgewählt wurden!) verfolge.
+// Erste Idee:
+// Generische "AssessItem" => Stellen eine Frage. Die würde ich gerne durch ein MarkDown befüllen, so dass ich
+// N-Fragen auf einmal in AssessItems und Steps befüllen kann!
+//
+// o Die PersonalInfo kann ich zum Erfassen der persönlichen Daten nutzen ...
+//
 ---
 
-<AssessmentLayout title="Job Listings with Filtering">
+<AssessmentLayout title="Data Maturity Assessment">
   <Fragment slot="links"></Fragment>
   <nav>
     <StepIndicator client:only="react" />
@@ -24,18 +49,27 @@ import CheckoutList from "@/components/data-assessment/CheckoutList";
       <nav>
         <StepIndicator client:load />
       </nav>
+
       <Step step={1} client:load>
+        <AssessItem questionId={1} item={assessItems[0]} client:load />
+      </Step>
+
+      <Step step={2} client:load>
+        <AssessItem questionId={2} item={assessItems[1]} client:load />
+      </Step>
+
+      <Step step={3} client:idle>
         <h1>Personal info</h1>
         <p class="description">
           Please provide your name, email address, and phone number.
         </p>
 
-        <PersonalInfo client:load />
+        <PersonalInfo client:only="react" />
       </Step>
-      <!-- Step 1 end -->
+      <!-- Step 2 end -->
 
-      <!-- Step 2 start -->
-      <Step step={2} client:idle>
+      <!-- Step 3 start -->
+      <Step step={4} client:idle>
         <h1>Select your plan</h1>
         <p class="description">
           You have the option of monthly or yearly billing.
@@ -55,10 +89,10 @@ import CheckoutList from "@/components/data-assessment/CheckoutList";
 
         <SubscriptionTimeToggle client:only="react" />
       </Step>
-      <!-- Step 2 end -->
+      <!-- Step 3 end -->
 
-      <!-- Step 3 start -->
-      <Step step={3} client:idle>
+      <!-- Step 4 start -->
+      <Step step={5} client:idle>
         <h1>Pick add-ons</h1>
         <p class="description">Add-ons help enhance your gaming experience.</p>
 
@@ -71,10 +105,10 @@ import CheckoutList from "@/components/data-assessment/CheckoutList";
         </div>
       </Step>
 
-      <!-- Step 3 end -->
+      <!-- Step 4 end -->
 
-      <!-- Step 4 start -->
-      <Step step={4} client:idle>
+      <!-- Step 5 start -->
+      <Step step={6} client:idle>
         <h1>Finishing up</h1>
         <p class="description">
           Double-check everything looks OK before confirming.
@@ -83,28 +117,27 @@ import CheckoutList from "@/components/data-assessment/CheckoutList";
         <CheckoutList client:only="react" />
       </Step>
 
-      <!-- Step 4 end -->
+      <!-- Step 5 end -->
 
-      <!-- Step 5 start -->
+      <!-- Step 6 start -->
 
-      <Step step={5} client:idle>
+      <Step step={7} client:idle>
         <article class="thank-you">
           <img
             src={`/images/data-assessment/icon-thank-you.svg`}
             alt="red check icon"
           />
-          <h1>Thank you!</h1>
+          <h1>Vielen Dank!</h1>
           <p>
-            Thanks for confirming your subscription! We hope you have fun using
-            our platform. If you ever need support, please feel free to email us
-            at support@loremgaming.com.
+            Deine Antworten wurden erfolgreich erfasst! In Kürze erhältst per
+            E-Mail das Ergebnis deiner Data-readiness!
           </p>
         </article>
       </Step>
       <StepNavigation client:only="react" />
     </section>
 
-    <!-- Step 5 end -->
+    <!-- Step 6 end -->
   </main>
 
   <StepNavigation client:only="react" />

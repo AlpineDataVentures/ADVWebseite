@@ -3,7 +3,7 @@ import { useStore } from "@nanostores/react";
 import { currentStep, user } from "./StepProvider";
 import React from "react";
 
-const maxSteps = 5;
+const maxSteps = 7;
 
 function StepNavigation() {
   const $currentStep = useStore(currentStep);
@@ -15,6 +15,10 @@ function StepNavigation() {
 
   function handleNext() {
     if ($currentStep <= maxSteps) currentStep.set(currentStep.get() + 1);
+    if ($currentStep === maxSteps - 1) {
+      // here we need to send the info to the netlify function!
+      // TODO !!!
+    }
   }
 
   const isNextButtonDisabled = Object.values($user).some(
@@ -37,7 +41,7 @@ function StepNavigation() {
         className={`next${$currentStep === maxSteps - 1 ? " final" : ""}`}
         style={nextStyle}
         onClick={handleNext}
-        disabled={isNextButtonDisabled}
+        disabled={false} //{isNextButtonDisabled}
       >
         {$currentStep === maxSteps - 1 ? "Confirm" : "Next Step"}
       </button>
