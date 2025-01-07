@@ -5,16 +5,9 @@ import Step from "@/components/data-assessment/Step";
 import StepIndicator from "@/components/data-assessment/StepIndicator";
 import PersonalInfo from "@/components/data-assessment/PersonalInfo";
 import StepNavigation from "@/components/data-assessment/StepNavigation";
-import SubscriptionTimeToggle from "@/components/data-assessment/SubscriptionTimeToggle";
-import PlanItem from "@/components/data-assessment/PlanItem";
 import AssessItem from "@/components/data-assessment/AssessItem";
-import AddonItem from "@/components/data-assessment/AddonItem";
 
-import {
-  planData,
-  addonData,
-  assessItems,
-} from "@/components/data-assessment/StepProvider";
+import { assessItems } from "@/components/data-assessment/StepProvider";
 import CheckoutList from "@/components/data-assessment/CheckoutList";
 
 //
@@ -50,65 +43,20 @@ import CheckoutList from "@/components/data-assessment/CheckoutList";
         <StepIndicator client:load />
       </nav>
 
-      <Step step={1} client:load>
-        <AssessItem questionId={1} item={assessItems[0]} client:load />
-      </Step>
+      {
+        assessItems.map((item, index) => (
+          <Step step={index + 1} client:load>
+            <AssessItem questionId={index + 1} item={item} client:load />
+          </Step>
+        ))
+      }
 
-      <Step step={2} client:load>
-        <AssessItem questionId={2} item={assessItems[1]} client:load />
-      </Step>
-
-      <Step step={3} client:idle>
-        <h1>Personal info</h1>
-        <p class="description">
-          Please provide your name, email address, and phone number.
-        </p>
-
+      <Step step={assessItems.length + 1} client:idle>
         <PersonalInfo client:only="react" />
       </Step>
-      <!-- Step 2 end -->
 
-      <!-- Step 3 start -->
-      <Step step={4} client:idle>
-        <h1>Select your plan</h1>
-        <p class="description">
-          You have the option of monthly or yearly billing.
-        </p>
-
-        <div class="plan-selection">
-          {
-            planData.map((plan) => (
-              <PlanItem
-                client:only="react"
-                src={`/images/data-assessment/icon-${plan.title.toLowerCase()}.svg`}
-                plan={plan}
-              />
-            ))
-          }
-        </div>
-
-        <SubscriptionTimeToggle client:only="react" />
-      </Step>
-      <!-- Step 3 end -->
-
-      <!-- Step 4 start -->
-      <Step step={5} client:idle>
-        <h1>Pick add-ons</h1>
-        <p class="description">Add-ons help enhance your gaming experience.</p>
-
-        <div class="addon-selection">
-          {
-            addonData.map((addon) => (
-              <AddonItem client:only="react" addon={addon} />
-            ))
-          }
-        </div>
-      </Step>
-
-      <!-- Step 4 end -->
-
-      <!-- Step 5 start -->
-      <Step step={6} client:idle>
+      <!-- CheckOut Step start -->
+      <Step step={assessItems.length + 2} client:idle>
         <h1>Finishing up</h1>
         <p class="description">
           Double-check everything looks OK before confirming.
@@ -116,12 +64,10 @@ import CheckoutList from "@/components/data-assessment/CheckoutList";
 
         <CheckoutList client:only="react" />
       </Step>
+      <!-- Checkout Step end -->
 
-      <!-- Step 5 end -->
-
-      <!-- Step 6 start -->
-
-      <Step step={7} client:idle>
+      <!-- Last Step start -->
+      <Step step={assessItems.length + 3} client:idle>
         <article class="thank-you">
           <img
             src={`/images/data-assessment/icon-thank-you.svg`}
@@ -136,10 +82,10 @@ import CheckoutList from "@/components/data-assessment/CheckoutList";
       </Step>
       <StepNavigation client:only="react" />
     </section>
-
-    <!-- Step 6 end -->
+    <!-- Last Step end -->
   </main>
 
+  <!-- Add buttons for navigation -->
   <StepNavigation client:only="react" />
 </AssessmentLayout>
 

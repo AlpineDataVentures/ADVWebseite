@@ -10,7 +10,12 @@ function PersonalInfo() {
   }
 
   return (
+
     <form>
+      <h1>Personal info</h1>
+      <p className="description">
+        Please provide your name, email address, and phone number.
+      </p>
       <label>
         <div>
           <span>Name</span>

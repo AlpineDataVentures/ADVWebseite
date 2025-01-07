@@ -1,5 +1,5 @@
 ---
-title: "Entdecke das volle Potenzial deiner Daten!"
+title: "Entdecke das volle Potenzial Ihrer Daten!"
 meta_title: "Data Maturity Assessment"
 description: "Finden Sie in nur 10 Minuten heraus, wie datengetrieben Ihr Unternehmen wirklich ist: <br><br> Mit unserem kostenlosen Data-Maturity-Assessment"
 button1: 

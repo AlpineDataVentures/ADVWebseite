@@ -1,9 +1,9 @@
 import type { CSSProperties } from "react";
 import { useStore } from "@nanostores/react";
-import { currentStep, user } from "./StepProvider";
+import { assessItems, currentStep, user } from "./StepProvider";
 import React from "react";
 
-const maxSteps = 7;
+const maxSteps = assessItems.length + 3;
 
 function StepNavigation() {
   const $currentStep = useStore(currentStep);
@@ -35,7 +35,7 @@ function StepNavigation() {
   return (
     <div className="navigation-buttons">
       <button className="back" style={backStyle} onClick={handleBack}>
-        Go Back
+        Zurück
       </button>
       <button
         className={`next${$currentStep === maxSteps - 1 ? " final" : ""}`}
@@ -43,7 +43,7 @@ function StepNavigation() {
         onClick={handleNext}
         disabled={false} //{isNextButtonDisabled}
       >
-        {$currentStep === maxSteps - 1 ? "Confirm" : "Next Step"}
+        {$currentStep === maxSteps - 1 ? "Abschicken" : "Weiter"}
       </button>
     </div>
   );
