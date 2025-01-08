@@ -11,12 +11,12 @@ type Props = {
 
 function AssessItem({ questionId, item }: Props) {
   const $answers = useStore(answersStore);
-  console.log("Rendering with answers:", $answers);
+  //console.log("Rendering with answers:", $answers);
   const selectedAnswer = $answers[questionId] || '';
   //console.log("Selected answer for question", questionId, ":", selectedAnswer);
 
   function saveAnswer(questionId: number, answer: string) {
-    console.log("Set question " + questionId + " to " + answer)
+    //console.log("Set question " + questionId + " to " + answer)
     answersStore.setKey(questionId, answer);
   }
 
@@ -36,10 +36,7 @@ function AssessItem({ questionId, item }: Props) {
                   name={`frage-${questionId}`}
                   value={option}
                   defaultChecked={selectedAnswer === option}
-                  onChange={() => {
-                    console.log("Radio button " + option + " clicked");
-                    saveAnswer(questionId, option);
-                  }}
+                  onChange={() => saveAnswer(questionId, option)}
                   style={{ marginRight: '10px' }}
                 />
                 {option}
