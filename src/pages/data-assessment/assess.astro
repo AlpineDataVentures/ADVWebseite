@@ -34,7 +34,7 @@ import Base from "@/layouts/Base.astro";
 <Base title={"Data Maturity Assessment"}>
   <section class="mt-4 mb-16">
     <div class="container">
-      <div class="justify-center">
+      <div class="row justify-center">
         <!--nav class="nav-assessment">
           <StepIndicator client:only="react" />
         </nav-->
@@ -106,110 +106,6 @@ import Base from "@/layouts/Base.astro";
       --magnolia: -hsl(217, 100%, 97%);
       --alabaster: hsl(231, 100%, 99%);
       --white: hsl(0, 0%, 100%);
-    }
-
-    @media only screen and (min-width: 756px) {
-      main {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .step {
-        width: 848px;
-        height: 600px;
-        display: flex;
-        margin-top: unset;
-        justify-content: space-between;
-        padding: 20px;
-        position: relative;
-      }
-
-      .navigation-buttons {
-        display: none;
-      }
-
-      .step article {
-        padding: 24px;
-        margin-inline: 48px;
-        flex: 1;
-      }
-
-      .step h1 {
-        font-size: 32px;
-      }
-
-      .step nav {
-        width: auto;
-        height: auto;
-        display: flex;
-        background-image: url("/images/data-assessment/bg-sidebar-desktop.svg");
-        background-size: cover;
-        border-radius: 8px;
-      }
-
-      .step nav ul {
-        justify-content: start;
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .step-indicator {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .step-indicator > div {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .step-indicator p,
-      .step-indicator h2 {
-        display: block;
-        text-transform: uppercase;
-      }
-
-      .step-indicator p {
-        font-weight: 400;
-        font-size: 14px;
-        color: var(--light-blue);
-      }
-
-      .step-indicator h2 {
-        font-weight: 700;
-        color: white;
-      }
-
-      .plan-selection {
-        display: flex;
-        justify-content: space-between;
-        gap: 24px;
-      }
-
-      .plan-selection label {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex: 1;
-        gap: 48px;
-      }
-      .plan-selection div {
-        flex: unset;
-      }
-
-      .thank-you {
-        justify-content: center;
-      }
-
-      .step .navigation-buttons {
-        display: flex;
-        right: calc(48px + 24px);
-        left: unset;
-        width: calc(100% - 220px - 48px * 2 - 24px * 2);
-      }
     }
   </style>
 </Base>
