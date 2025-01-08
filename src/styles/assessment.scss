@@ -29,7 +29,7 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 99;
+  z-index: 2;
   font-family: 'Ubuntu';
 }
 
@@ -409,26 +409,29 @@
 }
 
 .navigation-buttons {
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 30px;
   font-size: 14px;
   font-weight: 500;
   z-index: 999;
 }
 
 .navigation-buttons .back {
-  color: var(--cool-gray);
-  transition: color 150ms ease-in;
+  background-color: var(--marine-blue);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: opacity 150ms ease-in;
 }
 
 .navigation-buttons .back:hover {
-  color: var(--marine-blue);
+  opacity: 0.85;
 }
 
 .navigation-buttons .next {
@@ -442,6 +445,7 @@
 .navigation-buttons .next:hover {
   opacity: 0.85;
 }
+
 
 .navigation-buttons .next.final {
   background-color: var(--purplish-blue);
@@ -464,6 +468,7 @@
 
   .navigation-buttons {
     display: none;
+    position: absolute;
   }
 
   .step article {

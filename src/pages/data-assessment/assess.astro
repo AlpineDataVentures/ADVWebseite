@@ -35,6 +35,7 @@ import Base from "@/layouts/Base.astro";
   <section class="mt-4 mb-16">
     <div class="container">
       <div class="row justify-center">
+        <!-- Step indicator for mobile phones! -->
         <!--nav class="nav-assessment">
           <StepIndicator client:only="react" />
         </nav-->
@@ -81,15 +82,16 @@ import Base from "@/layouts/Base.astro";
               </p>
             </article>
           </Step>
-          <!-- doppelt? StepNavigation client:only="react" /-->
           <!-- Last Step end -->
 
-          <!-- Add buttons for navigation -->
+          <!-- Add buttons for navigation for non-mobile phones -->
           <StepNavigation client:only="react" />
           <!--/AssessmentLayout-->
         </div>
       </div>
     </div>
+    <!-- Navigation for mobile phones / small screens! -->
+    <StepNavigation client:only="react" />
   </section>
 
   <style is:inline>
