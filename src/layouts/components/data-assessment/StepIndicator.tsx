@@ -21,50 +21,75 @@ function StepIndicator() {
     <ul>
       <li className={`step-indicator`}>
         <motion.span
-          animate={$currentStep === 1 ? "active" : "inactive"}
+          animate={$currentStep <= 3 ? "active" : "inactive"}
           variants={indicator}
         >
           1
         </motion.span>
         <div>
-          <p>Step 1</p>
-          <h2>Your info</h2>
+          <p>Bereich</p>
+          <h2>Grundlagen</h2>
         </div>
       </li>
+
       <li className={`step-indicator`}>
         <motion.span
-          animate={$currentStep === 2 ? "active" : "inactive"}
+          animate={$currentStep > 3 && $currentStep <= 6 ? "active" : "inactive"}
           variants={indicator}
         >
           2
         </motion.span>
         <div>
-          <p>Step 2</p>
-          <h2>Select plan</h2>
+          <p>Bereich</p>
+          <h2>Organisation</h2>
         </div>
       </li>
       <li className={`step-indicator`}>
         <motion.span
-          animate={$currentStep === 3 ? "active" : "inactive"}
+          animate={$currentStep > 6 && $currentStep <= 8 ? "active" : "inactive"}
           variants={indicator}
         >
           3
         </motion.span>
         <div>
-          <p>Step 3</p>
-          <h2>Add-ons</h2>
+          <p>Bereich</p>
+          <h2>Governance</h2>
         </div>
       </li>
       <li className={`step-indicator`}>
         <motion.span
-          animate={$currentStep >= 4 ? "active" : "inactive"}
+          animate={$currentStep > 8 && $currentStep <= 13 ? "active" : "inactive"}
           variants={indicator}
         >
           4
         </motion.span>
         <div>
-          <p>Step 4</p>
-          <h2>Summary</h2>
+          <p>Bereich</p>
+          <h2>Daten-Kultur</h2>
+        </div>
+      </li>
+      <li className={`step-indicator`}>
+        <motion.span
+          animate={$currentStep > 13 && $currentStep <= 15 ? "active" : "inactive"}
+          variants={indicator}
+        >
+          5
+        </motion.span>
+        <div>
+          <p>Bereich</p>
+          <h2>Daten-Strategie</h2>
+        </div>
+      </li>
+      <li className={`step-indicator`}>
+        <motion.span
+          animate={$currentStep > 15 ? "active" : "inactive"}
+          variants={indicator}
+        >
+          6
+        </motion.span>
+        <div>
+          <p>Bereich</p>
+          <h2>Abschluss</h2>
         </div>
       </li>
     </ul>
