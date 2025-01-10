@@ -60,13 +60,13 @@
         }
       }
       &-description {
-        @apply text-sm line-clamp-1 mt-1;
+        @apply text-base line-clamp-1 mt-1;
       }
       &-content {
         @apply mx-0 my-1.5 empty:hidden line-clamp-1;
       }
       &-taxonomies {
-        @apply text-sm flex flex-wrap items-center text-light dark:text-darkmode-light;
+        @apply text-base flex flex-wrap items-center text-light dark:text-darkmode-light;
         svg {
           @apply inline-block mr-1;
         }
