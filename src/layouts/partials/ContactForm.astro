@@ -15,6 +15,7 @@ const { contact_form_action } = Astro.props;
       class="form-input"
       placeholder="Erika"
       type="text"
+      autocomplete="given-name"
       required
     />
   </div>
@@ -28,6 +29,7 @@ const { contact_form_action } = Astro.props;
       class="form-input"
       placeholder="Mustermann"
       type="text"
+      autocomplete="family-name"
       required
     />
   </div>
@@ -54,6 +56,7 @@ const { contact_form_action } = Astro.props;
       class="form-input"
       placeholder="erika.mustermann@email.com"
       type="email"
+      autocomplete="email"
       required
     />
   </div>
@@ -64,6 +67,7 @@ const { contact_form_action } = Astro.props;
       name="phone"
       class="form-input"
       placeholder="+49 89 1234567"
+      autocomplete="tel"
       type="tel"
     />
   </div>
@@ -98,7 +102,13 @@ const { contact_form_action } = Astro.props;
   <!-- Honeypot field (hidden) -->
   <div class="hidden">
     <label for="website">Website</label>
-    <input type="text" id="website" name="website" value="Deine Webseite" />
+    <input
+      type="text"
+      id="website"
+      name="website"
+      value="Deine Webseite"
+      autocomplete="off"
+    />
   </div>
 </form>
 <div id="feedback" class="hidden mt-4 text-green-500">
