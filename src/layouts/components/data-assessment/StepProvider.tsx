@@ -218,5 +218,10 @@ export const user = map<Record<string, string | null>>({
 type AnswersStore = {
   [questionId: number]: string; // Frage-ID als Key, Antwort als String
 };
+// Initialisiere den Store mit allen Fragen und leeren Antworten
+const initialAnswers: AnswersStore = {};
+assessItems.forEach((item, index) => {
+  initialAnswers[index + 1] = ''; // Initialisiere jede Frage-ID mit leerem String
+});
 
-export const answersStore: MapStore<AnswersStore> = map<AnswersStore>({});
+export const answersStore: MapStore<AnswersStore> = map<AnswersStore>(initialAnswers);

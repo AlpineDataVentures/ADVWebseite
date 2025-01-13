@@ -5,6 +5,7 @@ import React from "react";
 
 const maxSteps = assessItems.length + 3;
 
+
 function StepNavigation() {
   const $currentStep = useStore(currentStep);
   const $user = useStore(user);
@@ -20,26 +21,26 @@ function StepNavigation() {
       // here we need to send the info to the netlify function!
       // TODO !!!
     }
-  }
-
-  function isNextButtonDisabled() {
-    // in case of questions check if store contains a value
-    if ($currentStep <= assessItems.length) {
-      const answer = $answers[$currentStep]; // Zugriff auf die Antwort im Store
-      console.log("currentStep " + $currentStep + " answer: " + answer + " disabled: " + (!answer || answer === ''));
-      return answer === null || answer === '';
-    } else {
-      // return Object.values($user).some((x) => x === "" || x === null );
-      return false;
-    }
+    console.log("New Step :" + currentStep.get());
   }
 
   const backStyle: CSSProperties =
     $currentStep === 1 || $currentStep === maxSteps
       ? { visibility: "hidden" }
       : {};
+
   const nextStyle: CSSProperties =
-    isNextButtonDisabled() ? { visibility: "hidden" } : {};
+    $currentStep <= maxSteps - 3
+      ? $answers[$currentStep] === null || $answers[$currentStep] === ""
+        ? { visibility: "hidden" }
+        : {}
+      : $currentStep === maxSteps - 2
+        ? $user === null || $user.name === "" || $user.email === ""
+          ? { visibility: "hidden" }
+          : {}
+        : $currentStep === maxSteps - 1
+          ? {}
+          : { visibility: "hidden" };
 
   return (
     <div className="navigation-buttons">
@@ -50,7 +51,7 @@ function StepNavigation() {
         className={`next${$currentStep === maxSteps - 1 ? " final" : ""}`}
         style={nextStyle}
         onClick={handleNext}
-        disabled={isNextButtonDisabled()}
+        disabled={false}
       >
         {$currentStep === maxSteps - 1 ? "Abschicken" : "Weiter"}
       </button>
