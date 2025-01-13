@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { useStore } from "@nanostores/react";
-import { assessItems, currentStep, user } from "./StepProvider";
+import { answersStore, assessItems, currentStep, user } from "./StepProvider";
 import React from "react";
 
 const maxSteps = assessItems.length + 3;
@@ -8,6 +8,7 @@ const maxSteps = assessItems.length + 3;
 function StepNavigation() {
   const $currentStep = useStore(currentStep);
   const $user = useStore(user);
+  const $answers = useStore(answersStore);
 
   function handleBack() {
     if ($currentStep > 1) currentStep.set(currentStep.get() - 1);
@@ -21,16 +22,24 @@ function StepNavigation() {
     }
   }
 
-  const isNextButtonDisabled = Object.values($user).some(
-    (x) => x === "" || x === null
-  );
+  function isNextButtonDisabled() {
+    // in case of questions check if store contains a value
+    if ($currentStep <= assessItems.length) {
+      const answer = $answers[$currentStep]; // Zugriff auf die Antwort im Store
+      console.log("currentStep " + $currentStep + " answer: " + answer + " disabled: " + (!answer || answer === ''));
+      return answer === null || answer === '';
+    } else {
+      // return Object.values($user).some((x) => x === "" || x === null );
+      return false;
+    }
+  }
 
   const backStyle: CSSProperties =
     $currentStep === 1 || $currentStep === maxSteps
       ? { visibility: "hidden" }
       : {};
   const nextStyle: CSSProperties =
-    $currentStep === maxSteps ? { visibility: "hidden" } : {};
+    isNextButtonDisabled() ? { visibility: "hidden" } : {};
 
   return (
     <div className="navigation-buttons">
@@ -41,7 +50,7 @@ function StepNavigation() {
         className={`next${$currentStep === maxSteps - 1 ? " final" : ""}`}
         style={nextStyle}
         onClick={handleNext}
-        disabled={false} //{isNextButtonDisabled}
+        disabled={isNextButtonDisabled()}
       >
         {$currentStep === maxSteps - 1 ? "Abschicken" : "Weiter"}
       </button>
