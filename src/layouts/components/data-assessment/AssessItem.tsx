@@ -24,7 +24,7 @@ function AssessItem({ questionId, item }: Props) {
   return (
     <form>
       <div>
-        <h1>Frage {questionId}</h1>
+        <h1>{`Frage ${questionId}`}</h1>
         <h3>{item.question}</h3>
         <ul style={{ listStyleType: 'none', padding: 0 }}>
           {item.answers.map((option) => (
