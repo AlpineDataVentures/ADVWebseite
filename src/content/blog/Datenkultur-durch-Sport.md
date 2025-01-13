@@ -2,7 +2,7 @@
 title: "Wie Sportereignisse Datenkultur fördern"
 meta_title: "Datenkultur auf dem Spielfeld: Wie US-Sport uns zeigt, was wir von Statistiken lernen können"
 description: "Wie Sportereignisse Datenkompetenz fördern und was Europa von US-Statistiken lernen kann."
-date: 2025-01-12T10:00:00Z
+date: 2025-01-13T10:00:00Z
 image: "/images/blog/datenkultur_sport.png"
 categories: ["Data Culture"]
 author: "Ben Diez"
@@ -10,8 +10,6 @@ tags: ["Data Culture","Data Strategy"]
 draft: false
 summary: "US-Sport zeigt, wie Statistiken nicht nur Unterhaltung, sondern auch Datenkompetenz fördern. Während in Europa sportliche Analysen oft oberflächlich bleiben, sind sie in den USA allgegenwärtig und prägen unbewusst den Alltag der Zuschauer"
 ---
-
-### Wie Sportereignisse eine Datenkultur fördern
 
 Als Fußballfan verspürt man eine gewisse Genugtuung, wenn sich der bereits gelbverwarnte Spieler der gegnerischen Mannschaft, der dem eigenen Team gerade einen eingeschenkt hat, vor Freude sein Trikot vom Leib reißt. Dafür gibt es die zweite Karte und der Spieler darf frühzeitig zum Duschen.
 
