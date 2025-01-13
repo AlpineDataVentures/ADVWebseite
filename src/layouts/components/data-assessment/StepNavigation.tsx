@@ -15,12 +15,47 @@ function StepNavigation() {
     if ($currentStep > 1) currentStep.set(currentStep.get() - 1);
   }
 
-  function handleNext() {
-    if ($currentStep <= maxSteps) currentStep.set(currentStep.get() + 1);
+  async function handleNext() {
+    // we do have all information: let's send it to netlify function!
     if ($currentStep === maxSteps - 1) {
-      // here we need to send the info to the netlify function!
-      // TODO !!!
+      // Daten sammeln
+      const payload = {
+        firstname: $user.name,
+        lastname: "Test",
+        email: $user.email,
+        message: Object.entries($answers)
+          .map(([questionId, answer]) => `${questionId}: ${answer} <br/>`)
+          .join(''),
+        reason: "Data Assessment",
+        website: "Deine Webseite",
+        phone: $user.phone,
+      };
+
+      try {
+        // POST-Request an die Netlify Function
+        const response = await fetch('/.netlify/functions/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          console.error('Fehler beim Senden der Daten:', response.statusText);
+          alert('Beim Senden der Daten ist ein Fehler aufgetreten.');
+          return;
+        }
+
+        console.log('Daten erfolgreich gesendet');
+        alert('Vielen Dank! Ihre Daten wurden erfolgreich übermittelt.');
+        // Zum nächsten Schritt weitergehen
+      } catch (error) {
+        console.error('Netzwerkfehler:', error);
+        alert('Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+      }
     }
+    if ($currentStep <= maxSteps) currentStep.set(currentStep.get() + 1);
     console.log("New Step :" + currentStep.get());
   }
 
