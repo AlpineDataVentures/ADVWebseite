@@ -155,51 +155,11 @@ export const assessItems: AssessItemType[] = [
   }
 ];
 
-
-export const addonData: AddonType[] = [
-  {
-    title: "Online service",
-    description: "Access to multiplayer games",
-    dollarPerMonth: 1,
-  },
-
-  {
-    title: "Larger storage",
-    description: "Extra 1TB of cloud save",
-    dollarPerMonth: 2,
-  },
-  {
-    title: "Customizable profile",
-    description: "Custom theme on your profile",
-    dollarPerMonth: 2,
-  },
-];
-
 export type AssessItemType = {
   area: string;
   question: string;
   answers: string[];
 };
-
-export type PlanType = {
-  title: string;
-  dollarPerMonth: number;
-};
-
-export const planData: PlanType[] = [
-  {
-    title: "Arcade",
-    dollarPerMonth: 9,
-  },
-  {
-    title: "Advanced",
-    dollarPerMonth: 12,
-  },
-  {
-    title: "Pro",
-    dollarPerMonth: 15,
-  },
-];
 
 
 export const user = map<Record<string, string | null>>({
