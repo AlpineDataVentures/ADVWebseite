@@ -8,14 +8,14 @@ categories: ["Data Culture"]
 author: "Ben Diez"
 tags: ["Data Culture","Data Strategy"]
 draft: false
-summary: "US-Sport zeigt, wie Statistiken nicht nur Unterhaltung, sondern auch Datenkompetenz fördern. Während in Europa sportliche Analysen oft oberflächlich bleiben, sind sie in den USA allgegenwärtig und prägen unbewusst den Alltag der Zuschauer"
+summary: "US-Sport zeigt, wie Statistiken Unterhaltung und Datenkompetenz fördern. Während Analysen in Europa oft oberflächlich sind, prägen sie in den USA den Alltag – allgegenwärtig und unbewusst wirksam."
 ---
 
 Als Fußballfan verspürt man eine gewisse Genugtuung, wenn sich der bereits gelbverwarnte Spieler der gegnerischen Mannschaft, der dem eigenen Team gerade einen eingeschenkt hat, vor Freude sein Trikot vom Leib reißt. Dafür gibt es die zweite Karte und der Spieler darf frühzeitig zum Duschen.
 
 Dem geneigten Zuschauer stellen sich dabei zwei Fragen. Erstens: **muss das sein**? Zweitens: **was trägt der Spieler da für ein interessantes Unterhemd, das etwas an einen Sport-BH erinnert?**
 
-Bei diesem Kleidungsstück handelt es sich um die Halterung für einen Sensor, der Daten zum Träger erfasst: Laufwege, Herzfrequenz, Entfernungen zu Mitspielern und vieles mehr. Die Zeiten, in denen der Praktikant die zurückgelegten Meter einzelner Akteur mitrechnen musste, sind also vorbei.
+Bei diesem Kleidungsstück handelt es sich um die Halterung für einen Sensor, der Daten zum Träger erfasst: Laufwege, Herzfrequenz, Entfernungen zu Mitspielern und vieles mehr. Die Zeiten, in denen der Praktikant die zurückgelegten Meter einzelner Akteure mitrechnen musste, sind also vorbei.
 
 Für die Zuschauer werden diese Mengen an Informationen in der Regel zu einer kurzen Übersicht zusammengedampft. 
 - Wie viel ist jedes Team insgesamt gelaufen?
