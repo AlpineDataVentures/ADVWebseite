@@ -2,8 +2,6 @@ import { atom, map, type MapStore } from "nanostores";
 
 export const currentStep = atom(1);
 
-export const isSubscriptionTimeMonthly = atom(true);
-
 export type AddonType = {
   title: string;
   description: string;
@@ -203,11 +201,6 @@ export const planData: PlanType[] = [
   },
 ];
 
-
-
-export const subscriptionPlan = atom<PlanType>(planData[0]);
-
-export const addons = atom<AddonType[]>([]);
 
 export const user = map<Record<string, string | null>>({
   name: null,

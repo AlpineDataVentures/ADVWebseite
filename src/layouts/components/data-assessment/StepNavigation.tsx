@@ -3,7 +3,7 @@ import { useStore } from "@nanostores/react";
 import { answersStore, assessItems, currentStep, user } from "./StepProvider";
 import React from "react";
 
-const maxSteps = assessItems.length + 3;
+const maxSteps = assessItems.length + 2;
 
 
 function StepNavigation() {
@@ -65,17 +65,17 @@ function StepNavigation() {
       : {};
 
   const nextStyle: CSSProperties =
-    $currentStep <= maxSteps - 3
+    $currentStep <= maxSteps - 2
       ? $answers[$currentStep] === null || $answers[$currentStep] === ""
         ? { visibility: "hidden" }
         : {}
-      : $currentStep === maxSteps - 2
+      : $currentStep === maxSteps - 1
         ? $user === null || $user.name === "" || $user.email === ""
           ? { visibility: "hidden" }
           : {}
-        : $currentStep === maxSteps - 1
-          ? {}
-          : { visibility: "hidden" };
+        : $currentStep === maxSteps
+          ? { visibility: "hidden" }
+          : {};
 
   return (
     <div className="navigation-buttons">

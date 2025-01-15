@@ -6,7 +6,6 @@ import StepNavigation from "@/components/data-assessment/StepNavigation";
 import AssessItem from "@/components/data-assessment/AssessItem";
 
 import { assessItems } from "@/components/data-assessment/StepProvider";
-import CheckoutList from "@/components/data-assessment/CheckoutList";
 import Base from "@/layouts/Base.astro";
 
 //
@@ -48,7 +47,11 @@ import Base from "@/layouts/Base.astro";
           {
             assessItems.map((item, index) => (
               <Step step={index + 1} client:load>
-                <AssessItem questionId={index + 1} item={item} client:load />
+                <AssessItem
+                  questionId={index + 1}
+                  item={item}
+                  client:only="react"
+                />
               </Step>
             ))
           }
@@ -57,19 +60,8 @@ import Base from "@/layouts/Base.astro";
             <PersonalInfo client:only="react" />
           </Step>
 
-          <!-- CheckOut Step start -->
-          <Step step={assessItems.length + 2} client:idle>
-            <h1>Finishing up</h1>
-            <p class="description">
-              Double-check everything looks OK before confirming.
-            </p>
-
-            <CheckoutList client:only="react" />
-          </Step>
-          <!-- Checkout Step end -->
-
           <!-- Last Step start -->
-          <Step step={assessItems.length + 3} client:idle>
+          <Step step={assessItems.length + 2} client:idle>
             <article class="thank-you">
               <img
                 src={`/images/data-assessment/icon-thank-you.svg`}
