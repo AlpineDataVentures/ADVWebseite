@@ -18,7 +18,7 @@ subsections:
        description: "Wir führen eine Standortbestimmung Ihrer aktuellen Datenlandschaft (Datenquellen, Infrastruktur, Skills, …) durch und leiten auf Basis der Ergebnisse die notwendigen Schritte ab"  
      - title: "Konzipieren des Data Frameworks"
        icon: FaDatabase
-       description: "Auf Grundlage des Deltas zwischen Soll und Ist Zustand konzipieren wir Governance, Architektur, Infrastruktur, Prozesse, Rollen"  
+       description: "Auf Grundlage des Deltas zwischen Soll- und Ist-Zustand konzipieren wir Governance, Architektur, Infrastruktur, Prozesse, Rollen"  
    - title: "Realisieren der Strategie​"
      description: "Nachdem der Fahrplan für die Data Journey steht, geht es an die konkrete Umsetzung der einzelnen Schritte in die Praxis. Wir helfen Ihnen bei der Planung der benötigten Ressourcen, dem Entwickeln der notwendigen Skills und bei der Weiterentwicklung Ihrer Unternehmenskultur, indem wir den Fokus auf das Nutzen von Daten bei der Entscheidungsfindung legen."
      tasks: 
@@ -30,7 +30,7 @@ subsections:
        description: "Um die Datenstrategie in Ihrem Unternehmen fest zu verankern, entwerfen wir einen Action Plan, wie Data Literacy und datengetriebene Entscheidungsfindung zu einem Teil Ihrer Unternehmenskultur wird​" 
      - title: "Begleitung bei der Umsetzung Ihrer Strategie"
        icon: FaGears
-       description: "Wir definieren notwendige KPI zum Tracken des Fortschritts entlang Ihrer Reise zum Data Driven Unternehmen und unterstützen Sie bei der Implementierung​"
+       description: "Wir definieren notwendige KPIs zum Tracken des Fortschritts entlang Ihrer Reise zum Data Driven Unternehmen und unterstützen Sie bei der Implementierung​"
 customer_value:
   title: "Ihre Vorteile einer Datenstrategie"
   image: "/images/Vorteile.png"
