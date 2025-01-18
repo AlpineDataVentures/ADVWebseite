@@ -18,16 +18,16 @@ function StepNavigation() {
   async function handleNext() {
     // we do have all information: let's send it to netlify function!
     if ($currentStep === maxSteps - 1) {
-      // Daten sammeln
+      // Daten sammeln, misusing lastname for handover of company
       const payload = {
         firstname: $user.name,
-        lastname: "Test",
+        lastname: $user.unternehmen,
         email: $user.email,
         message: Object.entries($answers)
           .map(([questionId, answer]) => `${questionId}: ${answer} <br/>`)
           .join(''),
         reason: "Data Assessment",
-        website: "Deine Webseite",
+        website: $user.webseite,
         phone: $user.phone,
       };
 
@@ -43,20 +43,15 @@ function StepNavigation() {
 
         if (!response.ok) {
           console.error('Fehler beim Senden der Daten:', response.statusText);
-          alert('Beim Senden der Daten ist ein Fehler aufgetreten.');
+          alert('Beim Senden der Daten ist ein Fehler aufgetreten. ' + response.statusText);
           return;
         }
-
-        console.log('Daten erfolgreich gesendet');
-        alert('Vielen Dank! Ihre Daten wurden erfolgreich übermittelt.');
-        // Zum nächsten Schritt weitergehen
       } catch (error) {
         console.error('Netzwerkfehler:', error);
-        alert('Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+        alert('Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es später erneut. ' + error);
       }
     }
     if ($currentStep <= maxSteps) currentStep.set(currentStep.get() + 1);
-    console.log("New Step :" + currentStep.get());
   }
 
   const backStyle: CSSProperties =
@@ -70,7 +65,8 @@ function StepNavigation() {
         ? { visibility: "hidden" }
         : {}
       : $currentStep === maxSteps - 1
-        ? $user === null || $user.name === "" || $user.email === ""
+        ? $user === null || $user.name === null || $user.name === "" || $user.phone === null
+          || $user.phone === "" || $user.email === null || $user.email === ""
           ? { visibility: "hidden" }
           : {}
         : $currentStep === maxSteps

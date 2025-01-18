@@ -2,12 +2,6 @@ import { atom, map, type MapStore } from "nanostores";
 
 export const currentStep = atom(1);
 
-export type AddonType = {
-  title: string;
-  description: string;
-  dollarPerMonth: number;
-};
-
 export const assessItems: AssessItemType[] = [
   {
     area: "Grundlagen",
@@ -165,7 +159,9 @@ export type AssessItemType = {
 export const user = map<Record<string, string | null>>({
   name: null,
   email: null,
+  unternehmen: null,
   phone: null,
+  webseite: "Deine Webseite"
 });
 
 type AnswersStore = {
@@ -173,6 +169,7 @@ type AnswersStore = {
 };
 // Initialisiere den Store mit allen Fragen und leeren Antworten
 const initialAnswers: AnswersStore = {};
+
 assessItems.forEach((item, index) => {
   initialAnswers[index + 1] = ''; // Initialisiere jede Frage-ID mit leerem String
 });

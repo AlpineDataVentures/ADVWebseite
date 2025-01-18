@@ -11,64 +11,86 @@ function PersonalInfo() {
 
   return (
 
-    <form>
-      <h1>Personal info</h1>
+    <form id="assessment_contact" name="assessment_contact">
+      <h1>Fast geschafft!</h1>
       <p className="description">
-        Please provide your name, email address, and phone number.
+        Danke für die Beantwortung aller Fragen. Damit wir Ihnen die Auswertung zusenden können brauchen wir noch ein paar Daten von Ihnen:
       </p>
-      <label>
-        <div>
-          <span>Name</span>
-          {$user.name === "" && (
-            <span className="error">This field is required</span>
-          )}
-        </div>
+      <div>
+        <label>
+          Titel Vorname Name<span className="text-red-500">*</span>
+        </label>
         <input
+          id="name"
           name="name"
           type="text"
           value={$user.name ?? ""}
           onChange={handleChange}
-          placeholder="e.g. Stephen King"
+          placeholder="z.B. Dr. Michaela Schmidt"
+          autoComplete="name"
           required
           className={$user.name === "" ? "error" : ""}
         />
-      </label>
+      </div>
 
-      <label>
-        <div>
-          <span>Email Address</span>
-          {$user.email === "" && (
-            <span className="error">This field is required</span>
-          )}
-        </div>
+      <div>
+        <label>
+          E-Mail-Adresse<span className="text-red-500">*</span>
+        </label>
         <input
           name="email"
           type="text"
           value={$user.email ?? ""}
           onChange={handleChange}
-          placeholder="e.g. stephenking@lorem.com"
+          placeholder="michaelaschmidt@digital.de"
+          autoComplete="email"
           required
           className={$user.email === "" ? "error" : ""}
         />
-      </label>
+      </div>
 
-      <label>
-        <div>
-          <span>Phone Number</span>
-          {$user.phone === "" && (
-            <span className="error">This field is required</span>
-          )}
-        </div>
+      <div>
+        <label>
+          Unternehmen
+        </label>
         <input
+          id="unternehmen"
+          name="unternehmen"
+          type="text"
+          value={$user.unternehmen ?? ""}
+          onChange={handleChange}
+          placeholder="Michaela Schmidt Digital GmbH"
+          autoComplete="organization"
+          className={$user.unternehmen === "" ? "error" : ""}
+        />
+      </div>
+
+      <div>
+        <label>
+          Telefonnummer<span className="text-red-500">*</span>
+        </label>
+        <input
+          id="phone"
           name="phone"
           type="text"
           value={$user.phone ?? ""}
           onChange={handleChange}
-          placeholder="e.g. +1 234 567 890"
+          placeholder="+1 234 567 890"
           required
           className={$user.phone === "" ? "error" : ""}
         />
-      </label>
+      </div>
+      <div className="hidden">
+        <label>Website</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          onChange={handleChange}
+          value={$user.webseite ?? ""}
+          autoComplete="off"
+        />
+      </div>
     </form>
   );
 }
