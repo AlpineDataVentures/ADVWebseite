@@ -24,7 +24,7 @@ function StepNavigation() {
         lastname: $user.unternehmen,
         email: $user.email,
         message: Object.entries($answers)
-          .map(([questionId, answer]) => `${questionId}: ${answer} <br/>`)
+          .map(([questionId, answer]) => `${questionId}: ${assessItems[Number(questionId)]}<br/>   ${answer} <br/>`)
           .join(''),
         reason: "Data Assessment",
         website: $user.webseite,
