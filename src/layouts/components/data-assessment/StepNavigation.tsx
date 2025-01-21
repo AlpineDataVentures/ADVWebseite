@@ -36,10 +36,10 @@ function StepNavigation() {
 
             // Formatierte Antwort mit Position (1-basiert)
             const formattedAnswer = answerIndex >= 0
-              ? `${answerIndex + 1}. ${answer}`
+              ? `   Antwort ${answerIndex + 1}. ${answer}`
               : answer; // Fallback: Wenn Antwort nicht gefunden wird
 
-            return `${numericQuestionId + 1}: ${assessItem?.question || 'Frage nicht gefunden'}<br/>    ${formattedAnswer} <br/>`;
+            return `${numericQuestionId + 1}: ${assessItem?.question || 'Frage nicht gefunden'}<br/> ${formattedAnswer} <br/>`;
           })
           .join(''),
         reason: "Data Assessment",
