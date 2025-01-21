@@ -23,8 +23,24 @@ function StepNavigation() {
         firstname: $user.name,
         lastname: $user.unternehmen,
         email: $user.email,
+        // message: Object.entries($answers)
+        //   .map(([questionId, answer]) => `${questionId}: ${assessItems[Number(questionId) - 1].question}<br/>   ${answer} <br/>`)
+        //   .join('')
         message: Object.entries($answers)
-          .map(([questionId, answer]) => `${questionId}: ${assessItems[Number(questionId) - 1].question}<br/>   ${answer} <br/>`)
+          .map(([questionId, answer]) => {
+            const numericQuestionId = Number(questionId) - 1; // Offset: 1-basiert zu 0-basiert
+            const assessItem = assessItems[numericQuestionId]; // Passendes assessItem holen
+
+            // Finde die Position der Antwort in der answers-Liste
+            const answerIndex = assessItem.answers.findIndex(a => a === answer);
+
+            // Formatierte Antwort mit Position (1-basiert)
+            const formattedAnswer = answerIndex >= 0
+              ? `${answerIndex + 1}. ${answer}`
+              : answer; // Fallback: Wenn Antwort nicht gefunden wird
+
+            return `${numericQuestionId + 1}: ${assessItem?.question || 'Frage nicht gefunden'}<br/>    ${formattedAnswer} <br/>`;
+          })
           .join(''),
         reason: "Data Assessment",
         website: $user.webseite,
