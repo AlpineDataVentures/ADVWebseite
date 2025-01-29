@@ -1,5 +1,5 @@
 ---
-title: "Die ADV-Art – Wie wir arbeiten und Kunden begeistern"
+title: "Die ADV-Art: Wie wir arbeiten und Kunden begeistern"
 meta_title: "ADV-Ansatz: Kundenorientierte Beratung neu gedacht"
 description: "Wie Alpine Data Ventures klassische Beratung neu definiert und Kunden mit einem einzigartigen Ansatz begeistert."
 date: 2025-01-27T07:00:00Z
