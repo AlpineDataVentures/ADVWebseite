@@ -5,7 +5,7 @@ import React from "react";
 
 const indicator = {
   active: {
-    backgroundColor: "var(--pastel-blue)",
+    backgroundColor: "var(--nice-green)",
     color: "var(--marine-blue)",
   },
   inactive: {
