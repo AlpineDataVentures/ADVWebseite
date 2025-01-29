@@ -1,5 +1,5 @@
 ---
-title: "Die ADV-Art – Wie wir arbeiten"
+title: "Die ADV-Art – Wie wir arbeiten und Kunden begeistern"
 meta_title: "ADV-Ansatz: Kundenorientierte Beratung neu gedacht"
 description: "Wie Alpine Data Ventures klassische Beratung neu definiert und Kunden mit einem einzigartigen Ansatz begeistert."
 date: 2025-01-27T07:00:00Z
@@ -10,8 +10,6 @@ tags: ["ADV", "Beratung", "Data Strategy"]
 draft: false
 summary: "ADV bringt Customer Centricity in die Beratungswelt. Erfahrt, wie wir arbeiten, Projekte strukturieren und Kunden mit datengetriebenen Strategien unterstützen."
 ---
-
-## Die ADV-Art – Wie wir arbeiten und Kunden begeistern
 
 Es war einmal vor langer Zeit als Beratungen noch versuchten ihre Mitarbeiter Vollzeit auf Projekte zu verkaufen und sie so lange wie möglich ausgelastet zu haben. Nicht so bei der ADV. Weshalb nicht und was Euch in der Zusammenarbeit mit uns erwartet, das erfahrt Ihr in unserem heutigen Artikel!
 
