@@ -26,22 +26,22 @@ Oft erleben wir, dass Unternehmen und Mitarbeitende tolle Ideen für datengetrie
 
 Und dann passiert effektiv: **Nichts.**  
 
-Der Denkfehler? Perfektionismus ist der Feind von Fortschritt. Wer auf den perfekten Moment wartet, startet nie und die Uhr tickt weiter. Dabei könnte man stattdessen **ein konkretes, sinnvolles Mini-Projekt** realisieren, das nicht nur erste Mehrwerte liefert, sondern auch **wertvolle Erkenntnisse für die weitere Entwicklung bringt**.  
+Der Denkfehler? Perfektionismus ist der Feind von Fortschritt. Wer auf den perfekten Moment wartet, startet nie und die Uhr tickt weiter. Dabei kann man stattdessen **ein konkretes, sinnvolles Mini-Projekt** realisieren, das nicht nur erste Mehrwerte liefert, sondern auch **wertvolle Erkenntnisse für die weitere Entwicklung bringt**.  
 
 ### Ein Beispiel: Business Intelligence – Von der ersten Idee zur echten Entscheidungshilfe
 
-Nehmen wir Business Intelligence (BI). Ein Bereich, der in fast jedem Unternehmen **einen riesigen Impact** haben kann. Doch oft bleibt BI ein abstraktes Thema, weil niemand genau weiß, wo man anfangen soll.  
+Nehmen wir Business Intelligence (BI). Ein Bereich, der in fast jedem Unternehmen **einen riesigen Impact** hat. Doch oft bleibt BI ein abstraktes Thema, weil niemand genau weiß, wo man anfangen soll.  
 
-Dabei könnte ein **erstes kleines Dashboard** schon **enorme Wirkung entfalten**:  
+Dabei kann ein **erstes kleines Dashboard** schon **enorme Wirkung entfalten**:  
 
 - **Grundsolide Entscheidungsbasis in einem kompetitiven Markt**  
-  –Datengetriebene Entscheidungen sind nicht nur präziser, sondern mittlerweile unabdingbar auf dem heutigen Markt. Entscheidungen aus dem Bauch funktionieren nicht mehr.
+  Datengetriebene Entscheidungen sind nicht nur präziser, sondern mittlerweile unabdingbar auf dem heutigen Markt. Entscheidungen aus dem Bauch funktionieren nicht mehr.
 - **Automatisierte Berichte statt Excel-Wahnsinn**  
-  – Statt manuell Daten zusammenzutragen, kann man mit wenigen Klicks aktuelle Kennzahlen abrufen.  
+  Statt manuell Daten zusammenzutragen, kann man mit wenigen Klicks aktuelle Kennzahlen abrufen.  
 - **Immer aktuelle Daten für bessere Entscheidungen**  
-  – Kein Rätselraten mehr, ob die Zahlen stimmen – sie sind immer aktuell und belastbar.   
+  Kein Rätselraten mehr, ob die Zahlen stimmen – sie sind immer aktuell und belastbar.   
 - **Erste Erkenntnisse zur Datenqualität**  
-  – Man erkennt früh, **welche Datenlücken existieren** und kann diese gezielt schließen.  
+  Man erkennt früh, **welche Datenlücken existieren** und kann diese gezielt schließen.  
 
 Das Beste? **So ein erstes BI-Projekt ist nicht statisch.**  
 Es ist **kein Endprodukt, sondern ein Startpunkt**.  
@@ -71,14 +71,14 @@ Sie zeigen, was möglich ist, liefern erste Erkenntnisse und machen Lust auf meh
 
 Sichtbarkeit und Mehrwert sind das eine. Aber ein schneller, gezielter erster Schritt hat noch weitere Vorteile:  
 
-1. **Man erkennt früh, wo Herausforderungen liegen.**  
-   – Vielleicht gibt es Datenprobleme? Vielleicht fehlt irgendwo noch eine Anbindung? All das lässt sich früh erkennen – und lösen.  
+- **Man erkennt früh, wo Herausforderungen liegen.**  
+   Vielleicht gibt es Datenprobleme? Vielleicht fehlt irgendwo noch eine Anbindung? All das lässt sich früh erkennen – und lösen.  
 
-2. **Man kann nach und nach ausbauen.**  
-   – Wer mit einem ersten Use Case startet, kann viel schneller weitere Features oder Automatisierungen ergänzen.  
+- **Man kann nach und nach ausbauen.**  
+   Wer mit einem ersten Use Case startet, kann viel schneller weitere Features oder Automatisierungen ergänzen.  
 
-3. **Man spart Zeit und Geld.**  
-   – Ein kleines, pragmatisches Projekt kostet wenig und bringt sofort Ergebnisse – statt ewig Zeit und Budget in endlose Konzeptphasen zu stecken.  
+- **Man spart Zeit und Geld.**  
+   Ein kleines, pragmatisches Projekt kostet wenig und bringt sofort Ergebnisse – statt ewig Zeit und Budget in endlose Konzeptphasen zu stecken.  
 
 ### Also: Worauf warten?
 
@@ -88,6 +88,6 @@ Wir helfen euch dabei, genau diese ersten Projekte zu identifizieren: **Welche I
 
 Lass uns in einem **unverbindlichen kostenlosen Erstgespräch** herausfinden, **welches Kleinstprojekt** euch **den schnellsten Mehrwert liefert** – mit minimalem Risiko, aber maximiertem Impact.  
 
-Meldet euch einfach – und wir gehen den ersten Schritt gemeinsam.  
+ 
 
 **Eure ADV**
