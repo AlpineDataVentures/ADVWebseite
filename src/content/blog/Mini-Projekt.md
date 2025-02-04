@@ -89,5 +89,10 @@ Wir helfen euch dabei, genau diese ersten Projekte zu identifizieren: **Welche I
 Lass uns in einem **unverbindlichen kostenlosen Erstgespräch** herausfinden, **welches Kleinstprojekt** euch **den schnellsten Mehrwert liefert** – mit minimalem Risiko, aber maximiertem Impact.  
 
 Meldet euch einfach – und wir gehen den ersten Schritt gemeinsam.  
-
+<div class="mb-10 col-12 flex justify-center">
+  <a class="btn btn-outline-primary btn-sm"
+     href="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+   >    Termin vereinbaren
+   </a>
+</div>
 **Eure ADV**
