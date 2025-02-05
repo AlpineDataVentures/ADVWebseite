@@ -2,7 +2,7 @@
 import { getEntry } from "astro:content";
 import Portfolio from "@/layouts/Portfolio.astro";
 
-const architecture = await getEntry("portfolio", "architecture");
+const architecture = await getEntry("portfolio", "architecture")!;
 
 const {
   title,

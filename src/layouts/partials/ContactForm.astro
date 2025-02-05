@@ -13,8 +13,9 @@ const { contact_form_action } = Astro.props;
       id="firstname"
       name="firstname"
       class="form-input"
-      placeholder="Erika"
+      placeholder="Michaela"
       type="text"
+      autocomplete="given-name"
       required
     />
   </div>
@@ -26,8 +27,9 @@ const { contact_form_action } = Astro.props;
       id="lastname"
       name="lastname"
       class="form-input"
-      placeholder="Mustermann"
+      placeholder="Schmidt"
       type="text"
+      autocomplete="family-name"
       required
     />
   </div>
@@ -52,8 +54,9 @@ const { contact_form_action } = Astro.props;
       id="email"
       name="email"
       class="form-input"
-      placeholder="erika.mustermann@email.com"
+      placeholder="michaela.schmidt@email.com"
       type="email"
+      autocomplete="email"
       required
     />
   </div>
@@ -64,6 +67,7 @@ const { contact_form_action } = Astro.props;
       name="phone"
       class="form-input"
       placeholder="+49 89 1234567"
+      autocomplete="tel"
       type="tel"
     />
   </div>
@@ -79,7 +83,7 @@ const { contact_form_action } = Astro.props;
       required
       rows="8"></textarea>
   </div>
-  <div class="mb-6 flex items-start">
+  <div class="mb-6 flex items-center">
     <input
       id="consent"
       name="consent"
@@ -87,7 +91,7 @@ const { contact_form_action } = Astro.props;
       class="form-checkbox mr-2"
       required
     />
-    <label for="consent" class="form-label inline text-sm">
+    <label for="consent" class="inline text-base">
       Ich willige ein, dass meine Daten verarbeitet und einzig zur
       Kontaktaufnahme durch die ADV verwendet werden. <span class="text-red-500"
         >*</span
@@ -98,7 +102,13 @@ const { contact_form_action } = Astro.props;
   <!-- Honeypot field (hidden) -->
   <div class="hidden">
     <label for="website">Website</label>
-    <input type="text" id="website" name="website" value="Deine Webseite" />
+    <input
+      type="text"
+      id="website"
+      name="website"
+      value="Deine Webseite"
+      autocomplete="off"
+    />
   </div>
 </form>
 <div id="feedback" class="hidden mt-4 text-green-500">

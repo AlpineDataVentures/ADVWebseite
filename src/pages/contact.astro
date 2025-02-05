@@ -5,7 +5,7 @@ import PageHeader from "@/partials/PageHeader.astro";
 import ContactForm from "@/partials/ContactForm.astro";
 import { getEntry } from "astro:content";
 
-const contact = await getEntry("contact", "-index");
+const contact = await getEntry("contact", "-index")!;
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { title, description, meta_title, image } = contact.data;
 ---

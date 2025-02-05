@@ -11,23 +11,11 @@ import BlogCard from "@/components/BlogCard.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
 
-interface Homepage {
-  banner: {
-    title1: string;
-    title2: string;
-    title3: string;
-    content: string;
-    image: string;
-    button: Button;
-  };
-  features: Feature[];
-}
-
-const homepage = await getEntry("homepage", "-index");
+const homepage = await getEntry("homepage", "-index")!;
 const cards = await getEntry("sections", "service_cards");
 
 const { contact_form_action }: { contact_form_action: string } = config.params;
-const { banner, features }: Homepage = homepage.data;
+const { banner, features } = homepage.data;
 
 // Alle Blog-Posts laden
 const posts = await getSinglePage("blog");

@@ -1,0 +1,131 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry } from "astro:content";
+import { FaAngleDoubleRight } from "react-icons/fa";
+import ImageMod from "@/components/ImageMod.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+
+//
+// Landing Page für das Data-Readiness Assessment
+//
+
+const dataready = await getEntry("dataready", "-index")!;
+
+const {
+  title,
+  description,
+  meta_title,
+  image,
+  button1,
+  added_value,
+  instructions,
+} = dataready.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  image={image}
+  description={description}
+>
+  <PageHeader title={title} />
+
+  <!-- Short explanation -->
+  <section>
+    <div class="container text-center">
+      <div class="px-8 py-14">
+        <h3 set:html={description} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Start Assessment Button -->
+  <section class="mb-16">
+    <div class="container text-center">
+      <a class="btn btn-landing-primary mt-4" href={button1.link}>
+        {button1.label}
+      </a>
+    </div>
+  </section>
+
+  <!-- Element with Text left, Image, Text right -->
+  <section class="mb-16">
+    <div class="container" style="background-color: #d4f8d4;">
+      <div class="px-4 py-16 xl:p-12">
+        <div class="row justify-between">
+          <!--div class="row items-center justify-between "-->
+          <div class="w-full md:w-1/4 mb-10 md:mb-0 md:pr-6 xl:pr-12">
+            <!--div class="mb-10 md:col-6 md:order-2 md:mb-0"-->
+            <h3
+              set:html={markdownify(added_value.title)}
+              class="mb-4 text-center text-black dark:text-black"
+            />
+            <ol>
+              {
+                added_value.bulletpoints.map((bullet) => (
+                  <li class="relative mb-4 pl-1">
+                    <h6 class="text-black dark:text-black">
+                      {markdownify(bullet.title)}
+                    </h6>
+                    <p class="text-black dark:text-black">
+                      {markdownify(bullet.description)}
+                    </p>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+          <div class="w-full mb-10 md:w-1/2 md:pl-6 xl:pl-12">
+            <div class="row justify-center">
+              <ImageMod
+                src={image}
+                height={931}
+                width={872}
+                alt="Assessment"
+                format="webp"
+              />
+            </div>
+          </div>
+          <div class="w-full md:w-1/4 md:pl-6 xl:pl-12">
+            <h3
+              set:html={markdownify(instructions.title)}
+              class="mb-4 text-center text-black dark:text-black"
+            />
+            <ol>
+              {
+                instructions.bullets.map((bullet: string) => (
+                  <li class="relative mb-4 pl-1">
+                    <p class="text-black dark:text-black">
+                      {markdownify(bullet)}
+                    </p>
+                  </li>
+                ))
+              }
+            </ol>
+            <ul>
+              <li class="relative mb-4 pl-6">
+                <FaAngleDoubleRight
+                  className={"absolute left-0 top-1.5  text-black dark:text-black"}
+                />
+                <span
+                  class="text-black dark:text-black"
+                  set:html={markdownify(instructions.result)}
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Start Assessment Button -->
+  <section class="mb-16">
+    <div class="container text-center">
+      <a class="btn btn-landing-primary mt-4" href={button1.link}>
+        {button1.label}
+      </a>
+    </div>
+  </section>
+</Base>
