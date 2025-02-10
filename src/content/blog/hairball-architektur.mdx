@@ -15,45 +15,57 @@ Jenga – ein Spiel, das alle kennen: Man zieht einen Holzklotz aus dem Turm und
 
 Genauso fühlt es sich in vielen IT-Abteilungen an. Über Jahre wurden neue Systeme eingeführt, Schnittstellen ergänzt, Datenflüsse angepasst – und heute steht man vor einem IT-Turm, der bei jeder kleinsten Änderung ins Wanken gerät.
 
+### Von der gewachsenen IT zur unkontrollierbaren Architektur
 Doch woher kommt dies? Niemand setzt sich hin und sagt: „Lasst uns eine unübersichtliche, hochkomplexe IT-Landschaft bauen!“ Und doch passiert es.
 
 Es beginnt mit einem neuen System hier, einer kleinen Schnittstelle da. Immer mit dem besten Gedanken: „Das brauchen wir jetzt dringend - damit werden wir viel effizienter!“ oder  "Damit erschließen wir einen ganz neuen Geschäftszweig".
 
 Mit der Zeit wächst eine enge Verflechtungen an IT-Systemen. Aus Geschäfts-Sicht angenehm: durch die Vernetzung der Systeme gibt es keine System-Brüche, d.h. die Prozesse sind durchgängig und der händische Pflege-Aufwand (Stichwort: Drehstuhl-Schnittstelle) ist minimiert. Wenn nur die Kolleginnen und Kollegen der IT nicht immer länger für die Anpassung bräuchten ... Was ist denn da los?! Nein, es liegt nicht an fehlendem Kaffee oder gar mangelnder Motivation!
 
+### Warum Hairball-Architekturen so gefährlich sind
 "Unter der Haube" sozusagen im Maschinenraum, sind immer mehr Schnittstellen konsistent nach zu pflegen: geht man davon aus, dass jede Software im Unternehmen mit jeder anderen Software eine Schnittstelle hat, so ergeben sich nach Gauß bei N Systemen N * (N - 1)/2 Schnittstellen. Was heißt das praktisch?
 
 - Für 5 Systeme gibt es 10 Schnittstellen.
 - Für 10 Systeme sind es bereits 45 Schnittstellen.
 - Bei 50 Systemen explodiert das auf 1.225 Schnittstellen!
 
-Wenn man jetzt noch berücksichtigt, dass viele Systeme zehn oder mehr Einzelschnittstellen haben (alleine die 5 Excel-Exporte), ist der Hairball, das Wollknäuel aus Systemen und Schnittstellen perfekt: bei jeder System-Änderung sind X-Schnittstellen mit den Partner-Systemen konsistent abzustimmen, zu implementieren und zu einem für alle passenden Zeitpunkt einzuführen. Ein „Point-to-Point Integration Nightmare“ – eine Architektur, die ab einem gewissen Punkt nicht mehr beherrschbar ist.
+Und das ist nur die Theorie. In der Praxis hat jedes System oft mehrere Schnittstellen – Exporte, APIs, Datenbankzugriffe (alleine die 5 Excel-Exporte). Der Hairball, das Wollknäuel aus Systemen und Schnittstellen ist perfekt: bei jeder System-Änderung sind X-Schnittstellen mit den Partner-Systemen konsistent abzustimmen, zu implementieren und zu einem für alle passenden Zeitpunkt einzuführen. Ein „Point-to-Point Integration Nightmare“ – eine Architektur, die ab einem gewissen Punkt nicht mehr beherrschbar ist.
 Die Ablöse eines Systems wird zur chirurgischen Meisterleistung das System mit all seinen Verbindungen zu identifizieren und herauszuschneiden.
 
+### Der Weg aus dem Hairball: Struktur statt Wildwuchs
 Spätestens jetzt wird klar: ein Haarschnitt muss her! Doch wie kann dies gelingen, wo doch die fachliche Notwendigkeit der Schnittstellen definitiv besteht!?
 
 Hier kommt Enterprise Architecture Management (EAM) ins Spiel. Unternehmen, die sich von der Hairball-Architektur befreien wollen, brauchen Struktur und Transparenz. Die Lösung liegt in Architekturprinzipien und Standards, die eine systematische Weiterentwicklung der IT-Landschaft ermöglichen.
 
 #### Schritt 1: Transparenz schaffen
-Eine Bestandsaufnahme: Welche Systeme gibt es? Welche Datenflüsse existieren?
-Visualisierung der Architektur: Wo sind Engpässe, kritische Abhängigkeiten und Redundanzen?
+**Bestandsaufnahme:** Welche Systeme gibt es? Welche Datenflüsse existieren?
+**Visualisierung der Architektur:** Wo sind Engpässe, kritische Abhängigkeiten und Redundanzen?
+
+**Pragmatischer erster Schritt:** Erstellen Sie eine Karte mit all Ihren Anwendungen (grafisches Element: Rechteck) und Schnittstellen (Linien zwischen den Rechtecken). Draw.io, PowerPoint & Co sind da vollkommen ausreichend, um sich einen ersten Überblick zu schaffen.
 
 #### Schritt 2: Zielbild definieren
-Soll die Architektur service-orientierter werden (APIs statt starrer Schnittstellen)?
-Braucht es eine zentrale Integrationsplattform statt individueller Verbindungen?
+API-Management: Soll die Architektur service-orientierter werden (APIs statt starrer Schnittstellen)?
+Braucht es eine zentrale Integrations- oder Datenplattform a la Azure API Management oder Data Factory statt individueller Verbindungen? Hierdurch gibt es eine zentrale Kommunikationsplattform an der alle Systeme einmalig angebunden sind - eine Architektur, die sich flexibel und wartbar erweitern lässt.
 Gibt es strategische Systeme, die den Kern der IT bilden sollten?
 
-#### Schritt 3: Strukturierte Transformation
+**Pragmatischer erster Schritt:** Identifikation von Kernsystemen & Definition von "führenden Systemen": erstellt eine Liste der Systeme und hinterlegt für welche Daten dies das führende System ist.
+
+#### Schritt 3: Regeln & Roadmap erarbeiten
 Governance-Mechanismen etablieren: Klare Prinzipien für neue Anwendungen und Integrationen.
 Legacy-Systeme modernisieren: Ablösung oder sinnvolle Kapselung statt „noch eine Schnittstelle draufsetzen“.
 Standardisierte Integrationsmuster nutzen: Event-getriebene Architektur, API-first, Data Hubs.
 
+**Pragmatischer erster Schritt:** aus Schritt 1 & 2 lassen sich bereits erste Muster und Regeln ableiten. Die Muster sind auszuarbeiten und die Regeln festzuhalten, so dass sich alle daran halten können.
 
-Unsere Kunden stehen oft genau vor dieser Herausforderung. Gemeinsam analysieren wir ihre bestehende Architektur, erarbeiten eine pragmatische, realisierbare Zielvision und begleiten die Umsetzung.
+#### Schritt 4: Schrittweise Umsetzung
+Und schon geht es in die Umsetzung. Einen Hairball löst man nicht in einem großen Schritt (Big Bang). Erinnerungen an die ersten Häkel und Strick-Erfahrungen kommen hoch: ein Knoten nach dem anderen ist geduldig aufzulösen.
 
-Dabei setzen wir auf bewährte Architektur-Frameworks, praxisnahe Lösungen und eine schrittweise Transformation statt Big Bang. Unser Ziel: Eine IT-Architektur, die strategisches Wachstum ermöglicht, statt es zu verhindern.
+**Pragmatischer erster Schritt:** mit Maßnahmen anfangen, die einfach umzusetzen sind, wenig Aufwand und Risiko bedeuten und gleichzeitig einen hohen Mehrwert bieten.
 
-Haben Sie das Gefühl, dass Ihre Umsetzungen immer langsamer werden oder ihre IT-Landschaft immer schwerer zu steuern ist? Wir helfen Ihnen, Klarheit zu schaffen und eine zukunftsfähige IT-Landschaft zu implementieren. Melden Sie sich für ein kostenfreies Kennenlerngespräch zur Analyse Ihrer IT-Landschaft:
+
+Viele Beratungen liefern theoretische Zielbilder. Doch wir setzen auf umsetzbare Architektur-Roadmaps, die zur Unternehmensstrategie passen. Wir begleiten euch von der Analyse über die Zieldefinition bis hin zur praktischen Umsetzung – mit bewährten Architektur-Frameworks, praxisnahen Lösungen und einer schrittweisen Transformation statt Big Bang.
+
+Habt ihr das Gefühl, dass eure IT-Umsetzungen immer langsamer werden oder die Systemlandschaft immer schwerer zu steuern ist? Wir helfen euch, Klarheit zu schaffen und eine zukunftsfähige IT-Landschaft zu implementieren. Meldet euch einfach für ein **unverbindliches Erstgespräch** – und wir gehen den ersten Schritt gemeinsam.
 <div class="col-12 flex justify-center">
   <a class="btn btn-adv" href="https://calendly.com/andreas-klostermann-alpinedata/ersttermin">Termin vereinbaren</a>
 </div>
