@@ -9,12 +9,12 @@ import { FaCheck } from "react-icons/fa";
 import CallToAction from "@/partials/CallToAction.astro";
 import Social from "@/components/Social.astro";
 
-const team = await getEntry("team", "-index");
+const team = await getEntry("team", "-index")!;
 const COLLECTION_FOLDER = "authors";
 const authors = await getSinglePage(COLLECTION_FOLDER);
 const call_to_action = await getEntry("team", "call-to-action");
 
-const { title, description, meta_title, image } = team.data;
+const { title, meta_title, description, image } = team.data;
 ---
 
 <Base

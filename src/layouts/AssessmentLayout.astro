@@ -1,0 +1,23 @@
+---
+export interface Props {
+  title: string;
+  isDark?: boolean;
+}
+
+const { title, isDark = false } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/frontend-mentor/favicon.svg" />
+    <slot name="links" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Challenges</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
