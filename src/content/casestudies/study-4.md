@@ -1,5 +1,5 @@
 ---
-title: "Erfolgreicher Einstieg in Business Intelligence: Effiziente Steuerung von Lager, Produktion und Einkauf"
+title: "Einstieg in BI: Effiziente Steuerung von Lager, Produktion und Einkauf"
 meta_title: "Erfolgreicher Einstieg in Business Intelligence: Effiziente Steuerung von Lager, Produktion und Einkauf"
 image: "/images/portfolio/Business Intelligence 2.webp"
 draft: false
@@ -77,4 +77,4 @@ Das Unternehmen konnte mit diesem BI-Projekt nicht nur operative Effizienzsteige
 
 Mit diesem ersten BI-Projekt wurde der Grundstein für eine datengetriebene Unternehmenssteuerung gelegt. Die Lösung zeigt, dass der Einstieg in BI kein Großprojekt sein muss, sondern mit einem pragmatischen Ansatz sofort spürbare Vorteile bringt.  
 
-Unternehmen, die sich bisher auf manuelle Prozesse und Insellösungen verlassen, können mit einem ersten BI-Projekt schnell Transparenz schaffen und datengetriebene Entscheidungen ermöglichen
+Unternehmen, die sich bisher auf manuelle Prozesse und Insellösungen verlassen, können mit einem ersten BI-Projekt schnell Transparenz schaffen und datengetriebene Entscheidungen ermöglichen.
