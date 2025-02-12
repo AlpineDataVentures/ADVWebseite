@@ -1,0 +1,88 @@
+---
+import Step from "@/components/data-assessment/Step";
+import StepIndicator from "@/components/data-assessment/StepIndicator";
+import PersonalInfo from "@/components/data-assessment/PersonalInfo";
+import StepNavigation from "@/components/data-assessment/StepNavigation";
+import AssessItem from "@/components/data-assessment/AssessItem";
+
+import { assessItems } from "@/components/data-assessment/StepProvider";
+import Base from "@/layouts/Base.astro";
+
+//
+// Data-Readiness Assessment
+//
+// linker Teil: Fortschritts-Anzeige: Wo bin ich gerade? (StepIndicator)
+// rechter Teil: Einzelne "Steps"
+//
+// Wie / wo wird geregelt welcher Step sichtbar ist?
+// Wie werden die Zustände gesammelt? Wie kann ich die am Ende in eine Mail packen und an ADV schicken?
+//
+// Wie baue ich das Ganze auf Fragen um?
+// - ich brauche eine Element, dass meine Fragen & Antwort-Möglichkeiten darstellt!
+//   Brauche ich dazu eine React Komponente oder reicht HTML? Das hängt wahrscheinlich auch davon ab wie ich
+//   den Zustand (sprich welche Antworten ausgewählt wurden!) verfolge.
+// Erste Idee:
+// Generische "AssessItem" => Stellen eine Frage. Die würde ich gerne durch ein MarkDown befüllen, so dass ich
+// N-Fragen auf einmal in AssessItems und Steps befüllen kann!
+//
+// o Die PersonalInfo kann ich zum Erfassen der persönlichen Daten nutzen ...
+//
+---
+
+<!--AssessmentLayout title="Data Maturity Assessment"-->
+<Base title={"Data Maturity Assessment"}>
+  <section class="mt-4 mb-16">
+    <div class="container">
+      <div class="row justify-center">
+        <!-- Step indicator for mobile phones! -->
+        <!--nav class="nav-assessment">
+          <StepIndicator client:only="react" />
+        </nav-->
+
+        <div class="step">
+          <nav class="nav-assessment">
+            <StepIndicator client:load />
+          </nav>
+
+          {
+            assessItems.map((item, index) => (
+              <Step step={index + 1} client:load>
+                <AssessItem
+                  questionId={index + 1}
+                  item={item}
+                  client:only="react"
+                />
+              </Step>
+            ))
+          }
+
+          <Step step={assessItems.length + 1} client:idle>
+            <PersonalInfo client:only="react" />
+          </Step>
+
+          <!-- Last Step start -->
+          <Step step={assessItems.length + 2} client:idle>
+            <article class="thank-you">
+              <img
+                src={`/images/data-assessment/icon-thank-you.svg`}
+                alt="red check icon"
+              />
+              <h1>Vielen Dank!</h1>
+              <p>
+                Deine Antworten wurden erfolgreich erfasst! In Kürze erhältst
+                per E-Mail das Ergebnis deiner Data-readiness!
+              </p>
+            </article>
+          </Step>
+          <!-- Last Step end -->
+
+          <!-- Add buttons for navigation for non-mobile phones -->
+          <StepNavigation client:only="react" />
+          <!--/AssessmentLayout-->
+        </div>
+      </div>
+    </div>
+    <!-- Navigation for mobile phones / small screens! -->
+    <StepNavigation client:only="react" />
+  </section>
+</Base>

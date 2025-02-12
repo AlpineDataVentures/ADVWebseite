@@ -29,18 +29,18 @@ const { service } = Astro.props;
     class="service-card-content absolute inset-0 flex flex-col items-center justify-center p-5"
   >
     <!-- Title -->
-    <h4
+    <h2
       class="service-card-title text-black dark:text-white text-2xl font-bold transition-transform duration-300"
     >
       <a href={service.link} class="block w-full">{service.title}</a>
-    </h4>
+    </h2>
 
     <!-- Description and Button -->
     <div
       class="service-card-description opacity-0 transition-opacity duration-500 mt-16"
     >
       <p
-        class="mb-12 text-black dark:text-white text-sm sm:text-base md:text-base lg:text-base"
+        class="mb-12 text-black dark:text-white text-base sm:text-base md:text-base lg:text-base"
       >
         {plainify(service.description)}
       </p>

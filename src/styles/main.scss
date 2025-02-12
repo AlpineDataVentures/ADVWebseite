@@ -13,6 +13,7 @@
   @include meta.load-css("buttons");
   @include meta.load-css("search");
   @include meta.load-css("label");
+  @include meta.load-css("assessment");
 }
 
 @layer utilities {

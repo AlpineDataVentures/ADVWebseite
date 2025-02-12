@@ -7,7 +7,7 @@ import { getEntry } from "astro:content";
 
 const COLLECTION_FOLDER = "authors";
 
-const authorIndex = await getEntry(COLLECTION_FOLDER, "-index");
+const authorIndex = await getEntry(COLLECTION_FOLDER, "-index")!;
 const authors = await getSinglePage(COLLECTION_FOLDER);
 ---
 

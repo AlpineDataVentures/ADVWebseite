@@ -1,9 +1,10 @@
 .btn {
-  @apply inline-block rounded border border-transparent px-5 py-2 font-semibold transition;
+  @apply inline-block rounded border border-transparent px-5 py-2 font-semibold transition ;
+  text-decoration: none; // Unterstreichung entfernen
 }
 
 .btn-sm {
-  @apply rounded-sm px-4 py-1.5 text-sm;
+  @apply rounded-sm px-4 py-1.5 text-base;
 }
 
 .btn-primary {
@@ -12,4 +13,25 @@
 
 .btn-outline-primary {
   @apply border-dark text-dark hover:bg-dark dark:hover:text-dark bg-transparent hover:text-white dark:border-darkmode-primary dark:text-white dark:hover:bg-darkmode-primary;
+}
+
+.btn-adv {
+  @apply border-white text-white hover:bg-dark dark:hover:text-dark  bg-green-500 hover:text-white dark:border-darkmode-primary dark:text-white dark:hover:bg-darkmode-primary;
+}
+
+.btn-landing-primary {
+  @apply border-primary text-white dark:text-dark;
+  background-color: #008000; /* Tiefgrüner Hintergrund */
+  border-radius: 9999px; /* Starke Rundung */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Graue Schattierung */
+  padding: 1rem 2rem; /* Verdopple den Innenabstand für einen größeren Button */
+  font-size: 1.25rem; /* Erhöhe die Schriftgröße */
+  line-height: 1.5; /* Passt die Zeilenhöhe an */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-landing-primary:hover {
+  background-color: #009000; /* Helleres Grün beim Hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensivere Schattierung */
+  transform: scale(1.05); /* Leichter Vergrößerungseffekt */
 }

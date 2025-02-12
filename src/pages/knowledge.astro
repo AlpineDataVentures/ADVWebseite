@@ -2,7 +2,7 @@
 import { getEntry } from "astro:content";
 import Portfolio from "@/layouts/Portfolio.astro";
 
-const knowledge = await getEntry("portfolio", "knowledge");
+const knowledge = await getEntry("portfolio", "knowledge")!;
 
 const {
   title,

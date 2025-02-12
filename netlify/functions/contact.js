@@ -29,6 +29,7 @@ exports.handler = async (event) => {
   const data = {
     to: "info@alpinedata.de",
     from: "info@alpinedata.de",
+    cc: "andreas.klostermann@alpinedata.de",
     subject: `${reason} über ADV Webseite: Neue Nachricht von ${firstname} ${lastname}`,
     html: `${firstname} ${lastname} (E-Mail: ${email} Telefon: ${phone}) schreibt: <br> <br> <p>${message}</p>`,
   };

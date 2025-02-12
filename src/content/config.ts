@@ -101,6 +101,38 @@ export const contactCollection = defineCollection({
   }),
 });
 
+
+export const datareadyCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string(),
+    description: z.string(),
+    button1: z.object({
+      label: z.string(),
+      link: z.string()
+    }),
+    added_value: z.object({
+      title: z.string(),
+      bulletpoints: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string()
+        })
+      )
+    }),
+    image: z.string(),
+    instructions: z.object({
+      title: z.string(),
+      bullets: z.array(z.string()),
+      result: z.string()
+    }),
+    button2: z.object({
+      label: z.string(),
+      link: z.string()
+    })
+  })
+});
+
 export const dictionaryCollection = defineCollection({
   schema: z.object({
     items: z.array(
@@ -268,6 +300,7 @@ export const collections = {
   blog: blogCollection,
   casestudies: casestudiesCollection,
   contact: contactCollection,
+  dataready: datareadyCollection,
   dictionary: dictionaryCollection,
   homepage: homepageCollection,
   pages: pagesCollection,
