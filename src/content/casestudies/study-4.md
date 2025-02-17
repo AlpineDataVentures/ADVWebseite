@@ -1,7 +1,7 @@
 ---
 title: "Einstieg in BI: Effiziente Steuerung von Lager, Produktion und Einkauf"
 meta_title: "Erfolgreicher Einstieg in Business Intelligence: Effiziente Steuerung von Lager, Produktion und Einkauf"
-image: "/images/portfolio/Business Intelligence 2.webp"
+image: "/images/portfolio/MiniProjekt.png"
 draft: false
 description: "Mit der Einführung eines ersten BI-Projekts wurden Lagerbestände, Produktionsplanung und Einkaufssteuerung effizienter gestaltet und datengetriebene Entscheidungen ermöglicht."
 summary: "Der erfolgreiche Einstieg in Business Intelligence: Durch eine zentrale BI-Lösung konnten Lagerbestände automatisiert erfasst, Materialverfügbarkeiten optimiert und Engpässe frühzeitig erkannt werden. Die datengetriebene Transparenz hat Abstimmungen vereinfacht, Prozesse beschleunigt und fundierte Entscheidungen in Einkauf und Produktion ermöglicht. Entdecken Sie, wie ein pragmatischer BI-Start sofort messbare Vorteile bringen kann."
