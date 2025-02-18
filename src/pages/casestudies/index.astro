@@ -8,7 +8,7 @@ import { getEntry } from "astro:content";
 
 const CASE_STUDY_FOLDER = "casestudies";
 
-const casestudyIndex = await getEntry(CASE_STUDY_FOLDER, "-index");
+const casestudyIndex = await getEntry(CASE_STUDY_FOLDER, "-index")!;
 const casestudies = await getSinglePage(CASE_STUDY_FOLDER);
 ---
 
