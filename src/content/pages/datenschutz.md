@@ -8,14 +8,14 @@ draft: false
 ---
 
 <p>
-  <em>letztes Update:</em> 25. September 2024
+  <em>letztes Update:</em> 24. Februar 2025
 </p>
 
 ### Verantwortliche Stelle
 
 Verantwortlicher im Sinne der DSGVO und anderer nationaler Datenschutzgesetze der EU-Mitgliedstaaten sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
 <p>
-  Alpine Data Ventures GmbH i.Gr.<br>
+  Alpine Data Ventures GmbH<br>
   Leopoldstraße 31<br> 
   80802 München<br>  
 </p>
@@ -30,7 +30,7 @@ Bei Fragen zu unserem Datenschutz nehmen Sie bitte mit unserem Datenschutzbeauft
 
 ### Zugriffsdaten
 
-Wir, die Alpine Data Ventures GmbH i.Gr., erheben Daten nur auf Grund unseres berechtigten Interesses (s. Art. 6 Abs. 1 lit. f. DSGVO). So werden beispielsweise sog. Server-Logs von unserem Web-Seiten-Host aus Sicherheitsgründen erhoben, um z. B. Missbrauchsfälle aufklären zu können. Müssen Daten aus Beweisgründen aufgehoben werden, sind sie solange von der Löschung ausgenommen bis der Vorfall endgültig geklärt ist.
+Wir, die Alpine Data Ventures GmbH, erheben Daten nur auf Grund unseres berechtigten Interesses (s. Art. 6 Abs. 1 lit. f. DSGVO). So werden beispielsweise sog. Server-Logs von unserem Web-Seiten-Host aus Sicherheitsgründen erhoben, um z. B. Missbrauchsfälle aufklären zu können. Müssen Daten aus Beweisgründen aufgehoben werden, sind sie solange von der Löschung ausgenommen bis der Vorfall endgültig geklärt ist.
 
 Um unsere Inhalte zu optimieren, erheben wir in anonymisierter Form Daten zum Besuch unserer Webseite (Anzahl der Besucher/Seite, verwendeter Browser, IP-Adresse, Quelle/Verweis, von welchem Sie auf die Seite gelangten). 
 

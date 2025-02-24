@@ -8,12 +8,12 @@ draft: false
 ---
 
 <p>
-  <em>letztes Update:</em> 09. September 2024
+  <em>letztes Update:</em> 24. Februar 2025
 </p>
 
 #### Anbieter gemäß dem Gesetz für Digitale Dienste (DDG)
 <p>
-  Alpine Data Ventures GmbH i.Gr.<br>
+  Alpine Data Ventures GmbH<br>
   Leopoldstraße 31<br> 
   80802 München<br>  
 </p>
@@ -27,15 +27,15 @@ Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
 
 #### Geschäftsführer
   <p>
+    Benjamin Diez<br>    
     Dr. Carsten Hof<br>
     Andreas Klostermann<br>
     Julian Koller<br>
-    Benjamin Diez<br>    
   </p>
 
 #### Registernummer 
 <p>
-  in Beantragung<br>
+  HRB 300287<br>
 </p>
 
 #### Registergericht
@@ -50,7 +50,7 @@ in Beantragung<br>
 
 #### Inhaltlich Verantwortlicher gemäß § 55 RStV
 <p>
-  Alpine Data Ventures GmbH i.Gr.<br>
+  Alpine Data Ventures GmbH<br>
   vertreten durch die Geschäftsführer <br>
   Leopoldstraße 31<br> 
   80802 München<br>  
