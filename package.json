@@ -17,18 +17,18 @@
     "remove-darkmode": "node scripts/removeDarkmode.js && yarn format"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.0.8",
-    "@astrojs/react": "^4.2.0",
+    "@astrojs/mdx": "^4.2.0",
+    "@astrojs/react": "^4.2.1",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^6.0.0",
     "@nanostores/react": "^0.8.4",
     "@sendgrid/mail": "^8.1.4",
-    "astro": "^5.3.0",
+    "astro": "^5.5.2",
     "astro-auto-import": "^0.4.4",
     "astro-font": "^1.0.0",
     "date-fns": "^4.1.0",
-    "framer-motion": "^12.4.7",
+    "framer-motion": "^12.5.0",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^15.0.7",
@@ -42,25 +42,25 @@
     "react-lite-youtube-embed": "^2.4.0",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^9.0.0",
-    "swiper": "^11.2.4"
+    "swiper": "^11.2.5"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "22.13.5",
+    "@types/node": "22.13.10",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.21.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.22.0",
     "postcss": "^8.5.3",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "react-compiler-runtime": "^19.0.0-beta-e552027-20250112",
-    "sass": "^1.85.0",
+    "sass": "^1.85.1",
     "sharp": "^0.33.5",
     "tailwind-bootstrap-grid": "^5.1.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   }
 }
