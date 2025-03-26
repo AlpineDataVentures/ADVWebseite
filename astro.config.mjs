@@ -38,19 +38,8 @@ export default defineConfig({
     mdx(),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [
-        remarkCollapse,
-        {
-          test: "Table of contents",
-        },
-      ],
-    ],
-    shikiConfig: {
-      theme: "one-dark-pro",
-      wrap: true,
-    },
+    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    shikiConfig: { theme: "one-dark-pro", wrap: true },
     extendDefaultPlugins: true,
   },
 });

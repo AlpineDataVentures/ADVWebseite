@@ -5,6 +5,7 @@
   "author": "Dr. Carsten Hof based on zeon.studio Template",
   "email": "info@alpinedata.de",
   "license": "UNLICENSED",
+  "type": "module",
   "url": "https://alpinedata.de/",
   "packageManager": "yarn@1.22.22",
   "scripts": {
