@@ -51,7 +51,7 @@
         transform: translateX(0);
       }
       to {
-        transform: translateX(-110px);
+        transform: translateX(-100px);
       }
     }
 
@@ -60,7 +60,7 @@
         transform: translateX(0);
       }
       to {
-        transform: translateX(110px);
+        transform: translateX(95px);
       }
     }
     /* Definition der Klassen für Animationen */
