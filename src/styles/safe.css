@@ -1,0 +1,67 @@
+/* navbar toggler */
+input#nav-toggle:checked + label #show-button {
+  @apply hidden;
+}
+
+input#nav-toggle:checked + label #hide-button {
+  @apply block;
+}
+
+input#nav-toggle:checked ~ #nav-menu {
+  @apply block;
+}
+
+/* form style */
+.form-input {
+  @apply w-full rounded border-transparent bg-light px-6 py-4 text-text-dark placeholder:text-text-light focus:border-primary dark:focus:border-darkmode-primary focus:ring-transparent dark:border-darkmode-border dark:bg-darkmode-light dark:text-darkmode-text-light;
+}
+
+.form-label {
+  @apply mb-4 block font-secondary text-xl font-normal text-text-dark dark:text-darkmode-text-light;
+}
+
+/* swiper pagination */
+.testimonial-slider-pagination {
+  .swiper-pagination-bullet {
+    @apply h-2.5 w-2.5 bg-light opacity-100 dark:bg-darkmode-light;
+
+    &-active {
+      @apply h-4 w-4 bg-primary dark:bg-darkmode-primary;
+    }
+  }
+}
+
+div.swiper-button-prev,
+div.swiper-button-next {
+color: #00CE7F;
+}
+
+
+/* ServiceCard Styling */
+.service-card {
+  @apply relative overflow-hidden rounded-lg; /* Grundlegende Kartengestaltung */
+}
+
+.service-card-title {
+  @apply px-10 pt-10 absolute text-center text-black dark:text-white;
+  transition: transform 0.3s ease; /* Übergang für die Verschiebung der Überschrift */
+}
+
+.service-card-content {
+  @apply absolute inset-0 flex flex-col items-center justify-center p-5 text-center text-black dark:text-white;
+  /* Entfernen der Übergangseffekte für die Position */
+}
+
+.service-card-description {
+  @apply opacity-0; /* Anfangszustand: unsichtbar */
+  transition: opacity 1s 0.2s ease; /* Übergang für die Sichtbarkeit */
+}
+
+/* Hover Effects */
+.service-card:hover .service-card-title {
+  transform: translate(0%, calc(-7em - 20%)); /* Überschrift nach oben verschieben */
+}
+
+.service-card:hover .service-card-description {
+  @apply opacity-100; /* Beschreibung und Button sichtbar machen */
+}

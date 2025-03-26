@@ -1,25 +1,30 @@
-@use "sass:meta";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "../tailwind-plugin/tw-theme";
+@plugin "../tailwind-plugin/tw-bs-grid";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "./safe.css";
 
 @layer base {
-  @include meta.load-css("base");
+  @import "./base.css";
 }
 
 @layer components {
-  @include meta.load-css("components");
-  @include meta.load-css("navigation");
-  @include meta.load-css("buttons");
-  @include meta.load-css("search");
-  @include meta.load-css("label");
-  @include meta.load-css("assessment");
+  @import "./components.css";
+  @import "./navigation.css";
+  @import "./buttons.css";
+  @import "./search.css";
+  @import "./label.css";
+  @import "./assessment.css";
 }
 
 @layer utilities {
-  @include meta.load-css("utilities");
+  @import "./utilities.css";
 
-    // Keyframe für das Fly-In von unten nach oben
+    /* Keyframe für das Fly-In von unten nach oben */
     @keyframes flyIn {
       0% {
         opacity: 0;
@@ -31,7 +36,7 @@
       }
     }
 
-    // Keyframe für das Fade-In (für den Fall, dass es nicht vorhanden ist)
+    /* Keyframe für das Fade-In (für den Fall, dass es nicht vorhanden ist) */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -58,7 +63,7 @@
         transform: translateX(110px);
       }
     }
-    // Definition der Klassen für Animationen
+    /* Definition der Klassen für Animationen */
     .animate-fly-in {
       animation: flyIn 0.8s ease-out forwards; /* Fly-In-Animation */
     }
