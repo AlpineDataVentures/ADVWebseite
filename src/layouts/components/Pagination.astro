@@ -30,7 +30,7 @@ for (let i = 1; i <= totalPages; i++) {
               ? `${section ? "/" + section : "/"}/`
               : `${section ? "/" + section : ""}/page/${currentPage - 1}/`
           }
-          class="rounded px-2 py-1.5 text-dark hover:bg-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
+          class="rounded px-2 py-1.5 text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-theme-light"
         >
           <span class="sr-only">Previous</span>
           <svg
@@ -83,7 +83,7 @@ for (let i = 1; i <= totalPages; i++) {
                 : `${section ? "/" + section : ""}/page/${pagination}/`
             }
             aria-current="page"
-            class="rounded px-4 py-2 text-dark hover:bg-light dark:text-darkmode-dark dark:hover:bg-darkmode-light"
+            class="rounded px-4 py-2 text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
           >
             {pagination}
           </a>
@@ -94,7 +94,7 @@ for (let i = 1; i <= totalPages; i++) {
       {hasNextPage ? (
         <a
           href={`${section ? "/" + section : ""}/page/${currentPage + 1}/`}
-          class="rounded px-2 py-1.5 text-dark hover:bg-light dark:text-darkmode-dark dark:hover:bg-darkmode-light"
+          class="rounded px-2 py-1.5 text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
         >
           <span class="sr-only">Next</span>
           <svg
