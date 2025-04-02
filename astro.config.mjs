@@ -1,7 +1,7 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
@@ -13,6 +13,7 @@ export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "https://alpinedata.de",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
+  vite: { plugins: [tailwindcss()] },
   integrations: [
     react(),
     sitemap({
@@ -22,9 +23,6 @@ export default defineConfig({
         !page.includes('/page/') &&
         page !== 'https://alpinedata.de/authors/' &&
         page !== 'https://alpinedata.de/contact/'
-    }),
-    tailwind({
-      applyBaseStyles: false,
     }),
     AutoImport({
       imports: [
@@ -40,19 +38,8 @@ export default defineConfig({
     mdx(),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [
-        remarkCollapse,
-        {
-          test: "Table of contents",
-        },
-      ],
-    ],
-    shikiConfig: {
-      theme: "one-dark-pro",
-      wrap: true,
-    },
+    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    shikiConfig: { theme: "one-dark-pro", wrap: true },
     extendDefaultPlugins: true,
   },
 });

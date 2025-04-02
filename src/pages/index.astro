@@ -4,7 +4,6 @@ import Base from "@/layouts/Base.astro";
 import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
 import ContactForm from "@/partials/ContactForm.astro";
-import type { Button, Feature } from "@/types";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
 import BlogCard from "@/components/BlogCard.astro";
@@ -12,7 +11,7 @@ import { getSinglePage } from "@/lib/contentParser.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
 
 const homepage = await getEntry("homepage", "-index")!;
-const cards = await getEntry("sections", "service_cards");
+const cards = await getEntry("sections", "service_cards")!;
 
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features } = homepage.data;

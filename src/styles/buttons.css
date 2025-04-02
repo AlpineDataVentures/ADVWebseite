@@ -1,6 +1,6 @@
 .btn {
   @apply inline-block rounded border border-transparent px-5 py-2 font-semibold transition ;
-  text-decoration: none; // Unterstreichung entfernen
+  text-decoration: none; /* Unterstreichung entfernen */
 }
 
 .btn-sm {
