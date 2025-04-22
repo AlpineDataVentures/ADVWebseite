@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.alpinedata.de/sitemap-index.xml
+Sitemap: https://alpinedata.de/sitemap-index.xml
