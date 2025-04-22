@@ -25,6 +25,8 @@ export default defineConfig({
         !page.includes('/categories/') &&
         !page.includes('/page/') &&
         page !== 'https://alpinedata.de/authors/' &&
+        page !== 'https://alpinedata.de/data_assessment/' &&
+        page !== 'https://alpinedata.de/data-assessment/assess/' &&
         page !== 'https://alpinedata.de/contact/'
     }),
     AutoImport({
