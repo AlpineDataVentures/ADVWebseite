@@ -8,7 +8,7 @@ publish = "dist"
 command = "yarn build_branch"
 
 [build.environment]
-NODE_VERSION = "20"
+NODE_VERSION = "18"
 
 # Config for the Netlify Build Plugin: netlify-plugin-minify-html
 [[plugins]]
