@@ -1,7 +1,7 @@
 ---
 title: "Wie Sportereignisse Datenkultur fördern"
-meta_title: "Datenkultur auf dem Spielfeld: Wie US-Sport uns zeigt, was wir von Statistiken lernen können"
-description: "Wie Sportereignisse Datenkompetenz fördern und was Europa von US-Statistiken lernen kann."
+meta_title: "Wie Sportereignisse Datenkultur fördern"
+description: "Der US-Sport zeigt wie Sportereignisse die Datenkompetenz fördern und was Europa von US-Statistiken lernen kann."
 date: 2025-01-13T10:00:00Z
 image: "/images/blog/datenkultur_sport.png"
 categories: ["Data Culture"]
@@ -32,7 +32,7 @@ In den Vereinigten Staaten sind Sportereignisse nämlich nicht nur Unterhaltung,
 
 ### Sport als Zugang zur Datenwelt
 
-![](/images/blog/Hockey.jpg)
+![Draisaitl - Player Statistics](/images/blog/Hockey.jpg)
 
 Wenn beispielsweise Leon Draisaitl aufs Eis springt, sehen Fans nicht nur einen Spieler, sondern auch eine Übermenge von Kennzahlen: Torschüsse, Assists, Strafzeiten, Rang in der Torschützenliste – und das alles in Echtzeit. Diese Zahlen bieten nicht nur Kontext, sondern erzählen Geschichten: 
 

@@ -34,7 +34,7 @@ const category_no_slug = categories.find(
 const categoryLabel = category_no_slug ? `Kategorie: ${category_no_slug}` : "";
 ---
 
-<Base title={categoryLabel}>
+<Base title={categoryLabel} noindex={true}>
   <PageHeader title={categoryLabel} />
   <div class="section-sm pb-0">
     <div class="container">

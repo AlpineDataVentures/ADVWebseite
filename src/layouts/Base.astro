@@ -137,9 +137,16 @@ const {
     <link rel="sitemap" href="/sitemap-index.xml/" />
 
     <!-- index robots -->
+    <!-- for branch-deploys do NOT allow INDEXing, nor let crawler follow links -->
     {
-      (process.env.CONTEXT === "branch-deploy" || noindex) && (
+      process.env.CONTEXT === "branch-deploy" && (
         <meta name="robots" content="noindex,nofollow" />
+      )
+    }
+    <!-- for prod-deploys check index variable, but always let crawler follow links. Recommendation by SEO experts -->
+    {
+      process.env.CONTEXT === "production" && noindex && (
+        <meta name="robots" content="noindex,follow" />
       )
     }
     {

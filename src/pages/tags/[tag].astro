@@ -32,7 +32,7 @@ const tag_no_slug = tags.find((element: string) => slugify(element) === tag);
 const tagLabel = tag_no_slug ? `Stichwort: ${tag_no_slug}` : "";
 ---
 
-<Base title={tagLabel}>
+<Base title={tagLabel} noindex={true}>
   <PageHeader title={tagLabel} />
   <div class="section-sm pb-0">
     <div class="container">
