@@ -51,7 +51,4 @@ export default defineConfig({
   adapter: netlify({
     imageCDN: false,
   }),
-  image: {
-    service: sharpImageService(), // Aktiviert Astro's statische Bildverarbeitung
-  },
 });
