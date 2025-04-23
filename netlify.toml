@@ -2,13 +2,13 @@
 functions = "netlify/functions"
 [context.production]
 publish = "dist"
-command = "yarn build"
+command = "./netlify-build-setup.sh && yarn build"
 [context.branch-deploy]
 publish = "dist"
-command = "yarn build_branch"
+command = "./netlify-build-setup.sh && yarn build_branch"
 
 [build.environment]
-NODE_VERSION = "20.17.0"
+NODE_VERSION = "20"
 
 # Config for the Netlify Build Plugin: netlify-plugin-minify-html
 [[plugins]]
