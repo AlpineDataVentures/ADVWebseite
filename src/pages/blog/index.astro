@@ -20,6 +20,9 @@ const tags = await getTaxonomy(BLOG_FOLDER, "tags", true);
 const sortedPosts = sortByDate(posts);
 const totalPages: number = Math.ceil(posts.length / config.settings.pagination);
 const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+
+// Erkennen, ob wir auf einer paginierten Seite sind
+const isPaginatedPage = Astro.url.pathname.includes("/page/");
 ---
 
 <Base
@@ -27,6 +30,7 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
   meta_title={postIndex.data.meta_title}
   image={postIndex.data.image}
   description={postIndex.data.description}
+  noindex={isPaginatedPage}
 >
   <PageHeader title={postIndex.data.title} />
   <section class="section">
