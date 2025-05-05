@@ -7,7 +7,7 @@ import Footer from "@/partials/Footer.astro";
 import Header from "@/partials/Header.astro";
 import "@/styles/main.css";
 import { AstroFont } from "astro-font";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import SearchModal from "./helpers/SearchModal";
 import { join } from "node:path";
 
@@ -60,7 +60,7 @@ const {
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
     <!-- theme meta -->
-    <meta name="theme-name" content="astroplate" />
+    <meta name="theme-name" content="ADV - Alpine Data Ventures" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="theme-color"
@@ -163,7 +163,7 @@ const {
       )}
     />
 
-    <ViewTransitions />
+    <ClientRouter />
 
     <!-- author from config.json -->
     <meta name="author" content={config.metadata.meta_author} />
