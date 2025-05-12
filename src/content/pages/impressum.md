@@ -45,7 +45,7 @@ Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
 
 #### Umsatzsteueridentifikationsnummer gemäß § 27a Umsatzsteuergesetz   
 <p>
-in Beantragung<br>
+ DE453880543<br>
 </p>
 
 #### Inhaltlich Verantwortlicher gemäß § 55 RStV
