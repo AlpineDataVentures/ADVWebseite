@@ -1,5 +1,5 @@
 ---
-title: "Case Study: Datenstrategie – alle rudern, aber keiner kennt den Kurs"
+title: "Datenstrategie – alle rudern, aber keiner kennt den Kurs"
 meta_title: "Datenstrategie in der Praxis: Wie ein Feinkosthersteller das Datendurcheinander strukturiert hat"
 image: "/images/portfolio/Datenstrategie.png"
 draft: false
