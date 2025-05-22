@@ -8,7 +8,7 @@ categories: ["Datenstrategie", "Produktion", "Business Intelligence"]
 author: "Julian Koller"
 tags: ["Komplexität", "Fertigungsprozesse", "Produktionsdaten", "BI", "Change Management"]
 draft: false
-summary: "Fertigungsprozesse sind nicht nur technisch anspruchsvoll – oft lauert das wahre Problem in der schleichenden, alltäglichen Komplexität. Dieser Artikel zeigt, wie man das Chaos erkennt, bevor es zur Lawine wird – und wie BI helfen kann, wieder klar zu sehen."
+summary: "Fertigungsprozesse sind nicht nur technisch anspruchsvoll – oft lauert das wahre Problem in der schleichenden, alltäglichen Komplexität. Dieser Artikel zeigt,wie BI helfen kann, wieder klar zu sehen."
 ---
 
 ### Es begann mit einem Knopf, der nicht gedrückt wurde
