@@ -1,10 +1,10 @@
 ---
-title: "Komplexität & Chaos – Die unterschätzte Herausforderung in Fertigungsprozessen"
+title: "Die unterschätzte Herausforderung in Fertigungsprozessen"
 meta_title: "Fertigungsprozesse: Warum das wahre Problem nicht die Technik ist, sondern das stille Chaos"
 description: "Komplexe Produktionsprozesse scheitern nicht an Maschinen oder Tools, sondern an unentdeckter operativer Verwirrung. Wie man das stille Chaos erkennt – und bändigt."
 date: 2025-05-22T10:00:00Z
 image: "/images/blog/Komplexität.png"
-categories: ["Datenstrategie", "Produktion", "Business Intelligence"]
+categories: ["Business Intelligence"]
 author: "Julian Koller"
 tags: ["Komplexität", "Fertigungsprozesse", "Produktionsdaten", "BI", "Change Management"]
 draft: false
