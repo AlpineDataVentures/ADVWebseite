@@ -4,11 +4,11 @@ meta_title: "Warum viele Unternehmen mit ihrer Datenstrategie ins Leere laufen u
 description: "Datenstrategie wird oft mit Tools und Technologie verwechselt, dabei liegt das Problem fast immer im Arbeitsalltag. Ein Praxisblick auf die echten Hürden und den Weg zu spürbarem Wandel."
 date: 2025-05-23T07:00:00Z
 image: "/images/blog/Datenstrategie-Flucht.png"
-categories: ["Data Strategy"]
+categories: ["Datenstrategie"]
 author: "Ben Diez"
-tags: ["Data Strategy", "Change Management", "Data Culture"]
+tags: ["Datenstrategie", "Change Management", "Data Culture"]
 draft: false
-summary: "Viele Unternehmen scheitern mit ihrer Datenstrategie nicht an Technik, sondern am Alltag. Warum BI-Initiativen oft nach Aktionismus aussehen, wie man echte Wirkung erzielt und was das mit Bären zu tun hat."
+summary: "Viele Unternehmen scheitern mit ihrer Datenstrategie nicht an Technik, sondern am Alltag. Warum BI-Initiativen oft nach Aktionismus aussehen, wie man Wirkung erzielt und was das mit Bären zu tun hat."
 ---
 
 Zu sagen, eine Firma sei "Data Driven", allein auf der Grundlage, dass sie über viele Daten verfügt, ist so, als würde man behaupten, jemand sei ein Ausdauersportler, weil er gerade vor einem Bären flüchtet. Es mag für Außenstehende zwar dynamisch und zielgerichtet aussehen, war aber mit Sicherheit anders geplant. Genau so geht es vielen Unternehmen mit ihren Dateninitiativen: Sie bewegen sich irgendwie, jedoch ohne wirkliche Richtung.
