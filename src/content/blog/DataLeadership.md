@@ -1,6 +1,6 @@
 ---
 title: "Data Leadership beginnt ganz oben – was Führungskräfte wirklich tun müssen"
-meta_title: "Warum Datenstrategie ohne echtes Commitment aus dem C-Level scheitert und wie gelebte Führung die Grundlage für Veränderung schafft"
+meta_title: "Wie Datenstrategie und gelebte Führung die Grundlage für Veränderung schaffen"
 description: "Zwischen BI-Tools und Buzzwords fehlt oft das Entscheidende: echtes Data Leadership. Warum Veränderung im Kopf beginnt und was Frank Rosin damit zu tun hat."
 date: 2025-05-29T07:00:00Z
 image: "/images/blog/data_leadership.png"
