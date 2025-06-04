@@ -2,7 +2,7 @@
 title: "Vom Konzept zur Praxis: Wie Use Cases Datenstrategie zum Leben erwecken"
 meta_title: "Wie datengetriebene Use Cases Unternehmensstrategien greifbar machen"
 description: "Wie ein Produktionsunternehmen seine Datenstrategie durch konkrete Use Cases in greifbare Erfolge übersetzte – mit klaren Zuständigkeiten, messbarem Nutzen und wachsender Datenreife."
-image: "/images/case-studies/datenstrategie_usecases.jpg"
+image: "/images/case-studies/datenstrategie_usecases.png"
 draft: false
 summary: "Strategien scheitern selten an der Idee – sondern an der Umsetzung. Wie Use Cases helfen, Datenstrategie vom PowerPoint-Folienfriedhof in den Alltag der Fachbereiche zu holen, zeigt dieses Projekt aus der produzierenden Industrie."
 ---
