@@ -8,7 +8,7 @@ categories: ["Food & Beverage", "Qualitätssicherung"]
 author: "Julian Koller"
 tags: ["Audit", "Qualitätssicherung", "KI", "Prozessoptimierung"]
 draft: false
-summary: "Audits lösen oft Hektik aus – obwohl die Anforderungen längst bekannt sind. Automatisierte Checks mit KI und Ampellogik sorgen für kontinuierliche Vorbereitung, klare Prioritäten und entspanntere Prüfungen."
+summary: "Audits lösen oft Hektik aus – obwohl die Anforderungen längst bekannt sind. Checks mit KI und Ampellogik sorgen für kontinuierliche Vorbereitung, klare Prioritäten und entspanntere Prüfungen."
 ---
 
 ### Audit-Vorbereitung: die hohe Kunst der Panik auf Zuruf
