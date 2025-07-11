@@ -8,7 +8,7 @@ categories: ["Produktion", "Qualitätssicherung"]
 author: "Carsten Hof"
 tags: ["Predictive Quality", "Fehlervermeidung", "Fertigung", "Prozessdaten"]
 draft: false
-summary: "Je früher ein Problem erkannt wird, desto billiger ist es zu beheben. Doch klassische QS erkennt meist erst, wenn's zu spät ist. Datenbasierte Frühwarnsysteme ändern das – mit mehr Kontext, weniger Ausschuss und vorhersehbarer Qualität."
+summary: "Je früher ein Problem erkannt wird, desto billiger ist es zu beheben. Doch klassische QS erkennt meist erst, wenn's zu spät ist. Datenbasierte Frühwarnsysteme ändern das – mit weniger Ausschuss."
 ---
 
 ### Erst war's nur ein Klackern...
