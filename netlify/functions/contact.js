@@ -1,12 +1,12 @@
-const sgMail = require("@sendgrid/mail");
+import { Resend } from 'resend';
 
-const { SENDGRID_API_KEY } = process.env;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
   // get data from body
   const { firstname, lastname, email, message, reason, website, phone } = JSON.parse(event.body);
 
-  // check Honeypot field
+  // Honeypot prüfen
   if (website !== "Deine Webseite") {
     return {
       statusCode: 400,
@@ -14,7 +14,7 @@ exports.handler = async (event) => {
     };
   }
 
-  // Validate that fields are not empty
+  // Pflichtfelder prüfen
   if (!firstname || !lastname || !email || !message || !reason) {
     return {
       statusCode: 400,
@@ -22,36 +22,37 @@ exports.handler = async (event) => {
     };
   }
 
-  // set API key
-  sgMail.setApiKey(SENDGRID_API_KEY);
-
-  // setup data for email
-  const data = {
-    to: "info@alpinedata.de",
-    from: "info@alpinedata.de",
-    cc: "andreas.klostermann@alpinedata.de",
-    subject: `${reason} über ADV Webseite: Neue Nachricht von ${firstname} ${lastname}`,
-    html: `${firstname} ${lastname} (E-Mail: ${email} Telefon: ${phone}) schreibt: <br> <br> <p>${message}</p>`,
-  };
-
+  // Mail zusammenbauen
   try {
-    await sgMail.send(data);
+    const { error } = await resend.emails.send({
+      from: 'Alpine Data <info@alpinedata.de>', // deine verifizierte Absenderadresse
+      to: ['info@alpinedata.de'],
+      cc: ['andreas.klostermann@alpinedata.de'],
+      subject: `${reason} über ADV Webseite: Neue Nachricht von ${firstname} ${lastname}`,
+      html: `
+        <p><strong>Von:</strong> ${firstname} ${lastname}</p>
+        <p><strong>E-Mail:</strong> ${email}</p>
+        <p><strong>Telefon:</strong> ${phone || 'Keine Angabe'}</p>
+        <p><strong>Nachricht:</strong><br>${message}</p>
+      `,
+    });
+
+    if (error) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'E-Mail-Versand fehlgeschlagen.', details: error }),
+      };
+    }
+
     return {
       statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        msg: "Message sent successfully",
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ msg: "Nachricht erfolgreich versendet." }),
     };
   } catch (err) {
     return {
-      statusCode: err.code,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ msg: err.message }),
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Unbekannter Fehler beim E-Mail-Versand.', details: err.message }),
     };
   }
 };
