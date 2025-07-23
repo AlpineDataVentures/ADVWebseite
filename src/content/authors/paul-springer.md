@@ -1,7 +1,7 @@
 ---
 title: "Dr. Paul Springer"
 blog_name: "Paul Springer" 
-role: "Head of AI & Data Science"
+role: "Head of Data Science"
 email: paul.springer@alpinedata.de
 image: "/images/authors/PaulSpringer.png"
 description: "Dr. Paul Springer – promovierter Physiker mit Leidenschaft für AI & Data Science. Er bringt datengetriebene Innovationen voran – auch für das Gemeinwohl."
