@@ -12,4 +12,4 @@ social:
     link: https://www.linkedin.com/in/dr-paul-springer-94a5a817a/
 ---
 
-Paul Springer hat AI und Data Science im Blut. Als promovierter Physiker liegt die Nähe zu Daten, sowie seine Neugierde Neues zu entdecken bereits auf der Hand. Früh begann Paul sich mit der Kombination von mathematischen Modellen zum Zwecke von Unternehmen zu beschäftigen, setzt seine Kompetenzen bei MI4People (www.mi4people.org) auch zum Zwecke des Gemeinwohls ein. Dort wo AI gebraucht wird, ist Paul Ihr Kompetenzzentrum!
+Paul Springer hat AI und Data Science im Blut. Als promovierter Physiker liegt die Nähe zu Daten, sowie seine Neugierde Neues zu entdecken bereits auf der Hand. Früh begann Paul sich mit der Kombination von mathematischen Modellen zum Zwecke von Unternehmen zu beschäftigen und setzt seine Kompetenzen bei der gemeinnützigen AI4Good-Organisation MI4People (www.mi4people.org) auch für das Gemeinwohl ein. Dort wo AI gebraucht wird, ist Paul Ihr Kompetenzzentrum!
