@@ -62,6 +62,9 @@ function StepNavigation() {
           alert('Beim Senden der Daten ist ein Fehler aufgetreten. ' + response.statusText);
           return;
         }
+        else {
+          window.location.href = "/data-assessment/thank-you/";
+        }
       } catch (error) {
         console.error('Netzwerkfehler:', error);
         alert('Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es später erneut. ' + error);
