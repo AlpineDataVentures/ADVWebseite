@@ -10,12 +10,22 @@ import BlogCard from "@/components/BlogCard.astro";
 import type { CollectionEntry } from "astro:content";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
+import Testimonial from "@/partials/Testimonial.astro";
 
 const homepage = (await getEntry(
   "homepage",
   "-index",
 )) as CollectionEntry<"homepage">;
-const cards = await getEntry("sections", "service_cards")!;
+
+const cards = (await getEntry(
+  "cardSection",
+  "service_cards",
+)) as CollectionEntry<"cardSection">;
+
+const testimonial = (await getEntry(
+  "testimonialSection",
+  "testimonial",
+)) as CollectionEntry<"testimonialSection">;
 
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features } = homepage.data;
@@ -147,7 +157,7 @@ const latestPosts = posts
       ))
     }
     <!-- Features -->
-    <!-- Testimonial testimonial={testimonial} /-->
+    <Testimonial testimonial={testimonial} />
     <!--CallToAction call_to_action={call_to_action} /-->
 
     <!-- Teaser from Blog -->

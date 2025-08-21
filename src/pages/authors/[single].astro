@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
   const paths = authors.map((author) => ({
     params: {
-      single: author.slug,
+      single: author.id,
     },
     props: { author },
   }));
@@ -29,9 +29,9 @@ const { Content } = await render(author);
 // get all posts by author
 const BLOG_FOLDER = "blog";
 const posts = await getSinglePage(BLOG_FOLDER);
-const postFilterByAuthor = posts.filter(
-  (post) => slugify(post.data.author) === slugify(blog_name),
-);
+const postFilterByAuthor = posts
+  .filter((post) => slugify(post.data.author) === slugify(blog_name))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const role_title = `${role} ${title}`;
 ---
 
