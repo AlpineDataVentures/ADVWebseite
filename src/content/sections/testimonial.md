@@ -1,28 +1,28 @@
 ---
 type: "testimonial"
 enable: true
-title: "What Users Are Saying About Astroplate"
-description: "Don't just take our word for it - hear from some of our satisfied users!  Check out some of our testimonials below to see what others are saying about Astroplate."
+title: "What Customers Are Saying About ADV"
+description: "Don't just take our word for it - hear from some of our satisfied users!  Check out some of our testimonials below to see what others are saying about ADV."
 
 # Testimonials
 testimonials:
-  - name: "Marvin McKinney"
-    designation: "Web Designer"
+  - name: "Anna Keller"
+    designation: "Head of IT, Finora AG"
     avatar: "/images/avatar-sm.png"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
+    content: "Dank der professionellen Beratung konnten wir unsere Datenstrategie neu ausrichten. Besonders beeindruckt hat mich, wie praxisnah und verständlich komplexe Themen vermittelt wurden."
 
-  - name: "Marvin McKinney"
-    designation: "Web Designer"
+  - name: "Thomas Berger"
+    designation: "Leiter Produktion, TechMetall GmbH"
     avatar: "/images/avatar-sm.png"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
+    content: "Die Zusammenarbeit war absolut zielgerichtet. Wir haben nicht nur ein Konzept erhalten, sondern eine Lösung, die im Alltag funktioniert und echten Mehrwert liefert."
 
-  - name: "Marvin McKinney"
-    designation: "Web Designer"
+  - name: "Sandra Hoffmann"
+    designation: "CFO, MedCare Solutions"
     avatar: "/images/avatar-sm.png"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
+    content: "Besonders positiv ist mir aufgefallen, dass unsere spezifischen Anforderungen ernst genommen wurden. Statt Standardlösungen gab es eine individuelle Beratung – das hat uns sehr überzeugt."
 
-  - name: "Marvin McKinney"
-    designation: "Web Designer"
+  - name: "Michael Schuster"
+    designation: "Geschäftsführer, DataPro Systems"
     avatar: "/images/avatar-sm.png"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
+    content: "Die Expertise im Bereich Datenmanagement ist herausragend. Wir konnten in kurzer Zeit spürbare Effizienzsteigerungen erzielen und haben nun eine klare Roadmap für die nächsten Jahre."
 ---
