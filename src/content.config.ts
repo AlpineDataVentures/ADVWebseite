@@ -272,7 +272,6 @@ const teamCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/team" }),
   schema:
     z.object({
-      type: z.literal('index'),
       title: z.string(),
       meta_title: z.string(),
       description: z.string(),

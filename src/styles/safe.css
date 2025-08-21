@@ -23,7 +23,7 @@ input#nav-toggle:checked ~ #nav-menu {
 /* swiper pagination */
 .testimonial-slider-pagination {
   .swiper-pagination-bullet {
-    @apply h-2.5 w-2.5 bg-light opacity-100 dark:bg-darkmode-light;
+    @apply h-2.5 w-2.5 bg-green-500 opacity-100 dark:bg-green-500;
 
     &-active {
       @apply h-4 w-4 bg-primary dark:bg-darkmode-primary;
@@ -31,11 +31,45 @@ input#nav-toggle:checked ~ #nav-menu {
   }
 }
 
-div.swiper-button-prev,
-div.swiper-button-next {
-color: #00CE7F;
+.testimonial-slider .swiper-wrapper {
+  display: flex;
+  align-items: stretch; /* sorgt für gleiche Höhe */
 }
 
+.testimonial-slider .swiper-slide {
+  height: auto; /* wichtig: keine fixe Höhe */
+  display: flex; /* Karte füllt Slide */
+}
+
+.testimonial-card {
+  flex: 1;          /* Karte zieht sich in voller Höhe */
+  display: flex;    /* wenn Inhalt innen ausgerichtet sein soll */
+  flex-direction: column;
+}
+
+.has-outside-nav
+.testimonial-slider {
+  overflow: visible !important;
+  position: relative; /* Basis für absolute Positionierung */
+  padding: 0 60px; /* Platz nach links und rechts schaffen */
+}
+
+.testimonial-slider .swiper-button-prev,
+.testimonial-slider .swiper-button-next {
+  color: #00CE7F !important;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+}
+
+.testimonial-slider .swiper-button-prev {
+  left: -8px; /* jetzt wirklich nach außen */
+}
+
+.testimonial-slider .swiper-button-next {
+  right: -8px; /* jetzt wirklich nach außen */
+}
 
 /* ServiceCard Styling */
 .service-card {
