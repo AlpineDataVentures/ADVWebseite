@@ -5,6 +5,7 @@ import Social from "@/components/Social.astro";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { slugify } from "@/lib/utils/textConverter";
+import { render } from "astro:content";
 
 // get all static paths for authors
 export async function getStaticPaths() {
@@ -17,13 +18,16 @@ export async function getStaticPaths() {
     },
     props: { author },
   }));
+
+  console.log("🔎 Generated paths:", paths); // <-- Debug-Ausgabe
+
   return paths;
 }
 
 const { author } = Astro.props;
 const { title, blog_name, role, social, meta_title, description, image } =
   author.data;
-const { Content } = await author.render();
+const { Content } = await render(author);
 
 // get all posts by author
 const BLOG_FOLDER = "blog";

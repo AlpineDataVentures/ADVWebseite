@@ -7,10 +7,14 @@ import ContactForm from "@/partials/ContactForm.astro";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
 import BlogCard from "@/components/BlogCard.astro";
+import type { CollectionEntry } from "astro:content";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
 
-const homepage = await getEntry("homepage", "-index")!;
+const homepage = (await getEntry(
+  "homepage",
+  "-index",
+)) as CollectionEntry<"homepage">;
 const cards = await getEntry("sections", "service_cards")!;
 
 const { contact_form_action }: { contact_form_action: string } = config.params;

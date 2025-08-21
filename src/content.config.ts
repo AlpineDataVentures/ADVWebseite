@@ -1,3 +1,4 @@
+import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
 // schema of the about section
@@ -65,6 +66,7 @@ const authorsCollection = defineCollection({
 
 // Post collection schema
 const blogCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
   schema: z.object({
     title: z.string(),
     meta_title: z.string().optional(),
@@ -77,7 +79,10 @@ const blogCollection = defineCollection({
     draft: z.boolean().optional(),
     summary: z.string().optional(),
   }),
+
 });
+
+
 
 // Collection schema for ADV CaseStudies
 const casestudiesCollection = defineCollection({

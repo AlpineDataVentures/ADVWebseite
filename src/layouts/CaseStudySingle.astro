@@ -1,10 +1,11 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
 import ImageMod from "./components/ImageMod.astro";
+import { render } from "astro:content";
 
 const { casestudy } = Astro.props;
 
-const { Content } = await casestudy.render();
+const { Content } = await render(casestudy);
 const { title, image } = casestudy.data;
 ---
 

@@ -1,16 +1,17 @@
 ---
+import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { getEntry } from "astro:content";
 import TextBlock from "@/partials/TextBlock.astro";
 import DoubleTextBlock from "@/partials/DoubleTextBlock.astro";
-import ImageMod from "@/components/ImageMod.astro";
 import ContactForm from "@/partials/ContactForm.astro";
 import CoreValues from "@/partials/CoreValues.astro";
+import type { CollectionEntry } from "astro:content";
 
 const { contact_form_action } = Astro.props;
 
-const about = await getEntry("about", "-index")!;
+const about = (await getEntry("about", "-index")) as CollectionEntry<"about">;
 const vision_method = await getEntry("about", "vision_method")!;
 const collaboration = await getEntry("about", "collaboration")!;
 const entry = await getEntry("about", "corevalues")!;
