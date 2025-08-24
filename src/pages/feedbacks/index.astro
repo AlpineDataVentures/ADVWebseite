@@ -1,0 +1,68 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry, type CollectionEntry } from "astro:content";
+
+const FEEDBACK_FOLDER = "feedbacks";
+
+const feedbackIndex = (await getEntry(
+  FEEDBACK_FOLDER,
+  "-index",
+)) as CollectionEntry<"feedbacks">;
+const feedbacks = await getSinglePage(FEEDBACK_FOLDER);
+---
+
+<Base
+  title={feedbackIndex.data.title}
+  meta_title={feedbackIndex.data.meta_title}
+  image={feedbackIndex.data.image}
+  description={feedbackIndex.data.description}
+>
+  <PageHeader title={feedbackIndex.data.title} />
+
+  {
+    feedbacks.map((feedback, index: number) => (
+      <section class={`section-sm ${index % 2 === 1 && "bg-gradient"}`}>
+        <div class="container">
+          <div class="row items-center justify-between">
+            <div
+              class={`mb:md-0 mb-6 md:col-5 ${index % 2 !== 0 && "md:order-2"}`}
+            >
+              {feedback.data.image && (
+                <a href={`/${FEEDBACK_FOLDER}/${feedback.id}/`}>
+                  <ImageMod
+                    src={feedback.data.image}
+                    height={480}
+                    width={520}
+                    alt={feedback.data.title}
+                    format="webp"
+                  />
+                </a>
+              )}
+            </div>
+            <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
+              <h2 class="mb-4">
+                <a href={`/${FEEDBACK_FOLDER}/${feedback.id}/`}>
+                  {feedback.data.title}
+                </a>
+              </h2>
+              <p
+                set:html={markdownify(feedback.data.summary ?? "")}
+                class="mb-8 text-lg text-justify"
+              />
+              <a
+                class="btn btn-outline-primary btn-sm"
+                href={`/${FEEDBACK_FOLDER}/${feedback.id}/`}
+              >
+                Weiterlesen
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+</Base>

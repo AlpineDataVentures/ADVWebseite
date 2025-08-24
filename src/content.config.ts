@@ -149,6 +149,19 @@ export const dictionaryCollection = defineCollection({
   }),
 });
 
+// Collection schema for ADV CaseStudies
+const feedbackCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/feedbacks" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    image: z.string().optional(),
+    draft: z.boolean().optional(),
+    summary: z.string().optional(),
+  }),
+});
+
 export const homepageCollection = defineCollection({
   loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/homepage" }),
   schema: z.object({
@@ -320,6 +333,7 @@ export const collections = {
   contact: contactCollection,
   dataready: datareadyCollection,
   dictionary: dictionaryCollection,
+  feedbacks: feedbackCollection,
   homepage: homepageCollection,
   pages: pagesCollection,
   portfolio: portfolioCollection,

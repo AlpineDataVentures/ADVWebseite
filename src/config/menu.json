@@ -44,8 +44,19 @@
       ]
     },
     {
-      "name": "Case Studies",
-      "url": "/casestudies/"
+      "name": "Unsere Kunden",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Erfolgsgeschichten",
+          "url": "/casestudies/"
+        },
+        {
+          "name": "Kundenstimmen",
+          "url": "/feedbacks/"
+        }
+      ]
     },
     {
       "name": "Blog",
