@@ -3,7 +3,7 @@ import Base from "@/layouts/Base.astro";
 import FeedbackSingle from "@/layouts/FeedbackSingle.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 
-export async function getStaticPAaths() {
+export async function getStaticPaths() {
   const FEEDBACK_FOLDER = "feedbacks";
   const feedbacks = await getSinglePage(FEEDBACK_FOLDER);
 
