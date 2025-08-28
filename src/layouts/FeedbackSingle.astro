@@ -3,7 +3,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import ImageMod from "./components/ImageMod.astro";
 import { render } from "astro:content";
 
-const { casestudy: feedback } = Astro.props;
+const { feedback } = Astro.props;
 
 const { Content } = await render(feedback);
 const { title, image } = feedback.data;

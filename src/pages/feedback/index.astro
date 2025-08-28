@@ -6,12 +6,12 @@ import { markdownify } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader.astro";
 import { getEntry, type CollectionEntry } from "astro:content";
 
-const FEEDBACK_FOLDER = "feedbacks";
+const FEEDBACK_FOLDER = "feedback";
 
 const feedbackIndex = (await getEntry(
   FEEDBACK_FOLDER,
   "-index",
-)) as CollectionEntry<"feedbacks">;
+)) as CollectionEntry<"feedback">;
 const feedbacks = await getSinglePage(FEEDBACK_FOLDER);
 ---
 

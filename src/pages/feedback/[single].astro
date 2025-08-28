@@ -4,14 +4,14 @@ import FeedbackSingle from "@/layouts/FeedbackSingle.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 
 export async function getStaticPaths() {
-  const FEEDBACK_FOLDER = "feedbacks";
+  const FEEDBACK_FOLDER = "feedback";
   const feedbacks = await getSinglePage(FEEDBACK_FOLDER);
 
   const paths = feedbacks.map((feedback) => ({
     params: {
       single: feedback.id,
     },
-    props: { feedback: feedback },
+    props: { feedback },
   }));
   return paths;
 }

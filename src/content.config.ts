@@ -151,7 +151,7 @@ export const dictionaryCollection = defineCollection({
 
 // Collection schema for ADV CaseStudies
 const feedbackCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/feedbacks" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/feedback" }),
   schema: z.object({
     title: z.string(),
     meta_title: z.string().optional(),
@@ -333,7 +333,7 @@ export const collections = {
   contact: contactCollection,
   dataready: datareadyCollection,
   dictionary: dictionaryCollection,
-  feedbacks: feedbackCollection,
+  feedback: feedbackCollection,
   homepage: homepageCollection,
   pages: pagesCollection,
   portfolio: portfolioCollection,

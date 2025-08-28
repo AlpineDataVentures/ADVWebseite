@@ -111,10 +111,10 @@ const { contact_form_action } = Astro.props;
     />
   </div>
 </form>
-<div id="feedback" class="hidden mt-4 text-green-500">
+<div id="success_msg_contact" class="hidden mt-4 text-green-500">
   Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
 </div>
-<div id="fail_feedback" class="hidden mt-4 text-red-500">
+<div id="fail_msg_contact" class="hidden mt-4 text-red-500">
   Leider konnte Ihre Nachricht nicht übermittelt werden. Bitte schreiben Sie
   eine Mail an info(at)alpinedata.de!
 </div>
@@ -158,12 +158,14 @@ const { contact_form_action } = Astro.props;
 
       if (xhr.status === 200) {
         // The request was successful
-        // show feedback message
-        document.getElementById("feedback")?.classList.remove("hidden");
+        // show success_msg message
+        document
+          .getElementById("success_msg_contact")
+          ?.classList.remove("hidden");
         target.reset();
       } else {
         // The request failed
-        document.getElementById("fail_feedback")?.classList.remove("hidden");
+        document.getElementById("fail_msg_contact")?.classList.remove("hidden");
       }
     };
   };

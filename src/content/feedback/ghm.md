@@ -2,7 +2,7 @@
 title: "IT-Strategie"
 meta_title: "IT-Strategie"
 image: "/images/team_feature.png"
-draft: true
+draft: false
 description: "Hier fehlt noch eine Zusammenfassung für die Google."
 summary: "Hier fehlt noch eine Zusammenfassung für die Übersichtsseite"
 ---
