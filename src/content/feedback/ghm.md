@@ -1,43 +1,51 @@
 ---
-title: "IT-Strategie"
-meta_title: "IT-Strategie"
-image: "/images/team_feature.png"
+title: "Kundenfeedback: Thorsten Wernard, CIO bei GHM"
+meta_title: "Kundenfeedback: Thorsten Wernard, CIO bei GHM"
+description: "Feedback von Thorsten Wernard, CIO bei GHM, zur Zusammenarbeit mit Alpine Data Ventures"
 draft: false
-description: "Hier fehlt noch eine Zusammenfassung für die Google."
-summary: "Hier fehlt noch eine Zusammenfassung für die Übersichtsseite"
+image: "/images/feedback/ghm.png"
+company: "GHM"
+name: "Thorsten Wernard"
+position: "CIO - Chief Information Officer"
+project: "Data Driven Company & GHM SSO Portal"
+
+sections:
+  - section: "Zur Zusammenarbeit"
+    questions:
+      - question: "Wie hast du die Zusammenarbeit mit Alpine Data Ventures erlebt? (z. B. Projektstruktur, Kommunikation, technisches Verständnis, Business-Nähe)"
+        answers:
+          - "sehr vertrauensvoll, freundschaftlich, angenehm zu führen"
+          - "sehr gute Kommunikation, flexibel"
+          - "Projektstruktur, Kommunikation, technisches Verständnis, Business-Nähe liegen über den Erwartungen"
+      - question: "Was hat dich besonders überzeugt oder positiv überrascht? (z. B. Geschwindigkeit, strategische Tiefe, Teamspirit)"
+        answers:
+          - "Vertrieb: jederzeit erreichbar, hört zu, löst mein Problem, nervt nicht"
+          - "Technische Beratung & Implementierung: große Expertise, leidenschaftlich für Daten unterwegs"
+          - "Nachhaltige Planung: Think big, start small. Tolles T-Shaped Team, das sich wunderbar ergänzt"
+      - question: "Gab es einen Moment, wo du gemerkt hast: „Jetzt wird’s richtig relevant für unser Business“?"
+        answers:
+          - "Von Anfang an war die Relevanz klar, allerdings stehen noch eine Menge Roll-Outs aus."
+          - "In erster Linie war es der Moment, in dem ich gespürt habe, dass sich das ADV-Team sehr gut in mein IT-Team eingliedert & ergänzt hat"
+          - "Nachdem unser Business, unsere Anforderungen und Herausforderungen erkannt wurden: überragende gemeinsame Zusammenarbeit"
+      - question: "Welchen konkreten Impact hatte das Projekt auf euer Unternehmen? (z. B. datenbasierte Entscheidungen, effizientere Prozesse, Business-Transparenz)"
+        answers:
+          - "Der Impact wird hoffentlich riesig, da 'Data Driven Company' für die GHM einen Quantensprung bedeutet."
+          - "Schön, dass nicht nur technische Hürden genommen werden, sondern auch Kultur & Governance sowie Enablement des Business mit bedacht wird"
+      - question: "Was kann in Zukunft noch weiterentwickelt / verbessert werden?"
+        answers:
+          - "Durch das große gegenseitige Vertrauen darf die Bürokratie im Bereich Anforderung, Angebot, Auftrag noch reduziert werden (z. B. pauschalere Beauftragung, Anforderungskonzept schmaler und nur für die Umsetzung wichtig)"
+          - "Working Software und Dokumentation in Confluence reicht mir zu Abnahme"
+  - section: "Für andere Unternehmen"
+    questions:
+      - question: "Was würdest du anderen Unternehmen über die Zusammenarbeit mit ADV sagen?"
+        answers:
+          - "Für mich persönlich, die IT-Abteilung und die GHM ist die Zusammenarbeit mit ADV ein Glücksgriff!"
+          - "Die enge Bindung, Vertrauen, gegenseitiger Respekt führen zu schnellen und flexiblen Lösungen, die trotzdem nachhaltig an der IT Strategie und Architektur ausgerichtet sind."
+      - question: "Würdest du uns weiterempfehlen? Wenn ja: warum?"
+        answers:
+          - "Nö, ich brauch die Jungs noch länger ;)"
+          - "Durch jahrelange unterschiedlichste Erfahrungen mit Beratern vornehmlich aus dem Datenbereich und darüber hinaus erlaube ich mir, die ADV uneingeschränkt zu empfehlen und unter meine TOP 3 auf 1 zu platzieren."
+      - question: "Auf einer Skala von 1–5, wie würdest du die Zusammenarbeit insgesamt bewerten? (1 sehr schlecht – 5 überragend)"
+        answers:
+          - "5"
 ---
-
-### Ausgangssituation
-
-Der Kunde ist ein mittelständisches Unternehmen mit einer fast 100-jährigen Firmengeschichte. Bis zum Anbruch von Corona gab es ausschließlich florierende Wirtschaftsjahre. Corona hat den Kunden vor enorme Herausforderungen gestellt.
-Durch den schnellen Wandel und die geänderten Anforderungen des Markts musste nun ein höherer Grad an Formalisierung etabliert werden. Der Kunde hat sowohl eine Unternehmensstrategie etabliert als auch daraus abgeleitet den Bedarf gesehen, eine IT-Strategie zu implementieren. Die große Anzahl an Herausforderungen in der IT und die steigende Komplexität der Themen lasten die IT-Abteilung unter Anleitung des CIO’s enorm aus, wodurch gezielte Strategiearbeit erschwert wurde.
-
-### Herausforderung
-
-Es blieb sehr wenig Zeit bis eine greifbare und umsetzbare IT-Strategie, welche nicht nur im Elfenbeinturm entwickelt wird, eingeführt werden musste. Zudem gab es einige blinde Flecken, zu wenig Zeit für ausführliche Konzeptarbeit und Budgetrestriktionen. Der Kunde selbst hatte wenig Zeit für die Mitwirkung an der Strategie. Es gibt eine Vielzahl diverser Business Funktionen, die maßgebliche Anforderungen an die IT der Zukunft des Kunden haben.
-
-### Projektscope:
-
-2 Monate
-
-### Herangehensweise
-
-Wir haben zusammen mit dem Kunden einen Strategy as a Journey Ansatz gewählt, welcher Prinzipien orientiert vornehms dem Business und den Mitarbeitern ausreichend Halt gibt und ein Big Picture aufzeigt, worauf sich alle committen können. Wir haben zunächst die Organisation interviewed und mittels verschiedenen Workshop-Formaten das vorhandene Wissen, die Herausforderungen und Anforderungen der mittelbaren, wie unmittelbaren Kunden extrahiert.
-
-Diese haben wir auf ein greifbares Aggregationsniveau gehoben und in Business-IT-Alignment fähige Sprache und Modelle überführt. Nach ausführlicher IST-Analyse haben wir die Teilstrategien der IT-Strategie tiefergelegt, unter Berücksichtigung der Ungewissheiten wie Kapazitäten, Unternehmensstrategie und Marktveränderungen Modelle und Prinzipien entworfen, die für den Kunden umsetzbar sind und zuletzt Ziele, Maßnahmen und eine Roadmap abgeleitet, welche mit den strategischen Zielen des Kunden einhergehen und darauf einzahlen.
-
-Da der Kunde bislang weder aktive Strategiearbeit noch ein Business-Controlling sowie IT-Controlling betreibt, haben wir eine einfache Balanced Score Card gewählt, um die Ziel-gesteuerte Arbeitsweise leicht einzuführen.
-
-Wir konnten die Teilstrategien Infrastruktur-Strategie, Applikationsstrategie und Datenstrategie umstandsbedingt nicht auf eine Tiefe legen, bei jener alles 3 Jahre im Voraus planbar und umsetzbar ist, dennoch haben wir es geschafft, greifbare Prinzipien für kommende Entscheidungen abzuleiten, erste grundlegende Architekturentscheidungen zu treffen und Projekte zur weiteren Tieferlegung als Perspektive abzuleiten, welche die Strategie binnen 6 – 12 Monaten um einen weiteren Detailgrad greifbarer macht.
-
-### Outcome
-
-Wir haben für den Kunden ein ausführliches, lebendiges und sehr konkret greifbares Strategiedokument erarbeitet. Zudem haben wir eine Version für alle Mitarbeiter und eine Management Summary als Präsentation erarbeitet, um die Ergebnisse und weiteren Maßnahmen, sowie Prinzipien und Grundsätze, allen gleichermaßen auf Augenhöhe zu präsentieren. 
-
-Zusammen mit dem Strategy as a Journey Ansatz haben wir ein Quartals-Town-Hall etabliert, in jenem die weiteren Entwicklungen der IT-Strategie der Organisation präsentiert werden.
-Zudem haben wir begonnen einfaches Enterprise Architecture Management einzuführen, um alle Architektur Perspektiven der Soll-Architektur strukturiert abzubilden und allen durch interaktive Live-Ansichten einen Entwicklungsstand kommunizieren zu können.
-
-Mittels einer interaktiven Roadmap (abgebildet in MS Project) hat jeder Mitarbeiter jederzeit einen Einblick in die bevorstehenden und laufenden Projektvorhaben, sodass der Großteil an Kommunikation zu Unsicherheiten hierzu eingespart werden konnte. Diese Transparenz schafft Zusammenhalt und Sicherheit in der gesamten Belegschaft, was wiederum zu höherer Zufriedenheit und Mitarbeiter-Bindung führt.
-
-> Kundenstimme:
-  CIO - „Sehr geil! Endlich haben wir ein ordentliches Rahmenwerk, an dem sich alle orientieren können und welches umsetzbar ist. Kein Dokument, das für 3 Jahre in der Schublade verschwindet. So kann ich endlich gut arbeiten!“

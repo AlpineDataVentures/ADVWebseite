@@ -1,40 +1,76 @@
 ---
-import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
 import ImageMod from "./components/ImageMod.astro";
-import { render } from "astro:content";
 
-const { feedback } = Astro.props;
+type FeedbackEntry = CollectionEntry<"feedback">;
 
-const { Content } = await render(feedback);
-const { title, image } = feedback.data;
+interface Props {
+  feedback: FeedbackEntry;
+}
+
+const { feedback } = Astro.props as Props;
+const { title, image, company, name, position, project, sections } =
+  feedback.data;
 ---
 
 <section class="section pt-7">
   <div class="container">
     <div class="row justify-center">
       <article class="lg:col-10">
+        <!-- Header mit Bild + Personendaten -->
         {
           image && (
-            <div class="mb-10">
+            <div class="mb-10 flex justify-center">
               <ImageMod
                 src={image}
-                height={500}
-                width={1200}
+                height={300}
+                width={600}
                 alt={title}
-                class="w-full rounded"
+                class="w-full max-w-3xl rounded-2xl shadow-lg"
                 format="webp"
               />
             </div>
           )
         }
-        <h1 set:html={markdownify(title)} class="h2 mb-4" />
-        <div class="content mb-10">
-          <Content />
+
+        <div class="text-center mb-10">
+          <h1 class="h2 mb-2">{title}</h1>
+          <p class="text-lg font-semibold">{name} – {position}</p>
+          <p class="text-base text-gray-600">
+            {company}{project && ` • ${project}`}
+          </p>
         </div>
+
+        <!-- Feedback Sections -->
+        {
+          sections &&
+            sections.map((section) => (
+              <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+                  {section.section}
+                </h2>
+
+                {section.questions.map((q) => (
+                  <div class="mb-8 p-6 bg-gray-50 rounded-2xl shadow-sm">
+                    <h3 class="font-semibold text-lg mb-3 text-primary">
+                      {q.question}
+                    </h3>
+                    <ul class="space-y-2 list-disc list-inside">
+                      {q.answers.map((a) => (
+                        <li class="text-gray-700 leading-relaxed">{a}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </section>
+            ))
+        }
       </article>
+
+      <!-- Back Button -->
       <div class="mt-10 lg:col-3 flex justify-center">
         <a href="/feedback/" class="btn btn-outline-primary">
-          Zurück zu Kundenstimmen
+          ← Zurück zu Kundenstimmen
         </a>
       </div>
     </div>

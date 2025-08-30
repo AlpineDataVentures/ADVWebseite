@@ -149,17 +149,31 @@ export const dictionaryCollection = defineCollection({
   }),
 });
 
-// Collection schema for ADV CaseStudies
+// Collection schema for Customer Feedback
 const feedbackCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/feedback" }),
   schema: z.object({
     title: z.string(),
-    meta_title: z.string().optional(),
-    description: z.string().optional(),
+    meta_title: z.string(),
+    description: z.string(),
     image: z.string().optional(),
     draft: z.boolean().optional(),
-    summary: z.string().optional(),
-  }),
+    company: z.string(),
+    name: z.string(),
+    position: z.string(),
+    project: z.string(),
+    sections: z.array(
+      z.object({
+        section: z.string(),
+        questions: z.array(
+          z.object({
+            question: z.string(),
+            answers: z.array(z.string()),
+          })
+        ),
+      })
+    ).optional()
+  })
 });
 
 export const homepageCollection = defineCollection({
