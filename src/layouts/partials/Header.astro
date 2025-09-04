@@ -146,19 +146,4 @@ const { pathname } = Astro.url;
       }
     </div>
   </nav>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document
-        .querySelectorAll(".nav-item.nav-dropdown > span")
-        .forEach((trigger) => {
-          trigger.addEventListener("click", (e) => {
-            // Nur auf kleinen Screens aktiv
-            if (window.innerWidth < 1024) {
-              const dropdown = trigger.nextElementSibling;
-              if (dropdown) dropdown.classList.toggle("open");
-            }
-          });
-        });
-    });
-  </script>
 </header>
