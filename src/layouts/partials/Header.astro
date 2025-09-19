@@ -24,88 +24,74 @@ const { pathname } = Astro.url;
 
 <header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
   <nav class="navbar container">
-    <!-- logo -->
+    <!-- Logo -->
     <div class="order-0">
       <Logo />
     </div>
-    <!-- navbar toggler -->
+
+    <!-- Burger-Toggle -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
       class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1"
     >
-      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+      <svg class="h-6 fill-current block" viewBox="0 0 20 20">
         <title>Menu Open</title>
-        <!--path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path-->
-        <!-- Erster Strich mit einer anderen Farbe -->
         <path d="M0 3h20v2H0V3z" style="fill: rgb(2, 199, 128);"></path>
-        <!-- Zweiter und dritter Strich mit der fill-current Farbe -->
         <path d="M0 9h20v2H0V9z m0 6h20v2H0V0z"></path>
       </svg>
-      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+      <svg class="h-6 fill-current hidden" viewBox="0 0 20 20">
         <title>Menu Close</title>
         <polygon
           points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
           transform="rotate(45 10 10)"></polygon>
       </svg>
     </label>
-    <!-- /navbar toggler -->
+
+    <!-- Navigation -->
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"
+      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 mobile-menu"
     >
       {
         main.map((menu) => (
-          <>
+          <li
+            class={`nav-item nav-dropdown relative ${menu.hasChildren ? "group" : ""}`}
+          >
             {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative">
-                <span
-                  class={`nav-link inline-flex items-center ${
-                    menu.children?.map(({ url }) => url).includes(pathname) ||
-                    menu.children
-                      ?.map(({ url }) => `${url}/`)
-                      .includes(pathname)
-                      ? "active"
-                      : ""
-                  }`}
+              <>
+                <button
+                  type="button"
+                  class="nav-link inline-flex items-center mobile-toggle"
                 >
                   {menu.name}
-                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                  <svg class="h-4 w-4 fill-current ml-1" viewBox="0 0 20 20">
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                   </svg>
-                </span>
-                <ul class="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
+                </button>
+                <ul class="nav-dropdown-list">
                   {menu.children?.map((child) => (
                     <li class="nav-dropdown-item">
                       <a
                         href={child.url}
                         aria-label={child.name}
-                        class={`nav-dropdown-link block ${
-                          (pathname === `${child.url}/` ||
-                            pathname === child.url) &&
-                          "active"
-                        }`}
+                        class={`nav-dropdown-link block ${pathname === child.url || pathname === `${child.url}/` ? "active" : ""}`}
                       >
                         {child.name}
                       </a>
                     </li>
                   ))}
                 </ul>
-              </li>
+              </>
             ) : (
-              <li class="nav-item">
-                <a
-                  href={menu.url}
-                  class={`nav-link block ${
-                    (pathname === `${menu.url}/` || pathname === menu.url) &&
-                    "active"
-                  }`}
-                >
-                  {menu.name}
-                </a>
-              </li>
+              <a
+                href={menu.url}
+                class={`nav-link block ${pathname === menu.url || pathname === `${menu.url}/` ? "active" : ""}`}
+              >
+                {menu.name}
+              </a>
             )}
-          </>
+          </li>
         ))
       }
       {
@@ -121,6 +107,7 @@ const { pathname } = Astro.url;
         )
       }
     </ul>
+
     <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
       {
         settings.search && (
@@ -147,3 +134,40 @@ const { pathname } = Astro.url;
     </div>
   </nav>
 </header>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("nav-toggle");
+    const menu = document.getElementById("nav-menu");
+
+    toggle.addEventListener("change", () => {
+      menu.classList.toggle("hidden");
+    });
+
+    // Submenu click on mobile
+    document.querySelectorAll(".mobile-toggle").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const parent = btn.closest(".nav-dropdown");
+        if (!parent) return;
+        parent.classList.toggle("open");
+      });
+    });
+    // --- Neu: Menü bei Resize schließen ---
+    window.addEventListener("resize", () => {
+      // Wenn Breite >= lg (1024px)
+      if (window.innerWidth >= 1024) {
+        // Burger-Menü schließen
+        if (!menu.classList.contains("hidden")) {
+          menu.classList.add("hidden");
+        }
+        // Checkbox zurücksetzen
+        if (toggle.checked) toggle.checked = false;
+        // Alle mobilen Dropdowns schließen
+        document.querySelectorAll(".nav-dropdown.open").forEach((item) => {
+          item.classList.remove("open");
+        });
+      }
+    });
+  });
+</script>

@@ -30,12 +30,46 @@
   @apply pointer-events-none;
 }
 
-.nav-dropdown.active .nav-dropdown-list {
-  @apply block;
+/* generelle Styles für Dropdowns */
+.nav-dropdown-list {
+  @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded p-4 shadow-sm;
 }
 
-.nav-dropdown-list {
-  @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded p-4 shadow-sm hidden lg:invisible lg:absolute lg:block lg:opacity-0;
+/* Desktop Hover nur ab lg */
+@media (min-width: 1024px) {
+  .nav-dropdown-list {
+    @apply invisible absolute opacity-0;
+  }
+  .nav-dropdown:hover > .nav-dropdown-list {
+    @apply visible opacity-100;
+  }
+}
+
+/* Mobile (< lg): Dropdown immer sichtbar, kompaktere Abstände */
+@media (max-width: 1023px) {
+  .nav-dropdown-list {
+    @apply block visible opacity-100 relative;
+  }
+
+  /* Weniger Padding für mobile Hauptmenüpunkte */
+  .nav-link {
+    @apply px-3 py-2;
+  }
+
+  /* Noch engere Abstände zwischen Unterpunkten */
+  .nav-dropdown-item {
+    @apply [&:not(:last-child)]:mb-0.5; /* vorher mb-1 */
+  }
+
+  /* Kleinere Schriftgröße für Unterpunkte */
+  .nav-dropdown-link {
+    @apply text-sm;
+  }
+}
+
+/* optional: JS-toggle für einzelne mobile Dropdowns */
+.nav-dropdown.open > .nav-dropdown-list {
+  @apply block visible opacity-100;
 }
 
 .nav-dropdown-item {
