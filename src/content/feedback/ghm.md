@@ -8,6 +8,7 @@ company: "GHM"
 name: "Thorsten Wernard"
 position: "CIO - Chief Information Officer"
 project: "Data Driven Company & GHM SSO Portal"
+rating: 5.0
 
 sections:
   - section: "Zur Zusammenarbeit"

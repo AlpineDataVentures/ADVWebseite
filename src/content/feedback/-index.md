@@ -7,4 +7,5 @@ name: ""
 position: ""
 image: ""
 project: ""
+rating: 5.0
 ---

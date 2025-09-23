@@ -162,6 +162,7 @@ const feedbackCollection = defineCollection({
     name: z.string(),
     position: z.string(),
     project: z.string(),
+    rating: z.number().min(0).max(5),
     sections: z.array(
       z.object({
         section: z.string(),

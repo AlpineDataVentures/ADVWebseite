@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import ImageMod from "./components/ImageMod.astro";
+import Rating from "./partials/Rating.astro";
 
 type FeedbackEntry = CollectionEntry<"feedback">;
 
@@ -9,7 +10,7 @@ interface Props {
 }
 
 const { feedback } = Astro.props as Props;
-const { title, image, company, name, position, project, sections } =
+const { title, image, company, name, position, project, rating, sections } =
   feedback.data;
 ---
 
@@ -20,13 +21,13 @@ const { title, image, company, name, position, project, sections } =
         <!-- Header mit Bild + Personendaten -->
         {
           image && (
-            <div class="mb-10 flex justify-center">
+            <div class="mb-8 flex justify-center">
               <ImageMod
                 src={image}
-                height={300}
-                width={600}
+                height={562}
+                width={1123}
                 alt={title}
-                class="w-full max-w-3xl rounded-2xl shadow-lg"
+                class="w-full max-w-2xl rounded-2xl"
                 format="webp"
               />
             </div>
@@ -39,6 +40,11 @@ const { title, image, company, name, position, project, sections } =
           <p class="text-base text-gray-600">
             {company}{project && ` • ${project}`}
           </p>
+        </div>
+
+        <!-- Rating einfügen -->
+        <div class="flex justify-center mb-8">
+          <Rating rating={rating} />
         </div>
 
         <!-- Feedback Sections -->
