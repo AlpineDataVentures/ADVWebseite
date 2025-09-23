@@ -27,6 +27,7 @@ const { testimonial } = Astro.props;
                   content: string;
                   name: string;
                   designation: string;
+                  link: string;
                 }) => (
                   <div class="swiper-slide">
                     <div class="testimonial-card rounded-lg bg-light px-7 py-10 dark:bg-darkmode-light">
@@ -45,7 +46,7 @@ const { testimonial } = Astro.props;
                         </svg>
                       </div>
                       <blockquote
-                        class="mt-8"
+                        class="mt-8 text-justify"
                         set:html={markdownify(item.content)}
                       />
                       <div class="mt-11 flex items-center">
@@ -70,6 +71,14 @@ const { testimonial } = Astro.props;
                           />
                         </div>
                       </div>
+                        <div class="flex justify-center mt-8">
+                          <a
+                            class="btn-adv btn-outline-primary btn-sm"
+                            href={item.link}
+                          >
+                            Weiterlesen
+                          </a>
+                        </div>
                     </div>
                   </div>
                 ),
