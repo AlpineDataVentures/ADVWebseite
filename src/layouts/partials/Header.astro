@@ -139,9 +139,23 @@ const { pathname } = Astro.url;
   document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.getElementById("nav-toggle");
     const menu = document.getElementById("nav-menu");
+    const showIcon = document.querySelector(
+      "#nav-toggle ~ label svg:first-child",
+    );
+    const hideIcon = document.querySelector(
+      "#nav-toggle ~ label svg:last-child",
+    );
 
     toggle.addEventListener("change", () => {
       menu.classList.toggle("hidden");
+
+      if (toggle.checked) {
+        showIcon.classList.add("hidden");
+        hideIcon.classList.remove("hidden");
+      } else {
+        showIcon.classList.remove("hidden");
+        hideIcon.classList.add("hidden");
+      }
     });
 
     // Submenu click on mobile
@@ -153,20 +167,31 @@ const { pathname } = Astro.url;
         parent.classList.toggle("open");
       });
     });
-    // --- Neu: Menü bei Resize schließen ---
+
     window.addEventListener("resize", () => {
-      // Wenn Breite >= lg (1024px)
       if (window.innerWidth >= 1024) {
-        // Burger-Menü schließen
-        if (!menu.classList.contains("hidden")) {
-          menu.classList.add("hidden");
-        }
-        // Checkbox zurücksetzen
-        if (toggle.checked) toggle.checked = false;
-        // Alle mobilen Dropdowns schließen
+        // --- Desktop-Modus erzwingen ---
+        menu.classList.remove("hidden", "w-full", "pb-6");
+        menu.classList.add("flex"); // <--- WICHTIG
+
+        // Burger-Checkbox zurücksetzen
+        toggle.checked = false;
+
+        // Icons zurücksetzen
+        showIcon.classList.remove("hidden");
+        hideIcon.classList.add("hidden");
+
+        // Alle Submenus schließen
         document.querySelectorAll(".nav-dropdown.open").forEach((item) => {
           item.classList.remove("open");
         });
+      } else {
+        // --- Mobile ---
+        menu.classList.remove("flex"); // <--- Desktop-Klasse wegräumen
+        if (!toggle.checked) {
+          menu.classList.add("hidden");
+        }
+        menu.classList.add("block", "w-full", "pb-6"); // <--- explizit block setzen
       }
     });
   });
