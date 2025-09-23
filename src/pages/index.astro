@@ -7,11 +7,25 @@ import ContactForm from "@/partials/ContactForm.astro";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
 import BlogCard from "@/components/BlogCard.astro";
+import type { CollectionEntry } from "astro:content";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
+import Testimonial from "@/partials/Testimonial.astro";
 
-const homepage = await getEntry("homepage", "-index")!;
-const cards = await getEntry("sections", "service_cards")!;
+const homepage = (await getEntry(
+  "homepage",
+  "-index",
+)) as CollectionEntry<"homepage">;
+
+const cards = (await getEntry(
+  "cardSection",
+  "service_cards",
+)) as CollectionEntry<"cardSection">;
+
+const testimonial = (await getEntry(
+  "testimonialSection",
+  "testimonial",
+)) as CollectionEntry<"testimonialSection">;
 
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features } = homepage.data;
@@ -142,15 +156,15 @@ const latestPosts = posts
         </section>
       ))
     }
-    <!-- Features -->
-    <!-- Testimonial testimonial={testimonial} /-->
+    <!-- Voice of the Customers -->
+    <Testimonial testimonial={testimonial} />
     <!--CallToAction call_to_action={call_to_action} /-->
 
     <!-- Teaser from Blog -->
-    <section class="section pt-14">
+    <section class="section pt-0">
       <div class="container">
         <div class="section pb-0">
-          <h2 class="h3 mb-12 text-center">Neues aus dem ADV Blog</h2>
+          <h2 class="mb-12 text-center">Neues aus dem ADV Blog</h2>
           <div class="row justify-center">
             {
               latestPosts.map((post) => (

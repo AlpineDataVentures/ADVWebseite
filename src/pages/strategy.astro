@@ -1,8 +1,11 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, type CollectionEntry } from "astro:content";
 import Portfolio from "@/layouts/Portfolio.astro";
 
-const strategy = await getEntry("portfolio", "strategy")!;
+const strategy = (await getEntry(
+  "portfolio",
+  "strategy",
+)) as CollectionEntry<"portfolio">;
 
 const {
   title,

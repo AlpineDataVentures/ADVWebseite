@@ -1,0 +1,30 @@
+---
+import Base from "@/layouts/Base.astro";
+import FeedbackSingle from "@/layouts/FeedbackSingle.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+
+export async function getStaticPaths() {
+  const FEEDBACK_FOLDER = "feedback";
+  const feedbacks = await getSinglePage(FEEDBACK_FOLDER);
+
+  const paths = feedbacks.map((feedback) => ({
+    params: {
+      single: feedback.id,
+    },
+    props: { feedback },
+  }));
+  return paths;
+}
+
+const { feedback } = Astro.props;
+const { title, meta_title, description, image } = feedback.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <FeedbackSingle feedback={feedback} />
+</Base>

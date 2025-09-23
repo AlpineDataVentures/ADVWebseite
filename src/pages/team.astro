@@ -1,7 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-import { getEntry } from "astro:content";
+import { getEntry, type CollectionEntry } from "astro:content";
 import ImageMod from "@/components/ImageMod.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import { getSinglePage } from "@/lib/contentParser.astro";
@@ -9,10 +9,20 @@ import { FaCheck } from "react-icons/fa";
 import CallToAction from "@/partials/CallToAction.astro";
 import Social from "@/components/Social.astro";
 
-const team = await getEntry("team", "-index")!;
+const team = (await getEntry("team", "-index")) as CollectionEntry<"team">;
 const COLLECTION_FOLDER = "authors";
 const authors = await getSinglePage(COLLECTION_FOLDER);
-const call_to_action = await getEntry("team", "call-to-action");
+
+// Hilfsfunktion: Nachname extrahieren (letztes Wort im Titel)
+function getLastName(fullName: string) {
+  const parts = fullName.trim().split(" ");
+  return parts[parts.length - 1];
+}
+
+// Sortierung nach Nachname (alphabetisch)
+const sortedAuthors = authors.sort((a, b) =>
+  getLastName(a.data.title).localeCompare(getLastName(b.data.title)),
+);
 
 const { title, meta_title, description, image } = team.data;
 ---
@@ -43,12 +53,12 @@ const { title, meta_title, description, image } = team.data;
   <!-- Text aus -index -->
   <section class="mb-16">
     <div class="container">
-      <p set:html={markdownify(team.body)} class="mb-8 text-xl" />
+      <p set:html={markdownify(team.body ?? "")} class="mb-8 text-xl" />
     </div>
   </section>
   <!-- Profile from authors -->
   {
-    authors.map((author, index: number) => (
+    sortedAuthors.map((author, index: number) => (
       <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
         <div class="container">
           <div class="row items-center justify-between">
@@ -65,7 +75,10 @@ const { title, meta_title, description, image } = team.data;
             </div>
             <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
               <h2 set:html={markdownify(author.data.title)} class="mb-4" />
-              <p set:html={markdownify(author.body)} class="mb-8 text-base" />
+              <p
+                set:html={markdownify(author.body ?? "")}
+                class="mb-8 text-base"
+              />
               <ul>
                 {author.data.bullet_points.map((bullet: string) => (
                   <li class="relative mb-4 pl-6">
@@ -84,5 +97,5 @@ const { title, meta_title, description, image } = team.data;
       </section>
     ))
   }
-  <CallToAction call_to_action={call_to_action} />
+  <CallToAction call_to_action={team.data.callToAction} />
 </Base>

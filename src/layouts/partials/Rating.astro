@@ -1,0 +1,32 @@
+---
+import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
+
+interface Props {
+  rating: number; // z. B. 4.5
+  max?: number; // default: 5
+  className?: string;
+}
+
+const { rating, max = 5, className = "" } = Astro.props;
+
+// Ganze, halbe und leere Sterne berechnen
+const fullStars = Math.floor(rating);
+const hasHalfStar = rating % 1 >= 0.5;
+const emptyStars = max - fullStars - (hasHalfStar ? 1 : 0);
+---
+
+<div class={`flex flex-col items-center ${className}`}>
+  <!-- Sterne -->
+  <div class="flex items-center space-x-2 text-3xl text-green-500">
+    {Array.from({ length: fullStars }).map(() => <FaStar />)}
+
+    {hasHalfStar && <FaStarHalfAlt />}
+
+    {Array.from({ length: emptyStars }).map(() => <FaRegStar />)}
+  </div>
+
+  <!-- Text darunter -->
+  <p class="mt-2 text-center text-lg text-gray-600">
+    {rating} von {max} Sternen
+  </p>
+</div>

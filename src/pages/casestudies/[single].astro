@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
   const paths = casestudies.map((casestudy) => ({
     params: {
-      single: casestudy.slug,
+      single: casestudy.id,
     },
     props: { casestudy },
   }));

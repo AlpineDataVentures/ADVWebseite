@@ -1,20 +1,17 @@
 ---
+import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { getEntry } from "astro:content";
 import TextBlock from "@/partials/TextBlock.astro";
 import DoubleTextBlock from "@/partials/DoubleTextBlock.astro";
-import ImageMod from "@/components/ImageMod.astro";
 import ContactForm from "@/partials/ContactForm.astro";
 import CoreValues from "@/partials/CoreValues.astro";
+import type { CollectionEntry } from "astro:content";
 
 const { contact_form_action } = Astro.props;
 
-const about = await getEntry("about", "-index")!;
-const vision_method = await getEntry("about", "vision_method")!;
-const collaboration = await getEntry("about", "collaboration")!;
-const entry = await getEntry("about", "corevalues")!;
-const corevalues = entry.data.corevalues;
+const about = (await getEntry("about", "-index")) as CollectionEntry<"about">;
 
 const { title, description, meta_title, image } = about.data;
 ---
@@ -28,7 +25,7 @@ const { title, description, meta_title, image } = about.data;
   <PageHeader title={title} />
 
   <!-- Vision & Mission -->
-  <DoubleTextBlock double_text_block={vision_method.data} />
+  <DoubleTextBlock double_text_block={about.data.vision_method} />
 
   <!-- Hero's Image -->
   <section class="mb-16">
@@ -46,10 +43,10 @@ const { title, description, meta_title, image } = about.data;
   </section>
 
   <!-- CoreValues -->
-  <CoreValues core_values={corevalues} />
+  <CoreValues core_values={about.data.corevalues} />
 
   <!-- Collaboration -->
-  <TextBlock text_block={collaboration.data} />
+  <TextBlock text_block={about.data.collaboration} />
 
   <!-- contact form -->
   <section class="section-sm">
