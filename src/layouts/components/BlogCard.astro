@@ -56,10 +56,12 @@ const { title, image, date, author, categories, summary } = data.data;
   <p class="mb-6 text-justify">
     {plainify(summary?.slice(0, Number(summary_length)))}
   </p>
-  <a
-    class="btn btn-outline-primary btn-sm"
-    href={`/${blog_folder}/${data.id}/`}
-  >
-    Weiterlesen
-  </a>
+  <div class="flex justify-center mt-4">
+    <a
+      class="btn-adv btn-outline-primary btn-sm"
+      href={`/${blog_folder}/${data.id}/`}
+    >
+      Weiterlesen
+    </a>
+  </div>
 </div>
