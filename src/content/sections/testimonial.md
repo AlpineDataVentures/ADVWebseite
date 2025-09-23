@@ -9,5 +9,6 @@ testimonials:
     designation: "CIO, GHM"
     avatar: "/images/feedback/ghm.png"
     content: "Ein absoluter Glücksgriff! Die enge Bindung, Vertrauen & gegenseitiger Respekt führen zu schnellen und flexiblen Lösungen, die trotzdem nachhaltig an der IT Strategie und Architektur ausgerichtet sind."
+    link: "/feedback/ghm/"
 
 ---

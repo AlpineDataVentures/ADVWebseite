@@ -333,6 +333,7 @@ const testimonialSectionCollection = defineCollection({
         avatar: z.string(),
         designation: z.string(),
         content: z.string(),
+        link: z.string(),
       }),
     ),
   }),
