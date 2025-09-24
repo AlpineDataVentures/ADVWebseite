@@ -4,9 +4,9 @@ meta_title: "KI-gestützte Audit-Simulation: Weniger Stress, mehr Übersicht"
 description: "Wie automatisierte Audit-Checks mit Ampellogik den Aufwand senken, Schwachstellen sichtbar machen und die Prüffähigkeit im Alltag verankern."
 date: 2025-07-10T10:00:00Z
 image: "/images/blog/audit-ki-ampel.png"
-categories: ["Food & Beverage", "Qualitätssicherung"]
+categories: ["Qualitätssicherung"]
 author: "Julian Koller"
-tags: ["Audit", "Qualitätssicherung", "KI", "Prozessoptimierung"]
+tags: ["Audit", "KI", "Prozessoptimierung"]
 draft: false
 summary: "Audits lösen oft Hektik aus – obwohl die Anforderungen längst bekannt sind. Checks mit KI und Ampellogik sorgen für kontinuierliche Vorbereitung, klare Prioritäten und entspanntere Prüfungen."
 ---

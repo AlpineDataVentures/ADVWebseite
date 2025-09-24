@@ -4,9 +4,9 @@ meta_title: "Vom Konzept zur Wirkung: Datenstrategien brauchen mehr als leere Ve
 description: "Viele Datenstrategien scheitern an der Praxis. Dieser Beitrag zeigt, wie konkrete Use Cases strategische Ambitionen greifbar machen – und was Cracker mit Datenstrategie zu tun haben."
 date: 2025-06-03T10:00:00Z
 image: "/images/blog/UseCases_Datenstrategie.png"
-categories: ["Data Strategy"]
+categories: ["Data Strategy", "Data Culture"]
 author: "Ben Diez"
-tags: ["Data Strategy", "Use Cases", "Data Culture"]
+tags: ["Use Case"]
 draft: false
 summary: "Ohne konkrete Anwendungsfälle bleibt jede Datenstrategie ein leeres Versprechen. Dieser Artikel erklärt, warum Use Cases nicht nur Beiwerk sind, sondern der eigentliche Schlüssel zur Wirkung."
 ---

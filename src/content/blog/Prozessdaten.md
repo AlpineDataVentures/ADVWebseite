@@ -4,9 +4,9 @@ meta_title: "Prozessdaten als Rückgrat der Nacharbeit"
 description: "Was früher Erfahrungssache war, wird heute messbar – warum Prozessdaten die Grundlage für effektive Nachbearbeitung sind."
 date: 2025-06-13T10:00:00Z
 image: "/images/blog/prozessdaten-nacharbeit.png"
-categories: ["Fertigung"]
+categories: ["Manufacturing", "Qualitätssicherung"]
 author: "Andreas Klostermann"
-tags: ["Prozessdaten", "Nacharbeit", "Produktion", "Qualität"]
+tags: ["Prozessdaten", "Nacharbeit", "QS"]
 draft: false
 summary: "Nacharbeit kostet Zeit, Geld und Nerven. Wer sie nachhaltig verbessern will, braucht Daten – und zwar dort, wo es zählt: im Prozess."
 ---

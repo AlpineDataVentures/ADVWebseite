@@ -4,9 +4,9 @@ meta_title: "Wie Data Governance das Chaos bändigt und Entscheidungen stärkt"
 description: "Moderne Data Governance bringt Ordnung ins Datenchaos – mit klaren Regeln, Rollen und Vertrauen"
 date: 2025-04-21T10:00:00Z
 image: "/images/blog/data_governance.png"
-categories: ["Data Governance"]
+categories: ["Data Leadership"]
 author: "Ben Diez"
-tags: ["Data Governance"]
+tags: ["Governance"]
 draft: false
 summary: "Wenn das Daten-Lama im Meeting auftaucht, fehlt Governance. Klare Regeln, Rollen und Transparenz machen Daten vertrauenswürdig – für Entscheidungen ohne tierische Zwischenfälle."
 ---

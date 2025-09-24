@@ -4,9 +4,9 @@ meta_title: "Prozessmuster erkennen, bevor Fehler passieren – Daten als Frühw
 description: "Warum datengetriebene Produktion mehr kann als reagieren: Sie erkennt systematische Schwächen und hilft, Fehler zu vermeiden, bevor sie entstehen."
 date: 2025-07-25T10:00:00Z
 image: "/images/blog/praeventivdaten.png"
-categories: ["Produktion", "Datenstrategie"]
+categories: ["Manufacturing", "Data Strategy", "Qualitätssicherung"]
 author: "Carsten Hof"
-tags: ["Predictive Analytics", "Prozessdaten", "Qualitätssicherung", "Industrie 4.0"]
+tags: ["Predictive", "Prozessdaten","Industrie 4.0"]
 draft: false
 summary: "Produktionsprozesse erzeugen Datenströme – und darin stecken Muster. Wer sie analysiert, kann Fehler vermeiden, statt nur reparieren. Das verändert nicht nur die Qualität, sondern die gesamte Steuerung."
 ---

@@ -4,9 +4,9 @@ meta_title: "Excel war gestern – Datenverständnis für Führungskräfte"
 description: "Weg vom Zellenchaos, hin zur echten Steuerung: Warum moderne Datenvisualisierung, Storytelling und KPI-Fokus aus Führungskräften datengetriebene Entscheider machen."
 date: 2025-06-26T09:00:00Z
 image: "/images/blog/excel-fuehrung.png"
-categories: ["Datenstrategie", "Führung"]
+categories: ["Data Strategy"]
 author: "Julian Koller"
-tags: ["Datenvisualisierung", "KPI", "Führung", "BI"]
+tags: ["KPI", "Führung", "BI"]
 draft: false
 summary: "Führungskräfte lieben keine Zahlen – sie lieben Relevanz. Wie man Daten so aufbereitet, dass sie verstanden, genutzt und sogar geschätzt werden – auch ohne Pivot-Tabellen."
 ---

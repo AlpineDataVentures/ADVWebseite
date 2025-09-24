@@ -4,7 +4,7 @@ meta_title: "KPI-Definition ist Chefsache – Von Bauchgefühl zu Business Steer
 description: "KPI-Systeme wirken nur, wenn die Führung sie ernst nimmt. Warum die Definition strategischer Kennzahlen nicht delegiert werden darf."
 date: 2025-06-20T09:00:00Z
 image: "/images/blog/kpi-chefsache.png"
-categories: ["Business Intelligence", "Führung"]
+categories: ["Business Intelligence", "Data Culture"]
 author: "Andreas Klostermann"
 tags: ["KPI", "Führung", "Governance", "Business Steering"]
 draft: false

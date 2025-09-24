@@ -4,9 +4,9 @@ meta_title: "GenAI antwortet so präzise, wie es das Prompting erlaubt – warum
 description: "Gutes Prompting macht den Unterschied: Warum klare Anweisungen und Personalisierung GenAI von generisch zu nützlich verwandeln."
 date: 2025-03-17T10:00:00Z
 image: "/images/blog/fussball_fan_heinrich.webp"
-categories: ["Artificial Intelligence"]
+categories: ["Data Culture", "Artificial Intelligence"]
 author: "Ben Diez"
-tags: ["Data Culture","GenAI", "Artificial Intelligence"]
+tags: ["GenAI", "KI"]
 draft: false
 summary: "Wer GenAI effektiv nutzen will, muss präzise prompten – denn nur mit klaren Anweisungen und gezielter Personalisierung entstehen wirklich brauchbare Antworten."
 ---

@@ -4,9 +4,9 @@ meta_title: "Zentrale KPIs als Nervensystem – BI, die Chefs wirklich nutzen"
 description: "Wie Business Intelligence mehr wird als ein Datenfriedhof – und stattdessen die Entscheidungsbasis liefert, die moderne Geschäftsführung braucht."
 date: 2025-06-12T07:00:00Z
 image: "/images/blog/ZentralKPI.png"
-categories: ["Business Intelligence", "Datenstrategie"]
+categories: ["Business Intelligence", "Data Strategy"]
 author: "Julian Koller"
-tags: ["BI", "KPI", "Führung", "Datennutzung"]
+tags: ["BI", "KPI", "Führung"]
 draft: false
 summary: "BI-Systeme haben oft alles – außer Nutzer:innen aus dem Management. Warum das so ist, und wie man es besser macht: mit klaren KPIs, relevanten Reports und BI als strategischem Steuerungstool."
 ---

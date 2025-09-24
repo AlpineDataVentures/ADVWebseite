@@ -4,16 +4,16 @@ import { humanize, slugify } from "@/lib/utils/textConverter";
 const { tags, categories, allCategories } = Astro.props;
 ---
 
-<div class="lg:col-4">
+<div class="lg:col-4 mt-16 lg:mt-0">
   <!-- categories -->
   <div class="mb-8">
     <h5 class="mb-6">Kategorien</h5>
     <div class="rounded bg-light p-8 dark:bg-darkmode-light">
       <ul class="space-y-4">
         {
-          categories.map((category: any) => {
+          categories.map((category: string) => {
             const count = allCategories.filter(
-              (c: any) => c === category,
+              (c: string) => c === category,
             ).length;
             return (
               <li>
@@ -36,7 +36,7 @@ const { tags, categories, allCategories } = Astro.props;
     <div class="rounded bg-light p-6 dark:bg-darkmode-light">
       <ul>
         {
-          tags.map((tag: any) => {
+          tags.map((tag: string) => {
             return (
               <li class="inline-block">
                 <a

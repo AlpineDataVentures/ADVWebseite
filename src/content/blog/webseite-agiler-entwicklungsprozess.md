@@ -4,9 +4,9 @@ meta_title: "Webseite vs Moderne Entwicklungspipeline"
 description: "Bei Alpine Data Ventures setzen wir auf Innovation und Struktur. Das zeigen wir auch mit unserer Webseite, die auf einem modernsten Entwicklungsprozess basiert."
 date: 2024-09-24T07:00:00Z
 image: "/images/blog/BTS_Website.png"
-categories: ["Tech"]
+categories: ["Enterprise Architecture", "ADV"]
 author: "Carsten Hof"
-tags: ["DevOps", "Webseite", "Intern"]
+tags: ["DevOps", "Webseite"]
 draft: false
 summary: "Bei Alpine Data Ventures setzen wir auf Innovation & Struktur. Das zeigen wir auch mit unserer Webseite, die auf einem modernsten Entwicklungsprozess basiert, den wir auch in Daten-Projekten einsetzen."
 ---

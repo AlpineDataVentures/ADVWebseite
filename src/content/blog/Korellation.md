@@ -4,9 +4,9 @@ meta_title: "Was Korrelationen über Prozessfehler verraten – und was nicht"
 description: "Wie Datenbeziehungen auf Fehlerquellen hinweisen – und warum man trotzdem nachdenken muss."
 date: 2025-07-31T10:00:00Z
 image: "/images/blog/Korrelation.png"
-categories: ["Produktion", "Analytics"]
+categories: ["Manufacturing", "Data Analytics"]
 author: "Andreas Klostermann"
-tags: ["Korrelation", "Datenanalyse", "Fehlerfrüherkennung", "Produktionsdaten"]
+tags: ["Korrelation", "Fehlervermeidung", "Produktionsdaten"]
 draft: false
 summary: "Korrelation ersetzt kein Denken – aber sie ist der kürzeste Weg zu Hypothesen, die weiterhelfen. In der Produktion zeigt sie, was zusammenhängt – und was man besser untersuchen sollte."
 ---
