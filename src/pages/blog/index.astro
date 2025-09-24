@@ -20,7 +20,9 @@ const postIndex = (await getEntry(
 const posts = await getSinglePage(BLOG_FOLDER);
 const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories", true);
 const categories = await getTaxonomy(BLOG_FOLDER, "categories", true);
+const sortedCategories = categories.sort();
 const tags = await getTaxonomy(BLOG_FOLDER, "tags", true);
+const sortedTags = tags.sort();
 const sortedPosts = sortByDate(posts);
 const totalPages: number = Math.ceil(posts.length / config.settings.pagination);
 const currentPosts = sortedPosts.slice(0, config.settings.pagination);
@@ -60,8 +62,8 @@ const isPaginatedPage = Astro.url.pathname.includes("/page/");
 
         <!-- sidebar -->
         <PostSidebar
-          categories={categories}
-          tags={tags}
+          categories={sortedCategories}
+          tags={sortedTags}
           allCategories={allCategories}
         />
       </div>
