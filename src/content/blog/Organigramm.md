@@ -4,9 +4,9 @@ meta_title: "Systeme, Schnittstellen, Zuständigkeiten – Klarheit über die ei
 description: "Wie eine visuelle Datenlandkarte hilft, Überblick zu schaffen, Verantwortlichkeiten zu klären und Datensilos zu vernetzen."
 date: 2025-07-24T07:00:00Z
 image: "/images/blog/Organigramm.png"
-categories: ["Datenstrategie", "IT-Architektur"]
+categories: ["Data Strategy", "Enterprise Architecture"]
 author: "Julian Koller"
-tags: ["Systemlandschaft", "Data Mapping", "Schnittstellen", "Transparenz"]
+tags: ["Data Mapping", "Schnittstellen", "Transparenz"]
 draft: false
 summary: "Viele Unternehmen wissen, wer im Organigramm wohin berichtet – aber nicht, wie Daten wirklich fließen. Eine systematische Datenlandkarte schafft Klarheit, Verbindungen und Verantwortlichkeit."
 ---

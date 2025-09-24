@@ -4,9 +4,9 @@ meta_title: "Digitale Audits mit Ampellogik: Klarheit statt Chaos"
 description: "Warum Excel nicht prüft, sondern versteckt – und wie digitale Dashboards mit KI und Ampellogik Audit-Readiness transparent, kontinuierlich und steuerbar machen."
 date: 2025-07-18T10:00:00Z
 image: "/images/blog/audit-dashboard-ampel.png"
-categories: ["Qualitätssicherung", "Food & Beverage"]
+categories: ["Qualitätssicherung", "Data Culture"]
 author: "Ben Diez"
-tags: ["Audit", "Digitalisierung", "Dashboards", "Prozessdaten"]
+tags: ["Audit", "Automatisierung", "Dashboards", "Prozessdaten"]
 draft: false
 summary: "Viele Audit-Prozesse laufen noch über manuelle Listen und Datei-Chaos. Dabei lassen sich Anforderungen längst digital abbilden – mit klaren Regeln, Live-Daten und Ampellogik."
 ---

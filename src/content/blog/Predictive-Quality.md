@@ -4,9 +4,9 @@ meta_title: "Predictive Quality in der Produktion – Muster erkennen, bevor Aus
 description: "Wie die Kombination aus Maschinen-, Prozess- und Qualitätsdaten eine neue Ära der Fehlervermeidung einläutet – datenbasiert, proaktiv und effizient."
 date: 2025-07-11T10:00:00Z
 image: "/images/blog/schraube-locker.png"
-categories: ["Produktion", "Qualitätssicherung"]
+categories: ["Manufacturing", "Qualitätssicherung"]
 author: "Carsten Hof"
-tags: ["Predictive Quality", "Fehlervermeidung", "Fertigung", "Prozessdaten"]
+tags: ["Predictive Quality", "Fehlervermeidung","Prozessdaten"]
 draft: false
 summary: "Je früher ein Problem erkannt wird, desto billiger ist es zu beheben. Doch klassische QS erkennt meist erst, wenn's zu spät ist. Datenbasierte Frühwarnsysteme ändern das – mit weniger Ausschuss."
 ---

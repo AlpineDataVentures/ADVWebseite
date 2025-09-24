@@ -4,9 +4,9 @@ meta_title: "Digitale Prüfprotokolle: Mehr Tempo und Qualität auf dem Shopfloo
 description: "Wie digitale Prüfprotokolle die Qualitätssicherung beschleunigen, Fehler reduzieren und Audits entspannter machen – ein Weckruf für alle, die noch mit Klemmbrett arbeiten."
 date: 2025-06-27T09:00:00Z
 image: "/images/blog/digitale-pruefprotokolle.png"
-categories: ["Qualitätssicherung", "Prozesse"]
+categories: ["Qualitätssicherung", "Manufacturing"]
 author: "Ben Diez"
-tags: ["QS", "Digitalisierung", "Produktion", "Audit"]
+tags: ["Automatisierung", "Audit"]
 draft: false
 summary: "Digitale Prüfprotokolle sind mehr als ein Ersatz für Papierformulare – sie machen Prozesse schneller, verlässlicher und auditfähig. Wer jetzt noch wartet, verliert doppelt: Zeit und Vertrauen."
 ---

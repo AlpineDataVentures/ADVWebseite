@@ -4,7 +4,7 @@ meta_title: "Transparenz in der Nachbearbeitung – vom Blindflug zur Steuerung"
 description: "Warum Nacharbeit kein dunkler Fleck am Rand der Produktion sein darf – und wie man mit einfachen Mitteln Klarheit schafft."
 date: 2025-06-19T07:00:00Z
 image: "/images/blog/Transparenz.png"
-categories: ["Produktion", "Qualitätsmanagement"]
+categories: ["Manufacturing", "Qualitätssicherung"]
 author: "Carsten Hof"
 tags: ["Nacharbeit", "Transparenz", "Shopfloor", "KPI"]
 draft: false
