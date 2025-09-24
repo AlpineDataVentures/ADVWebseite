@@ -6,7 +6,7 @@ date: 2025-07-17T10:00:00Z
 image: "/images/blog/qualitaet.png"
 categories: ["Manufacturing", "Data Analytics", "Qualitätssicherung"]
 author: "Ben Diez"
-tags: [ "Predictive Analytics"]
+tags: [ "Predictive"]
 draft: false
 summary: "Datenanalyse ersetzt keine Menschen – aber sie zeigt, was wir sonst übersehen: schleichende Prozessabweichungen, versteckte Fehlerquellen und die echten Gründe für instabile Qualität."
 ---

@@ -6,7 +6,7 @@ date: 2024-07-29T05:00:00Z
 image: "/images/blog/DataBoys_Blog.png"
 categories: ["ADV"]
 author: "Ben Diez"
-tags: ["Intern"]
+tags: ["ADV"]
 draft: false
 summary: "Wenn vier Datenenthusiasten eine gemeinsame Unternehmung planen, kann das in der Regel nur eines heißen: ein weiterer Data Podcast ... Nicht so bei den ADVs."
 ---

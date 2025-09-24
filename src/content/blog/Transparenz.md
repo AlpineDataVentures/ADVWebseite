@@ -6,7 +6,7 @@ date: 2025-06-19T07:00:00Z
 image: "/images/blog/Transparenz.png"
 categories: ["Manufacturing", "Qualitätssicherung"]
 author: "Carsten Hof"
-tags: ["Nacharbeit", "Transparenz", "Shopfloor", "KPI"]
+tags: ["Nacharbeit", "Transparenz", "KPI"]
 draft: false
 summary: "Nachbearbeitung ist teuer, oft intransparent – und dabei voller Potenzial. Dieser Artikel zeigt, wie Unternehmen Licht ins Dunkel bringen und die Nacharbeit vom Kostentreiber zum Steuerungshebel machen."
 ---

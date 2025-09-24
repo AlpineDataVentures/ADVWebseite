@@ -6,7 +6,7 @@ date: 2025-03-24T07:00:00Z
 image: "/images/blog/priorisierung.png"
 categories: ["Data Strategy"]
 author: "Andreas Klostermann"
-tags: ["Use Cases", "Automatisierung"]
+tags: ["Use Case", "Automatisierung"]
 draft: false
 summary: "Die Auswahl der richtigen Use Cases ist entscheidend für den Erfolg der digitalen Transformation – hier erfährst du, wie man diesen Prozess effektiv gestaltet."
 ---

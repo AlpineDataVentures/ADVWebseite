@@ -6,7 +6,7 @@ date: 2025-07-25T10:00:00Z
 image: "/images/blog/praeventivdaten.png"
 categories: ["Manufacturing", "Data Strategy", "Qualitätssicherung"]
 author: "Carsten Hof"
-tags: ["Predictive Analytics", "Prozessdaten","Industrie 4.0"]
+tags: ["Predictive", "Prozessdaten","Industrie 4.0"]
 draft: false
 summary: "Produktionsprozesse erzeugen Datenströme – und darin stecken Muster. Wer sie analysiert, kann Fehler vermeiden, statt nur reparieren. Das verändert nicht nur die Qualität, sondern die gesamte Steuerung."
 ---

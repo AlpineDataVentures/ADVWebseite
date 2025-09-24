@@ -6,7 +6,7 @@ date: 2025-01-13T10:00:00Z
 image: "/images/blog/datenkultur_sport.png"
 categories: ["Data Culture"]
 author: "Ben Diez"
-tags: ["Data Culture","Data Strategy"]
+tags: []
 draft: false
 summary: "US-Sport zeigt, wie Statistiken Unterhaltung und Datenkompetenz fördern. Während Analysen in Europa oft oberflächlich sind, prägen sie in den USA den Alltag – allgegenwärtig und unbewusst wirksam."
 ---

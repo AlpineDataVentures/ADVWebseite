@@ -6,7 +6,7 @@ date: 2025-07-11T10:00:00Z
 image: "/images/blog/schraube-locker.png"
 categories: ["Manufacturing", "Qualitätssicherung"]
 author: "Carsten Hof"
-tags: ["Predictive Quality", "Fehlervermeidung","Prozessdaten"]
+tags: ["Predictive", "Fehlervermeidung","Prozessdaten"]
 draft: false
 summary: "Je früher ein Problem erkannt wird, desto billiger ist es zu beheben. Doch klassische QS erkennt meist erst, wenn's zu spät ist. Datenbasierte Frühwarnsysteme ändern das – mit weniger Ausschuss."
 ---

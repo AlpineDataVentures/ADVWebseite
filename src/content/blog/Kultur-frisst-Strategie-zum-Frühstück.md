@@ -4,9 +4,9 @@ meta_title: "Wenn der Putzplan ignoriert wird: Kultur als Erfolgsfaktor für Dat
 description: "Warum viele Datenstrategien im Unternehmensalltag verpuffen und wie man mit Kulturarbeit echte Veränderung schafft."
 date: 2025-06-05T10:00:00Z
 image: "/images/blog/kultur_frisst_strategie.png"
-categories: ["Data Culture"]
+categories: ["Data Strategy", "Data Culture"]
 author: "Ben Diez"
-tags: ["Data Strategy", "Change Management", "Datenkultur"]
+tags: ["Change" ]
 draft: false
 summary: "Datenstrategie ist kein Laminiervorgang: Ohne kulturelle Verankerung bleibt sie Theorie. Der Artikel zeigt, warum Change aktive Führung braucht – und was wir vom WG-Putzplan lernen können."
 ---

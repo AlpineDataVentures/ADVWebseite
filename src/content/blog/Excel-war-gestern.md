@@ -6,7 +6,7 @@ date: 2025-06-26T09:00:00Z
 image: "/images/blog/excel-fuehrung.png"
 categories: ["Data Strategy"]
 author: "Julian Koller"
-tags: ["Visualisierung", "KPI", "Führung", "BI"]
+tags: ["KPI", "Führung", "BI"]
 draft: false
 summary: "Führungskräfte lieben keine Zahlen – sie lieben Relevanz. Wie man Daten so aufbereitet, dass sie verstanden, genutzt und sogar geschätzt werden – auch ohne Pivot-Tabellen."
 ---

@@ -3,7 +3,7 @@ title: "Qualität durch Kontext: Wie eine Fertigung Datenpunkte neu zusammensetz
 meta_title: "Case Study: Kontextuelle Qualitätsdaten – mehr Erkenntnis, weniger Ausschuss"
 description: "Wie ein mittelständischer Zulieferer aus Oberfranken aus losen Datenpunkten ein nutzbares System für Qualitätssteuerung entwickelte – und damit nicht nur Ausschuss senkte, sondern auch Vertrauen gewann."
 image: "/images/casestudies/Fertigung.png"
-tags: ["Qualitätsdaten", "Kontextdaten", "Produktionssteuerung", "Data Lake", "MES", "ERP", "Predictive Quality", "Datenintegration"]
+tags: [ "Data Lake", "MES", "ERP", "Predictive"]
 draft: false
 summary: "Ein Zulieferer aus Oberfranken bringt Struktur in seine Qualitätsdaten: Durch Kombination mit Kontextinformationen entstehen neue Erkenntnisse – mit handfestem Einfluss auf Ausschuss und Steuerung."
 ---
