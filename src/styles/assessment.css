@@ -135,7 +135,7 @@
 }
 
 .step input[type="text"]:focus,
-.step input[type="text"]:email {
+.step input[type="email"]:focus {
   border-color: var(--marine-blue);
 }
 
