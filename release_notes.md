@@ -1,5 +1,11 @@
 # Release Notes 
 
+### 1.3
+
+- Prototyp eines Produktkonfigurators
+- Downgrade auf React 18 (viele Komponenten unterstützen dies noch nicht)
+ 
+
 ### 1.2
 
 - Einbau von Kundenstimmen auf Startseite 
