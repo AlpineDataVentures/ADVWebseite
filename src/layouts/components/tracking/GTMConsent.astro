@@ -1,0 +1,68 @@
+---
+const gtmId = "GTM-TML73X7L";
+---
+
+<noscript>
+  <iframe
+    src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+    height="0"
+    width="0"
+    style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+<!-- Klaro CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/klaro@1/dist/klaro.css"
+/>
+
+<!-- Banner-Container -->
+<div id="klaro"></div>
+
+<!-- Klaro JS -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/klaro@1/dist/klaro.js"
+></script>
+
+<script type="module">
+  window.klaroConfig = {
+    version: 1,
+    elementID: "klaro",
+    cookieName: "klaro",
+    privacyPolicy: "/datenschutz",
+    default: false,
+    apps: [
+      {
+        name: "gtm",
+        title: "Google Tag Manager",
+        purposes: ["analytics"],
+        cookies: ["_ga", "_gid"],
+        callback: function (consent) {
+          if (consent) {
+            (function (w, d, s, l, i) {
+              w[l] = w[l] || [];
+              w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+              const f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+              j.async = true;
+              j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+              f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", `${gtmId}`);
+          }
+        },
+      },
+    ],
+  };
+  // Klaro initialisieren
+  if (window.klaro) {
+    window.klaro.setup(window.klaroConfig);
+  }
+</script>
+
+<noscript>
+  <iframe
+    src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+    height="0"
+    width="0"
+    style="display:none;visibility:hidden"></iframe>
+</noscript>

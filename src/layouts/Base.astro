@@ -10,8 +10,7 @@ import { AstroFont } from "astro-font";
 import { ClientRouter } from "astro:transitions";
 import SearchModal from "./helpers/SearchModal";
 import { join } from "node:path";
-import GoogleTagManagerScript from "@/components/tracking/GoogleTagManager.astro";
-import GoogleTagManagerNoScript from "@/components/tracking/GoogleTagManagerNoScript.astro";
+import GTMConsent from "./components/tracking/GTMConsent.astro";
 
 // font families
 const pf = theme.fonts.font_family.primary;
@@ -59,6 +58,9 @@ const {
 <!doctype html>
 <html lang={config.site.language}>
   <head>
+    <!-- Klaro CSS -->
+    <link rel="stylesheet" href="/node_modules/klaro/dist/klaro.css" />
+
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
     <!-- theme meta -->
@@ -242,13 +244,6 @@ const {
       }`}
     /><meta name="twitter:card" content="summary_large_image" />
 
-    <!-- add Google Tag Manager (only in production!) - ID is set as env variable in netlify! -->
-    {
-      process.env.CONTEXT === "production" && (
-        <GoogleTagManagerScript id={process.env.PUBLIC_GTM_ID!} />
-      )
-    }
-
     {
       process.env.CONTEXT === "production" && (
         <script
@@ -260,14 +255,10 @@ const {
     }
   </head>
 
-  <!-- twitter-image -->
-
   <body>
-    {
-      process.env.CONTEXT === "production" && (
-        <GoogleTagManagerNoScript id={process.env.PUBLIC_GTM_ID!} />
-      )
-    }
+    <!-- Klaro JS -->
+    <GTMConsent />
+
     <TwSizeIndicator />
     <Header />
     <SearchModal client:load />
