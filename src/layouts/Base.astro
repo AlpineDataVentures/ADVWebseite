@@ -10,19 +10,21 @@ import { AstroFont } from "astro-font";
 import { ClientRouter } from "astro:transitions";
 import SearchModal from "./helpers/SearchModal";
 import { join } from "node:path";
+import GoogleTagManagerScript from "@/components/tracking/GoogleTagManager.astro";
+import GoogleTagManagerNoScript from "@/components/tracking/GoogleTagManagerNoScript.astro";
 
 // font families
 const pf = theme.fonts.font_family.primary;
 const sf = theme.fonts.font_family.secondary;
 
 let fontPrimary, fontSecondary;
-if (theme.fonts.font_family.primary) {
-  fontPrimary = theme.fonts.font_family.primary
+if (pf) {
+  fontPrimary = pf
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
 }
-if (theme.fonts.font_family.secondary) {
-  fontSecondary = theme.fonts.font_family.secondary
+if (sf) {
+  fontSecondary = sf
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
 }
@@ -240,6 +242,13 @@ const {
       }`}
     /><meta name="twitter:card" content="summary_large_image" />
 
+    <!-- add Google Tag Manager (only in production!) - ID is set as env variable in netlify! -->
+    {
+      process.env.CONTEXT === "production" && (
+        <GoogleTagManagerScript id={process.env.PUBLIC_GTM_ID!} />
+      )
+    }
+
     {
       process.env.CONTEXT === "production" && (
         <script
@@ -254,6 +263,11 @@ const {
   <!-- twitter-image -->
 
   <body>
+    {
+      process.env.CONTEXT === "production" && (
+        <GoogleTagManagerNoScript id={process.env.PUBLIC_GTM_ID!} />
+      )
+    }
     <TwSizeIndicator />
     <Header />
     <SearchModal client:load />
