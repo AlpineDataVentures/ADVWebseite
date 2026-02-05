@@ -11,33 +11,39 @@ const gtmId = "GTM-TML73X7L";
 </noscript>
 
 <!-- Klaro CSS -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/klaro@1/dist/klaro.css"
-/>
+<link rel="stylesheet" href="/klaro/klaro.css" />
 
 <!-- Banner-Container -->
 <div id="klaro"></div>
 
 <!-- Klaro JS -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/klaro@1/dist/klaro.js"
-></script>
+<script type="module" src="/klaro/klaro.js"></script>
 
 <script type="module">
+  console.group("[Consent][Init]");
+  console.log("Klaro geladen:", !!window.klaro);
+  console.groupEnd();
+
   window.klaroConfig = {
     version: 1,
     elementID: "klaro",
     cookieName: "klaro",
     privacyPolicy: "/datenschutz",
     default: false,
-    apps: [
+    services: [
       {
         name: "gtm",
+        default: false,
         title: "Google Tag Manager",
         purposes: ["analytics"],
+        required: false,
         cookies: ["_ga", "_gid"],
-        callback: function (consent) {
+        callback: function (consent, service) {
+          console.log(
+            "User consent for service " + service.name + ": consent=" + consent,
+          );
           if (consent) {
+            console.log("[GTM] Lade gtm.js …");
             (function (w, d, s, l, i) {
               w[l] = w[l] || [];
               w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
