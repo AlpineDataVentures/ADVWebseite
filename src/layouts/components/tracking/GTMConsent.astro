@@ -1,14 +1,6 @@
 ---
-const gtmId = "GTM-TML73X7L";
----
 
-<noscript>
-  <iframe
-    src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-    height="0"
-    width="0"
-    style="display:none;visibility:hidden"></iframe>
-</noscript>
+---
 
 <!-- Klaro CSS -->
 <link rel="stylesheet" href="/klaro/klaro.css" />
@@ -30,6 +22,7 @@ const gtmId = "GTM-TML73X7L";
     cookieName: "klaro",
     privacyPolicy: "/datenschutz",
     default: false,
+    acceptAll: true,
     services: [
       {
         name: "gtm",
@@ -43,7 +36,6 @@ const gtmId = "GTM-TML73X7L";
             "User consent for service " + service.name + ": consent=" + consent,
           );
           if (consent) {
-            console.log("[GTM] Lade gtm.js …");
             (function (w, d, s, l, i) {
               w[l] = w[l] || [];
               w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -53,7 +45,7 @@ const gtmId = "GTM-TML73X7L";
               j.async = true;
               j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
               f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", `${gtmId}`);
+            })(window, document, "script", "dataLayer", "GTM-TML73X7L");
           }
         },
       },
@@ -67,7 +59,7 @@ const gtmId = "GTM-TML73X7L";
 
 <noscript>
   <iframe
-    src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+    src={`https://www.googletagmanager.com/ns.html?id=GTM-TML73X7L`}
     height="0"
     width="0"
     style="display:none;visibility:hidden"></iframe>
