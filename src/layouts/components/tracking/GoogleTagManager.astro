@@ -1,0 +1,25 @@
+---
+export interface Props {
+  id: string; // GTM Container-ID
+  domain?: string; // optional, Standard: Google GTM
+}
+
+// eslint does not recognize that the variables are used in the <script>-part,
+// therefore we force to disable the message!
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { id, domain = "https://www.googletagmanager.com" } = Astro.props;
+---
+
+<!-- GTM Script – muss im <head> stehen -->
+<script is:inline>
+  (function (w, d, s, l, i, domain) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    const f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = domain + "/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "{id}", "{domain}");
+</script>

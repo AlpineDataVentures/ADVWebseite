@@ -10,19 +10,20 @@ import { AstroFont } from "astro-font";
 import { ClientRouter } from "astro:transitions";
 import SearchModal from "./helpers/SearchModal";
 import { join } from "node:path";
+import GTMConsent from "./components/tracking/GTMConsent.astro";
 
 // font families
 const pf = theme.fonts.font_family.primary;
 const sf = theme.fonts.font_family.secondary;
 
 let fontPrimary, fontSecondary;
-if (theme.fonts.font_family.primary) {
-  fontPrimary = theme.fonts.font_family.primary
+if (pf) {
+  fontPrimary = pf
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
 }
-if (theme.fonts.font_family.secondary) {
-  fontSecondary = theme.fonts.font_family.secondary
+if (sf) {
+  fontSecondary = sf
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
 }
@@ -251,9 +252,10 @@ const {
     }
   </head>
 
-  <!-- twitter-image -->
-
   <body>
+    <!-- Klaro JS -->
+    <GTMConsent />
+
     <TwSizeIndicator />
     <Header />
     <SearchModal client:load />
