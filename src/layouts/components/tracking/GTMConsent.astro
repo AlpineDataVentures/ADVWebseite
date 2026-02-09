@@ -9,20 +9,16 @@
 <div id="klaro"></div>
 
 <!-- Klaro JS -->
-<script type="module" src="/klaro/klaro.js"></script>
+<script defer type="module" src="/klaro/klaro.js"></script>
 
 <script type="module">
-  console.group("[Consent][Init]");
-  console.log("Klaro geladen:", !!window.klaro);
-  console.groupEnd();
-
   window.klaroConfig = {
     version: 1,
     elementID: "klaro",
     cookieName: "klaro",
     privacyPolicy: "/datenschutz",
     default: false,
-    acceptAll: true,
+    acceptAll: true, // confirm on the initial dialog confirms everything
     services: [
       {
         name: "gtm",
