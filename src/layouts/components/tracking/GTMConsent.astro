@@ -1,5 +1,11 @@
 ---
-
+// GTMConstent.astro
+//
+// Configures the Consent Manager based on Klaro.
+// Documentation see here: https://klaro.org/docs/tutorials/google_tag_manager
+//
+// The GTM is loaded in the Base.astro - with all permissions DEACTIVATED
+// Only if the user accepts the tracking via this Klaro Consent Manager the permissions are granted.
 ---
 
 <!-- Klaro CSS -->
@@ -21,42 +27,74 @@
     acceptAll: true, // confirm on the initial dialog confirms everything
     services: [
       {
-        name: "gtm",
-        default: false,
-        title: "Google Tag Manager",
-        purposes: ["analytics"],
-        required: false,
-        cookies: ["_ga", "_gid"],
-        callback: function (consent, service) {
-          console.log(
-            "User consent for service " + service.name + ": consent=" + consent,
-          );
-          if (consent) {
-            (function (w, d, s, l, i) {
-              w[l] = w[l] || [];
-              w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-              const f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != "dataLayer" ? "&l=" + l : "";
-              j.async = true;
-              j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-              f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", "GTM-TML73X7L");
+        name: "google-tag-manager",
+        required: true,
+        purposes: ["analytics", "marketing"],
+        onInit: `
+          // GTM-Grundsetup einmal pro Seite
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function(){window.dataLayer.push(arguments)};
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied'
+          });
+          gtag('set', 'ads_data_redaction', true);
+        `,
+        onAccept: `
+          // optional: feuere Events oder Initialisierung wenn GTM akzeptiert wird
+          for (let k of Object.keys(opts.consents)) {
+            if (opts.consents[k]) {
+              let eventName = 'klaro-' + k + '-accepted';
+              window.dataLayer.push({'event': eventName});
+            }
           }
-        },
+        `,
+      },
+      {
+        name: "google-analytics",
+        cookies: [/^_ga(_.*)?/],
+        purposes: ["analytics", "marketing"],
+        onAccept: `
+          // Analytics Storage nach Zustimmung erlauben
+          gtag('consent', 'update', {
+            analytics_storage: 'granted'
+          });
+        `,
+        onDecline: `
+          // Analytics Storage ablehnen
+          gtag('consent', 'update', {
+            analytics_storage: 'denied'
+          });
+        `,
+      },
+      {
+        name: "google-ads",
+        cookies: [],
+        purposes: ["marketing"],
+        onAccept: `
+          // Ads Storage + Personalisierung erlauben
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted'
+          });
+        `,
+        onDecline: `
+          // Ads Storage + Personalisierung ablehnen
+          gtag('consent', 'update', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied'
+          });
+        `,
       },
     ],
   };
+
   // Klaro initialisieren
   if (window.klaro) {
     window.klaro.setup(window.klaroConfig);
   }
 </script>
-
-<noscript>
-  <iframe
-    src={`https://www.googletagmanager.com/ns.html?id=GTM-TML73X7L`}
-    height="0"
-    width="0"
-    style="display:none;visibility:hidden"></iframe>
-</noscript>
