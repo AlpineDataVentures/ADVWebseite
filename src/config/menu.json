@@ -1,10 +1,6 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
-    },
-    {
       "name": "Unsere Leistungen",
       "url": "",
       "hasChildren": true,
