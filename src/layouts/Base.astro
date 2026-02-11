@@ -250,9 +250,35 @@ const {
         />
       )
     }
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag(...args) {
+        window.dataLayer.push(args);
+      }
+
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TML73X7L"
+    ></script>
   </head>
 
   <body>
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TML73X7L"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
+    </noscript>
     <!-- Klaro JS -->
     <GTMConsent />
 

@@ -8,7 +8,7 @@ draft: false
 ---
 
 <p>
-  <em>letztes Update:</em> 05. Februar 2026
+  <em>letztes Update:</em> 11. Februar 2026
 </p>
 
 ### Verantwortliche Stelle
@@ -41,7 +41,8 @@ Je nach Art der Verarbeitung stützen wir uns auf folgende Rechtsgrundlagen:
 - § 25 Abs. 2 Nr. 2 TTDSG – Technische Notwendigkeit für Cookies/Speicherung
 
 ### Hosting
-Unsere Website wird bei einem externen Dienstleister gehostet (Hoster). Personenbezogene Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters verarbeitet. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten sowie Websitezugriffe handeln.
+
+Unsere Website wird bei einem externen Dienstleister gehostet (Hoster). Personenbezogene Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters verarbeitet. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten sowie Websitezugriffe handeln.
 
 Unser Hoster ist: Netlify, Inc., USA. 
 
@@ -49,7 +50,9 @@ Die Nutzung des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber uns
 
 Eine Übermittlung personenbezogener Daten in die USA kann nicht ausgeschlossen werden. Sie erfolgt auf Grundlage der von der EU-Kommission genehmigten Standardvertragsklauseln (Art. 46 DSGVO).
 
+
 ### Zugriffsdaten / Server-Logfiles
+
 Beim Aufruf unserer Website erhebt der Provider automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser automatisch an uns übermittelt:
 - IP-Adresse (zur Erkennung und Abwehr von Angriffen)
 - Datum und Uhrzeit der Serveranfrage
@@ -60,7 +63,8 @@ Beim Aufruf unserer Website erhebt der Provider automatisch Informationen in sog
 
 **Zweck & Rechtsgrundlage:** Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website sowie zur Sicherheitsanalyse.
 
-**Speicherdauer:** Die Daten werden nur zeitlich begrenzt gespeichert und anschließend automatisch gelöscht oder vollständig anonymisiert, sofern keine sicherheitsrelevante Notwendigkeit (z. B. bei Missbrauchsverdacht) zur längeren Aufbewahrung besteht.
+**Speicherdauer:** Die Daten werden nur zeitlich begrenzt gespeichert und anschließend automatisch gelöscht oder vollständig anonymisiert, sofern keine sicherheitsrelevante Notwendigkeit (z. B. bei Missbrauchsverdacht) zur längeren Aufbewahrung besteht.
+
 
 ### Kontaktaufnahme (E-Mail, Telefon)
 Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet.
@@ -73,32 +77,54 @@ Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive a
 
 - **Technisch notwendige Cookies** </br>  Wir setzen selbst keine technisch notwendigen Cookies.
 
-- **Einwilligungspflichtige Cookies** </br> Cookies zu Analyse- und Marketingzwecken (z. B. Google Ads) werden nur gesetzt, wenn Sie zuvor Ihre ausdrückliche Einwilligung über unseren Consent-Manager erteilt haben. **Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TTDSG. 
+- **Einwilligungspflichtige Cookies** </br> Cookies zu Analyse- und Marketingzwecken (z. B. GA4, Google Ads) werden nur gesetzt, wenn Sie zuvor Ihre ausdrückliche Einwilligung über unseren Consent-Manager erteilt haben. **Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TTDSG.
 
-Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen auf unserer Website widerrufen oder anpassen.
+Sie können Ihre Einwilligung jederzeit über die Einstellungen im <a href="#" onclick="return klaro.show();">Consent-Manager</a> widerrufen oder anpassen.
+
 
 ### Google Tag Manager
-Wir nutzen den Google Tag Manager. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Der Google Tag Manager setzt selbst keine Cookies. Er dient ausschließlich der Verwaltung und Auslösung anderer Tags, die ihrerseits unter Umständen personenbezogene Daten verarbeiten können.
 
-### Google Ads Conversion-Tracking
-Wir nutzen Google Ads, um unser Angebot im Google-Werbenetzwerk anzuzeigen und den Erfolg unserer Kampagnen zu messen (Conversion-Tracking). Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
- 
-Wenn Sie über eine Google-Anzeige auf unsere Website gelangen, wird ein Cookie gesetzt. Dieses Cookie verliert nach maximal 90 Tagen seine Gültigkeit und dient nicht der persönlichen Identifizierung.
- 
-**Verarbeitete Daten:**
+Wir verwenden den Google Tag Manager, Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.  
+Der GTM setzt selbst keine Cookies. Er dient ausschließlich zur Verwaltung und Auslösung anderer Tags, z. B. GA4 oder Google Ads, die ihrerseits personenbezogene Daten verarbeiten können.
+
+### Google Analytics (GA4)
+
+Wir setzen Google Analytics 4 (GA4) über den Google Tag Manager ein, um die Nutzung unserer Website zu analysieren und statistische Reports zu erstellen.  
+
+**Daten, die verarbeitet werden können:**
 - Geräte- und Browserinformationen (User Agent)
+- IP-Adresse (anonymisiert)
+- Referrer URL
+- Nutzerinteraktionen auf der Website
+
+**Consent Mode v2:** Standardmäßig werden keine personenbezogenen Daten verarbeitet (alle Parameter auf "denied"). Nach Zustimmung werden Analytics-Daten gemäß Ihrer Einwilligung verarbeitet.  
+
+**Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO
+
+### Google Ads / Conversion-Tracking
+
+Wir nutzen Google Ads, um unser Angebot im Google-Werbenetzwerk zu bewerben und den Erfolg unserer Kampagnen zu messen.  
+
+**Daten, die verarbeitet werden können:**
+- Geräte- und Browserinformationen
 - IP-Adresse
 - Referrer URL
-- Ggf. Conversion-ID
+- Conversion-ID
 
-**Rechtsgrundlage:** Die Nutzung erfolgt ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+**Consent Mode v2:** Standardmäßig sind alle Tracking-Funktionen deaktiviert. Erst nach Ihrer Einwilligung werden diese Funktionen aktiviert.  
 
-**Datenübermittlung in die USA / EU-US Data Privacy Framework:** Google Ireland Limited übermittelt Daten an die Muttergesellschaft Google LLC in den USA. Die Google LLC ist nach dem EU-US Data Privacy Framework (DPF) zertifiziert. Hierbei handelt es sich um einen Angemessenheitsbeschluss der EU-Kommission gemäß Art. 45 DSGVO, der bescheinigt, dass die USA für zertifizierte Unternehmen ein angemessenes Datenschutzniveau bieten. Die Datenübermittlung ist damit zulässig.
+**Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO
+
+**Datenübermittlung in die USA / EU-US Data Privacy Framework:** Google Ireland Limited übermittelt Daten an die Muttergesellschaft Google LLC in den USA. Google LLC ist nach dem EU-US DPF zertifiziert (Art. 45 DSGVO).
+
 
 ### Widerruf der Einwilligung
+
 Sie können eine bereits erteilte Einwilligung zur Datenverarbeitung jederzeit mit Wirkung für die Zukunft widerrufen. Eine formlose Mitteilung per E-Mail reicht dazu aus. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
 
+
 ### Rechte der betroffenen Personen
+
 Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:
 - **Auskunft** über Ihre gespeicherten personenbezogenen Daten (Art. 15 DSGVO)
 - **Berichtigung** unrichtiger Daten (Art. 16 DSGVO)
@@ -107,6 +133,7 @@ Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht 
 - **Datenübertragbarkeit** (Art. 20 DSGVO)
 - **Widerspruch** gegen die Verarbeitung (Art. 21 DSGVO), insbesondere bei Direktwerbung oder Verarbeitung auf Basis von berechtigtem Interesse.
 - **Beschwerderecht:** Zudem steht Ihnen ein Beschwerderecht bei der zuständigen Datenschutzaufsichtsbehörde zu (Art. 77 DSGVO).
+
 
 ### SSL- bzw. TLS-Verschlüsselung
 Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
