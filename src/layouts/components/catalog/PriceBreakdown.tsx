@@ -46,7 +46,7 @@ function SingleDeliverableBreakdown({
               onClick={() => setExpanded(!expanded)}
               className="text-xs text-text-light dark:text-darkmode-text-light hover:text-text dark:hover:text-darkmode-text mt-1 flex items-center gap-1"
             >
-              {expanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
+              {expanded ? <ChevronUp className="h-3 w-3 text-text-light dark:text-darkmode-text-light" /> : <ChevronDown className="h-3 w-3 text-text-light dark:text-darkmode-text-light" />}
               Preisaufschlüsselung {expanded ? 'ausblenden' : 'anzeigen'}
             </button>
           )}

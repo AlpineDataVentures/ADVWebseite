@@ -32,7 +32,7 @@ export function HeroEmptyState({ className }: HeroEmptyStateProps) {
     <div className={cn("space-y-8", className)}>
       {/* Headline */}
       <div className="space-y-4">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[hsl(var(--text))] leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text dark:text-darkmode-text leading-tight">
           Use Case wählen.
           <br />
           Paket bekommen.
@@ -51,10 +51,10 @@ export function HeroEmptyState({ className }: HeroEmptyStateProps) {
           return (
             <div
               key={idx}
-              className="flex items-start gap-3 p-4 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--surface))] hover:shadow-lg hover:shadow-[hsl(var(--accent)/0.1)] transition-all duration-200"
+              className="flex items-start gap-3 p-4 rounded-xl border border-border bg-light dark:bg-darkmode-light hover:shadow-sm hover:border-green-500/30 transition-all duration-200"
             >
-              <div className="shrink-0 p-2 rounded-lg bg-[hsl(var(--accent)/0.1)]">
-                <Icon className="h-5 w-5 text-[hsl(var(--accent))]" />
+              <div className="shrink-0 p-2 rounded-lg bg-green-500/10">
+                <Icon className="h-5 w-5 text-text dark:text-darkmode-text" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-sm text-text dark:text-darkmode-text mb-1">

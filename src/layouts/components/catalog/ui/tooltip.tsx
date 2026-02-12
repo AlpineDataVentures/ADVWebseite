@@ -81,7 +81,7 @@ const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
       <div
         ref={ref}
         className={cn(
-          "absolute z-50 overflow-hidden rounded-md bg-light dark:bg-darkmode-light px-3 py-1.5 text-xs text-text dark:text-darkmode-text shadow-lg border border-border dark:border-darkmode-border",
+          "absolute z-50 overflow-hidden rounded-md bg-light dark:bg-darkmode-light px-3 py-1.5 text-xs font-medium text-text dark:text-darkmode-text shadow-lg border border-border dark:border-darkmode-border",
           "animate-in fade-in-0 zoom-in-95",
           sideClasses[side],
           className

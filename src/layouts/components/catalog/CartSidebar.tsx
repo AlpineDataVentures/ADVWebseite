@@ -39,7 +39,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
       selectedDeliverables: config.selectedDeliverables,
       totalPrice: totalPrice
     }, null, 2);
-    
+
     navigator.clipboard.writeText(configJson).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -50,7 +50,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
   const getSelectedParamsTags = (params: Record<string, any>) => {
     const tags: Array<{ key: string; label: string; value: string }> = [];
     const keyParams = ['companySize', 'speed', 'dataSources', 'deployment', 'reportComplexity'];
-    
+
     keyParams.forEach(key => {
       if (params[key] !== undefined) {
         const param = getParameterByKey(key);
@@ -62,7 +62,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
         }
       }
     });
-    
+
     return tags.slice(0, 4); // Max 4 tags
   };
 
@@ -70,14 +70,14 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
   const CartContent = () => (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex-shrink-0 pb-4 border-b border-[hsl(var(--border))]">
+      <div className="flex-shrink-0 pb-4 border-b border-border">
         <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-base text-[hsl(var(--text))]">
+          <h3 className="font-semibold text-base text-text dark:text-darkmode-text">
             Warenkorb
           </h3>
           {cartWithPrices.length > 0 && (
-            <Badge variant="secondary" className="text-xs">
-              {cartWithPrices.length}
+            <Badge variant="default" className="text-xs">
+              {cartWithPrices.length} {cartWithPrices.length === 1 ? 'Position' : 'Positionen'}
             </Badge>
           )}
         </div>
@@ -87,11 +87,11 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
       <div className="flex-1 overflow-y-auto py-4 space-y-3">
         {cartWithPrices.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12 text-center">
-            <ShoppingCart className="h-12 w-12 text-[hsl(var(--muted))] mb-4" />
-            <p className="text-sm font-medium text-[hsl(var(--text))] mb-2">
+            <ShoppingCart className="h-12 w-12 text-text-light dark:text-darkmode-text-light mb-4" />
+            <p className="text-sm font-medium text-text dark:text-darkmode-text mb-2">
               Warenkorb ist leer
             </p>
-            <p className="text-xs text-[hsl(var(--muted))] mb-4">
+            <p className="text-xs text-text-light dark:text-darkmode-text-light mb-4">
               Wählen Sie einen Use Case aus, um mit der Konfiguration zu beginnen.
             </p>
             <Button
@@ -120,12 +120,12 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                     {/* Item Header */}
                     <div className="flex items-start justify-between gap-2">
                       <div className="flex items-start gap-2 flex-1 min-w-0">
-                        <Icon className="h-4 w-4 text-[hsl(var(--accent))] mt-0.5 shrink-0" />
+                        <Icon className="h-4 w-4 text-text dark:text-darkmode-text mt-0.5 shrink-0" />
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-medium text-sm text-[hsl(var(--text))] truncate">
+                          <h4 className="font-medium text-sm text-text dark:text-darkmode-text truncate">
                             {item.deliverable.name}
                           </h4>
-                          <p className="text-xs font-semibold text-[hsl(var(--accent))] mt-0.5">
+                          <p className="text-xs font-semibold text-green-500 mt-0.5">
                             {formatPrice(item.price)}
                           </p>
                         </div>
@@ -136,7 +136,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                         className="h-6 w-6 shrink-0"
                         onClick={() => handleRemove(item.deliverableId)}
                       >
-                        <Trash2 className="h-3.5 w-3.5 text-[hsl(var(--muted))]" />
+                        <Trash2 className="h-3.5 w-3.5 text-text-light dark:text-darkmode-text-light" />
                       </Button>
                     </div>
 
@@ -153,7 +153,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                       {/* Selected Params Tags */}
                       {selectedParamsTags.length > 0 && (
                         <div>
-                          <p className="text-xs font-medium text-[hsl(var(--muted))] mb-1.5">
+                          <p className="text-xs font-medium text-text-light dark:text-darkmode-text-light mb-1.5">
                             Ausgewählte Parameter:
                           </p>
                           <div className="flex flex-wrap gap-1.5">
@@ -167,9 +167,9 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                       )}
 
                       {/* Mini Breakdown */}
-                      <div className="space-y-1.5 text-xs border-t border-[hsl(var(--border))] pt-2">
+                      <div className="space-y-1.5 text-xs border-t border-border pt-2">
                         <div className="flex justify-between">
-                          <span className="text-[hsl(var(--muted))]">Basispreis</span>
+                          <span className="text-text-light dark:text-darkmode-text-light">Basispreis</span>
                           <span className="font-medium">{formatPrice(item.breakdown.base)}</span>
                         </div>
 
@@ -177,7 +177,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                           <>
                             {item.breakdown.multipliers.map((mult, idx) => (
                               <div key={idx} className="flex justify-between">
-                                <span className="text-[hsl(var(--muted))]">
+                                <span className="text-text-light dark:text-darkmode-text-light">
                                   {mult.label} (×{mult.factor.toFixed(2)})
                                 </span>
                                 <span className="font-medium">
@@ -192,7 +192,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                           <>
                             {item.breakdown.addons.map((addon, idx) => (
                               <div key={idx} className="flex justify-between">
-                                <span className="text-[hsl(var(--muted))]">{addon.label}</span>
+                                <span className="text-text-light dark:text-darkmode-text-light">{addon.label}</span>
                                 <span className="font-medium">+{formatPrice(addon.amount)}</span>
                               </div>
                             ))}
@@ -216,11 +216,11 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
 
       {/* Footer - Fixed */}
       {cartWithPrices.length > 0 && (
-        <div className="flex-shrink-0 pt-4 border-t border-[hsl(var(--border))] space-y-3">
+        <div className="flex-shrink-0 pt-4 border-t border-border bg-green-500/5 space-y-3">
           {/* Gesamtsumme */}
           <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-[hsl(var(--text))]">Gesamtsumme</span>
-            <span className="font-bold text-xl text-[hsl(var(--accent))]">
+            <span className="text-sm font-semibold text-text dark:text-darkmode-text">Gesamtsumme</span>
+            <span className="font-bold text-xl text-green-500">
               {formatPrice(totalPrice)}
             </span>
           </div>
@@ -265,7 +265,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
     return (
       <aside className="hidden lg:block lg:col-span-3">
         <div className="sticky top-6">
-          <div className="card p-4 h-[calc(100vh-8rem)] flex flex-col">
+          <div className="card p-4 h-[calc(100vh-8rem)] flex flex-col bg-light dark:bg-darkmode-light border border-border shadow-sm rounded-xl">
             <CartContent />
           </div>
         </div>
@@ -278,13 +278,13 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
     <>
       <Sheet open={open} onOpenChange={onOpenChange}>
         <SheetContent side="right" className="w-full sm:w-96 p-0 flex flex-col">
-          <SheetHeader className="px-6 pt-6 pb-4 border-b border-[hsl(var(--border))]">
+          <SheetHeader className="px-6 pt-6 pb-4 border-b border-border">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <SheetTitle>Warenkorb</SheetTitle>
                 {cartWithPrices.length > 0 && (
-                  <Badge variant="secondary" className="text-xs">
-                    {cartWithPrices.length}
+                  <Badge variant="default" className="text-xs">
+                    {cartWithPrices.length} {cartWithPrices.length === 1 ? 'Position' : 'Positionen'}
                   </Badge>
                 )}
               </div>

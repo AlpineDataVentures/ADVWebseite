@@ -74,8 +74,8 @@ const TabsTrigger = ({ value, children, className }: TabsTriggerProps) => {
       className={cn(
         "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-body transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
         isActive
-          ? "bg-body text-text dark:text-darkmode-text border-b-2 border-green-500"
-          : "text-text-light dark:text-darkmode-text-light hover:bg-light/60 dark:hover:bg-darkmode-light/60",
+          ? "bg-body text-text dark:text-darkmode-text border-b-2 border-green-500 font-medium"
+          : "text-text-light dark:text-darkmode-text-light hover:bg-green-500/5",
         className
       )}
     >

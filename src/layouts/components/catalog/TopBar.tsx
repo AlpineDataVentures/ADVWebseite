@@ -55,7 +55,7 @@ export function TopBar({
           {/* Search */}
           <div className="flex-1 max-w-md mx-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-light dark:text-darkmode-text-light" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text dark:text-darkmode-text" />
               <Input
                 ref={searchInputRef}
                 type="search"

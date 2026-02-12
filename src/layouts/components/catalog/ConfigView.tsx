@@ -107,15 +107,15 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
             <AccordionItem
               key={id}
               value={id}
-              className="card border-border rounded-2xl overflow-hidden"
+              className="card border-border rounded-2xl overflow-hidden hover:shadow-sm hover:border-green-500/30 transition-shadow transition-colors"
             >
               {/* Accordion Header */}
               <AccordionTrigger className="px-6 py-4 hover:no-underline">
                 <div className="flex items-center justify-between w-full pr-4">
                   <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <Icon className="h-5 w-5 text-accent shrink-0" />
+                    <Icon className="h-5 w-5 text-text dark:text-darkmode-text shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-base text-foreground text-left truncate">
+                      <h3 className="font-semibold text-base text-text dark:text-darkmode-text text-left truncate">
                         {deliverable.name}
                       </h3>
                       <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
@@ -127,7 +127,7 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
                   </div>
                   {/* Aktueller Preis (live) */}
                   <div className="text-right shrink-0 ml-4">
-                    <p className="font-semibold text-lg text-accent">
+                    <p className="font-semibold text-lg text-green-500">
                       {formatPrice(priceCalculation.total)}
                     </p>
                   </div>
@@ -246,7 +246,7 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
                                 <ul className="space-y-1.5">
                                   {deliverable.deliverablesOutput.map((output, idx) => (
                                     <li key={idx} className="flex items-start gap-2 text-xs text-text-light dark:text-darkmode-text-light">
-                                      <CheckCircle2 className="h-3.5 w-3.5 text-accent mt-0.5 shrink-0" />
+                                      <CheckCircle2 className="h-3.5 w-3.5 text-text-light dark:text-darkmode-text-light mt-0.5 shrink-0" />
                                       <span>{output}</span>
                                     </li>
                                   ))}
@@ -299,7 +299,7 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
                   {/* Right: PriceBreakdown */}
                   <div className="lg:col-span-1">
                     <div className="card p-4 sticky top-6">
-                      <h4 className="text-sm font-semibold text-foreground mb-4">
+                      <h4 className="text-sm font-semibold text-text dark:text-darkmode-text mb-4">
                         Preisaufschlüsselung
                       </h4>
                       <div className="space-y-3">
