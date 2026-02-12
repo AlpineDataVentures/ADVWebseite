@@ -96,8 +96,8 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
         </Button>
       </div>
 
-      {/* Accordion für jedes Deliverable */}
-      <Accordion type="multiple" className="space-y-3">
+      {/* Accordion für jedes Deliverable - mehr Abstand, größere Cards */}
+      <Accordion type="multiple" className="space-y-6">
         {enabledDeliverables.map(({ id, deliverable, params }) => {
           const applicableParameters = getParametersForDeliverable(id);
           const priceCalculation = calculateDeliverablePrice(deliverable, params);
@@ -107,15 +107,15 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
             <AccordionItem
               key={id}
               value={id}
-              className="card border-border rounded-2xl overflow-hidden hover:shadow-sm hover:border-green-500/30 transition-shadow transition-colors"
+              className="card border-border rounded-2xl overflow-hidden hover:shadow-sm hover:border-green-600/30 transition-shadow transition-colors"
             >
               {/* Accordion Header */}
-              <AccordionTrigger className="px-6 py-4 hover:no-underline">
+              <AccordionTrigger className="px-6 py-5 hover:no-underline">
                 <div className="flex items-center justify-between w-full pr-4">
                   <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <Icon className="h-5 w-5 text-text dark:text-darkmode-text shrink-0" />
+                    <Icon className="h-5 w-5 text-green-600/90 dark:text-green-400/90 shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-base text-text dark:text-darkmode-text text-left truncate">
+                      <h3 className="font-semibold text-lg text-text dark:text-darkmode-text text-left truncate leading-snug">
                         {deliverable.name}
                       </h3>
                       <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
@@ -127,7 +127,7 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
                   </div>
                   {/* Aktueller Preis (live) */}
                   <div className="text-right shrink-0 ml-4">
-                    <p className="font-semibold text-lg text-green-500">
+                    <p className="font-semibold text-lg text-green-600 dark:text-green-400">
                       {formatPrice(priceCalculation.total)}
                     </p>
                   </div>
@@ -135,7 +135,7 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
               </AccordionTrigger>
 
               {/* Accordion Content */}
-              <AccordionContent className="px-6 pb-6">
+              <AccordionContent className="px-6 pb-6 pt-1">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-4">
                   {/* Left: Parameter Controls */}
                   <div className="lg:col-span-2 space-y-4">
@@ -229,14 +229,17 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
                       </div>
                     </div>
 
-                    {/* Scope & Deliverables */}
-                    <div className="mt-6">
-                      <Accordion type="single" collapsible className="border border-border rounded-lg">
+                    {/* Scope & Deliverables - mehr Struktur, Divider */}
+                    <div className="mt-8 pt-6 border-t border-border">
+                      <h4 className="text-sm font-semibold text-text dark:text-darkmode-text mb-3 uppercase tracking-wide">
+                        Scope & Deliverables
+                      </h4>
+                      <Accordion type="single" collapsible className="border border-border rounded-lg bg-light/50 dark:bg-darkmode-light/50">
                         <AccordionItem value={`scope-${id}`} className="border-0">
                           <AccordionTrigger className="px-4 py-3 text-sm font-medium">
-                            Scope & Deliverables
+                            Lieferumfang, Voraussetzungen & Nicht enthalten
                           </AccordionTrigger>
-                          <AccordionContent className="px-4 pb-4 space-y-4">
+                          <AccordionContent className="px-4 pb-4 pt-1 space-y-4">
                             {/* Output Bullets */}
                             {deliverable.deliverablesOutput.length > 0 && (
                               <div>
@@ -266,7 +269,7 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
                                   <ul className="space-y-1">
                                     {deliverable.assumptions.map((assumption, idx) => (
                                       <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
-                                        <CheckCircle2 className="h-3 w-3 text-green-500 mt-0.5 shrink-0" />
+                                        <CheckCircle2 className="h-3 w-3 text-green-600/80 dark:text-green-400/80 mt-0.5 shrink-0" />
                                         <span>{assumption}</span>
                                       </li>
                                     ))}
@@ -296,9 +299,9 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
                     </div>
                   </div>
 
-                  {/* Right: PriceBreakdown */}
+                  {/* Right: PriceBreakdown - ruhiger, weniger neon */}
                   <div className="lg:col-span-1">
-                    <div className="card p-4 sticky top-6">
+                    <div className="card p-5 sticky top-6">
                       <h4 className="text-sm font-semibold text-text dark:text-darkmode-text mb-4">
                         Preisaufschlüsselung
                       </h4>
@@ -355,9 +358,9 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
                         <Separator />
 
                         {/* Total */}
-                        <div className="flex justify-between items-center pt-2">
+                        <div className="flex justify-between items-center pt-3 mt-2 border-t border-border">
                           <span className="font-semibold text-base text-text dark:text-darkmode-text">Gesamt</span>
-                          <span className="font-bold text-lg text-green-500">
+                          <span className="font-bold text-lg text-green-600 dark:text-green-400">
                             {formatPrice(priceCalculation.total)}
                           </span>
                         </div>
@@ -376,7 +379,7 @@ export function ConfigView({ useCaseId, onBack }: ConfigViewProps) {
         <Button variant="outline" onClick={handleCopyConfig} size="lg">
           Konfiguration kopieren
         </Button>
-        <Button onClick={onBack} size="lg" className="btn-primary">
+        <Button variant="default" onClick={onBack} size="lg">
           Zurück zur Empfehlung
         </Button>
       </div>

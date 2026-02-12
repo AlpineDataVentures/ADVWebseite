@@ -125,7 +125,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                           <h4 className="font-medium text-sm text-text dark:text-darkmode-text truncate">
                             {item.deliverable.name}
                           </h4>
-                          <p className="text-xs font-semibold text-green-500 mt-0.5">
+                          <p className="text-xs font-semibold text-green-600 dark:text-green-400 mt-0.5">
                             {formatPrice(item.price)}
                           </p>
                         </div>
@@ -216,11 +216,11 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
 
       {/* Footer - Fixed */}
       {cartWithPrices.length > 0 && (
-        <div className="flex-shrink-0 pt-4 border-t border-border bg-green-500/5 space-y-3">
+        <div className="flex-shrink-0 pt-4 border-t border-border bg-green-500/[0.07] dark:bg-green-500/10 space-y-3">
           {/* Gesamtsumme */}
           <div className="flex items-center justify-between">
             <span className="text-sm font-semibold text-text dark:text-darkmode-text">Gesamtsumme</span>
-            <span className="font-bold text-xl text-green-500">
+            <span className="font-bold text-xl text-green-600 dark:text-green-400">
               {formatPrice(totalPrice)}
             </span>
           </div>

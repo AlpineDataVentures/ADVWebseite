@@ -73,38 +73,36 @@ export function TopBar({
           </div>
         </div>
 
-        {/* Second Row: Domain Tabs */}
-        <div className="flex items-center gap-1 border-t border-border overflow-x-auto scrollbar-hide">
-          <div className="flex items-center gap-1 min-w-max px-2 py-2">
-            {domains.map((domain) => {
-              const Icon = getDomainIcon(domain.id);
-              const isActive = activeDomainId === domain.id;
+        {/* Second Row: Domain Tabs - flex-wrap, keine Scrollbar */}
+        <div className="flex flex-wrap gap-1 border-t border-border overflow-hidden px-2 py-2">
+          {domains.map((domain) => {
+            const Icon = getDomainIcon(domain.id);
+            const isActive = activeDomainId === domain.id;
 
-              return (
-                <button
-                  key={domain.id}
-                  type="button"
-                  onClick={() => onDomainChange(isActive ? null : domain.id)}
+            return (
+              <button
+                key={domain.id}
+                type="button"
+                onClick={() => onDomainChange(isActive ? null : domain.id)}
+                className={cn(
+                  "flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all duration-200",
+                  "border-b-2 border-transparent",
+                  "hover:bg-light/80 dark:hover:bg-darkmode-light/80",
+                  isActive
+                    ? "border-green-600 dark:border-green-400 text-text dark:text-darkmode-text bg-green-500/10 dark:bg-green-500/15"
+                    : "text-text/90 dark:text-darkmode-text/90 hover:text-text dark:hover:text-darkmode-text"
+                )}
+              >
+                <Icon
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all duration-200",
-                    "border-b-2 border-transparent",
-                    "hover:bg-light/70 dark:hover:bg-darkmode-light/70",
-                    isActive
-                      ? "border-green-500 text-green-600 dark:text-green-400 bg-green-500/5"
-                      : "text-text-light dark:text-darkmode-text-light hover:text-text dark:hover:text-darkmode-text"
+                    "h-4 w-4 shrink-0",
+                    isActive ? "text-green-600 dark:text-green-400" : "text-text/90 dark:text-darkmode-text/90"
                   )}
-                >
-                  <Icon
-                    className={cn(
-                      "h-4 w-4 shrink-0",
-                      isActive ? "text-green-500" : "text-text-light dark:text-darkmode-text-light"
-                    )}
-                  />
-                  <span className="whitespace-nowrap">{domain.name}</span>
-                </button>
-              );
-            })}
-          </div>
+                />
+                <span className="whitespace-nowrap">{domain.name}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </header>

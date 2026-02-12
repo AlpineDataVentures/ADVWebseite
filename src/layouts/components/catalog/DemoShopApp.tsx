@@ -145,10 +145,8 @@ export default function DemoShopApp() {
         open={cartOpen}
         onOpenChange={setCartOpen}
         onGoToConfig={() => {
-          if (useCase) {
-            setViewMode('configure');
-            setCartOpen(false);
-          }
+          setViewMode('configure');
+          setCartOpen(false);
         }}
       />
     </div>

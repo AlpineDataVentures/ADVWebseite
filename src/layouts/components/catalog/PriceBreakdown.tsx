@@ -51,7 +51,7 @@ function SingleDeliverableBreakdown({
             </button>
           )}
         </div>
-        <p className="font-semibold text-lg text-green-500">{formatPrice(calculation.total)}</p>
+        <p className="font-semibold text-lg text-green-600 dark:text-green-400">{formatPrice(calculation.total)}</p>
       </div>
 
       {expanded && showDetails && (
@@ -105,7 +105,7 @@ function SingleDeliverableBreakdown({
           <Separator className="my-2" />
           <div className="flex justify-between font-semibold text-base">
             <span className="text-text dark:text-darkmode-text">Gesamtpreis</span>
-            <span className="text-green-500">{formatPrice(calculation.total)}</span>
+            <span className="text-green-600 dark:text-green-400">{formatPrice(calculation.total)}</span>
           </div>
         </div>
       )}
@@ -232,7 +232,7 @@ export function PriceBreakdown({
 
             <div className="flex items-center justify-between text-xl font-bold pt-2">
               <span className="text-text dark:text-darkmode-text">Gesamtpreis</span>
-              <span className="text-green-500">{formatPrice(total)}</span>
+              <span className="text-green-600 dark:text-green-400">{formatPrice(total)}</span>
             </div>
           </>
         )}
