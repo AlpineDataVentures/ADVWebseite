@@ -55,13 +55,13 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
   return (
     <div className="space-y-6">
       {/* Use Case Header */}
-      <div className="card">
+      <div className="card p-6">
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="flex-1">
-            <h1 className="text-2xl font-bold text-foreground mb-2 line-clamp-2">
+            <h1 className="text-2xl font-bold text-text-dark dark:text-darkmode-text-dark mb-2 line-clamp-2">
               {useCase.title}
             </h1>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+            <p className="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed mb-4 line-clamp-2">
               {useCase.short}
             </p>
           </div>
@@ -73,13 +73,13 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
         {/* Output Bullets (max 3) */}
         {useCase.outputs.length > 0 && (
           <div>
-            <p className="text-xs font-medium text-muted-foreground mb-2">
+            <p className="text-xs font-medium text-text-light dark:text-darkmode-text-light mb-2">
               Typische Outputs:
             </p>
             <ul className="space-y-1.5">
               {useCase.outputs.slice(0, 3).map((output, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-accent mt-0.5 shrink-0" />
+                <li key={idx} className="flex items-start gap-2 text-xs text-text-light dark:text-darkmode-text-light">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-green-600/80 dark:text-green-400/80 mt-0.5 shrink-0" />
                   <span>{output}</span>
                 </li>
               ))}
@@ -91,7 +91,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
       {/* Recommended Bundle Grid */}
       <div>
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-semibold text-foreground">
+          <h3 className="text-xl font-semibold text-text dark:text-darkmode-text">
             Empfohlene Projektpakete
           </h3>
           {recommendations.length > 0 && (
@@ -103,15 +103,15 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
 
         {recommendations.length === 0 ? (
           <div className="card p-8 text-center">
-            <p className="text-muted-foreground mb-2">
+            <p className="text-text-light dark:text-darkmode-text-light mb-2">
               Keine Empfehlungen für diesen Use Case verfügbar.
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-text-light dark:text-darkmode-text-light">
               Bitte wählen Sie einen anderen Use Case aus.
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Core Deliverables */}
             {coreDeliverables.map((recommendation) => {
               const deliverable = getDeliverableById(recommendation.deliverableId);
@@ -178,14 +178,14 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
         </Button>
         
         <div className="flex items-center gap-4">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-text-light dark:text-darkmode-text-light">
             {enabledCount} von {recommendations.filter(r => getDeliverableById(r.deliverableId)?.active).length} aktiviert
           </p>
           <Button
             onClick={onNext}
             size="lg"
+            variant="default"
             disabled={enabledCount === 0}
-            className="btn-primary"
           >
             Weiter zur Konfiguration
           </Button>

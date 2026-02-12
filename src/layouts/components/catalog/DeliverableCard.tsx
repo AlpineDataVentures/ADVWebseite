@@ -44,17 +44,24 @@ export function DeliverableCard({
 
   return (
     <Card className={cn(
-      "card transition-all duration-200",
-      isEnabled && isActive && "card-selected border-accent bg-accent/5",
+      "transition-all duration-200",
+      isEnabled && isActive && "border-green-600/40 dark:border-green-500/40 bg-green-500/5 dark:bg-green-500/10",
       isDisabled && "opacity-70"
     )}>
-      <CardHeader className="pb-3">
+      <CardHeader className="pb-3 px-6 pt-6">
         {/* Icon + Name + Family Tag */}
         <div className="flex items-start justify-between gap-2 mb-2">
           <div className="flex items-start gap-3 flex-1">
-            <Icon className="h-5 w-5 text-accent mt-0.5 shrink-0" />
+            <Icon
+              className={cn(
+                "h-5 w-5 mt-0.5 shrink-0",
+                isEnabled && isActive
+                  ? "text-green-600 dark:text-green-400"
+                  : "text-text dark:text-darkmode-text"
+              )}
+            />
             <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-base text-foreground mb-1 line-clamp-2">
+              <h3 className="font-semibold text-base text-text dark:text-darkmode-text mb-1 line-clamp-2">
                 {deliverable.name}
               </h3>
               <Badge variant="outline" className="text-xs">
@@ -65,7 +72,7 @@ export function DeliverableCard({
         </div>
 
         {/* Short Description (max 1-2 lines) */}
-        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-3">
+        <p className="text-sm text-text-light dark:text-darkmode-text-light line-clamp-2 leading-relaxed mb-3">
           {deliverable.shortDescription}
         </p>
 
@@ -78,12 +85,12 @@ export function DeliverableCard({
           ))}
         </div>
 
-        {/* Preis + Toggle Row */}
+        {/* Preis + Toggle Row - neutral price, not green */}
         <div className="flex items-center justify-between pt-2 border-t border-border">
           <div className="flex-1">
             {isActive ? (
               <div>
-                <p className="font-semibold text-lg text-accent">
+                <p className="font-semibold text-lg text-text dark:text-darkmode-text">
                   ab {formatPrice(getMinimumPrice(deliverable))}
                 </p>
               </div>
@@ -96,7 +103,7 @@ export function DeliverableCard({
           
           {isActive && (
             <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground whitespace-nowrap">Im Paket</span>
+              <span className="text-xs text-text-light dark:text-darkmode-text-light whitespace-nowrap">Im Paket</span>
               <Switch
                 checked={isEnabled}
                 onChange={(e) => onToggle(e.target.checked)}
@@ -107,8 +114,8 @@ export function DeliverableCard({
         </div>
 
         {/* "Warum empfohlen?" Text */}
-        <p className="text-xs text-muted-foreground mt-3 italic">
-          <span className="font-medium">Warum empfohlen?</span> {recommendation.reason}
+        <p className="text-xs text-text-light dark:text-darkmode-text-light mt-3 italic">
+          <span className="font-medium text-text dark:text-darkmode-text">Warum empfohlen?</span> {recommendation.reason}
         </p>
       </CardHeader>
 
@@ -119,14 +126,14 @@ export function DeliverableCard({
             <AccordionTrigger className="text-xs py-2 hover:no-underline">
               <span className="flex items-center gap-1">
                 Details
-                <ChevronDown className="h-3 w-3" />
+                <ChevronDown className="h-3 w-3 text-text-light dark:text-darkmode-text-light" />
               </span>
             </AccordionTrigger>
             <AccordionContent className="pt-2 space-y-4">
               {/* Long Description */}
               <div>
-                <h4 className="font-medium text-sm mb-2 text-foreground">Beschreibung</h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <h4 className="font-medium text-sm mb-2 text-text dark:text-darkmode-text">Beschreibung</h4>
+                <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
                   {deliverable.longDescription}
                 </p>
               </div>
@@ -136,11 +143,11 @@ export function DeliverableCard({
               {/* Deliverables Output */}
               {deliverable.deliverablesOutput.length > 0 && (
                 <div>
-                  <h4 className="font-medium text-sm mb-2 text-foreground">Lieferumfang</h4>
+                  <h4 className="font-medium text-sm mb-2 text-text dark:text-darkmode-text">Lieferumfang</h4>
                   <ul className="space-y-1.5">
                     {deliverable.deliverablesOutput.map((output, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-accent mt-0.5 shrink-0" />
+                      <li key={idx} className="flex items-start gap-2 text-xs text-text-light dark:text-darkmode-text-light">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-green-600/80 dark:text-green-400/80 mt-0.5 shrink-0" />
                         <span>{output}</span>
                       </li>
                     ))}
@@ -153,21 +160,21 @@ export function DeliverableCard({
               {/* Assumptions & Out of Scope */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-medium text-xs mb-2 text-foreground">Voraussetzungen</h4>
+                  <h4 className="font-medium text-xs mb-2 text-text dark:text-darkmode-text">Voraussetzungen</h4>
                   <ul className="space-y-1">
                     {deliverable.assumptions.map((assumption, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5 text-xs text-muted-foreground">
-                        <CheckCircle2 className="h-3 w-3 text-green-500 mt-0.5 shrink-0" />
+                      <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
+                        <CheckCircle2 className="h-3 w-3 text-green-600/80 dark:text-green-400/80 mt-0.5 shrink-0" />
                         <span>{assumption}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-medium text-xs mb-2 text-foreground">Nicht enthalten</h4>
+                  <h4 className="font-medium text-xs mb-2 text-text dark:text-darkmode-text">Nicht enthalten</h4>
                   <ul className="space-y-1">
                     {deliverable.outOfScope.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5 text-xs text-muted-foreground">
+                      <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
                         <XCircle className="h-3 w-3 text-red-500 mt-0.5 shrink-0" />
                         <span>{item}</span>
                       </li>

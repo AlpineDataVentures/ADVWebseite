@@ -1,8 +1,11 @@
 ---
 import Base from "@/layouts/Base.astro";
 import DemoShopApp from "@/layouts/components/catalog/DemoShopApp";
+import "@/styles/catalog.css";
 ---
 
 <Base title="Demo - ADV Produktkatalog">
-  <DemoShopApp client:load />
+  <section class="adv-catalog">
+    <DemoShopApp client:load />
+  </section>
 </Base>

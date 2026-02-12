@@ -55,7 +55,7 @@ export function TopBar({
           {/* Search */}
           <div className="flex-1 max-w-md mx-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text dark:text-darkmode-text" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text dark:text-darkmode-text shrink-0" />
               <Input
                 ref={searchInputRef}
                 type="search"
@@ -90,13 +90,13 @@ export function TopBar({
                   "hover:bg-light/80 dark:hover:bg-darkmode-light/80",
                   isActive
                     ? "border-green-600 dark:border-green-400 text-text dark:text-darkmode-text bg-green-500/10 dark:bg-green-500/15"
-                    : "text-text/90 dark:text-darkmode-text/90 hover:text-text dark:hover:text-darkmode-text"
+                    : "text-text dark:text-darkmode-text hover:bg-light/90 dark:hover:bg-darkmode-light/90"
                 )}
               >
                 <Icon
                   className={cn(
                     "h-4 w-4 shrink-0",
-                    isActive ? "text-green-600 dark:text-green-400" : "text-text/90 dark:text-darkmode-text/90"
+                    isActive ? "text-green-600 dark:text-green-400" : "text-text dark:text-darkmode-text"
                   )}
                 />
                 <span className="whitespace-nowrap">{domain.name}</span>

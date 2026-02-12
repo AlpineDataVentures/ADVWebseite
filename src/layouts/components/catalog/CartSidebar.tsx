@@ -70,7 +70,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
   const CartContent = () => (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex-shrink-0 pb-4 border-b border-border">
+      <div className="flex-shrink-0 pb-4 border-b-2 border-border">
         <div className="flex items-center justify-between">
           <h3 className="font-semibold text-base text-text dark:text-darkmode-text">
             Warenkorb
@@ -106,7 +106,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
             </Button>
           </div>
         ) : (
-          <Accordion type="multiple" className="space-y-2">
+          <Accordion type="multiple" className="space-y-3">
             {cartWithPrices.map((item) => {
               if (!item.deliverable) return null;
 
@@ -116,7 +116,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
 
               return (
                 <AccordionItem key={item.deliverableId} value={item.deliverableId} className="border-0">
-                  <div className="card p-3 space-y-2">
+                  <div className="card p-4 space-y-2 border border-border">
                     {/* Item Header */}
                     <div className="flex items-start justify-between gap-2">
                       <div className="flex items-start gap-2 flex-1 min-w-0">
@@ -125,7 +125,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                           <h4 className="font-medium text-sm text-text dark:text-darkmode-text truncate">
                             {item.deliverable.name}
                           </h4>
-                          <p className="text-xs font-semibold text-green-600 dark:text-green-400 mt-0.5">
+                          <p className="text-xs font-semibold text-text dark:text-darkmode-text mt-0.5">
                             {formatPrice(item.price)}
                           </p>
                         </div>
@@ -136,19 +136,15 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
                         className="h-6 w-6 shrink-0"
                         onClick={() => handleRemove(item.deliverableId)}
                       >
-                        <Trash2 className="h-3.5 w-3.5 text-text-light dark:text-darkmode-text-light" />
+                        <Trash2 className="h-3.5 w-3.5 text-text dark:text-darkmode-text" />
                       </Button>
                     </div>
-
-                    {/* Expand Caret */}
                     <AccordionTrigger className="py-1 text-xs hover:no-underline">
                       <span className="flex items-center gap-1">
                         Details
-                        <ChevronDown className="h-3 w-3" />
+                        <ChevronDown className="h-3 w-3 text-text-light dark:text-darkmode-text-light" />
                       </span>
                     </AccordionTrigger>
-
-                    {/* Accordion Content: Mini Breakdown + Selected Params */}
                     <AccordionContent className="pt-2 space-y-3">
                       {/* Selected Params Tags */}
                       {selectedParamsTags.length > 0 && (
@@ -214,23 +210,21 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
         )}
       </div>
 
-      {/* Footer - Fixed */}
+      {/* Footer - Sticky, clear structure */}
       {cartWithPrices.length > 0 && (
-        <div className="flex-shrink-0 pt-4 border-t border-border bg-green-500/[0.07] dark:bg-green-500/10 space-y-3">
-          {/* Gesamtsumme */}
+        <div className="flex-shrink-0 pt-4 border-t-2 border-border bg-light/80 dark:bg-darkmode-light/80 space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-sm font-semibold text-text dark:text-darkmode-text">Gesamtsumme</span>
             <span className="font-bold text-xl text-green-600 dark:text-green-400">
               {formatPrice(totalPrice)}
             </span>
           </div>
-
-          {/* CTA Buttons */}
           <div className="space-y-2">
             {onCheckout && (
               <Button
+                variant="default"
                 onClick={onCheckout}
-                className="w-full btn-primary"
+                className="w-full"
                 size="lg"
               >
                 Zur Zusammenfassung
