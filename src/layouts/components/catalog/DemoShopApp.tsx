@@ -38,12 +38,12 @@ export default function DemoShopApp() {
   // Handle Use Case Selection
   const handleUseCaseSelect = (useCaseId: string) => {
     if (!useCaseId) return;
-    
+
     setActiveUseCaseId(useCaseId);
     setActiveUseCase(useCaseId);
     setBundleFromUseCase(useCaseId);
     setViewMode('bundle');
-    
+
     // Scroll to top of middle panel
     setTimeout(() => {
       const middlePanel = document.querySelector('[data-middle-panel]');
@@ -89,7 +89,7 @@ export default function DemoShopApp() {
   const useCase = activeUseCaseId ? getUseCaseById(activeUseCaseId) : null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="min-h-screen flex flex-col bg-body text-text dark:text-darkmode-text">
       {/* TopBar with Domain Tabs */}
       <TopBar
         activeDomainId={activeDomainId}
@@ -102,7 +102,7 @@ export default function DemoShopApp() {
       <main className="flex-1 min-h-0">
         <div className="container mx-auto h-full px-4 py-6">
           <div className="grid grid-cols-12 gap-6 h-full min-h-0">
-            
+
             {/* Left: Finder Panel */}
             <aside className="hidden lg:block lg:col-span-3 min-h-0 flex flex-col">
               <FinderPanel
@@ -114,7 +114,7 @@ export default function DemoShopApp() {
             </aside>
 
             {/* Middle: Content Panel */}
-            <section 
+            <section
               data-middle-panel
               className="col-span-12 lg:col-span-9 min-h-0 overflow-y-auto"
             >

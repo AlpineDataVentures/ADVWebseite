@@ -41,13 +41,13 @@ export function TopBar({
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-light dark:bg-darkmode-light backdrop-blur supports-[backdrop-filter]:bg-light/80 supports-[backdrop-filter]:dark:bg-darkmode-light/80">
       <div className="container mx-auto px-4">
         {/* First Row: Title + Search + Theme */}
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo / Title */}
           <div className="flex items-center gap-2 flex-shrink-0">
-            <h1 className="text-lg font-semibold text-foreground">
+            <h1 className="text-lg font-semibold text-text dark:text-darkmode-text">
               {title}
             </h1>
           </div>
@@ -55,14 +55,14 @@ export function TopBar({
           {/* Search */}
           <div className="flex-1 max-w-md mx-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-light dark:text-darkmode-text-light" />
               <Input
                 ref={searchInputRef}
                 type="search"
                 placeholder="Use Cases durchsuchen... (/)"
                 value={searchQuery}
                 onChange={(e) => onSearchChange?.(e.target.value)}
-                className="pl-9 h-9 bg-background text-foreground placeholder:text-muted-foreground border-border focus-visible:ring-ring"
+                className="pl-9 h-9 border-border"
               />
             </div>
           </div>
@@ -88,16 +88,18 @@ export function TopBar({
                   className={cn(
                     "flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all duration-200",
                     "border-b-2 border-transparent",
-                    "hover:bg-muted/50",
+                    "hover:bg-light/70 dark:hover:bg-darkmode-light/70",
                     isActive
-                      ? "border-accent text-accent bg-accent/5"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "border-green-500 text-green-600 dark:text-green-400 bg-green-500/5"
+                      : "text-text-light dark:text-darkmode-text-light hover:text-text dark:hover:text-darkmode-text"
                   )}
                 >
-                  <Icon className={cn(
-                    "h-4 w-4 shrink-0",
-                    isActive ? "text-accent" : "text-foreground/70"
-                  )} />
+                  <Icon
+                    className={cn(
+                      "h-4 w-4 shrink-0",
+                      isActive ? "text-green-500" : "text-text-light dark:text-darkmode-text-light"
+                    )}
+                  />
                   <span className="whitespace-nowrap">{domain.name}</span>
                 </button>
               );

@@ -24,24 +24,24 @@ export function FinderPanel({
   // Filter by search query
   const filteredUseCases = searchQuery.trim()
     ? useCases.filter((uc) => {
-        const query = searchQuery.toLowerCase();
-        return (
-          uc.title.toLowerCase().includes(query) ||
-          uc.short.toLowerCase().includes(query) ||
-          uc.tags.intent.some((intent) => intent.toLowerCase().includes(query))
-        );
-      })
+      const query = searchQuery.toLowerCase();
+      return (
+        uc.title.toLowerCase().includes(query) ||
+        uc.short.toLowerCase().includes(query) ||
+        uc.tags.intent.some((intent) => intent.toLowerCase().includes(query))
+      );
+    })
     : useCases;
 
   if (!activeDomainId) {
     return (
-      <div className="flex flex-col h-full min-h-0 bg-card rounded-2xl border border-border overflow-hidden">
+      <div className="flex flex-col h-full min-h-0 bg-light dark:bg-darkmode-light rounded-2xl border border-border overflow-hidden">
         <div className="flex-1 flex items-center justify-center p-8 text-center">
           <div className="space-y-2">
-            <p className="text-sm font-medium text-foreground">
+            <p className="text-sm font-medium text-text dark:text-darkmode-text">
               Domäne wählen
             </p>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-text-light dark:text-darkmode-text-light">
               Wählen Sie oben eine Domäne aus, um Use Cases zu sehen.
             </p>
           </div>
@@ -51,13 +51,13 @@ export function FinderPanel({
   }
 
   return (
-    <div className="flex flex-col h-full min-h-0 bg-card rounded-2xl border border-border overflow-hidden">
+    <div className="flex flex-col h-full min-h-0 bg-light dark:bg-darkmode-light rounded-2xl border border-border overflow-hidden">
       {/* Header */}
       <div className="flex-shrink-0 p-4 border-b border-border">
-        <h2 className="text-sm font-semibold text-foreground mb-1">
+        <h2 className="text-sm font-semibold text-text dark:text-darkmode-text mb-1">
           Use Cases
         </h2>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-text-light dark:text-darkmode-text-light">
           {filteredUseCases.length} {filteredUseCases.length === 1 ? 'Use Case' : 'Use Cases'} gefunden
         </p>
       </div>

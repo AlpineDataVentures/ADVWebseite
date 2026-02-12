@@ -15,9 +15,9 @@ export function ThemeToggle() {
     // Lade Theme aus localStorage oder Default (dark)
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = savedTheme === 'dark' || (!savedTheme && !document.documentElement.classList.contains('light'));
-    
+
     setIsDark(prefersDark);
-    
+
     // Setze initial Theme
     if (prefersDark) {
       document.documentElement.classList.remove('light');
@@ -53,9 +53,9 @@ export function ThemeToggle() {
       aria-label={isDark ? 'Zu Light Mode wechseln' : 'Zu Dark Mode wechseln'}
     >
       {isDark ? (
-        <Sun className="h-4 w-4 text-foreground" />
+        <Sun className="h-4 w-4 text-text dark:text-darkmode-text" />
       ) : (
-        <Moon className="h-4 w-4 text-foreground" />
+        <Moon className="h-4 w-4 text-text dark:text-darkmode-text" />
       )}
     </Button>
   );

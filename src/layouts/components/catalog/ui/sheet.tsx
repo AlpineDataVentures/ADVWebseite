@@ -14,6 +14,10 @@ interface SheetContentProps {
   className?: string;
 }
 
+interface SheetTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+}
+
 const Sheet = ({ open, onOpenChange, children }: SheetProps) => {
   React.useEffect(() => {
     if (open) {
@@ -42,7 +46,7 @@ const SheetContent = ({ children, side = "right", className }: SheetContentProps
   return (
     <div
       className={cn(
-        "fixed z-50 bg-background p-6 shadow-lg transition-transform",
+        "fixed z-50 bg-light dark:bg-darkmode-light p-6 shadow-lg transition-transform",
         {
           "inset-y-0 right-0 w-full sm:w-96 border-l": side === "right",
           "inset-y-0 left-0 w-full sm:w-96 border-r": side === "left",
@@ -65,13 +69,13 @@ const SheetHeader = ({ children, className }: { children: React.ReactNode; class
 );
 
 const SheetTitle = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <h2 className={cn("text-lg font-semibold text-foreground", className)}>
+  <h2 className={cn("text-lg font-semibold text-text dark:text-darkmode-text", className)}>
     {children}
   </h2>
 );
 
 const SheetDescription = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <p className={cn("text-sm text-muted-foreground", className)}>
+  <p className={cn("text-sm text-text-light dark:text-darkmode-text-light", className)}>
     {children}
   </p>
 );
@@ -79,11 +83,20 @@ const SheetDescription = ({ children, className }: { children: React.ReactNode; 
 const SheetClose = ({ onClose }: { onClose: () => void }) => (
   <button
     onClick={onClose}
-    className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
+    className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-body transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:pointer-events-none"
   >
     <X className="h-4 w-4" />
     <span className="sr-only">Close</span>
   </button>
 );
 
-export { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose };
+// Compat-only Trigger, damit alte Imports nicht brechen
+const SheetTrigger = ({ children, className, ...props }: SheetTriggerProps) => {
+  return (
+    <button type="button" className={cn(className)} {...props}>
+      {children}
+    </button>
+  );
+};
+
+export { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose, SheetTrigger };

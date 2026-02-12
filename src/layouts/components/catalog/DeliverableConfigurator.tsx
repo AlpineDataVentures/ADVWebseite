@@ -46,15 +46,15 @@ export function DeliverableConfigurator({ onComplete, onBackToRecommendation }: 
       const deliverable = getDeliverableById(id);
       return deliverable ? { id, deliverable, params: state.parameters } : null;
     })
-    .filter((item): item is { id: string; deliverable: NonNullable<ReturnType<typeof getDeliverableById>>; params: DeliverableParameters } => 
+    .filter((item): item is { id: string; deliverable: NonNullable<ReturnType<typeof getDeliverableById>>; params: DeliverableParameters } =>
       item !== null
     );
 
   if (enabledDeliverables.length === 0) {
     return (
       <div className="text-center py-12 space-y-4">
-        <p className="text-[hsl(var(--muted))] mb-2">Keine Deliverables aktiviert</p>
-        <p className="text-sm text-[hsl(var(--muted))] mb-4">
+        <p className="text-text-light dark:text-darkmode-text-light mb-2">Keine Deliverables aktiviert</p>
+        <p className="text-sm text-text-light dark:text-darkmode-text-light mb-4">
           Bitte aktivieren Sie mindestens ein Deliverable im Schritt "Empfehlung"
         </p>
         {onBackToRecommendation && (
@@ -74,13 +74,13 @@ export function DeliverableConfigurator({ onComplete, onBackToRecommendation }: 
     updateDeliverableParam(deliverableId, paramKey, value);
   };
 
-      return (
-        <div className="space-y-8">
-          <SectionHeader
-            overline="Konfiguration"
-            title="Produkte konfigurieren"
-            description="Passen Sie die Parameter für Ihre Deliverables an. Der Preis wird automatisch aktualisiert."
-          />
+  return (
+    <div className="space-y-8">
+      <SectionHeader
+        overline="Konfiguration"
+        title="Produkte konfigurieren"
+        description="Passen Sie die Parameter für Ihre Deliverables an. Der Preis wird automatisch aktualisiert."
+      />
 
       <Accordion type="multiple" className="space-y-3">
         {enabledDeliverables.map(({ id, deliverable, params }) => {
@@ -88,8 +88,8 @@ export function DeliverableConfigurator({ onComplete, onBackToRecommendation }: 
           const priceCalculation = calculateDeliverablePrice(deliverable, params);
 
           return (
-            <AccordionItem 
-              key={id} 
+            <AccordionItem
+              key={id}
               value={id}
               className="card border-[hsl(var(--border))] rounded-2xl overflow-hidden"
             >
@@ -112,9 +112,9 @@ export function DeliverableConfigurator({ onComplete, onBackToRecommendation }: 
                         {/* Mini Tags: Impact */}
                         {deliverable.tags.impact.slice(0, 2).map((impact) => (
                           <Badge key={impact} variant="secondary" className="text-xs px-1.5 py-0 shrink-0">
-                            {impact === 'quickwin' ? 'Quick Win' : 
-                             impact === 'foundation' ? 'Foundation' :
-                             impact === 'adoption' ? 'Adoption' : impact}
+                            {impact === 'quickwin' ? 'Quick Win' :
+                              impact === 'foundation' ? 'Foundation' :
+                                impact === 'adoption' ? 'Adoption' : impact}
                           </Badge>
                         ))}
                       </div>
@@ -153,7 +153,7 @@ export function DeliverableConfigurator({ onComplete, onBackToRecommendation }: 
                                 <Label htmlFor={`${id}-${param.key}`} className="text-sm font-medium">
                                   {param.label}
                                 </Label>
-                                
+
                                 {param.type === 'radio' ? (
                                   <>
                                     <RadioGroup
@@ -288,7 +288,7 @@ export function DeliverableConfigurator({ onComplete, onBackToRecommendation }: 
                                   </ul>
                                 </div>
                               )}
-                              
+
                               {deliverable.outOfScope.length > 0 && (
                                 <div>
                                   <h5 className="text-xs font-semibold text-[hsl(var(--text))] mb-2 uppercase">
@@ -388,7 +388,7 @@ export function DeliverableConfigurator({ onComplete, onBackToRecommendation }: 
 
       {/* CTA Button */}
       <div className="flex justify-end pt-6 border-t border-[hsl(var(--border))]">
-        <Button 
+        <Button
           onClick={onComplete || (() => window.location.href = '/summary')}
           size="lg"
           className="btn-primary"

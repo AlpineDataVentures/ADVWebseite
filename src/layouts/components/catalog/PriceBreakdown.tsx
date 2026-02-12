@@ -16,12 +16,12 @@ export interface PriceBreakdownProps {
 /**
  * Detaillierte Preisaufschlüsselung für ein einzelnes Deliverable
  */
-function SingleDeliverableBreakdown({ 
-  deliverableId, 
-  parameters, 
-  showDetails = true 
-}: { 
-  deliverableId: string; 
+function SingleDeliverableBreakdown({
+  deliverableId,
+  parameters,
+  showDetails = true
+}: {
+  deliverableId: string;
   parameters: Record<string, any>;
   showDetails: boolean;
 }) {
@@ -40,25 +40,25 @@ function SingleDeliverableBreakdown({
     <div className="space-y-2">
       <div className="flex items-center justify-between">
         <div className="flex-1">
-          <p className="font-medium text-sm">{deliverable.name}</p>
+          <p className="font-medium text-sm text-text dark:text-darkmode-text">{deliverable.name}</p>
           {showDetails && (
             <button
               onClick={() => setExpanded(!expanded)}
-              className="text-xs text-muted-foreground hover:text-foreground mt-1 flex items-center gap-1"
+              className="text-xs text-text-light dark:text-darkmode-text-light hover:text-text dark:hover:text-darkmode-text mt-1 flex items-center gap-1"
             >
               {expanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
               Preisaufschlüsselung {expanded ? 'ausblenden' : 'anzeigen'}
             </button>
           )}
         </div>
-        <p className="font-semibold text-lg">{formatPrice(calculation.total)}</p>
+        <p className="font-semibold text-lg text-green-500">{formatPrice(calculation.total)}</p>
       </div>
 
       {expanded && showDetails && (
-        <div className="pl-4 border-l-2 border-muted space-y-2 text-sm">
+        <div className="pl-4 border-l-2 border-border space-y-2 text-sm">
           {/* Base */}
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Basispreis</span>
+            <span className="text-text-light dark:text-darkmode-text-light">Basispreis</span>
             <span className="font-medium">{formatPrice(calculation.base)}</span>
           </div>
 
@@ -67,11 +67,11 @@ function SingleDeliverableBreakdown({
             <>
               <Separator className="my-2" />
               <div className="space-y-1.5">
-                <p className="text-xs font-medium text-muted-foreground uppercase">Multiplikatoren</p>
+                <p className="text-xs font-medium text-text-light dark:text-darkmode-text-light uppercase">Multiplikatoren</p>
                 {calculation.multipliers.map((mult, idx) => (
                   <div key={idx} className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                      <span className="text-muted-foreground">{mult.label}</span>
+                      <span className="text-text-light dark:text-darkmode-text-light">{mult.label}</span>
                       <Badge variant="outline" className="text-xs">
                         ×{mult.factor.toFixed(2)}
                       </Badge>
@@ -90,10 +90,10 @@ function SingleDeliverableBreakdown({
             <>
               <Separator className="my-2" />
               <div className="space-y-1.5">
-                <p className="text-xs font-medium text-muted-foreground uppercase">Zusatzkosten</p>
+                <p className="text-xs font-medium text-text-light dark:text-darkmode-text-light uppercase">Zusatzkosten</p>
                 {calculation.addons.map((addon, idx) => (
                   <div key={idx} className="flex justify-between">
-                    <span className="text-muted-foreground">{addon.label}</span>
+                    <span className="text-text-light dark:text-darkmode-text-light">{addon.label}</span>
                     <span className="font-medium">+{formatPrice(addon.amount)}</span>
                   </div>
                 ))}
@@ -104,8 +104,8 @@ function SingleDeliverableBreakdown({
           {/* Total */}
           <Separator className="my-2" />
           <div className="flex justify-between font-semibold text-base">
-            <span>Gesamtpreis</span>
-            <span>{formatPrice(calculation.total)}</span>
+            <span className="text-text dark:text-darkmode-text">Gesamtpreis</span>
+            <span className="text-green-500">{formatPrice(calculation.total)}</span>
           </div>
         </div>
       )}
@@ -116,11 +116,11 @@ function SingleDeliverableBreakdown({
 /**
  * Hauptkomponente: Preisübersicht für Warenkorb oder einzelnes Deliverable
  */
-export function PriceBreakdown({ 
-  deliverableId, 
-  parameters, 
+export function PriceBreakdown({
+  deliverableId,
+  parameters,
   showDetails = true,
-  className 
+  className
 }: PriceBreakdownProps) {
   const cart = useConfigStore((state) => state.getCart());
   const total = calculateTotalPrice(cart);
@@ -128,7 +128,7 @@ export function PriceBreakdown({
   // Wenn deliverableId und parameters übergeben werden, zeige einzelnes Deliverable
   if (deliverableId && parameters) {
     const hasCardWrapper = !className?.includes('border-0') && !className?.includes('shadow-none');
-    
+
     if (hasCardWrapper) {
       return (
         <Card className={className}>
@@ -136,8 +136,8 @@ export function PriceBreakdown({
             <CardTitle className="text-lg">Preisaufschlüsselung</CardTitle>
           </CardHeader>
           <CardContent>
-            <SingleDeliverableBreakdown 
-              deliverableId={deliverableId} 
+            <SingleDeliverableBreakdown
+              deliverableId={deliverableId}
               parameters={parameters}
               showDetails={showDetails}
             />
@@ -149,8 +149,8 @@ export function PriceBreakdown({
       return (
         <div className={className}>
           <h4 className="font-medium mb-3">Preisaufschlüsselung</h4>
-          <SingleDeliverableBreakdown 
-            deliverableId={deliverableId} 
+          <SingleDeliverableBreakdown
+            deliverableId={deliverableId}
             parameters={parameters}
             showDetails={showDetails}
           />
@@ -167,7 +167,7 @@ export function PriceBreakdown({
       </CardHeader>
       <CardContent className="space-y-4">
         {cart.length === 0 ? (
-          <p className="text-sm text-muted-foreground text-center py-4">
+          <p className="text-sm text-text-light dark:text-darkmode-text-light text-center py-4">
             Fügen Sie Produkte hinzu, um die Preisübersicht zu sehen
           </p>
         ) : (
@@ -183,9 +183,9 @@ export function PriceBreakdown({
                   <div key={item.deliverableId} className="space-y-2">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <p className="font-medium">{deliverable.name}</p>
+                        <p className="font-medium text-text dark:text-darkmode-text">{deliverable.name}</p>
                         {item.quantity > 1 && (
-                          <p className="text-xs text-muted-foreground">
+                          <p className="text-xs text-text-light dark:text-darkmode-text-light">
                             {item.quantity} × {formatPrice(calculation.total / item.quantity)}
                           </p>
                         )}
@@ -194,27 +194,27 @@ export function PriceBreakdown({
                     </div>
 
                     {showDetails && (
-                      <div className="pl-4 border-l-2 border-muted space-y-1.5 text-xs">
-                        <div className="flex justify-between text-muted-foreground">
+                      <div className="pl-4 border-l-2 border-border space-y-1.5 text-xs">
+                        <div className="flex justify-between text-text-light dark:text-darkmode-text-light">
                           <span>Basispreis</span>
                           <span>{formatPrice(calculation.base)}</span>
                         </div>
-                        
+
                         {calculation.multipliers.length > 0 && (
                           <>
                             {calculation.multipliers.map((mult, idx) => (
-                              <div key={idx} className="flex justify-between text-muted-foreground">
+                              <div key={idx} className="flex justify-between text-text-light dark:text-darkmode-text-light">
                                 <span>{mult.label}</span>
                                 <span>×{mult.factor.toFixed(2)}</span>
                               </div>
                             ))}
                           </>
                         )}
-                        
+
                         {calculation.addons.length > 0 && (
                           <>
                             {calculation.addons.map((addon, idx) => (
-                              <div key={idx} className="flex justify-between text-muted-foreground">
+                              <div key={idx} className="flex justify-between text-text-light dark:text-darkmode-text-light">
                                 <span>{addon.label}</span>
                                 <span>+{formatPrice(addon.amount)}</span>
                               </div>
@@ -231,8 +231,8 @@ export function PriceBreakdown({
             <Separator />
 
             <div className="flex items-center justify-between text-xl font-bold pt-2">
-              <span>Gesamtpreis</span>
-              <span>{formatPrice(total)}</span>
+              <span className="text-text dark:text-darkmode-text">Gesamtpreis</span>
+              <span className="text-green-500">{formatPrice(total)}</span>
             </div>
           </>
         )}

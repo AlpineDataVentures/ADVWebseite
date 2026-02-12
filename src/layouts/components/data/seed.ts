@@ -214,3 +214,7 @@ export function getUseCaseById(id: string): UseCase | undefined {
 export function getDeliverablesByFamily(family: string): Deliverable[] {
   return deliverables.filter(d => d.family === family);
 }
+
+// Compat alias for legacy ProductConfigurator/RecommendedBundle
+// Alte Komponenten erwarten weiterhin einen `products`-Export aus diesem Modul.
+export const products = deliverables;

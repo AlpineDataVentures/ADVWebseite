@@ -39,7 +39,7 @@ export function HeroEmptyState({ className }: HeroEmptyStateProps) {
           <br />
           Preis sehen.
         </h1>
-        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+        <p className="text-lg md:text-xl text-text-light dark:text-darkmode-text-light leading-relaxed">
           Finden Sie die passende Beratungsleistung für Ihr Unternehmen.
         </p>
       </div>
@@ -57,10 +57,10 @@ export function HeroEmptyState({ className }: HeroEmptyStateProps) {
                 <Icon className="h-5 w-5 text-[hsl(var(--accent))]" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm text-[hsl(var(--text))] mb-1">
+                <h3 className="font-semibold text-sm text-text dark:text-darkmode-text mb-1">
                   {prop.title}
                 </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
                   {prop.description}
                 </p>
               </div>
