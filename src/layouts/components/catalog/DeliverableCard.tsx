@@ -31,11 +31,11 @@ const impactLabels: Record<string, string> = {
  * Deliverable Card für Recommendation Step
  * Name + Family tag, Short description, Badges, Preis, Toggle, Details Accordion
  */
-export function DeliverableCard({ 
-  deliverable, 
-  recommendation, 
-  isEnabled, 
-  onToggle 
+export function DeliverableCard({
+  deliverable,
+  recommendation,
+  isEnabled,
+  onToggle
 }: DeliverableCardProps) {
   const isActive = deliverable.active;
   const isDisabled = !isActive;
@@ -100,7 +100,7 @@ export function DeliverableCard({
               </Badge>
             )}
           </div>
-          
+
           {isActive && (
             <div className="flex items-center gap-2">
               <span className="text-xs text-text-light dark:text-darkmode-text-light whitespace-nowrap">Im Paket</span>
@@ -119,7 +119,7 @@ export function DeliverableCard({
         </p>
       </CardHeader>
 
-          <CardContent className="pt-0 px-6 pb-6">
+      <CardContent className="pt-0 px-6 pb-6">
         {/* Details Accordion */}
         <Accordion type="single" collapsible>
           <AccordionItem value={`details-${deliverable.id}`} className="border-0">

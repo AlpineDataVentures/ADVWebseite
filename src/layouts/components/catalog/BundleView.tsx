@@ -29,7 +29,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
 
   // Hole Recommendations
   const recommendations = getBundleForUseCase(useCase.id);
-  
+
   // Filter: Core (defaultEnabled=true) vs Optional (defaultEnabled=false)
   const coreDeliverables = recommendations.filter(rec => rec.defaultEnabled);
   const optionalDeliverables = recommendations.filter(rec => !rec.defaultEnabled);
@@ -69,7 +69,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
             ← Zurück
           </Button>
         </div>
-        
+
         {/* Output Bullets (max 3) */}
         {useCase.outputs.length > 0 && (
           <div>
@@ -157,7 +157,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
                   deliverable={deliverable}
                   recommendation={recommendation}
                   isEnabled={false}
-                  onToggle={() => {}}
+                  onToggle={() => { }}
                 />
               );
             })}
@@ -176,7 +176,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
         >
           Auswahl zurücksetzen
         </Button>
-        
+
         <div className="flex items-center gap-4">
           <p className="text-sm text-text-light dark:text-darkmode-text-light">
             {enabledCount} von {recommendations.filter(r => getDeliverableById(r.deliverableId)?.active).length} aktiviert
