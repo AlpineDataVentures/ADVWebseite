@@ -70,6 +70,10 @@
         {
           "name": "Das Team",
           "url": "/team/"
+        },
+        {
+          "name": "Karriere",
+          "url": "/career/"
         }
       ]
     }
