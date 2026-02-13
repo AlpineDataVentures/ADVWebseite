@@ -27,7 +27,7 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
   if (!useCase) {
     return (
       <div className="text-center py-8">
-        <p className="text-[hsl(var(--muted))]">Kein Use Case ausgewählt</p>
+        <p className="text-text-light dark:text-darkmode-text-light">Kein Use Case ausgewählt</p>
       </div>
     );
   }
@@ -66,23 +66,23 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
     <div className="space-y-6">
       {/* Use Case Header */}
       <div className="card">
-        <h1 className="text-2xl font-bold text-[hsl(var(--text))] mb-2 line-clamp-2">
+        <h1 className="text-2xl font-bold text-text-dark dark:text-darkmode-text-dark mb-2 line-clamp-2">
           {useCase.title}
         </h1>
-        <p className="text-sm text-[hsl(var(--muted))] leading-relaxed mb-4 line-clamp-2">
+        <p className="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed mb-4 line-clamp-2">
           {useCase.short}
         </p>
         
         {/* Output Bullets (max 3) */}
         {useCase.outputs.length > 0 && (
           <div>
-            <p className="text-xs font-medium text-[hsl(var(--muted))] mb-2">
+            <p className="text-xs font-medium text-text-light dark:text-darkmode-text-light mb-2">
               Typische Outputs:
             </p>
             <ul className="space-y-1.5">
               {useCase.outputs.slice(0, 3).map((output, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-xs text-[hsl(var(--muted))]">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--accent))] mt-0.5 shrink-0" />
+                <li key={idx} className="flex items-start gap-2 text-xs text-text-light dark:text-darkmode-text-light">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-green-600 dark:text-green-400 mt-0.5 shrink-0" />
                   <span>{output}</span>
                 </li>
               ))}
@@ -94,7 +94,7 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
           {/* Recommended Bundle Grid (2 columns) */}
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-[hsl(var(--text))]">
+              <h3 className="text-xl font-semibold text-text dark:text-darkmode-text">
                 Projektpakete
               </h3>
               {recommendations.length > 0 && (
@@ -106,10 +106,10 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
 
         {recommendations.length === 0 ? (
           <div className="card p-8 text-center">
-            <p className="text-[hsl(var(--muted))] mb-2">
+            <p className="text-text-light dark:text-darkmode-text-light mb-2">
               Keine Empfehlungen für diesen Use Case verfügbar.
             </p>
-            <p className="text-sm text-[hsl(var(--muted))]">
+            <p className="text-sm text-text-light dark:text-darkmode-text-light">
               Bitte wählen Sie einen anderen Use Case aus.
             </p>
           </div>
@@ -181,7 +181,7 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
         </Button>
         
         <div className="flex items-center gap-4">
-          <p className="text-sm text-[hsl(var(--muted))]">
+          <p className="text-sm text-text-light dark:text-darkmode-text-light">
             {enabledCount} von {recommendations.filter(r => getDeliverableById(r.deliverableId)?.active).length} aktiviert
           </p>
           <Button

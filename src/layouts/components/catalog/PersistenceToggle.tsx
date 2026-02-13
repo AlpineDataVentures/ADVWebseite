@@ -30,7 +30,7 @@ export function PersistenceToggle() {
           />
         </div>
         {persistEnabled && (
-          <p className="text-xs text-muted-foreground mt-2">
+          <p className="text-xs text-text-light dark:text-darkmode-text-light mt-2">
             Ihre Auswahl wird im Browser gespeichert
           </p>
         )}

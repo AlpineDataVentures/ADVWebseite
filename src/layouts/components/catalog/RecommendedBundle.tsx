@@ -43,17 +43,17 @@ export function RecommendedBundle({ productIds, useCaseTitle }: RecommendedBundl
       <CardContent>
         <div className="space-y-3 mb-6">
           {recommendedProducts.map((product) => (
-            <div key={product.id} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+            <div key={product.id} className="flex items-center justify-between p-3 bg-light/50 dark:bg-darkmode-light/50 rounded-lg">
               <div className="flex items-center gap-3">
-                <Check className="h-5 w-5 text-primary" />
+                <Check className="h-5 w-5 text-green-600 dark:text-green-400" />
                 <div>
                   <p className="font-medium">{product.name}</p>
-                  <p className="text-sm text-muted-foreground">{product.description}</p>
+                  <p className="text-sm text-text-light dark:text-darkmode-text-light">{product.description}</p>
                 </div>
               </div>
               <div className="text-right">
                 <p className="font-semibold">{formatPrice(product.basePrice)}</p>
-                <p className="text-xs text-muted-foreground">pro {product.unit}</p>
+                <p className="text-xs text-text-light dark:text-darkmode-text-light">pro {product.unit}</p>
               </div>
             </div>
           ))}

@@ -62,7 +62,7 @@ export function DeliverablePricePreview({
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-lg font-semibold">{deliverable.name}</h3>
-          <p className="text-sm text-muted-foreground">{deliverable.shortDescription}</p>
+          <p className="text-sm text-text-light dark:text-darkmode-text-light">{deliverable.shortDescription}</p>
         </div>
         <MiniPriceTag deliverable={deliverable} parameters={parameters} />
       </div>

@@ -89,13 +89,17 @@ const AccordionTrigger = ({ children, className }: AccordionTriggerProps) => {
       type="button"
       onClick={() => context.onValueChange(item.value)}
       className={cn(
-        "flex w-full items-center justify-between p-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
+        "flex w-full items-center justify-between p-4 font-medium transition-all",
+        "rounded-lg hover:bg-light/60 dark:hover:bg-darkmode-light/60",
+        "[&[data-state=open]>svg]:rotate-180",
+        "[&[data-state=open]]:bg-light/40 dark:[&[data-state=open]]:bg-darkmode-light/40",
         className
       )}
       data-state={isOpen ? "open" : "closed"}
+      aria-expanded={isOpen}
     >
       {children}
-      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+      <ChevronDown className="h-4 w-4 shrink-0 text-text-light dark:text-darkmode-text-light transition-transform duration-200" />
     </button>
   );
 };

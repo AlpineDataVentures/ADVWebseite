@@ -25,7 +25,7 @@ export function CartButton({ onClick }: CartButtonProps) {
       className={cn(
         "fixed bottom-6 right-6 z-40",
         "flex items-center gap-2 px-4 py-3 rounded-full",
-        "bg-accent text-background shadow-lg hover:shadow-xl",
+        "bg-green-600 text-white shadow-lg hover:shadow-xl hover:bg-green-700",
         "transition-all duration-200",
         "font-medium text-sm"
       )}

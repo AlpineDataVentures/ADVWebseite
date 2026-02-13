@@ -20,7 +20,7 @@ export function UseCaseList({ domainId, onSelectUseCase, onBack }: UseCaseListPr
   if (!domain) {
     return (
       <div className="text-center py-8">
-        <p className="text-muted-foreground">Domäne nicht gefunden</p>
+        <p className="text-text-light dark:text-darkmode-text-light">Domäne nicht gefunden</p>
         <Button onClick={onBack} variant="outline" className="mt-4">
           Zurück
         </Button>
@@ -36,7 +36,7 @@ export function UseCaseList({ domainId, onSelectUseCase, onBack }: UseCaseListPr
           Zurück zu Domänen
         </Button>
         <div className="text-center py-8">
-          <p className="text-muted-foreground">Keine Use Cases für diese Domäne verfügbar</p>
+          <p className="text-text-light dark:text-darkmode-text-light">Keine Use Cases für diese Domäne verfügbar</p>
         </div>
       </div>
     );
@@ -53,7 +53,7 @@ export function UseCaseList({ domainId, onSelectUseCase, onBack }: UseCaseListPr
       {/* Domain Info */}
       <div className="mb-6">
         <h2 className="text-2xl font-bold mb-2">{domain.name}</h2>
-        <p className="text-muted-foreground">{domain.description}</p>
+        <p className="text-text-light dark:text-darkmode-text-light">{domain.description}</p>
       </div>
 
       {/* Use Case Cards */}

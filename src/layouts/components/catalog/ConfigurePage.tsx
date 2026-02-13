@@ -73,10 +73,10 @@ export default function ConfigurePage() {
       <div className="lg:col-span-1">
         {/* Desktop: Fixed Sidebar */}
         <div className="hidden lg:block sticky top-4">
-          <div className="border rounded-lg p-4 bg-card">
+          <div className="border rounded-lg p-4 bg-light dark:bg-darkmode-light">
             <h3 className="font-semibold mb-4">Warenkorb</h3>
             {cartCount === 0 ? (
-              <p className="text-sm text-muted-foreground text-center py-4">
+              <p className="text-sm text-text-light dark:text-darkmode-text-light text-center py-4">
                 Keine Deliverables aktiviert
               </p>
             ) : (
@@ -86,7 +86,7 @@ export default function ConfigurePage() {
                   return (
                     <div key={item.deliverableId} className="text-sm">
                       <p className="font-medium">{item.deliverable.name}</p>
-                      <p className="text-muted-foreground text-xs line-clamp-1">
+                      <p className="text-text-light dark:text-darkmode-text-light text-xs line-clamp-1">
                         {item.deliverable.shortDescription}
                       </p>
                       <p className="font-semibold mt-1">{formatPrice(item.price)}</p>
@@ -113,7 +113,7 @@ export default function ConfigurePage() {
           >
             Warenkorb
             {cartCount > 0 && (
-              <span className="ml-2 bg-primary text-primary-foreground rounded-full px-2 py-0.5 text-xs">
+              <span className="ml-2 bg-green-600 text-white rounded-full px-2 py-0.5 text-xs">
                 {cartCount}
               </span>
             )}

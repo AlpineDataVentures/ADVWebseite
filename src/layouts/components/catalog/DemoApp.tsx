@@ -109,7 +109,7 @@ export default function DemoApp() {
   }, [useCaseId]);
 
   return (
-    <div className="flex flex-col h-screen bg-[hsl(var(--bg))]">
+    <div className="flex flex-col h-screen bg-body dark:bg-darkmode-body">
       {/* Top Bar */}
       <TopBar
         showCartButton={false}
@@ -137,8 +137,8 @@ export default function DemoApp() {
             <Sheet open={finderOpen} onOpenChange={setFinderOpen}>
               <SheetContent side="left" className="w-[90vw] sm:w-[400px] p-0">
                 <div className="h-full">
-                  <div className="flex items-center justify-between p-4 border-b border-[hsl(var(--border))]">
-                    <h2 className="panel-title mb-0">Use Case Finder</h2>
+                    <div className="flex items-center justify-between p-4 border-b border-border dark:border-darkmode-border">
+                    <h2 className="text-base font-semibold text-text dark:text-darkmode-text mb-0">Use Case Finder</h2>
                     <Button
                       variant="ghost"
                       size="icon"
@@ -222,7 +222,7 @@ export default function DemoApp() {
                   <TabsContent value="cart" className="mt-4">
                     <div className="card p-4">
                       {cartCount === 0 ? (
-                        <p className="text-sm text-[hsl(var(--muted))] text-center py-8">
+                        <p className="text-sm text-text-light dark:text-darkmode-text-light text-center py-8">
                           Keine Deliverables aktiviert
                         </p>
                       ) : (
@@ -232,19 +232,19 @@ export default function DemoApp() {
                             return (
                               <div key={item.deliverableId} className="text-sm">
                                 <p className="font-medium">{item.deliverable.name}</p>
-                                <p className="text-[hsl(var(--muted))] text-xs line-clamp-1">
+                                <p className="text-text-light dark:text-darkmode-text-light text-xs line-clamp-1">
                                   {item.deliverable.shortDescription}
                                 </p>
-                                <p className="font-semibold mt-1 text-[hsl(var(--accent))]">
+                                <p className="font-semibold mt-1 text-green-600 dark:text-green-400">
                                   {formatPrice(item.price)}
                                 </p>
                               </div>
                             );
                           })}
-                          <div className="pt-3 border-t border-[hsl(var(--border))]">
+                          <div className="pt-3 border-t border-border dark:border-darkmode-border">
                             <div className="flex justify-between font-bold">
                               <span>Gesamt</span>
-                              <span className="text-[hsl(var(--accent))]">
+                              <span className="text-green-600 dark:text-green-400">
                                 {formatPrice(getTotalPrice())}
                               </span>
                             </div>
@@ -260,15 +260,15 @@ export default function DemoApp() {
               <div className="hidden lg:block space-y-6">
                 {/* Step Indicator */}
                 <div className="flex items-center gap-2 mb-6">
-                  <div className={`flex items-center gap-2 ${currentStep === 'recommendation' ? 'text-[hsl(var(--accent))]' : 'text-[hsl(var(--muted))]'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'recommendation' ? 'bg-[hsl(var(--accent))] text-white' : 'bg-[hsl(var(--surface2))]'}`}>
+                  <div className={`flex items-center gap-2 ${currentStep === 'recommendation' ? 'text-green-600 dark:text-green-400' : 'text-text-light dark:text-darkmode-text-light'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'recommendation' ? 'bg-green-600 text-white' : 'bg-light dark:bg-darkmode-light text-text-light dark:text-darkmode-text-light'}`}>
                       1
                     </div>
                     <span className="font-medium">Empfehlung</span>
                   </div>
-                  <div className="flex-1 h-px bg-[hsl(var(--border))]"></div>
-                  <div className={`flex items-center gap-2 ${currentStep === 'configuration' ? 'text-[hsl(var(--accent))]' : 'text-[hsl(var(--muted))]'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'configuration' ? 'bg-[hsl(var(--accent))] text-white' : 'bg-[hsl(var(--surface2))]'}`}>
+                  <div className="flex-1 h-px bg-border dark:bg-darkmode-border"></div>
+                  <div className={`flex items-center gap-2 ${currentStep === 'configuration' ? 'text-green-600 dark:text-green-400' : 'text-text-light dark:text-darkmode-text-light'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'configuration' ? 'bg-green-600 text-white' : 'bg-light dark:bg-darkmode-light text-text-light dark:text-darkmode-text-light'}`}>
                       2
                     </div>
                     <span className="font-medium">Konfiguration</span>

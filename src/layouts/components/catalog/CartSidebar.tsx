@@ -306,7 +306,7 @@ export function CartFloatingButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="lg:hidden fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-[hsl(var(--accent))] text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
+      className="lg:hidden fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
       aria-label="Warenkorb öffnen"
     >
       <ShoppingCart className="h-6 w-6" />
@@ -315,7 +315,7 @@ export function CartFloatingButton({ onClick }: { onClick: () => void }) {
           <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
             {cartCount}
           </span>
-          <div className="absolute -bottom-12 right-0 bg-[hsl(var(--surface))] text-[hsl(var(--text))] text-xs font-semibold px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+          <div className="absolute -bottom-12 right-0 bg-light dark:bg-darkmode-light text-text dark:text-darkmode-text text-xs font-semibold px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
             {formatPrice(getTotalPrice())}
           </div>
         </>

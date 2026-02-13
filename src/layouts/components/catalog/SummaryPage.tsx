@@ -28,7 +28,7 @@ export function SummaryPage({ onBack, onNew }: SummaryPageProps = {}) {
     return (
       <div className="text-center py-12">
         <h2 className="text-2xl font-bold mb-4">Ihr Warenkorb ist leer</h2>
-        <p className="text-muted-foreground mb-6">
+        <p className="text-text-light dark:text-darkmode-text-light mb-6">
           Bitte fügen Sie Deliverables hinzu, um eine Angebotsübersicht zu erstellen.
         </p>
         <Button onClick={onNew || (() => window.location.href = '/use-cases')}>
@@ -43,7 +43,7 @@ export function SummaryPage({ onBack, onNew }: SummaryPageProps = {}) {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Angebotsübersicht</h1>
-        <p className="text-muted-foreground">
+        <p className="text-text-light dark:text-darkmode-text-light">
           Überprüfen Sie Ihre Auswahl und laden Sie das Angebot herunter
         </p>
       </div>
@@ -57,7 +57,7 @@ export function SummaryPage({ onBack, onNew }: SummaryPageProps = {}) {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="font-semibold text-lg">{useCase.title}</h3>
-                <p className="text-muted-foreground">{useCase.description}</p>
+                <p className="text-text-light dark:text-darkmode-text-light">{useCase.description}</p>
               </div>
               <Badge>{useCase.domain}</Badge>
             </div>
@@ -81,7 +81,7 @@ export function SummaryPage({ onBack, onNew }: SummaryPageProps = {}) {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <h4 className="font-semibold text-lg">{item.deliverable.name}</h4>
-                    <p className="text-sm text-muted-foreground">{item.deliverable.shortDescription}</p>
+                    <p className="text-sm text-text-light dark:text-darkmode-text-light">{item.deliverable.shortDescription}</p>
                     <Badge variant="outline" className="mt-2">{item.deliverable.family}</Badge>
                   </div>
                   <div className="text-right ml-4">
@@ -106,7 +106,7 @@ export function SummaryPage({ onBack, onNew }: SummaryPageProps = {}) {
           <CardTitle>Nächste Schritte</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <p className="text-muted-foreground">
+          <p className="text-text-light dark:text-darkmode-text-light">
             Sie können das Angebot herunterladen oder per E-Mail anfordern.
           </p>
           <div className="flex gap-4">

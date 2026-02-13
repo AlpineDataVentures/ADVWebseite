@@ -24,6 +24,7 @@ export default function DemoShopApp() {
 
   const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
   const setActiveUseCase = useConfigStore((state) => state.setActiveUseCase);
+  const cartCount = useConfigStore((state) => state.getCartWithPrices()).length;
 
   // Handle Domain Selection
   const handleDomainChange = (domainId: string | null) => {
@@ -118,7 +119,13 @@ export default function DemoShopApp() {
               data-middle-panel
               className="col-span-12 lg:col-span-9 min-h-0 overflow-y-auto"
             >
-              {!useCase ? (
+              {viewMode === 'configure' && cartCount > 0 ? (
+                /* Cart-driven config: funktioniert auch ohne Use Case */
+                <ConfigView
+                  useCaseId={activeUseCaseId}
+                  onBack={handleBack}
+                />
+              ) : !useCase ? (
                 <HeroEmptyState />
               ) : viewMode === 'bundle' ? (
                 <BundleView

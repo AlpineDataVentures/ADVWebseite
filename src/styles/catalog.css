@@ -1,68 +1,76 @@
 /* ============================================
-   ADV Catalog - Scoped styles for /demo only.
+   ADV Produktkatalog – Scoped styles for /demo
+   Imported ONLY in src/pages/demo.astro.
    All selectors MUST be under .adv-catalog.
+   Follows site conventions: @layer components / utilities.
    ============================================ */
 
-/* --- Layered dark surfaces (no pure black) --- */
-.adv-catalog.dark .adv-catalog,
-.adv-catalog .dark {
-  /* Use existing tokens; optional overrides for panel/card elevation */
+/* ── Component-level rules ── */
+@layer components {
+
+  /* ─ Card elevation (light + dark) ─ */
+  .adv-catalog .card {
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06),
+                0 1px 2px -1px rgb(0 0 0 / 0.06);
+    transition: box-shadow 0.2s ease,
+                transform  0.2s ease,
+                border-color 0.2s ease;
+  }
+
+  .dark .adv-catalog .card {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.2),
+                0 1px 2px -1px rgb(0 0 0 / 0.15);
+  }
+
+  .adv-catalog .card:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08),
+                0 2px 4px -2px rgb(0 0 0 / 0.06);
+    transform: translateY(-1px);
+  }
+
+  .dark .adv-catalog .card:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.25),
+                0 2px 4px -2px rgb(0 0 0 / 0.2);
+  }
+
+  /* ─ Focus rings – use site's primary token ─ */
+  .adv-catalog button:focus-visible,
+  .adv-catalog a:focus-visible,
+  .adv-catalog [role="button"]:focus-visible {
+    outline: 2px solid var(--color-primary, #121212);
+    outline-offset: 2px;
+  }
+
+  .dark .adv-catalog button:focus-visible,
+  .dark .adv-catalog a:focus-visible,
+  .dark .adv-catalog [role="button"]:focus-visible {
+    outline-color: var(--color-darkmode-primary, #fff);
+  }
+
+  /* ─ Accordion trigger affordance (scoped) ─ */
+  .adv-catalog [data-state="closed"] > svg {
+    transform: rotate(0deg);
+  }
+  .adv-catalog [data-state="open"] > svg {
+    transform: rotate(180deg);
+  }
+
+  /* ─ Sheet / Drawer overlay ─ */
+  .adv-catalog .fixed.inset-0 {
+    z-index: 50;
+  }
 }
 
-.adv-catalog.bg-body,
-.adv-catalog [data-catalog-root] {
-  /* Root already uses bg-body / dark:bg-darkmode-body */
-}
+/* ── Utility-level rules ── */
+@layer utilities {
 
-.adv-catalog [class*="bg-light"][class*="dark:bg-darkmode-light"] {
-  /* Panel: existing token */
-}
-
-.adv-catalog .card,
-.adv-catalog [class*="card"] {
-  /* Card layer: slightly elevated in dark - use box-shadow for separation */
-}
-
-/* Card premium: shadow + hover lift (scoped) */
-.adv-catalog .card {
-  border-radius: 1rem;
-  /* rounded-2xl */
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-}
-
-.dark .adv-catalog .card {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.2), 0 1px 2px -1px rgb(0 0 0 / 0.15);
-}
-
-.adv-catalog .card:hover {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
-  transform: translateY(-1px);
-}
-
-.dark .adv-catalog .card:hover {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.2);
-}
-
-/* Focus rings consistent with design */
-.adv-catalog button:focus-visible,
-.adv-catalog a:focus-visible,
-.adv-catalog [role="button"]:focus-visible {
-  outline: 2px solid var(--color-primary, #121212);
-  outline-offset: 2px;
-}
-
-.dark .adv-catalog button:focus-visible,
-.dark .adv-catalog a:focus-visible,
-.dark .adv-catalog [role="button"]:focus-visible {
-  outline-color: var(--color-darkmode-primary, #fff);
-}
-
-/* Headings: never odd white on light in dark mode - use token */
-.adv-catalog h1,
-.adv-catalog h2,
-.adv-catalog h3,
-.adv-catalog .font-semibold.text-text-dark,
-.adv-catalog .dark .font-semibold.text-darkmode-text {
-  /* Rely on components using text-text dark:text-darkmode-text or text-text-dark dark:text-darkmode-text-dark */
+  /* Hide scrollbar but keep scrolling (WebKit + Firefox) */
+  .adv-catalog-hide-scrollbar {
+    scrollbar-width: none;          /* Firefox */
+    -ms-overflow-style: none;       /* IE / Edge legacy */
+  }
+  .adv-catalog-hide-scrollbar::-webkit-scrollbar {
+    display: none;                  /* Chrome / Safari */
+  }
 }

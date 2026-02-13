@@ -70,7 +70,7 @@ export function ProductConfigurator() {
                           </div>
                           <div className="text-right ml-4">
                             <p className="text-2xl font-bold">{formatPrice(product.basePrice)}</p>
-                            <p className="text-sm text-muted-foreground">pro {product.unit}</p>
+                            <p className="text-sm text-text-light dark:text-darkmode-text-light">pro {product.unit}</p>
                           </div>
                         </div>
                       </CardHeader>
@@ -87,13 +87,13 @@ export function ProductConfigurator() {
                                 return (
                                   <div
                                     key={option.id}
-                                    className="flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-muted/50"
+                                    className="flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-light/50 dark:hover:bg-darkmode-light/50"
                                     onClick={() => handleToggleOption(product.id, option.id)}
                                   >
                                     <div>
                                       <p className="font-medium">{option.name}</p>
                                       {option.description && (
-                                        <p className="text-sm text-muted-foreground">{option.description}</p>
+                                        <p className="text-sm text-text-light dark:text-darkmode-text-light">{option.description}</p>
                                       )}
                                     </div>
                                     <div className="flex items-center gap-3">
@@ -104,12 +104,12 @@ export function ProductConfigurator() {
                                       <div
                                         className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
                                           isSelected
-                                            ? "bg-primary border-primary"
-                                            : "border-muted-foreground"
+                                            ? "bg-green-600 border-green-600"
+                                            : "border-border dark:border-darkmode-border"
                                         }`}
                                       >
                                         {isSelected && (
-                                          <svg className="w-3 h-3 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                           </svg>
                                         )}

@@ -201,19 +201,16 @@ export const useConfigStore = create<ConfigState>((set, get) => {
       set((state) => {
         const newDeliverables: Record<string, DeliverableState> = { ...state.selectedDeliverables };
         
-        // Setze alle Recommendations basierend auf defaultEnabled
+        // Registriere alle Recommendations, aber aktiviere NICHTS automatisch.
+        // Der Nutzer muss Deliverables explizit per Toggle auswählen.
         recommendations.forEach(rec => {
           if (!newDeliverables[rec.deliverableId]) {
             newDeliverables[rec.deliverableId] = {
-              enabled: rec.defaultEnabled,
+              enabled: false,
               params: getDefaultParameters()
             };
-          } else {
-            newDeliverables[rec.deliverableId] = {
-              ...newDeliverables[rec.deliverableId],
-              enabled: rec.defaultEnabled
-            };
           }
+          // Bereits vorhandene Deliverables behalten ihren enabled-Status
         });
         
         const newState = {
