@@ -45,7 +45,7 @@ export function DeliverableCard({
   return (
     <Card className={cn(
       "transition-all duration-200",
-      isEnabled && isActive && "border-green-600/40 dark:border-green-500/40 bg-green-500/5 dark:bg-green-500/10",
+      isEnabled && isActive && "border-green-600/30 dark:border-green-400/20 ring-1 ring-green-600/10 dark:ring-green-400/10",
       isDisabled && "opacity-70"
     )}>
       <CardHeader className="pb-3 px-6 pt-6">

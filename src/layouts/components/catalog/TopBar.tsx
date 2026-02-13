@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react';
-import { ThemeToggle } from './ThemeToggle';
 import { Search } from 'lucide-react';
 import { Input } from './ui/input';
 import { getEnabledDomains } from '../data/domains';
@@ -15,14 +14,15 @@ interface TopBarProps {
 }
 
 /**
- * TopBar mit Domain Tabs, Search und Theme Toggle
+ * TopBar mit Domain Tabs und Search.
+ * Theme Toggle lebt im globalen Header (ThemeSwitcher.astro) → hier nicht nötig.
  */
 export function TopBar({
   activeDomainId,
   onDomainChange,
   searchQuery = '',
   onSearchChange,
-  title = 'ADV Produktkatalog (Demo)'
+  title = 'ADV Produktkatalog'
 }: TopBarProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const domains = getEnabledDomains();
@@ -35,46 +35,35 @@ export function TopBar({
         searchInputRef.current?.focus();
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-light dark:bg-darkmode-light backdrop-blur supports-[backdrop-filter]:bg-light/80 supports-[backdrop-filter]:dark:bg-darkmode-light/80">
+    <header className="sticky top-0 z-30 w-full border-b border-border dark:border-darkmode-border bg-light/95 dark:bg-darkmode-light/95 backdrop-blur supports-[backdrop-filter]:bg-light/80 supports-[backdrop-filter]:dark:bg-darkmode-light/80">
       <div className="container mx-auto px-4">
-        {/* First Row: Title + Search + Theme */}
-        <div className="flex h-16 items-center justify-between gap-4">
-          {/* Logo / Title */}
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <h1 className="text-lg font-semibold text-text dark:text-darkmode-text">
-              {title}
-            </h1>
-          </div>
-
-          {/* Search */}
-          <div className="flex-1 max-w-md mx-4">
+        {/* Title + Search row */}
+        <div className="flex h-14 items-center justify-between gap-4">
+          <h1 className="text-base font-semibold text-text dark:text-darkmode-text shrink-0">
+            {title}
+          </h1>
+          <div className="flex-1 max-w-sm">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text dark:text-darkmode-text shrink-0" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-light dark:text-darkmode-text-light shrink-0" />
               <Input
                 ref={searchInputRef}
                 type="search"
-                placeholder="Use Cases durchsuchen... (/)"
+                placeholder="Use Cases suchen... (/)"
                 value={searchQuery}
                 onChange={(e) => onSearchChange?.(e.target.value)}
-                className="pl-9 h-9 border-border"
+                className="pl-9 h-9 border-border dark:border-darkmode-border"
               />
             </div>
           </div>
-
-          {/* Theme Toggle */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <ThemeToggle />
-          </div>
         </div>
 
-        {/* Second Row: Domain Tabs - flex-wrap, keine Scrollbar */}
-        <div className="flex flex-wrap gap-1 border-t border-border overflow-hidden px-2 py-2">
+        {/* Domain Tabs — flush with container (no extra padding) */}
+        <nav className="flex flex-wrap gap-1 border-t border-border dark:border-darkmode-border py-2 -mb-px">
           {domains.map((domain) => {
             const Icon = getDomainIcon(domain.id);
             const isActive = activeDomainId === domain.id;
@@ -85,25 +74,23 @@ export function TopBar({
                 type="button"
                 onClick={() => onDomainChange(isActive ? null : domain.id)}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all duration-200",
-                  "border-b-2 border-transparent",
-                  "hover:bg-light/80 dark:hover:bg-darkmode-light/80",
+                  "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150",
                   isActive
-                    ? "border-green-600 dark:border-green-400 text-text dark:text-darkmode-text bg-green-500/10 dark:bg-green-500/15"
-                    : "text-text dark:text-darkmode-text hover:bg-light/90 dark:hover:bg-darkmode-light/90"
+                    ? "text-green-700 dark:text-green-400 bg-green-500/8 dark:bg-green-500/10 ring-1 ring-green-600/20 dark:ring-green-400/20"
+                    : "text-text-light dark:text-darkmode-text-light hover:text-text dark:hover:text-darkmode-text hover:bg-light dark:hover:bg-darkmode-light"
                 )}
               >
                 <Icon
                   className={cn(
                     "h-4 w-4 shrink-0",
-                    isActive ? "text-green-600 dark:text-green-400" : "text-text dark:text-darkmode-text"
+                    isActive ? "text-green-600 dark:text-green-400" : ""
                   )}
                 />
                 <span className="whitespace-nowrap">{domain.name}</span>
               </button>
             );
           })}
-        </div>
+        </nav>
       </div>
     </header>
   );

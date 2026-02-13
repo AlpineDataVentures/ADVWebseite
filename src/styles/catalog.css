@@ -3,74 +3,88 @@
    Imported ONLY in src/pages/demo.astro.
    All selectors MUST be under .adv-catalog.
    Follows site conventions: @layer components / utilities.
+   Uses existing ADV tokens — no new token definitions.
    ============================================ */
 
 /* ── Component-level rules ── */
 @layer components {
 
+  /* ─── Surface hierarchy ───
+     Level 0 (page):  bg-body / dark:bg-darkmode-body
+     Level 1 (panel): bg-light / dark:bg-darkmode-light
+     Level 2 (card):  bg-light / dark:bg-darkmode-light + border + shadow
+     Cards on Level 0 get visual separation via border + shadow.
+     Items on Level 1 use bg-body/transparent for "inset" look.
+  ─── */
+
   /* ─ Card elevation (light + dark) ─ */
   .adv-catalog .card {
     border-radius: 1rem;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06),
-                0 1px 2px -1px rgb(0 0 0 / 0.06);
-    transition: box-shadow 0.2s ease,
-                transform  0.2s ease,
-                border-color 0.2s ease;
+    border: 1px solid var(--color-border);
+    box-shadow:
+      0 1px 2px 0 rgb(0 0 0 / 0.04),
+      0 1px 3px 0 rgb(0 0 0 / 0.06);
+    transition:
+      box-shadow 0.2s ease,
+      transform 0.15s ease,
+      border-color 0.2s ease;
   }
 
   .dark .adv-catalog .card {
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.2),
-                0 1px 2px -1px rgb(0 0 0 / 0.15);
+    border-color: var(--color-darkmode-border);
+    box-shadow:
+      0 1px 2px 0 rgb(0 0 0 / 0.15),
+      0 1px 3px 0 rgb(0 0 0 / 0.2);
   }
 
   .adv-catalog .card:hover {
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08),
-                0 2px 4px -2px rgb(0 0 0 / 0.06);
+    box-shadow:
+      0 4px 12px -2px rgb(0 0 0 / 0.08),
+      0 2px 4px -2px rgb(0 0 0 / 0.04);
     transform: translateY(-1px);
   }
 
   .dark .adv-catalog .card:hover {
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.25),
-                0 2px 4px -2px rgb(0 0 0 / 0.2);
+    box-shadow:
+      0 4px 12px -2px rgb(0 0 0 / 0.3),
+      0 2px 4px -2px rgb(0 0 0 / 0.2);
   }
 
-  /* ─ Focus rings – use site's primary token ─ */
-  .adv-catalog button:focus-visible,
-  .adv-catalog a:focus-visible,
-  .adv-catalog [role="button"]:focus-visible {
-    outline: 2px solid var(--color-primary, #121212);
+  /* ─ Focus rings – consistent with site ─ */
+  .adv-catalog :focus-visible {
+    outline: 2px solid var(--color-green, #00CE7F);
     outline-offset: 2px;
   }
 
-  .dark .adv-catalog button:focus-visible,
-  .dark .adv-catalog a:focus-visible,
-  .dark .adv-catalog [role="button"]:focus-visible {
-    outline-color: var(--color-darkmode-primary, #fff);
+  .dark .adv-catalog :focus-visible {
+    outline-color: rgb(74 222 128); /* green-400 */
   }
 
-  /* ─ Accordion trigger affordance (scoped) ─ */
-  .adv-catalog [data-state="closed"] > svg {
-    transform: rotate(0deg);
-  }
-  .adv-catalog [data-state="open"] > svg {
-    transform: rotate(180deg);
-  }
-
-  /* ─ Sheet / Drawer overlay ─ */
+  /* ─ Sheet / Drawer — ensure above TopBar ─ */
   .adv-catalog .fixed.inset-0 {
     z-index: 50;
+  }
+
+  /* ─ Finder Panel — items need breathing room ─ */
+  .adv-catalog [data-finder-list] > * + * {
+    margin-top: 0.25rem;
   }
 }
 
 /* ── Utility-level rules ── */
 @layer utilities {
 
-  /* Hide scrollbar but keep scrolling (WebKit + Firefox) */
+  /* Hide scrollbar but keep scrolling */
   .adv-catalog-hide-scrollbar {
-    scrollbar-width: none;          /* Firefox */
-    -ms-overflow-style: none;       /* IE / Edge legacy */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   .adv-catalog-hide-scrollbar::-webkit-scrollbar {
-    display: none;                  /* Chrome / Safari */
+    display: none;
+  }
+
+  /* Subtle text balance for headings */
+  .adv-catalog-text-balance {
+    text-wrap: balance;
   }
 }

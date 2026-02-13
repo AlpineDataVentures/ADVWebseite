@@ -13,8 +13,8 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
         {
           // Subtiler ADV-Grün-Badge
           "border-green-600/30 bg-green-500/10 text-green-600 dark:bg-green-500/15 dark:text-green-400 hover:bg-green-500/20": variant === "default",
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80": variant === "secondary",
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80": variant === "destructive",
+          "border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light text-text-light dark:text-darkmode-text-light hover:bg-light/80 dark:hover:bg-darkmode-light/80": variant === "secondary",
+          "border-transparent bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50": variant === "destructive",
           "border-border text-text dark:text-darkmode-text": variant === "outline",
         },
         className

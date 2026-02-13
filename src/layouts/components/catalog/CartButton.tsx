@@ -8,34 +8,37 @@ interface CartButtonProps {
 }
 
 /**
- * Cart Button - Minimaler Floating Button mit Badge
+ * Cart Button - Floating pill with count + total.
+ * Uses ADV green, safe-area padding for iOS.
  */
 export function CartButton({ onClick }: CartButtonProps) {
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
-  const cartCount = cartWithPrices.length;
+  const cartCount = useConfigStore((state) =>
+    Object.values(state.selectedDeliverables).filter(d => d.enabled).length
+  );
   const totalPrice = useConfigStore((state) => state.getTotalPrice());
 
-  if (cartCount === 0) {
-    return null; // Nicht anzeigen wenn leer
-  }
+  if (cartCount === 0) return null;
 
   return (
     <button
       onClick={onClick}
       className={cn(
         "fixed bottom-6 right-6 z-40",
-        "flex items-center gap-2 px-4 py-3 rounded-full",
-        "bg-green-600 text-white shadow-lg hover:shadow-xl hover:bg-green-700",
-        "transition-all duration-200",
-        "font-medium text-sm"
+        "flex items-center gap-2 px-5 py-3 rounded-full",
+        "bg-dark dark:bg-darkmode-dark text-white dark:text-dark",
+        "shadow-lg hover:shadow-xl",
+        "transition-all duration-200 hover:scale-[1.02]",
+        "font-medium text-sm",
+        // iOS safe area
+        "pb-[max(0.75rem,env(safe-area-inset-bottom))]"
       )}
       aria-label="Warenkorb öffnen"
     >
-      <ShoppingCart className="h-5 w-5" />
+      <ShoppingCart className="h-4 w-4" />
       <span className="whitespace-nowrap">
         Warenkorb ({cartCount})
       </span>
-      <span className="whitespace-nowrap font-semibold">
+      <span className="whitespace-nowrap font-semibold text-green-400">
         · {formatPrice(totalPrice)}
       </span>
     </button>

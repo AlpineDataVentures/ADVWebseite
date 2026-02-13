@@ -65,8 +65,8 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="w-full sm:w-96 p-0 flex flex-col">
-        <SheetHeader className="px-6 pt-6 pb-4 border-b border-border bg-light dark:bg-darkmode-light">
+      <SheetContent side="right" className="w-full sm:w-[420px] p-0 flex flex-col bg-body dark:bg-darkmode-body">
+        <SheetHeader className="px-6 pt-6 pb-4 border-b border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <SheetTitle className="text-text dark:text-darkmode-text">Warenkorb</SheetTitle>
@@ -79,7 +79,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
           </div>
         </SheetHeader>
 
-        <div className="flex-1 overflow-y-auto px-6 py-4 border-b border-border">
+        <div className="flex-1 overflow-y-auto px-5 py-4">
           {cartWithPrices.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
               <ShoppingCart className="h-12 w-12 text-text-light dark:text-darkmode-text-light mb-4" />
@@ -100,7 +100,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
 
                 return (
                   <AccordionItem key={item.deliverableId} value={item.deliverableId} className="border-0">
-                    <div className="card p-4 space-y-2 border border-border">
+                    <div className="rounded-xl p-4 space-y-2 bg-light dark:bg-darkmode-light border border-border dark:border-darkmode-border">
                       {/* Item Header */}
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex items-start gap-2 flex-1 min-w-0">
@@ -200,7 +200,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
 
         {/* Footer - Sticky, clear structure */}
         {cartWithPrices.length > 0 && (
-          <div className="flex-shrink-0 pt-4 border-t-2 border-border bg-light/80 dark:bg-darkmode-light/80 px-6 pb-6 space-y-4">
+          <div className="flex-shrink-0 pt-4 border-t border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light px-5 pb-6 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold text-text dark:text-darkmode-text">Gesamtsumme</span>
               <span className="font-bold text-xl text-green-600 dark:text-green-400">
