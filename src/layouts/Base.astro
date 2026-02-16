@@ -244,10 +244,25 @@ const {
     {
       process.env.CONTEXT === "production" && (
         <script
-          defer
-          data-domain="alpinedata.de"
-          src="https://analytics.beta-its.de/js/script.js"
-        />
+          async
+          src="https://analytics.beta-its.de/js/pa-k0wKA0tx3awvzrCtcx19c.js"
+        ></script>
+
+        <script>
+          window.plausible =
+            window.plausible ||
+            function (...args) {
+              (window.plausible.q = window.plausible.q || []).push(args);
+            };
+
+          window.plausible.init =
+            window.plausible.init ||
+            function (options) {
+              window.plausible.o = options || {};
+            };
+
+          window.plausible.init();
+        </script>
       )
     }
     <script is:inline>
