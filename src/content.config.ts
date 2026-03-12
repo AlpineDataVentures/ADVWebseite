@@ -1,5 +1,6 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod"
 
 // schema of the about section
 const aboutCollection = defineCollection({
@@ -163,6 +164,7 @@ const feedbackCollection = defineCollection({
     position: z.string(),
     project: z.string(),
     rating: z.number().min(0).max(5),
+    summary: z.string().optional(),
     sections: z.array(
       z.object({
         section: z.string(),
