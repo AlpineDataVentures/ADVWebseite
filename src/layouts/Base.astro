@@ -244,6 +244,7 @@ const {
     {
       process.env.CONTEXT === "production" && (
         <script
+          is:inline
           defer
           data-domain="alpinedata.de"
           src="https://analytics.beta-its.de/js/script.js"
@@ -265,8 +266,10 @@ const {
       });
     </script>
 
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TML73X7L"
-    ></script>
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtm.js?id=GTM-TML73X7L"></script>
   </head>
 
   <body>

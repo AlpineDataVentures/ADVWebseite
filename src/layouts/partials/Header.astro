@@ -135,7 +135,7 @@ const { pathname } = Astro.url;
   </nav>
 </header>
 
-<script type="module">
+<script is:inline type="module">
   document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.getElementById("nav-toggle");
     const menu = document.getElementById("nav-menu");
