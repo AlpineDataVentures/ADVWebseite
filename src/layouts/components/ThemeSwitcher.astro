@@ -51,13 +51,13 @@ const { className }: { className?: string } = Astro.props;
   );
 
   function toggleTheme(themeSwitch: NodeListOf<Element>) {
-    const defaulTheme =
+    const defaultTheme =
       settings.default_theme === "system"
         ? matchMedia.matches
           ? "dark"
           : "light"
         : settings.default_theme;
-    const currentTheme = localStorage.getItem("theme") || defaulTheme;
+    const currentTheme = localStorage.getItem("theme") || defaultTheme;
     const isDarkTheme = currentTheme === "dark";
     themeSwitch.forEach((sw: any) => (sw.checked = isDarkTheme));
     document.documentElement.classList.toggle("dark", isDarkTheme);
@@ -68,13 +68,13 @@ const { className }: { className?: string } = Astro.props;
     toggleTheme(themeSwitch);
     themeSwitch.forEach((sw) => {
       sw.addEventListener("click", function () {
-        const defaulTheme =
+        const defaultTheme =
           settings.default_theme === "system"
             ? matchMedia.matches
               ? "dark"
               : "light"
             : settings.default_theme;
-        const currentTheme = localStorage.getItem("theme") || defaulTheme;
+        const currentTheme = localStorage.getItem("theme") || defaultTheme;
         const newTheme = currentTheme === "light" ? "dark" : "light";
         localStorage.setItem("theme", newTheme);
         toggleTheme(themeSwitch);
