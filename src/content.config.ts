@@ -260,25 +260,6 @@ const portfolioCollection = defineCollection({
 });
 
 // Call to Action collection schema
-const ctaSectionCollection = defineCollection({
-  loader: glob({
-    pattern: "call-to-action.{md,mdx}",
-    base: "src/content/sections",
-  }),
-  schema: z.object({
-    enable: z.boolean(),
-    title: z.string(),
-    description: z.string(),
-    image: z.string(),
-    button: z.object({
-      enable: z.boolean(),
-      label: z.string(),
-      link: z.string(),
-    }),
-  }),
-});
-
-// Call to Action collection schema
 const cardSectionCollection = defineCollection({
   loader: glob({
     pattern: "service_cards.{md,mdx}",
@@ -359,6 +340,5 @@ export const collections = {
 
   // sections
   cardSection: cardSectionCollection,
-  ctaSection: ctaSectionCollection,
   testimonialSection: testimonialSectionCollection,
 };
