@@ -1,5 +1,18 @@
 # Release Notes 
 
+### 1.3 
+
+- Migration auf Astro 6 (inkl. Anpassungen an Content Collections)
+- Bildskalierung auf der Startseite für Astro 6 korrigiert
+- Google Tag Manager seitenweit integriert
+- Consent-Steuerung über Klaro umgesetzt (lokale Klaro-Assets, Footer-Integration, Datenschutz-Anpassungen)
+- Neue Plausible-Instanz bei betaITS eingebunden
+- Bestätigungsseite für Google Ads ergänzt
+- Career-Seite als neue Unterseite angelegt
+- Navigation verschlankt und Menü angepasst
+- Laufende Dependency-Updates und Umstellung auf Node.js 22
+- Technische Bereinigungen (dupliziertes CSS, Debug-/Trial-Code, allgemeines Cleanup)
+
 ### 1.2
 
 - Einbau von Kundenstimmen auf Startseite 
