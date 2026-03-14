@@ -82,13 +82,23 @@ const {
         {
           src: [
             {
-              style: "400",
-              weight: "normal",
+              style: "normal",
+              weight: "400",
               path: join(
                 process.cwd(),
                 "public",
                 "fonts",
                 "Poppins-Regular.woff2",
+              ),
+            },
+            {
+              style: "normal",
+              weight: "600",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Poppins-SemiBold.woff2",
               ),
             },
           ],
@@ -101,13 +111,23 @@ const {
         {
           src: [
             {
-              style: "500",
-              weight: "normal",
+              style: "normal",
+              weight: "500",
               path: join(
                 process.cwd(),
                 "public",
                 "fonts",
                 "Poppins-Medium.woff2",
+              ),
+            },
+            {
+              style: "normal",
+              weight: "700",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Poppins-Bold.woff2",
               ),
             },
           ],
@@ -135,7 +155,8 @@ const {
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
 
     <!-- add sitemap for crawlers convenience -->
-    <link rel="sitemap" href="/sitemap-index.xml/" />
+    <!-- since Astro 6 no trailing slash is needed -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- index robots -->
     <!-- for branch-deploys do NOT allow INDEXing, nor let crawler follow links -->
