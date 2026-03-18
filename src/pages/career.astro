@@ -1,62 +1,114 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-import { getEntry } from "astro:content";
-import TextBlock from "@/partials/TextBlock.astro";
-import DoubleTextBlock from "@/partials/DoubleTextBlock.astro";
-import ContactForm from "@/partials/ContactForm.astro";
-import CoreValues from "@/partials/CoreValues.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
 import type { CollectionEntry } from "astro:content";
 
-const { contact_form_action } = Astro.props;
+const jobs = (await getSinglePage("career")) as CollectionEntry<"career">[];
+const firstJob = jobs[0];
 
-const about = (await getEntry("about", "-index")) as CollectionEntry<"about">;
+const pageTitle = "Karriere";
+const pageDescription =
+  "Werde Teil von Alpine Data Ventures und arbeite an echten Web-, Data- und Analytics-Projekten in einem interdisziplinären Team.";
+const pageMetaTitle =
+  firstJob?.data.meta_title ?? "Karriere | Alpine Data Ventures";
 
-const { title, description, meta_title, image } = about.data;
+const employmentTypeLabel: Record<string, string> = {
+  praktikum: "Praktikum",
+  werkstudium: "Werkstudium",
+  vollzeit: "Vollzeit",
+  teilzeit: "Teilzeit",
+};
 ---
 
 <Base
-  title={title}
-  meta_title={meta_title}
-  image={image}
-  description={description}
+  title={pageTitle}
+  meta_title={pageMetaTitle}
+  description={pageDescription}
 >
-  <PageHeader title={title} />
+  <PageHeader title={pageTitle} />
 
-  <!-- Vision & Mission -->
-  <DoubleTextBlock double_text_block={about.data.vision_method} />
-
-  <!-- Hero's Image -->
-  <section class="mb-16">
-    <div class="container">
-      <div class="row justify-center">
-        <ImageMod
-          src={image}
-          height={1152}
-          width={2048}
-          alt="Das Team"
-          format="webp"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- CoreValues -->
-  <CoreValues core_values={about.data.corevalues} />
-
-  <!-- Collaboration -->
-  <TextBlock text_block={about.data.collaboration} />
-
-  <!-- contact form -->
   <section class="section-sm">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto md:col-10 lg:col-6">
-          <ContactForm contact_form_action={contact_form_action} />
+      <div class="row justify-center">
+        <div class="text-center md:col-10 lg:col-8">
+          <h2 class="mb-4">Arbeiten bei ADV</h2>
+          <p class="text-lg">
+            Wir verbinden Datenstrategie, Architektur und moderne Umsetzung.
+            Wenn du in einem kleinen Team schnell Verantwortung übernehmen und
+            mit echten Projekten wachsen willst, bist du hier richtig.
+          </p>
         </div>
       </div>
     </div>
   </section>
-  <!-- /contact form -->
+
+  {
+    jobs.length > 0 && (
+      <section class="section-sm bg-gradient">
+        <div class="container">
+          <div class="mb-10 text-center">
+            <h2 class="mb-3">Offene Stellen</h2>
+            <p>
+              Aktuell suchen wir Verstärkung für folgende Rollen. Klick auf die
+              Stelle und springe direkt zu den Details.
+            </p>
+          </div>
+          <div class="row">
+            {jobs.map((job) => (
+              <div class="mb-6 md:col-6">
+                <a
+                  href={`/career/${job.id}/`}
+                  class="block rounded border border-border bg-body p-6 transition duration-300 hover:-translate-y-1 dark:border-darkmode-border dark:bg-darkmode-body"
+                >
+                  <h3 class="mb-3 h5 text-dark dark:text-darkmode-text-dark">
+                    {job.data.title}
+                  </h3>
+                  <p class="mb-4 text-justify">
+                    {job.data.summary ?? job.data.description}
+                  </p>
+                  <div class="mb-3 flex flex-wrap gap-2">
+                    <span class="rounded bg-theme-light px-3 py-1 text-sm">
+                      {employmentTypeLabel[job.data.employment_type]}
+                    </span>
+                    <span class="rounded bg-theme-light px-3 py-1 text-sm">
+                      Start: {job.data.start_date}
+                    </span>
+                    <span class="rounded bg-theme-light px-3 py-1 text-sm">
+                      {job.data.location}
+                    </span>
+                  </div>
+                  <div class="flex justify-center mt-4">
+                    <span class="btn-adv btn-outline-primary btn-sm">
+                      Details ansehen
+                    </span>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    jobs.length === 0 && (
+      <section class="section-sm">
+        <div class="container text-center">
+          <h2 class="mb-4">Aktuell keine offenen Stellen</h2>
+          <p>
+            Wir freuen uns trotzdem über eine Initiativbewerbung an
+            <a
+              class="ml-1 text-primary underline"
+              href="mailto:recruiting@alpinedata.de"
+            >
+              recruiting@alpinedata.de
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+    )
+  }
 </Base>

@@ -179,6 +179,29 @@ const feedbackCollection = defineCollection({
   })
 });
 
+const careerCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/career" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string(),
+    draft: z.boolean().optional(),
+    summary: z.string().optional(),
+    employment_type: z.enum(["praktikum", "werkstudium", "vollzeit", "teilzeit"]),
+    start_date: z.string(),
+    location: z.string(),
+    remote_possible: z.boolean().default(true),
+    hourly_salary_min_eur: z.number().optional(),
+    hourly_salary_max_eur: z.number().optional(),
+    team_intro: z.string().optional(),
+    tasks: z.array(z.string()).default([]),
+    required_profile: z.array(z.string()).default([]),
+    optional_profile: z.array(z.string()).default([]),
+    benefits: z.array(z.string()).default([]),
+    application_email: z.string().optional(),
+  }),
+});
+
 export const homepageCollection = defineCollection({
   loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/homepage" }),
   schema: z.object({
@@ -328,6 +351,7 @@ export const collections = {
   about: aboutCollection,
   authors: authorsCollection,
   blog: blogCollection,
+  career: careerCollection,
   casestudies: casestudiesCollection,
   contact: contactCollection,
   dataready: datareadyCollection,

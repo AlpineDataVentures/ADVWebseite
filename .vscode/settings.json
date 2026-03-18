@@ -16,6 +16,7 @@
     "Coachings",
     "Dashboarding",
     "dataready",
+    "datenbezogenen",
     "datengetriebener",
     "datengetriebenes",
     "Domänenwissen",
@@ -82,14 +83,17 @@
     "TTDSG",
     "Ursachenanalyse",
     "Validierungs",
+    "Versionierung",
     "versioniert",
     "Visualisierungsoptionen",
+    "Webframeworks",
     "Websitezugriffe",
     "Wernard",
     "Wettbewerbsdifferenzierende",
     "wettbewerbsintensiven",
     "wirtschaftlichkeit",
-    "zusammengedampft"
+    "zusammengedampft",
+    "praktikum"
   ],
   "editor.formatOnSave": true,
   "files.associations": {

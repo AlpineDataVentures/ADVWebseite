@@ -1,0 +1,127 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const { job } = Astro.props;
+const typedJob = job as CollectionEntry<"career">;
+const { Content } = await render(typedJob);
+
+const employmentTypeLabel: Record<
+  CollectionEntry<"career">["data"]["employment_type"],
+  string
+> = {
+  praktikum: "Praktikum",
+  werkstudium: "Werkstudium",
+  vollzeit: "Vollzeit",
+  teilzeit: "Teilzeit",
+};
+---
+
+<section class="section pt-7">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="md:col-10 lg:col-9">
+        <h1 class="h2 mb-4">{typedJob.data.title}</h1>
+        <p class="mb-6 text-lg">{typedJob.data.description}</p>
+
+        <div class="mb-8 flex flex-wrap gap-2">
+          <span class="rounded bg-theme-light px-3 py-1 text-sm">
+            {employmentTypeLabel[typedJob.data.employment_type]}
+          </span>
+          <span class="rounded bg-theme-light px-3 py-1 text-sm">
+            Start: {typedJob.data.start_date}
+          </span>
+          <span class="rounded bg-theme-light px-3 py-1 text-sm">
+            {typedJob.data.location}
+          </span>
+          <span class="rounded bg-theme-light px-3 py-1 text-sm">
+            {typedJob.data.remote_possible ? "Remote möglich" : "vor Ort"}
+          </span>
+          {
+            typedJob.data.hourly_salary_min_eur &&
+              typedJob.data.hourly_salary_max_eur && (
+                <span class="rounded bg-theme-light px-3 py-1 text-sm">
+                  {typedJob.data.hourly_salary_min_eur} EUR -{" "}
+                  {typedJob.data.hourly_salary_max_eur} EUR / Stunde
+                </span>
+              )
+          }
+        </div>
+
+        {
+          typedJob.data.team_intro && (
+            <div class="mb-10">
+              <h2 class="mb-3 h4">Unser Team</h2>
+              <div
+                set:html={markdownify(typedJob.data.team_intro, true)}
+                class="content"
+              />
+            </div>
+          )
+        }
+
+        <div class="row">
+          <div class="mb-8 md:col-6">
+            <h2 class="mb-3 h5">Deine Aufgaben</h2>
+            <ul class="list-disc space-y-2 pl-5">
+              {typedJob.data.tasks.map((item: string) => <li>{item}</li>)}
+            </ul>
+          </div>
+          <div class="mb-8 md:col-6">
+            <h2 class="mb-3 h5">Dein Profil</h2>
+            <h3 class="mb-2 text-base font-semibold">Erforderlich</h3>
+            <ul class="mb-4 list-disc space-y-2 pl-5">
+              {
+                typedJob.data.required_profile.map((item: string) => (
+                  <li>{item}</li>
+                ))
+              }
+            </ul>
+            {
+              typedJob.data.optional_profile.length > 0 && (
+                <>
+                  <h3 class="mb-2 text-base font-semibold">Von Vorteil</h3>
+                  <ul class="list-disc space-y-2 pl-5">
+                    {typedJob.data.optional_profile.map((item: string) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </>
+              )
+            }
+          </div>
+        </div>
+
+        <div class="mb-10">
+          <h2 class="mb-3 h5">Was du von uns erwarten darfst</h2>
+          <ul class="list-disc space-y-2 pl-5">
+            {typedJob.data.benefits.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        <div class="mb-10 rounded border border-border p-6 text-center">
+          <h2 class="mb-2 h5">Interesse?</h2>
+          <p class="mb-4">
+            Schick uns deinen Lebenslauf und ein paar Zeilen zu deiner
+            Motivation.
+          </p>
+          <a
+            class="btn btn-primary"
+            href={`mailto:${typedJob.data.application_email ?? "recruiting@alpinedata.de"}`}
+          >
+            Jetzt bewerben
+          </a>
+        </div>
+
+        <div class="content mb-10">
+          <Content />
+        </div>
+
+        <a href="/career/" class="btn btn-outline-primary">
+          Zurück zu Karriere
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
