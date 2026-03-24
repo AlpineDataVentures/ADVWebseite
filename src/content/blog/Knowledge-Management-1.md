@@ -64,6 +64,6 @@ In diesem ersten Artikel haben wir die Grundfrage gestellt: **Warum brauchen wir
 
 Die Antwort ist einfach: Weil Wissen nicht von alleine dableibt. Es muss aktiv gesichert, strukturiert und zugänglich gemacht werden.
 
-Im *zweiten* Teil werden wir uns damit beschäftigen, wie modernes Knowledge Management in der Praxis aussieht: welche Methoden funktionieren, welche scheitern und was erfolgreiche Wissensorganisationen anders machen.
+Im *zweiten* Teil beschäftigen wir uns damit, wie modernes Knowledge Management in der Praxis aussieht: welche Methoden funktionieren, welche scheitern und was erfolgreiche Wissensorganisationen anders machen. Hier geht es zu [Teil 2: Knowledge Management in der Praxis: Warum niemand das Handbuch liest](/blog/knowledge-management-2/).
 
 Im *dritten* Teil geht es dann konkret um Data Knowledge: Wie dokumentiert man Daten richtig, was ist ein Data Catalog, und wie baut man eine Kultur auf, in der Datenwissen nicht im Kopf von Einzelpersonen verschwindet?
