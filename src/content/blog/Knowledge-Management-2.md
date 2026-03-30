@@ -6,7 +6,7 @@ date: 2026-03-23T10:00:00Z
 image: "/images/blog/knowledge-management-2.png"
 categories: ["Knowledge Management"]
 author: "Ben Diez"
-tags: ["Knowledge Management", "Governance"]
+tags: ["Governance"]
 draft: false
 summary: "Wissen geht nicht verloren, weil das falsche Tool gewählt wurde. Es geht verloren, weil Dokumentation als Zusatzaufgabe behandelt wird statt als Teil der Arbeit."
 ---
@@ -14,6 +14,8 @@ summary: "Wissen geht nicht verloren, weil das falsche Tool gewählt wurde. Es g
 *Teil 2 von 3 unserer Serie über Knowledge Management*
 
 Zum ersten Teil der Serie: [Knowledge Management - oder: Der 1. Tag in der eigenen Wohnung](/blog/knowledge-management-1/)
+
+Zum dritten Teil der Serie: [Data Knowledge: Wenn Daten sprechen, aber niemand die Sprache versteht](/blog/knowledge-management-3/)
 
 Wenn Organisationen merken, dass Wissen verloren geht, ist die erste Reaktion beunruhigend oft dieselbe: ein Tool wie z. B. eine neue Plattform, ein Wiki oder ein zentrales Repository einführen. Um wirklich jeden mitzunehmen, wird diese Einführung meist begleitet von großen Ankündigungen, gegenseitigem Schulterklopfen und einer üppigen Kick Off Veranstaltung (manchmal mit, manchmal ohne musikalische Untermalung vom Wendler). 
 
@@ -77,4 +79,4 @@ Erinnert ihr euch an das Regal von weiter oben? Das Problem war nie das Regal. D
 Ein Wissenssystem funktioniert dann, wenn drei Dinge zusammenkommen: die richtige Struktur, klare Verantwortlichkeiten, und eine Kultur, in der Teilen selbstverständlicher ist als Horten. Fehlt eines davon, steht das Regal leer (sofern einer das Buch vom Wendler wegwirft, aber das Problem sollte sich von allein lösen)
 
 ### Ausblick auf Teil 3
-Wir haben jetzt geklärt, warum Knowledge Management scheitert und was es braucht, damit es funktioniert. Im dritten und letzten Teil der Serie gehen wir eine Ebene tiefer: zu den Daten selbst. Was ist Data Knowledge, warum ist es oft das am stärksten vernachlässigte Wissen in einer Organisation und wie baut man einen Data Catalog, den tatsächlich jemand benutzt?
+Wir haben jetzt geklärt, warum Knowledge Management scheitert und was es braucht, damit es funktioniert. Im dritten und letzten Teil der Serie gehen wir eine Ebene tiefer: zu den Daten selbst. Was ist Data Knowledge, warum ist es oft das am stärksten vernachlässigte Wissen in einer Organisation und wie baut man einen Data Catalog, den tatsächlich jemand benutzt? Hier geht es zu [Teil 3: Data Knowledge: Wenn Daten sprechen, aber niemand die Sprache versteht](/blog/knowledge-management-3/).

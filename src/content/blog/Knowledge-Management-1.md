@@ -6,12 +6,14 @@ date: 2026-03-16T10:00:00Z
 image: "/images/blog/knowledge-management-1.png"
 categories: ["Knowledge Management"]
 author: "Ben Diez"
-tags: ["Knowledge Management", "Governance"]
+tags: ["Governance"]
 draft: false
 summary: "Wissen steckt in Köpfen, Routinen und informellen Gesprächen – und verschwindet, wenn Menschen gehen. Warum Knowledge Management und Data Knowledge die Grundlage jeder lernenden Organisation sind."
 ---
 
 *Teil 1 von 3 unserer Serie über Knowledge Management*
+
+Weiter zu [Teil 2: Knowledge Management in der Praxis](/blog/knowledge-management-2/) | [Teil 3: Data Knowledge](/blog/knowledge-management-3/)
 
 Es gibt Momente im Leben, die jeder in zweifelhafter Erinnerung behält. Einer davon: Die erste eigene Wohnung und der damit verbundene Auszug aus dem elterlichen Nest.
 
@@ -66,4 +68,4 @@ Die Antwort ist einfach: Weil Wissen nicht von alleine dableibt. Es muss aktiv g
 
 Im *zweiten* Teil beschäftigen wir uns damit, wie modernes Knowledge Management in der Praxis aussieht: welche Methoden funktionieren, welche scheitern und was erfolgreiche Wissensorganisationen anders machen. Hier geht es zu [Teil 2: Knowledge Management in der Praxis: Warum niemand das Handbuch liest](/blog/knowledge-management-2/).
 
-Im *dritten* Teil geht es dann konkret um Data Knowledge: Wie dokumentiert man Daten richtig, was ist ein Data Catalog, und wie baut man eine Kultur auf, in der Datenwissen nicht im Kopf von Einzelpersonen verschwindet?
+Im *dritten* Teil geht es dann konkret um Data Knowledge: Wie dokumentiert man Daten richtig, was ist ein Data Catalog, und wie baut man eine Kultur auf, in der Datenwissen nicht im Kopf von Einzelpersonen verschwindet? Hier geht es zu [Teil 3: Data Knowledge: Wenn Daten sprechen, aber niemand die Sprache versteht](/blog/knowledge-management-3/).
