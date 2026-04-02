@@ -1,15 +1,12 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
-import ContactForm from "@/partials/ContactForm.astro";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
-import BlogCard from "@/components/BlogCard.astro";
 import type { CollectionEntry } from "astro:content";
-import { getSinglePage } from "@/lib/contentParser.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
+import LandingCta from "@/partials/LandingCta.astro";
 import Testimonial from "@/partials/Testimonial.astro";
 
 const homepage = (await getEntry(
@@ -27,17 +24,7 @@ const testimonial = (await getEntry(
   "testimonial",
 )) as CollectionEntry<"testimonialSection">;
 
-const { contact_form_action }: { contact_form_action: string } = config.params;
 const { banner, features } = homepage.data;
-
-// Alle Blog-Posts laden
-const posts = await getSinglePage("blog");
-// Posts nach Datum sortieren und die drei aktuellsten auswählen
-const latestPosts = posts
-  .sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-  )
-  .slice(0, 3);
 ---
 
 <Base>
@@ -158,39 +145,6 @@ const latestPosts = posts
     }
     <!-- Voice of the Customers -->
     <Testimonial testimonial={testimonial} />
-    <!--CallToAction call_to_action={call_to_action} /-->
-
-    <!-- Teaser from Blog -->
-    <section class="section pt-0">
-      <div class="container">
-        <div class="section pb-0">
-          <h2 class="mb-12 text-center">Neues aus dem ADV Blog</h2>
-          <div class="row justify-center">
-            {
-              latestPosts.map((post) => (
-                <div class="lg:col-4 md:col-6 mb-14">
-                  <BlogCard data={post} />
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- contact form -->
-    <section class="mt-0">
-      <div class="container">
-        <div class="px-4 xl:p-6">
-          <div class="row">
-            <h2 class="mb-4 w-full text-center">Kontakt</h2>
-            <div class="mx-auto md:col-10 lg:col-6">
-              <ContactForm contact_form_action={contact_form_action} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- /contact form -->
+    <LandingCta />
   </section>
 </Base>
