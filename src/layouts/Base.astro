@@ -10,19 +10,20 @@ import { AstroFont } from "astro-font";
 import { ClientRouter } from "astro:transitions";
 import SearchModal from "./helpers/SearchModal";
 import { join } from "node:path";
+import GTMConsent from "./components/tracking/GTMConsent.astro";
 
 // font families
 const pf = theme.fonts.font_family.primary;
 const sf = theme.fonts.font_family.secondary;
 
 let fontPrimary, fontSecondary;
-if (theme.fonts.font_family.primary) {
-  fontPrimary = theme.fonts.font_family.primary
+if (pf) {
+  fontPrimary = pf
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
 }
-if (theme.fonts.font_family.secondary) {
-  fontSecondary = theme.fonts.font_family.secondary
+if (sf) {
+  fontSecondary = sf
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
 }
@@ -243,17 +244,59 @@ const {
     {
       process.env.CONTEXT === "production" && (
         <script
-          defer
-          data-domain="alpinedata.de"
-          src="https://analytics.beta-its.de/js/script.js"
-        />
+          async
+          src="https://analytics.beta-its.de/js/pa-k0wKA0tx3awvzrCtcx19c.js"
+        ></script>
+
+        <script>
+          window.plausible =
+            window.plausible ||
+            function (...args) {
+              (window.plausible.q = window.plausible.q || []).push(args);
+            };
+
+          window.plausible.init =
+            window.plausible.init ||
+            function (options) {
+              window.plausible.o = options || {};
+            };
+
+          window.plausible.init();
+        </script>
       )
     }
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag(...args) {
+        window.dataLayer.push(args);
+      }
+
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TML73X7L"
+    ></script>
   </head>
 
-  <!-- twitter-image -->
-
   <body>
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TML73X7L"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
+    </noscript>
+    <!-- Klaro JS -->
+    <GTMConsent />
+
     <TwSizeIndicator />
     <Header />
     <SearchModal client:load />
