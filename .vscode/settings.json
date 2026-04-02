@@ -44,6 +44,7 @@
     "Kickverhalten",
     "Konnektoren",
     "Konsolenfehler",
+    "latin",
     "Launchparty",
     "Layoutteile",
     "Lieferanteninformationen",
@@ -56,6 +57,7 @@
     "Perspektivwechsel",
     "pinterest",
     "PowerPoint",
+    "praktikum",
     "Priorisierungsworkshop",
     "Produktivitätsbooster",
     "Qlik",
@@ -83,8 +85,8 @@
     "TTDSG",
     "Ursachenanalyse",
     "Validierungs",
-    "Versionierung",
     "versioniert",
+    "Versionierung",
     "Visualisierungsoptionen",
     "Webframeworks",
     "Websitezugriffe",
@@ -92,8 +94,7 @@
     "Wettbewerbsdifferenzierende",
     "wettbewerbsintensiven",
     "wirtschaftlichkeit",
-    "zusammengedampft",
-    "praktikum"
+    "zusammengedampft"
   ],
   "editor.formatOnSave": true,
   "files.associations": {

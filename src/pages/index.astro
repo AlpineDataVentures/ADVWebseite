@@ -5,6 +5,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
 import type { CollectionEntry } from "astro:content";
+import Faq from "@/partials/Faq.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
 import LandingCta from "@/partials/LandingCta.astro";
 import Testimonial from "@/partials/Testimonial.astro";
@@ -23,6 +24,11 @@ const testimonial = (await getEntry(
   "testimonialSection",
   "testimonial",
 )) as CollectionEntry<"testimonialSection">;
+
+const faq = (await getEntry(
+  "faqSection",
+  "faq",
+)) as CollectionEntry<"faqSection">;
 
 const { banner, features } = homepage.data;
 ---
@@ -145,6 +151,7 @@ const { banner, features } = homepage.data;
     }
     <!-- Voice of the Customers -->
     <Testimonial testimonial={testimonial} />
+    <Faq faq={faq} />
     <LandingCta />
   </section>
 </Base>
