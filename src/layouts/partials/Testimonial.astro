@@ -8,11 +8,6 @@ const { testimonial } = Astro.props;
   <section class="section testimonial-section py-8">
     <div class="container">
       <div class="row">
-        <div class="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
-          <h2 set:html={markdownify(testimonial.data.title)} class="mb-4 text-center" />
-          <p set:html={markdownify(testimonial.data.description)} class="text-lg" />
-        </div>
-
         <div class="col-12 relative testimonial-slider-wrapper">
           <!-- Navigation Buttons (außerhalb des Sliders) -->
           <div class="swiper-button-prev"></div>
@@ -28,55 +23,70 @@ const { testimonial } = Astro.props;
                   name: string;
                   designation: string;
                   link: string;
-                }) => (
+                }, index: number) => (
                   <div class="swiper-slide">
-                    <div class="testimonial-card rounded-lg bg-light px-7 py-10 dark:bg-darkmode-light">
-                      <div class="text-dark dark:text-white">
+                    <div class="testimonial-card rounded-lg bg-light px-7 py-4 dark:bg-darkmode-light">
+                      <div>
                         <svg
-                          width="33"
-                          height="20"
-                          viewBox="0 0 33 20"
+                          width="94"
+                          height="70"
+                          viewBox="0 0 88 64"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            d="M1.28375 19.41L0.79375 18.64C1.21375 17.0067 1.75042 15.07 2.40375 12.83C3.05708 10.5433 3.75708 8.28 4.50375 6.04C5.29708 3.75333 6.06708 1.77 6.81375 0.0899959H15.3538C14.9338 2.09666 14.4904 4.26667 14.0238 6.6C13.5571 8.88666 13.1371 11.15 12.7638 13.39C12.4371 15.5833 12.1571 17.59 11.9238 19.41H1.28375ZM31.69 0.0899959L32.18 0.859998C31.76 2.54 31.2233 4.5 30.57 6.74C29.9167 8.98 29.2167 11.2433 28.47 13.53C27.7233 15.77 26.9533 17.73 26.16 19.41H17.69C18.0167 17.9167 18.3433 16.33 18.67 14.65C18.9967 12.9233 19.3 11.22 19.58 9.54C19.9067 7.81333 20.1867 6.15667 20.42 4.57C20.7 2.93666 20.91 1.44333 21.05 0.0899959H31.69Z"
-                            fill="currentColor"
-                          />
+                          <defs>
+                            <linearGradient
+                              id={`quote-gradient-${index}`}
+                              x1="0"
+                              y1="0"
+                              x2="1"
+                              y2="1"
+                            >
+                              <stop offset="0%" stop-color="#04D17A" />
+                              <stop offset="100%" stop-color="#03B57D" />
+                            </linearGradient>
+                          </defs>
+                          <text
+                            x="0"
+                            y="130"
+                            fill={`url(#quote-gradient-${index})`}
+                            font-family="var(--font-primary)"
+                            font-size="164"
+                            font-weight="700"
+                            letter-spacing="0"
+                          >
+                            “
+                          </text>
                         </svg>
                       </div>
                       <blockquote
-                        class="mt-8 text-justify"
+                        class="mt-4 text-justify font-primary text-h7 font-bold"
                         set:html={markdownify(item.content)}
                       />
-                      <div class="mt-11 flex items-center">
-                        <div class="text-dark dark:text-white">
+                      <div class="flex items-center justify-between gap-6">
+                        <div class="font-secondary text-[1.125rem] font-normal">
+                          <span>{item.name}</span>
+                          <span class="mx-2">-</span>
+                          <span>{item.designation}</span>
+                        </div>
+                        <div class="text-dark dark:text-white shrink-0">
                           <ImageMod
-                            height={50}
-                            width={85}
+                            height={100}
+                            width={170}
                             class="object-contain"
                             src={item.avatar}
                             alt={item.name}
                             format="webp"
                           />
                         </div>
-                        <div class="ml-4">
-                          <h3
-                            set:text={item.name}
-                            class="h5 font-primary font-semibold"
-                          />
-                          <p
-                            set:text={item.designation}
-                            class="text-dark dark:text-white"
-                          />
-                        </div>
                       </div>
-                        <div class="flex justify-center mt-8">
+                        <div class="flex justify-start mt-1 mb-4">
                           <a
-                            class="btn-adv btn-outline-primary btn-sm"
+                            class="btn-testimonial-invert btn-sm"
                             href={item.link}
                           >
-                            Weiterlesen
+                            Kundenstimme
+                            <span class="ml-2" aria-hidden="true">&rarr;</span>
                           </a>
                         </div>
                     </div>
@@ -123,7 +133,7 @@ const { testimonial } = Astro.props;
       breakpoints: {
         0: { slidesPerView: 1 },
         768: { slidesPerView: 2 },
-        1200: { slidesPerView: 3 },
+        1200: { slidesPerView: 2 },
       },
     });
   });
