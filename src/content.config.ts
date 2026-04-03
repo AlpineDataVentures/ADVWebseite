@@ -364,6 +364,23 @@ const faqSectionCollection = defineCollection({
   }),
 });
 
+const resultsSectionCollection = defineCollection({
+  loader: glob({
+    pattern: "results.{md,mdx}",
+    base: "src/content/sections",
+  }),
+  schema: z.object({
+    enable: z.boolean(),
+    title: z.string(),
+    items: z.array(
+      z.object({
+        caption: z.string(),
+        text: z.string(),
+      }),
+    ),
+  }),
+});
+
 // Export collections
 export const collections = {
   about: aboutCollection,
@@ -383,5 +400,6 @@ export const collections = {
   // sections
   cardSection: cardSectionCollection,
   faqSection: faqSectionCollection,
+  resultsSection: resultsSectionCollection,
   testimonialSection: testimonialSectionCollection,
 };

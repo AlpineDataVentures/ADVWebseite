@@ -9,6 +9,7 @@ import Erstgespraech from "@/partials/Erstgespraech.astro";
 import Faq from "@/partials/Faq.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
 import LandingCta from "@/partials/LandingCta.astro";
+import Results from "@/partials/Results.astro";
 import Testimonial from "@/partials/Testimonial.astro";
 
 const homepage = (await getEntry(
@@ -30,6 +31,11 @@ const faq = (await getEntry(
   "faqSection",
   "faq",
 )) as CollectionEntry<"faqSection">;
+
+const results = (await getEntry(
+  "resultsSection",
+  "results",
+)) as CollectionEntry<"resultsSection">;
 
 const { banner, features } = homepage.data;
 ---
@@ -150,7 +156,8 @@ const { banner, features } = homepage.data;
         </section>
       ))
     }
-    <!-- Voice of the Customers -->
+
+    <Results results={results} />
     <Testimonial testimonial={testimonial} />
     <Erstgespraech />
     <Faq faq={faq} />

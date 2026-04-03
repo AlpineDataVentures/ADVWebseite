@@ -1,0 +1,35 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+const { results } = Astro.props;
+---
+
+{
+  results.data.enable && (
+    <section class="section pb-4 pt-0">
+      <div class="container">
+        <div class="mb-8 text-left">
+          <h2 class="font-primary font-bold text-black dark:text-white">
+            Typische <span class="adv-contact-gradient">Projektergebnisse</span>
+          </h2>
+        </div>
+
+        <div class="row justify-center">
+          {results.data.items.map((item: { caption: string; text: string }) => (
+            <div class="mb-8 xl:col-3 md:col-6 col-12">
+              <article class="flex h-full min-h-80 flex-col justify-center rounded-xl border border-[#141414] bg-[rgba(4,209,122,0.4)] px-7 py-8 text-center">
+                <h5
+                  class="mb-4 font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark"
+                  set:html={markdownify(item.caption)}
+                />
+                <p
+                  class="font-secondary text-base font-normal text-text dark:text-darkmode-text-light"
+                  set:html={markdownify(item.text)}
+                />
+              </article>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
