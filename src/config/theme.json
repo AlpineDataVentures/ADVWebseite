@@ -10,22 +10,22 @@
         "green": "#00CE7F"
       },
       "text_color": {
-        "text": "#444444",
+        "text": "#000000",
         "text-dark": "#040404",
         "text-light": "#717171"
       }
     },
     "darkmode": {
       "theme_color": {
-        "primary": "#fff",
+        "primary": "#ffffff",
         "body": "#1c1c1c",
         "border": "#3E3E3E",
         "light": "#222222",
-        "dark": "#fff"
+        "dark": "#ffffff"
       },
       "text_color": {
-        "text": "#B4AFB6",
-        "text-dark": "#fff",
+        "text": "#ffffff",
+        "text-dark": "#ffffff",
         "text-light": "#B4AFB6"
       }
     }
