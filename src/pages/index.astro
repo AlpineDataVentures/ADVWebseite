@@ -9,6 +9,7 @@ import ServiceCard from "@/components/ServiceCard.astro";
 import LandingCta from "@/partials/LandingCta.astro";
 import Results from "@/partials/Results.astro";
 import Testimonial from "@/partials/Testimonial.astro";
+import WhyAdv from "@/partials/WhyAdv.astro";
 
 const homepage = (await getEntry(
   "homepage",
@@ -34,6 +35,11 @@ const results = (await getEntry(
   "resultsSection",
   "results",
 )) as CollectionEntry<"resultsSection">;
+
+const whyAdv = (await getEntry(
+  "whyAdvSection",
+  "why-adv",
+)) as CollectionEntry<"whyAdvSection">;
 
 const { banner } = homepage.data;
 ---
@@ -107,6 +113,7 @@ const { banner } = homepage.data;
         </div>
       </div>
     </section>
+    <WhyAdv whyAdv={whyAdv} />
     <Results results={results} />
     <Testimonial testimonial={testimonial} />
     <Erstgespraech />
