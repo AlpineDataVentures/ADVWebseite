@@ -216,19 +216,6 @@ export const homepageCollection = defineCollection({
         link: z.string(),
       }),
     }),
-    features: z.array(
-      z.object({
-        title: z.string(),
-        image: z.string(),
-        content: z.string(),
-        bulletpoints: z.array(z.string()).optional(), // Bulletpoints sind optional
-        button: z.object({
-          enable: z.boolean(),
-          label: z.string(),
-          link: z.string(),
-        }),
-      })
-    ),
   }),
 });
 
