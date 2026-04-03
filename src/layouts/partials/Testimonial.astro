@@ -2,6 +2,7 @@
 import { markdownify } from "@/lib/utils/textConverter";
 import ImageMod from "@/components/ImageMod.astro";
 const { testimonial } = Astro.props;
+const hasMultipleTestimonials = testimonial.data.testimonials.length > 2;
 ---
 
 {testimonial.data.enable && (
@@ -9,23 +10,22 @@ const { testimonial } = Astro.props;
     <div class="container">
       <div class="row">
         <div class="col-12 relative testimonial-slider-wrapper">
-          <!-- Navigation Buttons (außerhalb des Sliders) -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-
-          <!-- Swiper -->
-          <div class="swiper testimonial-slider mx-auto w-[90%]">
-            <div class="swiper-wrapper">
-              {testimonial.data.testimonials.map(
-                (item: {
-                  avatar: string;
-                  content: string;
-                  name: string;
-                  designation: string;
-                  link: string;
-                }, index: number) => (
-                  <div class="swiper-slide">
-                    <div class="testimonial-card rounded-lg bg-light px-7 py-4 dark:bg-darkmode-light">
+          <div class="relative testimonial-slider-container">
+            <!-- Swiper -->
+            <div
+              class={`swiper testimonial-slider mx-auto ${hasMultipleTestimonials ? "w-[90%]" : "w-full lg:w-1/2"}`}
+            >
+              <div class="swiper-wrapper">
+                {testimonial.data.testimonials.map(
+                  (item: {
+                    avatar: string;
+                    content: string;
+                    name: string;
+                    designation: string;
+                    link: string;
+                  }, index: number) => (
+                    <div class="swiper-slide">
+                      <div class="testimonial-card rounded-lg bg-light px-7 py-4 dark:bg-darkmode-light">
                       <div>
                         <svg
                           width="94"
@@ -59,45 +59,55 @@ const { testimonial } = Astro.props;
                           </text>
                         </svg>
                       </div>
-                      <blockquote
-                        class="mt-4 text-justify font-primary text-h7 font-bold"
-                        set:html={markdownify(item.content)}
-                      />
-                      <div class="flex items-center justify-between gap-6">
-                        <div class="font-secondary text-[1.125rem] font-normal">
-                          <span>{item.name}</span>
-                          <span class="mx-2">-</span>
-                          <span>{item.designation}</span>
+                        <blockquote
+                          class="mt-4 text-justify font-primary text-h7 font-bold"
+                          set:html={markdownify(item.content)}
+                        />
+                        <div class="flex items-center justify-between gap-6">
+                          <div class="font-secondary text-[1.125rem] font-normal">
+                            <span>{item.name}</span>
+                            <span class="mx-2">-</span>
+                            <span>{item.designation}</span>
+                          </div>
+                          <div class="text-dark dark:text-white shrink-0">
+                            <ImageMod
+                              height={100}
+                              width={170}
+                              class="object-contain"
+                              src={item.avatar}
+                              alt={item.name}
+                              format="webp"
+                            />
+                          </div>
                         </div>
-                        <div class="text-dark dark:text-white shrink-0">
-                          <ImageMod
-                            height={100}
-                            width={170}
-                            class="object-contain"
-                            src={item.avatar}
-                            alt={item.name}
-                            format="webp"
-                          />
-                        </div>
-                      </div>
-                        <div class="flex justify-start mt-1 mb-4">
+                        <div class="mb-4 mt-1 flex justify-start">
                           <a
                             class="btn-testimonial-invert btn-sm"
                             href={item.link}
                           >
-                            Kundenstimme
+                            Kundenstimmen
                             <span class="ml-2" aria-hidden="true">&rarr;</span>
                           </a>
                         </div>
+                      </div>
                     </div>
-                  </div>
-                ),
-              )}
+                  ),
+                )}
+              </div>
             </div>
+
+            {hasMultipleTestimonials && (
+              <>
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-prev testimonial-button-prev"></div>
+                <div class="swiper-button-next testimonial-button-next"></div>
+              </>
+            )}
           </div>
 
-          <!-- Pagination -->
-          <div class="testimonial-slider-pagination mt-8 flex items-center justify-center text-center"></div>
+          {hasMultipleTestimonials && (
+            <div class="testimonial-slider-pagination mt-8 flex items-center justify-center text-center"></div>
+          )}
         </div>
       </div>
     </div>
@@ -112,29 +122,52 @@ const { testimonial } = Astro.props;
   import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
   document.addEventListener("astro:page-load", () => {
-    new Swiper(".testimonial-slider", {
-      modules: [Pagination, Autoplay, Navigation],
-      spaceBetween: 24,
-      loop: true,
-      centeredSlides: false,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".testimonial-slider-pagination",
-        type: "bullets",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        0: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1200: { slidesPerView: 2 },
-      },
+    document.querySelectorAll(".testimonial-slider-wrapper").forEach((wrapper) => {
+      const sliderEl = wrapper.querySelector(".testimonial-slider");
+      const slideCount = wrapper.querySelectorAll(".swiper-slide").length;
+
+      if (!(sliderEl instanceof HTMLElement) || slideCount <= 1) return;
+
+      const paginationEl = wrapper.querySelector(".testimonial-slider-pagination");
+      const prevEl = wrapper.querySelector(".testimonial-button-prev");
+      const nextEl = wrapper.querySelector(".testimonial-button-next");
+
+      if (
+        !(paginationEl instanceof HTMLElement) ||
+        !(prevEl instanceof HTMLElement) ||
+        !(nextEl instanceof HTMLElement)
+      )
+        return;
+
+      const sliderElement = sliderEl as HTMLElement;
+      const paginationElement = paginationEl as HTMLElement;
+      const prevElement = prevEl as HTMLElement;
+      const nextElement = nextEl as HTMLElement;
+
+      new Swiper(sliderElement, {
+        modules: [Pagination, Autoplay, Navigation],
+        spaceBetween: 24,
+        loop: true,
+        centeredSlides: false,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: paginationElement,
+          type: "bullets",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: nextElement,
+          prevEl: prevElement,
+        },
+        breakpoints: {
+          0: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1200: { slidesPerView: 2 },
+        },
+      });
     });
   });
 </script>

@@ -65,15 +65,10 @@ input#nav-toggle:checked ~ #nav-menu {
   flex-direction: column;
 }
 
-.swiper-button-prev {
+.testimonial-slider-wrapper .testimonial-button-prev,
+.testimonial-slider-wrapper .testimonial-button-next {
   color: #00CE7F !important;
-  top: 45%;
-  transform: translateY(-50%);
-}
-
-.swiper-button-next {
-  color: #00CE7F !important;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
 }
 
