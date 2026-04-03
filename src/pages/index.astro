@@ -5,6 +5,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
 import type { CollectionEntry } from "astro:content";
+import Erstgespraech from "@/partials/Erstgespraech.astro";
 import Faq from "@/partials/Faq.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
 import LandingCta from "@/partials/LandingCta.astro";
@@ -151,6 +152,7 @@ const { banner, features } = homepage.data;
     }
     <!-- Voice of the Customers -->
     <Testimonial testimonial={testimonial} />
+    <Erstgespraech />
     <Faq faq={faq} />
     <LandingCta />
   </section>

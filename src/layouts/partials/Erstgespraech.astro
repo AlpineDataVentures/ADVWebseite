@@ -1,0 +1,66 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+---
+
+<section class="bg-white py-16 dark:bg-darkmode-body">
+  <div class="container">
+    <div class="row items-stretch justify-between gap-y-10">
+      <div class="md:col-6">
+        <h1
+          class="mb-6 font-primary text-h1-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h1"
+        >
+          Erstgespräch mit <span class="adv-contact-gradient">Andreas</span>
+        </h1>
+
+        <ImageMod
+          src="/images/andreas.jpg"
+          width={112}
+          height={112}
+          alt="Andreas"
+          class="mb-6 h-28 w-28 rounded-full object-cover"
+          format="webp"
+        />
+
+        <p
+          class="mb-6 font-secondary text-[1.125rem] font-normal leading-relaxed text-text dark:text-darkmode-text"
+        >
+          Im Erstgespräch geht es darum, Ihre Situation gemeinsam zu sortieren -
+          ganz unverbindlich und persönlich.
+        </p>
+
+        <ul
+          class="mb-8 list-disc space-y-2 pl-6 font-secondary text-base font-normal text-text dark:text-darkmode-text"
+        >
+          <li>Sie schildern Ihre Ausgangslage und Ziele</li>
+          <li>
+            Wir ordnen gemeinsam ein, welche Themen wirklich relevant sind
+          </li>
+          <li>
+            Sie bekommen eine erste Einschätzung zu sinnvollen nächsten
+            Schritten
+          </li>
+          <li>Wenn es passt, folgt ein Deep Dive mit unseren Expert:innen</li>
+        </ul>
+
+        <a
+          href="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+          class="inline-flex items-center justify-center rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90"
+        >
+          Erstgespräch vereinbaren
+          <span class="ml-2" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="md:col-6 flex">
+        <ImageMod
+          src="/images/kennenlernen.jpg"
+          width={900}
+          height={600}
+          alt="Erstgespraech"
+          class="h-full w-full object-cover"
+          format="webp"
+        />
+      </div>
+    </div>
+  </div>
+</section>
