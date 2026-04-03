@@ -5,7 +5,6 @@ import { getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import Erstgespraech from "@/partials/Erstgespraech.astro";
 import Faq from "@/partials/Faq.astro";
-import ServiceCard from "@/components/ServiceCard.astro";
 import LandingCta from "@/partials/LandingCta.astro";
 import Results from "@/partials/Results.astro";
 import Testimonial from "@/partials/Testimonial.astro";
@@ -15,11 +14,6 @@ const homepage = (await getEntry(
   "homepage",
   "-index",
 )) as CollectionEntry<"homepage">;
-
-const cards = (await getEntry(
-  "cardSection",
-  "service_cards",
-)) as CollectionEntry<"cardSection">;
 
 const testimonial = (await getEntry(
   "testimonialSection",
@@ -84,35 +78,6 @@ const { banner } = homepage.data;
       </div>
     </section>
     <!-- /Banner -->
-
-    <!-- Second MVP for Portfolio -->
-    <!-- Teaser from Blog -->
-    <section class="section pt-0">
-      <div class="container">
-        <div class="section pb-0">
-          <div class="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
-            <h2 set:html={markdownify(cards.data.title)} class="mb-4" />
-            <p set:html={markdownify(cards.data.description)} class="text-lg" />
-          </div>
-          <div class="row justify-center">
-            {
-              cards.data.services.map(
-                (service: {
-                  title: string;
-                  description: string;
-                  image: string;
-                  link: string;
-                }) => (
-                  <div class="xl:col-3 lg:col-4 md:col-6 col-8 mb-8">
-                    <ServiceCard service={service} />
-                  </div>
-                ),
-              )
-            }
-          </div>
-        </div>
-      </div>
-    </section>
     <WhyAdv whyAdv={whyAdv} />
     <Results results={results} />
     <Testimonial testimonial={testimonial} />

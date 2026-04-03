@@ -269,26 +269,6 @@ const portfolioCollection = defineCollection({
   }),
 });
 
-// Call to Action collection schema
-const cardSectionCollection = defineCollection({
-  loader: glob({
-    pattern: "service_cards.{md,mdx}",
-    base: "src/content/sections",
-  }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    services: z.array(
-      z.object({
-        title: z.string(),
-        description: z.string(),
-        image: z.string(),
-        link: z.string(),
-      })
-    ),
-  }),
-});
-
 const teamCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/team" }),
   schema:
@@ -406,7 +386,6 @@ export const collections = {
   team: teamCollection,
 
   // sections
-  cardSection: cardSectionCollection,
   faqSection: faqSectionCollection,
   resultsSection: resultsSectionCollection,
   testimonialSection: testimonialSectionCollection,
