@@ -7,6 +7,7 @@ import Erstgespraech from "@/partials/Erstgespraech.astro";
 import Faq from "@/partials/Faq.astro";
 import LandingCta from "@/partials/LandingCta.astro";
 import Results from "@/partials/Results.astro";
+import SoArbeiten from "@/partials/SoArbeiten.astro";
 import ServicesOverview from "@/partials/ServicesOverview.astro";
 import Testimonial from "@/partials/Testimonial.astro";
 import WhyAdv from "@/partials/WhyAdv.astro";
@@ -40,6 +41,11 @@ const services = (await getEntry(
   "servicesSection",
   "services",
 )) as CollectionEntry<"servicesSection">;
+
+const soArbeiten = (await getEntry(
+  "soArbeitenSection",
+  "so-arbeiten",
+)) as CollectionEntry<"soArbeitenSection">;
 
 const { banner } = homepage.data;
 ---
@@ -84,6 +90,7 @@ const { banner } = homepage.data;
       </div>
     </section>
     <!-- /Banner -->
+    <SoArbeiten soArbeiten={soArbeiten} />
     <ServicesOverview services={services} />
     <WhyAdv whyAdv={whyAdv} />
     <Results results={results} />

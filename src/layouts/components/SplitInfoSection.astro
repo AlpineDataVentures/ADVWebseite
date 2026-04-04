@@ -46,19 +46,29 @@ const { data } = Astro.props;
                 </article>
               ))}
             </div>
+            {data.button?.enable && (
+              <a
+                class="btn btn-primary mt-8 whitespace-pre"
+                href={data.button.link}
+              >
+                {data.button.label}
+              </a>
+            )}
           </div>
         </div>
 
-        <div class="mt-10">
-          <ImageMod
-            src={data.image}
-            alt={data.image_alt}
-            height={920}
-            width={2048}
-            class="w-full"
-            format="webp"
-          />
-        </div>
+        {data.image && (
+          <div class="mt-10">
+            <ImageMod
+              src={data.image}
+              alt={data.image_alt ?? data.right_title ?? "Bild"}
+              height={920}
+              width={2048}
+              class="w-full"
+              format="webp"
+            />
+          </div>
+        )}
       </div>
     </section>
   )

@@ -367,6 +367,13 @@ const whyAdvSectionCollection = defineCollection({
     ),
     image: z.string(),
     image_alt: z.string(),
+    button: z
+      .object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      })
+      .optional(),
   }),
 });
 
@@ -390,6 +397,43 @@ const servicesSectionCollection = defineCollection({
     ),
     image: z.string(),
     image_alt: z.string(),
+    button: z
+      .object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      })
+      .optional(),
+  }),
+});
+
+const soArbeitenSectionCollection = defineCollection({
+  loader: glob({
+    pattern: "so-arbeiten.{md,mdx}",
+    base: "src/content/sections",
+  }),
+  schema: z.object({
+    enable: z.boolean(),
+    left_intro: z.string(),
+    left_highlight: z.string(),
+    left_outro: z.string(),
+    left_text: z.string(),
+    right_title: z.string(),
+    items: z.array(
+      z.object({
+        caption: z.string(),
+        text: z.string(),
+      }),
+    ),
+    image: z.string().optional(),
+    image_alt: z.string().optional(),
+    button: z
+      .object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      })
+      .optional(),
   }),
 });
 
@@ -412,6 +456,7 @@ export const collections = {
   // sections
   faqSection: faqSectionCollection,
   resultsSection: resultsSectionCollection,
+  soArbeitenSection: soArbeitenSectionCollection,
   servicesSection: servicesSectionCollection,
   testimonialSection: testimonialSectionCollection,
   whyAdvSection: whyAdvSectionCollection,
