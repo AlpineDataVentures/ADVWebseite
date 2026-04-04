@@ -366,6 +366,30 @@ const whyAdvSectionCollection = defineCollection({
       }),
     ),
     image: z.string(),
+    image_alt: z.string(),
+  }),
+});
+
+const servicesSectionCollection = defineCollection({
+  loader: glob({
+    pattern: "services.{md,mdx}",
+    base: "src/content/sections",
+  }),
+  schema: z.object({
+    enable: z.boolean(),
+    left_intro: z.string(),
+    left_highlight: z.string(),
+    left_outro: z.string(),
+    left_text: z.string(),
+    right_title: z.string(),
+    items: z.array(
+      z.object({
+        caption: z.string(),
+        text: z.string(),
+      }),
+    ),
+    image: z.string(),
+    image_alt: z.string(),
   }),
 });
 
@@ -388,6 +412,7 @@ export const collections = {
   // sections
   faqSection: faqSectionCollection,
   resultsSection: resultsSectionCollection,
+  servicesSection: servicesSectionCollection,
   testimonialSection: testimonialSectionCollection,
   whyAdvSection: whyAdvSectionCollection,
 };

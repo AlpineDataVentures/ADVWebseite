@@ -14,4 +14,5 @@ items:
   - caption: "Persönlich und partnerschaftlich"
     text: "Wir erklären, strukturieren und setzen gemeinsam um - statt zusätzliche Komplexität zu erzeugen."
 image: "/images/team_adv.jpg"
+image_alt: "Warum Alpine Data Ventures"
 ---
