@@ -420,6 +420,39 @@ const soArbeitenSectionCollection = defineCollection({
   }),
 });
 
+const resultOverviewSectionCollection = defineCollection({
+  loader: glob({
+    pattern: "result-overview.{md,mdx}",
+    base: "src/content/homepage",
+  }),
+  schema: z.object({
+    enable: z.boolean(),
+    left_intro: z.string(),
+    left_highlight: z.string(),
+    left_outro: z.string(),
+    left_text: z.string(),
+    right_title: z.string(),
+    listItems: z.array(z.string()).default([]),
+    items: z
+      .array(
+        z.object({
+          caption: z.string(),
+          text: z.string(),
+        }),
+      )
+      .default([]),
+    image: z.string().optional(),
+    image_alt: z.string().optional(),
+    button: z
+      .object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      })
+      .optional(),
+  }),
+});
+
 // Export collections
 export const collections = {
   about: aboutCollection,
@@ -438,6 +471,7 @@ export const collections = {
   // sections
   faqSection: faqSectionCollection,
   resultsSection: resultsSectionCollection,
+  resultOverviewSection: resultOverviewSectionCollection,
   soArbeitenSection: soArbeitenSectionCollection,
   servicesSection: servicesSectionCollection,
   testimonialSection: testimonialSectionCollection,

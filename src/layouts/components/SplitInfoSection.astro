@@ -32,20 +32,28 @@ const { data } = Astro.props;
               class="mb-6 font-primary text-h3 font-bold text-black dark:text-white"
               set:html={markdownify(data.right_title)}
             />
-            <div class="space-y-6">
-              {data.items.map((item: { caption: string; text: string }) => (
-                <article>
-                  <h4
-                    class="font-primary text-h6 font-bold text-text-dark dark:text-darkmode-text-dark"
-                    set:html={markdownify(item.caption)}
-                  />
-                  <p
-                    class="font-secondary text-base font-normal text-text dark:text-darkmode-text-light"
-                    set:html={markdownify(item.text)}
-                  />
-                </article>
-              ))}
-            </div>
+            {data.listItems?.length ? (
+              <ul class="space-y-3 pl-5 list-disc font-secondary text-base font-normal text-text dark:text-darkmode-text-light">
+                {data.listItems.map((item: string) => (
+                  <li set:html={markdownify(item)} />
+                ))}
+              </ul>
+            ) : (
+              <div class="space-y-6">
+                {data.items.map((item: { caption: string; text: string }) => (
+                  <article>
+                    <h4
+                      class="font-primary text-h6 font-bold text-text-dark dark:text-darkmode-text-dark"
+                      set:html={markdownify(item.caption)}
+                    />
+                    <p
+                      class="font-secondary text-base font-normal text-text dark:text-darkmode-text-light"
+                      set:html={markdownify(item.text)}
+                    />
+                  </article>
+                ))}
+              </div>
+            )}
             {data.button?.enable && (
               <a
                 class="btn btn-primary mt-8 whitespace-pre"
