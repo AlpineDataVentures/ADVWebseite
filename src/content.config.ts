@@ -202,23 +202,6 @@ const careerCollection = defineCollection({
   }),
 });
 
-export const homepageCollection = defineCollection({
-  loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/homepage" }),
-  schema: z.object({
-    banner: z.object({
-      title1: z.string(),
-      title2: z.string(),
-      title3: z.string(),
-      content: z.string(),
-      button: z.object({
-        enable: z.boolean(),
-        label: z.string(),
-        link: z.string(),
-      }),
-    }),
-  }),
-});
-
 // Pages collection schema
 const pagesCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
@@ -295,7 +278,7 @@ const teamCollection = defineCollection({
 const testimonialSectionCollection = defineCollection({
   loader: glob({
     pattern: "testimonial.{md,mdx}",
-    base: "src/content/sections",
+    base: "src/content/homepage",
   }),
   schema: z.object({
     enable: z.boolean(),
@@ -316,7 +299,7 @@ const testimonialSectionCollection = defineCollection({
 const faqSectionCollection = defineCollection({
   loader: glob({
     pattern: "faq.{md,mdx}",
-    base: "src/content/sections",
+    base: "src/content/homepage",
   }),
   schema: z.object({
     enable: z.boolean(),
@@ -334,7 +317,7 @@ const faqSectionCollection = defineCollection({
 const resultsSectionCollection = defineCollection({
   loader: glob({
     pattern: "results.{md,mdx}",
-    base: "src/content/sections",
+    base: "src/content/homepage",
   }),
   schema: z.object({
     enable: z.boolean(),
@@ -351,7 +334,7 @@ const resultsSectionCollection = defineCollection({
 const whyAdvSectionCollection = defineCollection({
   loader: glob({
     pattern: "why-adv.{md,mdx}",
-    base: "src/content/sections",
+    base: "src/content/homepage",
   }),
   schema: z.object({
     enable: z.boolean(),
@@ -380,7 +363,7 @@ const whyAdvSectionCollection = defineCollection({
 const servicesSectionCollection = defineCollection({
   loader: glob({
     pattern: "services.{md,mdx}",
-    base: "src/content/sections",
+    base: "src/content/homepage",
   }),
   schema: z.object({
     enable: z.boolean(),
@@ -410,7 +393,7 @@ const servicesSectionCollection = defineCollection({
 const soArbeitenSectionCollection = defineCollection({
   loader: glob({
     pattern: "so-arbeiten.{md,mdx}",
-    base: "src/content/sections",
+    base: "src/content/homepage",
   }),
   schema: z.object({
     enable: z.boolean(),
@@ -448,7 +431,6 @@ export const collections = {
   dataready: datareadyCollection,
   dictionary: dictionaryCollection,
   feedback: feedbackCollection,
-  homepage: homepageCollection,
   pages: pagesCollection,
   portfolio: portfolioCollection,
   team: teamCollection,
