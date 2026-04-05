@@ -5,15 +5,15 @@ applyTo: "**"
 # Projektkontext
 - Dieses Repository ist die Website von Alpine Data Ventures GmbH auf Basis von Astro.
 - Hauptfokus ist schnelle, sichere Weiterentwicklung mit Copilot im bestehenden Code.
-- Prioritaet hat Lead-Generierung ueber klare CTAs und saubere Kontaktpfade.
+- Priorität hat Lead-Generierung über klare CTAs und saubere Kontaktpfade.
 
 # Stack und Arbeitsweise
 - Astro mit TypeScript, React-Komponenten, Tailwind/CSS.
-- Inhalte liegen primaer unter src/content.
+- Inhalte liegen primär unter src/content.
 - Seitenrouting liegt unter src/pages.
 - Wiederverwendbare Layoutteile liegen unter src/layouts.
 - Styles liegen unter src/styles.
-- Build und lokale Entwicklung erfolgen ueber npm.
+- Build und lokale Entwicklung erfolgen über npm.
 
 # Bevorzugte Befehle
 - npm install
@@ -22,19 +22,19 @@ applyTo: "**"
 - npm run preview
 - npm run format
 
-# Regeln fuer Aenderungen
-- Nur die fuer die Aufgabe notwendigen Dateien aendern.
+# Regeln für Änderungen
+- Nur die für die Aufgabe notwendigen Dateien ändern.
 - Bestehende Struktur und Benennungen respektieren.
 - Keine ungefragten Refactorings oder Umstrukturierungen.
-- Bei UI-Aenderungen mobile Darstellung mitdenken.
-- Bei Text- und CTA-Aenderungen auf Conversion-Klarheit achten.
-- Bei Unsicherheit zuerst kleine, reversible Aenderung vorschlagen.
+- Bei UI-Änderungen mobile Darstellung mitdenken.
+- Bei Text- und CTA-Änderungen auf Conversion-Klarheit achten.
+- Bei Unsicherheit zuerst kleine, reversible Änderungen vorschlagen.
 
-# Qualitaetscheck vor Abschluss
+# Qualitätscheck vor Abschluss
 - Projekt baut erfolgreich mit npm run build.
 - Betroffene Seite funktioniert lokal im Dev-Server.
 - Keine offensichtlichen Konsolenfehler auf betroffenen Seiten.
-- Keine unbeabsichtigten Aenderungen ausserhalb des Scopes.
+- Keine unbeabsichtigten Änderungen ausserhalb des Scopes.
 
 # Fokusbereiche im Projekt
 - Career-Seite gezielt weiterentwickeln.
@@ -42,7 +42,7 @@ applyTo: "**"
 - Redesign schrittweise vorbereiten, kein Big-Bang-Umbau.
 
 # Erwartetes Copilot-Verhalten
-- Erst kurz den geplanten Ansatz nennen, dann Aenderungen umsetzen.
-- Bei groesseren Aufgaben in kleine Schritte aufteilen.
-- Risiken und moegliche Nebenwirkungen transparent benennen.
-- Konkrete Verifikation nach Aenderungen mitliefern.
+- Erst kurz den geplanten Ansatz nennen, dann Änderungen umsetzen.
+- Bei größeren Aufgaben in kleine Schritte aufteilen.
+- Risiken und mögliche Nebenwirkungen transparent benennen.
+- Konkrete Verifikation nach Änderungen mitliefern.
