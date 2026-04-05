@@ -11,6 +11,7 @@ import Results from "@/partials/Results.astro";
 import SoArbeiten from "@/partials/SoArbeiten.astro";
 import ServicesOverview from "@/partials/ServicesOverview.astro";
 import Testimonial from "@/partials/Testimonial.astro";
+import TypicalSituations from "@/partials/TypicalSituations.astro";
 import WhyAdv from "@/partials/WhyAdv.astro";
 
 const testimonial = (await getEntry(
@@ -54,8 +55,9 @@ const resultOverviewSection = (await getEntry(
     <HomepageTopSections />
     <ResultOverview resultOverview={resultOverviewSection} />
     <div id="typische-ausgangssituation">
-      <SoArbeiten soArbeiten={soArbeiten} />
+      <TypicalSituations />
     </div>
+    <SoArbeiten soArbeiten={soArbeiten} />
     <ServicesOverview services={services} />
     <WhyAdv whyAdv={whyAdv} />
     <Results results={results} />

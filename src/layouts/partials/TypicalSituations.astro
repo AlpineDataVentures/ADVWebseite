@@ -1,0 +1,72 @@
+---
+import DynamicIcon from "@/helpers/DynamicIcon";
+
+const situations = [
+  {
+    icon: "FaBridgeCircleXmark",
+    title: "Unklare Datenlandschaft",
+    text: "Die Daten sind vorhanden - aber nicht nutzbar",
+  },
+  {
+    icon: "LuListX",
+    title: "Fehlende Priorisierung",
+    text: "Es gibt viele Ideen - aber keinen klaren nächsten Schritt",
+  },
+  {
+    icon: "FaAnchorCircleXmark",
+    title: "Unklarer Einstieg in KI",
+    text: "Potenziale sind sichtbar, aber es fehlt ein konkreter, umsetzbarer Ansatz",
+  },
+  {
+    icon: "FaBuromobelexperte",
+    title: "Fragmentierte Systeme und Prozesse",
+    text: "Insights dauern zu lange oder sind nicht belastbar",
+  },
+];
+---
+
+<section class="section pt-8 pb-12 md:pt-12 md:pb-16">
+  <div class="container">
+    <h2
+      class="mb-8 w-full lg:w-2/3 font-primary text-h2-sm md:text-h2 font-bold text-text-dark dark:text-darkmode-text-dark text-left"
+    >
+      Typische Ausgangssituationen: Woran Unternehmen erkennen, dass sie
+      <span class="adv-contact-gradient"> Unterstützung </span>
+      brauchen
+    </h2>
+
+    <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
+      {
+        situations.map((item) => (
+          <article class="situation-card h-full min-h-88 rounded-lg border border-black p-6 text-center dark:border-white md:p-7">
+            <div class="flex items-center justify-center text-text-dark dark:text-darkmode-text-dark">
+              <DynamicIcon icon={item.icon} className="h-14 w-14" />
+            </div>
+            <h4 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+              {item.title}
+            </h4>
+            <div class="flex items-center justify-center">
+              <p class="font-secondary text-base-sm font-normal text-text dark:text-darkmode-text-light">
+                {item.text}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <style>
+      .situation-card {
+        display: grid;
+        grid-template-rows: 1fr auto 1fr;
+      }
+    </style>
+
+    <p
+      class="mt-8 w-full lg:w-1/2 font-secondary text-xl font-normal text-text dark:text-darkmode-text-light text-left"
+    >
+      Diese Situationen sind der Ausgangspunkt - nicht das Problem. Entscheidend
+      ist, daraus einen klaren nächsten Schritt zu machen.
+    </p>
+  </div>
+</section>

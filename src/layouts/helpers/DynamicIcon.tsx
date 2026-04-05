@@ -1,6 +1,7 @@
 import React, { type FC } from "react";
 import type { IconType } from "react-icons";
 import * as FaIcons from "react-icons/fa6";
+import * as LuIcons from "react-icons/lu";
 // import * as AiIcons from "react-icons/ai";
 // import * as BsIcons from "react-icons/bs";
 // import * as FiIcons from "react-icons/fi";
@@ -18,11 +19,17 @@ interface IDynamicIcon extends React.SVGProps<SVGSVGElement> {
 
 const iconLibraries: { [key: string]: IconMap } = {
   fa: FaIcons,
+  lu: LuIcons,
+};
+
+const iconAliases: Record<string, string> = {
+  FaBuromobelexperte: "FaSitemap",
 };
 
 const DynamicIcon: FC<IDynamicIcon> = ({ icon, ...props }) => {
-  const IconLibrary = getIconLibrary(icon);
-  const Icon = IconLibrary ? IconLibrary[icon] : undefined;
+  const resolvedIcon = iconAliases[icon] ?? icon;
+  const IconLibrary = getIconLibrary(resolvedIcon);
+  const Icon = IconLibrary ? IconLibrary[resolvedIcon] : undefined;
 
   if (!Icon) {
     return <span className="text-base">Icon not found</span>;
