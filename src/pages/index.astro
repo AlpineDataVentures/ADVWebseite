@@ -4,6 +4,7 @@ import { getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import Erstgespraech from "@/partials/Erstgespraech.astro";
 import Faq from "@/partials/Faq.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import LandingCta from "@/partials/LandingCta.astro";
 import Results from "@/partials/Results.astro";
 import SoArbeiten from "@/partials/SoArbeiten.astro";
@@ -44,7 +45,61 @@ const soArbeiten = (await getEntry(
 
 <Base>
   <section>
-    <SoArbeiten soArbeiten={soArbeiten} />
+    <HomepageLeadHeading
+      eyebrow="Alpine Data Ventures Datenberatung"
+      title="Aus unklaren Daten werden realistische nächste Schritte"
+    />
+    <section class="section pt-2 pb-12 md:pb-16">
+      <div class="container">
+        <div class="row items-stretch gap-y-10">
+          <div class="col-12 md:col-6">
+            <div class="flex h-full flex-col justify-center text-left">
+              <p
+                class="font-secondary text-lg font-normal text-text dark:text-darkmode-text"
+              >
+                ADV hilft mittelständischen Unternehmen ihre Datenlandschaft zu
+                verstehen, sinnvolle KI- und Dateninitiativen zu priorisieren
+                und erste Ergebnisse schnell in die Umsetzung zu bringen.
+              </p>
+
+              <div class="mt-24 flex flex-wrap items-center gap-4">
+                <a
+                  href="#typische-ausgangssituation"
+                  class="inline-flex items-center justify-center rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90"
+                >
+                  Typische Ausgangssituation
+                </a>
+                <a
+                  href="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+                  class="btn btn-primary inline-flex items-center"
+                >
+                  Gespräch starten
+                  <span class="ml-2" aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+
+              <p
+                class="mt-3 font-secondary text-base font-normal text-text dark:text-darkmode-text"
+              >
+                Senior Expertise · Fixpreis · Quick Wins statt Großprojekt
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <img
+              src="/images/hero.png"
+              alt="ADV Hero"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="typische-ausgangssituation">
+      <SoArbeiten soArbeiten={soArbeiten} />
+    </div>
     <ServicesOverview services={services} />
     <WhyAdv whyAdv={whyAdv} />
     <Results results={results} />

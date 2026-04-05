@@ -1,0 +1,34 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  className?: string;
+}
+
+const { eyebrow, title, className = "" } = Astro.props as Props;
+---
+
+<section class={className}>
+  <div class="container">
+    <div class="w-full text-left py-8 md:py-12">
+      <p
+        class="mb-3 font-secondary text-lg font-normal! text-text-dark dark:text-darkmode-text-light"
+      >
+        {eyebrow}
+      </p>
+      <h1
+        class="lead-title font-primary text-h1-sm md:text-h1 font-bold text-dark dark:text-darkmode-text-dark"
+      >
+        {title}
+      </h1>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 1024px) {
+    .lead-title {
+      max-width: 50vw;
+    }
+  }
+</style>
