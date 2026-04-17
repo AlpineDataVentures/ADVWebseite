@@ -2,9 +2,9 @@ import { glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod"
 
-// schema of the about section
-const aboutCollection = defineCollection({
-  loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/about" }),
+// schema of the values section
+const valuesCollection = defineCollection({
+  loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/values" }),
   schema: z.object({
     title: z.string(),
     meta_title: z.string(),
@@ -453,9 +453,22 @@ const resultOverviewSectionCollection = defineCollection({
   }),
 });
 
+// About ADV collection
+const aboutAdvCollection = defineCollection({
+  loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/about-adv" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string(),
+    description: z.string(),
+    image: z.string().optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
 // Export collections
 export const collections = {
-  about: aboutCollection,
+  values: valuesCollection,
+  "about-adv": aboutAdvCollection,
   authors: authorsCollection,
   blog: blogCollection,
   career: careerCollection,

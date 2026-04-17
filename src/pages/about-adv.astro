@@ -1,0 +1,24 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const aboutAdv = (await getEntry(
+  "about-adv",
+  "-index",
+)) as CollectionEntry<"about-adv">;
+
+const { title, description, meta_title, image } = aboutAdv.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  image={image}
+  description={description}
+>
+  <PageHeader title={title} />
+
+  <!-- Content wird hier hinzugefügt -->
+</Base>

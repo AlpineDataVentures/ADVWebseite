@@ -59,17 +59,21 @@
       "url": "/blog/"
     },
     {
-      "name": "Über uns",
-      "url": "",
+      "name": "Über ADV",
+      "url": "/about-adv/",
       "hasChildren": true,
       "children": [
         {
-          "name": "Unsere Philosophie",
-          "url": "/about/"
-        },
-        {
           "name": "Das Team",
           "url": "/team/"
+        },
+        {
+          "name": "Warum ADV",
+          "url": "/whyadv/"
+        },
+        {
+          "name": "Unsere Werte",
+          "url": "/values/"
         },
         {
           "name": "Karriere",

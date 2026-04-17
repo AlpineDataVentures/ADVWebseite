@@ -17,5 +17,5 @@ items:
 button:
   enable: true
   label: "Mehr erfahren   →"
-  link: "/about/"
+  link: "/values/"
 ---

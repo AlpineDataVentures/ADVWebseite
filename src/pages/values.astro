@@ -11,9 +11,12 @@ import type { CollectionEntry } from "astro:content";
 
 const { contact_form_action } = Astro.props;
 
-const about = (await getEntry("about", "-index")) as CollectionEntry<"about">;
+const values = (await getEntry(
+  "values",
+  "-index",
+)) as CollectionEntry<"values">;
 
-const { title, description, meta_title, image } = about.data;
+const { title, description, meta_title, image } = values.data;
 ---
 
 <Base
@@ -25,7 +28,7 @@ const { title, description, meta_title, image } = about.data;
   <PageHeader title={title} />
 
   <!-- Vision & Mission -->
-  <DoubleTextBlock double_text_block={about.data.vision_method} />
+  <DoubleTextBlock double_text_block={values.data.vision_method} />
 
   <!-- Hero's Image -->
   <section class="mb-16">
@@ -43,10 +46,10 @@ const { title, description, meta_title, image } = about.data;
   </section>
 
   <!-- CoreValues -->
-  <CoreValues core_values={about.data.corevalues} />
+  <CoreValues core_values={values.data.corevalues} />
 
   <!-- Collaboration -->
-  <TextBlock text_block={about.data.collaboration} />
+  <TextBlock text_block={values.data.collaboration} />
 
   <!-- contact form -->
   <section class="section-sm">
