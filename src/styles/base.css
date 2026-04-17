@@ -8,6 +8,10 @@ body {
   position: relative;
 }
 
+p {
+  @apply font-secondary;
+}
+
 /* Wasserzeichen-Hintergrund */
 body::before {
   content: "";

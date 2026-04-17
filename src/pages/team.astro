@@ -53,7 +53,7 @@ const { title, meta_title, description, image } = team.data;
   <!-- Text aus -index -->
   <section class="mb-16">
     <div class="container">
-      <p set:html={markdownify(team.body ?? "")} class="mb-8 text-xl" />
+      <p set:html={markdownify(team.body ?? "")} class="mb-4 font-secondary" />
     </div>
   </section>
   <!-- Profile from authors -->
@@ -74,16 +74,22 @@ const { title, meta_title, description, image } = team.data;
               />
             </div>
             <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
-              <h2 set:html={markdownify(author.data.title)} class="mb-4" />
+              <h2
+                set:html={markdownify(author.data.title)}
+                class="mb-4 font-primary"
+              />
               <p
                 set:html={markdownify(author.body ?? "")}
-                class="mb-8 text-base"
+                class="mb-8 font-secondary text-base"
               />
               <ul>
                 {author.data.bullet_points.map((bullet: string) => (
                   <li class="relative mb-4 pl-6">
                     <FaCheck className={"absolute left-0 top-1.5"} />
-                    <span set:html={markdownify(bullet)} />
+                    <span
+                      set:html={markdownify(bullet)}
+                      class="font-secondary"
+                    />
                   </li>
                 ))}
               </ul>
