@@ -1,62 +1,27 @@
 {
   "main": [
     {
-      "name": "Unsere Leistungen",
-      "url": "",
+      "name": "Lösungen",
+      "url": "/solutions/",
       "hasChildren": true,
       "children": [
         {
-          "name": "Data Strategy",
+          "name": "Orientierung",
           "url": "/strategy/"
         },
         {
-          "name": "Governance & Culture",
-          "url": "/culture/"
-        },
-        {
-          "name": "Data Architecture",
+          "name": "Datenmanagement",
           "url": "/architecture/"
         },
         {
-          "name": "BI & Analytics",
+          "name": "Insights",
           "url": "/analytics/"
         },
         {
-          "name": "AI & Data Science",
-          "url": "/datascience/"
-        },
-        {
-          "name": "Data Knowledge",
-          "url": "/knowledge/"
-        },
-        {
-          "name": "Data Operations",
-          "url": "/operations/"
-        },
-        {
-          "name": "Enterprise Architecture",
-          "url": "/eam/"
+          "name": "Automatisierung",
+          "url": "/automation/"
         }
       ]
-    },
-    {
-      "name": "Unsere Kunden",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Erfolgsgeschichten",
-          "url": "/casestudies/"
-        },
-        {
-          "name": "Kundenstimmen",
-          "url": "/feedback/"
-        }
-      ]
-    },
-    {
-      "name": "Blog",
-      "url": "/blog/"
     },
     {
       "name": "Über ADV",
@@ -78,6 +43,48 @@
         {
           "name": "Karriere",
           "url": "/career/"
+        }
+      ]
+    },
+    {
+      "name": "So arbeiten wir",
+      "url": "/how-we-work/",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Fixpreis-Projekte",
+          "url": "/fixedprice/"
+        },
+        {
+          "name": "Forschungsprojekte",
+          "url": "/research/"
+        },
+        {
+          "name": "Kundenstimmen",
+          "url": "/feedback/"
+        },
+        {
+          "name": "Weg zum Projekt",
+          "url": "/projectstart/"
+        }
+      ]
+    },
+    {
+      "name": "Wissen",
+      "url": "/knowledge/",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Blog",
+          "url": "/blog/"
+        },
+        {
+          "name": "Datenbergführer",
+          "url": "/data-mountain-guide/"
+        },
+        {
+          "name": "Erfolgsgeschichten",
+          "url": "/casestudies/"
         }
       ]
     }
