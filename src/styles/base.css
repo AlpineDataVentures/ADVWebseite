@@ -4,6 +4,25 @@ html {
 
 body {
   @apply bg-body text-base dark:bg-darkmode-body font-primary font-normal leading-relaxed text-text dark:text-darkmode-text;
+  position: relative;
+}
+
+/* Wasserzeichen-Hintergrund */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/images/wasserzeichen.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 1;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Fix für überdeckte Anker */
