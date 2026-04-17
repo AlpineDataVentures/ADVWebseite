@@ -303,5 +303,39 @@ const {
       <slot />
     </main>
     <Footer />
+
+    <script is:inline>
+      (function () {
+        // Beim Scrollen: Wasserzeichen tritt hervor
+        // Nach Scroll-Ende: zurück zur Ausgangsposition
+        const SCALE_ACTIVE = 1.12; // Zoom beim Scrollen
+        const OPACITY_ACTIVE = 1.0; // Sichtbarkeit beim Scrollen
+        const SCALE_IDLE = 1; // Ausgangs-Zoom
+        const OPACITY_IDLE = 0.75; // Ausgangs-Sichtbarkeit
+        const TIMEOUT_MS = 400; // ms nach letztem Scroll bis Rückkehr
+
+        let timer = null;
+
+        function onScrollStart() {
+          document.body.style.setProperty("--wz-scale", SCALE_ACTIVE);
+          document.body.style.setProperty("--wz-opacity", OPACITY_ACTIVE);
+        }
+
+        function onScrollEnd() {
+          document.body.style.setProperty("--wz-scale", SCALE_IDLE);
+          document.body.style.setProperty("--wz-opacity", OPACITY_IDLE);
+        }
+
+        window.addEventListener(
+          "scroll",
+          function () {
+            onScrollStart();
+            clearTimeout(timer);
+            timer = setTimeout(onScrollEnd, TIMEOUT_MS);
+          },
+          { passive: true },
+        );
+      })();
+    </script>
   </body>
 </html>
