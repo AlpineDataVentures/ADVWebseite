@@ -1,0 +1,115 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+
+interface Props {
+  titleStart?: string;
+  titleHighlight: string;
+  titleEnd?: string;
+  leadText?: string;
+  followupText?: string;
+  listItems?: string[];
+  buttonHref: string;
+  buttonLabel: string;
+  avatarSrc: string;
+  avatarAlt: string;
+  imageSrc: string;
+  imageAlt: string;
+  avatarBeforeText?: boolean;
+}
+
+const {
+  titleStart = "",
+  titleHighlight,
+  titleEnd = "",
+  leadText = "",
+  followupText = "",
+  listItems = [],
+  buttonHref,
+  buttonLabel,
+  avatarSrc,
+  avatarAlt,
+  imageSrc,
+  imageAlt,
+  avatarBeforeText = false,
+} = Astro.props as Props;
+
+const hasListItems = listItems.length > 0;
+---
+
+<section class="bg-white py-16 dark:bg-darkmode-body">
+  <div class="container">
+    <div class="row items-stretch justify-between gap-y-10">
+      <div class="md:col-6">
+        <h2
+          class="mb-6 font-primary text-h1-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h1"
+        >
+          {titleStart && <span>{titleStart} </span>}
+          <span class="adv-contact-gradient">{titleHighlight}</span>
+          {titleEnd && <span> {titleEnd}</span>}
+        </h2>
+
+        {
+          !avatarBeforeText && leadText && (
+            <p class="mb-6 font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text md:text-[1.125rem]">
+              {leadText}
+            </p>
+          )
+        }
+
+        <ImageMod
+          src={avatarSrc}
+          width={112}
+          height={112}
+          alt={avatarAlt}
+          class="mb-6 h-28 w-28 rounded-full object-cover"
+          format="webp"
+        />
+
+        {
+          avatarBeforeText && leadText && (
+            <p class="mb-6 font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text md:text-[1.125rem]">
+              {leadText}
+            </p>
+          )
+        }
+
+        {
+          followupText && (
+            <p class="mb-6 font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text md:text-[1.125rem]">
+              {followupText}
+            </p>
+          )
+        }
+
+        {
+          hasListItems && (
+            <ul class="mb-8 list-disc space-y-2 pl-6 font-secondary text-base font-normal text-text dark:text-darkmode-text">
+              {listItems.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )
+        }
+
+        <a
+          href={buttonHref}
+          class="inline-flex items-center justify-center rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90"
+        >
+          {buttonLabel}
+          <span class="ml-2" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="flex md:col-6">
+        <ImageMod
+          src={imageSrc}
+          width={900}
+          height={600}
+          alt={imageAlt}
+          class="h-full w-full object-cover"
+          format="webp"
+        />
+      </div>
+    </div>
+  </div>
+</section>

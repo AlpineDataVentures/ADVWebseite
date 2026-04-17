@@ -1,6 +1,8 @@
 ---
 import Base from "@/layouts/Base.astro";
-import PageHeader from "@/partials/PageHeader.astro";
+import DynamicIcon from "@/helpers/DynamicIcon";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import { getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
@@ -8,6 +10,56 @@ const aboutAdv = (await getEntry(
   "about-adv",
   "-index",
 )) as CollectionEntry<"about-adv">;
+
+const managingDirectors = [
+  {
+    src: "/images/about/gf_andreas.jpg",
+    alt: "Andreas Klostermann",
+  },
+  {
+    src: "/images/about/gf_ben.jpg",
+    alt: "Benjamin Diez",
+  },
+  {
+    src: "/images/about/gf_carsten.jpg",
+    alt: "Dr. Carsten Hof",
+  },
+  {
+    src: "/images/about/gf_julian.jpg",
+    alt: "Julian Koller",
+  },
+];
+
+const insightCards = [
+  {
+    icon: "FaBridgeCircleXmark",
+    titleStart: "Das",
+    titleHighlight: "Team",
+    text: "Die Menschen hinter ADV.",
+    link: "/team/",
+  },
+  {
+    icon: "LuListX",
+    titleStart: "",
+    titleHighlight: "Warum",
+    titleEnd: "ADV",
+    text: "Alle Hintergründe zu unserem Geschäftsmodell.",
+    link: "/whyadv/",
+  },
+  {
+    icon: "FaAnchorCircleXmark",
+    titleStart: "Unsere",
+    titleHighlight: "Werte",
+    text: "Unser moralischer Kompass in all unserem Handeln.",
+    link: "/values/",
+  },
+  {
+    icon: "FaBuromobelexperte",
+    titleHighlight: "Karriere",
+    text: "Geile Projekte, steile Karriere – ADV! Komm zu uns!",
+    link: "/career/",
+  },
+];
 
 const { title, description, meta_title, image } = aboutAdv.data;
 ---
@@ -18,7 +70,130 @@ const { title, description, meta_title, image } = aboutAdv.data;
   image={image}
   description={description}
 >
-  <PageHeader title={title} />
+  <HomepageLeadHeading eyebrow="Über ADV" title="Data. Decision. Done." />
 
-  <!-- Content wird hier hinzugefügt -->
+  <section class="section pt-2 pb-12 md:pb-16">
+    <div class="container">
+      <div class="row items-stretch gap-y-10">
+        <div class="col-12 md:col-6">
+          <div class="flex h-full flex-col justify-center text-left">
+            <p
+              class="font-secondary text-lg font-normal text-text dark:text-darkmode-text"
+            >
+              Der deutsche Mittelstand ist an einem Punkt, an dem Druck aus dem
+              Markt, Wettbewerb und eigene Digitalisierung immer mehr
+              Handlungsbedarf hervorrufen. Wir haben uns zur Aufgabe gemacht,
+              den Mittelstand auf dem Weg vom digitalisierten Unternehmen zum
+              datengetriebenen und effizienten Champion zu begleiten. Dabei
+              planen wir professionell und packen in aller Handwerksmanier an!
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 md:col-6">
+          <img
+            src="/images/team_adv.jpg"
+            alt="Team ADV"
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section py-8 pb-20">
+    <div class="container">
+      <h2 class="font-primary font-bold text-black dark:text-white">
+        Ein Wort der
+        <span class="adv-contact-gradient"> Geschäftsführung</span>
+      </h2>
+
+      <div class="mt-8 grid grid-cols-2 gap-6 lg:grid-cols-4">
+        {
+          managingDirectors.map((director) => (
+            <img
+              src={director.src}
+              alt={director.alt}
+              class="h-full w-full rounded-xl object-cover"
+              loading="lazy"
+            />
+          ))
+        }
+      </div>
+
+      <p
+        class="mt-8 font-secondary text-lg font-normal text-text dark:text-darkmode-text"
+      >
+        Wir möchten Sie herzlich einladen Beratung neu kennenzulernen. Wir haben
+        die ADV 2024 mit dem Vorsatz begründet, Beratung neu zu denken und
+        wieder attraktiv zu machen. Wir pflegen Kundenbeziehungen auf
+        professioneller und dennoch persönlicher Ebene, damit Erfolg und Spaß
+        Hand in Hand gehen. Wir wollen zudem regelmäßig Fürsorge dafür tragen,
+        dass die Projekte bei uns günstiger, anstatt teurer werden, je öfter wir
+        sie umsetzen. Bei uns wird Effizienz, Geschwindigkeit und hohe Qualität
+        nicht nur im Preis abgebildet, sondern auch intern incentiviert. Bei uns
+        müssen Berater nicht die meisten gebuchten Stunden haben, um die besten
+        Berater zu sein, sondern es zählt rein der Projekterfolg und die
+        Zufriedenheit unserer Kunden.
+      </p>
+
+      <section class="pt-10 md:pt-12">
+        <h2
+          class="mb-8 w-full lg:w-2/3 font-primary text-h2-sm md:text-h2 font-bold text-text-dark dark:text-darkmode-text-dark text-left"
+        >
+          <span class="adv-contact-gradient">Tiefere Insights</span>
+          in die ADV
+        </h2>
+
+        <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
+          {
+            insightCards.map((item) => (
+              <a
+                href={item.link}
+                class="insight-card h-full min-h-88 rounded-lg border border-black p-6 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow dark:border-white md:p-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <div class="flex items-center justify-center text-text-dark dark:text-darkmode-text-dark">
+                  <DynamicIcon icon={item.icon} className="h-14 w-14" />
+                </div>
+                <h4 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+                  {item.titleStart && <span>{item.titleStart} </span>}
+                  <span class="adv-contact-gradient">
+                    {item.titleHighlight}
+                  </span>
+                  {item.titleEnd && <span> {item.titleEnd}</span>}
+                </h4>
+                <div class="flex items-center justify-center">
+                  <p class="font-secondary text-base font-normal text-text dark:text-darkmode-text-light">
+                    {item.text}
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <ContactSpotlightSection
+    titleStart="Sie wollen mehr"
+    titleHighlight="über uns als Firma"
+    titleEnd="erfahren?"
+    leadText="Sie haben Interesse abseits von Projektideen oder konkreten Herausforderungen an etwas, das Sie an unserer Firma interessiert? Sie sind Bewerber und möchten vorab Ihrer Bewerbung ein paar Insights aus Ihrem zukünftigen Arbeitgeber erfahren?"
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    followupText="Kein Problem – Andreas hilft Ihnen gerne weiter! Buchen Sie einfach einen kurzen Termin mit ihm und er wird sich Ihrer Anliegen annehmen."
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Termin buchen"
+    imageSrc="/images/kennenlernen.jpg"
+    imageAlt="Gespräch mit Andreas"
+  />
 </Base>
+
+<style>
+  .insight-card {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+  }
+</style>
