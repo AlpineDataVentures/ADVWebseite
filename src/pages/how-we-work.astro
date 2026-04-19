@@ -1,0 +1,82 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import SplitInfoSection from "@/components/SplitInfoSection.astro";
+import Base from "@/layouts/Base.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+
+const splitInfoData = {
+  enable: true,
+  left_intro: 'Wir arbeiten nicht nach dem Prinzip "Zeit gegen Geld", sondern',
+  left_highlight: "ergebnisorientiert.",
+  left_outro: "",
+  left_text:
+    "Unser Ansatz ist darauf ausgelegt, Komplexität zu reduzieren und für Sie als Mittelständler maximale Planungssicherheit zu schaffen. Von der ersten Anfrage bis zur fertigen Lösung folgen wir einem klaren Prozess, der Ihre internen Ressourcen schont und schnelle Erfolge liefert.",
+  right_title: "Unser Fokus - Ihr Ergebnis",
+  items: [
+    {
+      caption: "Pragmatismus vor Komplexität",
+      text: "Sie erhalten Lösungen, die im Alltag funktionieren, statt theoretischer Mammutprojekte.",
+    },
+    {
+      caption: "Volle Kostentransparenz",
+      text: "Keine Budgetüberschreitungen durch klare Fixpreis-Modelle und definierte Liefergegenstände.",
+    },
+    {
+      caption: "Nahtlose Integration",
+      text: "Wir arbeiten eng mit Ihrer IT und Fachabteilung zusammen, ohne Ihren Betrieb aufzuhalten.",
+    },
+    {
+      caption: "Messbarer Mehrwert",
+      text: "Jedes Projekt endet mit einem greifbaren Resultat, das Ihre Entscheidungsgrundlage verbessert.",
+    },
+  ],
+};
+---
+
+<Base
+  title="So arbeiten wir"
+  meta_title="So arbeiten wir"
+  description="Klarer Prozess. Gemeinsame Umsetzung. Ergebnisse, die bleiben."
+>
+  <HomepageLeadHeading
+    eyebrow="So arbeiten wir"
+    title="Klarer Prozess. Gemeinsame Umsetzung. Ergebnisse, die bleiben."
+  />
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <div class="row items-stretch">
+        <div class="col-12 md:col-6">
+          <div class="flex h-full flex-col justify-center text-left">
+            <p
+              class="font-secondary text-lg font-normal text-text dark:text-darkmode-text"
+            >
+              Unser Anspruch ist es, Projekte so schnell, preiswert und
+              qualitativ hochwertig wie möglich umzusetzen und dabei unseren
+              Kunden alles notwendige Know-How zur Weiterentwicklung und Wartung
+              der Systeme mit auf den Weg zu geben. Wir halten nichts von
+              künstlicher Abhängigkeit zu uns, sondern sind überzeugt, dass wir
+              nur dann wachsen können, wenn unser Kunde das ebenso kann. Aus
+              Erfahrung zeigt sich, dass Projekte, welche in kleineren Scheiben
+              Stück für Stück umgesetzt werden, sowie eine gute Change
+              Begleitung genießen, erfolgreicher sind als Großprojekte, die
+              revolutionär eingeführt werden.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 md:col-6">
+          <ImageMod
+            src="/images/adv_at_work.jpg"
+            alt="ADV bei der Arbeit"
+            class="w-full"
+            width={5000}
+            height={3333}
+            format="webp"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <SplitInfoSection data={splitInfoData} />
+</Base>
