@@ -151,12 +151,22 @@ const { pathname } = Astro.url;
   document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.getElementById("nav-toggle");
     const menu = document.getElementById("nav-menu");
+    const dropdownToggles = document.querySelectorAll(".mobile-toggle");
     const showIcon = document.querySelector(
       "#nav-toggle ~ label svg:first-child",
     );
     const hideIcon = document.querySelector(
       "#nav-toggle ~ label svg:last-child",
     );
+
+    const isHoverCapable = () =>
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    const closeAllDropdowns = () => {
+      document.querySelectorAll(".nav-dropdown.open").forEach((item) => {
+        item.classList.remove("open");
+      });
+    };
 
     toggle.addEventListener("change", () => {
       menu.classList.toggle("hidden");
@@ -171,13 +181,42 @@ const { pathname } = Astro.url;
     });
 
     // Submenu click on mobile
-    document.querySelectorAll(".mobile-toggle").forEach((btn) => {
+    dropdownToggles.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        e.preventDefault();
         const parent = btn.closest(".nav-dropdown");
         if (!parent) return;
-        parent.classList.toggle("open");
+
+        const isMobileViewport = window.innerWidth < 1024;
+        const isButton = btn.tagName === "BUTTON";
+
+        // Buttons never navigate; toggling should always work.
+        if (isButton) {
+          e.preventDefault();
+          parent.classList.toggle("open");
+          return;
+        }
+
+        // On mobile we always toggle submenus via click.
+        if (isMobileViewport) {
+          e.preventDefault();
+          parent.classList.toggle("open");
+          return;
+        }
+
+        // On large touch devices without true hover, first tap opens submenu.
+        if (!isHoverCapable() && !parent.classList.contains("open")) {
+          e.preventDefault();
+          closeAllDropdowns();
+          parent.classList.add("open");
+        }
       });
+    });
+
+    // Close open dropdowns when clicking outside (touch/mobile friendly).
+    document.addEventListener("click", (event) => {
+      if (!(event.target instanceof Element)) return;
+      if (event.target.closest(".nav-dropdown")) return;
+      closeAllDropdowns();
     });
 
     window.addEventListener("resize", () => {
@@ -194,9 +233,7 @@ const { pathname } = Astro.url;
         hideIcon.classList.add("hidden");
 
         // Alle Submenus schließen
-        document.querySelectorAll(".nav-dropdown.open").forEach((item) => {
-          item.classList.remove("open");
-        });
+        closeAllDropdowns();
       } else {
         // --- Mobile ---
         menu.classList.remove("flex"); // <--- Desktop-Klasse wegräumen

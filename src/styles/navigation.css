@@ -35,8 +35,8 @@
   @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded p-4 shadow-sm;
 }
 
-/* Desktop Hover nur ab lg */
-@media (min-width: 1024px) {
+/* Desktop Hover nur auf echten Hover-Geräten ab lg */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
   .nav-dropdown-list {
     @apply invisible absolute opacity-0;
   }

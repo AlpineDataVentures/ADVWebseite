@@ -18,17 +18,29 @@ interface Props {
 }
 
 const { titleStart, titleHighlight, titleEnd, cards } = Astro.props as Props;
+
+const escapeHtml = (value: string) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+const buildHighlightedTitle = (
+  start: string | undefined,
+  highlight: string,
+  end: string | undefined,
+) =>
+  `${escapeHtml(start ?? "")}<span class="adv-contact-gradient">${escapeHtml(highlight)}</span>${escapeHtml(end ?? "")}`;
 ---
 
 <section class="section pt-10 md:pt-12">
   <div class="container">
     <h2
       class="mb-8 w-full lg:w-2/3 text-left font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
-    >
-      {titleStart && <span>{titleStart}</span>}<span
-        class="adv-contact-gradient">{titleHighlight}</span
-      >{titleEnd && <span>{titleEnd}</span>}
-    </h2>
+      set:html={buildHighlightedTitle(titleStart, titleHighlight, titleEnd)}
+    />
 
     <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
       {
@@ -40,11 +52,14 @@ const { titleStart, titleHighlight, titleEnd, cards } = Astro.props as Props;
             <div class="flex items-center justify-center text-text-dark dark:text-darkmode-text-dark">
               <DynamicIcon icon={item.icon} className="h-14 w-14" />
             </div>
-            <h4 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
-              {item.titleStart && <span>{item.titleStart}</span>}
-              <span class="adv-contact-gradient">{item.titleHighlight}</span>
-              {item.titleEnd && <span>{item.titleEnd}</span>}
-            </h4>
+            <h4
+              class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark"
+              set:html={buildHighlightedTitle(
+                item.titleStart,
+                item.titleHighlight,
+                item.titleEnd,
+              )}
+            />
             <div class="flex items-center justify-center">
               <p class="font-secondary text-base font-normal text-text dark:text-darkmode-text-light">
                 {item.text}
