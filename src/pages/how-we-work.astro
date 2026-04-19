@@ -2,7 +2,9 @@
 import ImageMod from "@/components/ImageMod.astro";
 import SplitInfoSection from "@/components/SplitInfoSection.astro";
 import Base from "@/layouts/Base.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
 import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import InsightCardsSection from "@/partials/InsightCardsSection.astro";
 
 const splitInfoData = {
   enable: true,
@@ -31,6 +33,39 @@ const splitInfoData = {
     },
   ],
 };
+
+const insightCards = [
+  {
+    icon: "FaBridgeCircleXmark",
+    titleHighlight: "Fixpreis",
+    titleEnd: " Projekte",
+    text: "Planungssicherheit und fertiges Projekt ohne dauernde Budgetausweitung.",
+    link: "/fixprice/",
+  },
+  {
+    icon: "LuListX",
+    titleStart: "Wie komme ich ",
+    titleHighlight: "zum Projekt",
+    titleEnd: "?",
+    text: "Auf diesem Weg erhalten Sie Ihren nächsten Use Case.",
+    link: "/projectstart/",
+  },
+  {
+    icon: "FaAnchorCircleXmark",
+    titleHighlight: "Forschung",
+    titleEnd: "sprojekte",
+    text: "Aus Daten und KI Innovationen für den Mittelstand.",
+    link: "/research/",
+  },
+  {
+    icon: "FaBuromobelexperte",
+    titleStart: "Was unsere ",
+    titleHighlight: "Kunden",
+    titleEnd: " sagen",
+    text: "Hautnah erleben, was unsere Kunden ungeschönt zu sagen haben.",
+    link: "/feedback/",
+  },
+];
 ---
 
 <Base
@@ -79,4 +114,22 @@ const splitInfoData = {
     </div>
   </section>
   <SplitInfoSection data={splitInfoData} />
+
+  <InsightCardsSection
+    titleStart="So führen wir Sie "
+    titleHighlight="ans Ziel"
+    cards={insightCards}
+  />
+
+  <ContactSpotlightSection
+    titleHighlight="Neugierig geworden?"
+    leadText="Eine Frage zu uns blieb Ihnen unbeantwortet? Hunger auf ein gemeinsames Projekt? Dann scheuen Sie sich nicht und fragen Sie direkt bei unser Geschäftsführung nach. Andreas nimmt sich gerne Zeit für Sie!"
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    followupText="Buchen Sie einfach einen kurzen Termin für einen ersten Austausch. Wir sortieren Ihre Gedanken, geben eine ehrliche Einschätzung ab und schauen gemeinsam, ob und wie wir Sie unterstützen können."
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Termin buchen"
+    imageSrc="/images/goat.jpg"
+    imageAlt="Neugierig geworden"
+  />
 </Base>
