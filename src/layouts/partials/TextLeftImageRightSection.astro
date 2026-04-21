@@ -1,0 +1,50 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+
+interface Props {
+  text: string;
+  imageSrc: string;
+  imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageFormat?: "auto" | "avif" | "jpeg" | "png" | "svg" | "webp";
+  sectionClassName?: string;
+}
+
+const {
+  text,
+  imageSrc,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  imageFormat = "webp",
+  sectionClassName = "section pt-0 pb-20",
+} = Astro.props as Props;
+---
+
+<section class={sectionClassName}>
+  <div class="container">
+    <div class="row items-stretch">
+      <div class="col-12 md:col-6">
+        <div class="flex h-full flex-col justify-center text-left">
+          <p
+            class="font-secondary text-lg font-normal text-text dark:text-darkmode-text"
+          >
+            {text}
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 md:col-6">
+        <ImageMod
+          src={imageSrc}
+          alt={imageAlt}
+          class="w-full"
+          width={imageWidth}
+          height={imageHeight}
+          format={imageFormat}
+        />
+      </div>
+    </div>
+  </div>
+</section>

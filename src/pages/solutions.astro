@@ -1,0 +1,121 @@
+---
+import Base from "@/layouts/Base.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+
+const solutionCards = [
+  {
+    title: "Orientierung & Priorisierung",
+    text: "An Stelle vieler Blindspots schaffen wir eine klare Roadmap und nehmen die gesamte Organisation mit auf einen kulturell geebneten, sowie rechtssicheren Weg des Umgangs mit Daten und KI.",
+    link: "/strategy/",
+  },
+  {
+    title: "Datenmanagement & Architektur",
+    text: "Wir kümmern uns darum, dass Ihre Daten in sauberer Qualität, skalierbar und einfach wartbar für alle Anwendungen im BI- sowie KI- und Automatisierungsbereich zur Verfügung stehen.",
+    link: "/architecture/",
+  },
+  {
+    title: "Insights & Analytics",
+    text: "Wertschöpfung entsteht vor allem auf Basis guter Entscheidungen. Damit Sie heute schon an morgen denken können und alle Entscheidungen belastbar sind, holen wir alles aus Ihren Daten raus, was Sie wissen müssen.",
+    link: "/analytics/",
+  },
+  {
+    title: "Automatisierung & KI",
+    text: "Wir eliminieren Routineaufgaben. Durch intelligente Prozesse und gezielten KI-Einsatz automatisieren wir manuelle Arbeit. Das reduziert Fehler, spart Zeit und gibt Ihrem Team den Freiraum für die wichtigen Aufgaben.",
+    link: "/automatisierung/",
+  },
+];
+---
+
+<Base
+  title="Unsere Lösungen"
+  meta_title="Unsere Lösungen"
+  description="Für jede Situation der richtige Use Case. Planbar. Praxiserprobt."
+>
+  <HomepageLeadHeading
+    eyebrow="Unsere Lösungen"
+    title="Für jede Situation der richtige Use Case. Planbar. Praxiserprobt."
+  />
+
+  <TextLeftImageRightSection
+    text="Wir unterstützen mittelständische Betriebe im DACH-Raum dabei, ihre vorhandenen Daten ohne unnötigen Ballast sinnvoll zu nutzen. Unser Fokus liegt auf pragmatischen Lösungen, die Ihre IT entlasten und Ihnen als Geschäftsführung klare Entscheidungsgrundlagen liefern. Wir schlagen die Brücke zwischen komplexer Technik und Ihrem täglichen Handwerk, damit Sie sich wieder auf Ihr Kerngeschäft konzentrieren können."
+    imageSrc="/images/Bild1.jpg"
+    imageAlt="Unsere Lösungen"
+    imageWidth={735}
+    imageHeight={501}
+  />
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <h2
+        class="mb-10 text-left font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
+      >
+        <span>Von der ersten Idee bis zur </span>
+        <span class="adv-contact-gradient">fertigen Lösung.</span>
+      </h2>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {
+          solutionCards.map((item) => (
+            <a
+              href={item.link}
+              class="solution-link-card group relative overflow-hidden rounded-xl border border-black/80 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#00CE7E] hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00CE7E] focus-visible:ring-offset-2 dark:border-white/70 dark:bg-darkmode-body"
+            >
+              <div class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#00CE7E]/10 text-[#00CE7E] transition-colors duration-300 group-hover:bg-[#00CE7E] group-hover:text-white">
+                <span aria-hidden="true" class="text-lg leading-none">
+                  ↗
+                </span>
+              </div>
+              <h3 class="mb-3 font-primary text-h4 font-bold text-text-dark dark:text-darkmode-text-dark">
+                {item.title}
+              </h3>
+              <p class="font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light">
+                {item.text}
+              </p>
+              <div class="mt-6 inline-flex items-center font-secondary text-sm font-bold text-[#00A869]">
+                Zur Detailseite
+                <span
+                  class="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <div
+        class="rounded-2xl bg-linear-to-br from-white via-white to-[#ECFFF5] py-8 md:py-10 dark:from-darkmode-body dark:via-darkmode-body dark:to-darkmode-body"
+      >
+        <h2
+          class="mb-5 text-left font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
+        >
+          <span>Wie finde ich die </span>
+          <span class="adv-contact-gradient">richtige Lösung</span>
+          <span> für mein Problem?</span>
+        </h2>
+        <p
+          class="mb-7 max-w-4xl font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light md:text-[1.125rem]"
+        >
+          Werden Sie in den Use Cases nicht fündig, dann beraten wir Sie gerne
+          individuell zu Ihrer Herausforderung. Buchen Sie sich dafür gerne
+          einfach einen Termin mit unserem Vertrieb und erhalten Sie in 30
+          Minuten eine erste Einschätzung zur Lösung Ihres Problems.
+        </p>
+        <a
+          href="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+          class="inline-flex items-center justify-center rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90"
+        >
+          Termin buchen
+          <span class="ml-2" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

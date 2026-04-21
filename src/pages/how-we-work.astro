@@ -1,10 +1,10 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
 import SplitInfoSection from "@/components/SplitInfoSection.astro";
 import Base from "@/layouts/Base.astro";
 import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
 import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import InsightCardsSection from "@/partials/InsightCardsSection.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
 
 const splitInfoData = {
   enable: true,
@@ -78,41 +78,13 @@ const insightCards = [
     title="Klarer Prozess. Gemeinsame Umsetzung. Ergebnisse, die bleiben."
   />
 
-  <section class="section pt-0 pb-20">
-    <div class="container">
-      <div class="row items-stretch">
-        <div class="col-12 md:col-6">
-          <div class="flex h-full flex-col justify-center text-left">
-            <p
-              class="font-secondary text-lg font-normal text-text dark:text-darkmode-text"
-            >
-              Unser Anspruch ist es, Projekte so schnell, preiswert und
-              qualitativ hochwertig wie möglich umzusetzen und dabei unseren
-              Kunden alles notwendige Know-How zur Weiterentwicklung und Wartung
-              der Systeme mit auf den Weg zu geben. Wir halten nichts von
-              künstlicher Abhängigkeit zu uns, sondern sind überzeugt, dass wir
-              nur dann wachsen können, wenn unser Kunde das ebenso kann. Aus
-              Erfahrung zeigt sich, dass Projekte, welche in kleineren Scheiben
-              Stück für Stück umgesetzt werden, sowie eine gute Change
-              Begleitung genießen, erfolgreicher sind als Großprojekte, die
-              revolutionär eingeführt werden.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-12 md:col-6">
-          <ImageMod
-            src="/images/adv_at_work.jpg"
-            alt="ADV bei der Arbeit"
-            class="w-full"
-            width={5000}
-            height={3333}
-            format="webp"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
+  <TextLeftImageRightSection
+    text="Unser Anspruch ist es, Projekte so schnell, preiswert und qualitativ hochwertig wie möglich umzusetzen und dabei unseren Kunden alles notwendige Know-How zur Weiterentwicklung und Wartung der Systeme mit auf den Weg zu geben. Wir halten nichts von künstlicher Abhängigkeit zu uns, sondern sind überzeugt, dass wir nur dann wachsen können, wenn unser Kunde das ebenso kann. Aus Erfahrung zeigt sich, dass Projekte, welche in kleineren Scheiben Stück für Stück umgesetzt werden, sowie eine gute Change Begleitung genießen, erfolgreicher sind als Großprojekte, die revolutionär eingeführt werden."
+    imageSrc="/images/adv_at_work.jpg"
+    imageAlt="ADV bei der Arbeit"
+    imageWidth={5000}
+    imageHeight={3333}
+  />
   <SplitInfoSection data={splitInfoData} />
 
   <InsightCardsSection
