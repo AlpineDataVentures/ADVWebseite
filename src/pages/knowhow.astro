@@ -1,0 +1,152 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogCard from "@/components/BlogCard.astro";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+
+const blogCards = [
+  {
+    title: "Blog",
+    text: "Was wir in Projekten sehen, denken und gelegentlich aufschreiben: Anleitungen, Learnings, manchmal eine Meinung",
+    link: "/blog/",
+  },
+  {
+    title: "Handbuch",
+    text: "Was wir in Projekten sehen, denken und gelegentlich aufschreiben: Anleitungen, Learnings, manchmal eine Meinung",
+    link: "/data-mountain-guide/",
+  },
+  {
+    title: "Erfolge",
+    text: "Was wir gemacht haben, was dabei rausgekommen ist und was wir beim nächsten Mal anders machen würden",
+    link: "/casestudies/",
+  },
+];
+
+const latestPosts = sortByDate(
+  (await getSinglePage("blog")) as CollectionEntry<"blog">[],
+).slice(0, 3);
+---
+
+<Base
+  title="Wissen"
+  meta_title="Wissen | ADV"
+  description="Erkenntnisse, Methoden und Projekterfahrungen aus dem Maschinenraum von ADV."
+>
+  <HomepageLeadHeading eyebrow="Wissen" title="Aus dem Maschinenraum" />
+
+  <TextLeftImageRightSection
+    text="Wir arbeiten täglich mit Daten, Systemen und den Menschen, die damit umgehen müssen. Was dabei hängenbleibt - an Erkenntnissen, Methoden und natürlich auch Irrwegen - findet sich hier. Aufgeteilt in Blogartikel, Erklärungen zu Konzepten und Fachbegriffen sowie Berichte aus echten Projekten.
+
+Für alle, die sich mit denselben Fragen beschäftigen und konkrete Antworten suchen."
+    imageSrc="/images/wissen_team.jpg"
+    imageAlt="ADV Team im Wissensbereich"
+    imageWidth={5000}
+    imageHeight={3333}
+  />
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <h2
+        class="mb-10 text-left font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
+      >
+        <span>Wo Sie bei uns </span>
+        <span class="adv-contact-gradient">weiterlesen</span>
+        <span> können.</span>
+      </h2>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {
+          blogCards.map((item) => (
+            <a
+              href={item.link}
+              class="solution-link-card group relative overflow-hidden rounded-xl border border-black/80 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#00CE7E] hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00CE7E] focus-visible:ring-offset-2 dark:border-white/70 dark:bg-darkmode-body"
+            >
+              <div class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#00CE7E]/10 text-[#00CE7E] transition-colors duration-300 group-hover:bg-[#00CE7E] group-hover:text-white">
+                <span aria-hidden="true" class="text-lg leading-none">
+                  ↗
+                </span>
+              </div>
+              <h3 class="mb-3 font-primary text-h4 font-bold text-text-dark dark:text-darkmode-text-dark">
+                {item.title}
+              </h3>
+              <p class="font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light">
+                {item.text}
+              </p>
+              <div class="mt-6 inline-flex items-center font-secondary text-sm font-bold text-[#00A869]">
+                Zur Detailseite
+                <span
+                  class="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <div class="mb-10 flex items-end justify-between gap-6">
+        <div>
+          <p class="mb-3 font-secondary text-lg font-normal text-text-dark dark:text-darkmode-text-light">
+            Blog
+          </p>
+          <h2 class="font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2">
+            Die letzten drei Beiträge
+          </h2>
+        </div>
+        <a
+          href="/blog/"
+          class="hidden font-secondary text-base font-bold text-[#00A869] md:inline-flex md:items-center"
+        >
+          Alle Artikel ansehen
+          <span class="ml-2" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="row justify-center">
+        {
+          latestPosts.map((post) => (
+            <div class="mb-14 md:col-6 lg:col-4">
+              <BlogCard data={post} />
+            </div>
+          ))
+        }
+      </div>
+
+      <a
+        href="/blog/"
+        class="inline-flex font-secondary text-base font-bold text-[#00A869] md:hidden"
+      >
+        Alle Artikel ansehen
+        <span class="ml-2" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <div class="max-w-4xl">
+        <h2 class="mb-5 font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2">
+          Unser Anspruch
+        </h2>
+        <p class="mb-8 font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light md:text-[1.125rem]">
+          Was hier steht, kommt aus der Praxis, aus Projekten, Gesprächen und dem täglichen Umgang mit Daten und den Menschen die damit arbeiten. Wir schreiben über Themen die uns wirklich bewegen, nicht über solche die gerade im Trend liegen. Die Schlagworte unten zeigen, was bei uns gerade im Fokus steht, wer zu einem davon mehr wissen will, ist hier genau richtig.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-dashed border-black/20 bg-linear-to-br from-white via-white to-[#ECFFF5] p-8 dark:border-white/20 dark:from-darkmode-body dark:via-darkmode-body dark:to-darkmode-body">
+        <p class="font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light md:text-[1.125rem]">
+          Später kommen hier noch Verlinkungen zu aktuellen Themen. Das müssen wir allerdings erst noch erarbeiten.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
