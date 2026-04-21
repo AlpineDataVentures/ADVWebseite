@@ -1,12 +1,13 @@
 ---
 import Base from "@/layouts/Base.astro";
-import PageHeader from "@/partials/PageHeader.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
 import { getEntry, type CollectionEntry } from "astro:content";
 import ImageMod from "@/components/ImageMod.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { FaCheck } from "react-icons/fa";
-import CallToAction from "@/partials/CallToAction.astro";
 import Social from "@/components/Social.astro";
 
 const team = (await getEntry("team", "-index")) as CollectionEntry<"team">;
@@ -24,7 +25,12 @@ const sortedAuthors = authors.sort((a, b) =>
   getLastName(a.data.title).localeCompare(getLastName(b.data.title)),
 );
 
-const { title, meta_title, description, image } = team.data;
+const { title, meta_title, description, image, eyebrow } = team.data;
+const teamBodyHtml = await markdownify(team.body ?? "");
+const ctaDescriptionText = team.data.callToAction.description
+  .replace(/<br\s*\/?>/g, "\n")
+  .replace(/\n{2,}/g, "\n\n")
+  .trim();
 ---
 
 <Base
@@ -33,29 +39,15 @@ const { title, meta_title, description, image } = team.data;
   image={image}
   description={description}
 >
-  <PageHeader title={title} />
+  <HomepageLeadHeading eyebrow={eyebrow} title={title} />
 
-  <!-- Hero's Image -->
-  <section class="mb-16">
-    <div class="container">
-      <div class="row justify-center">
-        <ImageMod
-          src={image}
-          height={1152}
-          width={2048}
-          alt="Das Team"
-          format="webp"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- Text aus -index -->
-  <section class="mb-16">
-    <div class="container">
-      <p set:html={markdownify(team.body ?? "")} class="mb-4 font-secondary" />
-    </div>
-  </section>
+  <TextLeftImageRightSection
+    textHtml={teamBodyHtml}
+    imageSrc={image}
+    imageAlt="Das Team"
+    imageWidth={2048}
+    imageHeight={1152}
+  />
   <!-- Profile from authors -->
   {
     sortedAuthors.map((author, index: number) => (
@@ -103,5 +95,16 @@ const { title, meta_title, description, image } = team.data;
       </section>
     ))
   }
-  <CallToAction call_to_action={team.data.callToAction} />
+  <ContactSpotlightSection
+    titleStart="Werde Teil"
+    titleHighlight="unseres Teams"
+    leadText={ctaDescriptionText}
+    buttonHref={team.data.callToAction.button.link}
+    buttonLabel={team.data.callToAction.button.label}
+    avatarSrc=""
+    avatarAlt=""
+    imageSrc={team.data.callToAction.image}
+    imageAlt={team.data.callToAction.title}
+    avatarBeforeText={true}
+  />
 </Base>

@@ -2,7 +2,8 @@
 import ImageMod from "@/components/ImageMod.astro";
 
 interface Props {
-  text: string;
+  text?: string;
+  textHtml?: string;
   imageSrc: string;
   imageAlt: string;
   imageWidth: number;
@@ -13,6 +14,7 @@ interface Props {
 
 const {
   text,
+  textHtml,
   imageSrc,
   imageAlt,
   imageWidth,
@@ -27,11 +29,18 @@ const {
     <div class="row items-stretch">
       <div class="col-12 md:col-6">
         <div class="flex h-full flex-col justify-center text-left">
-          <p
-            class="font-secondary text-lg font-normal text-text dark:text-darkmode-text"
-          >
-            {text}
-          </p>
+          {
+            textHtml ? (
+              <div
+                class="font-secondary text-lg font-normal text-text dark:text-darkmode-text"
+                set:html={textHtml}
+              />
+            ) : (
+              <p class="font-secondary text-lg font-normal text-text dark:text-darkmode-text">
+                {text}
+              </p>
+            )
+          }
         </div>
       </div>
 

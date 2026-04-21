@@ -259,6 +259,7 @@ const teamCollection = defineCollection({
       title: z.string(),
       meta_title: z.string(),
       description: z.string(),
+      eyebrow: z.string(),
       image: z.string(),
       callToAction: z.object({
         enable: z.boolean(),
