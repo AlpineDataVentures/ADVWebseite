@@ -1,7 +1,7 @@
 ---
 enable: true
 left_intro: "Jedes Projekt ist"
-left_highlight: "individuell"
+left_highlight: "individuell."
 left_outro: "Die Logik dahinter ist klar."
 left_text: "Nicht jedes Thema braucht ein Großprojekt. Oft ist der beste Start kleiner, klarer und schneller wirksam."
 right_title: "So arbeiten wir"

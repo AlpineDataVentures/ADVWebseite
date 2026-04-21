@@ -1,0 +1,149 @@
+---
+import Base from "@/layouts/Base.astro";
+import SplitInfoSection from "@/components/SplitInfoSection.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
+import ExpandableInfoBoxesSection from "@/partials/ExpandableInfoBoxesSection.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+
+const splitInfoData = {
+  enable: true,
+  left_intro: "Wir identifizieren die",
+  left_highlight: "Kennzahlen für Ihren Erfolg",
+  left_outro:
+    ", entwickeln interaktive Reporting-Lösungen und nutzen fortgeschrittene Methoden zur Analyse. Jederzeit wissen, wie Ihr Betrieb wirklich läuft und was Sie in Zukunft erwartet.",
+  left_text: "",
+  right_title: "Ihr Ergebnis",
+  items: [
+    {
+      caption: "Maximale Transparenz",
+      text: "Sie erhalten volle Sichtbarkeit über Ihre Geschäftsprozesse und können Engpässe sowie Chancen sofort identifizieren, ohne Zeit in manuellen Auswertungen zu verlieren.",
+    },
+    {
+      caption: "Höhere Vorhersagekraft",
+      text: "Nutzen Sie statistische Modelle und Advanced Analytics, um zukünftige Entwicklungen besser einzuschätzen und proaktiv, statt nur reaktiv, zu agieren.",
+    },
+    {
+      caption: "Wettbewerbsvorteil",
+      text: "Durch die schnelle und präzise Auswertung von Markt- und Kundendaten sichern Sie sich einen entscheidenden Zeitvorteil gegenüber Ihren Mitbewerbern.",
+    },
+  ],
+};
+
+const insightUseCases = [
+  {
+    icon: "GrUserManager",
+    title: "General Management",
+    text: "Das gesamte Unternehmen inkl. Fachbereiche im Blick für das Management",
+    links: [
+      { label: "Management Dashboard" },
+      { label: "Frühwarnsysteme" },
+      { label: "Bereichs-Reporting" },
+    ],
+  },
+  {
+    icon: "LuCoins",
+    title: "Finance",
+    text: "Live alle Finanzdaten und zukünftigen Liquiditätsbedarfe verwalten",
+    links: [
+      { label: "Liquiditätsplanung mit BI" },
+      { label: "Deckungsbeitragsrechnung" },
+      { label: "Working Capital Analyse" },
+      { label: "Budget-Controlling" },
+      { label: "Kostenstruktur & Gemeinkosten" },
+      { label: "Investitionscontrolling & CAPEX" },
+    ],
+  },
+  {
+    icon: "FaShop",
+    title: "Sales & Marketing",
+    text: "Alles zur Umsatz- und Deckungsbeitragssteigerung auf einen Blick",
+    links: [
+      { label: "Customer Lifetime Value (CLV)" },
+      { label: "Lead Scoring" },
+      { label: "Sales Funnel Analyse" },
+      { label: "Sales Dashboard" },
+      { label: "Churn Prevention" },
+      { label: "Data Driven Marketing" },
+      { label: "Reklamationsanalyse" },
+      { label: "Sales Forecast" },
+    ],
+  },
+  {
+    icon: "MdOutlineShoppingCartCheckout",
+    title: "Procurement",
+    text: "Alle Insights für Einkäufer, um langfristig Einkaufsvorteile zu nutzen",
+    links: [
+      { label: "Bedarfsanalyse" },
+      { label: "Preisentwicklungsanalyse" },
+      { label: "Bestellzeitpunkt-Forecast" },
+      { label: "Lieferantenscoring" },
+    ],
+  },
+  {
+    icon: "FaTruckFast",
+    title: "Produktion & Logistik",
+    text: "Reduzieren Sie Ihren größten Kostenfaktor durch smarte Metriken und Live-Daten",
+    links: [
+      { label: "Predictive Maintenance" },
+      { label: "Routenplanung" },
+      { label: "Durchlaufzeit-Analyse" },
+      { label: "Produktionsplanung" },
+      { label: "Lagerplatzoptimierung" },
+      { label: "OEE-Analyse (Anlageneffektivität)" },
+      { label: "Ausschuss- und Qualitätscontrolling" },
+      { label: "Digitale Lagerplatzverwaltung" },
+    ],
+  },
+  {
+    icon: "FaRegCirclePlay",
+    title: "IT & Operations",
+    text: "Machen Sie Ihre Prozesse & Organisation in Daten sichtbar",
+    links: [
+      { label: "ITSM-Analytics" },
+      { label: "Cybersicherheit-Dashboard" },
+      { label: "Cloud-Cost-Observability" },
+      { label: "Prozesseffizienz-Analyse" },
+    ],
+  },
+];
+---
+
+<Base
+  title="Insights & Analytics"
+  meta_title="Insights & Analytics"
+  description="Wissen aus Daten generieren, fundierte Entscheidungen treffen und Potenziale ausschöpfen."
+>
+  <HomepageLeadHeading
+    eyebrow="Insights & Analytics"
+    title="Wissen aus Daten generieren. Fundierte Entscheidungen treffen. Potenziale ausschöpfen."
+  />
+
+  <TextLeftImageRightSection
+    text="Wir transformieren Ihre Rohdaten in wertvolle Erkenntnisse. Durch moderne Analytics-Lösungen machen wir komplexe Zusammenhänge sichtbar und versetzen Sie in die Lage, Trends frühzeitig zu erkennen. Unsere Experten unterstützen Sie dabei, eine datengestützte Entscheidungskultur zu etablieren, die weit über rein intuitive Ansätze hinausgeht und messbare Fakten in das Zentrum Ihres Handelns rückt."
+    imageSrc="/images/solutions_insights.png"
+    imageAlt="Insights und Analytics"
+    imageWidth={1200}
+    imageHeight={900}
+  />
+
+  <SplitInfoSection data={splitInfoData} />
+
+  <ExpandableInfoBoxesSection
+    title="Anwendungsfälle für Ihr Unternehmen"
+    items={insightUseCases}
+  />
+
+  <ContactSpotlightSection
+    titleStart="Wie finde ich die"
+    titleHighlight="richtige Lösung"
+    titleEnd="für mein Problem?"
+    leadText="Werden Sie in den Use Cases nicht fündig, dann beraten wir Sie gerne individuell zu Ihrer Herausforderung. Buchen Sie sich dafür gerne einfach einen Termin mit unserem Vertrieb und erhalten Sie in 30 Minuten eine erste Einschätzung zur Lösung Ihres Problems."
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Termin buchen"
+    imageSrc="/images/kennenlernen.jpg"
+    imageAlt="Kennenlernen"
+  />
+</Base>

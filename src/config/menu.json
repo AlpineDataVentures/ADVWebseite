@@ -6,7 +6,7 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Orientierung",
+          "name": "Orientierung & Priorisierung",
           "url": "/guidance/"
         },
         {
@@ -14,8 +14,8 @@
           "url": "/architecture/"
         },
         {
-          "name": "Insights",
-          "url": "/analytics/"
+          "name": "Insights & Analytics",
+          "url": "/insights/"
         },
         {
           "name": "Automatisierung",
