@@ -22,14 +22,9 @@ const iconLibraries: { [key: string]: IconMap } = {
   lu: LuIcons,
 };
 
-const iconAliases: Record<string, string> = {
-  FaBuromobelexperte: "FaSitemap",
-};
-
 const DynamicIcon: FC<IDynamicIcon> = ({ icon, ...props }) => {
-  const resolvedIcon = iconAliases[icon] ?? icon;
-  const IconLibrary = getIconLibrary(resolvedIcon);
-  const Icon = IconLibrary ? IconLibrary[resolvedIcon] : undefined;
+  const IconLibrary = getIconLibrary(icon);
+  const Icon = IconLibrary ? IconLibrary[icon] : undefined;
 
   if (!Icon) {
     return <span className="text-base">Icon not found</span>;

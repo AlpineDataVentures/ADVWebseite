@@ -1,0 +1,107 @@
+---
+import Base from "@/layouts/Base.astro";
+import SplitInfoSection from "@/components/SplitInfoSection.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
+import ExpandableInfoBoxesSection from "@/partials/ExpandableInfoBoxesSection.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+
+const splitInfoData = {
+  enable: true,
+  left_intro:
+    "Wir klären die rechtlichen Rahmenbedingungen, definieren Verantwortlichkeiten und nehmen Ihre Mitarbeiter von Anfang an mit.",
+  left_highlight:
+    "So wird aus einer technischen Insellösung eine lebendige Datenkultur, die von der gesamten Mannschaft getragen wird.",
+  left_outro: "",
+  left_text: "",
+  right_title: "Ihr Ergebnis",
+  items: [
+    {
+      caption: "Investitionssicherheit",
+      text: 'Kein "Raten ins Blaue". Wir identifizieren Use Cases mit dem höchsten ROI, damit Ihr Budget dort landet, wo es wirkt.',
+    },
+    {
+      caption: "Entlastung der IT",
+      text: "Durch klare Priorisierung verhindern wir verzettelte Projekte und sorgen für einen strukturierten Anforderungskatalog.",
+    },
+    {
+      caption: "Mensch im Fokus",
+      text: "Technik allein reicht nicht. Wir schaffen Akzeptanz und Verständnis in Ihrer Belegschaft für den Wandel zur datengetriebenen Firma.",
+    },
+  ],
+};
+
+const guidanceUseCases = [
+  {
+    icon: "FaChessKing",
+    title: "Strategie & Roadmap",
+    text: "Wir definieren gemeinsam Ihre Ziele und bauen den Weg dorthin",
+    links: [
+      { label: "Datenstrategie" },
+      { label: "Datenreifegrad-Analyse" },
+      { label: "KI-Strategie" },
+      { label: "KI-Readiness-Analyse" },
+    ],
+  },
+  {
+    icon: "FaScaleBalanced",
+    title: "Governance & Compliance",
+    text: "Sicherheit und regulatorische Konformität als Basis für Ihr Datenvertrauen",
+    links: [
+      { label: "NIS2" },
+      { label: "ISMS & ISB Bestellung" },
+      { label: "DSGVO & DSB Bestellung" },
+      { label: "Identity & Access Management" },
+    ],
+  },
+  {
+    icon: "FaSitemap",
+    title: "Organisation & Führung",
+    text: "Wir befähigen Ihre Mannschaft und schaffen die passenden Strukturen",
+    links: [
+      { label: "Data Mesh Organisation" },
+      { label: "Data & AI Leadership" },
+      { label: "Data Catalog" },
+    ],
+  },
+];
+---
+
+<Base
+  title="Orientierung & Priorisierung"
+  meta_title="Orientierung & Priorisierung"
+  description="Prioritäten setzen, Governance klären und Datenprojekte mit klarem ROI planen."
+>
+  <HomepageLeadHeading
+    eyebrow="Orientierung & Priorisierung"
+    title="Prioritäten setzen. Mit Plan vorangehen. Regulatorik als Chance, nicht als Hürde."
+  />
+
+  <TextLeftImageRightSection
+    text="Wir sortieren Ihre Ideen, bewerten Potenziale und legen fest, welche Datenprojekte Ihnen sofort echte Vorteile bringen. Bevor wir bauen, schaffen wir die notwendige Klarheit für Ihre Investitionen, stellen durch eine solide Governance die Sicherheit Ihrer Prozesse sicher und befähigen Ihre Organisation, Daten eigenständig und sicher zu nutzen."
+    imageSrc="/images/solutions_guidance.jpg"
+    imageAlt="Orientierung und Priorisierung"
+    imageWidth={4032}
+    imageHeight={3024}
+  />
+
+  <SplitInfoSection data={splitInfoData} />
+
+  <ExpandableInfoBoxesSection
+    title="Anwendungsfälle für Ihr Unternehmen"
+    items={guidanceUseCases}
+  />
+
+  <ContactSpotlightSection
+    titleStart="Wie finde ich die"
+    titleHighlight="richtige Lösung"
+    titleEnd="für mein Problem?"
+    leadText="Werden Sie in den Use Cases nicht fündig, dann beraten wir Sie gerne individuell zu Ihrer Herausforderung. Buchen Sie sich dafür gerne einfach einen Termin mit unserem Vertrieb und erhalten Sie in 30 Minuten eine erste Einschätzung zur Lösung Ihres Problems."
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Termin buchen"
+    imageSrc="/images/kennenlernen.jpg"
+    imageAlt="Kennenlernen"
+  />
+</Base>

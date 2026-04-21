@@ -1,0 +1,98 @@
+---
+import DynamicIcon from "@/helpers/DynamicIcon";
+
+interface InfoLinkItem {
+  label: string;
+  href?: string;
+}
+
+interface InfoBoxItem {
+  icon: string;
+  title: string;
+  text: string;
+  links: InfoLinkItem[];
+}
+
+interface Props {
+  title: string;
+  items: InfoBoxItem[];
+}
+
+const { title, items } = Astro.props as Props;
+---
+
+<section class="section pt-0 pb-20">
+  <div class="container">
+    <h2 class="mb-10 font-primary text-h2-sm font-bold md:text-h2">
+      <span class="adv-contact-gradient">{title}</span>
+    </h2>
+
+    <div class="space-y-4">
+      {
+        items.map((item) => (
+          <details class="info-box group rounded-2xl border border-black/80 bg-white px-6 py-5 transition-colors duration-200 open:border-[#00CE7E] dark:border-white/70 dark:bg-darkmode-body">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-start gap-4 md:items-center">
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#ECFFF5] text-[#00A869] dark:bg-white/10 dark:text-[#00CE7E]">
+                  <DynamicIcon icon={item.icon} className="h-7 w-7" />
+                </div>
+
+                <div class="min-w-0 flex-1 pr-4">
+                  <h3 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+                    {item.title}
+                  </h3>
+                  <p class="mt-1 font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light">
+                    {item.text}
+                  </p>
+                </div>
+
+                <div class="mt-1 shrink-0 text-[#00A869] transition-transform duration-200 group-open:rotate-90 md:mt-0">
+                  <DynamicIcon icon="FaChevronRight" className="h-5 w-5" />
+                </div>
+              </div>
+            </summary>
+
+            <div class="mt-6 border-t border-black/10 pt-6 dark:border-white/10">
+              <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
+                {item.links.map((linkItem) => {
+                  const content = (
+                    <>
+                      <span class="font-secondary text-base font-medium text-text-dark dark:text-darkmode-text-dark">
+                        {linkItem.label}
+                      </span>
+                      <span
+                        class="ml-3 text-[#00A869] transition-transform duration-200 group-hover:translate-x-1"
+                        aria-hidden="true"
+                      >
+                        →
+                      </span>
+                    </>
+                  );
+
+                  return linkItem.href ? (
+                    <a
+                      href={linkItem.href}
+                      class="group flex items-center justify-between rounded-xl border border-transparent bg-[#F7F8F7] px-4 py-3 transition-colors duration-200 hover:border-[#00CE7E] hover:bg-[#ECFFF5] dark:bg-white/5 dark:hover:bg-white/8"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div class="flex items-center justify-between rounded-xl bg-[#F7F8F7] px-4 py-3 dark:bg-white/5">
+                      {content}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .info-box summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
