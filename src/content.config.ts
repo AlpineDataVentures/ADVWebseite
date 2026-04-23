@@ -252,6 +252,72 @@ const portfolioCollection = defineCollection({
   }),
 });
 
+const productsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/products" }),
+  schema: z.object({
+    title: z.string().min(1),
+    slug: z
+      .string()
+      .regex(
+        /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
+        "Slug must use lowercase letters, numbers and hyphens",
+      ),
+    eyebrow: z.string().default("Produkt"),
+    meta_title: z.string().optional(),
+    description: z.string().min(1),
+    highlight_text: z.string().optional(),
+    image: z.string().min(1),
+    intro_cta_label: z.string().default("Jetzt im Produkt-Katalog konfigurieren"),
+    customer_value_title: z.string().default("Was Sie davon haben"),
+    benefits: z.array(
+      z.object({
+        title: z.string(),
+        text: z.string(),
+      }),
+    ).min(1),
+    contact: z.object({
+      author_id: z.string().min(1),
+      expertise: z.string().min(1),
+      question_cta_label: z.string().default("Frage stellen"),
+      meeting_cta_label: z.string().default("Gespräch vereinbaren"),
+      meeting_cta_link: z.string().default(
+        "https://calendly.com/andreas-klostermann-alpinedata/ersttermin",
+      ),
+    }),
+    collaboration_title: z.string().default("Unsere Zusammenarbeit"),
+    collaboration_steps: z.array(
+      z.object({
+        title: z.string(),
+        text: z.string(),
+      }),
+    ).min(1),
+    delivery: z.object({
+      technologies: z.array(z.string()).default([]),
+      deliverables: z.array(z.string()).default([]),
+      operations: z.array(z.string()).default([]),
+    }).default({
+      technologies: [],
+      deliverables: [],
+      operations: [],
+    }),
+    related_products: z.array(z.string()).default([]),
+    tags: z.array(z.string()).default([]),
+    final_cta_title: z
+      .string()
+      .default("Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"),
+    final_cta_text: z
+      .string()
+      .default(
+        "Beantworten Sie ein paar kurze Fragen, wir zeigen Ihnen direkt, was das Projekt kosten würde und wie lange es dauert",
+      ),
+    final_cta_button_label: z
+      .string()
+      .default("Zum Produkt-Katalog"),
+    final_cta_image: z.string().default("/images/goat.jpg"),
+    draft: z.boolean().default(false),
+  }),
+});
+
 const teamCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/team" }),
   schema:
@@ -480,6 +546,7 @@ export const collections = {
   feedback: feedbackCollection,
   pages: pagesCollection,
   portfolio: portfolioCollection,
+  products: productsCollection,
   team: teamCollection,
 
   // sections

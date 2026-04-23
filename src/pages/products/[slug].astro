@@ -1,0 +1,384 @@
+---
+import Base from "@/layouts/Base.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import { PRODUCT_CATALOG_URL } from "@/config/products";
+import { getEntry, type CollectionEntry } from "astro:content";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { FaCheck } from "react-icons/fa";
+
+export async function getStaticPaths() {
+  const products = await getSinglePage("products");
+
+  return products.map((product) => ({
+    params: {
+      slug: product.data.slug,
+    },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props as { product: CollectionEntry<"products"> };
+const {
+  title,
+  meta_title,
+  description,
+  eyebrow,
+  highlight_text,
+  image,
+  intro_cta_label,
+  customer_value_title,
+  benefits,
+  contact,
+  collaboration_title,
+  collaboration_steps,
+  delivery,
+  related_products,
+  tags,
+  final_cta_title,
+  final_cta_text,
+  final_cta_button_label,
+  final_cta_image,
+} = product.data;
+
+const allProducts = await getSinglePage("products");
+const allPosts = await getSinglePage("blog");
+const authorEntry = await getEntry("authors", contact.author_id);
+
+const relatedProductEntries = related_products
+  .map((relatedSlug) =>
+    allProducts.find((candidate) => candidate.data.slug === relatedSlug),
+  )
+  .filter((candidate): candidate is CollectionEntry<"products"> =>
+    Boolean(candidate),
+  );
+
+const normalizedProductTags = new Set(
+  tags.map((tag) => tag.toLowerCase().trim()),
+);
+const relatedPosts = allPosts
+  .filter((post) =>
+    post.data.tags.some((tag) =>
+      normalizedProductTags.has(tag.toLowerCase().trim()),
+    ),
+  )
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const highlightValue = highlight_text ?? "";
+const highlightIndex = highlightValue
+  ? description.indexOf(highlightValue)
+  : -1;
+const descriptionBefore =
+  highlightIndex >= 0 ? description.slice(0, highlightIndex) : description;
+const descriptionHighlight = highlightIndex >= 0 ? highlightValue : "";
+const descriptionAfter =
+  highlightIndex >= 0
+    ? description.slice(highlightIndex + highlightValue.length)
+    : "";
+
+const advisorName =
+  authorEntry?.data.blog_name ??
+  authorEntry?.data.title ??
+  "Ihr Ansprechpartner";
+const advisorRole = authorEntry?.data.role ?? "Consulting";
+const advisorImage = authorEntry?.data.image ?? "/images/authors/BenDiez.jpg";
+const advisorEmail = authorEntry?.data.email
+  ? `mailto:${authorEntry.data.email}`
+  : "mailto:info@alpinedata.de";
+---
+
+<Base
+  title={title}
+  meta_title={meta_title ?? title}
+  description={description}
+  image={image}
+>
+  <section class="pb-6 pt-8">
+    <div class="container">
+      <div
+        class="rounded-2xl border border-[#00CE7E]/30 bg-[#ECFFF5] px-6 py-5 md:flex md:items-center md:justify-between"
+      >
+        <p
+          class="mb-4 font-secondary text-lg font-medium text-text-dark md:mb-0"
+        >
+          Dieses Produkt direkt im Katalog konfigurieren und bestellen
+        </p>
+        <a class="btn btn-primary" href={PRODUCT_CATALOG_URL}>
+          {intro_cta_label}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-4">
+    <div class="container">
+      <div class="row items-center gap-y-10">
+        <div class="md:col-6">
+          <p
+            class="mb-3 font-secondary text-sm font-semibold uppercase tracking-[0.12em] text-[#00A869]"
+          >
+            {eyebrow}
+          </p>
+          <h1
+            class="mb-6 font-primary text-h1-sm font-bold text-text-dark md:text-h1"
+          >
+            {title}
+          </h1>
+          <p
+            class="font-secondary text-base leading-relaxed text-text md:text-lg"
+          >
+            {descriptionBefore}
+            {
+              descriptionHighlight && (
+                <span class="adv-contact-gradient font-semibold">
+                  {descriptionHighlight}
+                </span>
+              )
+            }
+            {descriptionAfter}
+          </p>
+        </div>
+        <div class="md:col-6">
+          <ImageMod
+            src={image}
+            width={1200}
+            height={900}
+            alt={title}
+            class="w-full rounded-2xl object-cover"
+            format="webp"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row items-start gap-y-10">
+        <div class="md:col-7 md:pr-10">
+          <h2 class="mb-8 font-primary text-h2-sm font-bold md:text-h2">
+            <span class="adv-contact-gradient">{customer_value_title}</span>
+          </h2>
+          <ul class="space-y-5">
+            {
+              benefits.map((benefit) => (
+                <li class="relative rounded-xl border border-border bg-white p-5 pl-12 dark:border-darkmode-border dark:bg-darkmode-body">
+                  <FaCheck className="absolute left-5 top-6 text-[#00A869]" />
+                  <h3 class="mb-2 font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+                    {benefit.title}
+                  </h3>
+                  <p class="font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light">
+                    {benefit.text}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="md:col-5 md:pl-10">
+          <div
+            class="rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
+          >
+            <h2
+              class="mb-5 font-primary text-h3 font-bold text-text-dark dark:text-darkmode-text-dark"
+            >
+              Ihr Ansprechpartner
+            </h2>
+            <div
+              class="mb-6 rounded-2xl bg-light p-5 text-center dark:bg-darkmode-light"
+            >
+              <ImageMod
+                src={advisorImage}
+                width={140}
+                height={140}
+                alt={advisorName}
+                class="mx-auto mb-4 h-28 w-28 rounded-full object-cover"
+                format="webp"
+              />
+              <p
+                class="font-primary text-xl font-bold text-text-dark dark:text-darkmode-text-dark"
+              >
+                {advisorName}
+              </p>
+              <p
+                class="font-secondary text-sm text-text dark:text-darkmode-text-light"
+              >
+                {advisorRole}
+              </p>
+            </div>
+            <p
+              class="mb-6 font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light"
+            >
+              {contact.expertise}
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a class="btn btn-outline-primary" href={advisorEmail}>
+                {contact.question_cta_label}
+              </a>
+              <a class="btn btn-primary" href={contact.meeting_cta_link}>
+                {contact.meeting_cta_label}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <h2 class="mb-10 font-primary text-h2-sm font-bold md:text-h2">
+        {collaboration_title}
+      </h2>
+      <div class="space-y-5">
+        {
+          collaboration_steps.map((step, index) => (
+            <div class="rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body">
+              <div class="mb-4 flex items-center gap-4">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#00CE7E] font-primary text-lg font-bold text-[#00A869]">
+                  {index + 1}
+                </span>
+                <h3 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+                  {step.title}
+                </h3>
+              </div>
+              <p class="font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light">
+                {step.text}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row">
+        <div class="mb-6 md:col-4">
+          <div
+            class="h-full rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
+          >
+            <h3 class="mb-4 font-primary text-h5 font-bold">Technologie</h3>
+            <ul
+              class="space-y-2 font-secondary text-base text-text dark:text-darkmode-text-light"
+            >
+              {delivery.technologies.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+        <div class="mb-6 md:col-4">
+          <div
+            class="h-full rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
+          >
+            <h3 class="mb-4 font-primary text-h5 font-bold">
+              Ergebnisse und Deliverables
+            </h3>
+            <ul
+              class="space-y-2 font-secondary text-base text-text dark:text-darkmode-text-light"
+            >
+              {delivery.deliverables.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+        <div class="mb-6 md:col-4">
+          <div
+            class="h-full rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
+          >
+            <h3 class="mb-4 font-primary text-h5 font-bold">Betrieb</h3>
+            <ul
+              class="space-y-2 font-secondary text-base text-text dark:text-darkmode-text-light"
+            >
+              {delivery.operations.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {
+    relatedProductEntries.length > 0 && (
+      <section class="section pt-0">
+        <div class="container">
+          <h2 class="mb-10 font-primary text-h2-sm font-bold md:text-h2">
+            Verwandte Produkte
+          </h2>
+          <div class="row">
+            {relatedProductEntries.map((relatedProduct) => (
+              <div class="mb-6 md:col-6">
+                <a
+                  class="block h-full rounded-2xl border border-border bg-white p-6 transition-colors hover:border-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body"
+                  href={`/products/${relatedProduct.data.slug}/`}
+                >
+                  <p class="mb-2 font-secondary text-sm font-semibold uppercase tracking-[0.12em] text-[#00A869]">
+                    Produkt
+                  </p>
+                  <h3 class="mb-3 font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+                    {relatedProduct.data.title}
+                  </h3>
+                  <p class="font-secondary text-base text-text dark:text-darkmode-text-light">
+                    {relatedProduct.data.description}
+                  </p>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row items-center rounded-2xl bg-[#ECFFF5] p-8">
+        <div class="md:col-8">
+          <h2
+            class="mb-4 font-primary text-h2-sm font-bold text-text-dark md:text-h2"
+          >
+            {final_cta_title}
+          </h2>
+          <p
+            class="mb-6 font-secondary text-base leading-relaxed text-text md:text-lg"
+          >
+            {final_cta_text}
+          </p>
+          <a class="btn btn-primary" href={PRODUCT_CATALOG_URL}>
+            {final_cta_button_label}
+          </a>
+        </div>
+        <div class="mt-8 md:col-4 md:mt-0">
+          <ImageMod
+            src={final_cta_image}
+            width={700}
+            height={500}
+            alt="Produkt-Katalog"
+            class="w-full rounded-2xl object-cover"
+            format="webp"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {
+    relatedPosts.length > 0 && (
+      <section class="section pt-0">
+        <div class="container">
+          <h2 class="mb-12 text-center font-primary text-h2-sm font-bold md:text-h2">
+            Zum Thema lesen
+          </h2>
+          <div class="row justify-center">
+            {relatedPosts.map((post) => (
+              <div class="mb-10 md:col-6 lg:col-4">
+                <BlogCard data={post} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Base>
