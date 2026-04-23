@@ -5,6 +5,8 @@ import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
 import ExpandableInfoBoxesSection from "@/partials/ExpandableInfoBoxesSection.astro";
 import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { slugify } from "@/lib/utils/textConverter";
 
 const splitInfoData = {
   enable: true,
@@ -39,6 +41,7 @@ const insightUseCases = [
       { label: "Management Dashboard" },
       { label: "Frühwarnsysteme" },
       { label: "Bereichs-Reporting" },
+      { label: "Data Catalog", product_slug: "data-catalog" },
     ],
   },
   {
@@ -107,6 +110,25 @@ const insightUseCases = [
     ],
   },
 ];
+
+const products = await getSinglePage("products");
+const productSlugs = new Set(products.map((product) => product.data.slug));
+
+const insightUseCasesWithLinks = insightUseCases.map((useCase) => ({
+  ...useCase,
+  links: useCase.links.map((link) => {
+    const resolvedSlug = link.product_slug ?? slugify(link.label);
+
+    if (!productSlugs.has(resolvedSlug)) {
+      return { label: link.label };
+    }
+
+    return {
+      label: link.label,
+      href: `/products/${resolvedSlug}/`,
+    };
+  }),
+}));
 ---
 
 <Base
@@ -131,7 +153,7 @@ const insightUseCases = [
 
   <ExpandableInfoBoxesSection
     title="Anwendungsfälle für Ihr Unternehmen"
-    items={insightUseCases}
+    items={insightUseCasesWithLinks}
   />
 
   <ContactSpotlightSection

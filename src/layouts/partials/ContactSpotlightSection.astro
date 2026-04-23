@@ -10,8 +10,8 @@ interface Props {
   listItems?: string[];
   buttonHref: string;
   buttonLabel: string;
-  avatarSrc: string;
-  avatarAlt: string;
+  avatarSrc?: string;
+  avatarAlt?: string;
   imageSrc: string;
   imageAlt: string;
   avatarBeforeText?: boolean;
@@ -26,14 +26,15 @@ const {
   listItems = [],
   buttonHref,
   buttonLabel,
-  avatarSrc,
-  avatarAlt,
+  avatarSrc = "",
+  avatarAlt = "",
   imageSrc,
   imageAlt,
   avatarBeforeText = false,
 } = Astro.props as Props;
 
 const hasListItems = listItems.length > 0;
+const hasAvatar = avatarSrc.trim() !== "";
 ---
 
 <section class="bg-white py-16 dark:bg-darkmode-body">
@@ -56,14 +57,18 @@ const hasListItems = listItems.length > 0;
           )
         }
 
-        <ImageMod
-          src={avatarSrc}
-          width={112}
-          height={112}
-          alt={avatarAlt}
-          class="mb-6 h-28 w-28 rounded-full object-cover"
-          format="webp"
-        />
+        {
+          hasAvatar && (
+            <ImageMod
+              src={avatarSrc}
+              width={112}
+              height={112}
+              alt={avatarAlt}
+              class="mb-6 h-28 w-28 rounded-full object-cover"
+              format="webp"
+            />
+          )
+        }
 
         {
           avatarBeforeText && leadText && (

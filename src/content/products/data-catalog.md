@@ -43,8 +43,7 @@ delivery:
     - "Business Glossar"
     - "Handbuch"
   operations:
-    - "Betrieb durch interne Data Stewards"
-    - "Betrieb durch externe Data Stewards"
+    - "Betrieb durch interne/externe Data Stewards"
 related_products:
   - "data-governance"
   - "master-data-management"
