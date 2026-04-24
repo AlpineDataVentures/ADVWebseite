@@ -1,5 +1,16 @@
 # Release Notes 
 
+### 2.0 Relaunch
+
+- Komplette Überarbeitung der Webseite
+ 
+
+### 1.4
+
+- Prototyp eines Produktkonfigurators
+- Downgrade auf React 18 (viele Komponenten unterstützen dies noch nicht)
+ 
+
 ### 1.3 
 
 - Migration auf Astro 6 (inkl. Anpassungen an Content Collections)

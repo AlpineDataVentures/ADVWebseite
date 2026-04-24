@@ -1,0 +1,40 @@
+import * as React from "react";
+import { cn } from "../../lib/utils";
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+  size?: "default" | "sm" | "lg" | "icon";
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = "default", size = "default", ...props }, ref) => {
+    return (
+      <button
+        className={cn(
+          "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          {
+            // Primärer ADV-Button (edleres Grün, weniger neon)
+            "bg-green-600 text-white hover:bg-green-700": variant === "default",
+            "bg-destructive text-destructive-foreground hover:bg-destructive/90": variant === "destructive",
+            // Neutraler Outline-Button im ADV-Look
+            "border border-border bg-light dark:bg-darkmode-light text-text dark:text-darkmode-text hover:bg-green-500/10 hover:border-green-600/40": variant === "outline",
+            "bg-secondary text-secondary-foreground hover:bg-secondary/80": variant === "secondary",
+            "hover:bg-green-500/10 text-text dark:text-darkmode-text": variant === "ghost",
+            "text-green-600 dark:text-green-400 underline-offset-4 hover:underline": variant === "link",
+            "h-10 px-4 py-2": size === "default",
+            "h-9 rounded-md px-3": size === "sm",
+            "h-11 rounded-md px-8": size === "lg",
+            "h-10 w-10": size === "icon",
+          },
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";
+
+export { Button };

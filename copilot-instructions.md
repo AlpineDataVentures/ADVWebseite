@@ -13,14 +13,16 @@ applyTo: "**"
 - Seitenrouting liegt unter src/pages.
 - Wiederverwendbare Layoutteile liegen unter src/layouts.
 - Styles liegen unter src/styles.
-- Build und lokale Entwicklung erfolgen über npm.
+- Build und lokale Entwicklung erfolgen über **npm** (NICHT yarn).
+- Package Manager: npm mit package-lock.json (kein yarn.lock).
 
 # Bevorzugte Befehle
-- npm install
-- npm run dev
-- npm run build
-- npm run preview
-- npm run format
+- npm install (Abhängigkeiten aktualisieren)
+- npm run dev (lokaler Dev-Server)
+- npm run build (Production Build)
+- npm run preview (Build Preview)
+- npm run format (Code formatieren)
+- npm run generate-json (JSON-Skript für Konfiguration)
 
 # Regeln für Änderungen
 - Nur die für die Aufgabe notwendigen Dateien ändern.
@@ -29,6 +31,7 @@ applyTo: "**"
 - Bei UI-Änderungen mobile Darstellung mitdenken.
 - Bei Text- und CTA-Änderungen auf Conversion-Klarheit achten.
 - Bei Unsicherheit zuerst kleine, reversible Änderungen vorschlagen.
+- **IMMER npm verwenden, NIEMALS yarn!** (package-lock.json ist die Source of Truth)
 
 # Qualitätscheck vor Abschluss
 - Projekt baut erfolgreich mit npm run build.
