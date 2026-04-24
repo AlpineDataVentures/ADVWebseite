@@ -187,11 +187,13 @@ export default function DemoShopApp() {
       <CartButton onClick={() => setCartOpen(true)} />
 
       {/* Cart Sheet */}
-      <CartSheet
-        open={cartOpen}
-        onOpenChange={setCartOpen}
-        onGoToConfig={cartCount > 0 ? handleGoToConfig : undefined}
-      />
+      {cartOpen && (
+        <CartSheet
+          open={cartOpen}
+          onOpenChange={setCartOpen}
+          onGoToConfig={cartCount > 0 ? handleGoToConfig : undefined}
+        />
+      )}
     </div>
   );
 }

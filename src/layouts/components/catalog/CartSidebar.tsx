@@ -3,10 +3,14 @@ import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { Badge } from "./ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
-import { useConfigStore } from "../stores/configStore";
+import {
+  getCartWithPricesFromSelectedDeliverables,
+  getTotalPriceFromSelectedDeliverables,
+  useConfigStore
+} from "../stores/configStore";
 import { formatPrice } from "../lib/pricing";
 import { ShoppingCart, Trash2, X, ChevronDown, Copy, Check } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { getParameterByKey } from "../data/parameters";
 import { cn } from "../lib/utils";
 import { getDeliverableIcon } from "../lib/iconMap";
@@ -23,10 +27,17 @@ interface CartSidebarProps {
  * Zeigt aktivierte Deliverables mit Preis, Breakdown und Parametern
  */
 export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile' }: CartSidebarProps) {
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
-  const totalPrice = useConfigStore((state) => state.getTotalPrice());
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
   const [copied, setCopied] = useState(false);
+  const cartWithPrices = useMemo(
+    () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
+  const totalPrice = useMemo(
+    () => getTotalPriceFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
 
   const handleRemove = (deliverableId: string) => {
     toggleDeliverable(deliverableId, false);
@@ -299,9 +310,16 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
  * Floating Cart Button für Mobile
  */
 export function CartFloatingButton({ onClick }: { onClick: () => void }) {
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
+  const cartWithPrices = useMemo(
+    () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
   const cartCount = cartWithPrices.length;
-  const getTotalPrice = useConfigStore((state) => state.getTotalPrice());
+  const totalPrice = useMemo(
+    () => getTotalPriceFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
 
   return (
     <button
@@ -316,7 +334,7 @@ export function CartFloatingButton({ onClick }: { onClick: () => void }) {
             {cartCount}
           </span>
           <div className="absolute -bottom-12 right-0 bg-light dark:bg-darkmode-light text-text dark:text-darkmode-text text-xs font-semibold px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            {formatPrice(getTotalPrice())}
+            {formatPrice(totalPrice)}
           </div>
         </>
       )}

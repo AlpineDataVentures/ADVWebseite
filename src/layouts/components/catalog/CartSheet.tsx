@@ -4,9 +4,10 @@ import { Separator } from "./ui/separator";
 import { Badge } from "./ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { useConfigStore } from "../stores/configStore";
+import { getCartWithPricesFromSelectedDeliverables, getTotalPriceFromSelectedDeliverables } from "../stores/configStore";
 import { formatPrice } from "../lib/pricing";
 import { ShoppingCart, Trash2, ChevronDown, Copy, Check } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { getParameterByKey } from "../data/parameters";
 import { getDeliverableIcon } from "../lib/iconMap";
 
@@ -20,10 +21,17 @@ interface CartSheetProps {
  * Cart Sheet - Drawer mit Warenkorb-Inhalt
  */
 export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) {
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
-  const totalPrice = useConfigStore((state) => state.getTotalPrice());
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
   const [copied, setCopied] = useState(false);
+  const cartWithPrices = useMemo(
+    () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
+  const totalPrice = useMemo(
+    () => getTotalPriceFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
 
   const handleRemove = (deliverableId: string) => {
     toggleDeliverable(deliverableId, false);

@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { DomainGrid } from './DomainGrid';
 import { UseCaseList } from './UseCaseList';
 import { CartSidebar } from './CartSidebar';
 import { Button } from './ui/button';
 import { ShoppingCart } from 'lucide-react';
-import { useConfigStore } from '../stores/configStore';
+import { getCartWithPricesFromSelectedDeliverables, useConfigStore } from '../stores/configStore';
 
 /**
  * Hauptkomponente für Use Case Finder
@@ -14,8 +14,12 @@ import { useConfigStore } from '../stores/configStore';
 export default function UseCasePage() {
   const [cartOpen, setCartOpen] = useState(false);
   const [selectedDomainId, setSelectedDomainId] = useState<string | null>(null);
-  
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
+
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
+  const cartWithPrices = useMemo(
+    () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
   const cartCount = cartWithPrices.length;
   const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
 
@@ -30,7 +34,7 @@ export default function UseCasePage() {
   const handleSelectUseCase = (useCaseId: string) => {
     // Bundle laden
     setBundleFromUseCase(useCaseId);
-    
+
     // Navigiere zu /configure
     window.location.href = `/configure?useCase=${useCaseId}`;
   };

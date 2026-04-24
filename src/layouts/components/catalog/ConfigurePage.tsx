@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { RecommendedBundleStep } from './RecommendedBundleStep';
 import { DeliverableConfigurator } from './DeliverableConfigurator';
 import { CartSidebar } from './CartSidebar';
 import { Button } from './ui/button';
-import { useConfigStore } from '../stores/configStore';
+import {
+  getCartWithPricesFromSelectedDeliverables,
+  getTotalPriceFromSelectedDeliverables,
+  useConfigStore
+} from '../stores/configStore';
 import { useCases } from '../data/seed';
 import { formatPrice } from '../lib/pricing';
 
@@ -18,9 +22,17 @@ export default function ConfigurePage() {
   const [currentStep, setCurrentStep] = useState<WizardStep>('recommendation');
   const [useCaseId, setUseCaseId] = useState<string | null>(null);
   const [cartOpen, setCartOpen] = useState(false);
-  
+
   const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
+  const cartWithPrices = useMemo(
+    () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
+  const totalPrice = useMemo(
+    () => getTotalPriceFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
   const cartCount = cartWithPrices.length;
 
   // Use Case aus URL laden
@@ -55,7 +67,7 @@ export default function ConfigurePage() {
       {/* Main Content */}
       <div className="lg:col-span-3">
         {currentStep === 'recommendation' ? (
-          <RecommendedBundleStep 
+          <RecommendedBundleStep
             useCaseId={useCaseId}
             onNext={handleNext}
           />
@@ -96,7 +108,7 @@ export default function ConfigurePage() {
                 <div className="pt-3 border-t">
                   <div className="flex justify-between font-bold">
                     <span>Gesamt</span>
-                    <span>{formatPrice(useConfigStore.getState().getTotalPrice())}</span>
+                    <span>{formatPrice(totalPrice)}</span>
                   </div>
                 </div>
               </div>

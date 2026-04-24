@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { DomainGrid } from './DomainGrid';
 import { UseCaseList } from './UseCaseList';
 import { RecommendedBundleStep } from './RecommendedBundleStep';
@@ -8,9 +8,14 @@ import { SummaryPage } from './SummaryPage';
 import { TopBar } from './TopBar';
 import { Button } from './ui/button';
 import { ShoppingCart } from 'lucide-react';
-import { useConfigStore } from '../stores/configStore';
+import {
+  getCartWithPricesFromSelectedDeliverables,
+  getTotalPriceFromSelectedDeliverables,
+  useConfigStore
+} from '../stores/configStore';
 import { formatPrice } from '../lib/pricing';
 import { getUseCaseById } from '../data/useCases';
+import React from 'react';
 
 export type AppView = 'use-cases' | 'configure' | 'summary';
 
@@ -46,10 +51,17 @@ export default function AdvConfiguratorApp({
   const [cartOpen, setCartOpen] = useState(false);
 
   const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
+  const cartWithPrices = useMemo(
+    () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
   const cartCount = cartWithPrices.length;
   const selectedUseCases = useConfigStore((state) => state.selectedUseCases);
-  const getTotalPrice = useConfigStore((state) => state.getTotalPrice);
+  const totalPrice = useMemo(
+    () => getTotalPriceFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
 
   const activeUseCase = useConfigStore((state) => state.activeUseCase);
   const wizardStep = useConfigStore((state) => state.wizardStep);
@@ -61,7 +73,7 @@ export default function AdvConfiguratorApp({
     if (typeof window !== 'undefined' && !demoMode && currentView === 'configure') {
       const params = new URLSearchParams(window.location.search);
       const ucId = params.get('useCase');
-      
+
       if (ucId) {
         setActiveUseCase(ucId);
         setUseCaseId(ucId);
@@ -121,11 +133,11 @@ export default function AdvConfiguratorApp({
   const handleSelectUseCase = (selectedUseCaseId: string) => {
     setUseCaseId(selectedUseCaseId);
     setBundleFromUseCase(selectedUseCaseId);
-    
+
     if (onUseCaseSelect) {
       onUseCaseSelect(selectedUseCaseId);
     }
-    
+
     // In demoMode: bleibe in use-cases view, sonst navigiere zu configure
     if (!demoMode) {
       handleViewChange('configure');
@@ -214,9 +226,9 @@ export default function AdvConfiguratorApp({
                   ← {wizardStep === 2 ? 'Zurück zur Empfehlung' : 'Zur Use-Case-Auswahl'}
                 </Button>
               </div>
-              
+
               {currentStep === 'recommendation' ? (
-                <RecommendedBundleStep 
+                <RecommendedBundleStep
                   useCaseId={useCaseId}
                   onNext={handleNextToConfiguration}
                 />
@@ -252,7 +264,7 @@ export default function AdvConfiguratorApp({
                       <div className="pt-3 border-t">
                         <div className="flex justify-between font-bold">
                           <span>Gesamt</span>
-                          <span>{formatPrice(getTotalPrice())}</span>
+                          <span>{formatPrice(totalPrice)}</span>
                         </div>
                       </div>
                     </div>
@@ -281,7 +293,7 @@ export default function AdvConfiguratorApp({
 
       case 'summary':
         return (
-          <SummaryPage 
+          <SummaryPage
             onBack={() => handleViewChange('configure')}
             onNew={() => handleBackToUseCases()}
           />
@@ -295,7 +307,7 @@ export default function AdvConfiguratorApp({
   return (
     <div className={className}>
       {/* Top Bar mit Theme Toggle */}
-      <TopBar 
+      <TopBar
         onCartClick={() => setCartOpen(true)}
         showCartButton={!demoMode && currentView !== 'use-cases'}
       />

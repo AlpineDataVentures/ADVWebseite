@@ -2,10 +2,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
 import { Badge } from './ui/badge';
-import { useConfigStore } from '../stores/configStore';
+import {
+  getCartFromSelectedDeliverables,
+  getCartWithPricesFromSelectedDeliverables,
+  getTotalPriceFromSelectedDeliverables,
+  useConfigStore
+} from '../stores/configStore';
 import { formatPrice } from '../lib/pricing';
 import { getUseCaseById } from '../data/useCases';
 import { Download, Mail, ArrowLeft } from 'lucide-react';
+import { useMemo } from 'react';
 
 interface SummaryPageProps {
   onBack?: () => void;
@@ -15,12 +21,22 @@ interface SummaryPageProps {
 export function SummaryPage({ onBack, onNew }: SummaryPageProps = {}) {
   const selectedUseCases = useConfigStore((state) => state.selectedUseCases);
   const activeUseCase = useConfigStore((state) => state.activeUseCase);
-  const cart = useConfigStore((state) => state.getCart());
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
-  const totalPrice = useConfigStore((state) => state.getTotalPrice());
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const setWizardStep = useConfigStore((state) => state.setWizardStep);
+  const cart = useMemo(
+    () => getCartFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
+  const cartWithPrices = useMemo(
+    () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
+  const totalPrice = useMemo(
+    () => getTotalPriceFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
 
-  const useCase = selectedUseCases.length > 0 
+  const useCase = selectedUseCases.length > 0
     ? getUseCaseById(selectedUseCases[0])
     : null;
 

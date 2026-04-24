@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { FinderPanel } from './FinderPanel';
 import { RecommendedBundleStep } from './RecommendedBundleStep';
 import { DeliverableConfigurator } from './DeliverableConfigurator';
@@ -10,7 +10,11 @@ import { Button } from './ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Sheet, SheetContent } from './ui/sheet';
 import { Menu, X } from 'lucide-react';
-import { useConfigStore } from '../stores/configStore';
+import {
+  getCartWithPricesFromSelectedDeliverables,
+  getTotalPriceFromSelectedDeliverables,
+  useConfigStore
+} from '../stores/configStore';
 import { getUseCaseById } from '../data/useCases';
 import { formatPrice } from '../lib/pricing';
 import { getBundleForUseCase } from '../data/recommendations';
@@ -32,9 +36,16 @@ export default function DemoApp() {
   const setActiveUseCase = useConfigStore((state) => state.setActiveUseCase);
   const wizardStep = useConfigStore((state) => state.wizardStep);
   const setWizardStep = useConfigStore((state) => state.setWizardStep);
-  const cartWithPrices = useConfigStore((state) => state.getCartWithPrices());
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
+  const cartWithPrices = useMemo(
+    () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
   const cartCount = cartWithPrices.length;
-  const getTotalPrice = useConfigStore((state) => state.getTotalPrice());
+  const totalPrice = useMemo(
+    () => getTotalPriceFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
 
   // Handle Use Case Selection
   const handleSelectUseCase = (selectedUseCaseId: string) => {
@@ -137,7 +148,7 @@ export default function DemoApp() {
             <Sheet open={finderOpen} onOpenChange={setFinderOpen}>
               <SheetContent side="left" className="w-[90vw] sm:w-[400px] p-0">
                 <div className="h-full">
-                    <div className="flex items-center justify-between p-4 border-b border-border dark:border-darkmode-border">
+                  <div className="flex items-center justify-between p-4 border-b border-border dark:border-darkmode-border">
                     <h2 className="text-base font-semibold text-text dark:text-darkmode-text mb-0">Use Case Finder</h2>
                     <Button
                       variant="ghost"
@@ -245,7 +256,7 @@ export default function DemoApp() {
                             <div className="flex justify-between font-bold">
                               <span>Gesamt</span>
                               <span className="text-green-600 dark:text-green-400">
-                                {formatPrice(getTotalPrice())}
+                                {formatPrice(totalPrice)}
                               </span>
                             </div>
                           </div>

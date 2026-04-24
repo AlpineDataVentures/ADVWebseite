@@ -122,7 +122,11 @@ export function PriceBreakdown({
   showDetails = true,
   className
 }: PriceBreakdownProps) {
-  const cart = useConfigStore((state) => state.getCart());
+  const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
+  const cart = useMemo(
+    () => getCartFromSelectedDeliverables(selectedDeliverables),
+    [selectedDeliverables]
+  );
   const total = calculateTotalPrice(cart);
 
   // Wenn deliverableId und parameters übergeben werden, zeige einzelnes Deliverable

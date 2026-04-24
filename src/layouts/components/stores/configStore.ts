@@ -23,7 +23,7 @@ interface ConfigState {
   activeUseCase: string | null;
   wizardStep: 1 | 2; // 1 = Recommendation, 2 = Configuration
   hasBundleLoadedForUseCase: string | null; // Track which useCase has bundle loaded
-  
+
   // Actions
   selectUseCase: (id: string) => void;
   deselectUseCase: (id: string) => void;
@@ -34,19 +34,56 @@ interface ConfigState {
   updateDeliverableParam: (id: string, key: string, value: string | number) => void;
   resetAll: () => void;
   setPersistEnabled: (enabled: boolean) => void;
-  
+
   // Getters (computed)
   getCart: () => CartItem[];
   getCartWithPrices: () => Array<CartItem & { deliverable: ReturnType<typeof getDeliverableById>; price: number; breakdown: ReturnType<typeof calculateCartItemPrice> }>;
   getTotalPrice: () => number;
 }
 
+export function getCartFromSelectedDeliverables(
+  selectedDeliverables: Record<string, DeliverableState>
+): CartItem[] {
+  return Object.entries(selectedDeliverables)
+    .filter(([_, deliverableState]) => deliverableState.enabled)
+    .map(([deliverableId, deliverableState]) => ({
+      deliverableId,
+      quantity: 1,
+      parameters: deliverableState.params
+    }));
+}
+
+export function getCartWithPricesFromSelectedDeliverables(
+  selectedDeliverables: Record<string, DeliverableState>
+) {
+  const cart = getCartFromSelectedDeliverables(selectedDeliverables);
+  return cart.map(item => {
+    const calculation = calculateCartItemPrice(item);
+    const deliverable = getDeliverableById(item.deliverableId);
+    return {
+      ...item,
+      deliverable,
+      price: calculation.total,
+      breakdown: calculation
+    };
+  });
+}
+
+export function getTotalPriceFromSelectedDeliverables(
+  selectedDeliverables: Record<string, DeliverableState>
+): number {
+  return getCartFromSelectedDeliverables(selectedDeliverables).reduce((total, item) => {
+    const calculation = calculateCartItemPrice(item);
+    return total + calculation.total;
+  }, 0);
+}
+
 // Default-Parameter aus globalen Parametern
 function getDefaultParameters(): DeliverableParameters {
   const defaults: DeliverableParameters = {};
   globalParameters.forEach(param => {
-    defaults[param.key] = typeof param.default === 'string' 
-      ? param.default 
+    defaults[param.key] = typeof param.default === 'string'
+      ? param.default
       : param.default;
   });
   return defaults;
@@ -65,7 +102,7 @@ const initialState = {
 // Load from localStorage
 function loadFromStorage(): Partial<ConfigState> {
   if (typeof window === 'undefined') return {};
-  
+
   try {
     const stored = localStorage.getItem('produktkatalog-config');
     if (stored) {
@@ -82,14 +119,14 @@ function loadFromStorage(): Partial<ConfigState> {
   } catch (e) {
     console.warn('Failed to load from localStorage', e);
   }
-  
+
   return {};
 }
 
 // Save to localStorage
 function saveToStorage(state: ConfigState) {
   if (typeof window === 'undefined' || !state.persistEnabled) return;
-  
+
   try {
     localStorage.setItem('produktkatalog-config', JSON.stringify({
       selectedUseCases: state.selectedUseCases,
@@ -108,44 +145,23 @@ export const useConfigStore = create<ConfigState>((set, get) => {
   // Initial load
   const loaded = loadFromStorage();
   const initial = { ...initialState, ...loaded };
-  
+
   return {
     ...initial,
-    
+
     // Getters
     getCart: () => {
-      const state = get();
-      return Object.entries(state.selectedDeliverables)
-        .filter(([_, deliverableState]) => deliverableState.enabled)
-        .map(([deliverableId, deliverableState]) => ({
-          deliverableId,
-          quantity: 1,
-          parameters: deliverableState.params
-        }));
+      return getCartFromSelectedDeliverables(get().selectedDeliverables);
     },
-    
+
     getCartWithPrices: () => {
-      const cart = get().getCart();
-      return cart.map(item => {
-        const calculation = calculateCartItemPrice(item);
-        const deliverable = getDeliverableById(item.deliverableId);
-        return {
-          ...item,
-          deliverable,
-          price: calculation.total,
-          breakdown: calculation
-        };
-      });
+      return getCartWithPricesFromSelectedDeliverables(get().selectedDeliverables);
     },
-    
+
     getTotalPrice: () => {
-      const cart = get().getCart();
-      return cart.reduce((total, item) => {
-        const calculation = calculateCartItemPrice(item);
-        return total + calculation.total;
-      }, 0);
+      return getTotalPriceFromSelectedDeliverables(get().selectedDeliverables);
     },
-    
+
     // Actions
     selectUseCase: (id: string) => {
       set((state) => {
@@ -159,7 +175,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         return newState;
       });
     },
-    
+
     deselectUseCase: (id: string) => {
       set((state) => {
         const newState = {
@@ -170,7 +186,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         return newState;
       });
     },
-    
+
     setActiveUseCase: (id: string | null) => {
       set((state) => {
         const newState = { ...state, activeUseCase: id };
@@ -178,7 +194,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         return newState;
       });
     },
-    
+
     setWizardStep: (step: 1 | 2) => {
       set((state) => {
         const newState = { ...state, wizardStep: step };
@@ -186,21 +202,21 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         return newState;
       });
     },
-    
+
     setBundleFromUseCase: (useCaseId: string) => {
       // Skip if bundle already loaded for this useCase
       const state = get();
       if (state.hasBundleLoadedForUseCase === useCaseId) {
         return;
       }
-      
+
       // Verwende getBundleForUseCase aus recommendations.ts
       const recommendations = getBundleForUseCase(useCaseId);
       if (recommendations.length === 0) return;
-      
+
       set((state) => {
         const newDeliverables: Record<string, DeliverableState> = { ...state.selectedDeliverables };
-        
+
         // Registriere alle Recommendations, aber aktiviere NICHTS automatisch.
         // Der Nutzer muss Deliverables explizit per Toggle auswählen.
         recommendations.forEach(rec => {
@@ -212,7 +228,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
           }
           // Bereits vorhandene Deliverables behalten ihren enabled-Status
         });
-        
+
         const newState = {
           ...state,
           selectedDeliverables: newDeliverables,
@@ -227,7 +243,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         return newState;
       });
     },
-    
+
     toggleDeliverable: (id: string, enabled: boolean) => {
       set((state) => {
         const current = state.selectedDeliverables[id];
@@ -245,13 +261,13 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         return newState;
       });
     },
-    
+
     updateDeliverableParam: (id: string, key: string, value: string | number) => {
       set((state) => {
         const current = state.selectedDeliverables[id];
-        
+
         let newDeliverables: Record<string, DeliverableState>;
-        
+
         if (!current) {
           // Erstelle neues Deliverable mit Default-Parametern
           newDeliverables = {
@@ -277,7 +293,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
             }
           };
         }
-        
+
         const newState = {
           ...state,
           selectedDeliverables: newDeliverables
@@ -286,7 +302,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         return newState;
       });
     },
-    
+
     resetAll: () => {
       const newState = { ...initialState };
       if (typeof window !== 'undefined') {
@@ -294,7 +310,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
       }
       set(newState);
     },
-    
+
     setPersistEnabled: (enabled: boolean) => {
       set((state) => {
         const newState = { ...state, persistEnabled: enabled };
