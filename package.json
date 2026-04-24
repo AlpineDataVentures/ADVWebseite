@@ -7,15 +7,15 @@
   "license": "UNLICENSED",
   "type": "module",
   "url": "https://alpinedata.de/",
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "npm@10",
   "scripts": {
-    "dev": "yarn generate-json && astro dev",
-    "build": "yarn generate-json && astro build && node scripts/copy_prod.mjs",
-    "build_branch": "yarn generate-json && astro build && node scripts/copy_branch.mjs",
+    "dev": "npm run generate-json && astro dev",
+    "build": "npm run generate-json && astro build && node scripts/copy_prod.mjs",
+    "build_branch": "npm run generate-json && astro build && node scripts/copy_branch.mjs",
     "preview": "astro preview",
     "format": "prettier -w ./src",
     "generate-json": "node scripts/jsonGenerator.js",
-    "remove-darkmode": "node scripts/removeDarkmode.js && yarn format"
+    "remove-darkmode": "node scripts/removeDarkmode.js && npm run format"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
