@@ -73,7 +73,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="w-full sm:w-[420px] p-0 flex flex-col bg-body dark:bg-darkmode-body">
+      <SheetContent side="right" className="w-full sm:w-105 p-0 flex flex-col bg-body dark:bg-darkmode-body">
         <SheetHeader className="px-6 pt-6 pb-4 border-b border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -208,7 +208,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
 
         {/* Footer - Sticky, clear structure */}
         {cartWithPrices.length > 0 && (
-          <div className="flex-shrink-0 pt-4 border-t border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light px-5 pb-6 space-y-3">
+          <div className="shrink-0 pt-4 border-t border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light px-5 pb-6 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold text-text dark:text-darkmode-text">Gesamtsumme</span>
               <span className="font-bold text-xl text-green-600 dark:text-green-400">

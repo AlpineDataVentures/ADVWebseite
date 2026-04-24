@@ -9,10 +9,9 @@ import {
   useConfigStore
 } from "../stores/configStore";
 import { formatPrice } from "../lib/pricing";
-import { ShoppingCart, Trash2, X, ChevronDown, Copy, Check } from "lucide-react";
+import { ShoppingCart, Trash2, ChevronDown, Copy, Check } from "lucide-react";
 import { useMemo, useState } from "react";
 import { getParameterByKey } from "../data/parameters";
-import { cn } from "../lib/utils";
 import { getDeliverableIcon } from "../lib/iconMap";
 
 interface CartSidebarProps {
@@ -81,7 +80,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
   const CartContent = () => (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex-shrink-0 pb-4 border-b-2 border-border">
+      <div className="shrink-0 pb-4 border-b-2 border-border">
         <div className="flex items-center justify-between">
           <h3 className="font-semibold text-base text-text dark:text-darkmode-text">
             Warenkorb
@@ -223,7 +222,7 @@ export function CartSidebar({ open, onOpenChange, onCheckout, variant = 'mobile'
 
       {/* Footer - Sticky, clear structure */}
       {cartWithPrices.length > 0 && (
-        <div className="flex-shrink-0 pt-4 border-t-2 border-border bg-light/80 dark:bg-darkmode-light/80 space-y-4">
+        <div className="shrink-0 pt-4 border-t-2 border-border bg-light/80 dark:bg-darkmode-light/80 space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-sm font-semibold text-text dark:text-darkmode-text">Gesamtsumme</span>
             <span className="font-bold text-xl text-green-600 dark:text-green-400">

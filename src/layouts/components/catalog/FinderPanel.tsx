@@ -1,6 +1,5 @@
 import { getUseCasesForDomain } from "../data/domains";
 import { UseCaseItem } from "./UseCaseItem";
-import { cn } from "../lib/utils";
 
 interface FinderPanelProps {
   activeDomainId: string | null;
@@ -53,7 +52,7 @@ export function FinderPanel({
   return (
     <div className="flex flex-col h-full min-h-0 bg-light dark:bg-darkmode-light rounded-2xl border border-border shadow-sm overflow-hidden">
       {/* Header */}
-      <div className="flex-shrink-0 p-4 border-b border-border">
+      <div className="shrink-0 p-4 border-b border-border">
         <h2 className="text-sm font-semibold text-text dark:text-darkmode-text mb-1">
           Use Cases
         </h2>

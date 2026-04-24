@@ -23,11 +23,11 @@ const Accordion = ({ type = "single", defaultValue, value, onValueChange, childr
   const [internalValue, setInternalValue] = React.useState<string[]>(
     Array.isArray(defaultValue) ? defaultValue : defaultValue ? [defaultValue] : []
   );
-  
-  const currentValue = value !== undefined 
+
+  const currentValue = value !== undefined
     ? (Array.isArray(value) ? value : [value])
     : internalValue;
-  
+
   const handleValueChange = (itemValue: string) => {
     let newValue: string[];
     if (type === "single") {
@@ -37,18 +37,18 @@ const Accordion = ({ type = "single", defaultValue, value, onValueChange, childr
         ? currentValue.filter(v => v !== itemValue)
         : [...currentValue, itemValue];
     }
-    
+
     if (value === undefined) {
       setInternalValue(newValue);
     }
-    
+
     if (onValueChange) {
       onValueChange(type === "single" ? newValue[0] || "" : newValue);
     }
   };
-  
+
   return (
-    <AccordionContext.Provider value={{ value: currentValue, onValueChange: handleValueChange }}>
+    <AccordionContext.Provider value={{ value: currentValue, onValueChange: (itemValue: string[]) => handleValueChange(itemValue[0]) }}>
       <div className={cn("space-y-2", className)}>
         {children}
       </div>
@@ -78,12 +78,12 @@ interface AccordionTriggerProps {
 const AccordionTrigger = ({ children, className }: AccordionTriggerProps) => {
   const context = React.useContext(AccordionContext);
   if (!context) throw new Error("AccordionTrigger must be used within Accordion");
-  
+
   const item = React.useContext(ItemContext);
   if (!item) throw new Error("AccordionTrigger must be used within AccordionItem");
-  
+
   const isOpen = context.value.includes(item.value);
-  
+
   return (
     <button
       type="button"
@@ -92,7 +92,7 @@ const AccordionTrigger = ({ children, className }: AccordionTriggerProps) => {
         "flex w-full items-center justify-between p-4 font-medium transition-all",
         "rounded-lg hover:bg-light/60 dark:hover:bg-darkmode-light/60",
         "[&[data-state=open]>svg]:rotate-180",
-        "[&[data-state=open]]:bg-light/40 dark:[&[data-state=open]]:bg-darkmode-light/40",
+        "data-[state=open]:bg-light/40 dark:data-[state=open]:bg-darkmode-light/40",
         className
       )}
       data-state={isOpen ? "open" : "closed"}
@@ -112,14 +112,14 @@ interface AccordionContentProps {
 const AccordionContent = ({ children, className }: AccordionContentProps) => {
   const context = React.useContext(AccordionContext);
   if (!context) throw new Error("AccordionContent must be used within Accordion");
-  
+
   const item = React.useContext(ItemContext);
   if (!item) throw new Error("AccordionContent must be used within AccordionItem");
-  
+
   const isOpen = context.value.includes(item.value);
-  
+
   if (!isOpen) return null;
-  
+
   return (
     <div className={cn("overflow-hidden text-sm transition-all", className)}>
       <div className="p-4 pt-0">{children}</div>

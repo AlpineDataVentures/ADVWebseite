@@ -9,7 +9,7 @@ import { Breadcrumb } from './Breadcrumb';
 import { Button } from './ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Sheet, SheetContent } from './ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import {
   getCartWithPricesFromSelectedDeliverables,
   getTotalPriceFromSelectedDeliverables,
@@ -146,7 +146,7 @@ export default function DemoApp() {
 
             {/* Tablet: Finder as Sheet */}
             <Sheet open={finderOpen} onOpenChange={setFinderOpen}>
-              <SheetContent side="left" className="w-[90vw] sm:w-[400px] p-0">
+              <SheetContent side="left" className="w-[90vw] sm:w-100 p-0">
                 <div className="h-full">
                   <div className="flex items-center justify-between p-4 border-b border-border dark:border-darkmode-border">
                     <h2 className="text-base font-semibold text-text dark:text-darkmode-text mb-0">Use Case Finder</h2>
