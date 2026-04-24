@@ -15,7 +15,6 @@ import {
 } from '../stores/configStore';
 import { formatPrice } from '../lib/pricing';
 import { getUseCaseById } from '../data/useCases';
-import React from 'react';
 
 export type AppView = 'use-cases' | 'configure' | 'summary';
 
@@ -32,7 +31,7 @@ export interface AdvConfiguratorAppProps {
 /**
  * Eigenständige React-Komponente für den gesamten Konfigurator-Flow
  * Kann per <AdvConfiguratorApp client:load /> in Astro-Seiten eingebunden werden
- * 
+ *
  * Verwaltet internes Routing via State (keine Backend Calls)
  * Alle Daten aus src/data/*
  */

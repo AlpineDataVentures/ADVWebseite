@@ -16,6 +16,9 @@ yarn.lock
 # ignore lock-files
 *.lock
 
+# TypeScript incremental cache
+*.tsbuildinfo
+
 
 # environment variables
 .env
