@@ -20,7 +20,7 @@ items:
   - question: "Wir wollen nicht von Dienstleistern abhängig sein und sind generell skeptisch Projekte komplett in fremde Hände zu legen. Wie löst die ADV das?"
     answer_short: "Wir arbeiten zum Großteil im Co-Creation Ansatz."
     answer_long: "Unsere Kunden bestimmen eine:n internen Projektleiter:in, sowie Mitarbeiter:innen, welche zukünftig die Lösungen weiterentwickeln und warten sollen. Wir dokumentieren alles sauber und schulen unsere Kunden bereits bei der Implementierung der Projekte, sodass wir gemeinsam an stets neuen und fortschrittlicheren Themen arbeiten können."
-  - question: "Ich habe schlechte Erfahrungen mit Beratungen gemacht, da die Projektziele nicht gerissen und Budgets jedes Mal überschritten wurden. Warum soll das mit ADV anders sein?"
+  - question: "Ich habe schlechte Erfahrungen mit Beratungen gemacht, da die Projektziele gerissen und die Budgets jedes Mal überschritten wurden. Warum soll das mit ADV anders sein?"
     answer_short: "Wir arbeiten mit Fixpreisprojekten."
-    answer_long: "Das bedeutet: Wir scopen gemeinsam den Projektumfang, dann bekommen Sie ein Angebot, zu jenem Preis das Projekt umgesetzt wird. Wir übernehmen dabei das unternehmerische Risiko für Unwägbarkeiten und Projekterfolg. Das Projekt wird in dem angebotenen Preisrahmen fertig und wir verlangen keine Nachberechnungen."
+    answer_long: "Das bedeutet: Wir scopen gemeinsam den Projektumfang, dann bekommen Sie ein Angebot, zu dem Preis das Projekt umgesetzt wird. Wir übernehmen dabei das unternehmerische Risiko für Unwägbarkeiten und Projekterfolg. Das Projekt wird in dem angebotenen Preisrahmen fertig und wir verlangen keine Nachberechnungen."
 ---
