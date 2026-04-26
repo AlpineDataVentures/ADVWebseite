@@ -45,14 +45,60 @@ import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
         </div>
 
         <div class="col-12 md:col-6">
-          <img
-            src="/images/hero.png"
-            alt="ADV Hero"
-            class="h-full w-full object-cover"
-            loading="lazy"
-          />
+          <figure
+            class="hero-image-compare"
+            data-hero-compare
+            style="--split: 50%;"
+          >
+            <img
+              src="/images/heropath.jpg"
+              alt="ADV Hero"
+              class="hero-image-compare__image"
+              loading="lazy"
+            />
+
+            <div class="hero-image-compare__overlay" aria-hidden="true">
+              <img
+                src="/images/heropath_pixel.jpg"
+                alt=""
+                class="hero-image-compare__image"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="hero-image-compare__divider" aria-hidden="true"></div>
+
+            <input
+              class="hero-image-compare__range"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              aria-label="Bereich zwischen klarem und verpixeltem Bild verschieben"
+            />
+          </figure>
         </div>
       </div>
     </div>
   </section>
 </>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll("[data-hero-compare]").forEach((root) => {
+      const range = root.querySelector(".hero-image-compare__range");
+      if (!range || root.dataset.initialized === "true") return;
+
+      const setSplit = (value) => {
+        root.style.setProperty("--split", `${value}%`);
+      };
+
+      setSplit(range.value);
+      range.addEventListener("input", (event) => {
+        setSplit(event.target.value);
+      });
+
+      root.dataset.initialized = "true";
+    });
+  });
+</script>
