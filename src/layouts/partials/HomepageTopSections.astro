@@ -66,7 +66,12 @@ import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
               />
             </div>
 
-            <div class="hero-image-compare__divider" aria-hidden="true"></div>
+            <div class="hero-image-compare__divider" aria-hidden="true">
+              <div class="hero-image-compare__handle">
+                <span class="hero-image-compare__arrow">&#8592;</span>
+                <span class="hero-image-compare__arrow">&#8594;</span>
+              </div>
+            </div>
 
             <input
               class="hero-image-compare__range"
@@ -89,14 +94,68 @@ import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
       const range = root.querySelector(".hero-image-compare__range");
       if (!range || root.dataset.initialized === "true") return;
 
+      let animationFrame = null;
+      let animationCancelled = false;
+
       const setSplit = (value) => {
-        root.style.setProperty("--split", `${value}%`);
+        const nextValue = Math.max(0, Math.min(100, Number(value)));
+        range.value = String(nextValue);
+        root.style.setProperty("--split", `${nextValue}%`);
       };
+
+      const stopAnimation = () => {
+        animationCancelled = true;
+        if (animationFrame !== null) {
+          cancelAnimationFrame(animationFrame);
+          animationFrame = null;
+        }
+      };
+
+      const animateSegment = (from, to, duration) =>
+        new Promise((resolve) => {
+          const start = performance.now();
+
+          const step = (timestamp) => {
+            if (animationCancelled) {
+              resolve();
+              return;
+            }
+
+            const progress = Math.min((timestamp - start) / duration, 1);
+            const easedProgress = 0.5 - Math.cos(progress * Math.PI) / 2;
+
+            setSplit(from + (to - from) * easedProgress);
+
+            if (progress < 1) {
+              animationFrame = requestAnimationFrame(step);
+              return;
+            }
+
+            animationFrame = null;
+            resolve();
+          };
+
+          animationFrame = requestAnimationFrame(step);
+        });
 
       setSplit(range.value);
       range.addEventListener("input", (event) => {
+        stopAnimation();
         setSplit(event.target.value);
       });
+
+      range.addEventListener("pointerdown", stopAnimation, { once: true });
+      range.addEventListener("keydown", stopAnimation, { once: true });
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        void (async () => {
+          setSplit(12);
+          await animateSegment(12, 100, 1400);
+          await animateSegment(100, 60, 1000);
+        })();
+      } else {
+        setSplit(60);
+      }
 
       root.dataset.initialized = "true";
     });
