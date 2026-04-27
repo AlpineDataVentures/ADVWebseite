@@ -2,10 +2,10 @@
 functions = "netlify/functions"
 [context.production]
 publish = "dist"
-command = "./netlify-build-setup.sh && yarn build"
+command = "./netlify-build-setup.sh && npm run build"
 [context.branch-deploy]
 publish = "dist"
-command = "./netlify-build-setup.sh && yarn build_branch"
+command = "./netlify-build-setup.sh && npm run build_branch"
 
 [build.environment]
 NODE_VERSION = "22"
