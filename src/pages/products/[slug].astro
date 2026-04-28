@@ -2,7 +2,6 @@
 import Base from "@/layouts/Base.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import ImageMod from "@/components/ImageMod.astro";
-import { PRODUCT_CATALOG_URL } from "@/config/products";
 import { getEntry, type CollectionEntry } from "astro:content";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { FaCheck } from "react-icons/fa";
@@ -26,8 +25,6 @@ const {
   eyebrow,
   highlight_text,
   image,
-  intro_cta_label,
-  customer_value_title,
   benefits,
   contact,
   collaboration_title,
@@ -37,7 +34,6 @@ const {
   tags,
   final_cta_title,
   final_cta_text,
-  final_cta_button_label,
   final_cta_image,
 } = product.data;
 
@@ -94,58 +90,43 @@ const advisorEmail = authorEntry?.data.email
   description={description}
   image={image}
 >
-  <section class="pb-6 pt-8">
-    <div class="container">
-      <div
-        class="rounded-2xl border border-[#00CE7E]/30 bg-[#ECFFF5] px-6 py-5 md:flex md:items-center md:justify-between"
-      >
-        <p
-          class="mb-4 font-secondary text-lg font-medium text-text-dark md:mb-0"
-        >
-          Dieses Produkt direkt im Katalog konfigurieren und bestellen
-        </p>
-        <a class="btn btn-primary" href={PRODUCT_CATALOG_URL}>
-          {intro_cta_label}
-        </a>
-      </div>
-    </div>
-  </section>
-
   <section class="section pt-4">
     <div class="container">
-      <div class="row items-center gap-y-10">
-        <div class="md:col-6">
-          <p
-            class="mb-3 font-secondary text-sm font-semibold uppercase tracking-[0.12em] text-[#00A869]"
-          >
-            {eyebrow}
-          </p>
-          <h1
-            class="mb-6 font-primary text-h1-sm font-bold text-text-dark md:text-h1"
-          >
-            {title}
-          </h1>
-          <p
-            class="font-secondary text-base leading-relaxed text-text md:text-lg"
-          >
-            {descriptionBefore}
-            {
-              descriptionHighlight && (
-                <span class="adv-contact-gradient font-semibold">
-                  {descriptionHighlight}
-                </span>
-              )
-            }
-            {descriptionAfter}
-          </p>
+      <div class="row items-stretch gap-y-10">
+        <div class="col-12 md:col-7 md:pr-10">
+          <div class="flex h-full flex-col justify-center text-left">
+            <p
+              class="mb-3 font-secondary text-lg font-normal text-text-dark dark:text-darkmode-text-light"
+            >
+              {eyebrow}
+            </p>
+            <h1
+              class="mb-6 font-primary text-h1-sm font-bold text-dark dark:text-darkmode-text-dark md:text-h1"
+            >
+              {title}
+            </h1>
+            <p
+              class="font-secondary text-lg font-normal text-text dark:text-darkmode-text"
+            >
+              {descriptionBefore}
+              {
+                descriptionHighlight && (
+                  <span class="adv-contact-gradient font-semibold">
+                    {descriptionHighlight}
+                  </span>
+                )
+              }
+              {descriptionAfter}
+            </p>
+          </div>
         </div>
-        <div class="md:col-6">
+        <div class="col-12 md:col-5 md:pl-10">
           <ImageMod
             src={image}
             width={1200}
             height={900}
             alt={title}
-            class="w-full rounded-2xl object-cover"
+            class="h-full w-full rounded-2xl object-cover"
             format="webp"
           />
         </div>
@@ -157,14 +138,16 @@ const advisorEmail = authorEntry?.data.email
     <div class="container">
       <div class="row items-start gap-y-10">
         <div class="md:col-7 md:pr-10">
-          <h2 class="mb-8 font-primary text-h2-sm font-bold md:text-h2">
-            <span class="adv-contact-gradient">{customer_value_title}</span>
+          <h2
+            class="mb-8 font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
+          >
+            Ihr <span class="adv-contact-gradient">Mehrwert</span>
           </h2>
-          <ul class="space-y-5">
+          <ul class="space-y-7">
             {
               benefits.map((benefit) => (
-                <li class="relative rounded-xl border border-border bg-white p-5 pl-12 dark:border-darkmode-border dark:bg-darkmode-body">
-                  <FaCheck className="absolute left-5 top-6 text-[#00A869]" />
+                <li class="relative pl-10">
+                  <FaCheck className="absolute left-0 top-2 text-[#00A869]" />
                   <h3 class="mb-2 font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
                     {benefit.title}
                   </h3>
@@ -213,11 +196,17 @@ const advisorEmail = authorEntry?.data.email
             >
               {contact.expertise}
             </p>
-            <div class="flex flex-wrap gap-4">
-              <a class="btn btn-outline-primary" href={advisorEmail}>
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-stretch">
+              <a
+                class="btn btn-outline-primary inline-flex w-full items-center justify-center sm:flex-1"
+                href={advisorEmail}
+              >
                 {contact.question_cta_label}
               </a>
-              <a class="btn btn-primary" href={contact.meeting_cta_link}>
+              <a
+                class="btn btn-primary inline-flex w-full items-center justify-center border border-transparent transition-colors hover:border-black hover:bg-white hover:text-black dark:hover:border-white dark:hover:bg-black dark:hover:text-white sm:flex-1"
+                href={contact.meeting_cta_link}
+              >
                 {contact.meeting_cta_label}
               </a>
             </div>
@@ -229,70 +218,84 @@ const advisorEmail = authorEntry?.data.email
 
   <section class="section pt-0">
     <div class="container">
-      <h2 class="mb-10 font-primary text-h2-sm font-bold md:text-h2">
-        {collaboration_title}
-      </h2>
-      <div class="space-y-5">
-        {
-          collaboration_steps.map((step, index) => (
-            <div class="rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body">
-              <div class="mb-4 flex items-center gap-4">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#00CE7E] font-primary text-lg font-bold text-[#00A869]">
-                  {index + 1}
-                </span>
-                <h3 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
-                  {step.title}
-                </h3>
-              </div>
-              <p class="font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light">
-                {step.text}
-              </p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+      <div class="row items-start gap-y-10">
+        <div class="md:col-7 md:pr-10">
+          <h2 class="mb-10 font-primary text-h2-sm font-bold md:text-h2">
+            {collaboration_title}
+          </h2>
+          <ul class="space-y-8">
+            {
+              collaboration_steps.map((step, index) => (
+                <li class="relative grid grid-cols-[2.5rem_1fr] gap-x-5">
+                  {index < collaboration_steps.length - 1 && (
+                    <span
+                      class="absolute left-5 top-12 -bottom-6 w-1 -translate-x-1/2 rounded-full bg-[#00CE7E]"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span class="relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#00CE7E] bg-white font-primary text-lg font-bold text-[#00A869] dark:bg-darkmode-body">
+                    {index + 1}
+                  </span>
+                  <div class="pt-1">
+                    <h3 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+                      {step.title}
+                    </h3>
+                    <p class="mt-3 font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light">
+                      {step.text}
+                    </p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
 
-  <section class="section pt-0">
-    <div class="container">
-      <div class="row">
-        <div class="mb-6 md:col-4">
+        <div class="md:col-5 md:pl-10">
           <div
-            class="h-full rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
+            class="rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
           >
-            <h3 class="mb-4 font-primary text-h5 font-bold">Technologie</h3>
-            <ul
-              class="space-y-2 font-secondary text-base text-text dark:text-darkmode-text-light"
-            >
-              {delivery.technologies.map((item) => <li>{item}</li>)}
-            </ul>
-          </div>
-        </div>
-        <div class="mb-6 md:col-4">
-          <div
-            class="h-full rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
-          >
-            <h3 class="mb-4 font-primary text-h5 font-bold">
-              Ergebnisse und Deliverables
-            </h3>
-            <ul
-              class="space-y-2 font-secondary text-base text-text dark:text-darkmode-text-light"
-            >
-              {delivery.deliverables.map((item) => <li>{item}</li>)}
-            </ul>
-          </div>
-        </div>
-        <div class="mb-6 md:col-4">
-          <div
-            class="h-full rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
-          >
-            <h3 class="mb-4 font-primary text-h5 font-bold">Betrieb</h3>
-            <ul
-              class="space-y-2 font-secondary text-base text-text dark:text-darkmode-text-light"
-            >
-              {delivery.operations.map((item) => <li>{item}</li>)}
-            </ul>
+            <div class="grid gap-0">
+              <div
+                class="grid gap-4 border-b border-border py-5 first:pt-0 dark:border-darkmode-border md:grid-cols-[minmax(0,9rem)_1fr]"
+              >
+                <h3
+                  class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark"
+                >
+                  Technologie
+                </h3>
+                <ul
+                  class="list-disc space-y-2 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light"
+                >
+                  {delivery.technologies.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+              <div
+                class="grid gap-4 border-b border-border py-5 dark:border-darkmode-border md:grid-cols-[minmax(0,9rem)_1fr]"
+              >
+                <h3
+                  class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark"
+                >
+                  Ergebnisse
+                </h3>
+                <ul
+                  class="list-disc space-y-2 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light"
+                >
+                  {delivery.deliverables.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+              <div class="grid gap-4 pt-5 md:grid-cols-[minmax(0,9rem)_1fr]">
+                <h3
+                  class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark"
+                >
+                  Betrieb
+                </h3>
+                <ul
+                  class="list-disc space-y-2 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light"
+                >
+                  {delivery.operations.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -333,29 +336,35 @@ const advisorEmail = authorEntry?.data.email
 
   <section class="section pt-0">
     <div class="container">
-      <div class="row items-center rounded-2xl bg-[#ECFFF5] p-8">
-        <div class="md:col-8">
-          <h2
-            class="mb-4 font-primary text-h2-sm font-bold text-text-dark md:text-h2"
-          >
-            {final_cta_title}
-          </h2>
-          <p
-            class="mb-6 font-secondary text-base leading-relaxed text-text md:text-lg"
-          >
-            {final_cta_text}
-          </p>
-          <a class="btn btn-primary" href={PRODUCT_CATALOG_URL}>
-            {final_cta_button_label}
-          </a>
+      <div class="row items-stretch gap-y-10">
+        <div class="col-12 md:col-7 md:pr-10">
+          <div class="flex h-full flex-col text-left">
+            <h2
+              class="mb-4 font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
+            >
+              {final_cta_title}
+            </h2>
+            <p
+              class="mb-6 font-secondary text-base leading-relaxed text-text dark:text-darkmode-text md:text-lg"
+            >
+              {final_cta_text}
+            </p>
+            <a
+              class="inline-flex items-center justify-center self-start rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90"
+              href={contact.meeting_cta_link}
+            >
+              Erstgespräch vereinbaren
+              <span class="ml-2" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
         </div>
-        <div class="mt-8 md:col-4 md:mt-0">
+        <div class="col-12 md:col-5 md:pl-10">
           <ImageMod
             src={final_cta_image}
-            width={700}
-            height={500}
+            width={1200}
+            height={900}
             alt="Produkt-Katalog"
-            class="w-full rounded-2xl object-cover"
+            class="h-full w-full rounded-2xl object-cover"
             format="webp"
           />
         </div>
@@ -367,7 +376,8 @@ const advisorEmail = authorEntry?.data.email
     relatedPosts.length > 0 && (
       <section class="section pt-0">
         <div class="container">
-          <h2 class="mb-12 text-center font-primary text-h2-sm font-bold md:text-h2">
+          <div class="mb-12 border-t-2 border-black pt-10 dark:border-white" />
+          <h2 class="mb-12 text-left font-primary text-h2-sm font-bold md:text-h2">
             Zum Thema lesen
           </h2>
           <div class="row justify-center">
