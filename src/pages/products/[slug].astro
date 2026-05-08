@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 
   return products.map((product) => ({
     params: {
-      slug: product.data.slug,
+      slug: product.id,
     },
     props: { product },
   }));
@@ -43,7 +43,7 @@ const authorEntry = await getEntry("authors", contact.author_id);
 
 const relatedProductEntries = related_products
   .map((relatedSlug) =>
-    allProducts.find((candidate) => candidate.data.slug === relatedSlug),
+    allProducts.find((candidate) => candidate.id === relatedSlug),
   )
   .filter((candidate): candidate is CollectionEntry<"products"> =>
     Boolean(candidate),
@@ -74,8 +74,8 @@ const descriptionAfter =
     : "";
 
 const advisorName =
-  authorEntry?.data.blog_name ??
   authorEntry?.data.title ??
+  authorEntry?.data.blog_name ??
   "Ihr Ansprechpartner";
 const advisorRole = authorEntry?.data.role ?? "Consulting";
 const advisorImage = authorEntry?.data.image ?? "/images/authors/BenDiez.jpg";
@@ -192,7 +192,7 @@ const advisorEmail = authorEntry?.data.email
               </p>
             </div>
             <p
-              class="mb-6 font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light"
+              class="mb-6 text-justify font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light"
             >
               {contact.expertise}
             </p>
@@ -314,7 +314,7 @@ const advisorEmail = authorEntry?.data.email
               <div class="mb-6 md:col-6">
                 <a
                   class="block h-full rounded-2xl border border-border bg-white p-6 transition-colors hover:border-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body"
-                  href={`/products/${relatedProduct.data.slug}/`}
+                  href={`/products/${relatedProduct.id}/`}
                 >
                   <p class="mb-2 font-secondary text-sm font-semibold uppercase tracking-[0.12em] text-[#00A869]">
                     Produkt

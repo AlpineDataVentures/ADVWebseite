@@ -1,6 +1,5 @@
 ---
 title: "Data Strategy"
-slug: "data-strategy"
 eyebrow: "Produkt"
 meta_title: "Datenstrategie"
 description: "Viele Unternehmen haben in den letzten Jahren ihre Prozesse digitalisiert und sammeln seither mehr Daten als je zuvor. Die Frage ist nicht ob Potenzial vorhanden ist, sondern wie man es konkret nutzt. Eine Datenstrategie gibt darauf eine klare Antwort: welche Daten wirklich relevant sind, wo der größte Hebel liegt und in welcher Reihenfolge Maßnahmen sinnvoll sind."
@@ -59,3 +58,4 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
+

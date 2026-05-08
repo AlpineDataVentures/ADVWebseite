@@ -112,7 +112,7 @@ const insightUseCases = [
 ];
 
 const products = await getSinglePage("products");
-const productSlugs = new Set(products.map((product) => product.data.slug));
+const productSlugs = new Set(products.map((product) => product.id));
 
 const insightUseCasesWithLinks = insightUseCases.map((useCase) => ({
   ...useCase,

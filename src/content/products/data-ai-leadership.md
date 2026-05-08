@@ -1,6 +1,5 @@
 ---
 title: "Data & AI Leadership"
-slug: "data-ai-leadership"
 eyebrow: "Produkt"
 meta_title: "Data & AI Leadership Einführung"
 description: "Daten und KI bieten enormes Potenzial, aber dieses Potenzial entfaltet sich nur wenn dieses Thema im Unternehmen aktiv geführt wird. Wir helfen Führungskräften dabei, diese Rolle zu übernehmen: mit dem richtigen Verständnis, klaren Zuständigkeiten und Strukturen die im Alltag funktionieren. Das umfasst sowohl die persönliche Begleitung der Führungskraft als auch den Aufbau der organisatorischen Voraussetzungen im Unternehmen."
@@ -59,3 +58,4 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
+

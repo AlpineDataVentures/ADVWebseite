@@ -1,6 +1,5 @@
 ---
 title: "Data Catalog"
-slug: "data-catalog"
 eyebrow: "Produkt"
 meta_title: "Data Catalog"
 description: "Ein Data Catalog ist das zentrale Verzeichnis aller Daten in Ihrem Unternehmen: wer hat welche Daten, wo liegen sie, was bedeuten sie und wer ist zuständig. Er sorgt dafür, dass Begriffe wie Umsatz oder Kunde überall dieselbe Definition haben und dass bei jedem Datensatz klar ist wer Auskunft geben kann."
@@ -59,3 +58,4 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
+

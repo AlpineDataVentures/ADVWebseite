@@ -1,6 +1,5 @@
 ---
 title: "Data Mesh"
-slug: "data-mesh"
 eyebrow: "Produkt"
 meta_title: "Data Mesh Einführung"
 description: "Data Mesh ist ein Organisationsmodell für Firmen, die datengetrieben arbeiten: Statt alle Daten zentral zu verwalten, übernimmt jeder Fachbereich die Verantwortung für seine eigenen Daten. Der Vertrieb für Verkaufszahlen, die Produktion für Maschinendaten, der Einkauf für Bestellhistorien, etc. Die IT oder ein dediziertes Data Team sorgen dafür dass alle nach denselben Standards arbeiten und die Daten unternehmensübergreifend nutzbar bleiben. Das Ergebnis ist ein Unternehmen das Entscheidungen auf Basis verlässlicher Daten trifft."
@@ -59,3 +58,4 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
+

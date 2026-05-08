@@ -256,12 +256,6 @@ const productsCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/products" }),
   schema: z.object({
     title: z.string().min(1),
-    slug: z
-      .string()
-      .regex(
-        /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
-        "Slug must use lowercase letters, numbers and hyphens",
-      ),
     eyebrow: z.string().default("Produkt"),
     meta_title: z.string().optional(),
     description: z.string().min(1),
