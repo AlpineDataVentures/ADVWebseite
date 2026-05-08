@@ -6,7 +6,7 @@ date: 2025-04-21T10:00:00Z
 image: "/images/blog/data_governance.png"
 categories: ["Data Leadership"]
 author: "Ben Diez"
-tags: ["Governance"]
+tags: ["Governance", "Data Leadership"]
 draft: false
 summary: "Wenn das Daten-Lama im Meeting auftaucht, fehlt Governance. Klare Regeln, Rollen und Transparenz machen Daten vertrauenswürdig – für Entscheidungen ohne tierische Zwischenfälle."
 ---
