@@ -1,0 +1,171 @@
+---
+import Base from "@/layouts/Base.astro";
+import SplitInfoSection from "@/components/SplitInfoSection.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
+import ExpandableInfoBoxesSection from "@/partials/ExpandableInfoBoxesSection.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { slugify } from "@/lib/utils/textConverter";
+
+const splitInfoData = {
+  enable: true,
+  left_intro:
+    "Von der Potenzialanalyse, über den ersten Piloten begleiten wir Sie bis zur Skalierung und Wartung Ihrer Prozessautomatisierung. ",
+  left_highlight:
+    "Reduzieren Sie effektiv die Arbeitslast, schaffen Raum für kreative Arbeitswelten und gewinnen Sie an Kosteneffizienz!",
+  left_outro: "",
+  left_text: "",
+  right_title: "Ihr Ergebnis",
+  items: [
+    {
+      caption: "Drastische Zeitersparnis",
+      text: "Automatisierung von standardisierten Workflows reduzieren die Fehleranfälligkeit und schaffen Raum für wertschöpfende Tätigkeiten.",
+    },
+    {
+      caption: "Gesteigerte Innovationskraft",
+      text: "Setzen Sie modernste KI-Technologien wie Large Language Models ein, um neue Dienstleistungen zu entwickeln und Ihre Kundeninteraktion zu revolutionieren.",
+    },
+    {
+      caption: "Wettbewerbsvorteil",
+      text: "Durch die Reduktion von Prozess- und Herstellungskosten können Sie schneller und günstiger an Ihren Markt verkaufen.",
+    },
+  ],
+};
+
+const automationUseCases = [
+  {
+    icon: "MdScience",
+    title: "Research & Development",
+    text: "Beschleunigen Sie Ihre Innovations- und Entwicklungsarbeit",
+    links: [
+      { label: "KI-Oberflächenanalyse" },
+      { label: "RAG-System Literaturrecherche" },
+      { label: "KI-Produktentwicklung" },
+      { label: "Simulation von Experimenten" },
+    ],
+  },
+  {
+    icon: "LuCoins",
+    title: "Finance",
+    text: "Von Rechnungseingang bis Anomalien im Zahlungsverkehr",
+    links: [
+      { label: "Rechnungsverarbeitung" },
+      { label: "KI-Cash-Flow-Prognose" },
+      { label: "Anomaly-Detection Zahlungen" },
+    ],
+  },
+  {
+    icon: "FaShop",
+    title: "Sales & Marketing",
+    text: "Beschleunige deine Auftragsbearbeitung und optimiere dein Pricing",
+    links: [
+      { label: "Customer Support Automatisierung" },
+      { label: "Sales-Chatbot Webseite" },
+      { label: "Ausschreibungsautomatisierung" },
+      { label: "Bestelleingangsbearbeitung" },
+      { label: "Dynamic Pricing" },
+    ],
+  },
+  {
+    icon: "MdOutlineShoppingCartCheckout",
+    title: "Procurement",
+    text: "Ob operativ oder strategisch, es bleibt mehr Zeit für die Optimierung",
+    links: [
+      { label: "KI-Preisüberwachung" },
+      { label: "Spendmanagement" },
+      { label: "Autom. Bestellverarbeitung" },
+    ],
+  },
+  {
+    icon: "FaTruckFast",
+    title: "Produktion & Logistik",
+    text: "Reduzieren Sie Ihren größten Kostenfaktor durch Automatisierung",
+    links: [
+      { label: "KI-Video-Qualitätsanalyse" },
+      { label: "KI-Routenoptimierung" },
+      { label: "KI-Warenausgangs-Scanning" },
+      { label: "Objekterkennung" },
+    ],
+  },
+  {
+    icon: "FaRegCirclePlay",
+    title: "IT & Operations",
+    text: "80 % Betriebsaufwand gehören der Vergangenheit an",
+    links: [
+      { label: "Intelligentes Ticket-Mgmt." },
+      { label: "Agentic-Coding", product_slug: "agentic-coding" },
+      { label: "AI-Helpdesk Assistent" },
+      { label: "Self-Service Helpdesk" },
+    ],
+  },
+  {
+    icon: "FaScaleBalanced",
+    title: "Risk & Compliance",
+    text: "Notwendige Prüfungen und ESG-Erhebungen automatisiert",
+    links: [
+      { label: "Autom. Vertragsprüfung" },
+      { label: "Autom. ESG-Datenerhebung" },
+      { label: "KYC-Automatisierung" },
+    ],
+  },
+];
+
+const products = await getSinglePage("products");
+const productSlugs = new Set(products.map((product) => product.id));
+
+const automationUseCasesWithLinks = automationUseCases.map((useCase) => ({
+  ...useCase,
+  links: useCase.links.map((link) => {
+    const resolvedSlug = link.product_slug ?? slugify(link.label);
+
+    if (!productSlugs.has(resolvedSlug)) {
+      return { label: link.label };
+    }
+
+    return {
+      label: link.label,
+      href: `/products/${resolvedSlug}/`,
+    };
+  }),
+}));
+---
+
+<Base
+  title="Automatisierung & KI"
+  meta_title="Automatisierung & KI"
+  description="Effizienz steigern. Intelligenz integrieren. Zukunft gestalten."
+>
+  <HomepageLeadHeading
+    eyebrow="Automatisierung & KI"
+    title="Effizienz steigern. Intelligenz integrieren. Zukunft gestalten."
+  />
+
+  <TextLeftImageRightSection
+    text="Prozessautomatisierung und modernste KI-Lösungen sind entscheidende Werkzeuge zur massiven Wertschöpfung in Ihrem Unternehmen. Wir identifizieren Automatisierungspotenziale in Ihren täglichen Abläufen und implementieren passgenaue Lösungen (mit und ohne KI), die Ihre Mitarbeiter entlasten. Aufgesetzt auf einem starken Datenfundament, packen wir auch komplexeste Prozesse mit Ihnen an!"
+    imageSrc="/images/automation.png"
+    imageAlt="Automatisierung und KI"
+    imageWidth={1200}
+    imageHeight={900}
+  />
+
+  <SplitInfoSection data={splitInfoData} />
+
+  <ExpandableInfoBoxesSection
+    title="Anwendungsfälle für Ihr Unternehmen"
+    items={automationUseCasesWithLinks}
+  />
+
+  <ContactSpotlightSection
+    titleStart="Wie finde ich die"
+    titleHighlight="richtige Lösung"
+    titleEnd="für mein Problem?"
+    leadText="Werden Sie in den Use Cases nicht fündig, dann beraten wir Sie gerne individuell zu Ihrer Herausforderung. Buchen Sie sich dafür gerne einfach einen Termin mit unserem Vertrieb und erhalten Sie in 30 Minuten eine erste Einschätzung zur Lösung Ihres Problems."
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Termin buchen"
+    imageSrc="/images/kennenlernen.jpg"
+    imageAlt="Kennenlernen"
+  />
+</Base>
