@@ -1,11 +1,10 @@
 ---
 title: "Data Warehouse"
-slug: "data-warehouse"
 eyebrow: "Produkt"
 meta_title: "Data Warehouse"
 description: "Ein Data Warehouse ist eine zentrale Datenbank, in der Daten aus verschiedenen Quellen zusammengeführt, bereinigt und strukturiert gespeichert werden. Ob ERP, CRM, Excel oder andere Systeme, alle relevanten Daten fließen an einem Ort zusammen und stehen jederzeit in verlässlicher Qualität zur Verfügung. Das ersetzt das mühsame manuelle Zusammensuchen und Zusammenführen von Daten und schafft die Grundlage für verlässliche Auswertungen, Dashboards und KI-Anwendungen."
 highlight_text: "Daten aus verschiedenen Quellen zusammengeführt, bereinigt und strukturiert gespeichert werden."
-image: "/images/products/data-mesh.png"
+image: "/images/products/data-warehouse.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
 customer_value_title: "Ihr Mehrwert"
 benefits:
@@ -19,7 +18,7 @@ benefits:
     text: "Ein Data Warehouse ist die technische Grundlage für Dashboards, Forecasts und KI-Anwendungen. Ohne verlässliche Datenbasis funktioniert keines davon."
 contact:
   author_id: "ben-diez"
-  expertise: "Ben hat über 10 Jahre Erfahrung im Aufbau von Datenwelten im Unternehmen, vom ersten Governance-Konzept bis zum fertigen Data Catalog."
+  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
   meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
@@ -49,7 +48,6 @@ related_products:
   - "data-catalog"
 tags:
   - "Data Governance"
-  - "Master Data"
   - "Data Warehouse"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
 final_cta_text: "Beantworten Sie ein paar kurze Fragen, wir zeigen Ihnen direkt, was das Projekt kosten würde und wie lange es dauert"

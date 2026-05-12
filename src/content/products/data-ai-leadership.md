@@ -18,7 +18,7 @@ benefits:
     text: "Unser Ziel ist, dass Sie das Thema am Ende selbst führen können, mit den richtigen Menschen und Strukturen im Unternehmen."
 contact:
   author_id: "ben-diez"
-  expertise: "Ben hat über 10 Jahre Erfahrung im Aufbau von Datenwelten im Unternehmen, vom ersten Governance-Konzept bis zum fertigen Data Catalog."
+  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
   meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
