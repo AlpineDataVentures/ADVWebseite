@@ -6,7 +6,7 @@ date: 2025-05-23T07:00:00Z
 image: "/images/blog/Datenstrategie-Flucht.png"
 categories: ["Data Strategy", "Data Culture"]
 author: "Ben Diez"
-tags: ["Change"]
+tags: ["Data Strategy"]
 draft: false
 summary: "Viele Unternehmen scheitern mit ihrer Datenstrategie nicht an Technik, sondern am Alltag. Warum BI-Initiativen oft nach Aktionismus aussehen, wie man Wirkung erzielt und was das mit Bären zu tun hat."
 ---
