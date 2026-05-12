@@ -6,7 +6,7 @@ date: 2026-05-12T08:30:00Z
 image: "/images/blog/thalberg-dashboard-zielgruppen.png"
 categories: ["Business Intelligence"]
 author: "Ben Diez"
-tags: ["Dashboard", "Business Intelligence", "Data Governance", "Power BI", "Row-Level Security", "Sales Dashboard"]
+tags: ["Dashboard", "Business Intelligence", "Power BI"]
 draft: false
 summary: "Sobald ein Dashboard-Projekt offiziell wird, will jeder mitmachen. Wir erklären warum ein Dashboard für alle meistens für niemanden funktioniert und wie man es von Anfang an richtig denkt."
 ---
