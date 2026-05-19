@@ -17,7 +17,7 @@ Selbst Dinge zu tun – und nicht auszulagern – hatte schon immer einen tiefen
 
 Indem wir selbst den Prozess durchlaufen, lernen wir, besser auf komplexe Situationen zu reagieren, weil wir eine fundamentale Verbindung zu dem aufgebaut haben, was wir tun.
 
-Eine eigene BI-Landschaft bedeutet, dass ein Unternehmen seine Daten und Strategien wirklich versteht und flexibel darauf reagieren kann. Selbst zu gestalten, fördert nicht nur die Datenkompetenz und eine [Datenkultur](https://alpinedata.de/blog/data-culture/), sondern baut eine robuste, langfristige Infrastruktur auf, die perfekt auf die individuellen Unternehmensziele zugeschnitten ist. Durch den eigenständigen Aufbau wird BI zu einem wertvollen Teil der Unternehmenskultur und einer nachhaltigen Grundlage für die Zukunft.
+Eine eigene BI-Landschaft bedeutet, dass ein Unternehmen seine Daten und Strategien wirklich versteht und flexibel darauf reagieren kann. Selbst zu gestalten, fördert nicht nur die Datenkompetenz und eine [Datenkultur](/blog/data-culture/), sondern baut eine robuste, langfristige Infrastruktur auf, die perfekt auf die individuellen Unternehmensziele zugeschnitten ist. Durch den eigenständigen Aufbau wird BI zu einem wertvollen Teil der Unternehmenskultur und einer nachhaltigen Grundlage für die Zukunft.
 
 #### Die 5 "Why"s für BI
 - BI ermöglicht fundierte Entscheidungen auf Basis aktueller Daten anstelle von Intuition oder Schätzungen.

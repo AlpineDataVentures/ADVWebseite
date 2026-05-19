@@ -25,7 +25,7 @@ Doch statt strategischer Steuerung entsteht operative Hektik. Klare Ziele fehlen
 
 ### Die Illusion vom Tool als Lösung
 
-Vor dem Start des gemeinsamen Projekts aus unserer [Case Study](https://alpinedata.de/casestudies/study-7/) hatte der Feinkosthersteller bereits erste Schritte in Richtung „datengetriebene Organisation“ unternommen. Der Grundgedanke war nachvollziehbar: mehr Transparenz, bessere Steuerung, langfristig der Einsatz von Künstlicher Intelligenz. Der Weg dorthin? Großzügiges Invest in neue Technologien. In kurzer Zeit wurden ein BI-System, Cloud-Konnektoren und automatisierte Reports eingeführt in der Hoffnung, dass moderne Software den nötigen Wandel quasi mitliefert.
+Vor dem Start des gemeinsamen Projekts aus unserer [Case Study](/casestudies/study-7/) hatte der Feinkosthersteller bereits erste Schritte in Richtung „datengetriebene Organisation“ unternommen. Der Grundgedanke war nachvollziehbar: mehr Transparenz, bessere Steuerung, langfristig der Einsatz von Künstlicher Intelligenz. Der Weg dorthin? Großzügiges Invest in neue Technologien. In kurzer Zeit wurden ein BI-System, Cloud-Konnektoren und automatisierte Reports eingeführt in der Hoffnung, dass moderne Software den nötigen Wandel quasi mitliefert.
 
 Diese Logik ist weit verbreitet. Man investiert in Infrastruktur, weil sie greifbar ist, sich gut kommunizieren lässt und Fortschritt signalisiert. Es ist ein bisschen so, als würde man sich vorsorglich Laufschuhe für den nächsten Bärenangriff kaufen, ohne jedoch zu prüfen, ob man weiß, wohin man im Ernstfall eigentlich laufen sollte (oder ob der Bär inzwischen ein Auto hat).
 
