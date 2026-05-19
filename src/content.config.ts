@@ -183,6 +183,7 @@ const careerCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/career" }),
   schema: z.object({
     title: z.string(),
+    eyebrow: z.string().optional(),
     meta_title: z.string().optional(),
     description: z.string(),
     draft: z.boolean().optional(),

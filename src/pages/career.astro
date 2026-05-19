@@ -56,11 +56,16 @@ const employmentTypeLabel: Record<string, string> = {
           </div>
           <div class="row">
             {jobs.map((job) => (
-              <div class="mb-6 md:col-6">
+              <div class="mb-6 flex md:col-6">
                 <a
                   href={`/career/${job.id}/`}
-                  class="block rounded border border-border bg-body p-6 transition duration-300 hover:-translate-y-1 dark:border-darkmode-border dark:bg-darkmode-body"
+                  class="flex h-full w-full flex-col rounded border border-border bg-body p-6 transition duration-300 hover:-translate-y-1 dark:border-darkmode-border dark:bg-darkmode-body"
                 >
+                  {job.data.eyebrow && (
+                    <p class="mb-2 font-secondary text-lg font-normal! text-text-dark dark:text-darkmode-text-light">
+                      {job.data.eyebrow}
+                    </p>
+                  )}
                   <h3 class="mb-3 h5 text-dark dark:text-darkmode-text-dark">
                     {job.data.title}
                   </h3>
@@ -78,7 +83,7 @@ const employmentTypeLabel: Record<string, string> = {
                       {job.data.location}
                     </span>
                   </div>
-                  <div class="flex justify-center mt-4">
+                  <div class="mt-auto flex justify-center pt-4">
                     <span class="btn-adv btn-outline-primary btn-sm">
                       Details ansehen
                     </span>

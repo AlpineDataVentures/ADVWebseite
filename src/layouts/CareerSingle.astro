@@ -22,6 +22,13 @@ const employmentTypeLabel: Record<
   <div class="container">
     <div class="row justify-center">
       <article class="md:col-10 lg:col-9">
+        {
+          typedJob.data.eyebrow && (
+            <p class="mb-3 font-secondary text-lg font-normal! text-text-dark dark:text-darkmode-text-light">
+              {typedJob.data.eyebrow}
+            </p>
+          )
+        }
         <h1 class="h2 mb-4">{typedJob.data.title}</h1>
         <p class="mb-6 text-lg">{typedJob.data.description}</p>
 
