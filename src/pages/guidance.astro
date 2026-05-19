@@ -5,6 +5,8 @@ import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
 import ExpandableInfoBoxesSection from "@/partials/ExpandableInfoBoxesSection.astro";
 import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { slugify } from "@/lib/utils/textConverter";
 
 const splitInfoData = {
   enable: true,
@@ -37,9 +39,9 @@ const guidanceUseCases = [
     title: "Strategie & Roadmap",
     text: "Wir definieren gemeinsam Ihre Ziele und bauen den Weg dorthin",
     links: [
-      { label: "Datenstrategie" },
+      { label: "Datenstrategie", product_slug: "data-strategy" },
       { label: "Datenreifegrad-Analyse" },
-      { label: "KI-Strategie" },
+      { label: "KI-Strategie", product_slug: "ai-strategy" },
       { label: "KI-Readiness-Analyse" },
     ],
   },
@@ -50,8 +52,11 @@ const guidanceUseCases = [
     links: [
       { label: "NIS2" },
       { label: "ISMS & ISB Bestellung" },
-      { label: "DSGVO & DSB Bestellung" },
-      { label: "Identity & Access Management" },
+      { label: "DSGVO & DSB Bestellung", product_slug: "dsgvo-compliance" },
+      {
+        label: "Identity & Access Management",
+        product_slug: "identity-and-access-management",
+      },
     ],
   },
   {
@@ -59,12 +64,31 @@ const guidanceUseCases = [
     title: "Organisation & Führung",
     text: "Wir befähigen Ihre Mannschaft und schaffen die passenden Strukturen",
     links: [
-      { label: "Data Mesh Organisation" },
-      { label: "Data & AI Leadership" },
-      { label: "Data Catalog", href: "/products/data-catalog/" },
+      { label: "Data Mesh Organisation", product_slug: "data-mesh" },
+      { label: "Data & AI Leadership", product_slug: "data-ai-leadership" },
+      { label: "Data Catalog", product_slug: "data-catalog" },
     ],
   },
 ];
+
+const products = await getSinglePage("products");
+const productSlugs = new Set(products.map((product) => product.id));
+
+const guidanceUseCasesWithLinks = guidanceUseCases.map((useCase) => ({
+  ...useCase,
+  links: useCase.links.map((link) => {
+    const resolvedSlug = link.product_slug ?? slugify(link.label);
+
+    if (!productSlugs.has(resolvedSlug)) {
+      return { label: link.label };
+    }
+
+    return {
+      label: link.label,
+      href: `/products/${resolvedSlug}/`,
+    };
+  }),
+}));
 ---
 
 <Base
@@ -89,7 +113,7 @@ const guidanceUseCases = [
 
   <ExpandableInfoBoxesSection
     title="Anwendungsfälle für Ihr Unternehmen"
-    items={guidanceUseCases}
+    items={guidanceUseCasesWithLinks}
   />
 
   <ContactSpotlightSection
