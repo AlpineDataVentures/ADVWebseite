@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  @apply bg-body text-base dark:bg-darkmode-body font-primary font-normal leading-relaxed text-text dark:text-darkmode-text;
+  @apply bg-body text-base dark:bg-darkmode-body font-secondary font-normal leading-relaxed text-text dark:text-darkmode-text;
   position: relative;
 }
 
@@ -40,7 +40,10 @@ body::before {
 h1,
 h2,
 h3,
-h4,
+h4 {
+  @apply font-primary font-bold leading-tight text-dark dark:text-darkmode-text-dark;
+}
+
 h5,
 h6 {
   @apply font-secondary font-bold leading-tight text-dark dark:text-darkmode-text-dark;
