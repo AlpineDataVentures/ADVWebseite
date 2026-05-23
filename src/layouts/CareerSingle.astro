@@ -16,6 +16,9 @@ const employmentTypeLabel: Record<
   vollzeit: "Vollzeit",
   teilzeit: "Teilzeit",
 };
+
+const metaTagClass =
+  "inline-flex items-center rounded-full border border-border bg-light px-3 py-1 text-sm font-secondary font-semibold text-text-dark dark:border-darkmode-border dark:bg-darkmode-light dark:text-darkmode-text";
 ---
 
 <section class="section pt-7">
@@ -33,22 +36,22 @@ const employmentTypeLabel: Record<
         <p class="mb-6 text-lg font-secondary">{typedJob.data.description}</p>
 
         <div class="mb-8 flex flex-wrap gap-2">
-          <span class="rounded bg-theme-light px-3 py-1 text-sm">
+          <span class={metaTagClass}>
             {employmentTypeLabel[typedJob.data.employment_type]}
           </span>
-          <span class="rounded bg-theme-light px-3 py-1 text-sm">
+          <span class={metaTagClass}>
             Start: {typedJob.data.start_date}
           </span>
-          <span class="rounded bg-theme-light px-3 py-1 text-sm">
+          <span class={metaTagClass}>
             {typedJob.data.location}
           </span>
-          <span class="rounded bg-theme-light px-3 py-1 text-sm">
+          <span class={metaTagClass}>
             {typedJob.data.remote_possible ? "Remote möglich" : "vor Ort"}
           </span>
           {
             typedJob.data.hourly_salary_min_eur &&
               typedJob.data.hourly_salary_max_eur && (
-                <span class="rounded bg-theme-light px-3 py-1 text-sm">
+                <span class={metaTagClass}>
                   {typedJob.data.hourly_salary_min_eur} EUR -{" "}
                   {typedJob.data.hourly_salary_max_eur} EUR / Stunde
                 </span>
