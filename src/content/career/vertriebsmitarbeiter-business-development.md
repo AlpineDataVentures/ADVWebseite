@@ -45,6 +45,5 @@ benefits:
   - "Moderne Vertriebsansätze statt starrer Callcenter-Strukturen"
   - "Schnelle Lernkurve und hohe Eigenverantwortung"
   - "Remote-Arbeitsmodell möglich"
-  - "EGYM Wellpass"
 application_email: "recruiting@alpinedata.de"
 ---

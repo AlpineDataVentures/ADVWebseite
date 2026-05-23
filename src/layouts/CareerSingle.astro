@@ -29,8 +29,8 @@ const employmentTypeLabel: Record<
             </p>
           )
         }
-        <h1 class="h2 mb-4">{typedJob.data.title}</h1>
-        <p class="mb-6 text-lg">{typedJob.data.description}</p>
+        <h1 class="h2 mb-4 font-primary">{typedJob.data.title}</h1>
+        <p class="mb-6 text-lg font-secondary">{typedJob.data.description}</p>
 
         <div class="mb-8 flex flex-wrap gap-2">
           <span class="rounded bg-theme-light px-3 py-1 text-sm">
@@ -59,7 +59,7 @@ const employmentTypeLabel: Record<
         {
           typedJob.data.team_intro && (
             <div class="mb-10">
-              <h2 class="mb-3 h4">Unser Team</h2>
+              <h2 class="mb-3 h4 font-primary">Unser Team</h2>
               <div
                 set:html={markdownify(typedJob.data.team_intro, true)}
                 class="content"
@@ -70,28 +70,28 @@ const employmentTypeLabel: Record<
 
         <div class="row">
           <div class="mb-8 md:col-6">
-            <h2 class="mb-3 h5">Deine Aufgaben</h2>
-            <ul class="list-disc space-y-2 pl-5">
-              {typedJob.data.tasks.map((item: string) => <li>{item}</li>)}
+            <h2 class="mb-3 h5 font-primary">Deine Aufgaben</h2>
+            <ul class="list-disc space-y-2 pl-5 font-secondary font-normal">
+              {typedJob.data.tasks.map((item: string) => <li class="font-normal">{item}</li>)}
             </ul>
           </div>
           <div class="mb-8 md:col-6">
-            <h2 class="mb-3 h5">Dein Profil</h2>
-            <h3 class="mb-2 text-base font-semibold">Erforderlich</h3>
-            <ul class="mb-4 list-disc space-y-2 pl-5">
+            <h2 class="mb-3 h5 font-primary">Dein Profil</h2>
+            <h3 class="mb-2 font-primary text-base font-semibold">Erforderlich</h3>
+            <ul class="mb-4 list-disc space-y-2 pl-5 font-secondary font-normal">
               {
                 typedJob.data.required_profile.map((item: string) => (
-                  <li>{item}</li>
+                  <li class="font-normal">{item}</li>
                 ))
               }
             </ul>
             {
               typedJob.data.optional_profile.length > 0 && (
                 <>
-                  <h3 class="mb-2 text-base font-semibold">Von Vorteil</h3>
-                  <ul class="list-disc space-y-2 pl-5">
+                  <h3 class="mb-2 font-primary text-base font-semibold">Von Vorteil</h3>
+                  <ul class="list-disc space-y-2 pl-5 font-secondary font-normal">
                     {typedJob.data.optional_profile.map((item: string) => (
-                      <li>{item}</li>
+                      <li class="font-normal">{item}</li>
                     ))}
                   </ul>
                 </>
@@ -101,20 +101,20 @@ const employmentTypeLabel: Record<
         </div>
 
         <div class="mb-10">
-          <h2 class="mb-3 h5">Was du von uns erwarten darfst</h2>
-          <ul class="list-disc space-y-2 pl-5">
-            {typedJob.data.benefits.map((item: string) => <li>{item}</li>)}
+          <h2 class="mb-3 h5 font-primary">Was du von uns erwarten darfst</h2>
+          <ul class="list-disc space-y-2 pl-5 font-secondary font-normal">
+            {typedJob.data.benefits.map((item: string) => <li class="font-normal">{item}</li>)}
           </ul>
         </div>
 
         <div class="mb-10 rounded border border-border p-6 text-center">
-          <h2 class="mb-2 h5">Interesse?</h2>
-          <p class="mb-4">
+          <h2 class="mb-2 h5 font-primary">Interesse?</h2>
+          <p class="mb-4 font-secondary">
             Schick uns deinen Lebenslauf und ein paar Zeilen zu deiner
             Motivation.
           </p>
           <a
-            class="btn btn-primary"
+            class="btn btn-primary font-secondary"
             href={`mailto:${typedJob.data.application_email ?? "recruiting@alpinedata.de"}`}
           >
             Jetzt bewerben
@@ -125,7 +125,7 @@ const employmentTypeLabel: Record<
           <Content />
         </div>
 
-        <a href="/career/" class="btn btn-outline-primary">
+        <a href="/career/" class="btn btn-outline-primary font-secondary">
           Zurück zu Karriere
         </a>
       </article>
