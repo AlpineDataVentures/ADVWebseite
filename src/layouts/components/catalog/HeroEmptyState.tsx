@@ -13,18 +13,18 @@ export function HeroEmptyState({ className }: HeroEmptyStateProps) {
   const valueProps = [
     {
       icon: Zap,
-      title: "Schnell",
-      description: "In wenigen Minuten zum passenden Paket"
+      title: "Schritt 1",
+      description: "Wählen Sie zuerst einen Hauptbereich."
     },
     {
       icon: Eye,
-      title: "Transparent",
-      description: "Preise sofort sichtbar, keine versteckten Kosten"
+      title: "Schritt 2",
+      description: "Grenzen Sie anschließend den passenden Themenbereich ein."
     },
     {
       icon: Settings,
-      title: "Konfigurierbar",
-      description: "Passe Parameter an deine Bedürfnisse an"
+      title: "Schritt 3",
+      description: "Wählen Sie danach einen konkreten Use Case aus."
     }
   ];
 
@@ -33,14 +33,14 @@ export function HeroEmptyState({ className }: HeroEmptyStateProps) {
       {/* Headline */}
       <div className="space-y-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text dark:text-darkmode-text leading-tight">
-          Use Case wählen.
+          Hauptbereich wählen.
           <br />
-          Paket bekommen.
+          Use Case eingrenzen.
           <br />
-          Preis sehen.
+          Paket erhalten.
         </h1>
         <p className="text-lg md:text-xl text-text-light dark:text-darkmode-text-light leading-relaxed">
-          Finden Sie die passende Beratungsleistung für Ihr Unternehmen.
+          Wir schlagen Ihnen daraufhin passende Leistungsbausteine vor.
         </p>
       </div>
 

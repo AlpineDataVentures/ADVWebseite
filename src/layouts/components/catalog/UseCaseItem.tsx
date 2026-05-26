@@ -2,21 +2,12 @@ import { Badge } from "./ui/badge";
 import { CheckCircle2 } from "lucide-react";
 import type { UseCase } from "../data/useCases";
 import { cn } from "../lib/utils";
-import { getIntentIcon } from "../lib/iconMap";
 
 interface UseCaseItemProps {
   useCase: UseCase;
   isActive?: boolean;
   onSelect: () => void;
 }
-
-const intentLabels: Record<string, string> = {
-  transparency: "Transparenz",
-  automation: "Automatisierung",
-  insights: "Insights",
-  compliance: "Compliance",
-  scale: "Skalierung"
-};
 
 const complexityLabels: Record<string, string> = {
   xs: "XS", s: "S", m: "M", l: "L"
@@ -28,12 +19,32 @@ const complexityLabels: Record<string, string> = {
  * Active = subtle green left border + faint tint. Hover = lift + border.
  */
 export function UseCaseItem({ useCase, isActive = false, onSelect }: UseCaseItemProps) {
+  const tagMap: Record<string, string> = {
+    governance: "Governance",
+    dwh: "Datenplattform",
+    bi: "Reporting",
+    integration: "Automatisierung",
+    ai: "KI",
+  };
+  const domainTagMap: Record<string, string> = {
+    finance: "Finance",
+    procurement: "Beschaffung",
+    production: "Produktion & Logistik",
+    logistics: "Produktion & Logistik",
+    risk_compliance: "Governance",
+    general_mgmt: "Strategie",
+  };
+  const helpfulTags = [
+    ...(useCase.tags.tech_hint ?? []).map((hint) => tagMap[hint]).filter(Boolean),
+    domainTagMap[useCase.domain],
+  ].filter((tag, idx, arr) => Boolean(tag) && arr.indexOf(tag) === idx).slice(0, 2);
+
   return (
     <button
       type="button"
       onClick={onSelect}
       className={cn(
-        "w-full text-left rounded-xl p-3.5 transition-all duration-150",
+        "w-full text-left rounded-lg p-2.5 transition-all duration-150",
         "border border-transparent",
         // Elevation + hover
         "hover:bg-body/60 dark:hover:bg-darkmode-body/60",
@@ -46,9 +57,9 @@ export function UseCaseItem({ useCase, isActive = false, onSelect }: UseCaseItem
       )}
     >
       {/* Title + complexity */}
-      <div className="flex items-start justify-between gap-2 mb-1.5">
+      <div className="flex items-start justify-between gap-2 mb-1">
         <h3 className={cn(
-          "font-medium text-sm leading-snug line-clamp-2 flex-1",
+          "font-medium text-sm leading-snug line-clamp-1 flex-1",
           isActive
             ? "text-text-dark dark:text-darkmode-text-dark"
             : "text-text dark:text-darkmode-text"
@@ -61,24 +72,22 @@ export function UseCaseItem({ useCase, isActive = false, onSelect }: UseCaseItem
       </div>
 
       {/* Description */}
-      <p className="text-xs text-text-light dark:text-darkmode-text-light line-clamp-2 leading-relaxed mb-2">
+      <p className="text-[11px] text-text-light dark:text-darkmode-text-light line-clamp-1 leading-relaxed mb-1.5">
         {useCase.short}
       </p>
 
-      {/* Intent badges */}
+      {/* Kompakte hilfreiche Tags */}
       <div className="flex flex-wrap items-center gap-1">
-        {useCase.tags.intent.slice(0, 2).map((intent) => {
-          const Icon = getIntentIcon(intent);
-          return (
-            <span
-              key={intent}
-              className="inline-flex items-center gap-1 text-[10px] text-text-light dark:text-darkmode-text-light"
-            >
-              <Icon className="h-3 w-3" />
-              {intentLabels[intent] || intent}
-            </span>
-          );
-        })}
+        {helpfulTags.map((tag) => (
+          <Badge key={tag} variant="outline" className="text-[10px] px-1.5 py-0">
+            {tag}
+          </Badge>
+        ))}
+        {helpfulTags.length === 0 && (
+          <Badge variant="outline" className="text-[10px] px-1.5 py-0">
+            Strategie
+          </Badge>
+        )}
       </div>
 
       {/* Active indicator bar */}

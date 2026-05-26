@@ -43,6 +43,66 @@ export const globalParameters: Parameter[] = [
 // Produktspezifische Parameter
 export const productParameters: Parameter[] = [
   {
+    key: 'reportCount',
+    label: 'Anzahl Reports',
+    type: 'radio',
+    options: [
+      { value: '1-3', label: '1-3 Reports' },
+      { value: '4-8', label: '4-8 Reports' },
+      { value: '9-15', label: '9-15 Reports' }
+    ],
+    default: '1-3',
+    pricingEffect: {
+      type: 'multiplier',
+      values: {
+        '1-3': 1.0,
+        '4-8': 1.25,
+        '9-15': 1.5
+      }
+    },
+    applicableTo: ['mgmt_report_1']
+  },
+  {
+    key: 'sourceSystemCount',
+    label: 'Anzahl Quellsysteme',
+    type: 'radio',
+    options: [
+      { value: '1-2', label: '1-2 Quellsysteme' },
+      { value: '3-5', label: '3-5 Quellsysteme' },
+      { value: '6+', label: '6+ Quellsysteme' }
+    ],
+    default: '1-2',
+    pricingEffect: {
+      type: 'multiplier',
+      values: {
+        '1-2': 1.0,
+        '3-5': 1.2,
+        '6+': 1.4
+      }
+    },
+    applicableTo: ['bi_setup', 'dwh_starter']
+  },
+  {
+    key: 'strategyHorizonMonths',
+    label: 'Strategie-Zeitraum',
+    type: 'radio',
+    options: [
+      { value: '6', label: '6 Monate' },
+      { value: '12', label: '12 Monate' },
+      { value: '24', label: '24 Monate' }
+    ],
+    default: '12',
+    pricingEffect: {
+      type: 'multiplier',
+      values: {
+        '6': 1.0,
+        '12': 1.15,
+        '24': 1.35
+      }
+    },
+    applicableTo: ['dwh_starter']
+  },
+  {
     key: 'dataSources',
     label: 'Anzahl Datenquellen',
     type: 'radio',
@@ -60,7 +120,7 @@ export const productParameters: Parameter[] = [
         '9-15': 1.5
       }
     },
-    applicableTo: ['del-5', 'del-6'] // Nur für Data Architecture Deliverables
+    applicableTo: ['dwh_starter', 'source_integration_review'] // Nur für Data Architecture Deliverables
   },
   {
     key: 'deployment',
@@ -78,7 +138,7 @@ export const productParameters: Parameter[] = [
         'On-Prem': 1.2
       }
     },
-    applicableTo: ['del-1', 'del-5'] // BI Setup und DWH
+    applicableTo: ['bi_setup', 'dwh_starter'] // BI Setup und DWH
   },
   {
     key: 'securityLevel',
@@ -96,7 +156,7 @@ export const productParameters: Parameter[] = [
         'Advanced': 1.15
       }
     },
-    applicableTo: ['del-5', 'del-6'] // Data Architecture
+    applicableTo: ['dwh_starter', 'source_integration_review'] // Data Architecture
   },
   {
     key: 'trainingParticipants',
@@ -128,7 +188,7 @@ export const productParameters: Parameter[] = [
         '20': 1900
       }
     },
-    applicableTo: ['del-8'] // Power BI Schulung
+    applicableTo: ['pbi_training_user', 'pbi_training_dev'] // Power BI Schulung
   },
   {
     key: 'reportComplexity',
@@ -148,7 +208,7 @@ export const productParameters: Parameter[] = [
         'Advanced': 1.6
       }
     },
-    applicableTo: ['del-3', 'del-4'] // Management-Bericht und Reporting-Struktur
+    applicableTo: ['mgmt_report_1', 'reporting_standards'] // Management-Bericht und Reporting-Struktur
   }
 ];
 

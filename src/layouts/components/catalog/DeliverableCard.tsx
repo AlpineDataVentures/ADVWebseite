@@ -16,6 +16,7 @@ interface DeliverableCardProps {
   recommendation: Recommendation;
   isEnabled: boolean;
   onToggle: (enabled: boolean) => void;
+  onConfigure?: () => void;
 }
 
 // Mapping für Impact-Tags zu deutschen Labels
@@ -35,12 +36,17 @@ export function DeliverableCard({
   deliverable,
   recommendation,
   isEnabled,
-  onToggle
+  onToggle,
+  onConfigure
 }: DeliverableCardProps) {
   const isActive = deliverable.active;
   const isDisabled = !isActive;
 
   const Icon = getDeliverableIcon(deliverable.id);
+  const quickOutputs = deliverable.deliverablesOutput.slice(0, 2);
+  const limitedOutputs = deliverable.deliverablesOutput.slice(0, 5);
+  const limitedAssumptions = deliverable.assumptions.slice(0, 3);
+  const limitedOutOfScope = deliverable.outOfScope.slice(0, 3);
 
   return (
     <Card className={cn(
@@ -76,14 +82,26 @@ export function DeliverableCard({
           {deliverable.shortDescription}
         </p>
 
-        {/* Badges: Impact (max 3) */}
+        {/* Badges: Impact (max 2) */}
         <div className="flex flex-wrap gap-1.5 mb-3">
-          {deliverable.tags.impact.slice(0, 3).map((impact) => (
+          {deliverable.tags.impact.slice(0, 2).map((impact) => (
             <Badge key={impact} variant="secondary" className="text-xs px-1.5 py-0">
               {impactLabels[impact] || impact}
             </Badge>
           ))}
         </div>
+
+        {/* Quick scope preview, so details are visible without extra click */}
+        {quickOutputs.length > 0 && (
+          <ul className="space-y-1 mb-3">
+            {quickOutputs.map((output, idx) => (
+              <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light line-clamp-1">
+                <CheckCircle2 className="h-3 w-3 text-green-600/80 dark:text-green-400/80 mt-0.5 shrink-0" />
+                <span>{output}</span>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Preis + Toggle Row - neutral price, not green */}
         <div className="flex items-center justify-between pt-2 border-t border-border">
@@ -96,7 +114,7 @@ export function DeliverableCard({
               </div>
             ) : (
               <Badge variant="outline" className="text-xs">
-                Coming soon
+                Roadmap-Baustein
               </Badge>
             )}
           </div>
@@ -113,6 +131,22 @@ export function DeliverableCard({
           )}
         </div>
 
+        {isActive && (
+          <div className="mt-2">
+            <Button
+              size="sm"
+              variant={isEnabled ? "default" : "outline"}
+              onClick={() => {
+                onToggle(true);
+                onConfigure?.();
+              }}
+              className="w-full"
+            >
+              Baustein konfigurieren
+            </Button>
+          </div>
+        )}
+
         {/* "Warum empfohlen?" Text */}
         <p className="text-xs text-text-light dark:text-darkmode-text-light mt-3 italic">
           <span className="font-medium text-text dark:text-darkmode-text">Warum empfohlen?</span> {recommendation.reason}
@@ -123,17 +157,20 @@ export function DeliverableCard({
         {/* Details Accordion */}
         <Accordion type="single" collapsible>
           <AccordionItem value={`details-${deliverable.id}`} className="border-0">
-            <AccordionTrigger className="text-xs py-2 hover:no-underline">
+            <AccordionTrigger
+              className="text-xs py-2 hover:no-underline"
+              aria-label={`Details zu ${deliverable.name} ein- oder ausklappen`}
+            >
               <span className="flex items-center gap-1">
                 Details
                 <ChevronDown className="h-3 w-3 text-text-light dark:text-darkmode-text-light" />
               </span>
             </AccordionTrigger>
-            <AccordionContent className="pt-2 space-y-4">
+            <AccordionContent className="pt-3 space-y-5">
               {/* Long Description */}
-              <div>
-                <h4 className="font-medium text-sm mb-2 text-text dark:text-darkmode-text">Beschreibung</h4>
-                <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
+              <div className="space-y-2">
+                <h4 className="font-semibold text-sm text-text dark:text-darkmode-text">Beschreibung</h4>
+                <p className="text-sm text-text-light dark:text-darkmode-text-light leading-6 line-clamp-4">
                   {deliverable.longDescription}
                 </p>
               </div>
@@ -141,13 +178,13 @@ export function DeliverableCard({
               <Separator />
 
               {/* Deliverables Output */}
-              {deliverable.deliverablesOutput.length > 0 && (
-                <div>
-                  <h4 className="font-medium text-sm mb-2 text-text dark:text-darkmode-text">Lieferumfang</h4>
-                  <ul className="space-y-1.5">
-                    {deliverable.deliverablesOutput.map((output, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-text-light dark:text-darkmode-text-light">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-green-600/80 dark:text-green-400/80 mt-0.5 shrink-0" />
+              {limitedOutputs.length > 0 && (
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm text-text dark:text-darkmode-text">Lieferumfang</h4>
+                  <ul className="space-y-2">
+                    {limitedOutputs.map((output, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm text-text-light dark:text-darkmode-text-light leading-6">
+                        <CheckCircle2 className="h-3 w-3 text-green-600/70 dark:text-green-400/70 mt-1.5 shrink-0" />
                         <span>{output}</span>
                       </li>
                     ))}
@@ -158,24 +195,24 @@ export function DeliverableCard({
               <Separator />
 
               {/* Assumptions & Out of Scope */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-medium text-xs mb-2 text-text dark:text-darkmode-text">Voraussetzungen</h4>
-                  <ul className="space-y-1">
-                    {deliverable.assumptions.map((assumption, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
-                        <CheckCircle2 className="h-3 w-3 text-green-600/80 dark:text-green-400/80 mt-0.5 shrink-0" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm text-text dark:text-darkmode-text">Voraussetzungen</h4>
+                  <ul className="space-y-2">
+                    {limitedAssumptions.map((assumption, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm text-text-light dark:text-darkmode-text-light leading-6">
+                        <CheckCircle2 className="h-3 w-3 text-green-600/70 dark:text-green-400/70 mt-1.5 shrink-0" />
                         <span>{assumption}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div>
-                  <h4 className="font-medium text-xs mb-2 text-text dark:text-darkmode-text">Nicht enthalten</h4>
-                  <ul className="space-y-1">
-                    {deliverable.outOfScope.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
-                        <XCircle className="h-3 w-3 text-red-500 mt-0.5 shrink-0" />
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm text-text dark:text-darkmode-text">Nicht enthalten</h4>
+                  <ul className="space-y-2">
+                    {limitedOutOfScope.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm text-text-light dark:text-darkmode-text-light leading-6">
+                        <XCircle className="h-3 w-3 text-red-500/80 mt-1.5 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}

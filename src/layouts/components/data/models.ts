@@ -44,9 +44,16 @@ export interface Deliverable {
 // Use Case nach Domäne
 export interface UseCase {
   id: string;
+  slug?: string;
   title: string;
   description: string;
   domain: string; // "Sales & Marketing", "Finance", "IT & Data"
+  details?: {
+    problem: string;
+    typicalResult: string;
+    typicalDeliverables: string[];
+    bestFor: string[];
+  };
   recommendedDeliverableIds: string[]; // Bundle
   optionalDeliverableIds?: Array<{
     deliverableId: string;

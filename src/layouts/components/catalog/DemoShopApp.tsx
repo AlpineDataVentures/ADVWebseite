@@ -9,7 +9,7 @@ import { HeroEmptyState } from './HeroEmptyState';
 import { Sheet, SheetContent } from './ui/sheet';
 import { Button } from './ui/button';
 import { useConfigStore } from '../stores/configStore';
-import { getUseCaseById } from '../data/useCases';
+import { getUseCaseById, getUseCasesForUiCluster, type UiClusterId } from '../data/useCases';
 import { getBundleForUseCase } from '../data/recommendations';
 import { ListFilter } from 'lucide-react';
 
@@ -19,7 +19,10 @@ import { ListFilter } from 'lucide-react';
  * Flow: Domain -> Use Case -> Bundle -> Konfiguration
  */
 export default function DemoShopApp() {
-  const [activeDomainId, setActiveDomainId] = useState<string | null>(null);
+  const [activeDomainId, setActiveDomainId] = useState<string | null>(null); // intern erhalten
+  const [activeCluster, setActiveCluster] = useState<UiClusterId | null>(
+    "orientation_prioritization"
+  );
   const [activeUseCaseId, setActiveUseCaseId] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'bundle' | 'configure'>('bundle');
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,13 +37,11 @@ export default function DemoShopApp() {
     Object.values(state.selectedDeliverables).filter(d => d.enabled).length
   );
 
-  // Handle Domain Selection
-  const handleDomainChange = (domainId: string | null) => {
-    setActiveDomainId(domainId);
-    if (domainId !== activeDomainId) {
-      setActiveUseCaseId(null);
-      setViewMode('bundle');
-    }
+  // Handle Cluster Selection
+  const handleClusterChange = (cluster: UiClusterId | null) => {
+    setActiveCluster(cluster);
+    setActiveUseCaseId(null);
+    setViewMode('bundle');
   };
 
   // Handle Use Case Selection
@@ -51,6 +52,8 @@ export default function DemoShopApp() {
     setBundleFromUseCase(useCaseId);
     setViewMode('bundle');
     setFinderOpen(false); // close mobile finder
+    const selected = getUseCaseById(useCaseId);
+    setActiveDomainId(selected?.domain ?? null); // interne Domain-Logik bleibt nutzbar
 
     setTimeout(() => {
       const middlePanel = document.querySelector('[data-middle-panel]');
@@ -94,6 +97,15 @@ export default function DemoShopApp() {
   }, [activeUseCaseId]);
 
   const useCase = activeUseCaseId ? getUseCaseById(activeUseCaseId) : null;
+  const hasMatchesForSelection = activeCluster ? getUseCasesForUiCluster(activeCluster).length > 0 : false;
+  const isSelectionStep = !useCase;
+  const isConfigurationStep = viewMode === 'configure' && (cartCount > 0 || Boolean(useCase));
+  const isRecommendationStep = !isSelectionStep && !isConfigurationStep;
+  const progressSteps = [
+    { key: 'selection', label: 'Auswahl', active: isSelectionStep },
+    { key: 'recommendation', label: 'Empfehlung', active: isRecommendationStep },
+    { key: 'configuration', label: 'Konfiguration', active: isConfigurationStep },
+  ];
 
   // Determine what to render in the content area
   const renderContent = () => {
@@ -123,10 +135,9 @@ export default function DemoShopApp() {
     <div className="min-h-screen flex flex-col bg-body dark:bg-darkmode-body text-text dark:text-darkmode-text">
       {/* TopBar with Domain Tabs */}
       <TopBar
-        activeDomainId={activeDomainId}
-        onDomainChange={handleDomainChange}
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
+        activeCluster={activeCluster}
+        onClusterChange={handleClusterChange}
+        hasMatchesForSelection={hasMatchesForSelection}
       />
 
       {/* Main Content */}
@@ -137,10 +148,11 @@ export default function DemoShopApp() {
             {/* Left: Finder Panel (desktop only) */}
             <aside className="hidden lg:flex lg:col-span-3 min-h-0 flex-col">
               <FinderPanel
-                activeDomainId={activeDomainId}
+                activeCluster={activeCluster}
                 activeUseCaseId={activeUseCaseId}
                 onSelectUseCase={handleUseCaseSelect}
                 searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
               />
             </aside>
 
@@ -149,8 +161,41 @@ export default function DemoShopApp() {
               data-middle-panel
               className="col-span-12 lg:col-span-9 min-h-0 overflow-y-auto"
             >
+              <div className="mb-4 rounded-lg border border-border bg-light/70 dark:bg-darkmode-light/70 px-3 py-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  {progressSteps.map((step, idx) => (
+                    <div key={step.key} className="flex items-center gap-2">
+                      <span
+                        className={[
+                          'inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium transition-colors',
+                          step.active
+                            ? 'bg-green-500/10 text-green-700 dark:text-green-400 ring-1 ring-green-600/20 dark:ring-green-400/20'
+                            : 'bg-body/60 text-text-light dark:text-darkmode-text-light',
+                        ].join(' ')}
+                      >
+                        {idx + 1}. {step.label}
+                      </span>
+                      {idx < progressSteps.length - 1 && (
+                        <span className="text-xs text-text-light dark:text-darkmode-text-light">→</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {activeCluster && !useCase && (
+                <div className="mb-4 rounded-lg border border-border bg-light/70 dark:bg-darkmode-light/70 px-4 py-3">
+                  <p className="text-sm font-medium text-text dark:text-darkmode-text">
+                    Wählen Sie danach einen konkreten Use Case aus.
+                  </p>
+                  <p className="text-xs text-text-light dark:text-darkmode-text-light mt-1">
+                    Wir schlagen Ihnen daraufhin passende Leistungsbausteine vor.
+                  </p>
+                </div>
+              )}
+
               {/* Mobile: Finder trigger (when domain selected but no use case) */}
-              {activeDomainId && !useCase && (
+              {!useCase && (
                 <div className="lg:hidden mb-4">
                   <Button
                     variant="outline"
@@ -174,10 +219,11 @@ export default function DemoShopApp() {
         <SheetContent side="left" className="w-[85vw] sm:w-96 p-0">
           <div className="h-full overflow-hidden">
             <FinderPanel
-              activeDomainId={activeDomainId}
+              activeCluster={activeCluster}
               activeUseCaseId={activeUseCaseId}
               onSelectUseCase={handleUseCaseSelect}
               searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
             />
           </div>
         </SheetContent>

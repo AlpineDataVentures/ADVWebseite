@@ -70,7 +70,7 @@ export const deliverables: Deliverable[] = [
       "Umfangreiche Schulungen (>2h)",
       "On-Premise Installation (gegen Aufpreis möglich)"
     ],
-    parameters: ["companySize", "speed", "deployment"]
+    parameters: ["companySize", "speed", "deployment", "sourceSystemCount"]
   },
   {
     id: "kpi_ws",
@@ -137,7 +137,7 @@ export const deliverables: Deliverable[] = [
       "Komplexe Datenmodellierung",
       "Mehrere Berichtsvarianten"
     ],
-    parameters: ["companySize", "speed", "reportComplexity"]
+    parameters: ["companySize", "speed", "reportComplexity", "reportCount"]
   },
   {
     id: "reporting_standards",
@@ -207,7 +207,7 @@ export const deliverables: Deliverable[] = [
       "Migration historischer Daten",
       "24/7 Support"
     ],
-    parameters: ["companySize", "speed", "dataSources", "deployment", "securityLevel"]
+    parameters: ["companySize", "speed", "deployment", "securityLevel", "sourceSystemCount", "strategyHorizonMonths"]
   },
   {
     id: "source_integration_review",
@@ -355,11 +355,12 @@ export const deliverables: Deliverable[] = [
     name: "Datenstrategie Sprint",
     shortDescription: "Entwicklung einer klaren Strategie für den Umgang mit Daten. Roadmap für die nächsten Jahre.",
     longDescription: "In einem intensiven Sprint entwickeln wir gemeinsam Ihre Datenstrategie. Wir analysieren Ihre Geschäftsziele, identifizieren Datenbedarfe und erstellen eine Roadmap für die nächsten Jahre. Sie erhalten ein klares Konzept, wie Daten Ihr Unternehmen voranbringen können.",
-    active: false,
+    basePrice: 14900,
+    active: true,
     tags: {
       type: ["workshop", "blueprint"],
       maturity: ["start"],
-      impact: ["foundation", "scale"],
+      impact: ["foundation", "performance"],
       coverage: ["operations"]
     },
     estimatedDuration: "5–7 Tage",
@@ -377,7 +378,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "Technische Umsetzung",
       "Detaillierte Architektur-Planung"
-    ]
+    ],
+    parameters: ["companySize", "speed"]
   },
   {
     id: "roadmap",
@@ -385,11 +387,12 @@ export const deliverables: Deliverable[] = [
     name: "Daten-Roadmap",
     shortDescription: "Detaillierte Roadmap für Ihre Dateninitiativen. Klare Prioritäten und Meilensteine.",
     longDescription: "Wir erstellen eine detaillierte Roadmap für alle geplanten Dateninitiativen. Mit klaren Prioritäten, Meilensteinen und Abhängigkeiten können Sie Ihre Datenprojekte strukturiert angehen und Ressourcen optimal einsetzen.",
-    active: false,
+    basePrice: 9900,
+    active: true,
     tags: {
       type: ["blueprint"],
       maturity: ["start", "stabilize"],
-      impact: ["foundation", "scale"],
+      impact: ["foundation", "performance"],
       coverage: ["operations"]
     },
     estimatedDuration: "3–5 Tage",
@@ -407,7 +410,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "Strategie-Entwicklung",
       "Technische Umsetzung"
-    ]
+    ],
+    parameters: ["companySize", "speed"]
   },
 
   // Governance & Culture
@@ -417,7 +421,8 @@ export const deliverables: Deliverable[] = [
     name: "Data Governance Starter",
     shortDescription: "Grundlegende Data Governance Struktur. Verantwortlichkeiten, Prozesse und Standards.",
     longDescription: "Wir richten eine grundlegende Data Governance Struktur ein: Rollen und Verantwortlichkeiten, Prozesse für Datenqualität und Standards für den Umgang mit Daten. Sie erhalten ein solides Fundament für den verantwortungsvollen Umgang mit Daten in Ihrem Unternehmen.",
-    active: false,
+    basePrice: 13900,
+    active: true,
     tags: {
       type: ["setup", "blueprint"],
       maturity: ["start"],
@@ -439,7 +444,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "Technische Umsetzung von Tools",
       "Umfangreiche Schulungen"
-    ]
+    ],
+    parameters: ["companySize", "speed", "securityLevel"]
   },
   {
     id: "iam_concept",
@@ -447,7 +453,8 @@ export const deliverables: Deliverable[] = [
     name: "IAM Konzept",
     shortDescription: "Konzept für Identity und Access Management. Sicherer und kontrollierter Zugriff auf Daten und Systeme.",
     longDescription: "Wir entwickeln ein Konzept für Identity und Access Management (IAM) in Ihrem Unternehmen. Mit klaren Rollen, Rechten und Prozessen stellen wir sicher, dass nur berechtigte Personen Zugriff auf die richtigen Daten haben.",
-    active: false,
+    basePrice: 11900,
+    active: true,
     tags: {
       type: ["blueprint"],
       maturity: ["start"],
@@ -469,7 +476,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "Technische Implementierung",
       "Integration in alle Systeme"
-    ]
+    ],
+    parameters: ["companySize", "speed", "securityLevel"]
   },
   {
     id: "roles_rights_impl",
@@ -477,7 +485,8 @@ export const deliverables: Deliverable[] = [
     name: "Umsetzung von Rechte- & Rollenkonzepten",
     shortDescription: "Technische Umsetzung von Zugriffsrechten und Rollen. Sicherer Datenzugriff nach dem Prinzip der geringsten Rechte.",
     longDescription: "Wir setzen Ihr Rechte- und Rollenkonzept technisch um. Mit automatisierten Prozessen und klaren Regeln stellen wir sicher, dass jeder Mitarbeiter nur Zugriff auf die Daten hat, die er für seine Arbeit benötigt.",
-    active: false,
+    basePrice: 18900,
+    active: true,
     tags: {
       type: ["build"],
       maturity: ["stabilize"],
@@ -499,7 +508,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "Konzept-Entwicklung",
       "Integration in Legacy-Systeme ohne API"
-    ]
+    ],
+    parameters: ["companySize", "speed", "securityLevel", "deployment"]
   },
 
   // AI & Data Science
@@ -509,11 +519,12 @@ export const deliverables: Deliverable[] = [
     name: "Forecasting-Modell",
     shortDescription: "Vorhersagemodell für Ihre Geschäftskennzahlen. Realistischere Prognosen für Planung und Budgetierung.",
     longDescription: "Wir entwickeln ein Forecasting-Modell für Ihre wichtigsten Geschäftskennzahlen. Basierend auf historischen Daten und Trends können Sie realistischere Prognosen erstellen und bessere Entscheidungen treffen. Das Modell wird kontinuierlich verbessert und passt sich an neue Entwicklungen an.",
-    active: false,
+    basePrice: 21900,
+    active: true,
     tags: {
       type: ["build"],
       maturity: ["stabilize", "scale"],
-      impact: ["insights", "performance"],
+      impact: ["performance", "adoption"],
       coverage: ["semantic_layer"]
     },
     estimatedDuration: "10–15 Tage",
@@ -532,7 +543,8 @@ export const deliverables: Deliverable[] = [
       "Datenbereinigung",
       "Komplexe Zeitreihenanalyse",
       "Mehrere Modelle für verschiedene Szenarien"
-    ]
+    ],
+    parameters: ["companySize", "speed", "dataSources"]
   },
   {
     id: "churn_model",
@@ -540,11 +552,12 @@ export const deliverables: Deliverable[] = [
     name: "Churn Prevention Modell",
     shortDescription: "Früherkennung von Kunden mit Abwanderungsrisiko. Rechtzeitige Maßnahmen zur Kundenbindung.",
     longDescription: "Wir entwickeln ein Machine Learning Modell zur Vorhersage von Kundenabwanderung. Basierend auf Verhaltensdaten und Transaktionshistorie identifiziert das Modell Kunden mit hohem Abwanderungsrisiko, sodass Sie rechtzeitig Maßnahmen zur Kundenbindung ergreifen können.",
-    active: false,
+    basePrice: 23900,
+    active: true,
     tags: {
       type: ["build"],
       maturity: ["scale"],
-      impact: ["insights", "performance"],
+      impact: ["performance", "adoption"],
       coverage: ["semantic_layer"]
     },
     estimatedDuration: "15–20 Tage",
@@ -563,7 +576,8 @@ export const deliverables: Deliverable[] = [
       "Datenbereinigung",
       "Umsetzung von Kundenbindungsmaßnahmen",
       "Integration in CRM-Systeme"
-    ]
+    ],
+    parameters: ["companySize", "speed", "dataSources"]
   },
   {
     id: "anomaly_detection",
@@ -571,11 +585,12 @@ export const deliverables: Deliverable[] = [
     name: "Anomaly Detection",
     shortDescription: "Automatische Erkennung von Anomalien in Daten. Früherkennung von Problemen und Betrug.",
     longDescription: "Wir entwickeln ein System zur automatischen Erkennung von Anomalien in Ihren Daten. Das System lernt normale Muster und erkennt Abweichungen, die auf Probleme, Betrug oder interessante Entwicklungen hinweisen können. Ideal für Qualitätssicherung, Betrugserkennung oder Prozessoptimierung.",
-    active: false,
+    basePrice: 22900,
+    active: true,
     tags: {
       type: ["build"],
       maturity: ["scale"],
-      impact: ["insights", "performance"],
+      impact: ["performance", "adoption"],
       coverage: ["data_layer", "semantic_layer"]
     },
     estimatedDuration: "15–20 Tage",
@@ -594,7 +609,8 @@ export const deliverables: Deliverable[] = [
       "Datenbereinigung",
       "Umsetzung von Maßnahmen bei Anomalien",
       "Echtzeit-Verarbeitung (gegen Aufpreis möglich)"
-    ]
+    ],
+    parameters: ["companySize", "speed", "dataSources"]
   },
   {
     id: "predictive_maintenance",
@@ -602,11 +618,12 @@ export const deliverables: Deliverable[] = [
     name: "Predictive Maintenance",
     shortDescription: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig – nicht zu früh, nicht zu spät.",
     longDescription: "Wir entwickeln ein Predictive Maintenance System, das Wartungsbedarfe für Ihre Maschinen und Anlagen vorhersagt. Basierend auf Sensordaten und historischen Wartungsdaten sagt das Modell voraus, wann Wartung nötig ist, sodass Sie Ausfälle vermeiden und Wartungskosten optimieren können.",
-    active: false,
+    basePrice: 26900,
+    active: true,
     tags: {
       type: ["build"],
       maturity: ["scale"],
-      impact: ["performance", "insights"],
+      impact: ["performance", "adoption"],
       coverage: ["data_layer", "semantic_layer"]
     },
     estimatedDuration: "20–25 Tage",
@@ -625,7 +642,8 @@ export const deliverables: Deliverable[] = [
       "Sensor-Installation",
       "Integration in Legacy-Systeme",
       "24/7 Monitoring (gegen Aufpreis möglich)"
-    ]
+    ],
+    parameters: ["companySize", "speed", "dataSources"]
   },
   {
     id: "qa_ai",
@@ -633,7 +651,8 @@ export const deliverables: Deliverable[] = [
     name: "Quality Assurance AI",
     shortDescription: "Automatische Qualitätsprüfung mit KI. Früherkennung von Fehlern, weniger Ausschuss.",
     longDescription: "Wir entwickeln ein KI-System zur automatischen Qualitätsprüfung Ihrer Produkte. Basierend auf Bildern, Sensordaten oder anderen Messwerten erkennt das System Fehler und Qualitätsprobleme frühzeitig, sodass Sie Ausschuss reduzieren und Qualität verbessern können.",
-    active: false,
+    basePrice: 24900,
+    active: true,
     tags: {
       type: ["build"],
       maturity: ["scale"],
@@ -656,7 +675,8 @@ export const deliverables: Deliverable[] = [
       "Sensor- oder Kamera-Installation",
       "Integration in Legacy-Systeme",
       "Echtzeit-Verarbeitung (gegen Aufpreis möglich)"
-    ]
+    ],
+    parameters: ["companySize", "speed", "dataSources"]
   },
 
   // Enterprise Architecture
@@ -666,11 +686,12 @@ export const deliverables: Deliverable[] = [
     name: "Target Architecture",
     shortDescription: "Zielarchitektur für Ihre Datenlandschaft. Klare Vision für die Zukunft.",
     longDescription: "Wir entwickeln eine Zielarchitektur für Ihre gesamte Datenlandschaft. Mit klaren Prinzipien, Technologie-Empfehlungen und einem Migrationspfad haben Sie eine Roadmap, wie Ihre Dateninfrastruktur in Zukunft aussehen soll.",
-    active: false,
+    basePrice: 17900,
+    active: true,
     tags: {
       type: ["blueprint"],
       maturity: ["start", "stabilize"],
-      impact: ["foundation", "scale"],
+      impact: ["foundation", "performance"],
       coverage: ["data_layer", "operations"]
     },
     estimatedDuration: "10–15 Tage",
@@ -688,7 +709,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "Technische Umsetzung",
       "Detaillierte Implementierungsplanung"
-    ]
+    ],
+    parameters: ["companySize", "speed", "deployment", "securityLevel"]
   },
 
   // Data Operations
@@ -698,7 +720,8 @@ export const deliverables: Deliverable[] = [
     name: "BI Factory",
     shortDescription: "Skalierbare Prozesse für die Erstellung von BI-Lösungen. Schnellere Entwicklung, höhere Qualität.",
     longDescription: "Wir richten eine BI Factory ein: standardisierte Prozesse, wiederverwendbare Komponenten und automatisierte Qualitätssicherung. Mit diesem Ansatz können Sie BI-Lösungen schneller entwickeln, bei höherer Qualität und konsistenten Standards.",
-    active: false,
+    basePrice: 21900,
+    active: true,
     tags: {
       type: ["setup", "build"],
       maturity: ["stabilize", "scale"],
@@ -720,7 +743,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "BI-Infrastruktur Setup",
       "Individuelle Beratung pro Entwickler"
-    ]
+    ],
+    parameters: ["companySize", "speed", "reportComplexity"]
   },
   {
     id: "monitoring_ops",
@@ -728,7 +752,8 @@ export const deliverables: Deliverable[] = [
     name: "Monitoring & Operations",
     shortDescription: "Umfassendes Monitoring für Ihre Dateninfrastruktur. Proaktive Fehlererkennung, höhere Verfügbarkeit.",
     longDescription: "Wir richten ein umfassendes Monitoring-System für Ihre Dateninfrastruktur ein. Mit automatisierten Checks, Alarmen und Dashboards erkennen Sie Probleme frühzeitig und können proaktiv reagieren. Höhere Verfügbarkeit, weniger Ausfälle.",
-    active: false,
+    basePrice: 16900,
+    active: true,
     tags: {
       type: ["setup", "run"],
       maturity: ["stabilize", "scale"],
@@ -750,7 +775,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "Infrastruktur-Setup",
       "24/7 Support (gegen Aufpreis möglich)"
-    ]
+    ],
+    parameters: ["companySize", "speed", "securityLevel", "deployment"]
   },
   {
     id: "retainer",
@@ -758,7 +784,8 @@ export const deliverables: Deliverable[] = [
     name: "Data Operations Retainer",
     shortDescription: "Laufende Unterstützung für Ihre Dateninfrastruktur. Kontinuierliche Optimierung und schnelle Reaktion auf Probleme.",
     longDescription: "Mit einem Data Operations Retainer erhalten Sie laufende Unterstützung für Ihre Dateninfrastruktur. Wir optimieren kontinuierlich, reagieren schnell auf Probleme und helfen bei der Weiterentwicklung. Ideal für Unternehmen, die keine eigene Data Operations Abteilung haben.",
-    active: false,
+    basePrice: 12900,
+    active: true,
     tags: {
       type: ["run"],
       maturity: ["stabilize", "scale"],
@@ -780,7 +807,8 @@ export const deliverables: Deliverable[] = [
     outOfScope: [
       "Große Neuentwicklungen",
       "24/7 Support (gegen Aufpreis möglich)"
-    ]
+    ],
+    parameters: ["companySize", "speed"]
   }
 ];
 
