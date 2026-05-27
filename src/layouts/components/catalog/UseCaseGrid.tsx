@@ -112,8 +112,8 @@ export function UseCaseGrid({ domainKey, activeUseCaseId, onSelectUseCase, searc
 
   // Pagination: Show first 12, then "Show more"
   const ITEMS_PER_PAGE = 12;
-  const displayedUseCases = showAll 
-    ? filteredUseCases 
+  const displayedUseCases = showAll
+    ? filteredUseCases
     : filteredUseCases.slice(0, ITEMS_PER_PAGE);
   const hasMore = filteredUseCases.length > ITEMS_PER_PAGE;
 
