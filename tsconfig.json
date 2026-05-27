@@ -9,6 +9,7 @@
     "jsx": "react-jsx",
     "isolatedModules": true,
     "incremental": true,
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@/components/*": [

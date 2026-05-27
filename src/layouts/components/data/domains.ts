@@ -1,4 +1,5 @@
 import { useCases } from './useCases';
+import generatedDomains from './domains.generated.json';
 
 /**
  * Domänen-Definitionen
@@ -12,80 +13,9 @@ export interface Domain {
 }
 
 /**
- * Verfügbare Domänen (basierend auf useCases.ts)
+ * Verfügbare Domänen (build-time generiert aus Strapi)
  */
-export const domains: Domain[] = [
-  {
-    key: 'sales-marketing',
-    name: 'Sales & Marketing',
-    description: 'Vertriebs- und Marketinganalysen, Dashboards und Reporting',
-    icon: 'TrendingUp',
-    enabled: true
-  },
-  {
-    key: 'finance',
-    name: 'Finance',
-    description: 'Finanzreporting, Automatisierung und Compliance',
-    icon: 'Landmark',
-    enabled: true
-  },
-  {
-    key: 'it-data',
-    name: 'IT & Data',
-    description: 'Datenarchitektur, BI-Setup und Datenmanagement',
-    icon: 'Server',
-    enabled: true
-  },
-  {
-    key: 'general-mgmt',
-    name: 'General Management',
-    description: 'Strategische Analysen und Management-Dashboards',
-    icon: 'Briefcase',
-    enabled: true
-  },
-  {
-    key: 'procurement',
-    name: 'Procurement',
-    description: 'Einkauf und Beschaffung optimieren',
-    icon: 'ShoppingCart',
-    enabled: true
-  },
-  {
-    key: 'production',
-    name: 'Production',
-    description: 'Produktionsplanung und -optimierung',
-    icon: 'Factory',
-    enabled: true
-  },
-  {
-    key: 'logistics',
-    name: 'Logistics',
-    description: 'Lager- und Logistikoptimierung',
-    icon: 'Package',
-    enabled: true
-  },
-  {
-    key: 'hr',
-    name: 'HR',
-    description: 'Personalanalysen und HR-Reporting',
-    icon: 'Users',
-    enabled: true
-  },
-  {
-    key: 'rnd',
-    name: 'Research & Development',
-    description: 'Forschung und Entwicklung',
-    icon: 'FlaskConical',
-    enabled: true
-  },
-  {
-    key: 'risk-compliance',
-    name: 'Risk & Compliance',
-    description: 'Risikomanagement und Compliance',
-    icon: 'Shield',
-    enabled: true
-  }
-];
+export const domains: Domain[] = generatedDomains as Domain[];
 
 /**
  * Gibt eine Domäne nach Key zurück
