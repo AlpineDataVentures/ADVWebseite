@@ -30,7 +30,7 @@ export default function DemoApp() {
   const [cartOpen, setCartOpen] = useState(false);
   const [finderOpen, setFinderOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedDomainId, setSelectedDomainId] = useState<string | null>(null);
+  const [selectedDomainKey, setSelectedDomainKey] = useState<string | null>(null);
 
   const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
   const setActiveUseCase = useConfigStore((state) => state.setActiveUseCase);
@@ -66,10 +66,10 @@ export default function DemoApp() {
     }, 100);
   };
 
-  const handleDomainChange = (domainId: string | null) => {
-    setSelectedDomainId(domainId);
+  const handleDomainChange = (domainKey: string | null) => {
+    setSelectedDomainKey(domainKey);
     // Reset use case when domain changes
-    if (domainId !== selectedDomainId) {
+    if (domainKey !== selectedDomainKey) {
       setUseCaseId(null);
       setCurrentStep('recommendation');
     }
@@ -289,7 +289,7 @@ export default function DemoApp() {
                 {/* Breadcrumb */}
                 {useCase && (
                   <Breadcrumb
-                    domainId={selectedDomainId}
+                    domainKey={selectedDomainKey}
                     useCaseId={useCaseId}
                     className="mb-4"
                   />

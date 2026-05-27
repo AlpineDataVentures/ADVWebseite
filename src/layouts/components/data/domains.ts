@@ -4,7 +4,7 @@ import { useCases } from './useCases';
  * Domänen-Definitionen
  */
 export interface Domain {
-  id: string;
+  key: string;
   name: string;
   description: string;
   icon: string;
@@ -16,70 +16,70 @@ export interface Domain {
  */
 export const domains: Domain[] = [
   {
-    id: 'sales-marketing',
+    key: 'sales-marketing',
     name: 'Sales & Marketing',
     description: 'Vertriebs- und Marketinganalysen, Dashboards und Reporting',
     icon: 'TrendingUp',
     enabled: true
   },
   {
-    id: 'finance',
+    key: 'finance',
     name: 'Finance',
     description: 'Finanzreporting, Automatisierung und Compliance',
     icon: 'Landmark',
     enabled: true
   },
   {
-    id: 'it-data',
+    key: 'it-data',
     name: 'IT & Data',
     description: 'Datenarchitektur, BI-Setup und Datenmanagement',
     icon: 'Server',
     enabled: true
   },
   {
-    id: 'general-mgmt',
+    key: 'general-mgmt',
     name: 'General Management',
     description: 'Strategische Analysen und Management-Dashboards',
     icon: 'Briefcase',
     enabled: true
   },
   {
-    id: 'procurement',
+    key: 'procurement',
     name: 'Procurement',
     description: 'Einkauf und Beschaffung optimieren',
     icon: 'ShoppingCart',
     enabled: true
   },
   {
-    id: 'production',
+    key: 'production',
     name: 'Production',
     description: 'Produktionsplanung und -optimierung',
     icon: 'Factory',
     enabled: true
   },
   {
-    id: 'logistics',
+    key: 'logistics',
     name: 'Logistics',
     description: 'Lager- und Logistikoptimierung',
     icon: 'Package',
     enabled: true
   },
   {
-    id: 'hr',
+    key: 'hr',
     name: 'HR',
     description: 'Personalanalysen und HR-Reporting',
     icon: 'Users',
     enabled: true
   },
   {
-    id: 'rnd',
+    key: 'rnd',
     name: 'Research & Development',
     description: 'Forschung und Entwicklung',
     icon: 'FlaskConical',
     enabled: true
   },
   {
-    id: 'risk-compliance',
+    key: 'risk-compliance',
     name: 'Risk & Compliance',
     description: 'Risikomanagement und Compliance',
     icon: 'Shield',
@@ -88,10 +88,10 @@ export const domains: Domain[] = [
 ];
 
 /**
- * Gibt eine Domäne nach ID zurück
+ * Gibt eine Domäne nach Key zurück
  */
-export function getDomainById(id: string): Domain | undefined {
-  return domains.find(d => d.id === id);
+export function getDomainByKey(key: string): Domain | undefined {
+  return domains.find(d => d.key === key);
 }
 
 /**
@@ -103,10 +103,10 @@ export function getEnabledDomains(): Domain[] {
 
 /**
  * Gibt Use Cases für eine Domäne zurück
- * Mappt domain ID zu useCase.domain
+ * Mappt domain Key zu useCase.domain
  */
-export function getUseCasesForDomain(domainId: string) {
-  // Mappe domain IDs zu useCase.domain Werten
+export function getUseCasesForDomain(domainKey: string) {
+  // Mappe domain Keys zu useCase.domain Werten
   const domainMapping: Record<string, string> = {
     'sales-marketing': 'sales_marketing',
     'finance': 'finance',
@@ -119,9 +119,9 @@ export function getUseCasesForDomain(domainId: string) {
     'rnd': 'rnd',
     'risk-compliance': 'risk_compliance'
   };
-  
-  const mappedDomain = domainMapping[domainId];
+
+  const mappedDomain = domainMapping[domainKey];
   if (!mappedDomain) return [];
-  
+
   return useCases.filter(uc => uc.domain === mappedDomain);
 }

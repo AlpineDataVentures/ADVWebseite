@@ -4,26 +4,26 @@ import * as LucideIcons from "lucide-react";
 import { cn } from "../lib/utils";
 
 interface DomainListProps {
-  selectedDomainId: string | null;
-  onSelectDomain: (domainId: string) => void;
+  selectedDomainKey: string | null;
+  onSelectDomain: (domainKey: string) => void;
 }
 
 /**
  * Vertikale Domain Liste als Pills/Rows
  * Sticky oben im Panel
  */
-export function DomainList({ selectedDomainId, onSelectDomain }: DomainListProps) {
+export function DomainList({ selectedDomainKey, onSelectDomain }: DomainListProps) {
   return (
     <div className="space-y-1">
       {domains.map((domain) => {
         const Icon = (LucideIcons as any)[domain.icon] || LucideIcons.Briefcase;
-        const isSelected = selectedDomainId === domain.id;
+        const isSelected = selectedDomainKey === domain.key;
         const isDisabled = !domain.enabled;
 
         return (
           <button
-            key={domain.id}
-            onClick={() => !isDisabled && onSelectDomain(domain.id)}
+            key={domain.key}
+            onClick={() => !isDisabled && onSelectDomain(domain.key)}
             disabled={isDisabled}
             className={cn(
               "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg",

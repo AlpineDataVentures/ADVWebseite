@@ -1,10 +1,10 @@
 import { Button } from "./ui/button";
 import { ArrowLeft } from "lucide-react";
 import { UseCaseCard } from "./UseCaseCard";
-import { getUseCasesForDomain, getDomainById } from "../data/domains";
+import { getUseCasesForDomain, getDomainByKey } from "../data/domains";
 
 interface UseCaseListProps {
-  domainId: string;
+  domainKey: string;
   onSelectUseCase: (useCaseId: string) => void;
   onBack: () => void;
 }
@@ -13,9 +13,9 @@ interface UseCaseListProps {
  * Liste von Use Cases für eine Domäne
  * Zeigt alle Use Cases der Domäne als Cards
  */
-export function UseCaseList({ domainId, onSelectUseCase, onBack }: UseCaseListProps) {
-  const domain = getDomainById(domainId);
-  const useCases = getUseCasesForDomain(domainId);
+export function UseCaseList({ domainKey, onSelectUseCase, onBack }: UseCaseListProps) {
+  const domain = getDomainByKey(domainKey);
+  const useCases = getUseCasesForDomain(domainKey);
 
   if (!domain) {
     return (

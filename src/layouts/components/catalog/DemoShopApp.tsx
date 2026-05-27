@@ -19,7 +19,7 @@ import { ListFilter } from 'lucide-react';
  * Flow: Domain -> Use Case -> Bundle -> Konfiguration
  */
 export default function DemoShopApp() {
-  const [activeDomainId, setActiveDomainId] = useState<string | null>(null); // intern erhalten
+  const [activeDomainKey, setActiveDomainKey] = useState<string | null>(null); // intern erhalten
   const [activeCluster, setActiveCluster] = useState<UiClusterId | null>(
     "orientation_prioritization"
   );
@@ -53,7 +53,7 @@ export default function DemoShopApp() {
     setViewMode('bundle');
     setFinderOpen(false); // close mobile finder
     const selected = getUseCaseById(useCaseId);
-    setActiveDomainId(selected?.domain ?? null); // interne Domain-Logik bleibt nutzbar
+    setActiveDomainKey(selected?.domain ?? null); // interne Domain-Logik bleibt nutzbar
 
     setTimeout(() => {
       const middlePanel = document.querySelector('[data-middle-panel]');

@@ -13,7 +13,7 @@ import { getCartWithPricesFromSelectedDeliverables, useConfigStore } from '../st
  */
 export default function UseCasePage() {
   const [cartOpen, setCartOpen] = useState(false);
-  const [selectedDomainId, setSelectedDomainId] = useState<string | null>(null);
+  const [selectedDomainKey, setSelectedDomainKey] = useState<string | null>(null);
 
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const cartWithPrices = useMemo(
@@ -23,12 +23,12 @@ export default function UseCasePage() {
   const cartCount = cartWithPrices.length;
   const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
 
-  const handleSelectDomain = (domainId: string) => {
-    setSelectedDomainId(domainId);
+  const handleSelectDomain = (domainKey: string) => {
+    setSelectedDomainKey(domainKey);
   };
 
   const handleBackToDomains = () => {
-    setSelectedDomainId(null);
+    setSelectedDomainKey(null);
   };
 
   const handleSelectUseCase = (useCaseId: string) => {
@@ -59,9 +59,9 @@ export default function UseCasePage() {
       </div>
 
       {/* Content: Domain Grid oder Use Case List */}
-      {selectedDomainId ? (
+      {selectedDomainKey ? (
         <UseCaseList
-          domainId={selectedDomainId}
+          domainKey={selectedDomainKey}
           onSelectUseCase={handleSelectUseCase}
           onBack={handleBackToDomains}
         />

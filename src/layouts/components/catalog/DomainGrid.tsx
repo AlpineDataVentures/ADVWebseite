@@ -1,12 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { domains } from "../data/domains";
-import { 
-  TrendingUp, 
-  DollarSign, 
-  Database, 
-  Briefcase, 
-  Settings, 
+import {
+  TrendingUp,
+  DollarSign,
+  Database,
+  Briefcase,
+  Settings,
   Users,
   Lock
 } from "lucide-react";
@@ -22,30 +22,30 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 interface DomainGridProps {
-  onSelectDomain: (domainId: string) => void;
-  selectedDomainId?: string;
+  onSelectDomain: (domainKey: string) => void;
+  selectedDomainKey?: string;
 }
 
 /**
  * Grid mit Domänenkacheln
  * Zeigt aktivierte und deaktivierte (Coming soon) Domänen
  */
-export function DomainGrid({ onSelectDomain, selectedDomainId }: DomainGridProps) {
+export function DomainGrid({ onSelectDomain, selectedDomainKey }: DomainGridProps) {
   return (
     <div className="space-y-4">
       <p className="text-sm text-text-light dark:text-darkmode-text-light mb-6">
         Wähle deinen Bereich und Use Case – wir schlagen ein Projektpaket vor.
       </p>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {domains.map((domain) => {
           const Icon = iconMap[domain.icon] || Briefcase;
-          const isSelected = selectedDomainId === domain.id;
+          const isSelected = selectedDomainKey === domain.key;
           const isDisabled = !domain.enabled;
-          
+
           return (
             <Card
-              key={domain.id}
+              key={domain.key}
               className={cn(
                 "cursor-pointer transition-all hover:shadow-lg",
                 {
@@ -54,7 +54,7 @@ export function DomainGrid({ onSelectDomain, selectedDomainId }: DomainGridProps
                   "hover:border-green-600/50 dark:hover:border-green-400/50": !isDisabled && !isSelected
                 }
               )}
-              onClick={() => !isDisabled && onSelectDomain(domain.id)}
+              onClick={() => !isDisabled && onSelectDomain(domain.key)}
             >
               <CardHeader>
                 <div className="flex items-start justify-between">

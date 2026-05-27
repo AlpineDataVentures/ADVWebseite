@@ -44,7 +44,7 @@ export default function AdvConfiguratorApp({
   demoMode = false
 }: AdvConfiguratorAppProps) {
   const [currentView, setCurrentView] = useState<AppView>(initialView);
-  const [selectedDomainId, setSelectedDomainId] = useState<string | null>(null);
+  const [selectedDomainKey, setSelectedDomainKey] = useState<string | null>(null);
   const [useCaseId, setUseCaseId] = useState<string | null>(initialUseCaseId);
   const [currentStep, setCurrentStep] = useState<'recommendation' | 'configuration'>('recommendation');
   const [cartOpen, setCartOpen] = useState(false);
@@ -121,12 +121,12 @@ export default function AdvConfiguratorApp({
     }
   };
 
-  const handleSelectDomain = (domainId: string) => {
-    setSelectedDomainId(domainId);
+  const handleSelectDomain = (domainKey: string) => {
+    setSelectedDomainKey(domainKey);
   };
 
   const handleBackToDomains = () => {
-    setSelectedDomainId(null);
+    setSelectedDomainKey(null);
   };
 
   const handleSelectUseCase = (selectedUseCaseId: string) => {
@@ -170,7 +170,7 @@ export default function AdvConfiguratorApp({
 
   const handleBackToUseCases = () => {
     handleViewChange('use-cases');
-    setSelectedDomainId(null);
+    setSelectedDomainKey(null);
     setUseCaseId(null);
   };
 
@@ -200,9 +200,9 @@ export default function AdvConfiguratorApp({
             )}
 
             {/* Content: Domain Grid oder Use Case List */}
-            {selectedDomainId ? (
+            {selectedDomainKey ? (
               <UseCaseList
-                domainId={selectedDomainId}
+                domainKey={selectedDomainKey}
                 onSelectUseCase={handleSelectUseCase}
                 onBack={handleBackToDomains}
               />

@@ -9,7 +9,7 @@ import type { UseCase, IntentTag, ComplexityTag } from "../data/useCases";
 import { cn } from "../lib/utils";
 
 interface UseCaseGridProps {
-  domainId: string | null;
+  domainKey: string | null;
   activeUseCaseId: string | null;
   onSelectUseCase: (useCaseId: string) => void;
   searchQuery?: string;
@@ -36,7 +36,7 @@ const complexityLabels: Record<string, string> = {
  * Use Case Grid mit Search und Filter
  * 1 Spalte im Panel (oder 2 auf breiteren Screens)
  */
-export function UseCaseGrid({ domainId, activeUseCaseId, onSelectUseCase, searchQuery: globalSearchQuery }: UseCaseGridProps) {
+export function UseCaseGrid({ domainKey, activeUseCaseId, onSelectUseCase, searchQuery: globalSearchQuery }: UseCaseGridProps) {
   const [localSearchQuery, setLocalSearchQuery] = useState("");
   const [selectedIntents, setSelectedIntents] = useState<IntentTag[]>([]);
   const [selectedComplexities, setSelectedComplexities] = useState<ComplexityTag[]>([]);
@@ -46,7 +46,7 @@ export function UseCaseGrid({ domainId, activeUseCaseId, onSelectUseCase, search
   const searchQuery = globalSearchQuery || localSearchQuery;
 
   // Hole Use Cases für Domain
-  const allUseCases = domainId ? getUseCasesForDomain(domainId) : [];
+  const allUseCases = domainKey ? getUseCasesForDomain(domainKey) : [];
 
   // Filter Use Cases
   const filteredUseCases = useMemo(() => {
@@ -133,7 +133,7 @@ export function UseCaseGrid({ domainId, activeUseCaseId, onSelectUseCase, search
     );
   };
 
-  if (!domainId) {
+  if (!domainKey) {
     return (
       <div className="flex items-center justify-center h-64 text-[hsl(var(--muted))] text-sm">
         Wählen Sie eine Domäne aus
