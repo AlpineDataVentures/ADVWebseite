@@ -9,7 +9,7 @@ import { HeroEmptyState } from './HeroEmptyState';
 import { Sheet, SheetContent } from './ui/sheet';
 import { Button } from './ui/button';
 import { useConfigStore } from '../stores/configStore';
-import { getUseCaseById, getUseCasesForUiCluster, type UiClusterId } from '../data/useCases';
+import { getUseCaseByKey, getUseCasesForUiCluster, type UiClusterId } from '../data/useCases';
 import { getBundleForUseCase } from '../data/recommendations';
 import { ListFilter } from 'lucide-react';
 
@@ -52,7 +52,7 @@ export default function DemoShopApp() {
     setBundleFromUseCase(useCaseId);
     setViewMode('bundle');
     setFinderOpen(false); // close mobile finder
-    const selected = getUseCaseById(useCaseId);
+    const selected = getUseCaseByKey(useCaseId);
     setActiveDomainKey(selected?.domain ?? null); // interne Domain-Logik bleibt nutzbar
 
     setTimeout(() => {
@@ -96,7 +96,7 @@ export default function DemoShopApp() {
     }
   }, [activeUseCaseId]);
 
-  const useCase = activeUseCaseId ? getUseCaseById(activeUseCaseId) : null;
+  const useCase = activeUseCaseId ? getUseCaseByKey(activeUseCaseId) : null;
   const hasMatchesForSelection = activeCluster ? getUseCasesForUiCluster(activeCluster).length > 0 : false;
   const isSelectionStep = !useCase;
   const isConfigurationStep = viewMode === 'configure' && (cartCount > 0 || Boolean(useCase));

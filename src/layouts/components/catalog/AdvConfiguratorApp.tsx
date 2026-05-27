@@ -14,7 +14,7 @@ import {
   useConfigStore
 } from '../stores/configStore';
 import { formatPrice } from '../lib/pricing';
-import { getUseCaseById } from '../data/useCases';
+import { getUseCaseByKey } from '../data/useCases';
 
 export type AppView = 'use-cases' | 'configure' | 'summary';
 

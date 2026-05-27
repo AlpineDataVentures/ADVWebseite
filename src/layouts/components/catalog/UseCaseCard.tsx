@@ -36,7 +36,7 @@ const complexityLabels: Record<string, string> = {
  */
 export function UseCaseCard({ useCase, onSelect }: UseCaseCardProps) {
   // Hole Recommendations für typische Outputs
-  const recommendations = getBundleForUseCase(useCase.id);
+  const recommendations = getBundleForUseCase(useCase.key);
   const deliverablesList = recommendations
     .slice(0, 3) // Nur erste 3 für Preview
     .map(rec => getDeliverableById(rec.deliverableId))
@@ -46,12 +46,12 @@ export function UseCaseCard({ useCase, onSelect }: UseCaseCardProps) {
   
   const handleSelect = () => {
     // Set active use case in store
-    setActiveUseCase(useCase.id);
+    setActiveUseCase(useCase.key);
     // Use onSelect callback if provided (for DemoApp), otherwise navigate
     if (onSelect) {
-      onSelect(useCase.id);
+      onSelect(useCase.key);
     } else {
-      window.location.href = `/configure?useCase=${useCase.id}`;
+      window.location.href = `/configure?useCase=${useCase.key}`;
     }
   };
 

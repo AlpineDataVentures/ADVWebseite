@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { CheckCircle2 } from "lucide-react";
 import { useConfigStore } from "../stores/configStore";
-import { getUseCaseById } from "../data/useCases";
+import { getUseCaseByKey } from "../data/useCases";
 import { getDeliverableById } from "../data/deliverables";
 import { getBundleForUseCase } from "../data/recommendations";
 import { DeliverableCard } from "./DeliverableCard";
@@ -19,7 +19,7 @@ interface BundleViewProps {
  * Bundle View - Zeigt Use Case Header + Recommended Deliverables
  */
 export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
-  const useCase = useCaseId ? getUseCaseById(useCaseId) : null;
+  const useCase = useCaseId ? getUseCaseByKey(useCaseId) : null;
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
   const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
@@ -29,7 +29,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
   }
 
   // Hole Recommendations
-  const recommendations = getBundleForUseCase(useCase.id);
+  const recommendations = getBundleForUseCase(useCase.key);
 
   // Filter: Core (defaultEnabled=true) vs Optional (defaultEnabled=false)
   const coreDeliverables = recommendations.filter((rec) => {
@@ -53,7 +53,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
   };
 
   const handleResetBundle = () => {
-    setBundleFromUseCase(useCase.id);
+    setBundleFromUseCase(useCase.key);
   };
   const defaultBestForByDomain: Record<string, string[]> = {
     general_mgmt: ["Geschäftsführung", "Bereichsleitungen"],
@@ -77,7 +77,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
     bestFor: defaultBestForByDomain[useCase.domain] ?? ["Fachbereiche mit konkretem Entscheidungsbedarf"],
   };
   const details = useCase.details ?? fallbackDetails;
-  const useCaseHref = `/use-cases/${useCase.slug ?? useCase.id}`;
+  const useCaseHref = `/use-cases/${useCase.slug ?? useCase.key}`;
 
   return (
     <div className="space-y-6">

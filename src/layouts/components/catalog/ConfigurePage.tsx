@@ -52,7 +52,7 @@ export default function ConfigurePage() {
     }
   }, [setBundleFromUseCase]);
 
-  const useCase = useCaseId ? useCases.find(uc => uc.id === useCaseId) : null;
+  const useCase = useCaseId ? useCases.find(uc => uc.key === useCaseId) : null;
 
   const handleNext = () => {
     setCurrentStep('configuration');

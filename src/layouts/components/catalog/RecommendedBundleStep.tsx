@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { CheckCircle2 } from "lucide-react";
 import { useConfigStore } from "../stores/configStore";
-import { getUseCaseById } from "../data/useCases";
+import { getUseCaseByKey } from "../data/useCases";
 import { getDeliverableById } from "../data/deliverables";
 import { getBundleForUseCase } from "../data/recommendations";
 import { DeliverableCard } from "./DeliverableCard";
@@ -19,7 +19,7 @@ interface RecommendedBundleStepProps {
  * Use Case Header + Recommended Bundle als Card Grid (2 columns)
  */
 export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleStepProps) {
-  const useCase = useCaseId ? getUseCaseById(useCaseId) : null;
+  const useCase = useCaseId ? getUseCaseByKey(useCaseId) : null;
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
   const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
@@ -33,11 +33,11 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
   }
 
   // Hole Recommendations mit Reasons
-  const recommendations = getBundleForUseCase(useCase.id);
+  const recommendations = getBundleForUseCase(useCase.key);
   
   // Debug: Log wenn activeUseCaseId gesetzt aber keine Recommendations
   if (useCaseId && recommendations.length === 0) {
-    console.warn(`No recommendations found for use case: ${useCase.id}`);
+    console.warn(`No recommendations found for use case: ${useCase.key}`);
   }
   
   // Filter: Core (defaultEnabled=true) vs Optional (defaultEnabled=false)
@@ -59,7 +59,7 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
   };
 
   const handleResetBundle = () => {
-    setBundleFromUseCase(useCase.id);
+    setBundleFromUseCase(useCase.key);
   };
 
   return (

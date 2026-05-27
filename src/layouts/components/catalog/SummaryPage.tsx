@@ -9,7 +9,7 @@ import {
   useConfigStore
 } from '../stores/configStore';
 import { formatPrice } from '../lib/pricing';
-import { getUseCaseById } from '../data/useCases';
+import { getUseCaseByKey } from '../data/useCases';
 import { Download, Mail, ArrowLeft } from 'lucide-react';
 import { useMemo } from 'react';
 
@@ -37,7 +37,7 @@ export function SummaryPage({ onBack, onNew }: SummaryPageProps = {}) {
   );
 
   const useCase = selectedUseCases.length > 0
-    ? getUseCaseById(selectedUseCases[0])
+    ? getUseCaseByKey(selectedUseCases[0])
     : null;
 
   if (cart.length === 0) {

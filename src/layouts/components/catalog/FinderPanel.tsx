@@ -96,10 +96,10 @@ export function FinderPanel({
         ) : (
           sortedUseCases.map((useCase) => (
             <UseCaseItem
-              key={useCase.id}
+              key={useCase.key}
               useCase={useCase}
-              isActive={activeUseCaseId === useCase.id}
-              onSelect={() => onSelectUseCase(useCase.id)}
+              isActive={activeUseCaseId === useCase.key}
+              onSelect={() => onSelectUseCase(useCase.key)}
             />
           ))
         )}

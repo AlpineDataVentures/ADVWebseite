@@ -222,9 +222,9 @@ export function UseCaseGrid({ domainKey, activeUseCaseId, onSelectUseCase, searc
         ) : (
           displayedUseCases.map((useCase) => (
             <UseCaseCardCompact
-              key={useCase.id}
+              key={useCase.key}
               useCase={useCase}
-              isActive={activeUseCaseId === useCase.id}
+              isActive={activeUseCaseId === useCase.key}
               onSelect={onSelectUseCase}
             />
           ))

@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { cn } from "../lib/utils";
 import { getDomainByKey } from "../data/domains";
-import { getUseCaseById } from "../data/useCases";
+import { getUseCaseByKey } from "../data/useCases";
 
 interface BreadcrumbProps {
   domainKey?: string | null;
@@ -15,7 +15,7 @@ interface BreadcrumbProps {
  */
 export function Breadcrumb({ domainKey, useCaseId, className }: BreadcrumbProps) {
   const domain = domainKey ? getDomainByKey(domainKey) : null;
-  const useCase = useCaseId ? getUseCaseById(useCaseId) : null;
+  const useCase = useCaseId ? getUseCaseByKey(useCaseId) : null;
 
   if (!domain && !useCase) {
     return null;

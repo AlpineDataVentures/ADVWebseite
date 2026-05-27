@@ -44,12 +44,12 @@ export function UseCaseCardCompact({ useCase, isActive = false, onSelect }: UseC
     // In DemoApp: use onSelect callback
     // In standalone pages: navigate to /configure
     if (onSelect) {
-      setActiveUseCase(useCase.id);
-      onSelect(useCase.id);
+      setActiveUseCase(useCase.key);
+      onSelect(useCase.key);
     } else {
       // Fallback: navigate directly
-      setActiveUseCase(useCase.id);
-      window.location.href = `/configure?useCase=${useCase.id}`;
+      setActiveUseCase(useCase.key);
+      window.location.href = `/configure?useCase=${useCase.key}`;
     }
   };
 

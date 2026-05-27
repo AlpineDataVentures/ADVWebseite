@@ -15,7 +15,7 @@ import {
   getTotalPriceFromSelectedDeliverables,
   useConfigStore
 } from '../stores/configStore';
-import { getUseCaseById } from '../data/useCases';
+import { getUseCaseByKey } from '../data/useCases';
 import { formatPrice } from '../lib/pricing';
 import { getBundleForUseCase } from '../data/recommendations';
 
@@ -105,7 +105,7 @@ export default function DemoApp() {
     window.location.href = '/summary';
   };
 
-  const useCase = useCaseId ? getUseCaseById(useCaseId) : null;
+  const useCase = useCaseId ? getUseCaseByKey(useCaseId) : null;
 
   // Dev Sanity Checks / Assertions
   useEffect(() => {
