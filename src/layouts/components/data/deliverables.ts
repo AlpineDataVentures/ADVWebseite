@@ -14,7 +14,7 @@ export type ImpactTag = "quickwin" | "foundation" | "compliance" | "performance"
 export type CoverageTag = "bi_layer" | "semantic_layer" | "data_layer" | "operations";
 
 export interface Deliverable {
-  id: string;
+  key: string;
   family: DeliverableFamily;
   name: string;
   shortDescription: string;
@@ -39,7 +39,7 @@ export const deliverables: Deliverable[] = [
   
   // BI & Analytics
   {
-    id: "bi_setup",
+    key: "bi_setup",
     family: "BI & Analytics",
     name: "BI Fix & Fertig Setup",
     shortDescription: "Komplettes Business Intelligence Setup mit Power BI, Dashboards und erster Datenanbindung. Sofort einsatzbereit.",
@@ -73,7 +73,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "deployment", "sourceSystemCount"]
   },
   {
-    id: "kpi_ws",
+    key: "kpi_ws",
     family: "BI & Analytics",
     name: "KPI Definition Workshop",
     shortDescription: "Gemeinsame Definition Ihrer wichtigsten Kennzahlen und Erfolgsmessung. Klarheit über das, was wirklich zählt.",
@@ -106,7 +106,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed"]
   },
   {
-    id: "mgmt_report_1",
+    key: "mgmt_report_1",
     family: "BI & Analytics",
     name: "Erster Management-Bericht",
     shortDescription: "Professioneller Management-Bericht mit den wichtigsten Kennzahlen. Übersichtlich, verständlich, handlungsorientiert.",
@@ -140,7 +140,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "reportComplexity", "reportCount"]
   },
   {
-    id: "reporting_standards",
+    key: "reporting_standards",
     family: "BI & Analytics",
     name: "Reporting-Struktur (Templates & Standards)",
     shortDescription: "Einheitliche Berichtsvorlagen und Standards für Ihr gesamtes Unternehmen. Konsistenz und Effizienz.",
@@ -175,7 +175,7 @@ export const deliverables: Deliverable[] = [
 
   // Data Architecture
   {
-    id: "dwh_starter",
+    key: "dwh_starter",
     family: "Data Architecture",
     name: "Zentrale Datenablage Starter (DWH/Lakehouse Light)",
     shortDescription: "Grundlegende zentrale Datenablage für strukturierte und unstrukturierte Daten. Solide Basis für Analytics.",
@@ -210,7 +210,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "deployment", "securityLevel", "sourceSystemCount", "strategyHorizonMonths"]
   },
   {
-    id: "source_integration_review",
+    key: "source_integration_review",
     family: "Data Architecture",
     name: "Datenquellen- & Integrationsanalyse",
     shortDescription: "Systematische Analyse Ihrer Datenquellen und Empfehlungen für Integration. Klarheit über Ihre Datenlandschaft.",
@@ -246,7 +246,7 @@ export const deliverables: Deliverable[] = [
 
   // Data Knowledge
   {
-    id: "glossary_sprint",
+    key: "glossary_sprint",
     family: "Data Knowledge",
     name: "KPI & Daten-Glossar Sprint",
     shortDescription: "Zentrales Glossar mit allen Kennzahlen, Datenfeldern und Definitionen. Gemeinsames Verständnis im Unternehmen.",
@@ -279,7 +279,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed"]
   },
   {
-    id: "pbi_training_user",
+    key: "pbi_training_user",
     family: "Data Knowledge",
     name: "Power BI Anwender-Schulung",
     shortDescription: "Praktische Schulung für Ihre Mitarbeiter. Selbstständig Berichte erstellen und Daten analysieren.",
@@ -313,7 +313,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "trainingParticipants"]
   },
   {
-    id: "pbi_training_dev",
+    key: "pbi_training_dev",
     family: "Data Knowledge",
     name: "Power BI Entwickler-Schulung",
     shortDescription: "Fortgeschrittene Schulung für Power BI Entwickler. Datenmodellierung, DAX und komplexe Berichte.",
@@ -350,7 +350,7 @@ export const deliverables: Deliverable[] = [
 
   // Data Strategy
   {
-    id: "strategy_sprint",
+    key: "strategy_sprint",
     family: "Data Strategy",
     name: "Datenstrategie Sprint",
     shortDescription: "Entwicklung einer klaren Strategie für den Umgang mit Daten. Roadmap für die nächsten Jahre.",
@@ -382,7 +382,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed"]
   },
   {
-    id: "roadmap",
+    key: "roadmap",
     family: "Data Strategy",
     name: "Daten-Roadmap",
     shortDescription: "Detaillierte Roadmap für Ihre Dateninitiativen. Klare Prioritäten und Meilensteine.",
@@ -416,7 +416,7 @@ export const deliverables: Deliverable[] = [
 
   // Governance & Culture
   {
-    id: "governance_starter",
+    key: "governance_starter",
     family: "Governance & Culture",
     name: "Data Governance Starter",
     shortDescription: "Grundlegende Data Governance Struktur. Verantwortlichkeiten, Prozesse und Standards.",
@@ -448,7 +448,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "securityLevel"]
   },
   {
-    id: "iam_concept",
+    key: "iam_concept",
     family: "Governance & Culture",
     name: "IAM Konzept",
     shortDescription: "Konzept für Identity und Access Management. Sicherer und kontrollierter Zugriff auf Daten und Systeme.",
@@ -480,7 +480,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "securityLevel"]
   },
   {
-    id: "roles_rights_impl",
+    key: "roles_rights_impl",
     family: "Governance & Culture",
     name: "Umsetzung von Rechte- & Rollenkonzepten",
     shortDescription: "Technische Umsetzung von Zugriffsrechten und Rollen. Sicherer Datenzugriff nach dem Prinzip der geringsten Rechte.",
@@ -514,7 +514,7 @@ export const deliverables: Deliverable[] = [
 
   // AI & Data Science
   {
-    id: "forecast_model",
+    key: "forecast_model",
     family: "AI & Data Science",
     name: "Forecasting-Modell",
     shortDescription: "Vorhersagemodell für Ihre Geschäftskennzahlen. Realistischere Prognosen für Planung und Budgetierung.",
@@ -547,7 +547,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "dataSources"]
   },
   {
-    id: "churn_model",
+    key: "churn_model",
     family: "AI & Data Science",
     name: "Churn Prevention Modell",
     shortDescription: "Früherkennung von Kunden mit Abwanderungsrisiko. Rechtzeitige Maßnahmen zur Kundenbindung.",
@@ -580,7 +580,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "dataSources"]
   },
   {
-    id: "anomaly_detection",
+    key: "anomaly_detection",
     family: "AI & Data Science",
     name: "Anomaly Detection",
     shortDescription: "Automatische Erkennung von Anomalien in Daten. Früherkennung von Problemen und Betrug.",
@@ -613,7 +613,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "dataSources"]
   },
   {
-    id: "predictive_maintenance",
+    key: "predictive_maintenance",
     family: "AI & Data Science",
     name: "Predictive Maintenance",
     shortDescription: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig – nicht zu früh, nicht zu spät.",
@@ -646,7 +646,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "dataSources"]
   },
   {
-    id: "qa_ai",
+    key: "qa_ai",
     family: "AI & Data Science",
     name: "Quality Assurance AI",
     shortDescription: "Automatische Qualitätsprüfung mit KI. Früherkennung von Fehlern, weniger Ausschuss.",
@@ -681,7 +681,7 @@ export const deliverables: Deliverable[] = [
 
   // Enterprise Architecture
   {
-    id: "target_architecture",
+    key: "target_architecture",
     family: "Enterprise Architecture",
     name: "Target Architecture",
     shortDescription: "Zielarchitektur für Ihre Datenlandschaft. Klare Vision für die Zukunft.",
@@ -715,7 +715,7 @@ export const deliverables: Deliverable[] = [
 
   // Data Operations
   {
-    id: "bi_factory",
+    key: "bi_factory",
     family: "Data Operations",
     name: "BI Factory",
     shortDescription: "Skalierbare Prozesse für die Erstellung von BI-Lösungen. Schnellere Entwicklung, höhere Qualität.",
@@ -747,7 +747,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "reportComplexity"]
   },
   {
-    id: "monitoring_ops",
+    key: "monitoring_ops",
     family: "Data Operations",
     name: "Monitoring & Operations",
     shortDescription: "Umfassendes Monitoring für Ihre Dateninfrastruktur. Proaktive Fehlererkennung, höhere Verfügbarkeit.",
@@ -779,7 +779,7 @@ export const deliverables: Deliverable[] = [
     parameters: ["companySize", "speed", "securityLevel", "deployment"]
   },
   {
-    id: "retainer",
+    key: "retainer",
     family: "Data Operations",
     name: "Data Operations Retainer",
     shortDescription: "Laufende Unterstützung für Ihre Dateninfrastruktur. Kontinuierliche Optimierung und schnelle Reaktion auf Probleme.",
@@ -813,8 +813,8 @@ export const deliverables: Deliverable[] = [
 ];
 
 // Helper-Funktionen
-export function getDeliverableById(id: string): Deliverable | undefined {
-  return deliverables.find(d => d.id === id);
+export function getDeliverableById(key: string): Deliverable | undefined {
+  return deliverables.find(d => d.key === key);
 }
 
 export function getDeliverablesByFamily(family: DeliverableFamily): Deliverable[] {
@@ -828,3 +828,5 @@ export function getActiveDeliverables(): Deliverable[] {
 export function getComingSoonDeliverables(): Deliverable[] {
   return deliverables.filter(d => !d.active);
 }
+
+

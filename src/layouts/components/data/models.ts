@@ -22,12 +22,12 @@ export interface Parameter {
     type: 'multiplier' | 'additive';
     values: Record<string, number>; // value -> factor oder add-on
   };
-  applicableTo?: string[]; // deliverable IDs, wenn leer dann für alle
+  applicableTo?: string[]; // deliverable keys, wenn leer dann für alle
 }
 
 // Deliverable (kaufbares Produktpaket)
 export interface Deliverable {
-  id: string;
+  key: string;
   name: string;
   family: ProductFamily;
   shortDescription: string;

@@ -4,7 +4,7 @@ import type { Deliverable, UseCase } from './models';
 export const deliverables: Deliverable[] = [
   // BI & Analytics
   {
-    id: 'del-1',
+    key: 'del-1',
     name: 'BI Fix & Fertig Setup',
     family: 'BI & Analytics',
     shortDescription: 'Komplettes Business Intelligence Setup mit Power BI, Dashboards und erster Datenanbindung. Sofort einsatzbereit.',
@@ -24,7 +24,7 @@ export const deliverables: Deliverable[] = [
     outOfScope: 'Komplexe Datenmodellierung, ETL-Entwicklung, umfangreiche Schulungen (>2h), On-Premise Installation (gegen Aufpreis möglich)'
   },
   {
-    id: 'del-2',
+    key: 'del-2',
     name: 'KPI Definition Workshop',
     family: 'BI & Analytics',
     shortDescription: 'Gemeinsame Definition Ihrer wichtigsten Kennzahlen und Erfolgsmessung. Klarheit über das, was wirklich zählt.',
@@ -44,7 +44,7 @@ export const deliverables: Deliverable[] = [
     outOfScope: 'Technische Umsetzung der KPIs, Datenqualitätsprüfung, umfangreiche Datenanalyse'
   },
   {
-    id: 'del-3',
+    key: 'del-3',
     name: 'Erster Management-Bericht',
     family: 'BI & Analytics',
     shortDescription: 'Professioneller Management-Bericht mit den wichtigsten Kennzahlen. Übersichtlich, verständlich, handlungsorientiert.',
@@ -64,7 +64,7 @@ export const deliverables: Deliverable[] = [
     outOfScope: 'KPI-Definition, Datenqualitätsprüfung, komplexe Datenmodellierung, mehrere Berichtsvarianten'
   },
   {
-    id: 'del-4',
+    key: 'del-4',
     name: 'Reporting-Struktur (Templates & Standards)',
     family: 'BI & Analytics',
     shortDescription: 'Einheitliche Berichtsvorlagen und Standards für Ihr gesamtes Unternehmen. Konsistenz und Effizienz.',
@@ -86,7 +86,7 @@ export const deliverables: Deliverable[] = [
 
   // Data Architecture
   {
-    id: 'del-5',
+    key: 'del-5',
     name: 'Zentrale Datenablage Starter (DWH/Lakehouse Light)',
     family: 'Data Architecture',
     shortDescription: 'Grundlegende zentrale Datenablage für strukturierte und unstrukturierte Daten. Solide Basis für Analytics.',
@@ -107,7 +107,7 @@ export const deliverables: Deliverable[] = [
     outOfScope: 'Umfangreiche Datenbereinigung, komplexe Datenmodellierung, Migration historischer Daten, 24/7 Support'
   },
   {
-    id: 'del-6',
+    key: 'del-6',
     name: 'Datenquellen- & Integrationsanalyse',
     family: 'Data Architecture',
     shortDescription: 'Systematische Analyse Ihrer Datenquellen und Empfehlungen für Integration. Klarheit über Ihre Datenlandschaft.',
@@ -130,7 +130,7 @@ export const deliverables: Deliverable[] = [
 
   // Data Knowledge
   {
-    id: 'del-7',
+    key: 'del-7',
     name: 'KPI & Daten-Glossar Sprint',
     family: 'Data Knowledge',
     shortDescription: 'Zentrales Glossar mit allen Kennzahlen, Datenfeldern und Definitionen. Gemeinsames Verständnis im Unternehmen.',
@@ -150,7 +150,7 @@ export const deliverables: Deliverable[] = [
     outOfScope: 'KPI-Definition (empfohlen: KPI Definition Workshop), technische Integration in Systeme, umfangreiche Datenanalyse'
   },
   {
-    id: 'del-8',
+    key: 'del-8',
     name: 'Power BI Anwender-Schulung',
     family: 'Data Knowledge',
     shortDescription: 'Praktische Schulung für Ihre Mitarbeiter. Selbstständig Berichte erstellen und Daten analysieren.',
@@ -202,7 +202,7 @@ export const useCases: UseCase[] = [
 
 // Helper: Deliverable nach ID finden
 export function getDeliverableById(id: string): Deliverable | undefined {
-  return deliverables.find(d => d.id === id);
+  return deliverables.find(d => d.key === id);
 }
 
 // Helper: Use Case nach ID finden

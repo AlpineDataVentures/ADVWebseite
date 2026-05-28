@@ -1139,9 +1139,9 @@ const rawUseCases: UseCase[] = [
 
   // Research & Development
   {
-    key: "simulierung-experimente",
+    key: "simulation-experimente",
     domain: "rnd",
-    title: "Simulierung von Experimenten",
+    title: "Simulation von Experimenten",
     short: "Virtuelle Durchführung von Experimenten vor der Realität. Schnellere Entwicklung, weniger Kosten.",
     tags: {
       intent: ["insights", "scale"],

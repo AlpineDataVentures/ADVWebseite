@@ -42,7 +42,7 @@ export function DeliverableCard({
   const isActive = deliverable.active;
   const isDisabled = !isActive;
 
-  const Icon = getDeliverableIcon(deliverable.id);
+  const Icon = getDeliverableIcon(deliverable.key);
   const quickOutputs = deliverable.deliverablesOutput.slice(0, 2);
   const limitedOutputs = deliverable.deliverablesOutput.slice(0, 5);
   const limitedAssumptions = deliverable.assumptions.slice(0, 3);
@@ -156,7 +156,7 @@ export function DeliverableCard({
       <CardContent className="pt-0 px-6 pb-6">
         {/* Details Accordion */}
         <Accordion type="single" collapsible>
-          <AccordionItem value={`details-${deliverable.id}`} className="border-0">
+          <AccordionItem value={`details-${deliverable.key}`} className="border-0">
             <AccordionTrigger
               className="text-xs py-2 hover:no-underline"
               aria-label={`Details zu ${deliverable.name} ein- oder ausklappen`}

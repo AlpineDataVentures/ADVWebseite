@@ -112,7 +112,7 @@ export function UseCaseCard({ useCase, onSelect }: UseCaseCardProps) {
             </p>
             <ul className="space-y-1.5">
               {deliverablesList.map((deliverable) => (
-                <li key={deliverable.id} className="flex items-start gap-2 text-sm">
+                <li key={deliverable.key} className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-4 w-4 text-[hsl(var(--accent))] mt-0.5 shrink-0" />
                   <span className="text-[hsl(var(--muted))]">{deliverable.name}</span>
                 </li>

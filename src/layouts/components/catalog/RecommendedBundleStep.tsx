@@ -51,7 +51,7 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
   const enabledCount = recommendations.filter(rec => {
     const deliverable = getDeliverableById(rec.deliverableId);
     if (!deliverable) return false;
-    return selectedDeliverables[deliverable.id]?.enabled || false;
+    return selectedDeliverables[deliverable.key]?.enabled || false;
   }).length;
 
   const handleToggle = (deliverableId: string, enabled: boolean) => {
@@ -119,15 +119,15 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
           {coreDeliverables.map((recommendation) => {
             const deliverable = getDeliverableById(recommendation.deliverableId);
             if (!deliverable) return null;
-            const isEnabled = selectedDeliverables[deliverable.id]?.enabled || false;
+            const isEnabled = selectedDeliverables[deliverable.key]?.enabled || false;
 
             return (
               <DeliverableCard
-                key={deliverable.id}
+                key={deliverable.key}
                 deliverable={deliverable}
                 recommendation={recommendation}
                 isEnabled={isEnabled}
-                onToggle={(enabled) => handleToggle(deliverable.id, enabled)}
+                onToggle={(enabled) => handleToggle(deliverable.key, enabled)}
               />
             );
           })}
@@ -136,15 +136,15 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
           {optionalDeliverables.map((recommendation) => {
             const deliverable = getDeliverableById(recommendation.deliverableId);
             if (!deliverable || !deliverable.active) return null; // Skip coming soon in optional
-            const isEnabled = selectedDeliverables[deliverable.id]?.enabled || false;
+            const isEnabled = selectedDeliverables[deliverable.key]?.enabled || false;
 
             return (
               <DeliverableCard
-                key={deliverable.id}
+                key={deliverable.key}
                 deliverable={deliverable}
                 recommendation={recommendation}
                 isEnabled={isEnabled}
-                onToggle={(enabled) => handleToggle(deliverable.id, enabled)}
+                onToggle={(enabled) => handleToggle(deliverable.key, enabled)}
               />
             );
           })}
@@ -156,7 +156,7 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
 
             return (
               <DeliverableCard
-                key={deliverable.id}
+                key={deliverable.key}
                 deliverable={deliverable}
                 recommendation={recommendation}
                 isEnabled={false}

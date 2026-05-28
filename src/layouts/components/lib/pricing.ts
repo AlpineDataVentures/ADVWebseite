@@ -172,7 +172,7 @@ export function calculateDeliverablePrice(
  * Berechnet den Preis für ein Cart-Item
  */
 export function calculateCartItemPrice(cartItem: CartItem): PriceCalculationResult {
-  const deliverable = deliverables.find(d => d.id === cartItem.deliverableId);
+  const deliverable = deliverables.find(d => d.key === cartItem.deliverableId);
   if (!deliverable) {
     return {
       total: 0,
@@ -235,7 +235,7 @@ export function formatPrice(price: number): string {
  * Gibt ein Deliverable nach ID zurück
  */
 export function getDeliverableById(deliverableId: string): Deliverable | undefined {
-  return deliverables.find(d => d.id === deliverableId);
+  return deliverables.find(d => d.key === deliverableId);
 }
 
 /**

@@ -25,7 +25,7 @@ export function DeliverablePricePreview({
   initialParameters,
   showConfigurator = true
 }: DeliverablePricePreviewProps) {
-  const applicableParameters = getParametersForDeliverable(deliverable.id);
+  const applicableParameters = getParametersForDeliverable(deliverable.key);
   
   // State für Parameter mit Defaults
   const [parameters, setParameters] = useState<DeliverableParameters>(() => {
@@ -121,7 +121,7 @@ export function DeliverablePricePreview({
 
       {/* Preisaufschlüsselung */}
       <PriceBreakdown 
-        deliverableId={deliverable.id}
+        deliverableId={deliverable.key}
         parameters={parameters}
         showDetails={true}
       />
