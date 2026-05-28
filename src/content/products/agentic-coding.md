@@ -31,7 +31,7 @@ collaboration_steps:
   - title: "Implementierung & Leitplanken"
     text: "Wir richten gemeinsam die Umgebung ein und definieren Governance-Regeln, um Code-Qualität und Datenschutz sicherzustellen"
   - title: "Enablement & Verankerung"
-    text: "Wir intergrieren die KI in ihre Entwicklungsumgebung und schulen Ihre Entwickler in der performanten Nutzung."
+    text: "Wir integrieren die KI in ihre Entwicklungsumgebung und schulen Ihre Entwickler in der performanten Nutzung."
 delivery:
   technologies:
     - "GitHub CoPilot"
