@@ -1,4 +1,4 @@
-export type UseCaseDomain = 
+export type UseCaseDomain =
   | "general_mgmt"
   | "it_data"
   | "finance"
@@ -36,7 +36,6 @@ export type SolutionClusterTag =
 
 export interface UseCase {
   key: string;
-  slug?: string;
   domain: UseCaseDomain;
   title: string;
   short: string; // 1–2 Zeilen, kundenverständlich
@@ -147,7 +146,6 @@ const rawUseCases: UseCase[] = [
   },
   {
     key: "data-catalog",
-    slug: "data-catalog",
     domain: "general_mgmt",
     title: "Data Catalog",
     short: "Einführung eines Data Catalogs für Transparenz über Datenobjekte, Verantwortliche und Definitionen.",
@@ -196,7 +194,6 @@ const rawUseCases: UseCase[] = [
   },
   {
     key: "management-dashboard",
-    slug: "management-dashboard",
     domain: "general_mgmt",
     title: "Management Dashboard",
     short: "Zentrale Übersicht aller wichtigen Kennzahlen für die Geschäftsführung. Schnelle Entscheidungen basierend auf aktuellen Daten.",
@@ -720,7 +717,6 @@ const rawUseCases: UseCase[] = [
   },
   {
     key: "controlling-via-bi",
-    slug: "controlling-via-bi",
     domain: "finance",
     title: "Controlling via BI",
     short: "Moderne Controlling-Berichte in BI. Echtzeit-Übersicht über Kosten, Budgets und Abweichungen.",
@@ -768,7 +764,6 @@ const rawUseCases: UseCase[] = [
   // Sales & Marketing
   {
     key: "sales-dashboard",
-    slug: "sales-dashboard",
     domain: "sales_marketing",
     title: "Sales Dashboard",
     short: "Echtzeit-Übersicht über Verkäufe, Pipeline und Performance. Schnelle Entscheidungen basierend auf aktuellen Daten.",
@@ -1793,9 +1788,8 @@ const defaultBestForByDomain: Record<UseCaseDomain, string[]> = {
   risk_compliance: ["Risk", "Compliance"],
 };
 
-const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<UseCase["details"]> }> = {
+const curatedUseCaseData: Record<string, { details: NonNullable<UseCase["details"]> }> = {
   "data-ai-leadership": {
-    slug: "data-ai-leadership",
     details: {
       problem: "Führungsteams treiben Data- und KI-Initiativen ohne einheitliche Steuerungslogik und klare Verantwortungen.",
       typicalResult: "Ein belastbares Führungsmodell mit klaren Entscheidungswegen, KPIs und Verantwortlichkeiten.",
@@ -1804,7 +1798,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "data-catalog": {
-    slug: "data-catalog",
     details: {
       problem: "Begriffe, Datenobjekte und Verantwortlichkeiten sind verteilt oder uneinheitlich dokumentiert.",
       typicalResult: "Ein zentraler, gepflegter Katalog mit klaren Definitionen und eindeutigen Verantwortlichkeiten.",
@@ -1813,7 +1806,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "data-mesh-organisation": {
-    slug: "data-mesh-organisation",
     details: {
       problem: "Domänen arbeiten mit Daten, aber Ownership, Standards und Verantwortung sind nicht klar geregelt.",
       typicalResult: "Ein Data-Mesh-Betriebsmodell mit klaren Rollen, Verantwortungen und Umsetzungsfahrplan.",
@@ -1822,7 +1814,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "datenstrategie": {
-    slug: "datenstrategie",
     details: {
       problem: "Es fehlen priorisierte Dateninitiativen, ein klares Zielbild und eine umsetzbare Reihenfolge.",
       typicalResult: "Eine abgestimmte Datenstrategie mit priorisierter Roadmap und messbaren Business-Zielen.",
@@ -1831,7 +1822,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "dsgvo-dsb": {
-    slug: "dsgvo-dsb",
     details: {
       problem: "Datenschutzanforderungen sind verteilt umgesetzt und im Alltag schwer auditierbar nachweisbar.",
       typicalResult: "Ein praktikables DSGVO-Setup mit klaren Rollen, Nachweisen und definierten Prozessen.",
@@ -1840,7 +1830,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   iam: {
-    slug: "iam",
     details: {
       problem: "Zugriffsrechte sind historisch gewachsen, inkonsistent und nur eingeschränkt auditierbar.",
       typicalResult: "Ein strukturiertes IAM-Zielbild mit rollenbasierten Rechten und klaren Governance-Prozessen.",
@@ -1849,7 +1838,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   dwh: {
-    slug: "dwh",
     details: {
       problem: "Reporting basiert auf fragmentierten Quellen, manuellen Extracts und uneinheitlicher Datenlogik.",
       typicalResult: "Ein stabiles Data-Warehouse-Fundament als Single Source of Truth für Analytics und Reporting.",
@@ -1858,7 +1846,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "data-lake": {
-    slug: "data-lake",
     details: {
       problem: "Unstrukturierte und strukturierte Daten sind nicht zentral nutzbar und schwer governbar.",
       typicalResult: "Ein skalierbares Data-Lake/Lakehouse-Fundament mit klaren Ingestion- und Governance-Regeln.",
@@ -1867,7 +1854,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "management-dashboard": {
-    slug: "management-dashboard",
     details: {
       problem: "Management-Entscheidungen basieren auf verstreuten Reports und verspäteten Kennzahlen.",
       typicalResult: "Ein zentrales Steuerungsdashboard mit konsistenten KPIs und schneller Entscheidungsgrundlage.",
@@ -1876,7 +1862,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "sales-dashboard": {
-    slug: "sales-dashboard",
     details: {
       problem: "Vertrieb und Management haben keine einheitliche, aktuelle Sicht auf Pipeline und Performance.",
       typicalResult: "Ein Sales-Dashboard mit klaren KPIs, Pipeline-Transparenz und automatischen Updates.",
@@ -1885,7 +1870,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "itsm-analytics": {
-    slug: "itsm-analytics",
     details: {
       problem: "Servicequalität und SLA-Erfüllung werden mit isolierten Reports statt übergreifender Transparenz gesteuert.",
       typicalResult: "Ein ITSM-Cockpit mit Ticket-, SLA- und Ursachenanalysen für datenbasierte Steuerung.",
@@ -1894,7 +1878,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "ai-helpdeskassistent": {
-    slug: "ai-helpdeskassistent",
     details: {
       problem: "Support-Teams bearbeiten wiederkehrende Anfragen manuell und verlieren Zeit bei Erstlösungen.",
       typicalResult: "Ein KI-Assistent unterstützt Agenten mit Lösungsvorschlägen und reduziert Bearbeitungszeiten.",
@@ -1903,7 +1886,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "helpdesk-automation": {
-    slug: "intelligentes-ticket-routing",
     details: {
       problem: "Tickets landen häufig im falschen Team und verursachen unnötige Weiterleitungen und SLA-Risiken.",
       typicalResult: "Automatisiertes Routing mit klarer Priorisierung und transparenter SLA-Steuerung.",
@@ -1912,7 +1894,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "automatisierte-rechnungsverarbeitung": {
-    slug: "automatisierte-rechnungsverarbeitung",
     details: {
       problem: "Rechnungsprüfung und Freigaben sind manuell, fehleranfällig und verursachen lange Durchlaufzeiten.",
       typicalResult: "Ein automatisierter Rechnungseingangsprozess mit transparentem Status und kürzeren Bearbeitungszeiten.",
@@ -1921,7 +1902,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "ki-preisueberwachung": {
-    slug: "ki-preisueberwachung",
     details: {
       problem: "Preisänderungen und Beschaffungsrisiken werden zu spät erkannt und nur manuell ausgewertet.",
       typicalResult: "Kontinuierliche Preisüberwachung mit Frühwarnungen und klaren Handlungsempfehlungen.",
@@ -1930,7 +1910,6 @@ const curatedUseCaseData: Record<string, { slug: string; details: NonNullable<Us
     },
   },
   "ai-video-qualitaetsanalyse": {
-    slug: "ai-video-qualitaetsanalyse",
     details: {
       problem: "Visuelle Qualitätsprüfungen sind personalintensiv und Inkonsistenzen werden zu spät erkannt.",
       typicalResult: "KI-gestützte Videoanalyse erkennt Qualitätsabweichungen frühzeitig und reduziert Ausschuss.",
@@ -1954,7 +1933,6 @@ export const useCases: UseCase[] = rawUseCases.map((useCase) => {
   const curated = curatedUseCaseData[useCase.key];
   return {
     ...useCase,
-    slug: curated?.slug ?? useCase.slug ?? useCase.key,
     solution_cluster: resolvedCluster,
     portfolio_area: resolvedPortfolio,
     priority: useCase.priority ?? "normal",

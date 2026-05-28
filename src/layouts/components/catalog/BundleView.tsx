@@ -77,7 +77,7 @@ export function BundleView({ useCaseId, onNext, onBack }: BundleViewProps) {
     bestFor: defaultBestForByDomain[useCase.domain] ?? ["Fachbereiche mit konkretem Entscheidungsbedarf"],
   };
   const details = useCase.details ?? fallbackDetails;
-  const useCaseHref = `/use-cases/${useCase.slug ?? useCase.key}`;
+  const useCaseHref = `/use-cases/${useCase.key}`;
 
   return (
     <div className="space-y-6">
