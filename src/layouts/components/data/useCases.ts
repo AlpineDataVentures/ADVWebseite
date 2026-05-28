@@ -73,9 +73,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "Strategiedokument mit Zielbild",
-      "Priorisierte Umsetzungsroadmap",
-      "Rollen- und Governance-Rahmen"
+      "Zielbild & Strategiepapier",
+      "Priorisierte Roadmap",
+      "Rollen- und Governance-Modell"
     ]
   },
   {
@@ -93,9 +93,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "governance"]
     },
     outputs: [
-      "KI-Zielbild und Leitplanken",
-      "Priorisierte KI-Use-Case-Liste",
-      "Roadmap mit Quick Wins"
+      "Zielbild & Strategiepapier",
+      "Priorisierte Maßnahmenliste",
+      "Priorisierte Roadmap"
     ]
   },
   {
@@ -113,9 +113,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "bi"]
     },
     outputs: [
-      "Reifegradbericht je Handlungsfeld",
-      "Gap-Analyse mit Handlungsbedarf",
-      "Priorisierte Maßnahmenliste"
+      "Gap- und Reifegradanalyse",
+      "Priorisierte Maßnahmenliste",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -133,9 +133,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "dwh"]
     },
     outputs: [
-      "Organisationsmodell für Data Mesh",
-      "Rollen- und Verantwortungsmodell",
-      "Einführungsplan je Domäne"
+      "KI-Modell (Pilot)",
+      "Rollen- und Governance-Modell",
+      "Priorisierte Roadmap"
     ]
   },
   {
@@ -153,9 +153,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "Strukturierter Data Catalog",
-      "Business Glossar mit Kernbegriffen",
-      "Data-Owner-Zuordnung"
+      "Data Catalog & Glossar",
+      "Zielbild & Strategiepapier",
+      "Priorisierte Roadmap"
     ],
     details: {
       problem: "Begriffe, Datenobjekte und Verantwortlichkeiten sind verteilt oder uneinheitlich dokumentiert.",
@@ -179,9 +179,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "ai"]
     },
     outputs: [
-      "Leadership-Leitbild für Data & AI",
-      "Steuerungscadence mit KPIs",
-      "Entscheidungs- und Eskalationsmodell"
+      "Zielbild & Strategiepapier",
+      "Rollen- und Governance-Modell",
+      "Priorisierte Roadmap"
     ]
   },
   {
@@ -199,9 +199,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Interaktives Management-Dashboard mit allen KPIs",
-      "Automatisierte Datenaktualisierung (täglich/wöchentlich)",
-      "PDF-Export für Präsentationen"
+      "KPI-Definition & Kennzahlenkatalog",
+      "Automatisierter Workflow",
+      "Fachbereichs-Reporting"
     ],
     details: {
       problem: "Management-Entscheidungen basieren auf verstreuten Reports und verspäteten Kennzahlen.",
@@ -222,9 +222,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Standardisierte Report-Vorlagen für alle Bereiche",
-      "Zentrale Datenquelle für konsistente Berichte",
-      "Automatisierte Verteilung an Verantwortliche"
+      "Fachbereichs-Reporting",
+      "Rollen- und Governance-Modell",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -242,9 +242,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi", "integration"]
     },
     outputs: [
-      "Konfigurierbare Schwellenwerte für Alarme",
-      "E-Mail- und App-Benachrichtigungen",
-      "Dashboard mit aktuellen Alarmen"
+      "Monitoring- & Alerting-Setup",
+      "Management-Dashboard",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -259,9 +259,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "Schulungsunterlagen zu Datenqualität und -sicherheit",
-      "Praktische Übungen und Best Practices",
-      "Zertifikat für Teilnehmer"
+      "Schulungs- und Enablement-Paket",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -276,9 +276,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "Change-Management-Plan für Datenprojekte",
-      "Schulungen und Workshops für betroffene Teams",
-      "Begleitung während der Einführungsphase"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Schulungs- und Enablement-Paket",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -293,9 +293,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "Dokumentierte Datenstrategie mit Zielen und Maßnahmen",
-      "Roadmap für die Umsetzung",
-      "Empfehlungen für Technologie und Prozesse"
+      "Zielbild & Strategiepapier",
+      "Priorisierte Roadmap",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -310,9 +310,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "dwh"]
     },
     outputs: [
-      "Konzept für Data Mesh Architektur",
-      "Pilot-Implementierung in einem Bereich",
-      "Leitfaden für die Skalierung"
+      "Zielarchitektur & Datenmodell",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -327,9 +327,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "dwh", "integration"]
     },
     outputs: [
-      "Skalierungsplan für alle Bereiche",
-      "Zentrale Governance-Struktur",
-      "Schulungen für Data Product Owner"
+      "Priorisierte Roadmap",
+      "Rollen- und Governance-Modell",
+      "Schulungs- und Enablement-Paket"
     ]
   },
 
@@ -349,9 +349,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
-      "DWH-Architektur und Datenmodell",
-      "Angebundene Kernquellen",
-      "Betriebsfähige Datenpipelines"
+      "Zielarchitektur & Datenmodell",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Datenpipeline- und Integrationssetup"
     ]
   },
   {
@@ -369,9 +369,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
-      "Data-Lake-Zielarchitektur",
-      "Ingestion- und Governance-Konzept",
-      "Pilotanbindungen kritischer Quellen"
+      "Zielarchitektur & Datenmodell",
+      "Rollen- und Governance-Modell",
+      "Datenpipeline- und Integrationssetup"
     ]
   },
   {
@@ -389,9 +389,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "integration"]
     },
     outputs: [
-      "Architekturprinzipien und Zielbild",
-      "Capability- und Systemlandkarte",
-      "Roadmap für Architekturmaßnahmen"
+      "Zielbild & Strategiepapier",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Roadmap"
     ]
   },
   {
@@ -409,9 +409,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "dwh", "integration"]
     },
     outputs: [
-      "AI-Referenzarchitektur",
-      "Betriebsmodell für Modelle",
-      "Implementierungsfahrplan"
+      "Zielarchitektur & Datenmodell",
+      "Betriebs- und Supportmodell",
+      "Priorisierte Roadmap"
     ]
   },
   {
@@ -429,8 +429,8 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "governance"]
     },
     outputs: [
-      "Sicherheits- und Betriebskonzept",
-      "Architektur für souveräne KI",
+      "Betriebs- und Supportmodell",
+      "Zielarchitektur & Datenmodell",
       "Risiko- und Maßnahmenkatalog"
     ]
   },
@@ -449,9 +449,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "dwh"]
     },
     outputs: [
-      "Architekturprinzipien für Datensouveränität",
-      "Datenzugriffs- und Schutzkonzept",
-      "Umsetzungsroadmap"
+      "Zielarchitektur & Datenmodell",
+      "Sicherheits- und Zugriffskonzept",
+      "Priorisierte Roadmap"
     ]
   },
   {
@@ -469,9 +469,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["integration", "governance"]
     },
     outputs: [
-      "DataOps-Prozessmodell",
-      "Qualitäts- und Release-Gates",
-      "Monitoring- und Incident-Ablauf"
+      "KI-Modell (Pilot)",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
@@ -489,9 +489,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["integration", "governance"]
     },
     outputs: [
-      "Support- und Wartungsmodell",
-      "SLA-/SLO-Definition",
-      "Runbooks für kritische Abläufe"
+      "Betriebs- und Supportmodell",
+      "Zielarchitektur & Datenmodell",
+      "Datenpipeline- und Integrationssetup"
     ]
   },
   {
@@ -509,9 +509,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "integration"]
     },
     outputs: [
-      "MDM-Zielbild und Domänenmodell",
-      "Governance für Stammdaten",
-      "Einführungsplan mit Prioritäten"
+      "Zielbild & Strategiepapier",
+      "Rollen- und Governance-Modell",
+      "Priorisierte Roadmap"
     ]
   },
   {
@@ -526,9 +526,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
-      "Installierte und konfigurierte Dateninfrastruktur",
-      "Anbindung an wichtige Datenquellen",
-      "Dokumentation und Schulung für Administratoren"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Datenpipeline- und Integrationssetup",
+      "Dokumentations- und Nachweispaket"
     ]
   },
   {
@@ -546,9 +546,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Installiertes und konfiguriertes BI-System",
-      "Anbindung an 1-3 Datenquellen",
-      "3-5 Basis-Dashboards nach Ihren Anforderungen"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Datenpipeline- und Integrationssetup",
+      "Management-Dashboard"
     ]
   },
   {
@@ -566,9 +566,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["integration", "ai"]
     },
     outputs: [
-      "Automatisierte Ticket-Kategorisierung",
-      "Workflow-Automatisierung für Standardfälle",
-      "Dashboard für Helpdesk-Metriken"
+      "Automatisierter Workflow",
+      "Management-Dashboard",
+      "Zielarchitektur & Datenmodell"
     ]
   },
   {
@@ -586,9 +586,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "ML-Modell für Anomalie-Erkennung",
-      "Dashboard mit erkannten Anomalien",
-      "Automatische Benachrichtigungen bei Auffälligkeiten"
+      "Anomalieerkennung",
+      "Management-Dashboard",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
@@ -603,9 +603,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["integration", "governance"]
     },
     outputs: [
-      "API-Gateway mit Authentifizierung",
-      "Dokumentation aller verfügbaren APIs",
-      "Monitoring und Logging-System"
+      "Sicherheits- und Zugriffskonzept",
+      "Dokumentations- und Nachweispaket",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
@@ -620,9 +620,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
-      "Implementiertes Data Warehouse",
-      "ETL-Prozesse für regelmäßige Datenaktualisierung",
-      "Datenmodell für Kernbereiche"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Datenpipeline- und Integrationssetup",
+      "Zielarchitektur & Datenmodell"
     ]
   },
   {
@@ -637,9 +637,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["integration", "dwh"]
     },
     outputs: [
-      "Konfigurierte Azure Data Factory",
-      "Erste Datenpipelines für wichtige Quellen",
-      "Monitoring und Fehlerbehandlung"
+      "Datenpipeline- und Integrationssetup",
+      "Monitoring- & Alerting-Setup",
+      "Zielarchitektur & Datenmodell"
     ]
   },
 
@@ -656,9 +656,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Migrierte Berichte in BI-System",
-      "Automatisierte Datenaktualisierung",
-      "Schulung für Finanzteam"
+      "Fachbereichs-Reporting",
+      "Automatisierter Workflow",
+      "Schulungs- und Enablement-Paket"
     ]
   },
   {
@@ -676,9 +676,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Forecasting-Modell für Finanzergebnisse",
-      "Dashboard mit Prognosen und Szenarien",
-      "Automatisierte Aktualisierung der Vorhersagen"
+      "Forecasting-Modell",
+      "Management-Dashboard",
+      "KPI-Definition & Kennzahlenkatalog"
     ]
   },
   {
@@ -696,9 +696,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Controlling-Dashboard mit allen Kennzahlen",
-      "Budget- vs. Ist-Vergleiche",
-      "Automatisierte Abweichungsanalysen"
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Automatisierter Workflow"
     ],
     details: {
       problem: "Controlling benötigt zu viel manuelle Aufbereitung und liefert keine aktuelle Sicht auf Abweichungen.",
@@ -719,9 +719,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi", "ai"]
     },
     outputs: [
-      "Planungsmodelle basierend auf historischen Daten",
-      "Szenario-Analysen für verschiedene Planungsvarianten",
-      "Dashboard für Plan-Ist-Vergleiche"
+      "KI-Modell (Pilot)",
+      "Szenario- und Simulationsanalyse",
+      "Management-Dashboard"
     ]
   },
 
@@ -741,9 +741,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Interaktives Sales-Dashboard",
-      "Pipeline-Übersicht mit Wahrscheinlichkeiten",
-      "Automatisierte Aktualisierung aus CRM"
+      "Management-Dashboard",
+      "Datenpipeline- und Integrationssetup",
+      "Automatisierter Workflow"
     ],
     details: {
       problem: "Vertrieb und Management haben keine einheitliche, aktuelle Sicht auf Pipeline und Performance.",
@@ -764,9 +764,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Standardisierte Sales-Reports",
-      "Automatisierte Verteilung an Verantwortliche",
-      "Vergleichsanalysen (Monat, Quartal, Jahr)"
+      "Fachbereichs-Reporting",
+      "Rollen- und Governance-Modell",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -784,9 +784,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Forecasting-Modell für Verkäufe",
-      "Dashboard mit Prognosen und Konfidenzintervallen",
-      "Automatisierte Aktualisierung basierend auf Pipeline"
+      "Forecasting-Modell",
+      "Management-Dashboard",
+      "Datenpipeline- und Integrationssetup"
     ]
   },
   {
@@ -801,9 +801,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Analyse-Modell für Verkaufspotenziale",
-      "Dashboard mit identifizierten Chancen",
-      "Priorisierte Liste für Vertriebsteam"
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Priorisierte Maßnahmenliste"
     ]
   },
   {
@@ -821,9 +821,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "ML-Modell zur Churn-Vorhersage",
-      "Dashboard mit Risiko-Kunden",
-      "Automatische Benachrichtigungen bei hohem Risiko"
+      "Forecasting-Modell",
+      "Management-Dashboard",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
@@ -841,9 +841,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Analyse-Tools für Marketing-Performance",
-      "Segmentierungsmodelle für Zielgruppen",
-      "Dashboard für Kampagnen-Erfolg"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KI-Modell (Pilot)",
+      "Management-Dashboard"
     ]
   },
   {
@@ -861,9 +861,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["integration", "ai"]
     },
     outputs: [
-      "Automatisierte Workflows für Customer Success",
-      "Dashboard mit Kunden-Gesundheits-Score",
-      "Automatische Benachrichtigungen bei Auffälligkeiten"
+      "Automatisierter Workflow",
+      "Management-Dashboard",
+      "Monitoring- & Alerting-Setup"
     ]
   },
 
@@ -883,9 +883,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Forecasting-Modell für Einkaufsbedarfe",
-      "Dashboard mit Prognosen und Bestellvorschlägen",
-      "Automatisierte Aktualisierung basierend auf Verbrauch"
+      "Forecasting-Modell",
+      "Management-Dashboard",
+      "Automatisierter Workflow"
     ]
   },
   {
@@ -903,9 +903,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Analyse-Tool für Lieferanten-Preise",
-      "Dashboard mit Preisvergleichen",
-      "Automatische Empfehlungen für Bestellungen"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Management-Dashboard",
+      "Optimierungsmodell"
     ]
   },
   {
@@ -920,9 +920,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Analyse-Dashboard für Einkaufsbedarfe",
-      "Identifikation von Einsparpotenzialen",
-      "Empfehlungen für Bestelloptimierung"
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
     ]
   },
   {
@@ -940,9 +940,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["integration"]
     },
     outputs: [
-      "Automatisierte Erfassung von Bestelldaten",
-      "Integration mit Einkaufssystemen",
-      "Dashboard für Bestellübersicht"
+      "Automatisierter Workflow",
+      "Datenpipeline- und Integrationssetup",
+      "Management-Dashboard"
     ]
   },
 
@@ -959,9 +959,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Optimierungsmodell für Produktionsplanung",
-      "Dashboard mit aktueller Auslastung",
-      "Automatische Planungsvorschläge"
+      "Optimierungsmodell",
+      "Betriebs- und Supportmodell",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -976,9 +976,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "integration"]
     },
     outputs: [
-      "Digitales Modell der Produktionsanlagen",
-      "Simulations-Tool für Szenarien",
-      "Dashboard mit Echtzeit-Daten und Prognosen"
+      "KI-Modell (Pilot)",
+      "Szenario- und Simulationsanalyse",
+      "Management-Dashboard"
     ]
   },
   {
@@ -996,9 +996,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "ML-Modell für Wartungsvorhersage",
-      "Dashboard mit Wartungsempfehlungen",
-      "Automatische Benachrichtigungen bei Bedarf"
+      "Betriebs- und Supportmodell",
+      "Monitoring- & Alerting-Setup",
+      "Optimierungsmodell"
     ]
   },
   {
@@ -1016,9 +1016,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai"]
     },
     outputs: [
-      "KI-Modell für Qualitätsprüfung",
-      "Dashboard mit Qualitätsmetriken",
-      "Automatische Alarme bei Qualitätsproblemen"
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Monitoring- & Alerting-Setup"
     ]
   },
 
@@ -1038,9 +1038,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Dashboard mit aktuellen Lagerbeständen",
-      "Automatische Bestellvorschläge",
-      "Warnungen bei niedrigen Beständen"
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
@@ -1058,9 +1058,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Optimierungsmodell für Lagerstruktur",
-      "Dashboard mit Lager-Metriken",
-      "Empfehlungen für Prozessverbesserungen"
+      "Optimierungsmodell",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -1078,9 +1078,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "integration"]
     },
     outputs: [
-      "Optimierungsmodell für Tourenplanung",
-      "Dashboard mit geplanten Routen",
-      "Automatische Anpassung bei Änderungen"
+      "Optimierungsmodell",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
 
@@ -1097,9 +1097,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["bi"]
     },
     outputs: [
-      "Dashboard mit Personalkennzahlen",
-      "Kostenanalysen nach Abteilungen",
-      "Automatisierte Reports für Management"
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Fachbereichs-Reporting"
     ]
   },
   {
@@ -1114,9 +1114,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Planungsmodell für Personalbedarf",
-      "Dashboard mit Prognosen und Szenarien",
-      "Empfehlungen für Personalentwicklung"
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -1131,9 +1131,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Optimierungsmodell für Einsatzplanung",
-      "Dashboard mit aktuellen Plänen",
-      "Automatische Vorschläge für Schichtpläne"
+      "Optimierungsmodell",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
 
@@ -1150,9 +1150,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai"]
     },
     outputs: [
-      "Simulationsmodell für Experimente",
-      "Dashboard mit Simulationsergebnissen",
-      "Empfehlungen für reale Experimente"
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -1167,9 +1167,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Analyse-Tool für Innovationschancen",
-      "Dashboard mit identifizierten Trends",
-      "Priorisierte Liste für Forschungsteam"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Management-Dashboard",
+      "Priorisierte Maßnahmenliste"
     ]
   },
 
@@ -1189,9 +1189,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "NIS2-Gap-Analyse",
-      "Maßnahmen- und Priorisierungsplan",
-      "Nachweisfähige Dokumentationsstruktur"
+      "Gap- und Reifegradanalyse",
+      "Priorisierte Maßnahmenliste",
+      "Dokumentations- und Nachweispaket"
     ]
   },
   {
@@ -1209,9 +1209,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "DSGVO-Umsetzungsfahrplan",
-      "Rollenmodell inkl. DSB-Schnittstellen",
-      "Verzeichnis- und Nachweiskonzept"
+      "Priorisierte Roadmap",
+      "Rollen- und Governance-Modell",
+      "Dokumentations- und Nachweispaket"
     ]
   },
   {
@@ -1229,9 +1229,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "ISMS-Grundstruktur und Leitlinien",
-      "ISB-Rollen- und Verantwortungsmodell",
-      "Umsetzungsplan für Governance-Prozesse"
+      "Compliance-Umsetzungsplan",
+      "Rollen- und Governance-Modell",
+      "Priorisierte Roadmap"
     ]
   },
   {
@@ -1249,9 +1249,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "integration"]
     },
     outputs: [
-      "IAM-Zielkonzept",
-      "Rollen- und Rechtemodell",
-      "Einführungs- und Migrationsplan"
+      "Sicherheits- und Zugriffskonzept",
+      "Rollen- und Governance-Modell",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -1266,9 +1266,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "Dokumentiertes Data Governance Konzept",
-      "Rollen und Verantwortlichkeiten",
-      "Prozesse für Datenqualität und -sicherheit"
+      "Rollen- und Governance-Modell",
+      "Sicherheits- und Zugriffskonzept",
+      "Compliance-Umsetzungsplan"
     ]
   },
   {
@@ -1283,9 +1283,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance"]
     },
     outputs: [
-      "Dokumentiertes IAM-Konzept",
-      "Rollen- und Rechte-Modell",
-      "Empfehlungen für technische Umsetzung"
+      "Sicherheits- und Zugriffskonzept",
+      "Rollen- und Governance-Modell",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -1300,9 +1300,9 @@ const rawUseCases: UseCase[] = [
       tech_hint: ["governance", "integration"]
     },
     outputs: [
-      "Implementiertes Rechte- und Rollensystem",
-      "Zugriffskontrollen für alle Systeme",
-      "Dokumentation und Schulung"
+      "Rollen- und Governance-Modell",
+      "Dokumentations- und Nachweispaket",
+      "Compliance-Umsetzungsplan"
     ]
   },
 
@@ -1316,7 +1316,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_finance",
     priority: "green",
     tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["Liquiditätsdashboard mit Forecast", "Cash-In/Cash-Out Transparenz", "Frühwarnindikatoren für Engpässe"]
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup"
+    ]
   },
   {
     key: "budget-controlling",
@@ -1327,7 +1331,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_finance",
     priority: "green",
     tags: { intent: ["transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["Budget-vs-Ist Cockpit", "Abweichungsanalyse je Kostenstelle", "Monatliche Steuerungsberichte"]
+    outputs: [
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Fachbereichs-Reporting"
+    ]
   },
   {
     key: "deckungsbeitragsrechnung",
@@ -1338,7 +1346,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_finance",
     priority: "green",
     tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["Deckungsbeitragsreport nach Dimension", "Margentransparenz je Segment", "Identifikation unprofitabler Bereiche"]
+    outputs: [
+      "Fachbereichs-Reporting",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
   },
   {
     key: "working-capital-analyse",
@@ -1349,7 +1361,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_finance",
     priority: "green",
     tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["Working-Capital-Cockpit", "Treiberanalyse je Kennzahl", "Maßnahmenliste zur Kapitalfreisetzung"]
+    outputs: [
+      "KPI-Definition & Kennzahlenkatalog",
+      "Priorisierte Maßnahmenliste",
+      "Forecasting-Modell"
+    ]
   },
   {
     key: "kostenstruktur-gemeinkosten-monitoring",
@@ -1360,7 +1376,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_finance",
     priority: "green",
     tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["Kostenstruktur-Dashboard", "Gemeinkosten-Entwicklungsanalyse", "Treiberbasierte Kostenwarnungen"]
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup"
+    ]
   },
   {
     key: "investitionscontrolling-capex",
@@ -1371,7 +1391,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_finance",
     priority: "green",
     tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["CAPEX-Portfolioübersicht", "Budget- und Fortschrittskontrolle", "Soll-Ist-Nutzenbewertung"]
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KPI-Definition & Kennzahlenkatalog",
+      "Forecasting-Modell"
+    ]
   },
   {
     key: "customer-lifetime-value",
@@ -1382,7 +1406,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_sales_marketing",
     priority: "green",
     tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "ai"] },
-    outputs: ["CLV-Modell je Kundensegment", "Wertbeitragsdashboard", "Priorisierte Kundenlisten"]
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Priorisierte Maßnahmenliste"
+    ]
   },
   {
     key: "lead-scoring",
@@ -1393,7 +1421,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_sales_marketing",
     priority: "green",
     tags: { intent: ["insights", "automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "bi"] },
-    outputs: ["Lead-Score-Modell", "Priorisierte Lead-Pipeline", "Conversion-Treiberanalyse"]
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Datenpipeline- und Integrationssetup",
+      "Handlungs- und Entscheidungsempfehlungen"
+    ]
   },
   {
     key: "sales-funnel-analyse",
@@ -1404,7 +1436,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_sales_marketing",
     priority: "green",
     tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["Funnel-Dashboard mit Conversion-Stufen", "Drop-off-Analyse", "Optimierungsempfehlungen je Stufe"]
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
+    ]
   },
   {
     key: "reklamations-analyse",
@@ -1415,7 +1451,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_sales_marketing",
     priority: "green",
     tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["Reklamationscockpit nach Ursache", "Kosten- und Häufigkeitsanalyse", "Priorisierte Verbesserungsfelder"]
+    outputs: [
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Maßnahmenliste"
+    ]
   },
   {
     key: "lieferantenscoring",
@@ -1426,7 +1466,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_procurement",
     priority: "green",
     tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["Lieferantenranking mit Scorecards", "Performancevergleich nach Kriterien", "Risikohinweise je Lieferant"]
+    outputs: [
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Risiko- und Maßnahmenkatalog"
+    ]
   },
   {
     key: "oee-analyse",
@@ -1437,7 +1481,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_production_logistics",
     priority: "green",
     tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
-    outputs: ["OEE-Dashboard pro Anlage", "Verlustanalyse nach Ursache", "Priorisierte Verbesserungsmaßnahmen"]
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Maßnahmenliste"
+    ]
   },
   {
     key: "durchlaufzeit-bottleneck-analyse",
@@ -1448,7 +1496,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_production_logistics",
     priority: "green",
     tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
-    outputs: ["Durchlaufzeit-Analyse je Prozessschritt", "Bottleneck-Heatmap", "Maßnahmenplan zur Taktverbesserung"]
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell",
+      "Monitoring- & Alerting-Setup"
+    ]
   },
   {
     key: "itsm-analytics",
@@ -1459,7 +1511,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_it_ops",
     priority: "green",
     tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
-    outputs: ["ITSM-Dashboard mit SLA-Metriken", "Ticket- und Ursachenanalyse", "Optimierungsvorschläge für Serviceprozesse"]
+    outputs: [
+      "Betriebs- und Supportmodell",
+      "Ticket- und Service-Automatisierung",
+      "Optimierungsmodell"
+    ]
   },
   {
     key: "cloud-cost-observability",
@@ -1470,7 +1526,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_it_ops",
     priority: "green",
     tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
-    outputs: ["Cloud-Kosten-Dashboard", "Nutzungs- und Kostentreiberanalyse", "Optimierungspotenziale je Service"]
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
+    ]
   },
   {
     key: "cybersicherheit-dashboard",
@@ -1481,7 +1541,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_it_ops",
     priority: "green",
     tags: { intent: ["transparency", "compliance"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "governance"] },
-    outputs: ["Security-Posture-Dashboard", "Incident- und Trendanalyse", "Management-Reporting für Sicherheitslage"]
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Betriebs- und Supportmodell"
+    ]
   },
   {
     key: "prozesseffizienz-analyse",
@@ -1492,7 +1556,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "insights_it_ops",
     priority: "green",
     tags: { intent: ["insights", "automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
-    outputs: ["Prozessleistungs-Dashboard", "Engpass- und Aufwandstreiberanalyse", "Priorisierte Effizienzhebel"]
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Maßnahmenliste"
+    ]
   },
 
   // Block 3: Automatisierung & KI Fokus-Use-Cases
@@ -1505,7 +1573,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_sales_marketing",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai", "integration"] },
-    outputs: ["Chatbot für Website-Dialoge", "Lead-Qualifizierung in Echtzeit", "CRM-Übergabe qualifizierter Kontakte"]
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Monitoring- & Alerting-Setup",
+      "Handlungs- und Entscheidungsempfehlungen"
+    ]
   },
   {
     key: "dynamic-pricing",
@@ -1516,7 +1588,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_sales_marketing",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "l", tech_hint: ["ai", "bi"] },
-    outputs: ["Regelwerk für Preissteuerung", "Preisempfehlungen nach Segment", "Monitoring der Margenwirkung"]
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
   },
   {
     key: "ausschreibungsautomatisierung",
@@ -1527,7 +1603,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_procurement",
     priority: "green",
     tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["integration", "ai"] },
-    outputs: ["Automatisierte Ausschreibungsabläufe", "Vergleichbare Angebotsauswertung", "Dokumentierte Vergabeentscheidungen"]
+    outputs: [
+      "Automatisierter Workflow",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
+    ]
   },
   {
     key: "automatisierte-rechnungsverarbeitung",
@@ -1538,7 +1618,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_finance",
     priority: "green",
     tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "integration"] },
-    outputs: ["Automatisierte Rechnungsprüfung", "Workflow für Freigaben", "Transparenz über Bearbeitungsstatus"]
+    outputs: [
+      "Automatisierter Workflow",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
   },
   {
     key: "ai-helpdeskassistent",
@@ -1549,7 +1633,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_it_ops",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai"] },
-    outputs: ["Assistenz für Ticketantworten", "Vorschläge aus Wissensbasis", "Schnellere Erstlösungsquote"]
+    outputs: [
+      "Ticket- und Service-Automatisierung",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Zielarchitektur & Datenmodell"
+    ]
   },
   {
     key: "agentic-coding",
@@ -1560,7 +1648,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_it_ops",
     priority: "green",
     tags: { intent: ["automation", "scale"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
-    outputs: ["Agenten-Workflows für Entwicklungsaufgaben", "Qualitäts- und Review-Leitplanken", "Messbares Delivery-Monitoring"]
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Zielbild & Strategiepapier",
+      "Monitoring- & Alerting-Setup"
+    ]
   },
   {
     key: "self-service-helpdesk",
@@ -1571,7 +1663,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_it_ops",
     priority: "green",
     tags: { intent: ["automation"], data_scope: "single_source", complexity: "m", tech_hint: ["integration", "ai"] },
-    outputs: ["Self-Service-Wissensportal", "Automatisierte Lösungsdialoge", "Messung der Ticketvermeidung"]
+    outputs: [
+      "Automatisierter Workflow",
+      "Ticket- und Service-Automatisierung",
+      "Zielarchitektur & Datenmodell"
+    ]
   },
   {
     key: "ki-preisueberwachung",
@@ -1582,7 +1678,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_procurement",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "bi"] },
-    outputs: ["Preis-Monitoring mit Warnlogik", "Anomalieerkennung bei Preisentwicklung", "Handlungsempfehlungen für Einkauf"]
+    outputs: [
+      "Monitoring- & Alerting-Setup",
+      "Anomalieerkennung",
+      "Handlungs- und Entscheidungsempfehlungen"
+    ]
   },
   {
     key: "automatisierte-bestellverarbeitung",
@@ -1593,7 +1693,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_procurement",
     priority: "green",
     tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["integration"] },
-    outputs: ["Automatisierter Bestellworkflow", "Regelbasierte Freigaben", "Transparente Prozessdurchlaufzeiten"]
+    outputs: [
+      "Automatisierter Workflow",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
+    ]
   },
   {
     key: "spendmanagement-automatisieren",
@@ -1604,7 +1708,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_procurement",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "ai"] },
-    outputs: ["Automatisierte Spend-Klassifikation", "Erkennung von Ausreißern", "Priorisierte Einsparhebel"]
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Anomalieerkennung",
+      "Priorisierte Maßnahmenliste"
+    ]
   },
   {
     key: "kyc-automatisierung",
@@ -1615,7 +1723,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_risk_compliance",
     priority: "green",
     tags: { intent: ["automation", "compliance"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "governance"] },
-    outputs: ["Automatisierter KYC-Workflow", "Risikobasierte Fallpriorisierung", "Nachvollziehbare Prüfprotokolle"]
+    outputs: [
+      "Automatisierter Workflow",
+      "Risiko- und Maßnahmenkatalog",
+      "Dokumentations- und Nachweispaket"
+    ]
   },
   {
     key: "esg-datenerhebung-automatisiert",
@@ -1626,7 +1738,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_risk_compliance",
     priority: "green",
     tags: { intent: ["automation", "compliance"], data_scope: "enterprise_wide", complexity: "m", tech_hint: ["integration", "governance"] },
-    outputs: ["ESG-Datenpipeline", "Automatisierte Plausibilisierung", "Berichtsfähige ESG-Kennzahlen"]
+    outputs: [
+      "Datenpipeline- und Integrationssetup",
+      "Automatisierter Workflow",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
   },
   {
     key: "ai-oberflaechenanalyse",
@@ -1637,7 +1753,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_it_ops",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai"] },
-    outputs: ["Analyse kritischer UI-Muster", "Priorisierte UX-Hotspots", "Empfehlungen für Oberflächenverbesserung"]
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Maßnahmenliste",
+      "Zielarchitektur & Datenmodell"
+    ]
   },
   {
     key: "ai-produktentwicklung",
@@ -1648,7 +1768,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_rnd",
     priority: "green",
     tags: { intent: ["automation", "scale"], data_scope: "multi_source", complexity: "l", tech_hint: ["ai"] },
-    outputs: ["KI-unterstützte Produktkonzepte", "Schnelle Prototypzyklen", "Messbare Validierungsmetriken"]
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Szenario- und Simulationsanalyse",
+      "KI-Modell (Pilot)"
+    ]
   },
   {
     key: "rag-literaturrecherche",
@@ -1659,7 +1783,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_rnd",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai"] },
-    outputs: ["RAG-basierter Rechercheassistent", "Quellenverweise mit Nachvollziehbarkeit", "Zusammenfassungen nach Fragestellung"]
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Szenario- und Simulationsanalyse"
+    ]
   },
   {
     key: "ai-video-qualitaetsanalyse",
@@ -1670,7 +1798,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_production_logistics",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
-    outputs: ["Videoanalytik für Qualitätsprüfung", "Automatische Fehlerklassifikation", "Echtzeit-Warnungen bei Abweichungen"]
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KI-Modell (Pilot)",
+      "Monitoring- & Alerting-Setup"
+    ]
   },
   {
     key: "ki-warenausgangs-scanning",
@@ -1681,7 +1813,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_production_logistics",
     priority: "green",
     tags: { intent: ["automation"], data_scope: "single_source", complexity: "m", tech_hint: ["ai", "integration"] },
-    outputs: ["Automatische Versandprüfung", "Erkennung von Fehl- und Falschkommissionierung", "Auditfähige Scan-Protokolle"]
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Dokumentations- und Nachweispaket",
+      "Optimierungsmodell"
+    ]
   },
   {
     key: "objekterkennung",
@@ -1692,7 +1828,11 @@ const rawUseCases: UseCase[] = [
     solution_cluster: "automation_production_logistics",
     priority: "green",
     tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
-    outputs: ["Trainiertes Erkennungsmodell", "Klassifikationsergebnisse in Echtzeit", "Qualitäts- und Prozesskennzahlen"]
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Monitoring- & Alerting-Setup",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
   }
 ];
 

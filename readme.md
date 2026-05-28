@@ -102,6 +102,45 @@ To access the shell within the container:
 docker run -it --rm astroplate ash
 ```
 
+## Standardisierte UseCase Outputs
+
+Die Outputs in den Use Cases sind auf einen festen Katalog begrenzt.
+Ziel ist eine konsistente Sprache und bessere Vergleichbarkeit zwischen den Use Cases.
+
+Aktueller Katalog (26 Labels):
+
+- Zielbild & Strategiepapier
+- Priorisierte Roadmap
+- Rollen- und Governance-Modell
+- Priorisierte Maßnahmenliste
+- Gap- und Reifegradanalyse
+- KI-Modell (Pilot)
+- Data Catalog & Glossar
+- KPI-Definition & Kennzahlenkatalog
+- Automatisierter Workflow
+- Fachbereichs-Reporting
+- Monitoring- & Alerting-Setup
+- Management-Dashboard
+- Schulungs- und Enablement-Paket
+- Handlungs- und Entscheidungsempfehlungen
+- Zielarchitektur & Datenmodell
+- Datenpipeline- und Integrationssetup
+- Betriebs- und Supportmodell
+- Risiko- und Maßnahmenkatalog
+- Sicherheits- und Zugriffskonzept
+- Dokumentations- und Nachweispaket
+- Anomalieerkennung
+- Forecasting-Modell
+- Szenario- und Simulationsanalyse
+- Optimierungsmodell
+- Compliance-Umsetzungsplan
+- Ticket- und Service-Automatisierung
+
+Pflegeregel:
+
+- Neue oder geänderte Use Cases sollen nur diese Labels in `outputs` verwenden.
+- Pro Use Case werden weiterhin genau 3 Outputs gepflegt.
+
 <!-- licence -->
 ## 📝 License
 
