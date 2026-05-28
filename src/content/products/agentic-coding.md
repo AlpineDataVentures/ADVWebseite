@@ -1,7 +1,7 @@
 ---
 title: "Agentic Coding"
 eyebrow: "Produkt"
-meta_title: "Data Mesh Einführung"
+meta_title: "Einführung Agentic Coding"
 description: "Ein Coding Agent ist ein intelligentes System, das Softwareentwickler aktiv bei der Erstellung, Prüfung und Optimierung von Code unterstützt. Er agiert nicht nur als passiver Autocomplete, sondern versteht komplexe Zusammenhänge, schlägt ganze Implementierungen vor und hilft dabei, repetitive Aufgaben zu automatisieren. Dies sorgt für eine signifikante Beschleunigung der Entwicklungszyklen und reduziert die Fehleranfälligkeit bei Standardaufgaben."
 highlight_text: "zentrale Verzeichnis aller Daten"
 image: "/images/products/agentic-coding.png"
@@ -55,4 +55,3 @@ final_cta_button_label: "Zum Produkt-Katalog"
 final_cta_image: "/images/goat.jpg"
 draft: false
 ---
-

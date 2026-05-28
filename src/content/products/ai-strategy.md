@@ -1,5 +1,5 @@
 ---
-title: "KI Stratgie"
+title: "KI Strategie"
 eyebrow: "Produkt"
 meta_title: "KI Strategie"
 description: "KI-Projekte entstehen heute oft spontan: ein Tool wird ausprobiert, ein Pilot gestartet, ein Budget freigegeben. Ohne Strategie bleibt es bei Experimenten die selten in den Betrieb übergehen. Eine KI-Strategie legt fest wo KI im Unternehmen wirklich Sinn ergibt, welche Voraussetzungen dafür erfüllt sein müssen und in welcher Reihenfolge Projekte angegangen werden. Das Ergebnis sind KI-Investitionen, die nachweisbar wirken statt im Piloten stecken bleiben."
@@ -57,4 +57,3 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
-
