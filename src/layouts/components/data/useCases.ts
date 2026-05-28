@@ -13,7 +13,6 @@ export type UseCaseDomain =
 export type IntentTag = "transparency" | "automation" | "insights" | "compliance" | "scale";
 export type DataScopeTag = "single_source" | "multi_source" | "enterprise_wide";
 export type ComplexityTag = "xs" | "s" | "m" | "l";
-export type MaturityHintTag = "start" | "stabilize" | "scale";
 export type TechHintTag = "bi" | "dwh" | "integration" | "ai" | "governance";
 export type PortfolioAreaTag = "solutions" | "automation_ai";
 export type SolutionClusterTag =
@@ -46,7 +45,6 @@ export interface UseCase {
     intent: IntentTag[];
     data_scope: DataScopeTag;
     complexity: ComplexityTag;
-    maturity_hint: MaturityHintTag;
     tech_hint: TechHintTag[];
   };
   outputs: string[]; // 3 bullets
@@ -72,7 +70,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -93,7 +90,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale", "insights"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["ai", "governance"]
     },
     outputs: [
@@ -114,7 +110,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "enterprise_wide",
       complexity: "s",
-      maturity_hint: "start",
       tech_hint: ["governance", "bi"]
     },
     outputs: [
@@ -135,7 +130,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["governance", "dwh"]
     },
     outputs: [
@@ -156,7 +150,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency", "compliance"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -183,7 +176,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["governance", "ai"]
     },
     outputs: [
@@ -204,7 +196,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -228,7 +219,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -249,7 +239,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "transparency"],
       data_scope: "multi_source",
       complexity: "s",
-      maturity_hint: "stabilize",
       tech_hint: ["bi", "integration"]
     },
     outputs: [
@@ -267,7 +256,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "xs",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -285,7 +273,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -303,7 +290,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -321,7 +307,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["governance", "dwh"]
     },
     outputs: [
@@ -339,7 +324,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["governance", "dwh", "integration"]
     },
     outputs: [
@@ -362,7 +346,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale", "transparency"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
@@ -383,7 +366,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
@@ -404,7 +386,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale", "compliance"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "stabilize",
       tech_hint: ["governance", "integration"]
     },
     outputs: [
@@ -425,7 +406,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["ai", "dwh", "integration"]
     },
     outputs: [
@@ -446,7 +426,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance", "scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "governance"]
     },
     outputs: [
@@ -467,7 +446,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance", "scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "stabilize",
       tech_hint: ["governance", "dwh"]
     },
     outputs: [
@@ -488,7 +466,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "scale"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "governance"]
     },
     outputs: [
@@ -509,7 +486,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "scale"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "governance"]
     },
     outputs: [
@@ -530,7 +506,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance", "transparency"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "stabilize",
       tech_hint: ["governance", "integration"]
     },
     outputs: [
@@ -548,7 +523,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
@@ -569,7 +543,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -590,7 +563,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "ai"]
     },
     outputs: [
@@ -611,7 +583,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -629,7 +600,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "governance"]
     },
     outputs: [
@@ -647,7 +617,6 @@ const rawUseCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
@@ -665,7 +634,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "scale"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "dwh"]
     },
     outputs: [
@@ -685,7 +653,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -706,7 +673,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -727,7 +693,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -751,7 +716,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["bi", "ai"]
     },
     outputs: [
@@ -774,7 +738,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "single_source",
       complexity: "s",
-      maturity_hint: "start",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -798,7 +761,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "transparency"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -819,7 +781,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -837,7 +798,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -858,7 +818,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -879,7 +838,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -900,7 +858,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "ai"]
     },
     outputs: [
@@ -923,7 +880,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -944,7 +900,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -962,7 +917,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -983,7 +937,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation"],
       data_scope: "single_source",
       complexity: "s",
-      maturity_hint: "stabilize",
       tech_hint: ["integration"]
     },
     outputs: [
@@ -1003,7 +956,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -1021,7 +973,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights", "scale"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "integration"]
     },
     outputs: [
@@ -1042,7 +993,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -1063,7 +1013,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "insights"],
       data_scope: "single_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai"]
     },
     outputs: [
@@ -1086,7 +1035,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "single_source",
       complexity: "s",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -1107,7 +1055,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -1128,7 +1075,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "integration"]
     },
     outputs: [
@@ -1148,7 +1094,6 @@ const rawUseCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
@@ -1166,7 +1111,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -1184,7 +1128,6 @@ const rawUseCases: UseCase[] = [
       intent: ["automation", "insights"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -1204,7 +1147,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights", "scale"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai"]
     },
     outputs: [
@@ -1222,7 +1164,6 @@ const rawUseCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
@@ -1245,7 +1186,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -1266,7 +1206,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -1287,7 +1226,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance", "scale"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -1308,7 +1246,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["governance", "integration"]
     },
     outputs: [
@@ -1326,7 +1263,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance", "scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -1344,7 +1280,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
@@ -1362,7 +1297,6 @@ const rawUseCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["governance", "integration"]
     },
     outputs: [
@@ -1381,7 +1315,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_finance",
     priority: "green",
-    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["Liquiditätsdashboard mit Forecast", "Cash-In/Cash-Out Transparenz", "Frühwarnindikatoren für Engpässe"]
   },
   {
@@ -1392,7 +1326,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_finance",
     priority: "green",
-    tags: { intent: ["transparency"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["Budget-vs-Ist Cockpit", "Abweichungsanalyse je Kostenstelle", "Monatliche Steuerungsberichte"]
   },
   {
@@ -1403,7 +1337,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_finance",
     priority: "green",
-    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["Deckungsbeitragsreport nach Dimension", "Margentransparenz je Segment", "Identifikation unprofitabler Bereiche"]
   },
   {
@@ -1414,7 +1348,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_finance",
     priority: "green",
-    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["Working-Capital-Cockpit", "Treiberanalyse je Kennzahl", "Maßnahmenliste zur Kapitalfreisetzung"]
   },
   {
@@ -1425,7 +1359,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_finance",
     priority: "green",
-    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["Kostenstruktur-Dashboard", "Gemeinkosten-Entwicklungsanalyse", "Treiberbasierte Kostenwarnungen"]
   },
   {
@@ -1436,7 +1370,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_finance",
     priority: "green",
-    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["CAPEX-Portfolioübersicht", "Budget- und Fortschrittskontrolle", "Soll-Ist-Nutzenbewertung"]
   },
   {
@@ -1447,7 +1381,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_sales_marketing",
     priority: "green",
-    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi", "ai"] },
+    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "ai"] },
     outputs: ["CLV-Modell je Kundensegment", "Wertbeitragsdashboard", "Priorisierte Kundenlisten"]
   },
   {
@@ -1458,7 +1392,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_sales_marketing",
     priority: "green",
-    tags: { intent: ["insights", "automation"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai", "bi"] },
+    tags: { intent: ["insights", "automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "bi"] },
     outputs: ["Lead-Score-Modell", "Priorisierte Lead-Pipeline", "Conversion-Treiberanalyse"]
   },
   {
@@ -1469,7 +1403,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_sales_marketing",
     priority: "green",
-    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["Funnel-Dashboard mit Conversion-Stufen", "Drop-off-Analyse", "Optimierungsempfehlungen je Stufe"]
   },
   {
@@ -1480,7 +1414,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_sales_marketing",
     priority: "green",
-    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["Reklamationscockpit nach Ursache", "Kosten- und Häufigkeitsanalyse", "Priorisierte Verbesserungsfelder"]
   },
   {
@@ -1491,7 +1425,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_procurement",
     priority: "green",
-    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["Lieferantenranking mit Scorecards", "Performancevergleich nach Kriterien", "Risikohinweise je Lieferant"]
   },
   {
@@ -1502,7 +1436,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_production_logistics",
     priority: "green",
-    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi"] },
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
     outputs: ["OEE-Dashboard pro Anlage", "Verlustanalyse nach Ursache", "Priorisierte Verbesserungsmaßnahmen"]
   },
   {
@@ -1513,7 +1447,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_production_logistics",
     priority: "green",
-    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi", "integration"] },
+    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
     outputs: ["Durchlaufzeit-Analyse je Prozessschritt", "Bottleneck-Heatmap", "Maßnahmenplan zur Taktverbesserung"]
   },
   {
@@ -1524,7 +1458,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_it_ops",
     priority: "green",
-    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi", "integration"] },
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
     outputs: ["ITSM-Dashboard mit SLA-Metriken", "Ticket- und Ursachenanalyse", "Optimierungsvorschläge für Serviceprozesse"]
   },
   {
@@ -1535,7 +1469,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_it_ops",
     priority: "green",
-    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi", "integration"] },
+    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
     outputs: ["Cloud-Kosten-Dashboard", "Nutzungs- und Kostentreiberanalyse", "Optimierungspotenziale je Service"]
   },
   {
@@ -1546,7 +1480,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_it_ops",
     priority: "green",
-    tags: { intent: ["transparency", "compliance"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi", "governance"] },
+    tags: { intent: ["transparency", "compliance"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "governance"] },
     outputs: ["Security-Posture-Dashboard", "Incident- und Trendanalyse", "Management-Reporting für Sicherheitslage"]
   },
   {
@@ -1557,7 +1491,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "solutions",
     solution_cluster: "insights_it_ops",
     priority: "green",
-    tags: { intent: ["insights", "automation"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi", "integration"] },
+    tags: { intent: ["insights", "automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
     outputs: ["Prozessleistungs-Dashboard", "Engpass- und Aufwandstreiberanalyse", "Priorisierte Effizienzhebel"]
   },
 
@@ -1570,7 +1504,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_sales_marketing",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai", "integration"] },
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai", "integration"] },
     outputs: ["Chatbot für Website-Dialoge", "Lead-Qualifizierung in Echtzeit", "CRM-Übergabe qualifizierter Kontakte"]
   },
   {
@@ -1581,7 +1515,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_sales_marketing",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "l", maturity_hint: "scale", tech_hint: ["ai", "bi"] },
+    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "l", tech_hint: ["ai", "bi"] },
     outputs: ["Regelwerk für Preissteuerung", "Preisempfehlungen nach Segment", "Monitoring der Margenwirkung"]
   },
   {
@@ -1592,7 +1526,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_procurement",
     priority: "green",
-    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["integration", "ai"] },
+    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["integration", "ai"] },
     outputs: ["Automatisierte Ausschreibungsabläufe", "Vergleichbare Angebotsauswertung", "Dokumentierte Vergabeentscheidungen"]
   },
   {
@@ -1603,7 +1537,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_finance",
     priority: "green",
-    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai", "integration"] },
+    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "integration"] },
     outputs: ["Automatisierte Rechnungsprüfung", "Workflow für Freigaben", "Transparenz über Bearbeitungsstatus"]
   },
   {
@@ -1614,7 +1548,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_it_ops",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai"] },
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai"] },
     outputs: ["Assistenz für Ticketantworten", "Vorschläge aus Wissensbasis", "Schnellere Erstlösungsquote"]
   },
   {
@@ -1625,7 +1559,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_it_ops",
     priority: "green",
-    tags: { intent: ["automation", "scale"], data_scope: "single_source", complexity: "l", maturity_hint: "scale", tech_hint: ["ai"] },
+    tags: { intent: ["automation", "scale"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
     outputs: ["Agenten-Workflows für Entwicklungsaufgaben", "Qualitäts- und Review-Leitplanken", "Messbares Delivery-Monitoring"]
   },
   {
@@ -1636,7 +1570,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_it_ops",
     priority: "green",
-    tags: { intent: ["automation"], data_scope: "single_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["integration", "ai"] },
+    tags: { intent: ["automation"], data_scope: "single_source", complexity: "m", tech_hint: ["integration", "ai"] },
     outputs: ["Self-Service-Wissensportal", "Automatisierte Lösungsdialoge", "Messung der Ticketvermeidung"]
   },
   {
@@ -1647,7 +1581,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_procurement",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai", "bi"] },
+    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "bi"] },
     outputs: ["Preis-Monitoring mit Warnlogik", "Anomalieerkennung bei Preisentwicklung", "Handlungsempfehlungen für Einkauf"]
   },
   {
@@ -1658,7 +1592,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_procurement",
     priority: "green",
-    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["integration"] },
+    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["integration"] },
     outputs: ["Automatisierter Bestellworkflow", "Regelbasierte Freigaben", "Transparente Prozessdurchlaufzeiten"]
   },
   {
@@ -1669,7 +1603,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_procurement",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["bi", "ai"] },
+    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "ai"] },
     outputs: ["Automatisierte Spend-Klassifikation", "Erkennung von Ausreißern", "Priorisierte Einsparhebel"]
   },
   {
@@ -1680,7 +1614,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_risk_compliance",
     priority: "green",
-    tags: { intent: ["automation", "compliance"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai", "governance"] },
+    tags: { intent: ["automation", "compliance"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "governance"] },
     outputs: ["Automatisierter KYC-Workflow", "Risikobasierte Fallpriorisierung", "Nachvollziehbare Prüfprotokolle"]
   },
   {
@@ -1691,7 +1625,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_risk_compliance",
     priority: "green",
-    tags: { intent: ["automation", "compliance"], data_scope: "enterprise_wide", complexity: "m", maturity_hint: "stabilize", tech_hint: ["integration", "governance"] },
+    tags: { intent: ["automation", "compliance"], data_scope: "enterprise_wide", complexity: "m", tech_hint: ["integration", "governance"] },
     outputs: ["ESG-Datenpipeline", "Automatisierte Plausibilisierung", "Berichtsfähige ESG-Kennzahlen"]
   },
   {
@@ -1702,7 +1636,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_it_ops",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai"] },
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai"] },
     outputs: ["Analyse kritischer UI-Muster", "Priorisierte UX-Hotspots", "Empfehlungen für Oberflächenverbesserung"]
   },
   {
@@ -1713,7 +1647,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_rnd",
     priority: "green",
-    tags: { intent: ["automation", "scale"], data_scope: "multi_source", complexity: "l", maturity_hint: "scale", tech_hint: ["ai"] },
+    tags: { intent: ["automation", "scale"], data_scope: "multi_source", complexity: "l", tech_hint: ["ai"] },
     outputs: ["KI-unterstützte Produktkonzepte", "Schnelle Prototypzyklen", "Messbare Validierungsmetriken"]
   },
   {
@@ -1724,7 +1658,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_rnd",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai"] },
+    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai"] },
     outputs: ["RAG-basierter Rechercheassistent", "Quellenverweise mit Nachvollziehbarkeit", "Zusammenfassungen nach Fragestellung"]
   },
   {
@@ -1735,7 +1669,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_production_logistics",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "l", maturity_hint: "scale", tech_hint: ["ai"] },
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
     outputs: ["Videoanalytik für Qualitätsprüfung", "Automatische Fehlerklassifikation", "Echtzeit-Warnungen bei Abweichungen"]
   },
   {
@@ -1746,7 +1680,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_production_logistics",
     priority: "green",
-    tags: { intent: ["automation"], data_scope: "single_source", complexity: "m", maturity_hint: "stabilize", tech_hint: ["ai", "integration"] },
+    tags: { intent: ["automation"], data_scope: "single_source", complexity: "m", tech_hint: ["ai", "integration"] },
     outputs: ["Automatische Versandprüfung", "Erkennung von Fehl- und Falschkommissionierung", "Auditfähige Scan-Protokolle"]
   },
   {
@@ -1757,7 +1691,7 @@ const rawUseCases: UseCase[] = [
     portfolio_area: "automation_ai",
     solution_cluster: "automation_production_logistics",
     priority: "green",
-    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "l", maturity_hint: "scale", tech_hint: ["ai"] },
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
     outputs: ["Trainiertes Erkennungsmodell", "Klassifikationsergebnisse in Echtzeit", "Qualitäts- und Prozesskennzahlen"]
   }
 ];
