@@ -26,7 +26,7 @@ export function DeliverablePricePreview({
   showConfigurator = true
 }: DeliverablePricePreviewProps) {
   const applicableParameters = getParametersForDeliverable(deliverable.key);
-  
+
   // State für Parameter mit Defaults
   const [parameters, setParameters] = useState<DeliverableParameters>(() => {
     const defaults: DeliverableParameters = {};
@@ -34,8 +34,8 @@ export function DeliverablePricePreview({
       if (initialParameters?.[param.key] !== undefined) {
         defaults[param.key] = initialParameters[param.key];
       } else {
-        defaults[param.key] = typeof param.default === 'string' 
-          ? param.default 
+        defaults[param.key] = typeof param.default === 'string'
+          ? param.default
           : param.default;
       }
     });
@@ -106,7 +106,7 @@ export function DeliverablePricePreview({
                       max={20}
                       value={parameters[param.key] || param.default}
                       onChange={(e) => handleParameterChange(
-                        param.key, 
+                        param.key,
                         parseInt(e.target.value) || Number(param.default)
                       )}
                     />
@@ -120,7 +120,7 @@ export function DeliverablePricePreview({
       )}
 
       {/* Preisaufschlüsselung */}
-      <PriceBreakdown 
+      <PriceBreakdown
         deliverableId={deliverable.key}
         parameters={parameters}
         showDetails={true}

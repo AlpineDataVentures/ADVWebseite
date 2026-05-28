@@ -1,4 +1,4 @@
-export type DeliverableFamily = 
+export type DeliverableFamily =
   | "Data Strategy"
   | "Governance & Culture"
   | "AI & Data Science"
@@ -36,7 +36,7 @@ export interface Deliverable {
 
 export const deliverables: Deliverable[] = [
   // ========== MVP ACTIVE DELIVERABLES ==========
-  
+
   // BI & Analytics
   {
     key: "bi_setup",
@@ -828,5 +828,3 @@ export function getActiveDeliverables(): Deliverable[] {
 export function getComingSoonDeliverables(): Deliverable[] {
   return deliverables.filter(d => !d.active);
 }
-
-

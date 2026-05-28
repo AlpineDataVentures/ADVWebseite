@@ -34,12 +34,12 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
 
   // Hole Recommendations mit Reasons
   const recommendations = getBundleForUseCase(useCase.key);
-  
+
   // Debug: Log wenn activeUseCaseId gesetzt aber keine Recommendations
   if (useCaseId && recommendations.length === 0) {
     console.warn(`No recommendations found for use case: ${useCase.key}`);
   }
-  
+
   // Filter: Core (defaultEnabled=true) vs Optional (defaultEnabled=false)
   const coreDeliverables = recommendations.filter(rec => rec.defaultEnabled);
   const optionalDeliverables = recommendations.filter(rec => !rec.defaultEnabled);
@@ -72,7 +72,7 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
         <p className="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed mb-4 line-clamp-2">
           {useCase.short}
         </p>
-        
+
         {/* Output Bullets (max 3) */}
         {useCase.outputs.length > 0 && (
           <div>
@@ -91,18 +91,18 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
         )}
       </div>
 
-          {/* Recommended Bundle Grid (2 columns) */}
-          <div>
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-text dark:text-darkmode-text">
-                Projektpakete
-              </h3>
-              {recommendations.length > 0 && (
-                <Badge variant="secondary" className="text-xs">
-                  {recommendations.length} Deliverables
-                </Badge>
-              )}
-            </div>
+      {/* Recommended Bundle Grid (2 columns) */}
+      <div>
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-xl font-semibold text-text dark:text-darkmode-text">
+            Projektpakete
+          </h3>
+          {recommendations.length > 0 && (
+            <Badge variant="secondary" className="text-xs">
+              {recommendations.length} Deliverables
+            </Badge>
+          )}
+        </div>
 
         {recommendations.length === 0 ? (
           <div className="card p-8 text-center">
@@ -114,57 +114,57 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
             </p>
           </div>
         ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Core Deliverables */}
-          {coreDeliverables.map((recommendation) => {
-            const deliverable = getDeliverableById(recommendation.deliverableId);
-            if (!deliverable) return null;
-            const isEnabled = selectedDeliverables[deliverable.key]?.enabled || false;
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Core Deliverables */}
+            {coreDeliverables.map((recommendation) => {
+              const deliverable = getDeliverableById(recommendation.deliverableId);
+              if (!deliverable) return null;
+              const isEnabled = selectedDeliverables[deliverable.key]?.enabled || false;
 
-            return (
-              <DeliverableCard
-                key={deliverable.key}
-                deliverable={deliverable}
-                recommendation={recommendation}
-                isEnabled={isEnabled}
-                onToggle={(enabled) => handleToggle(deliverable.key, enabled)}
-              />
-            );
-          })}
+              return (
+                <DeliverableCard
+                  key={deliverable.key}
+                  deliverable={deliverable}
+                  recommendation={recommendation}
+                  isEnabled={isEnabled}
+                  onToggle={(enabled) => handleToggle(deliverable.key, enabled)}
+                />
+              );
+            })}
 
-          {/* Optional Deliverables */}
-          {optionalDeliverables.map((recommendation) => {
-            const deliverable = getDeliverableById(recommendation.deliverableId);
-            if (!deliverable || !deliverable.active) return null; // Skip coming soon in optional
-            const isEnabled = selectedDeliverables[deliverable.key]?.enabled || false;
+            {/* Optional Deliverables */}
+            {optionalDeliverables.map((recommendation) => {
+              const deliverable = getDeliverableById(recommendation.deliverableId);
+              if (!deliverable || !deliverable.active) return null; // Skip coming soon in optional
+              const isEnabled = selectedDeliverables[deliverable.key]?.enabled || false;
 
-            return (
-              <DeliverableCard
-                key={deliverable.key}
-                deliverable={deliverable}
-                recommendation={recommendation}
-                isEnabled={isEnabled}
-                onToggle={(enabled) => handleToggle(deliverable.key, enabled)}
-              />
-            );
-          })}
+              return (
+                <DeliverableCard
+                  key={deliverable.key}
+                  deliverable={deliverable}
+                  recommendation={recommendation}
+                  isEnabled={isEnabled}
+                  onToggle={(enabled) => handleToggle(deliverable.key, enabled)}
+                />
+              );
+            })}
 
-          {/* Coming Soon Deliverables (anzeigen, aber nicht auswählbar) */}
-          {comingSoonDeliverables.map((recommendation) => {
-            const deliverable = getDeliverableById(recommendation.deliverableId);
-            if (!deliverable) return null;
+            {/* Coming Soon Deliverables (anzeigen, aber nicht auswählbar) */}
+            {comingSoonDeliverables.map((recommendation) => {
+              const deliverable = getDeliverableById(recommendation.deliverableId);
+              if (!deliverable) return null;
 
-            return (
-              <DeliverableCard
-                key={deliverable.key}
-                deliverable={deliverable}
-                recommendation={recommendation}
-                isEnabled={false}
-                onToggle={() => {}} // Disabled
-              />
-            );
-          })}
-        </div>
+              return (
+                <DeliverableCard
+                  key={deliverable.key}
+                  deliverable={deliverable}
+                  recommendation={recommendation}
+                  isEnabled={false}
+                  onToggle={() => { }} // Disabled
+                />
+              );
+            })}
+          </div>
         )}
       </div>
 
@@ -179,7 +179,7 @@ export function RecommendedBundleStep({ useCaseId, onNext }: RecommendedBundleSt
         >
           Bundle zurücksetzen
         </Button>
-        
+
         <div className="flex items-center gap-4">
           <p className="text-sm text-text-light dark:text-darkmode-text-light">
             {enabledCount} von {recommendations.filter(r => getDeliverableById(r.deliverableId)?.active).length} aktiviert

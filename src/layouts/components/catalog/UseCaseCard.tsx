@@ -43,7 +43,7 @@ export function UseCaseCard({ useCase, onSelect }: UseCaseCardProps) {
     .filter((d): d is NonNullable<typeof d> => d !== undefined);
 
   const setActiveUseCase = useConfigStore((state) => state.setActiveUseCase);
-  
+
   const handleSelect = () => {
     // Set active use case in store
     setActiveUseCase(useCase.key);
@@ -174,7 +174,7 @@ export function UseCaseCard({ useCase, onSelect }: UseCaseCardProps) {
         </Accordion>
 
         {/* CTA Button */}
-        <Button 
+        <Button
           onClick={handleSelect}
           className="w-full"
           size="lg"
