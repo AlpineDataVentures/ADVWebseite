@@ -11,7 +11,7 @@ draft: false
 summary: "On-Prem, Cloud oder Hybrid — bevor Thalberg auch nur eine Zeile baut, muss diese Frage beantwortet sein. Wir zeigen welche Kriterien wirklich zählen und warum der Praktikant mit seinem Server-Vorschlag diesmal nicht weitergekommen ist."
 ---
 
-*Teil 4 unserer Serie über den kompletten Aufbau eines datengetriebenen Unternehmens [Teil 3 lesen](/https://alpinedata.de/blog/7-zeichen-datenbasis/)*
+*Teil 4 unserer Serie über den kompletten Aufbau eines datengetriebenen Unternehmens [Teil 3 lesen](/blog/7-zeichen-datenbasis/)*
 
 Der Datenbasis-Audit ist abgeschlossen. Thalberg weiß jetzt wo die Probleme liegen, wer die Daten hält, wer nicht rankommt und auch, wo der Praktikant aufgeräumt hat. Der nächste Schritt scheint klar: ein **Data Warehouse**.
 
