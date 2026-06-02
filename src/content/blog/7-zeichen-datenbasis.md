@@ -11,7 +11,7 @@ draft: false
 summary: "Das Konzept steht, alle sind motiviert — aber sind die Daten überhaupt bereit? Wir zeigen die 7 häufigsten Warnsignale, die darauf hindeuten dass man noch nicht anfangen sollte zu bauen."
 ---
 
-*Teil 3 unserer Serie über den kompletten Aufbau eines datengetriebenen Unternehmens [Teil 2 lesen](/https://alpinedata.de/blog/kick-off/)*
+*Teil 3 unserer Serie über den kompletten Aufbau eines datengetriebenen Unternehmens [Teil 2 lesen](/blog/kick-off/)*
 
 Das Konzept steht, die Nutzerprofile sind klar und wie zu Beginn jedes Posts sind natürlich alle motiviert. Der Geschäftsführer hat sogar schon eine Vorstellung davon wie sein Dashboard aussehen soll. Er hat ein Foto von einem anderen Dashboard auf seinem Handy, das er bei einem Vortrag gesneakt hat. Das zeigt er stolz jedem, der es sehen will und einigen, die gezwungen werden müssen.
 
