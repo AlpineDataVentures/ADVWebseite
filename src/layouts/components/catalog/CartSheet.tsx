@@ -10,7 +10,7 @@ import { ShoppingCart, Trash2, ChevronDown, Copy, Check } from "lucide-react";
 import { useMemo, useState } from "react";
 import { getParameterByKey } from "../data/parameters";
 import { getDeliverableIcon } from "../lib/iconMap";
-import { getUseCaseByKey } from "../data/useCases";
+import { getUseCaseById } from "../data/useCases";
 import { buildInquirySubject, buildInquiryText, buildMailtoLink } from "../lib/inquiry";
 import { PRODUCT_CATALOG_INQUIRY_EMAIL, PRODUCT_CATALOG_MEETING_URL } from "@/config/products";
 
@@ -45,7 +45,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
   const getResolvedUseCaseTitle = () => {
     const preferredUseCaseId = activeUseCase ?? selectedUseCases[0] ?? null;
     if (!preferredUseCaseId) return "Nicht angegeben";
-    return getUseCaseByKey(preferredUseCaseId)?.title ?? preferredUseCaseId;
+    return getUseCaseById(preferredUseCaseId)?.title ?? preferredUseCaseId;
   };
 
   const getDeliverableParamsForInquiry = (deliverableId: string, params: Record<string, any>) => {

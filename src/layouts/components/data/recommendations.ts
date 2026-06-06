@@ -1,4 +1,4 @@
-import { useCases, getUseCaseByKey } from './useCases';
+import { useCases, getUseCaseById } from './useCases';
 import { deliverables, getDeliverableById } from './deliverables';
 
 export type Recommendation = {
@@ -846,7 +846,7 @@ const priorityOrder: string[] = [
  * Generiert Recommendations basierend auf Use Case Tags
  */
 function generateRecommendationsFromRules(useCaseId: string): Recommendation[] {
-  const useCase = getUseCaseByKey(useCaseId);
+  const useCase = getUseCaseById(useCaseId);
   if (!useCase) return [];
 
   const recommendations: Recommendation[] = [];
