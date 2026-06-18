@@ -19,8 +19,8 @@ export interface Deliverable {
   name: string;
   shortDescription: string;
   longDescription: string;
-  basePrice?: number; // nur wenn active=true
-  active: boolean; // MVP active nur für BI&Analytics, Data Architecture, Data Knowledge
+  basePrice: number;
+  active: boolean;
   tags: {
     type: DeliverableTypeTag[];
     maturity: MaturityTag[];
