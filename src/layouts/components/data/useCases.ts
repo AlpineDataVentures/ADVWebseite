@@ -49,7 +49,7 @@ export type SolutionClusterTag =
  * Beim Schritt UseCase -> Product (productModel.ts) werden sie nicht übernommen.
  */
 export interface UseCase {
-  key: string;
+  id: string;
   domain: UseCaseDomain;
   /** ZWINGEND – Anzeigetitel */
   title: string;
@@ -167,7 +167,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "data-catalog",
+    id: "data-catalog",
     domain: "general_mgmt",
     title: "Data Catalog",
     short: "Einführung eines Data Catalogs für Transparenz über Datenobjekte, Verantwortliche und Definitionen.",
@@ -213,7 +213,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "management-dashboard",
+    id: "management-dashboard",
     domain: "general_mgmt",
     title: "Management Dashboard",
     short: "Zentrale Übersicht aller wichtigen Kennzahlen für die Geschäftsführung. Schnelle Entscheidungen basierend auf aktuellen Daten.",
@@ -710,7 +710,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "controlling-via-bi",
+    id: "controlling-via-bi",
     domain: "finance",
     title: "Controlling via BI",
     short: "Moderne Controlling-Berichte in BI. Echtzeit-Übersicht über Kosten, Budgets und Abweichungen.",
@@ -755,7 +755,7 @@ const rawUseCases: UseCase[] = [
 
   // Sales & Marketing
   {
-    key: "sales-dashboard",
+    id: "sales-dashboard",
     domain: "sales_marketing",
     title: "Sales Dashboard",
     short: "Echtzeit-Übersicht über Verkäufe, Pipeline und Performance. Schnelle Entscheidungen basierend auf aktuellen Daten.",
@@ -1167,7 +1167,7 @@ const rawUseCases: UseCase[] = [
 
   // Research & Development
   {
-    key: "simulation-experimente",
+    id: "simulation-experimente",
     domain: "rnd",
     title: "Simulation von Experimenten",
     short: "Virtuelle Durchführung von Experimenten vor der Realität. Schnellere Entwicklung, weniger Kosten.",
