@@ -34,6 +34,6 @@ const requestModeById: Record<string, RequestMode> = {
   "innovationsresearch": "hybrid",
 };
 
-export function getRequestMode(useCaseId: string): RequestMode {
-  return requestModeById[useCaseId] ?? "standard";
+export function getRequestMode(productId: string): RequestMode {
+  return requestModeById[productId] ?? "standard";
 }

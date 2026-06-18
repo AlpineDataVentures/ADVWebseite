@@ -1,5 +1,5 @@
-import { useCases, getUseCaseById } from './useCases';
-import { deliverables, getDeliverableById } from './deliverables';
+import { getProductById } from './useCases';
+import { getDeliverableById } from './deliverables';
 
 export type Recommendation = {
   deliverableId: string;
@@ -7,12 +7,12 @@ export type Recommendation = {
   reason: string; // 1 Satz: warum vorgeschlagen
 };
 
-export type UseCaseBundle = {
-  useCaseId: string;
+export type ProductBundle = {
+  productId: string;
   recommendations: Recommendation[];
 };
 
-// Hard Overrides für MVP Use Cases
+// Hard Overrides für MVP Products
 const hardOverrides: Record<string, Recommendation[]> = {
   // Sales Dashboard (Sales & Marketing)
   "sales-dashboard": [
@@ -814,16 +814,16 @@ const priorityOrder: string[] = [
   "kpi_ws",
   "mgmt_report_1",
   "reporting_standards",
-  
+
   // Data Architecture
   "dwh_starter",
   "source_integration_review",
-  
+
   // Data Knowledge
   "glossary_sprint",
   "pbi_training_user",
   "pbi_training_dev",
-  
+
   // Coming Soon (niedrigste Priorität)
   "forecast_model",
   "churn_model",
@@ -843,17 +843,17 @@ const priorityOrder: string[] = [
 
 /**
  * Fallback Rule Engine
- * Generiert Recommendations basierend auf Use Case Tags
+ * Generiert Recommendations basierend auf Product-Tags
  */
-function generateRecommendationsFromRules(useCaseId: string): Recommendation[] {
-  const useCase = getUseCaseById(useCaseId);
-  if (!useCase) return [];
+function generateRecommendationsFromRules(productId: string): Recommendation[] {
+  const product = getProductById(productId);
+  if (!product) return [];
 
   const recommendations: Recommendation[] = [];
   const seen = new Set<string>();
 
   // Rule 1: transparency → Core BI Setup
-  if (useCase.tags.intent.includes("transparency")) {
+  if (product.tags.intent.includes("transparency")) {
     addIfNotSeen(recommendations, seen, {
       deliverableId: "bi_setup",
       defaultEnabled: true,
@@ -872,7 +872,7 @@ function generateRecommendationsFromRules(useCaseId: string): Recommendation[] {
   }
 
   // Rule 2: automation → Reporting Standards
-  if (useCase.tags.intent.includes("automation")) {
+  if (product.tags.intent.includes("automation")) {
     addIfNotSeen(recommendations, seen, {
       deliverableId: "reporting_standards",
       defaultEnabled: true,
@@ -881,7 +881,7 @@ function generateRecommendationsFromRules(useCaseId: string): Recommendation[] {
   }
 
   // Rule 3: multi_source → Data Architecture
-  if (useCase.tags.data_scope === "multi_source" || useCase.tags.data_scope === "enterprise_wide") {
+  if (product.tags.data_scope === "multi_source" || product.tags.data_scope === "enterprise_wide") {
     addIfNotSeen(recommendations, seen, {
       deliverableId: "source_integration_review",
       defaultEnabled: true,
@@ -895,7 +895,7 @@ function generateRecommendationsFromRules(useCaseId: string): Recommendation[] {
   }
 
   // Rule 4: compliance → Governance
-  if (useCase.tags.intent.includes("compliance")) {
+  if (product.tags.intent.includes("compliance")) {
     addIfNotSeen(recommendations, seen, {
       deliverableId: "glossary_sprint",
       defaultEnabled: true,
@@ -909,7 +909,7 @@ function generateRecommendationsFromRules(useCaseId: string): Recommendation[] {
   }
 
   // Rule 5: insights → Forecasting + Management Report
-  if (useCase.tags.intent.includes("insights")) {
+  if (product.tags.intent.includes("insights")) {
     addIfNotSeen(recommendations, seen, {
       deliverableId: "forecast_model",
       defaultEnabled: false,
@@ -923,7 +923,7 @@ function generateRecommendationsFromRules(useCaseId: string): Recommendation[] {
   }
 
   // Rule 6: Optional Upsell - Training
-  if (useCase.tags.intent.includes("transparency") || useCase.tags.intent.includes("automation")) {
+  if (product.tags.intent.includes("transparency") || product.tags.intent.includes("automation")) {
     addIfNotSeen(recommendations, seen, {
       deliverableId: "pbi_training_user",
       defaultEnabled: false,
@@ -964,38 +964,38 @@ function deduplicateAndPrioritize(recommendations: Recommendation[]): Recommenda
   const sorted = Array.from(unique.values()).sort((a, b) => {
     const indexA = priorityOrder.indexOf(a.deliverableId);
     const indexB = priorityOrder.indexOf(b.deliverableId);
-    
+
     // Wenn nicht in priorityOrder, ans Ende
     if (indexA === -1 && indexB === -1) return 0;
     if (indexA === -1) return 1;
     if (indexB === -1) return -1;
-    
+
     return indexA - indexB;
   });
 
   // Gruppiere nach Familie für bessere Lesbarkeit
   const grouped: Recommendation[] = [];
-  
+
   // Core BI & Analytics zuerst
-  const core = sorted.filter(r => 
+  const core = sorted.filter(r =>
     ["bi_setup", "kpi_ws", "mgmt_report_1", "reporting_standards"].includes(r.deliverableId)
   );
   grouped.push(...core);
-  
+
   // Data Architecture
-  const dataArch = sorted.filter(r => 
+  const dataArch = sorted.filter(r =>
     ["dwh_starter", "source_integration_review"].includes(r.deliverableId)
   );
   grouped.push(...dataArch);
-  
+
   // Data Knowledge
-  const dataKnow = sorted.filter(r => 
+  const dataKnow = sorted.filter(r =>
     ["glossary_sprint", "pbi_training_user", "pbi_training_dev"].includes(r.deliverableId)
   );
   grouped.push(...dataKnow);
-  
+
   // Coming Soon (alle anderen)
-  const comingSoon = sorted.filter(r => 
+  const comingSoon = sorted.filter(r =>
     !core.includes(r) && !dataArch.includes(r) && !dataKnow.includes(r)
   );
   grouped.push(...comingSoon);
@@ -1016,9 +1016,9 @@ function toActiveRecommendations(recommendations: Recommendation[]): Recommendat
 }
 
 /**
- * Hauptfunktion: Gibt Bundle für Use Case zurück
+ * Hauptfunktion: Gibt Bundle für Product zurück
  */
-export function getBundleForUseCase(useCaseId: string): Recommendation[] {
+export function getBundleForProduct(productId: string): Recommendation[] {
   const fallbackBundle: Recommendation[] = [
     {
       deliverableId: "bi_setup",
@@ -1038,16 +1038,16 @@ export function getBundleForUseCase(useCaseId: string): Recommendation[] {
   ];
 
   // Prüfe Hard Override
-  if (hardOverrides[useCaseId]) {
+  if (hardOverrides[productId]) {
     const recommendations = toActiveRecommendations(
-      deduplicateAndPrioritize(hardOverrides[useCaseId])
+      deduplicateAndPrioritize(hardOverrides[productId])
     ).slice(0, 6);
     return recommendations.length > 0 ? recommendations : toActiveRecommendations(fallbackBundle);
   }
 
   // Fallback: Rule Engine
   const recommendations = toActiveRecommendations(
-    deduplicateAndPrioritize(generateRecommendationsFromRules(useCaseId))
+    deduplicateAndPrioritize(generateRecommendationsFromRules(productId))
   ).slice(0, 6);
   return recommendations.length > 0 ? recommendations : toActiveRecommendations(fallbackBundle);
 }
@@ -1055,16 +1055,16 @@ export function getBundleForUseCase(useCaseId: string): Recommendation[] {
 /**
  * Gibt alle Hard Override Bundles zurück
  */
-export function getHardOverrideBundles(): UseCaseBundle[] {
-  return Object.entries(hardOverrides).map(([useCaseId, recommendations]) => ({
-    useCaseId,
+export function getHardOverrideBundles(): ProductBundle[] {
+  return Object.entries(hardOverrides).map(([productId, recommendations]) => ({
+    productId,
     recommendations: deduplicateAndPrioritize(recommendations)
   }));
 }
 
 /**
- * Prüft, ob Use Case einen Hard Override hat
+ * Prüft, ob Product einen Hard Override hat
  */
-export function hasHardOverride(useCaseId: string): boolean {
-  return useCaseId in hardOverrides;
+export function hasHardOverride(productId: string): boolean {
+  return productId in hardOverrides;
 }

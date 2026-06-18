@@ -7,13 +7,13 @@ export interface InquiryDeliverableItem {
 }
 
 export interface InquiryPayload {
-  useCaseTitle: string;
+  productTitle: string;
   deliverables: InquiryDeliverableItem[];
   estimatedTotalPrice?: number;
 }
 
-export function buildInquirySubject(useCaseTitle: string): string {
-  return `Anfrage Produktkatalog – ${useCaseTitle}`;
+export function buildInquirySubject(productTitle: string): string {
+  return `Anfrage Produktkatalog – ${productTitle}`;
 }
 
 export function buildInquiryText(payload: InquiryPayload): string {
@@ -22,7 +22,7 @@ export function buildInquiryText(payload: InquiryPayload): string {
   lines.push("");
   lines.push("ich möchte eine Anfrage zu folgender Konfiguration aus dem Produktkatalog stellen:");
   lines.push("");
-  lines.push(`Produkt: ${payload.useCaseTitle}`);
+  lines.push(`Produkt: ${payload.productTitle}`);
   lines.push("");
   lines.push("Ausgewählte Produktbausteine:");
 

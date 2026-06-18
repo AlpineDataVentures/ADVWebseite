@@ -44,7 +44,7 @@ delivery:
     - "Autonome Nutzung durch ihre Entwickler"
 related_products:
   - "data-strategy"
-  - "iam"
+  - "identity-and-access-management"
 tags:
   - "Agentic Coding"
   - "Data Catalog"

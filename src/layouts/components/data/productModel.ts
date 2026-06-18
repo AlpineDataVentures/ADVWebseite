@@ -19,14 +19,14 @@
  */
 
 import type {
-  UseCase,
+  Product as CatalogProduct,
   UiClusterId,
   IntentTag,
   DataScopeTag,
 } from "./useCases";
 import {
-  useCases,
-  getUiClusterForUseCase,
+  products,
+  getUiClusterForProduct,
   uiClusterLabels,
   uiClusterOrder,
 } from "./useCases";
@@ -103,8 +103,8 @@ export interface ProductRecommendation {
    (rein ableitend, ohne Seiteneffekte; noch nicht in der UI verdrahtet)
    ────────────────────────────────────────────────────────────────────────── */
 
-/** Wandelt einen einzelnen UseCase in das Product-Zielmodell. */
-export function useCaseToProduct(useCase: UseCase): Product {
+/** Wandelt ein einzelnes Catalog-Product in das Product-Zielmodell. */
+export function useCaseToProduct(useCase: CatalogProduct): Product {
   return {
     id: useCase.id,
     slug: useCase.slug ?? useCase.id,
@@ -112,12 +112,12 @@ export function useCaseToProduct(useCase: UseCase): Product {
     short: useCase.short,
     details: useCase.details
       ? {
-          problem: useCase.details.problem,
-          typicalResult: useCase.details.typicalResult,
-          bestFor: useCase.details.bestFor,
-        }
+        problem: useCase.details.problem,
+        typicalResult: useCase.details.typicalResult,
+        bestFor: useCase.details.bestFor,
+      }
       : undefined,
-    primaryCluster: getUiClusterForUseCase(useCase),
+    primaryCluster: getUiClusterForProduct(useCase),
     tags: {
       intent: useCase.tags.intent,
       dataScope: useCase.tags.data_scope,
@@ -133,7 +133,7 @@ export function useCaseToProduct(useCase: UseCase): Product {
 
 /** Alle lokalen UseCases als Product-Liste (Default-Quelle). */
 export function getLocalProducts(): Product[] {
-  return useCases.map(useCaseToProduct);
+  return products.map(useCaseToProduct);
 }
 
 /** Cluster-Taxonomie aus der bestehenden UI-Cluster-Definition. */

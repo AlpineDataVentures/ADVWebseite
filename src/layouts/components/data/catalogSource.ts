@@ -22,7 +22,7 @@
  *   - CATALOG_STRAPI_PREVIEW    "true" zieht auch Draft-Inhalte (Preview-Modus)
  */
 
-import { useCases } from "./useCases";
+import { products } from "./useCases";
 import { deliverables } from "./deliverables";
 import {
   getLocalProducts,
@@ -35,7 +35,7 @@ export type CatalogSourceKind = "local" | "strapi";
 
 export interface CatalogData {
   /** Aktuelles Produktmodell (UseCase) – von der UI konsumiert. */
-  useCases: typeof useCases;
+  useCases: typeof products;
   /** Produktbausteine (bleiben lokal/Code, Preislogik separat). */
   deliverables: typeof deliverables;
   /** Strapi-fähiges Zielmodell (abgeleitet, noch nicht aktiv konsumiert). */
@@ -77,7 +77,7 @@ export function getStrapiConfig(): StrapiConfig {
 /** Baut das CatalogData-Objekt aus den lokalen Quellen. */
 function getLocalCatalogData(): CatalogData {
   return {
-    useCases,
+    useCases: products,
     deliverables,
     products: getLocalProducts(),
     taxonomy: getLocalTaxonomy(),

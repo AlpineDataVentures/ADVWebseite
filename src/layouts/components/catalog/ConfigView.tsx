@@ -15,7 +15,7 @@ import type { DeliverableParameters } from "../data/models";
 import { getDeliverableIcon } from "../lib/iconMap";
 
 interface ConfigViewProps {
-  useCaseId: string | null;
+  productId: string | null;
   onBack: () => void;
   onOpenCart: () => void;
 }
@@ -37,7 +37,7 @@ const parameterHelperText: Record<string, string> = {
 /**
  * Config View - Konfiguration für alle ausgewählten Produktbausteine
  */
-export function ConfigView({ useCaseId, onBack, onOpenCart }: ConfigViewProps) {
+export function ConfigView({ productId, onBack, onOpenCart }: ConfigViewProps) {
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const updateDeliverableParam = useConfigStore((state) => state.updateDeliverableParam);
 
@@ -97,7 +97,7 @@ export function ConfigView({ useCaseId, onBack, onOpenCart }: ConfigViewProps) {
             <AccordionItem
               key={id}
               value={id}
-              className="card border-border rounded-2xl overflow-hidden hover:shadow-sm hover:border-green-600/30 transition-shadow transition-colors"
+              className="card border-border rounded-2xl overflow-hidden hover:shadow-sm hover:border-green-600/30 transition-colors"
             >
               {/* Accordion Header */}
               <AccordionTrigger className="px-6 py-5 hover:no-underline">

@@ -1,4 +1,4 @@
-export type UseCaseDomain =
+export type ProductDomain =
   | "general_mgmt"
   | "it_data"
   | "finance"
@@ -34,7 +34,7 @@ export type SolutionClusterTag =
   | "automation_production_logistics";
 
 /**
- * UseCase = aktuelles Produktmodell des Produktkatalogs.
+ * Product = aktuelles Produktmodell des Produktkatalogs.
  *
  * Feld-Klassifikation (Stand Phase 2, siehe MIGRATION_NOTES.md):
  *  - ZWINGEND:      id, domain, title, short, solution_cluster, outputs, tags.intent
@@ -46,11 +46,11 @@ export type SolutionClusterTag =
  *
  * Hinweis: Legacy-Felder bleiben vorerst im Interface (optional bzw. tolerant),
  * damit die ~100 bestehenden Datensätze ohne riskanten Massen-Edit weiter valide sind.
- * Beim Schritt UseCase -> Product (productModel.ts) werden sie nicht übernommen.
+ * Beim Schritt vom Katalog-Product ins Product-Zielmodell (productModel.ts) werden sie nicht übernommen.
  */
-export interface UseCase {
+export interface Product {
   id: string;
-  domain: UseCaseDomain;
+  domain: ProductDomain;
   /** ZWINGEND – Anzeigetitel */
   title: string;
   /** ZWINGEND – Kurzbeschreibung (1–2 Zeilen, kundenverständlich) */
@@ -84,7 +84,7 @@ export interface UseCase {
   };
 }
 
-const rawUseCases: UseCase[] = [
+const rawProducts: Product[] = [
   // General Management
   {
     id: "datenstrategie",
@@ -1864,7 +1864,7 @@ const rawUseCases: UseCase[] = [
   }
 ];
 
-const defaultClusterByDomain: Record<UseCaseDomain, SolutionClusterTag> = {
+const defaultClusterByDomain: Record<ProductDomain, SolutionClusterTag> = {
   general_mgmt: "orientation_prioritization",
   it_data: "data_mgmt_architecture",
   finance: "insights_finance",
@@ -1877,7 +1877,7 @@ const defaultClusterByDomain: Record<UseCaseDomain, SolutionClusterTag> = {
   risk_compliance: "automation_risk_compliance",
 };
 
-const defaultBestForByDomain: Record<UseCaseDomain, string[]> = {
+const defaultBestForByDomain: Record<ProductDomain, string[]> = {
   general_mgmt: ["Geschäftsführung", "Bereichsleitungen"],
   it_data: ["IT-Leitung", "Data-Teams"],
   finance: ["Finance", "Controlling"],
@@ -1890,7 +1890,7 @@ const defaultBestForByDomain: Record<UseCaseDomain, string[]> = {
   risk_compliance: ["Risk", "Compliance"],
 };
 
-const curatedUseCaseData: Record<string, { details: NonNullable<UseCase["details"]> }> = {
+const curatedProductData: Record<string, { details: NonNullable<Product["details"]> }> = {
   "data-ai-leadership": {
     details: {
       problem: "Führungsteams treiben Data- und KI-Initiativen ohne einheitliche Steuerungslogik und klare Verantwortungen.",
@@ -2021,23 +2021,23 @@ const curatedUseCaseData: Record<string, { details: NonNullable<UseCase["details
   },
 };
 
-export const useCases: UseCase[] = rawUseCases.map((useCase) => {
-  const resolvedCluster = useCase.solution_cluster ?? defaultClusterByDomain[useCase.domain];
+export const products: Product[] = rawProducts.map((product) => {
+  const resolvedCluster = product.solution_cluster ?? defaultClusterByDomain[product.domain];
   const resolvedPortfolio =
-    useCase.portfolio_area ?? (resolvedCluster.startsWith("automation_") ? "automation_ai" : "solutions");
-  const details = useCase.details ?? {
-    problem: useCase.short,
-    typicalResult: useCase.outputs[0] ?? "Messbarer Mehrwert durch ein klar priorisiertes Produkt.",
-    typicalDeliverables: useCase.outputs.slice(0, 3),
-    bestFor: defaultBestForByDomain[useCase.domain],
+    product.portfolio_area ?? (resolvedCluster.startsWith("automation_") ? "automation_ai" : "solutions");
+  const details = product.details ?? {
+    problem: product.short,
+    typicalResult: product.outputs[0] ?? "Messbarer Mehrwert durch ein klar priorisiertes Produkt.",
+    typicalDeliverables: product.outputs.slice(0, 3),
+    bestFor: defaultBestForByDomain[product.domain],
   };
 
-  const curated = curatedUseCaseData[useCase.id];
+  const curated = curatedProductData[product.id];
   return {
-    ...useCase,
+    ...product,
     solution_cluster: resolvedCluster,
     portfolio_area: resolvedPortfolio,
-    priority: useCase.priority ?? "normal",
+    priority: product.priority ?? "normal",
     details: curated?.details ?? details,
   };
 });
@@ -2086,38 +2086,38 @@ export const uiClusterLabels: Record<UiClusterId, string> = {
   cross_domain_automation: "Bereichsübergreifende Automatisierung",
 };
 
-export function getUiClusterForUseCase(useCase: UseCase): UiClusterId {
-  if (useCase.solution_cluster === "orientation_prioritization") return "orientation_prioritization";
-  if (useCase.solution_cluster === "data_mgmt_architecture") return "data_mgmt_architecture";
+export function getUiClusterForProduct(product: Product): UiClusterId {
+  if (product.solution_cluster === "orientation_prioritization") return "orientation_prioritization";
+  if (product.solution_cluster === "data_mgmt_architecture") return "data_mgmt_architecture";
 
-  if (useCase.solution_cluster === "insights_general_mgmt") return "insights_analytics";
+  if (product.solution_cluster === "insights_general_mgmt") return "insights_analytics";
 
-  if (useCase.domain === "finance") return "finance";
-  if (useCase.domain === "sales_marketing") return "sales_marketing";
-  if (useCase.domain === "procurement") return "procurement";
-  if (useCase.domain === "it_data") return "it_ops";
-  if (useCase.domain === "production" || useCase.domain === "logistics") return "production_logistics";
-  if (useCase.domain === "risk_compliance") return "risk_compliance";
-  if (useCase.domain === "rnd") return "rnd";
-  if (useCase.domain === "hr" || useCase.solution_cluster === "automation_cross_domain") return "cross_domain_automation";
-  if (useCase.domain === "general_mgmt") return "general_management";
+  if (product.domain === "finance") return "finance";
+  if (product.domain === "sales_marketing") return "sales_marketing";
+  if (product.domain === "procurement") return "procurement";
+  if (product.domain === "it_data") return "it_ops";
+  if (product.domain === "production" || product.domain === "logistics") return "production_logistics";
+  if (product.domain === "risk_compliance") return "risk_compliance";
+  if (product.domain === "rnd") return "rnd";
+  if (product.domain === "hr" || product.solution_cluster === "automation_cross_domain") return "cross_domain_automation";
+  if (product.domain === "general_mgmt") return "general_management";
 
   return "insights_analytics";
 }
 
-export function getUseCasesForUiCluster(clusterId: UiClusterId): UseCase[] {
-  return useCases.filter((uc) => getUiClusterForUseCase(uc) === clusterId);
+export function getProductsForUiCluster(clusterId: UiClusterId): Product[] {
+  return products.filter((uc) => getUiClusterForProduct(uc) === clusterId);
 }
 
 // Helper-Funktionen
-export function getUseCaseById(id: string): UseCase | undefined {
-  return useCases.find(uc => uc.id === id);
+export function getProductById(id: string): Product | undefined {
+  return products.find(uc => uc.id === id);
 }
 
-export function getUseCasesByDomain(domain: UseCaseDomain): UseCase[] {
-  return useCases.filter(uc => uc.domain === domain);
+export function getProductsByDomain(domain: ProductDomain): Product[] {
+  return products.filter(uc => uc.domain === domain);
 }
 
-export function getAllDomains(): UseCaseDomain[] {
-  return Array.from(new Set(useCases.map(uc => uc.domain)));
+export function getAllDomains(): ProductDomain[] {
+  return Array.from(new Set(products.map(uc => uc.domain)));
 }

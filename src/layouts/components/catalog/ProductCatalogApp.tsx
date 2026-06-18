@@ -1,9 +1,8 @@
 import { useState, useEffect, useMemo } from 'react';
-import { LayoutGrid, List } from 'lucide-react';
 import { CatalogToolbar } from './CatalogToolbar';
 import { DomainDrawer } from './DomainDrawer';
 import { CatalogIntro } from './CatalogIntro';
-import { UseCaseTileGrid } from './UseCaseTileGrid';
+import { ProductTileGrid } from './UseCaseTileGrid';
 import { ProductListView } from './ProductListView';
 import { DeliverableListView } from './DeliverableListView';
 import { ViewToggle } from './ViewToggle';
@@ -15,13 +14,13 @@ import { Button } from './ui/button';
 import { Boxes } from 'lucide-react';
 import { useConfigStore } from '../stores/configStore';
 import {
-  getUseCaseById,
-  getUseCasesForUiCluster,
-  useCases,
+  getProductById,
+  getProductsForUiCluster,
+  products,
   uiClusterLabels,
   type UiClusterId,
 } from '../data/useCases';
-import { getBundleForUseCase } from '../data/recommendations';
+import { getBundleForProduct } from '../data/recommendations';
 import { getDeliverableById, getMinimumPrice } from '../lib/pricing';
 
 type ViewLayout = 'grid' | 'list';
@@ -41,7 +40,7 @@ const FEATURED_IDS = [
 
 export default function ProductCatalogApp() {
   const [activeCluster, setActiveCluster] = useState<UiClusterId | null>(null);
-  const [activeUseCaseId, setActiveUseCaseId] = useState<string | null>(null);
+  const [activeProductId, setActiveProductId] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'bundle' | 'configure'>('bundle');
   const [searchQuery, setSearchQuery] = useState('');
   const [cartOpen, setCartOpen] = useState(false);
@@ -50,8 +49,8 @@ export default function ProductCatalogApp() {
   const [showAll, setShowAll] = useState(false);
   const [showDeliverables, setShowDeliverables] = useState(false);
 
-  const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
-  const setActiveUseCase = useConfigStore((state) => state.setActiveUseCase);
+  const setBundleFromProduct = useConfigStore((state) => state.setBundleFromProduct);
+  const setActiveProduct = useConfigStore((state) => state.setActiveProduct);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
 
   const cartCount = useConfigStore((state) =>
@@ -62,7 +61,7 @@ export default function ProductCatalogApp() {
     setActiveCluster(cluster);
     setShowAll(false);
     setShowDeliverables(false);
-    setActiveUseCaseId(null);
+    setActiveProductId(null);
     setViewMode('bundle');
   };
 
@@ -70,7 +69,7 @@ export default function ProductCatalogApp() {
     setActiveCluster(null);
     setShowAll(true);
     setShowDeliverables(false);
-    setActiveUseCaseId(null);
+    setActiveProductId(null);
     setViewMode('bundle');
     setViewLayout('list'); // „Alle Produkte“ startet in Listenansicht
   };
@@ -79,14 +78,14 @@ export default function ProductCatalogApp() {
     setActiveCluster(null);
     setShowAll(false);
     setShowDeliverables(true);
-    setActiveUseCaseId(null);
+    setActiveProductId(null);
     setViewMode('bundle');
     setViewLayout('list'); // „Alle Produktbausteine“ startet in Listenansicht
   };
 
   const handleConfigureDeliverable = (deliverableId: string) => {
     toggleDeliverable(deliverableId, true);
-    setActiveUseCaseId(null);
+    setActiveProductId(null);
     setViewMode('configure');
     setTimeout(() => {
       const panel = document.querySelector('[data-catalog-main]');
@@ -94,12 +93,12 @@ export default function ProductCatalogApp() {
     }, 100);
   };
 
-  const handleUseCaseSelect = (useCaseId: string) => {
-    if (!useCaseId) return;
+  const handleProductSelect = (productId: string) => {
+    if (!productId) return;
     setShowDeliverables(false);
-    setActiveUseCaseId(useCaseId);
-    setActiveUseCase(useCaseId);
-    setBundleFromUseCase(useCaseId);
+    setActiveProductId(productId);
+    setActiveProduct(productId);
+    setBundleFromProduct(productId);
     setViewMode('bundle');
 
     setTimeout(() => {
@@ -120,12 +119,12 @@ export default function ProductCatalogApp() {
     if (viewMode === 'configure') {
       setViewMode('bundle');
       // Konfiguration aus „Alle Produktbausteine“: zurück zur Bausteinliste
-      if (!activeUseCaseId && !showDeliverables) {
+      if (!activeProductId && !showDeliverables) {
         setShowDeliverables(true);
       }
-    } else if (activeUseCaseId) {
-      setActiveUseCaseId(null);
-      setActiveUseCase(null);
+    } else if (activeProductId) {
+      setActiveProductId(null);
+      setActiveProduct(null);
     }
   };
 
@@ -135,25 +134,25 @@ export default function ProductCatalogApp() {
   };
 
   useEffect(() => {
-    if (activeUseCaseId && process.env.NODE_ENV === 'development') {
-      const recommendations = getBundleForUseCase(activeUseCaseId);
+    if (activeProductId && process.env.NODE_ENV === 'development') {
+      const recommendations = getBundleForProduct(activeProductId);
       if (recommendations.length === 0) {
-        console.warn(`[ProductCatalog] No product modules found for productId: ${activeUseCaseId}`);
+        console.warn(`[ProductCatalog] No product modules found for productId: ${activeProductId}`);
       }
     }
-  }, [activeUseCaseId]);
+  }, [activeProductId]);
 
-  const useCase = activeUseCaseId ? getUseCaseById(activeUseCaseId) : null;
+  const activeProduct = activeProductId ? getProductById(activeProductId) : null;
 
-  const filteredUseCases = useMemo(() => {
+  const filteredProducts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
     let pool = activeCluster
-      ? getUseCasesForUiCluster(activeCluster)
-      : useCases.filter((uc) => uc.priority === 'green');
+      ? getProductsForUiCluster(activeCluster)
+      : products.filter((uc) => uc.priority === 'green');
 
     if (query) {
-      pool = (activeCluster ? getUseCasesForUiCluster(activeCluster) : useCases).filter((uc) =>
+      pool = (activeCluster ? getProductsForUiCluster(activeCluster) : products).filter((uc) =>
         uc.title.toLowerCase().includes(query) ||
         uc.short.toLowerCase().includes(query) ||
         uc.tags.intent.some((intent) => intent.toLowerCase().includes(query))
@@ -163,11 +162,11 @@ export default function ProductCatalogApp() {
     // Startansicht (ohne Domäne/Suche/„Alle Produkte“): kuratierte, vertriebsnahe Einstiege.
     if (!activeCluster && !query && !showAll) {
       const featured = FEATURED_IDS
-        .map((id) => useCases.find((uc) => uc.id === id))
+        .map((id) => products.find((uc) => uc.id === id))
         .filter((uc): uc is NonNullable<typeof uc> => Boolean(uc));
       // Fallback, falls IDs fehlen: mit green-Priorität auffüllen.
       if (featured.length >= 6) return featured;
-      const fallback = useCases.filter((uc) => uc.priority === 'green');
+      const fallback = products.filter((uc) => uc.priority === 'green');
       return [...featured, ...fallback.filter((uc) => !FEATURED_IDS.includes(uc.id))].slice(0, 9);
     }
 
@@ -182,17 +181,17 @@ export default function ProductCatalogApp() {
   // "ab"-Preis je Produkt = günstigster Baustein im empfohlenen Set.
   const fromPriceById = useMemo(() => {
     const map: Record<string, number> = {};
-    for (const uc of filteredUseCases) {
-      const prices = getBundleForUseCase(uc.id)
+    for (const product of filteredProducts) {
+      const prices = getBundleForProduct(product.id)
         .map((rec) => {
           const deliverable = getDeliverableById(rec.deliverableId);
           return deliverable ? getMinimumPrice(deliverable) : 0;
         })
         .filter((p) => p > 0);
-      if (prices.length > 0) map[uc.id] = Math.min(...prices);
+      if (prices.length > 0) map[product.id] = Math.min(...prices);
     }
     return map;
-  }, [filteredUseCases]);
+  }, [filteredProducts]);
 
   const tileTitle = useMemo(() => {
     if (searchQuery.trim()) return 'Suchergebnisse';
@@ -206,20 +205,20 @@ export default function ProductCatalogApp() {
       return `Treffer für „${searchQuery.trim()}“`;
     }
     if (activeCluster) {
-      return `${filteredUseCases.length} ${filteredUseCases.length === 1 ? 'Produkt' : 'Produkte'} in diesem Bereich`;
+      return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} in diesem Bereich`;
     }
     if (showAll) {
-      return `${filteredUseCases.length} Produkte insgesamt`;
+      return `${filteredProducts.length} Produkte insgesamt`;
     }
     return 'Wählen Sie „Alle Domänen“ oder „Alle Produkte“, um den Katalog zu durchsuchen.';
-  }, [activeCluster, searchQuery, showAll, filteredUseCases.length]);
+  }, [activeCluster, searchQuery, showAll, filteredProducts.length]);
 
   const renderContent = () => {
     if (viewMode === 'configure' && cartCount > 0) {
-      return <ConfigView useCaseId={activeUseCaseId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
+      return <ConfigView productId={activeProductId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
     }
 
-    if (!useCase && showDeliverables) {
+    if (!activeProduct && showDeliverables) {
       return (
         <div className="space-y-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -238,7 +237,7 @@ export default function ProductCatalogApp() {
       );
     }
 
-    if (!useCase) {
+    if (!activeProduct) {
       const showIntro = !activeCluster && !searchQuery.trim() && !showAll;
       return (
         <div className="space-y-8">
@@ -259,15 +258,15 @@ export default function ProductCatalogApp() {
             </div>
 
             {viewLayout === 'grid' ? (
-              <UseCaseTileGrid
-                useCases={filteredUseCases}
-                onSelect={handleUseCaseSelect}
+              <ProductTileGrid
+                products={filteredProducts}
+                onSelect={handleProductSelect}
                 fromPriceById={fromPriceById}
               />
             ) : (
               <ProductListView
-                useCases={filteredUseCases}
-                onSelect={handleUseCaseSelect}
+                products={filteredProducts}
+                onSelect={handleProductSelect}
                 fromPriceById={fromPriceById}
               />
             )}
@@ -291,7 +290,7 @@ export default function ProductCatalogApp() {
     if (viewMode === 'bundle') {
       return (
         <BundleView
-          useCaseId={activeUseCaseId}
+          productId={activeProductId}
           onNext={handleNextToConfiguration}
           onBack={handleBack}
           viewLayout={viewLayout}
@@ -300,7 +299,7 @@ export default function ProductCatalogApp() {
       );
     }
 
-    return <ConfigView useCaseId={activeUseCaseId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
+    return <ConfigView productId={activeProductId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
   };
 
   return (
@@ -325,7 +324,7 @@ export default function ProductCatalogApp() {
         showAll={showAll}
         showDeliverables={showDeliverables}
         onSelectCluster={handleClusterSelect}
-        onSelectProduct={handleUseCaseSelect}
+        onSelectProduct={handleProductSelect}
         onShowAll={handleShowAll}
         onShowDeliverables={handleShowDeliverables}
       />

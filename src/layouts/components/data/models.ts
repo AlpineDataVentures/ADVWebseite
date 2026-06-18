@@ -41,8 +41,8 @@ export interface Deliverable {
   outOfScope: string;
 }
 
-// Use Case nach Domäne
-export interface UseCase {
+// Product nach Domäne
+export interface Product {
   id: string;
   slug?: string;
   title: string;
@@ -82,7 +82,7 @@ export interface CartItem {
 
 // Konfiguration
 export interface Configuration {
-  useCaseId: string | null;
+  productId: string | null;
   cartItems: CartItem[];
   customizations: Record<string, any>;
 }

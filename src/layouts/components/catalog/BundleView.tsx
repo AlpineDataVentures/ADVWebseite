@@ -2,9 +2,9 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Mail } from "lucide-react";
 import { useConfigStore } from "../stores/configStore";
-import { getUseCaseById } from "../data/useCases";
+import { getProductById } from "../data/useCases";
 import { getDeliverableById } from "../data/deliverables";
-import { getBundleForUseCase } from "../data/recommendations";
+import { getBundleForProduct } from "../data/recommendations";
 import { getRequestMode } from "../data/requestModes";
 import { DeliverableCard } from "./DeliverableCard";
 import { CustomRequestForm } from "./CustomRequestForm";
@@ -14,7 +14,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./
 import { cn } from "../lib/utils";
 
 interface BundleViewProps {
-  useCaseId: string | null;
+  productId: string | null;
   onNext: () => void;
   onBack: () => void;
   viewLayout: ViewLayout;
@@ -30,7 +30,7 @@ function DeliverableSection({
   layout,
 }: {
   title: string;
-  recommendations: ReturnType<typeof getBundleForUseCase>;
+  recommendations: ReturnType<typeof getBundleForProduct>;
   selectedDeliverables: ReturnType<typeof useConfigStore.getState>["selectedDeliverables"];
   onToggle: (id: string, enabled: boolean) => void;
   onConfigure: () => void;
@@ -77,18 +77,18 @@ function DeliverableSection({
 /**
  * Produktdetailansicht – Produktbausteine und individuelle Anfrage.
  */
-export function BundleView({ useCaseId, onNext, onBack, viewLayout, onViewLayoutChange }: BundleViewProps) {
-  const useCase = useCaseId ? getUseCaseById(useCaseId) : null;
+export function BundleView({ productId, onNext, onBack, viewLayout, onViewLayoutChange }: BundleViewProps) {
+  const product = productId ? getProductById(productId) : null;
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
-  const setBundleFromUseCase = useConfigStore((state) => state.setBundleFromUseCase);
+  const setBundleFromProduct = useConfigStore((state) => state.setBundleFromProduct);
 
-  if (!useCase) {
+  if (!product) {
     return null;
   }
 
-  const mode = getRequestMode(useCase.id);
-  const recommendations = getBundleForUseCase(useCase.id);
+  const mode = getRequestMode(product.id);
+  const recommendations = getBundleForProduct(product.id);
   const activeCount = recommendations.filter((rec) => getDeliverableById(rec.deliverableId)?.active).length;
 
   const coreDeliverables = recommendations.filter((rec) => {
@@ -111,7 +111,7 @@ export function BundleView({ useCaseId, onNext, onBack, viewLayout, onViewLayout
   };
 
   const handleResetBundle = () => {
-    setBundleFromUseCase(useCase.id);
+    setBundleFromProduct(product.id);
   };
 
   const defaultBestForByDomain: Record<string, string[]> = {
@@ -127,11 +127,11 @@ export function BundleView({ useCaseId, onNext, onBack, viewLayout, onViewLayout
     risk_compliance: ["Risk", "Compliance"],
   };
   const fallbackDetails = {
-    problem: useCase.short,
-    typicalResult: useCase.outputs[0] ?? "Klarer erster Umsetzungsschritt mit messbarem Nutzen.",
-    bestFor: defaultBestForByDomain[useCase.domain] ?? ["Fachbereiche mit konkretem Entscheidungsbedarf"],
+    problem: product.short,
+    typicalResult: product.outputs[0] ?? "Klarer erster Umsetzungsschritt mit messbarem Nutzen.",
+    bestFor: defaultBestForByDomain[product.domain] ?? ["Fachbereiche mit konkretem Entscheidungsbedarf"],
   };
-  const details = useCase.details ?? fallbackDetails;
+  const details = product.details ?? fallbackDetails;
 
   const isCustomOrHybrid = mode === "custom" || mode === "hybrid";
   const hasModules = recommendations.length > 0 && mode !== "custom";
@@ -150,7 +150,7 @@ export function BundleView({ useCaseId, onNext, onBack, viewLayout, onViewLayout
                 </Badge>
               )}
             </div>
-            <h2 className="text-lg font-semibold text-text dark:text-darkmode-text line-clamp-2">{useCase.title}</h2>
+            <h2 className="text-lg font-semibold text-text dark:text-darkmode-text line-clamp-2">{product.title}</h2>
             {isCustomOrHybrid && mode === "custom" && (
               <p className="text-sm text-text-light dark:text-darkmode-text-light">
                 Dieses Produkt wird individuell auf Ihre Situation abgestimmt – ohne feste Produktbausteine.
@@ -193,9 +193,9 @@ export function BundleView({ useCaseId, onNext, onBack, viewLayout, onViewLayout
 
       {/* custom: nur individuelle Anfrage */}
       {mode === "custom" ? (
-        <CustomRequestForm productTitle={useCase.title} prominent />
+        <CustomRequestForm productTitle={product.title} prominent />
       ) : recommendations.length === 0 ? (
-        <CustomRequestForm productTitle={useCase.title} prominent />
+        <CustomRequestForm productTitle={product.title} prominent />
       ) : (
         <div className="space-y-6">
           {/* Kopfzeile mit Ansichtsumschalter */}
@@ -228,7 +228,7 @@ export function BundleView({ useCaseId, onNext, onBack, viewLayout, onViewLayout
 
           {mode === "hybrid" && (
             <section className={cn("pt-4", hasModules && "border-t border-border")}>
-              <div className="rounded-xl border border-green-600/25 dark:border-green-400/20 bg-green-500/[0.06] dark:bg-green-500/10 px-4 py-4 space-y-3">
+              <div className="rounded-xl border border-green-600/25 dark:border-green-400/20 bg-green-500/6 dark:bg-green-500/10 px-4 py-4 space-y-3">
                 <div className="flex flex-wrap items-center gap-2">
                   <Mail className="h-4 w-4 text-green-700 dark:text-green-400 shrink-0" />
                   <h4 className="text-sm font-semibold text-text dark:text-darkmode-text">
@@ -256,7 +256,7 @@ export function BundleView({ useCaseId, onNext, onBack, viewLayout, onViewLayout
                       </span>
                     </AccordionTrigger>
                     <AccordionContent className="px-4 pb-4">
-                      <CustomRequestForm productTitle={useCase.title} isAddon embedded />
+                      <CustomRequestForm productTitle={product.title} isAddon embedded />
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>

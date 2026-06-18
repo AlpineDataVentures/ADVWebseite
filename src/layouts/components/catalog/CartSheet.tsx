@@ -10,7 +10,7 @@ import { ShoppingCart, Trash2, ChevronDown, Copy, Check } from "lucide-react";
 import { useMemo, useState } from "react";
 import { getParameterByKey } from "../data/parameters";
 import { getDeliverableIcon } from "../lib/iconMap";
-import { getUseCaseById } from "../data/useCases";
+import { getProductById } from "../data/useCases";
 import { buildInquirySubject, buildInquiryText, buildMailtoLink } from "../lib/inquiry";
 import { PRODUCT_CATALOG_INQUIRY_EMAIL, PRODUCT_CATALOG_MEETING_URL } from "@/config/products";
 
@@ -25,8 +25,8 @@ interface CartSheetProps {
  */
 export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) {
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
-  const activeUseCase = useConfigStore((state) => state.activeUseCase);
-  const selectedUseCases = useConfigStore((state) => state.selectedUseCases);
+  const activeProduct = useConfigStore((state) => state.activeProduct);
+  const selectedProducts = useConfigStore((state) => state.selectedProducts);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
   const [copiedInquiry, setCopiedInquiry] = useState(false);
   const cartWithPrices = useMemo(
@@ -42,10 +42,10 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
     toggleDeliverable(deliverableId, false);
   };
 
-  const getResolvedUseCaseTitle = () => {
-    const preferredUseCaseId = activeUseCase ?? selectedUseCases[0] ?? null;
-    if (!preferredUseCaseId) return "Nicht angegeben";
-    return getUseCaseById(preferredUseCaseId)?.title ?? preferredUseCaseId;
+  const getResolvedProductTitle = () => {
+    const preferredProductId = activeProduct ?? selectedProducts[0] ?? null;
+    if (!preferredProductId) return "Nicht angegeben";
+    return getProductById(preferredProductId)?.title ?? preferredProductId;
   };
 
   const getDeliverableParamsForInquiry = (deliverableId: string, params: Record<string, any>) => {
@@ -64,11 +64,11 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
   };
 
   const inquirySubject = useMemo(() => {
-    return buildInquirySubject(getResolvedUseCaseTitle());
-  }, [activeUseCase, selectedUseCases]);
+    return buildInquirySubject(getResolvedProductTitle());
+  }, [activeProduct, selectedProducts]);
 
   const inquiryText = useMemo(() => {
-    const useCaseTitle = getResolvedUseCaseTitle();
+    const productTitle = getResolvedProductTitle();
     const deliverables = cartWithPrices
       .filter((item) => Boolean(item.deliverable))
       .map((item) => ({
@@ -78,11 +78,11 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
       }));
 
     return buildInquiryText({
-      useCaseTitle,
+      productTitle,
       deliverables,
       estimatedTotalPrice: totalPrice > 0 ? totalPrice : undefined,
     });
-  }, [cartWithPrices, totalPrice, activeUseCase, selectedUseCases, selectedDeliverables]);
+  }, [cartWithPrices, totalPrice, activeProduct, selectedProducts, selectedDeliverables]);
 
   const handlePrepareInquiryEmail = () => {
     const mailtoHref = buildMailtoLink(PRODUCT_CATALOG_INQUIRY_EMAIL, inquirySubject, inquiryText);
