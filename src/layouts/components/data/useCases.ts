@@ -33,25 +33,53 @@ export type SolutionClusterTag =
   | "automation_rnd"
   | "automation_production_logistics";
 
+/**
+ * UseCase = aktuelles Produktmodell des Produktkatalogs.
+ *
+ * Feld-Klassifikation (Stand Phase 2, siehe MIGRATION_NOTES.md):
+ *  - ZWINGEND:      id, domain, title, short, solution_cluster, outputs, tags.intent
+ *  - UX-RELEVANT:   priority, tags.data_scope, details.problem/typicalResult/bestFor
+ *  - STRAPI/SEO:    slug
+ *  - REDUNDANT/LEGACY (nur von entferntem Alt-Flow genutzt -> kann später entfallen):
+ *                   portfolio_area, tags.complexity, tags.tech_hint,
+ *                   tags.maturity_hint, details.typicalDeliverables
+ *
+ * Hinweis: Legacy-Felder bleiben vorerst im Interface (optional bzw. tolerant),
+ * damit die ~100 bestehenden Datensätze ohne riskanten Massen-Edit weiter valide sind.
+ * Beim Schritt UseCase -> Product (productModel.ts) werden sie nicht übernommen.
+ */
 export interface UseCase {
   key: string;
   domain: UseCaseDomain;
+  /** ZWINGEND – Anzeigetitel */
   title: string;
-  short: string; // 1–2 Zeilen, kundenverständlich
+  /** ZWINGEND – Kurzbeschreibung (1–2 Zeilen, kundenverständlich) */
+  short: string;
+  /** @deprecated LEGACY – nur vom alten Portfolio-Flow genutzt, kann später entfallen */
   portfolio_area?: PortfolioAreaTag;
+  /** ZWINGEND (faktisch) – primäres Cluster für Navigation/Empfehlung */
   solution_cluster?: SolutionClusterTag;
+  /** UX-RELEVANT – hebt Fokus-/Featured-Use-Cases hervor */
   priority?: "green" | "normal";
   tags: {
+    /** ZWINGEND – treibt Suche + Rule-Engine */
     intent: IntentTag[];
+    /** UX-/LOGIK-RELEVANT – treibt Architektur-Empfehlungen */
     data_scope: DataScopeTag;
+    /** @deprecated LEGACY – nur Badge im alten Flow, kann später entfallen */
     complexity: ComplexityTag;
     tech_hint: TechHintTag[];
   };
-  outputs: string[]; // 3 bullets
+  /** ZWINGEND – Ergebnis-Bullets (im Paket-View gerendert) */
+  outputs: string[];
   details?: {
+    /** UX-RELEVANT */
     problem: string;
+    /** UX-RELEVANT */
     typicalResult: string;
+    /** @deprecated LEGACY – im aktiven Flow ungenutzt (Bausteine kommen aus recommendations.ts) */
     typicalDeliverables: string[];
+    /** UX-RELEVANT */
     bestFor: string[];
   };
 }
@@ -59,7 +87,7 @@ export interface UseCase {
 const rawUseCases: UseCase[] = [
   // General Management
   {
-    key: "datenstrategie",
+    id: "datenstrategie",
     domain: "general_mgmt",
     title: "Datenstrategie",
     short: "Entwicklung einer klaren Datenstrategie mit Prioritäten, Rollen und Roadmap für die nächsten 12-24 Monate.",
@@ -79,10 +107,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ki-strategie",
+    id: "ki-strategie",
     domain: "general_mgmt",
     title: "KI Strategie",
-    short: "Definition einer pragmatischen KI-Strategie mit priorisierten Use Cases, Risiken und klarer Umsetzungsplanung.",
+    short: "Definition einer pragmatischen KI-Strategie mit priorisierten Anwendungsfällen, Risiken und klarer Umsetzungsplanung.",
     portfolio_area: "solutions",
     solution_cluster: "orientation_prioritization",
     priority: "green",
@@ -99,7 +127,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "maturity-assessment",
+    id: "maturity-assessment",
     domain: "general_mgmt",
     title: "Maturity Assessment",
     short: "Bewertung des aktuellen Reifegrads von Daten, Analytics und KI als Grundlage für eine belastbare Priorisierung.",
@@ -119,7 +147,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "data-mesh-organisation",
+    id: "data-mesh-organisation",
     domain: "general_mgmt",
     title: "Data Mesh Organisation",
     short: "Aufbau einer Data-Mesh-Organisation mit klaren Verantwortungen in Domänen und Governance auf Unternehmensebene.",
@@ -165,7 +193,7 @@ const rawUseCases: UseCase[] = [
     }
   },
   {
-    key: "data-ai-leadership",
+    id: "data-ai-leadership",
     domain: "general_mgmt",
     title: "Data & AI Leadership",
     short: "Stärkung von Führung, Entscheidungsstrukturen und Steuerung für daten- und KI-getriebene Transformation.",
@@ -211,7 +239,7 @@ const rawUseCases: UseCase[] = [
     }
   },
   {
-    key: "bereichs-reports",
+    id: "bereichs-reports",
     domain: "general_mgmt",
     title: "Bereichs-Reports",
     short: "Einheitliche Berichte für alle Abteilungen. Konsistente Datenbasis und vergleichbare Kennzahlen.",
@@ -228,7 +256,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "alarm-system",
+    id: "alarm-system",
     domain: "general_mgmt",
     title: "Frühwarnsystem",
     short: "Früherkennung kritischer KPI-Abweichungen mit automatischen Warnungen für Management und Fachbereiche.",
@@ -248,7 +276,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "governance-schulungen",
+    id: "governance-schulungen",
     domain: "general_mgmt",
     title: "Governance Schulungen",
     short: "Schulungen für den verantwortungsvollen Umgang mit Daten. Sicherstellung von Qualität und Compliance.",
@@ -265,7 +293,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "change-begleitung",
+    id: "change-begleitung",
     domain: "general_mgmt",
     title: "Change-Begleitung",
     short: "Professionelle Unterstützung bei der Einführung neuer Datenprozesse. Geringere Widerstände, höhere Akzeptanz.",
@@ -282,10 +310,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "datenstrategie-erstellung",
+    id: "datenstrategie-erstellung",
     domain: "general_mgmt",
     title: "Datenstrategie Erstellung",
-    short: "Variante zur Datenstrategie mit stärkerem Fokus auf initiale Dokumentation und strategische Grundsatzarbeit.",
+    short: "Datenstrategie mit stärkerem Fokus auf initiale Dokumentation und strategische Grundsatzarbeit.",
     tags: {
       intent: ["scale"],
       data_scope: "enterprise_wide",
@@ -299,7 +327,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "data-mesh-einfuehrung",
+    id: "data-mesh-einfuehrung",
     domain: "general_mgmt",
     title: "Data Mesh Einführung",
     short: "Einführung einer dezentralen Datenarchitektur. Datenverantwortung liegt bei den Fachbereichen.",
@@ -316,7 +344,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "data-mesh-skalierung",
+    id: "data-mesh-skalierung",
     domain: "general_mgmt",
     title: "Data Mesh Skalierung",
     short: "Ausweitung der Data Mesh Architektur auf das gesamte Unternehmen. Konsistente Standards und Prozesse.",
@@ -335,7 +363,7 @@ const rawUseCases: UseCase[] = [
 
   // IT & Data
   {
-    key: "dwh",
+    id: "dwh",
     domain: "it_data",
     title: "DWH",
     short: "Konzeption und Umsetzung eines Data Warehouses als verlässliche Grundlage für Reporting und Analytics.",
@@ -355,7 +383,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "data-lake",
+    id: "data-lake",
     domain: "it_data",
     title: "Data Lake",
     short: "Aufbau eines Data Lakes für flexible Speicherung und Verarbeitung strukturierter und unstrukturierter Daten.",
@@ -375,7 +403,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "enterprise-architecture-management",
+    id: "enterprise-architecture-management",
     domain: "it_data",
     title: "Enterprise Architecture Management",
     short: "Etablierung eines EAM-Rahmens zur Ausrichtung von Daten-, Applikations- und Technologiearchitektur.",
@@ -395,7 +423,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ai-architektur-infrastruktur",
+    id: "ai-architektur-infrastruktur",
     domain: "it_data",
     title: "AI Architektur & Infrastruktur",
     short: "Aufbau einer tragfähigen AI-Architektur inklusive Daten-, Modell- und Betriebsinfrastruktur.",
@@ -415,7 +443,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "souveraene-ki-infrastruktur",
+    id: "souveraene-ki-infrastruktur",
     domain: "it_data",
     title: "Souveräne KI Infrastruktur",
     short: "Konzeption einer souveränen KI-Infrastruktur mit Fokus auf Kontrolle, Sicherheit und regulatorische Anforderungen.",
@@ -435,7 +463,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "souveraene-datenarchitektur",
+    id: "souveraene-datenarchitektur",
     domain: "it_data",
     title: "Souveräne Datenarchitektur",
     short: "Aufbau einer souveränen Datenarchitektur für kontrollierte Datenhaltung, Zugriff und Verarbeitung.",
@@ -455,7 +483,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "dataops",
+    id: "dataops",
     domain: "it_data",
     title: "DataOps",
     short: "Einführung von DataOps-Prozessen für schnellere, stabilere und nachvollziehbare Datenbereitstellung.",
@@ -475,7 +503,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "wartung-support",
+    id: "wartung-support",
     domain: "it_data",
     title: "Wartung & Support",
     short: "Strukturierter Betrieb mit Wartung und Support für stabile Datenplattformen und BI-Lösungen.",
@@ -495,7 +523,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "master-data-management",
+    id: "master-data-management",
     domain: "it_data",
     title: "Master Data Management",
     short: "Einführung von MDM zur Sicherstellung konsistenter, verlässlicher Stamm- und Referenzdaten.",
@@ -515,10 +543,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "setup-data-infrastructure",
+    id: "setup-data-infrastructure",
     domain: "it_data",
     title: "Setup Data Infrastructure",
-    short: "Variante mit Fokus auf initiales Plattform-Setup und technische Inbetriebnahme der Dateninfrastruktur.",
+    short: "Initiales Plattform-Setup und technische Inbetriebnahme der Dateninfrastruktur.",
     tags: {
       intent: ["scale"],
       data_scope: "multi_source",
@@ -532,7 +560,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "setup-bi",
+    id: "setup-bi",
     domain: "it_data",
     title: "Setup BI",
     short: "Komplettes Business Intelligence Setup mit Dashboards und erster Datenanbindung. Sofort einsatzbereit.",
@@ -552,10 +580,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "helpdesk-automation",
+    id: "helpdesk-automation",
     domain: "it_data",
     title: "Intelligentes Ticket-Routing",
-    short: "Primary-Use-Case für automatische Priorisierung und Verteilung von Tickets auf passende Teams.",
+    short: "Automatische Priorisierung und Verteilung von Tickets auf passende Teams.",
     portfolio_area: "automation_ai",
     solution_cluster: "automation_it_ops",
     priority: "green",
@@ -572,7 +600,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "anomaly-detection",
+    id: "anomaly-detection",
     domain: "it_data",
     title: "Anomaly Detection",
     short: "Automatische Erkennung von Anomalien in Daten. Früherkennung von Problemen und Betrug.",
@@ -592,7 +620,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "api-management",
+    id: "api-management",
     domain: "it_data",
     title: "API-Management",
     short: "Zentrale Verwaltung aller APIs. Sicherer und kontrollierter Datenzugriff.",
@@ -609,10 +637,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "data-warehouse-implementierung",
+    id: "data-warehouse-implementierung",
     domain: "it_data",
     title: "Data Warehouse Implementierung",
-    short: "Variante mit Fokus auf technische DWH-Implementierung inkl. ETL und operativer Datenbereitstellung.",
+    short: "Technische DWH-Implementierung inkl. ETL und operativer Datenbereitstellung.",
     tags: {
       intent: ["scale"],
       data_scope: "enterprise_wide",
@@ -626,7 +654,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "adf-aufsetzen",
+    id: "adf-aufsetzen",
     domain: "it_data",
     title: "ADF Aufsetzen",
     short: "Einrichtung von Azure Data Factory für Datenintegration. Automatisierte Datenflüsse zwischen Systemen.",
@@ -645,7 +673,7 @@ const rawUseCases: UseCase[] = [
 
   // Finance
   {
-    key: "excel-to-bi-migration",
+    id: "excel-to-bi-migration",
     domain: "finance",
     title: "Excel to BI Migration",
     short: "Umstellung von Excel-Berichten auf moderne BI-Lösungen. Weniger Fehler, mehr Automatisierung.",
@@ -662,7 +690,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "financial-forecasting",
+    id: "financial-forecasting",
     domain: "finance",
     title: "KI-basierte Cash-Flow-Prognose",
     short: "KI-gestützte Prognose von Ein- und Auszahlungen für belastbare Liquiditätsplanung und Frühwarnung.",
@@ -708,7 +736,7 @@ const rawUseCases: UseCase[] = [
     }
   },
   {
-    key: "financial-planning",
+    id: "financial-planning",
     domain: "finance",
     title: "Financial Planning",
     short: "Unterstützung bei der Finanzplanung mit Datenanalysen. Realistischere Prognosen und bessere Entscheidungen.",
@@ -753,7 +781,7 @@ const rawUseCases: UseCase[] = [
     }
   },
   {
-    key: "sales-reporting",
+    id: "sales-reporting",
     domain: "sales_marketing",
     title: "Sales Reporting",
     short: "Automatisierte Sales-Reports für Management und Vertrieb. Konsistente Datenbasis, weniger manuelle Arbeit.",
@@ -770,7 +798,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "sales-forecast",
+    id: "sales-forecast",
     domain: "sales_marketing",
     title: "Sales Forecast",
     short: "Vorhersage von Verkaufsergebnissen mit KI. Realistischere Prognosen für Planung und Budgetierung.",
@@ -790,7 +818,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "potentialanalyse",
+    id: "potentialanalyse",
     domain: "sales_marketing",
     title: "Potentialanalyse",
     short: "Identifikation von Verkaufspotenzialen mit Datenanalysen. Fokus auf die vielversprechendsten Kunden und Märkte.",
@@ -807,7 +835,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "churn-prevention-algo",
+    id: "churn-prevention-algo",
     domain: "sales_marketing",
     title: "Churn Prevention Algo",
     short: "Früherkennung von Kunden mit Abwanderungsrisiko. Rechtzeitige Maßnahmen zur Kundenbindung.",
@@ -827,7 +855,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "data-driven-marketing",
+    id: "data-driven-marketing",
     domain: "sales_marketing",
     title: "Data Driven Marketing Dashboard",
     short: "Zentrale Marketing-Steuerung über kanalübergreifende Performance-, Budget- und Conversion-Kennzahlen.",
@@ -847,7 +875,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "automatisierung-customer-success",
+    id: "automatisierung-customer-success",
     domain: "sales_marketing",
     title: "Customer Support Automatisierung",
     short: "Automatisierte Service- und Supportprozesse für schnellere Reaktionszeiten und konsistente Kundenkommunikation.",
@@ -869,7 +897,7 @@ const rawUseCases: UseCase[] = [
 
   // Procurement
   {
-    key: "einkaufs-forecast",
+    id: "einkaufs-forecast",
     domain: "procurement",
     title: "Bestellzeitpunkt-Forecast",
     short: "Vorhersage optimaler Bestellzeitpunkte auf Basis von Verbrauch, Lieferzeit und Bestandsentwicklung.",
@@ -889,7 +917,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "best-price-purchase",
+    id: "best-price-purchase",
     domain: "procurement",
     title: "Preisentwicklungsanalyse",
     short: "Analyse von Preisverläufen und Beschaffungskosten zur frühzeitigen Erkennung von Kostenrisiken.",
@@ -909,7 +937,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "bedarfsanalyse",
+    id: "bedarfsanalyse",
     domain: "procurement",
     title: "Bedarfsanalyse",
     short: "Systematische Analyse von Einkaufsbedarfen. Identifikation von Einsparpotenzialen und Optimierungen.",
@@ -926,7 +954,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "automatisierung-bestelldaten",
+    id: "automatisierung-bestelldaten",
     domain: "procurement",
     title: "Bestelleingangsbearbeitung",
     short: "Automatisierte Erfassung und Validierung eingehender Bestellungen zur Reduktion manueller Aufwände.",
@@ -948,7 +976,7 @@ const rawUseCases: UseCase[] = [
 
   // Production
   {
-    key: "produktionsplanung",
+    id: "produktionsplanung",
     domain: "production",
     title: "Produktionsplanung",
     short: "Optimierte Produktionsplanung basierend auf Datenanalysen. Höhere Auslastung, weniger Stillstände.",
@@ -965,7 +993,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "digital-twin",
+    id: "digital-twin",
     domain: "production",
     title: "Digital Twin",
     short: "Digitaler Zwilling Ihrer Produktionsanlagen. Simulation und Optimierung vor der Umsetzung.",
@@ -982,7 +1010,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "predictive-maintenance",
+    id: "predictive-maintenance",
     domain: "production",
     title: "Predictive Maintenance",
     short: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig – nicht zu früh, nicht zu spät.",
@@ -1002,10 +1030,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "quality-assurance-ai",
+    id: "quality-assurance-ai",
     domain: "production",
     title: "Ausschuss- und Qualitätscontrolling",
-    short: "Primary-Use-Case für KI-gestützte Qualitätsautomatisierung mit Fokus auf Ausschussreduktion im Produktionsablauf.",
+    short: "KI-gestützte Qualitätsautomatisierung mit Fokus auf Ausschussreduktion im Produktionsablauf.",
     portfolio_area: "automation_ai",
     solution_cluster: "automation_production_logistics",
     priority: "green",
@@ -1024,7 +1052,7 @@ const rawUseCases: UseCase[] = [
 
   // Logistics
   {
-    key: "lagerbestandsverwaltung",
+    id: "lagerbestandsverwaltung",
     domain: "logistics",
     title: "Digitale Lagerplatzverwaltung",
     short: "Digitale Transparenz über Lagerplätze, Bestände und Bewegungen für eine effizientere Flächensteuerung.",
@@ -1044,7 +1072,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "lageroptimierung",
+    id: "lageroptimierung",
     domain: "logistics",
     title: "Lagerplatzoptimierung",
     short: "Datenbasierte Optimierung von Lagerzonen und Wegeführung zur Reduktion von Such- und Greifzeiten.",
@@ -1064,7 +1092,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "tourenplanung-automatisiert",
+    id: "tourenplanung-automatisiert",
     domain: "logistics",
     title: "KI-Routenoptimierung",
     short: "KI-basierte Optimierung von Touren in Echtzeit zur Senkung von Transportkosten und Verspätungen.",
@@ -1086,7 +1114,7 @@ const rawUseCases: UseCase[] = [
 
   // HR
   {
-    key: "personal-controlling",
+    id: "personal-controlling",
     domain: "hr",
     title: "Personal-Controlling",
     short: "Übersicht über Personalkosten, Auslastung und Performance. Datenbasierte Entscheidungen im HR-Bereich.",
@@ -1103,7 +1131,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "strategische-personalplanung",
+    id: "strategische-personalplanung",
     domain: "hr",
     title: "Strategische Personalplanung",
     short: "Langfristige Personalplanung basierend auf Datenanalysen. Rechtzeitige Reaktion auf Bedarfsänderungen.",
@@ -1120,7 +1148,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "operative-personaleinsatzplanung",
+    id: "operative-personaleinsatzplanung",
     domain: "hr",
     title: "Operative Personaleinsatzplanung",
     short: "Optimierte Schicht- und Einsatzplanung. Höhere Auslastung, zufriedenere Mitarbeiter.",
@@ -1156,7 +1184,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "innovationsresearch",
+    id: "innovationsresearch",
     domain: "rnd",
     title: "Innovationsresearch",
     short: "Datenbasierte Identifikation von Innovationschancen. Fokus auf vielversprechende Technologien und Trends.",
@@ -1175,7 +1203,7 @@ const rawUseCases: UseCase[] = [
 
   // Risk & Compliance
   {
-    key: "nis2",
+    id: "nis2",
     domain: "risk_compliance",
     title: "NIS2",
     short: "Unterstützung bei der NIS2-Umsetzung mit strukturiertem Maßnahmenplan für Governance, Prozesse und Nachweisfähigkeit.",
@@ -1195,7 +1223,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "dsgvo-dsb",
+    id: "dsgvo-dsb",
     domain: "risk_compliance",
     title: "DSGVO (+ DSB)",
     short: "Praxisnahe Umsetzung von DSGVO-Anforderungen inklusive Datenschutzorganisation und DSB-Einbindung.",
@@ -1215,7 +1243,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "isms-isb-bestellung",
+    id: "isms-isb-bestellung",
     domain: "risk_compliance",
     title: "ISMS & ISB Bestellung",
     short: "Aufbau eines ISMS-Rahmens inklusive Vorbereitung und Etablierung der ISB-Rolle im Unternehmen.",
@@ -1235,7 +1263,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "iam",
+    id: "iam",
     domain: "risk_compliance",
     title: "IAM",
     short: "Konzeption eines IAM-Zielbilds für rollenbasierten, sicheren und auditierbaren Zugriff auf Systeme und Daten.",
@@ -1255,7 +1283,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "data-governance-konzept",
+    id: "data-governance-konzept",
     domain: "risk_compliance",
     title: "Data Governance Konzept",
     short: "Entwicklung eines Konzepts für den verantwortungsvollen Umgang mit Daten. Sicherstellung von Qualität und Compliance.",
@@ -1272,7 +1300,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "iam-konzept",
+    id: "iam-konzept",
     domain: "risk_compliance",
     title: "IAM Konzept",
     short: "Konzept für Identity und Access Management. Sicherer und kontrollierter Zugriff auf Daten und Systeme.",
@@ -1289,7 +1317,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "umsetzung-rechte-rollenkonzepte",
+    id: "umsetzung-rechte-rollenkonzepte",
     domain: "risk_compliance",
     title: "Umsetzung von Rechte- & Rollenkonzepten",
     short: "Technische Umsetzung von Zugriffsrechten und Rollen. Sicherer Datenzugriff nach dem Prinzip der geringsten Rechte.",
@@ -1308,7 +1336,7 @@ const rawUseCases: UseCase[] = [
 
   // Block 2: Insights & Analytics Fokus-Use-Cases
   {
-    key: "liquiditaetsplanung-bi",
+    id: "liquiditaetsplanung-bi",
     domain: "finance",
     title: "Liquiditätsplanung mit BI",
     short: "Vorausschauende Steuerung von Zahlungsströmen und Liquiditätsengpässen auf Basis integrierter Finanzdaten.",
@@ -1323,7 +1351,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "budget-controlling",
+    id: "budget-controlling",
     domain: "finance",
     title: "Budget-Controlling",
     short: "Transparente Steuerung von Budget, Ist-Kosten und Abweichungen über Bereiche und Zeiträume hinweg.",
@@ -1338,7 +1366,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "deckungsbeitragsrechnung",
+    id: "deckungsbeitragsrechnung",
     domain: "finance",
     title: "Deckungsbeitragsrechnung",
     short: "Analyse von Margen und Deckungsbeiträgen nach Produkten, Kunden und Segmenten für bessere Steuerungsentscheidungen.",
@@ -1353,7 +1381,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "working-capital-analyse",
+    id: "working-capital-analyse",
     domain: "finance",
     title: "Working Capital Analyse",
     short: "Analyse von Forderungen, Verbindlichkeiten und Vorräten zur gezielten Reduktion der Kapitalbindung.",
@@ -1368,7 +1396,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "kostenstruktur-gemeinkosten-monitoring",
+    id: "kostenstruktur-gemeinkosten-monitoring",
     domain: "finance",
     title: "Kostenstruktur- und Gemeinkosten-Monitoring",
     short: "Kontinuierliches Monitoring von Fix-, Variabel- und Gemeinkosten zur frühzeitigen Erkennung von Kostentreibern.",
@@ -1383,7 +1411,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "investitionscontrolling-capex",
+    id: "investitionscontrolling-capex",
     domain: "finance",
     title: "Investitionscontrolling / CAPEX",
     short: "Steuerung von CAPEX-Projekten mit transparenter Budget-, Fortschritts- und Nutzenkontrolle.",
@@ -1398,7 +1426,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "customer-lifetime-value",
+    id: "customer-lifetime-value",
     domain: "sales_marketing",
     title: "Customer Lifetime Value",
     short: "Berechnung und Visualisierung des Kundenwerts zur besseren Priorisierung von Vertriebs- und Marketingmaßnahmen.",
@@ -1413,7 +1441,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "lead-scoring",
+    id: "lead-scoring",
     domain: "sales_marketing",
     title: "Lead Scoring",
     short: "Bewertung eingehender Leads nach Abschlusswahrscheinlichkeit für effizientere Vertriebssteuerung.",
@@ -1428,7 +1456,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "sales-funnel-analyse",
+    id: "sales-funnel-analyse",
     domain: "sales_marketing",
     title: "Sales Funnel Analyse",
     short: "Analyse von Funnel-Stufen und Conversion-Raten zur gezielten Optimierung von Vertrieb und Marketing.",
@@ -1443,7 +1471,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "reklamations-analyse",
+    id: "reklamations-analyse",
     domain: "sales_marketing",
     title: "Reklamations-Analyse",
     short: "Transparenz über Reklamationsursachen, Häufigkeiten und Kosten zur nachhaltigen Qualitätsverbesserung.",
@@ -1458,7 +1486,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "lieferantenscoring",
+    id: "lieferantenscoring",
     domain: "procurement",
     title: "Lieferantenscoring",
     short: "Bewertung von Lieferanten nach Preis, Qualität und Lieferperformance für bessere Beschaffungsentscheidungen.",
@@ -1473,7 +1501,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "oee-analyse",
+    id: "oee-analyse",
     domain: "production",
     title: "OEE-Analyse",
     short: "Auswertung von Verfügbarkeit, Leistung und Qualität zur transparenten Steuerung der Gesamtanlageneffektivität.",
@@ -1488,7 +1516,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "durchlaufzeit-bottleneck-analyse",
+    id: "durchlaufzeit-bottleneck-analyse",
     domain: "production",
     title: "Durchlaufzeit- und Bottleneck-Analyse",
     short: "Identifikation von Engpässen und Verzögerungen entlang der Prozesskette zur Steigerung des Materialflusses.",
@@ -1503,7 +1531,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "itsm-analytics",
+    id: "itsm-analytics",
     domain: "it_data",
     title: "ITSM Analytics",
     short: "Analyse von Tickets, SLA-Einhaltung und Servicequalität zur datenbasierten Steuerung des IT-Betriebs.",
@@ -1518,7 +1546,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "cloud-cost-observability",
+    id: "cloud-cost-observability",
     domain: "it_data",
     title: "Cloud-Cost-Observability",
     short: "Transparenz über Cloud-Kosten und Ressourcennutzung zur kontinuierlichen Kosten- und Effizienzoptimierung.",
@@ -1533,7 +1561,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "cybersicherheit-dashboard",
+    id: "cybersicherheit-dashboard",
     domain: "it_data",
     title: "Cybersicherheit-Dashboard",
     short: "Zentrale Sicht auf Sicherheitslage, Vorfälle und Reaktionsfähigkeit für ein belastbares Security-Controlling.",
@@ -1548,7 +1576,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "prozesseffizienz-analyse",
+    id: "prozesseffizienz-analyse",
     domain: "it_data",
     title: "Prozesseffizienz-Analyse",
     short: "Messung und Vergleich von Prozesslaufzeiten, Aufwänden und Qualitätskennzahlen zur gezielten Effizienzsteigerung.",
@@ -1565,7 +1593,7 @@ const rawUseCases: UseCase[] = [
 
   // Block 3: Automatisierung & KI Fokus-Use-Cases
   {
-    key: "sales-chatbot-webseite",
+    id: "sales-chatbot-webseite",
     domain: "sales_marketing",
     title: "Sales-Chatbot Webseite",
     short: "Automatisierter Web-Chatbot zur Lead-Qualifizierung und Übergabe qualifizierter Anfragen an den Vertrieb.",
@@ -1580,7 +1608,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "dynamic-pricing",
+    id: "dynamic-pricing",
     domain: "sales_marketing",
     title: "Dynamic Pricing",
     short: "Dynamische Preissteuerung auf Basis von Nachfrage, Wettbewerb und Margenzielen.",
@@ -1595,7 +1623,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ausschreibungsautomatisierung",
+    id: "ausschreibungsautomatisierung",
     domain: "procurement",
     title: "Ausschreibungsautomatisierung",
     short: "Automatisierte Erstellung, Auswertung und Dokumentation von Ausschreibungen für schnellere Beschaffungszyklen.",
@@ -1610,7 +1638,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "automatisierte-rechnungsverarbeitung",
+    id: "automatisierte-rechnungsverarbeitung",
     domain: "finance",
     title: "Automatisierte Rechnungsverarbeitung",
     short: "Automatische Extraktion, Prüfung und Verbuchung von Eingangsrechnungen zur Beschleunigung des Finanzprozesses.",
@@ -1625,10 +1653,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ai-helpdeskassistent",
+    id: "ai-helpdeskassistent",
     domain: "it_data",
     title: "AI-Helpdeskassistent",
-    short: "Variante für KI-Assistenz im Agentenarbeitsplatz mit Lösungsvorschlägen für wiederkehrende IT-Anfragen.",
+    short: "KI-Assistenz im Agentenarbeitsplatz mit Lösungsvorschlägen für wiederkehrende IT-Anfragen.",
     portfolio_area: "automation_ai",
     solution_cluster: "automation_it_ops",
     priority: "green",
@@ -1640,7 +1668,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "agentic-coding",
+    id: "agentic-coding",
     domain: "it_data",
     title: "Agentic-Coding",
     short: "Einsatz autonomer Coding-Agents zur Beschleunigung von Entwicklungsaufgaben mit kontrollierten Qualitätsleitplanken.",
@@ -1655,10 +1683,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "self-service-helpdesk",
+    id: "self-service-helpdesk",
     domain: "it_data",
     title: "Self-Service Helpdesk",
-    short: "Variante mit Fokus auf nutzerseitige Selbsthilfe über Portal und automatisierte Lösungspfade.",
+    short: "Nutzerseitige Selbsthilfe über Portal und automatisierte Lösungspfade.",
     portfolio_area: "automation_ai",
     solution_cluster: "automation_it_ops",
     priority: "green",
@@ -1670,7 +1698,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ki-preisueberwachung",
+    id: "ki-preisueberwachung",
     domain: "procurement",
     title: "KI-Preisüberwachung",
     short: "Kontinuierliche KI-gestützte Überwachung von Preisänderungen und Beschaffungsrisiken über Lieferanten hinweg.",
@@ -1685,7 +1713,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "automatisierte-bestellverarbeitung",
+    id: "automatisierte-bestellverarbeitung",
     domain: "procurement",
     title: "Automatisierte Bestellverarbeitung",
     short: "Durchgängige Automatisierung von Bestellprozessen von der Anlage bis zur Statusrückmeldung.",
@@ -1700,7 +1728,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "spendmanagement-automatisieren",
+    id: "spendmanagement-automatisieren",
     domain: "procurement",
     title: "Spendmanagement automatisieren",
     short: "Automatisierte Auswertung von Ausgabenstrukturen zur Identifikation von Einsparpotenzialen und Maverick Buying.",
@@ -1715,7 +1743,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "kyc-automatisierung",
+    id: "kyc-automatisierung",
     domain: "risk_compliance",
     title: "KYC-Automatisierung",
     short: "Automatisierte KYC-Prüfprozesse mit risikobasierter Priorisierung für schnellere und sichere Onboarding-Abläufe.",
@@ -1730,7 +1758,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "esg-datenerhebung-automatisiert",
+    id: "esg-datenerhebung-automatisiert",
     domain: "risk_compliance",
     title: "Automatisierte ESG-Datenerhebung",
     short: "Automatisierte Sammlung und Aufbereitung von ESG-Daten für konsistente Nachhaltigkeitsberichterstattung.",
@@ -1745,7 +1773,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ai-oberflaechenanalyse",
+    id: "ai-oberflaechenanalyse",
     domain: "it_data",
     title: "AI-Oberflächenanalyse",
     short: "KI-gestützte Analyse digitaler Oberflächen zur Erkennung von Usability-Hürden und Optimierungspotenzialen.",
@@ -1760,7 +1788,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ai-produktentwicklung",
+    id: "ai-produktentwicklung",
     domain: "rnd",
     title: "AI-Produktentwicklung",
     short: "Beschleunigte Produktentwicklung durch KI-gestützte Ideation, Prototyping und Validierung.",
@@ -1775,7 +1803,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "rag-literaturrecherche",
+    id: "rag-literaturrecherche",
     domain: "rnd",
     title: "RAG-Literaturrecherche",
     short: "Recherche-Assistenz mit Retrieval-Augmented Generation für schnellere Auswertung wissenschaftlicher Quellen.",
@@ -1790,10 +1818,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ai-video-qualitaetsanalyse",
+    id: "ai-video-qualitaetsanalyse",
     domain: "production",
     title: "AI-Video-Qualitätsanalyse",
-    short: "Variante zur Qualitätsautomatisierung mit Schwerpunkt auf visueller Inspektion per Video- und Bilddaten.",
+    short: "Qualitätsautomatisierung mit Schwerpunkt auf visueller Inspektion per Video- und Bilddaten.",
     portfolio_area: "automation_ai",
     solution_cluster: "automation_production_logistics",
     priority: "green",
@@ -1805,7 +1833,7 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "ki-warenausgangs-scanning",
+    id: "ki-warenausgangs-scanning",
     domain: "logistics",
     title: "KI-Warenausgangs-Scanning",
     short: "KI-gestütztes Scanning im Warenausgang zur automatischen Vollständigkeits- und Qualitätskontrolle vor Versand.",
@@ -1820,10 +1848,10 @@ const rawUseCases: UseCase[] = [
     ]
   },
   {
-    key: "objekterkennung",
+    id: "objekterkennung",
     domain: "production",
     title: "Objekterkennung",
-    short: "Variante mit Fokus auf generische Computer-Vision-Erkennung als Baustein für Qualitäts- und Logistikprozesse.",
+    short: "Generische Computer-Vision-Erkennung als Baustein für Qualitäts- und Logistikprozesse.",
     portfolio_area: "automation_ai",
     solution_cluster: "automation_production_logistics",
     priority: "green",
@@ -1999,12 +2027,12 @@ export const useCases: UseCase[] = rawUseCases.map((useCase) => {
     useCase.portfolio_area ?? (resolvedCluster.startsWith("automation_") ? "automation_ai" : "solutions");
   const details = useCase.details ?? {
     problem: useCase.short,
-    typicalResult: useCase.outputs[0] ?? "Messbarer Mehrwert durch einen klar priorisierten Use Case.",
+    typicalResult: useCase.outputs[0] ?? "Messbarer Mehrwert durch ein klar priorisiertes Produkt.",
     typicalDeliverables: useCase.outputs.slice(0, 3),
     bestFor: defaultBestForByDomain[useCase.domain],
   };
 
-  const curated = curatedUseCaseData[useCase.key];
+  const curated = curatedUseCaseData[useCase.id];
   return {
     ...useCase,
     solution_cluster: resolvedCluster,
@@ -2082,8 +2110,8 @@ export function getUseCasesForUiCluster(clusterId: UiClusterId): UseCase[] {
 }
 
 // Helper-Funktionen
-export function getUseCaseByKey(key: string): UseCase | undefined {
-  return useCases.find(uc => uc.key === key);
+export function getUseCaseById(id: string): UseCase | undefined {
+  return useCases.find(uc => uc.id === id);
 }
 
 export function getUseCasesByDomain(domain: UseCaseDomain): UseCase[] {
