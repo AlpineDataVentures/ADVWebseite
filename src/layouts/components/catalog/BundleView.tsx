@@ -48,11 +48,11 @@ function DeliverableSection({
 
   const renderCard = (recommendation: (typeof items)[0]["recommendation"], deliverable: (typeof items)[0]["deliverable"]) => (
     <DeliverableCard
-      key={deliverable.id}
+      key={deliverable.key}
       deliverable={deliverable}
       recommendation={recommendation}
-      isEnabled={selectedDeliverables[deliverable.id]?.enabled || false}
-      onToggle={(enabled) => onToggle(deliverable.id, enabled)}
+      isEnabled={selectedDeliverables[deliverable.key]?.enabled || false}
+      onToggle={(enabled) => onToggle(deliverable.key, enabled)}
       onConfigure={onConfigure}
       layout={layout}
     />
@@ -166,7 +166,7 @@ export function BundleView({ productId, onNext, onBack, viewLayout, onViewLayout
             ← Zurück
           </Button>
         </div>
-        <Accordion type="single" collapsible className="mt-1">
+        <Accordion type="single" className="mt-1">
           <AccordionItem value="use-case-details" className="border-0">
             <AccordionTrigger className="py-1.5 text-xs text-text-light dark:text-darkmode-text-light hover:no-underline">
               Produkt-Details
@@ -244,7 +244,7 @@ export function BundleView({ productId, onNext, onBack, viewLayout, onViewLayout
                 <p className="text-sm text-text dark:text-darkmode-text">
                   Nicht die passende Kombination gefunden? Gerne erstellen wir ein individuelles Angebot für Ihre Anforderungen.
                 </p>
-                <Accordion type="single" collapsible className="space-y-0">
+                <Accordion type="single" className="space-y-0">
                   <AccordionItem
                     value="custom-request"
                     className="rounded-lg border border-green-600/20 dark:border-green-400/15 bg-body dark:bg-darkmode-body overflow-hidden"

@@ -119,11 +119,16 @@ export function CustomRequestForm({ productTitle, isAddon = false, embedded = fa
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3 pt-1">
-        <Button asChild size="lg" className="w-full sm:w-auto sm:min-w-[17rem] shrink-0">
-          <a href={mailto} className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
-            <Mail className="h-4 w-4 shrink-0" />
-            <span className="whitespace-nowrap">Individuelle Anfrage vorbereiten</span>
-          </a>
+        <Button
+          type="button"
+          size="lg"
+          className="w-full sm:w-auto sm:min-w-[17rem] shrink-0"
+          onClick={() => {
+            window.location.href = mailto;
+          }}
+        >
+          <Mail className="h-4 w-4 shrink-0" />
+          <span className="whitespace-nowrap">Individuelle Anfrage vorbereiten</span>
         </Button>
         <Button type="button" variant="outline" size="lg" onClick={handleCopy} className="whitespace-nowrap shrink-0">
           {copied ? <Check className="h-4 w-4 shrink-0" /> : <Copy className="h-4 w-4 shrink-0" />}

@@ -22,11 +22,11 @@ export function DeliverableListView({ onConfigure, layout = "list", className }:
     return (
       <div className={cn("grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6", className)}>
         {items.map((deliverable) => {
-          const Icon = getDeliverableIcon(deliverable.id);
+          const Icon = getDeliverableIcon(deliverable.key);
           const price = getMinimumPrice(deliverable);
           return (
             <article
-              key={deliverable.id}
+              key={deliverable.key}
               className="group flex flex-col rounded-xl border border-border bg-light dark:bg-darkmode-light p-4 transition-shadow hover:shadow-sm"
             >
               <div className="flex-1 space-y-3">
@@ -48,7 +48,7 @@ export function DeliverableListView({ onConfigure, layout = "list", className }:
                   ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPrice(price)}</span>
                 </p>
               )}
-              <Button type="button" variant="default" className="mt-4 w-full" onClick={() => onConfigure(deliverable.id)}>
+              <Button type="button" variant="default" className="mt-4 w-full" onClick={() => onConfigure(deliverable.key)}>
                 Baustein konfigurieren
               </Button>
             </article>
@@ -61,12 +61,12 @@ export function DeliverableListView({ onConfigure, layout = "list", className }:
   return (
     <ul className={cn("divide-y divide-border rounded-2xl border border-border overflow-hidden", className)}>
       {items.map((deliverable) => {
-        const Icon = getDeliverableIcon(deliverable.id);
+        const Icon = getDeliverableIcon(deliverable.key);
         const price = getMinimumPrice(deliverable);
 
         return (
           <li
-            key={deliverable.id}
+            key={deliverable.key}
             className="group bg-light dark:bg-darkmode-light hover:bg-body dark:hover:bg-darkmode-body transition-colors"
           >
             <div className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center">
@@ -98,7 +98,7 @@ export function DeliverableListView({ onConfigure, layout = "list", className }:
                   variant="default"
                   size="sm"
                   className="shrink-0"
-                  onClick={() => onConfigure(deliverable.id)}
+                  onClick={() => onConfigure(deliverable.key)}
                 >
                   Baustein konfigurieren
                 </Button>

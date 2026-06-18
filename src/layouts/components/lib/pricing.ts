@@ -72,7 +72,8 @@ export function calculateDeliverablePrice(
   let currentAmount = base;
 
   // Alle Parameter durchgehen, die für dieses Deliverable gelten
-  deliverable.parameters.forEach(paramKey => {
+  const applicableParameters = deliverable.parameters ?? [];
+  applicableParameters.forEach(paramKey => {
     const param = getParameterByKey(paramKey);
     if (!param) return;
 

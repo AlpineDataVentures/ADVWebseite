@@ -42,8 +42,8 @@ export function DeliverableCard({
   const minPrice = getMinimumPrice(deliverable);
 
   const detailsAccordion = (
-    <Accordion type="single" collapsible>
-      <AccordionItem value={`details-${deliverable.id}`} className="border-0">
+    <Accordion type="single">
+      <AccordionItem value={`details-${deliverable.key}`} className="border-0">
         <AccordionTrigger
           className="py-1.5 text-xs text-text-light dark:text-darkmode-text-light hover:no-underline"
           aria-label={`Details zu ${deliverable.name} ein- oder ausklappen`}

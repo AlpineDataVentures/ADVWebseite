@@ -65,7 +65,7 @@ export function ConfigView({ productId, onBack, onOpenCart }: ConfigViewProps) {
     );
   }
 
-  const handleParamChange = (deliverableId: string, paramKey: string, value: string | number | boolean) => {
+  const handleParamChange = (deliverableId: string, paramKey: string, value: string | number) => {
     updateDeliverableParam(deliverableId, paramKey, value);
   };
 

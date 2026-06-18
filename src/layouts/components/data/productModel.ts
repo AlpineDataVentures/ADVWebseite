@@ -107,7 +107,7 @@ export interface ProductRecommendation {
 export function useCaseToProduct(useCase: CatalogProduct): Product {
   return {
     id: useCase.id,
-    slug: useCase.slug ?? useCase.id,
+    slug: useCase.id,
     title: useCase.title,
     short: useCase.short,
     details: useCase.details
