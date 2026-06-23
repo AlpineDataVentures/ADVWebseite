@@ -8,7 +8,7 @@ categories: ["Data Architecture"]
 author: "Ben Diez"
 tags: ["Data Warehouse", "Cloud", "On-Premises", "Azure", "Data Engineering", "Data Infrastructure", "Digitale Souveränität"]
 draft: false
-summary: "On-Prem, Cloud oder Hybrid — bevor Thalberg auch nur eine Zeile baut, muss diese Frage beantwortet sein. Wir zeigen welche Kriterien wirklich zählen und warum der Praktikant mit seinem Server-Vorschlag diesmal nicht weitergekommen ist."
+summary: "On-Prem, Cloud oder Hybrid — bevor Thalberg auch nur eine Zeile baut, muss diese Frage beantwortet sein. Wir zeigen welche Kriterien wirklich zählen."
 ---
 
 *Teil 4 unserer Serie über den kompletten Aufbau eines datengetriebenen Unternehmens [Teil 3 lesen](/blog/7-zeichen-datenbasis/)*
