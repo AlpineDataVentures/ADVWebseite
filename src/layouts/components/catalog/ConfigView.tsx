@@ -37,7 +37,7 @@ const parameterHelperText: Record<string, string> = {
 /**
  * Config View - Konfiguration für alle ausgewählten Produktbausteine
  */
-export function ConfigView({ productId, onBack, onOpenCart }: ConfigViewProps) {
+export function ConfigView({ productId: _productId, onBack, onOpenCart }: ConfigViewProps) {
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const updateDeliverableParam = useConfigStore((state) => state.updateDeliverableParam);
 

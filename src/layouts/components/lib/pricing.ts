@@ -1,7 +1,7 @@
 import type { DeliverableParameters, CartItem } from '../data/models';
 import type { Deliverable } from '../data/deliverables';
 import { deliverables } from '../data/deliverables';
-import { allParameters, getParameterByKey } from '../data/parameters';
+import { getParameterByKey } from '../data/parameters';
 
 /**
  * Rundet auf die nächsten 100 EUR

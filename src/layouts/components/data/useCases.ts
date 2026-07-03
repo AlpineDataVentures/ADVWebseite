@@ -2023,8 +2023,7 @@ const curatedProductData: Record<string, { details: NonNullable<Product["details
 
 export const products: Product[] = rawProducts.map((product) => {
   const resolvedCluster = product.solution_cluster ?? defaultClusterByDomain[product.domain];
-  const resolvedPortfolio =
-    product.portfolio_area ?? (resolvedCluster.startsWith("automation_") ? "automation_ai" : "solutions");
+  const resolvedPortfolio = resolvedCluster.startsWith("automation_") ? "automation_ai" : "solutions";
   const details = product.details ?? {
     problem: product.short,
     typicalResult: product.outputs[0] ?? "Messbarer Mehrwert durch ein klar priorisiertes Produkt.",
