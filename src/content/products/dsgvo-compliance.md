@@ -2,7 +2,7 @@
 title: "DSGVO Compliance"
 eyebrow: "Produkt"
 meta_title: "DSGVO Compliance"
-description: "Die Datenschutz-Grundverordnung /DSGVO) gilt seit 2018. Trotzdem haben die meisten mittelständischen Unternehmen erhebliche Lücken die ihnen nicht bewusst sind. Fehlende Dokumentation, veraltete Einwilligungstexte oder unklare Zuständigkeiten sind keine Kleinigkeiten. Bei einem Verstoß drohen Bußgelder von bis zu 20 Millionen Euro oder 4 % des weltweiten Jahresumsatzes. Wir prüfen wo Sie stehen, zeigen Ihnen konkret was fehlt und begleiten Sie dabei, die Lücken pragmatisch und nachhaltig zu schließen. Auf Wunsch stehen wir Ihnen anschließend auch als zertifizierter, externer Datenschutzbeauftragter zur Verfügung"
+description: "Die Datenschutz-Grundverordnung /DSGVO) gilt seit 2018. Trotzdem haben die meisten mittelständischen Unternehmen erhebliche Lücken die ihnen nicht bewusst sind. Fehlende Dokumentation, veraltete Einwilligungstexte oder unklare Zuständigkeiten sind keine Kleinigkeiten. Bei einem Verstoß drohen Bußgelder von bis zu 20 Millionen Euro oder 4 % des weltweiten Jahresumsatzes. Wir prüfen wo Sie stehen, zeigen Ihnen konkret was fehlt und begleiten Sie dabei, die Lücken pragmatisch und nachhaltig zu schließen. Auf Wunsch stehen wir Ihnen anschließend auch als zertifizierter, [externer Datenschutzbeauftragter](/products/externer-datenschutzbeauftragter/) zur Verfügung"
 highlight_text:  "Fehlende Dokumentation, veraltete Einwilligungstexte oder unklare Zuständigkeiten"
 image: "/images/products/dsgvo-compliance.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
