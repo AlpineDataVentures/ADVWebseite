@@ -3,7 +3,7 @@ title: "Vertriebsmitarbeiter / Business Development (m/w/d)"
 eyebrow: "Vollzeit"
 meta_title: "Vertriebsmitarbeiter / Business Development (m/w/d) bei Alpine Data Ventures"
 description: "Du willst verstehen, wie moderne B2B-Neukundengewinnung im Data-, KI- und Analytics-Umfeld funktioniert? Dann komm ins Team ADV."
-draft: false
+draft: true
 summary: "Für den Ausbau unseres Vertriebs suchen wir ab sofort einen Vertriebsmitarbeiter / Business Development Manager (m/w/d) mit erster Berufserfahrung im B2B-Umfeld."
 employment_type: "vollzeit"
 start_date: "ab sofort"
