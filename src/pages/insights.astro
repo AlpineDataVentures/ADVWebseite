@@ -38,10 +38,10 @@ const insightUseCases = [
     title: "General Management",
     text: "Das gesamte Unternehmen inkl. Fachbereiche im Blick für das Management",
     links: [
-      { label: "Management Dashboard" },
+      { label: "Management Dashboard", product_slug: "management-dashboard" },
       { label: "Frühwarnsysteme" },
-      { label: "Bereichs-Reporting" },
-      { label: "Data Catalog", product_slug: "data-catalog" },
+      { label: "Bereichs-Reporting", product_slug: "department-reporting" },
+      { label: "Business Intelligence", product_slug: "business-intelligence" },
     ],
   },
   {
@@ -64,9 +64,9 @@ const insightUseCases = [
     links: [
       { label: "Customer Lifetime Value (CLV)" },
       { label: "Lead Scoring" },
-      { label: "Sales Funnel Analyse" },
+      { label: "Sales Funnel Analyse", product_slug: "sales-funnel-analysis" },
       { label: "Sales Dashboard" },
-      { label: "Churn Prevention" },
+      { label: "Churn Prevention", product_slug: "churn-prevention" },
       { label: "Data Driven Marketing" },
       { label: "Reklamationsanalyse" },
       { label: "Sales Forecast" },
@@ -152,7 +152,7 @@ const insightUseCasesWithLinks = insightUseCases.map((useCase) => ({
   <SplitInfoSection data={splitInfoData} />
 
   <ExpandableInfoBoxesSection
-    title="Anwendungsfälle für Ihr Unternehmen"
+    title="Produkte für Ihr Unternehmen"
     items={insightUseCasesWithLinks}
   />
 

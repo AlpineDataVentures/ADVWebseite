@@ -7,13 +7,14 @@
   "license": "UNLICENSED",
   "type": "module",
   "url": "https://alpinedata.de/",
-  "packageManager": "npm@10",
+  "packageManager": "npm@10.0.0",
   "scripts": {
     "dev": "npm run generate-json && astro dev",
     "build": "npm run generate-json && astro build && node scripts/copy_prod.mjs",
     "build_branch": "npm run generate-json && astro build && node scripts/copy_branch.mjs",
     "preview": "astro preview",
     "format": "prettier -w ./src",
+    "generate-domains": "node scripts/generate-domains-from-strapi.mjs",
     "generate-json": "node scripts/jsonGenerator.js",
     "remove-darkmode": "node scripts/removeDarkmode.js && npm run format"
   },

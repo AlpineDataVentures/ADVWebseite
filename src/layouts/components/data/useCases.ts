@@ -1,4 +1,4 @@
-export type UseCaseDomain = 
+export type ProductDomain =
   | "general_mgmt"
   | "it_data"
   | "finance"
@@ -13,43 +13,230 @@ export type UseCaseDomain =
 export type IntentTag = "transparency" | "automation" | "insights" | "compliance" | "scale";
 export type DataScopeTag = "single_source" | "multi_source" | "enterprise_wide";
 export type ComplexityTag = "xs" | "s" | "m" | "l";
-export type MaturityHintTag = "start" | "stabilize" | "scale";
 export type TechHintTag = "bi" | "dwh" | "integration" | "ai" | "governance";
+export type PortfolioAreaTag = "solutions" | "automation_ai";
+export type SolutionClusterTag =
+  | "orientation_prioritization"
+  | "data_mgmt_architecture"
+  | "insights_general_mgmt"
+  | "insights_finance"
+  | "insights_sales_marketing"
+  | "insights_procurement"
+  | "insights_production_logistics"
+  | "insights_it_ops"
+  | "automation_sales_marketing"
+  | "automation_finance"
+  | "automation_it_ops"
+  | "automation_procurement"
+  | "automation_risk_compliance"
+  | "automation_cross_domain"
+  | "automation_rnd"
+  | "automation_production_logistics";
 
-export interface UseCase {
+/**
+ * Product = aktuelles Produktmodell des Produktkatalogs.
+ *
+ * Feld-Klassifikation (Stand Phase 2, siehe MIGRATION_NOTES.md):
+ *  - ZWINGEND:      id, domain, title, short, solution_cluster, outputs, tags.intent
+ *  - UX-RELEVANT:   priority, tags.data_scope, details.problem/typicalResult/bestFor
+ *  - STRAPI/SEO:    slug
+ *  - REDUNDANT/LEGACY (nur von entferntem Alt-Flow genutzt -> kann später entfallen):
+ *                   portfolio_area, tags.complexity, tags.tech_hint,
+ *                   tags.maturity_hint, details.typicalDeliverables
+ *
+ * Hinweis: Legacy-Felder bleiben vorerst im Interface (optional bzw. tolerant),
+ * damit die ~100 bestehenden Datensätze ohne riskanten Massen-Edit weiter valide sind.
+ * Beim Schritt vom Katalog-Product ins Product-Zielmodell (productModel.ts) werden sie nicht übernommen.
+ */
+export interface Product {
   id: string;
-  domain: UseCaseDomain;
+  domain: ProductDomain;
+  /** ZWINGEND – Anzeigetitel */
   title: string;
-  short: string; // 1–2 Zeilen, kundenverständlich
+  /** ZWINGEND – Kurzbeschreibung (1–2 Zeilen, kundenverständlich) */
+  short: string;
+  /** @deprecated LEGACY – nur vom alten Portfolio-Flow genutzt, kann später entfallen */
+  portfolio_area?: PortfolioAreaTag;
+  /** ZWINGEND (faktisch) – primäres Cluster für Navigation/Empfehlung */
+  solution_cluster?: SolutionClusterTag;
+  /** UX-RELEVANT – hebt Fokus-/Featured-Use-Cases hervor */
+  priority?: "green" | "normal";
   tags: {
+    /** ZWINGEND – treibt Suche + Rule-Engine */
     intent: IntentTag[];
+    /** UX-/LOGIK-RELEVANT – treibt Architektur-Empfehlungen */
     data_scope: DataScopeTag;
+    /** @deprecated LEGACY – nur Badge im alten Flow, kann später entfallen */
     complexity: ComplexityTag;
-    maturity_hint: MaturityHintTag;
     tech_hint: TechHintTag[];
   };
-  outputs: string[]; // 3 bullets
+  /** ZWINGEND – Ergebnis-Bullets (im Paket-View gerendert) */
+  outputs: string[];
+  details?: {
+    /** UX-RELEVANT */
+    problem: string;
+    /** UX-RELEVANT */
+    typicalResult: string;
+    /** @deprecated LEGACY – im aktiven Flow ungenutzt (Bausteine kommen aus recommendations.ts) */
+    typicalDeliverables: string[];
+    /** UX-RELEVANT */
+    bestFor: string[];
+  };
 }
 
-export const useCases: UseCase[] = [
+const rawProducts: Product[] = [
   // General Management
+  {
+    id: "datenstrategie",
+    domain: "general_mgmt",
+    title: "Datenstrategie",
+    short: "Entwicklung einer klaren Datenstrategie mit Prioritäten, Rollen und Roadmap für die nächsten 12-24 Monate.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["scale"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["governance"]
+    },
+    outputs: [
+      "Zielbild & Strategiepapier",
+      "Priorisierte Roadmap",
+      "Rollen- und Governance-Modell"
+    ]
+  },
+  {
+    id: "ki-strategie",
+    domain: "general_mgmt",
+    title: "KI Strategie",
+    short: "Definition einer pragmatischen KI-Strategie mit priorisierten Anwendungsfällen, Risiken und klarer Umsetzungsplanung.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["scale", "insights"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["ai", "governance"]
+    },
+    outputs: [
+      "Zielbild & Strategiepapier",
+      "Priorisierte Maßnahmenliste",
+      "Priorisierte Roadmap"
+    ]
+  },
+  {
+    id: "maturity-assessment",
+    domain: "general_mgmt",
+    title: "Maturity Assessment",
+    short: "Bewertung des aktuellen Reifegrads von Daten, Analytics und KI als Grundlage für eine belastbare Priorisierung.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["transparency"],
+      data_scope: "enterprise_wide",
+      complexity: "s",
+      tech_hint: ["governance", "bi"]
+    },
+    outputs: [
+      "Gap- und Reifegradanalyse",
+      "Priorisierte Maßnahmenliste",
+      "Zielbild & Strategiepapier"
+    ]
+  },
+  {
+    id: "data-mesh-organisation",
+    domain: "general_mgmt",
+    title: "Data Mesh Organisation",
+    short: "Aufbau einer Data-Mesh-Organisation mit klaren Verantwortungen in Domänen und Governance auf Unternehmensebene.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["scale"],
+      data_scope: "enterprise_wide",
+      complexity: "l",
+      tech_hint: ["governance", "dwh"]
+    },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Rollen- und Governance-Modell",
+      "Priorisierte Roadmap"
+    ]
+  },
+  {
+    id: "data-catalog",
+    domain: "general_mgmt",
+    title: "Data Catalog",
+    short: "Einführung eines Data Catalogs für Transparenz über Datenobjekte, Verantwortliche und Definitionen.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["transparency", "compliance"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["governance"]
+    },
+    outputs: [
+      "Data Catalog & Glossar",
+      "Zielbild & Strategiepapier",
+      "Priorisierte Roadmap"
+    ],
+    details: {
+      problem: "Begriffe, Datenobjekte und Verantwortlichkeiten sind verteilt oder uneinheitlich dokumentiert.",
+      typicalResult: "Ein zentraler, gepflegter Katalog mit klaren Definitionen und eindeutigen Verantwortlichkeiten.",
+      typicalDeliverables: ["KPI & Daten-Glossar Sprint", "Datenquellen- & Integrationsanalyse"],
+      bestFor: ["Führungsteams mit Governance-Fokus", "Fachbereiche mit Abstimmungsbedarf", "Organisationen mit Compliance-Anforderungen"]
+    }
+  },
+  {
+    id: "data-ai-leadership",
+    domain: "general_mgmt",
+    title: "Data & AI Leadership",
+    short: "Stärkung von Führung, Entscheidungsstrukturen und Steuerung für daten- und KI-getriebene Transformation.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["scale"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["governance", "ai"]
+    },
+    outputs: [
+      "Zielbild & Strategiepapier",
+      "Rollen- und Governance-Modell",
+      "Priorisierte Roadmap"
+    ]
+  },
   {
     id: "management-dashboard",
     domain: "general_mgmt",
     title: "Management Dashboard",
     short: "Zentrale Übersicht aller wichtigen Kennzahlen für die Geschäftsführung. Schnelle Entscheidungen basierend auf aktuellen Daten.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_general_mgmt",
+    priority: "green",
     tags: {
       intent: ["transparency"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Interaktives Management-Dashboard mit allen KPIs",
-      "Automatisierte Datenaktualisierung (täglich/wöchentlich)",
-      "PDF-Export für Präsentationen"
-    ]
+      "KPI-Definition & Kennzahlenkatalog",
+      "Automatisierter Workflow",
+      "Fachbereichs-Reporting"
+    ],
+    details: {
+      problem: "Management-Entscheidungen basieren auf verstreuten Reports und verspäteten Kennzahlen.",
+      typicalResult: "Ein zentrales Steuerungsdashboard mit konsistenten KPIs und schneller Entscheidungsgrundlage.",
+      typicalDeliverables: ["BI Fix & Fertig Setup", "KPI Definition Workshop", "Erster Management-Bericht"],
+      bestFor: ["Geschäftsführung", "Bereichsleitungen", "Organisationen mit mehreren Steuerungsbereichen"]
+    }
   },
   {
     id: "bereichs-reports",
@@ -60,31 +247,32 @@ export const useCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Standardisierte Report-Vorlagen für alle Bereiche",
-      "Zentrale Datenquelle für konsistente Berichte",
-      "Automatisierte Verteilung an Verantwortliche"
+      "Fachbereichs-Reporting",
+      "Rollen- und Governance-Modell",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
     id: "alarm-system",
     domain: "general_mgmt",
-    title: "Alarm-System",
-    short: "Automatische Benachrichtigungen bei kritischen Abweichungen. Rechtzeitige Reaktion auf Probleme.",
+    title: "Frühwarnsystem",
+    short: "Früherkennung kritischer KPI-Abweichungen mit automatischen Warnungen für Management und Fachbereiche.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_general_mgmt",
+    priority: "green",
     tags: {
       intent: ["automation", "transparency"],
       data_scope: "multi_source",
       complexity: "s",
-      maturity_hint: "stabilize",
       tech_hint: ["bi", "integration"]
     },
     outputs: [
-      "Konfigurierbare Schwellenwerte für Alarme",
-      "E-Mail- und App-Benachrichtigungen",
-      "Dashboard mit aktuellen Alarmen"
+      "Monitoring- & Alerting-Setup",
+      "Management-Dashboard",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -96,13 +284,12 @@ export const useCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "xs",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
-      "Schulungsunterlagen zu Datenqualität und -sicherheit",
-      "Praktische Übungen und Best Practices",
-      "Zertifikat für Teilnehmer"
+      "Schulungs- und Enablement-Paket",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -114,31 +301,29 @@ export const useCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["governance"]
     },
     outputs: [
-      "Change-Management-Plan für Datenprojekte",
-      "Schulungen und Workshops für betroffene Teams",
-      "Begleitung während der Einführungsphase"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Schulungs- und Enablement-Paket",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
     id: "datenstrategie-erstellung",
     domain: "general_mgmt",
     title: "Datenstrategie Erstellung",
-    short: "Entwicklung einer klaren Strategie für den Umgang mit Daten. Roadmap für die nächsten Jahre.",
+    short: "Datenstrategie mit stärkerem Fokus auf initiale Dokumentation und strategische Grundsatzarbeit.",
     tags: {
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
-      "Dokumentierte Datenstrategie mit Zielen und Maßnahmen",
-      "Roadmap für die Umsetzung",
-      "Empfehlungen für Technologie und Prozesse"
+      "Zielbild & Strategiepapier",
+      "Priorisierte Roadmap",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -150,13 +335,12 @@ export const useCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["governance", "dwh"]
     },
     outputs: [
-      "Konzept für Data Mesh Architektur",
-      "Pilot-Implementierung in einem Bereich",
-      "Leitfaden für die Skalierung"
+      "Zielarchitektur & Datenmodell",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Zielbild & Strategiepapier"
     ]
   },
   {
@@ -168,33 +352,211 @@ export const useCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["governance", "dwh", "integration"]
     },
     outputs: [
-      "Skalierungsplan für alle Bereiche",
-      "Zentrale Governance-Struktur",
-      "Schulungen für Data Product Owner"
+      "Priorisierte Roadmap",
+      "Rollen- und Governance-Modell",
+      "Schulungs- und Enablement-Paket"
     ]
   },
 
   // IT & Data
   {
+    id: "dwh",
+    domain: "it_data",
+    title: "DWH",
+    short: "Konzeption und Umsetzung eines Data Warehouses als verlässliche Grundlage für Reporting und Analytics.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["scale", "transparency"],
+      data_scope: "enterprise_wide",
+      complexity: "l",
+      tech_hint: ["dwh", "integration"]
+    },
+    outputs: [
+      "Zielarchitektur & Datenmodell",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Datenpipeline- und Integrationssetup"
+    ]
+  },
+  {
+    id: "data-lake",
+    domain: "it_data",
+    title: "Data Lake",
+    short: "Aufbau eines Data Lakes für flexible Speicherung und Verarbeitung strukturierter und unstrukturierter Daten.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["scale"],
+      data_scope: "enterprise_wide",
+      complexity: "l",
+      tech_hint: ["dwh", "integration"]
+    },
+    outputs: [
+      "Zielarchitektur & Datenmodell",
+      "Rollen- und Governance-Modell",
+      "Datenpipeline- und Integrationssetup"
+    ]
+  },
+  {
+    id: "enterprise-architecture-management",
+    domain: "it_data",
+    title: "Enterprise Architecture Management",
+    short: "Etablierung eines EAM-Rahmens zur Ausrichtung von Daten-, Applikations- und Technologiearchitektur.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["scale", "compliance"],
+      data_scope: "enterprise_wide",
+      complexity: "l",
+      tech_hint: ["governance", "integration"]
+    },
+    outputs: [
+      "Zielbild & Strategiepapier",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Roadmap"
+    ]
+  },
+  {
+    id: "ai-architektur-infrastruktur",
+    domain: "it_data",
+    title: "AI Architektur & Infrastruktur",
+    short: "Aufbau einer tragfähigen AI-Architektur inklusive Daten-, Modell- und Betriebsinfrastruktur.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["scale"],
+      data_scope: "enterprise_wide",
+      complexity: "l",
+      tech_hint: ["ai", "dwh", "integration"]
+    },
+    outputs: [
+      "Zielarchitektur & Datenmodell",
+      "Betriebs- und Supportmodell",
+      "Priorisierte Roadmap"
+    ]
+  },
+  {
+    id: "souveraene-ki-infrastruktur",
+    domain: "it_data",
+    title: "Souveräne KI Infrastruktur",
+    short: "Konzeption einer souveränen KI-Infrastruktur mit Fokus auf Kontrolle, Sicherheit und regulatorische Anforderungen.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["compliance", "scale"],
+      data_scope: "enterprise_wide",
+      complexity: "l",
+      tech_hint: ["ai", "governance"]
+    },
+    outputs: [
+      "Betriebs- und Supportmodell",
+      "Zielarchitektur & Datenmodell",
+      "Risiko- und Maßnahmenkatalog"
+    ]
+  },
+  {
+    id: "souveraene-datenarchitektur",
+    domain: "it_data",
+    title: "Souveräne Datenarchitektur",
+    short: "Aufbau einer souveränen Datenarchitektur für kontrollierte Datenhaltung, Zugriff und Verarbeitung.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["compliance", "scale"],
+      data_scope: "enterprise_wide",
+      complexity: "l",
+      tech_hint: ["governance", "dwh"]
+    },
+    outputs: [
+      "Zielarchitektur & Datenmodell",
+      "Sicherheits- und Zugriffskonzept",
+      "Priorisierte Roadmap"
+    ]
+  },
+  {
+    id: "dataops",
+    domain: "it_data",
+    title: "DataOps",
+    short: "Einführung von DataOps-Prozessen für schnellere, stabilere und nachvollziehbare Datenbereitstellung.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["automation", "scale"],
+      data_scope: "multi_source",
+      complexity: "m",
+      tech_hint: ["integration", "governance"]
+    },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup"
+    ]
+  },
+  {
+    id: "wartung-support",
+    domain: "it_data",
+    title: "Wartung & Support",
+    short: "Strukturierter Betrieb mit Wartung und Support für stabile Datenplattformen und BI-Lösungen.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["automation", "scale"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["integration", "governance"]
+    },
+    outputs: [
+      "Betriebs- und Supportmodell",
+      "Zielarchitektur & Datenmodell",
+      "Datenpipeline- und Integrationssetup"
+    ]
+  },
+  {
+    id: "master-data-management",
+    domain: "it_data",
+    title: "Master Data Management",
+    short: "Einführung von MDM zur Sicherstellung konsistenter, verlässlicher Stamm- und Referenzdaten.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
+    tags: {
+      intent: ["compliance", "transparency"],
+      data_scope: "enterprise_wide",
+      complexity: "l",
+      tech_hint: ["governance", "integration"]
+    },
+    outputs: [
+      "Zielbild & Strategiepapier",
+      "Rollen- und Governance-Modell",
+      "Priorisierte Roadmap"
+    ]
+  },
+  {
     id: "setup-data-infrastructure",
     domain: "it_data",
     title: "Setup Data Infrastructure",
-    short: "Aufbau einer zentralen Dateninfrastruktur. Solide Basis für alle Analytics-Projekte.",
+    short: "Initiales Plattform-Setup und technische Inbetriebnahme der Dateninfrastruktur.",
     tags: {
       intent: ["scale"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
-      "Installierte und konfigurierte Dateninfrastruktur",
-      "Anbindung an wichtige Datenquellen",
-      "Dokumentation und Schulung für Administratoren"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Datenpipeline- und Integrationssetup",
+      "Dokumentations- und Nachweispaket"
     ]
   },
   {
@@ -202,35 +564,39 @@ export const useCases: UseCase[] = [
     domain: "it_data",
     title: "Setup BI",
     short: "Komplettes Business Intelligence Setup mit Dashboards und erster Datenanbindung. Sofort einsatzbereit.",
+    portfolio_area: "solutions",
+    solution_cluster: "data_mgmt_architecture",
+    priority: "green",
     tags: {
       intent: ["transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Installiertes und konfiguriertes BI-System",
-      "Anbindung an 1-3 Datenquellen",
-      "3-5 Basis-Dashboards nach Ihren Anforderungen"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Datenpipeline- und Integrationssetup",
+      "Management-Dashboard"
     ]
   },
   {
     id: "helpdesk-automation",
     domain: "it_data",
-    title: "Helpdesk Automation",
-    short: "Automatisierung von Helpdesk-Prozessen. Schnellere Bearbeitung, weniger manuelle Arbeit.",
+    title: "Intelligentes Ticket-Routing",
+    short: "Automatische Priorisierung und Verteilung von Tickets auf passende Teams.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_it_ops",
+    priority: "green",
     tags: {
       intent: ["automation"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "ai"]
     },
     outputs: [
-      "Automatisierte Ticket-Kategorisierung",
-      "Workflow-Automatisierung für Standardfälle",
-      "Dashboard für Helpdesk-Metriken"
+      "Automatisierter Workflow",
+      "Management-Dashboard",
+      "Zielarchitektur & Datenmodell"
     ]
   },
   {
@@ -238,17 +604,19 @@ export const useCases: UseCase[] = [
     domain: "it_data",
     title: "Anomaly Detection",
     short: "Automatische Erkennung von Anomalien in Daten. Früherkennung von Problemen und Betrug.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_cross_domain",
+    priority: "green",
     tags: {
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "ML-Modell für Anomalie-Erkennung",
-      "Dashboard mit erkannten Anomalien",
-      "Automatische Benachrichtigungen bei Auffälligkeiten"
+      "Anomalieerkennung",
+      "Management-Dashboard",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
@@ -260,31 +628,29 @@ export const useCases: UseCase[] = [
       intent: ["scale"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "governance"]
     },
     outputs: [
-      "API-Gateway mit Authentifizierung",
-      "Dokumentation aller verfügbaren APIs",
-      "Monitoring und Logging-System"
+      "Sicherheits- und Zugriffskonzept",
+      "Dokumentations- und Nachweispaket",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
     id: "data-warehouse-implementierung",
     domain: "it_data",
     title: "Data Warehouse Implementierung",
-    short: "Aufbau eines zentralen Data Warehouses. Alle Daten an einem Ort, konsistent und aktuell.",
+    short: "Technische DWH-Implementierung inkl. ETL und operativer Datenbereitstellung.",
     tags: {
       intent: ["scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["dwh", "integration"]
     },
     outputs: [
-      "Implementiertes Data Warehouse",
-      "ETL-Prozesse für regelmäßige Datenaktualisierung",
-      "Datenmodell für Kernbereiche"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Datenpipeline- und Integrationssetup",
+      "Zielarchitektur & Datenmodell"
     ]
   },
   {
@@ -296,13 +662,12 @@ export const useCases: UseCase[] = [
       intent: ["automation", "scale"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "dwh"]
     },
     outputs: [
-      "Konfigurierte Azure Data Factory",
-      "Erste Datenpipelines für wichtige Quellen",
-      "Monitoring und Fehlerbehandlung"
+      "Datenpipeline- und Integrationssetup",
+      "Monitoring- & Alerting-Setup",
+      "Zielarchitektur & Datenmodell"
     ]
   },
 
@@ -316,31 +681,32 @@ export const useCases: UseCase[] = [
       intent: ["automation", "transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Migrierte Berichte in BI-System",
-      "Automatisierte Datenaktualisierung",
-      "Schulung für Finanzteam"
+      "Fachbereichs-Reporting",
+      "Automatisierter Workflow",
+      "Schulungs- und Enablement-Paket"
     ]
   },
   {
     id: "financial-forecasting",
     domain: "finance",
-    title: "Financial Forecasting",
-    short: "Vorhersage von Finanzergebnissen basierend auf historischen Daten. Bessere Planung und Entscheidungen.",
+    title: "KI-basierte Cash-Flow-Prognose",
+    short: "KI-gestützte Prognose von Ein- und Auszahlungen für belastbare Liquiditätsplanung und Frühwarnung.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_finance",
+    priority: "green",
     tags: {
-      intent: ["insights"],
+      intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Forecasting-Modell für Finanzergebnisse",
-      "Dashboard mit Prognosen und Szenarien",
-      "Automatisierte Aktualisierung der Vorhersagen"
+      "Forecasting-Modell",
+      "Management-Dashboard",
+      "KPI-Definition & Kennzahlenkatalog"
     ]
   },
   {
@@ -348,18 +714,26 @@ export const useCases: UseCase[] = [
     domain: "finance",
     title: "Controlling via BI",
     short: "Moderne Controlling-Berichte in BI. Echtzeit-Übersicht über Kosten, Budgets und Abweichungen.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_finance",
+    priority: "green",
     tags: {
       intent: ["transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Controlling-Dashboard mit allen Kennzahlen",
-      "Budget- vs. Ist-Vergleiche",
-      "Automatisierte Abweichungsanalysen"
-    ]
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Automatisierter Workflow"
+    ],
+    details: {
+      problem: "Controlling benötigt zu viel manuelle Aufbereitung und liefert keine aktuelle Sicht auf Abweichungen.",
+      typicalResult: "Transparente BI-Controlling-Sicht mit automatisierten Budget-Ist-Vergleichen.",
+      typicalDeliverables: ["KPI Definition Workshop", "Reporting-Struktur (Templates & Standards)", "Erster Management-Bericht"],
+      bestFor: ["Finance-Teams", "Controlling-Leitung", "Unternehmen mit mehreren Kostenstellen"]
+    }
   },
   {
     id: "financial-planning",
@@ -370,13 +744,12 @@ export const useCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["bi", "ai"]
     },
     outputs: [
-      "Planungsmodelle basierend auf historischen Daten",
-      "Szenario-Analysen für verschiedene Planungsvarianten",
-      "Dashboard für Plan-Ist-Vergleiche"
+      "KI-Modell (Pilot)",
+      "Szenario- und Simulationsanalyse",
+      "Management-Dashboard"
     ]
   },
 
@@ -386,18 +759,26 @@ export const useCases: UseCase[] = [
     domain: "sales_marketing",
     title: "Sales Dashboard",
     short: "Echtzeit-Übersicht über Verkäufe, Pipeline und Performance. Schnelle Entscheidungen basierend auf aktuellen Daten.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_sales_marketing",
+    priority: "green",
     tags: {
       intent: ["transparency"],
       data_scope: "single_source",
       complexity: "s",
-      maturity_hint: "start",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Interaktives Sales-Dashboard",
-      "Pipeline-Übersicht mit Wahrscheinlichkeiten",
-      "Automatisierte Aktualisierung aus CRM"
-    ]
+      "Management-Dashboard",
+      "Datenpipeline- und Integrationssetup",
+      "Automatisierter Workflow"
+    ],
+    details: {
+      problem: "Vertrieb und Management haben keine einheitliche, aktuelle Sicht auf Pipeline und Performance.",
+      typicalResult: "Ein Sales-Dashboard mit klaren KPIs, Pipeline-Transparenz und automatischen Updates.",
+      typicalDeliverables: ["BI Fix & Fertig Setup", "KPI Definition Workshop", "KPI & Daten-Glossar Sprint"],
+      bestFor: ["Sales-Leitung", "Vertriebsteams", "Unternehmen mit CRM-basierter Pipeline-Steuerung"]
+    }
   },
   {
     id: "sales-reporting",
@@ -408,13 +789,12 @@ export const useCases: UseCase[] = [
       intent: ["automation", "transparency"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Standardisierte Sales-Reports",
-      "Automatisierte Verteilung an Verantwortliche",
-      "Vergleichsanalysen (Monat, Quartal, Jahr)"
+      "Fachbereichs-Reporting",
+      "Rollen- und Governance-Modell",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -422,17 +802,19 @@ export const useCases: UseCase[] = [
     domain: "sales_marketing",
     title: "Sales Forecast",
     short: "Vorhersage von Verkaufsergebnissen mit KI. Realistischere Prognosen für Planung und Budgetierung.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_sales_marketing",
+    priority: "green",
     tags: {
       intent: ["insights"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Forecasting-Modell für Verkäufe",
-      "Dashboard mit Prognosen und Konfidenzintervallen",
-      "Automatisierte Aktualisierung basierend auf Pipeline"
+      "Forecasting-Modell",
+      "Management-Dashboard",
+      "Datenpipeline- und Integrationssetup"
     ]
   },
   {
@@ -444,13 +826,12 @@ export const useCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Analyse-Modell für Verkaufspotenziale",
-      "Dashboard mit identifizierten Chancen",
-      "Priorisierte Liste für Vertriebsteam"
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Priorisierte Maßnahmenliste"
     ]
   },
   {
@@ -458,53 +839,59 @@ export const useCases: UseCase[] = [
     domain: "sales_marketing",
     title: "Churn Prevention Algo",
     short: "Früherkennung von Kunden mit Abwanderungsrisiko. Rechtzeitige Maßnahmen zur Kundenbindung.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_sales_marketing",
+    priority: "green",
     tags: {
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "ML-Modell zur Churn-Vorhersage",
-      "Dashboard mit Risiko-Kunden",
-      "Automatische Benachrichtigungen bei hohem Risiko"
+      "Forecasting-Modell",
+      "Management-Dashboard",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
     id: "data-driven-marketing",
     domain: "sales_marketing",
-    title: "Data Driven Marketing",
-    short: "Marketing-Entscheidungen basierend auf Datenanalysen. Höhere ROI durch zielgerichtete Kampagnen.",
+    title: "Data Driven Marketing Dashboard",
+    short: "Zentrale Marketing-Steuerung über kanalübergreifende Performance-, Budget- und Conversion-Kennzahlen.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_sales_marketing",
+    priority: "green",
     tags: {
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Analyse-Tools für Marketing-Performance",
-      "Segmentierungsmodelle für Zielgruppen",
-      "Dashboard für Kampagnen-Erfolg"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KI-Modell (Pilot)",
+      "Management-Dashboard"
     ]
   },
   {
     id: "automatisierung-customer-success",
     domain: "sales_marketing",
-    title: "Automatisierung Customer Success",
-    short: "Automatisierung von Customer Success Prozessen. Proaktive Betreuung, weniger manuelle Arbeit.",
+    title: "Customer Support Automatisierung",
+    short: "Automatisierte Service- und Supportprozesse für schnellere Reaktionszeiten und konsistente Kundenkommunikation.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_sales_marketing",
+    priority: "green",
     tags: {
       intent: ["automation"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["integration", "ai"]
     },
     outputs: [
-      "Automatisierte Workflows für Customer Success",
-      "Dashboard mit Kunden-Gesundheits-Score",
-      "Automatische Benachrichtigungen bei Auffälligkeiten"
+      "Automatisierter Workflow",
+      "Management-Dashboard",
+      "Monitoring- & Alerting-Setup"
     ]
   },
 
@@ -512,37 +899,41 @@ export const useCases: UseCase[] = [
   {
     id: "einkaufs-forecast",
     domain: "procurement",
-    title: "Einkaufs-Forecast",
-    short: "Vorhersage von Einkaufsbedarfen basierend auf historischen Daten. Optimierte Bestellplanung.",
+    title: "Bestellzeitpunkt-Forecast",
+    short: "Vorhersage optimaler Bestellzeitpunkte auf Basis von Verbrauch, Lieferzeit und Bestandsentwicklung.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_procurement",
+    priority: "green",
     tags: {
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Forecasting-Modell für Einkaufsbedarfe",
-      "Dashboard mit Prognosen und Bestellvorschlägen",
-      "Automatisierte Aktualisierung basierend auf Verbrauch"
+      "Forecasting-Modell",
+      "Management-Dashboard",
+      "Automatisierter Workflow"
     ]
   },
   {
     id: "best-price-purchase",
     domain: "procurement",
-    title: "Best price purchase",
-    short: "Automatische Identifikation der besten Preise und Lieferanten. Kostenoptimierung beim Einkauf.",
+    title: "Preisentwicklungsanalyse",
+    short: "Analyse von Preisverläufen und Beschaffungskosten zur frühzeitigen Erkennung von Kostenrisiken.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_procurement",
+    priority: "green",
     tags: {
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Analyse-Tool für Lieferanten-Preise",
-      "Dashboard mit Preisvergleichen",
-      "Automatische Empfehlungen für Bestellungen"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Management-Dashboard",
+      "Optimierungsmodell"
     ]
   },
   {
@@ -554,31 +945,32 @@ export const useCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Analyse-Dashboard für Einkaufsbedarfe",
-      "Identifikation von Einsparpotenzialen",
-      "Empfehlungen für Bestelloptimierung"
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
     ]
   },
   {
     id: "automatisierung-bestelldaten",
     domain: "procurement",
-    title: "Automatisierung Bestelldaten",
-    short: "Automatisierung der Erfassung und Verarbeitung von Bestelldaten. Weniger manuelle Arbeit, weniger Fehler.",
+    title: "Bestelleingangsbearbeitung",
+    short: "Automatisierte Erfassung und Validierung eingehender Bestellungen zur Reduktion manueller Aufwände.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_procurement",
+    priority: "green",
     tags: {
       intent: ["automation"],
       data_scope: "single_source",
       complexity: "s",
-      maturity_hint: "stabilize",
       tech_hint: ["integration"]
     },
     outputs: [
-      "Automatisierte Erfassung von Bestelldaten",
-      "Integration mit Einkaufssystemen",
-      "Dashboard für Bestellübersicht"
+      "Automatisierter Workflow",
+      "Datenpipeline- und Integrationssetup",
+      "Management-Dashboard"
     ]
   },
 
@@ -592,13 +984,12 @@ export const useCases: UseCase[] = [
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Optimierungsmodell für Produktionsplanung",
-      "Dashboard mit aktueller Auslastung",
-      "Automatische Planungsvorschläge"
+      "Optimierungsmodell",
+      "Betriebs- und Supportmodell",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -610,13 +1001,12 @@ export const useCases: UseCase[] = [
       intent: ["insights", "scale"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "integration"]
     },
     outputs: [
-      "Digitales Modell der Produktionsanlagen",
-      "Simulations-Tool für Szenarien",
-      "Dashboard mit Echtzeit-Daten und Prognosen"
+      "KI-Modell (Pilot)",
+      "Szenario- und Simulationsanalyse",
+      "Management-Dashboard"
     ]
   },
   {
@@ -624,35 +1014,39 @@ export const useCases: UseCase[] = [
     domain: "production",
     title: "Predictive Maintenance",
     short: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig – nicht zu früh, nicht zu spät.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_production_logistics",
+    priority: "green",
     tags: {
       intent: ["insights", "automation"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "ML-Modell für Wartungsvorhersage",
-      "Dashboard mit Wartungsempfehlungen",
-      "Automatische Benachrichtigungen bei Bedarf"
+      "Betriebs- und Supportmodell",
+      "Monitoring- & Alerting-Setup",
+      "Optimierungsmodell"
     ]
   },
   {
     id: "quality-assurance-ai",
     domain: "production",
-    title: "Quality Assurance AI",
-    short: "Automatische Qualitätsprüfung mit KI. Früherkennung von Fehlern, weniger Ausschuss.",
+    title: "Ausschuss- und Qualitätscontrolling",
+    short: "KI-gestützte Qualitätsautomatisierung mit Fokus auf Ausschussreduktion im Produktionsablauf.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_production_logistics",
+    priority: "green",
     tags: {
       intent: ["automation", "insights"],
       data_scope: "single_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai"]
     },
     outputs: [
-      "KI-Modell für Qualitätsprüfung",
-      "Dashboard mit Qualitätsmetriken",
-      "Automatische Alarme bei Qualitätsproblemen"
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Monitoring- & Alerting-Setup"
     ]
   },
 
@@ -660,55 +1054,61 @@ export const useCases: UseCase[] = [
   {
     id: "lagerbestandsverwaltung",
     domain: "logistics",
-    title: "Lagerbestandsverwaltung",
-    short: "Echtzeit-Übersicht über Lagerbestände. Optimierte Bestellmengen, weniger Überbestände.",
+    title: "Digitale Lagerplatzverwaltung",
+    short: "Digitale Transparenz über Lagerplätze, Bestände und Bewegungen für eine effizientere Flächensteuerung.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_production_logistics",
+    priority: "green",
     tags: {
       intent: ["transparency"],
       data_scope: "single_source",
       complexity: "s",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Dashboard mit aktuellen Lagerbeständen",
-      "Automatische Bestellvorschläge",
-      "Warnungen bei niedrigen Beständen"
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup"
     ]
   },
   {
     id: "lageroptimierung",
     domain: "logistics",
-    title: "Lageroptimierung",
-    short: "Optimierung der Lagerstruktur und -prozesse. Höhere Effizienz, niedrigere Kosten.",
+    title: "Lagerplatzoptimierung",
+    short: "Datenbasierte Optimierung von Lagerzonen und Wegeführung zur Reduktion von Such- und Greifzeiten.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_production_logistics",
+    priority: "green",
     tags: {
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Optimierungsmodell für Lagerstruktur",
-      "Dashboard mit Lager-Metriken",
-      "Empfehlungen für Prozessverbesserungen"
+      "Optimierungsmodell",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
     id: "tourenplanung-automatisiert",
     domain: "logistics",
-    title: "Tourenplanung automatisiert",
-    short: "Automatische Optimierung von Lieferrouten. Kürzere Wege, weniger Kosten, pünktlichere Lieferungen.",
+    title: "KI-Routenoptimierung",
+    short: "KI-basierte Optimierung von Touren in Echtzeit zur Senkung von Transportkosten und Verspätungen.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_production_logistics",
+    priority: "green",
     tags: {
       intent: ["automation", "insights"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "integration"]
     },
     outputs: [
-      "Optimierungsmodell für Tourenplanung",
-      "Dashboard mit geplanten Routen",
-      "Automatische Anpassung bei Änderungen"
+      "Optimierungsmodell",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
 
@@ -722,13 +1122,12 @@ export const useCases: UseCase[] = [
       intent: ["transparency"],
       data_scope: "multi_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["bi"]
     },
     outputs: [
-      "Dashboard mit Personalkennzahlen",
-      "Kostenanalysen nach Abteilungen",
-      "Automatisierte Reports für Management"
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Fachbereichs-Reporting"
     ]
   },
   {
@@ -740,13 +1139,12 @@ export const useCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Planungsmodell für Personalbedarf",
-      "Dashboard mit Prognosen und Szenarien",
-      "Empfehlungen für Personalentwicklung"
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -758,33 +1156,31 @@ export const useCases: UseCase[] = [
       intent: ["automation", "insights"],
       data_scope: "single_source",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Optimierungsmodell für Einsatzplanung",
-      "Dashboard mit aktuellen Plänen",
-      "Automatische Vorschläge für Schichtpläne"
+      "Optimierungsmodell",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
 
   // Research & Development
   {
-    id: "simulierung-experimente",
+    id: "simulation-experimente",
     domain: "rnd",
-    title: "Simulierung von Experimenten",
+    title: "Simulation von Experimenten",
     short: "Virtuelle Durchführung von Experimenten vor der Realität. Schnellere Entwicklung, weniger Kosten.",
     tags: {
       intent: ["insights", "scale"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai"]
     },
     outputs: [
-      "Simulationsmodell für Experimente",
-      "Dashboard mit Simulationsergebnissen",
-      "Empfehlungen für reale Experimente"
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -796,17 +1192,96 @@ export const useCases: UseCase[] = [
       intent: ["insights"],
       data_scope: "multi_source",
       complexity: "l",
-      maturity_hint: "scale",
       tech_hint: ["ai", "bi"]
     },
     outputs: [
-      "Analyse-Tool für Innovationschancen",
-      "Dashboard mit identifizierten Trends",
-      "Priorisierte Liste für Forschungsteam"
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Management-Dashboard",
+      "Priorisierte Maßnahmenliste"
     ]
   },
 
   // Risk & Compliance
+  {
+    id: "nis2",
+    domain: "risk_compliance",
+    title: "NIS2",
+    short: "Unterstützung bei der NIS2-Umsetzung mit strukturiertem Maßnahmenplan für Governance, Prozesse und Nachweisfähigkeit.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["compliance"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["governance"]
+    },
+    outputs: [
+      "Gap- und Reifegradanalyse",
+      "Priorisierte Maßnahmenliste",
+      "Dokumentations- und Nachweispaket"
+    ]
+  },
+  {
+    id: "dsgvo-dsb",
+    domain: "risk_compliance",
+    title: "DSGVO (+ DSB)",
+    short: "Praxisnahe Umsetzung von DSGVO-Anforderungen inklusive Datenschutzorganisation und DSB-Einbindung.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["compliance"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["governance"]
+    },
+    outputs: [
+      "Priorisierte Roadmap",
+      "Rollen- und Governance-Modell",
+      "Dokumentations- und Nachweispaket"
+    ]
+  },
+  {
+    id: "isms-isb-bestellung",
+    domain: "risk_compliance",
+    title: "ISMS & ISB Bestellung",
+    short: "Aufbau eines ISMS-Rahmens inklusive Vorbereitung und Etablierung der ISB-Rolle im Unternehmen.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["compliance", "scale"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["governance"]
+    },
+    outputs: [
+      "Compliance-Umsetzungsplan",
+      "Rollen- und Governance-Modell",
+      "Priorisierte Roadmap"
+    ]
+  },
+  {
+    id: "iam",
+    domain: "risk_compliance",
+    title: "IAM",
+    short: "Konzeption eines IAM-Zielbilds für rollenbasierten, sicheren und auditierbaren Zugriff auf Systeme und Daten.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["compliance"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["governance", "integration"]
+    },
+    outputs: [
+      "Sicherheits- und Zugriffskonzept",
+      "Rollen- und Governance-Modell",
+      "Handlungs- und Entscheidungsempfehlungen"
+    ]
+  },
   {
     id: "data-governance-konzept",
     domain: "risk_compliance",
@@ -816,13 +1291,12 @@ export const useCases: UseCase[] = [
       intent: ["compliance", "scale"],
       data_scope: "enterprise_wide",
       complexity: "l",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
-      "Dokumentiertes Data Governance Konzept",
-      "Rollen und Verantwortlichkeiten",
-      "Prozesse für Datenqualität und -sicherheit"
+      "Rollen- und Governance-Modell",
+      "Sicherheits- und Zugriffskonzept",
+      "Compliance-Umsetzungsplan"
     ]
   },
   {
@@ -834,13 +1308,12 @@ export const useCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "start",
       tech_hint: ["governance"]
     },
     outputs: [
-      "Dokumentiertes IAM-Konzept",
-      "Rollen- und Rechte-Modell",
-      "Empfehlungen für technische Umsetzung"
+      "Sicherheits- und Zugriffskonzept",
+      "Rollen- und Governance-Modell",
+      "Handlungs- und Entscheidungsempfehlungen"
     ]
   },
   {
@@ -852,26 +1325,799 @@ export const useCases: UseCase[] = [
       intent: ["compliance"],
       data_scope: "enterprise_wide",
       complexity: "m",
-      maturity_hint: "stabilize",
       tech_hint: ["governance", "integration"]
     },
     outputs: [
-      "Implementiertes Rechte- und Rollensystem",
-      "Zugriffskontrollen für alle Systeme",
-      "Dokumentation und Schulung"
+      "Rollen- und Governance-Modell",
+      "Dokumentations- und Nachweispaket",
+      "Compliance-Umsetzungsplan"
+    ]
+  },
+
+  // Block 2: Insights & Analytics Fokus-Use-Cases
+  {
+    id: "liquiditaetsplanung-bi",
+    domain: "finance",
+    title: "Liquiditätsplanung mit BI",
+    short: "Vorausschauende Steuerung von Zahlungsströmen und Liquiditätsengpässen auf Basis integrierter Finanzdaten.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_finance",
+    priority: "green",
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup"
+    ]
+  },
+  {
+    id: "budget-controlling",
+    domain: "finance",
+    title: "Budget-Controlling",
+    short: "Transparente Steuerung von Budget, Ist-Kosten und Abweichungen über Bereiche und Zeiträume hinweg.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_finance",
+    priority: "green",
+    tags: { intent: ["transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Fachbereichs-Reporting"
+    ]
+  },
+  {
+    id: "deckungsbeitragsrechnung",
+    domain: "finance",
+    title: "Deckungsbeitragsrechnung",
+    short: "Analyse von Margen und Deckungsbeiträgen nach Produkten, Kunden und Segmenten für bessere Steuerungsentscheidungen.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_finance",
+    priority: "green",
+    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "Fachbereichs-Reporting",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
+  },
+  {
+    id: "working-capital-analyse",
+    domain: "finance",
+    title: "Working Capital Analyse",
+    short: "Analyse von Forderungen, Verbindlichkeiten und Vorräten zur gezielten Reduktion der Kapitalbindung.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_finance",
+    priority: "green",
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "KPI-Definition & Kennzahlenkatalog",
+      "Priorisierte Maßnahmenliste",
+      "Forecasting-Modell"
+    ]
+  },
+  {
+    id: "kostenstruktur-gemeinkosten-monitoring",
+    domain: "finance",
+    title: "Kostenstruktur- und Gemeinkosten-Monitoring",
+    short: "Kontinuierliches Monitoring von Fix-, Variabel- und Gemeinkosten zur frühzeitigen Erkennung von Kostentreibern.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_finance",
+    priority: "green",
+    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup"
+    ]
+  },
+  {
+    id: "investitionscontrolling-capex",
+    domain: "finance",
+    title: "Investitionscontrolling / CAPEX",
+    short: "Steuerung von CAPEX-Projekten mit transparenter Budget-, Fortschritts- und Nutzenkontrolle.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_finance",
+    priority: "green",
+    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KPI-Definition & Kennzahlenkatalog",
+      "Forecasting-Modell"
+    ]
+  },
+  {
+    id: "customer-lifetime-value",
+    domain: "sales_marketing",
+    title: "Customer Lifetime Value",
+    short: "Berechnung und Visualisierung des Kundenwerts zur besseren Priorisierung von Vertriebs- und Marketingmaßnahmen.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_sales_marketing",
+    priority: "green",
+    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "ai"] },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Management-Dashboard",
+      "Priorisierte Maßnahmenliste"
+    ]
+  },
+  {
+    id: "lead-scoring",
+    domain: "sales_marketing",
+    title: "Lead Scoring",
+    short: "Bewertung eingehender Leads nach Abschlusswahrscheinlichkeit für effizientere Vertriebssteuerung.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_sales_marketing",
+    priority: "green",
+    tags: { intent: ["insights", "automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "bi"] },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Datenpipeline- und Integrationssetup",
+      "Handlungs- und Entscheidungsempfehlungen"
+    ]
+  },
+  {
+    id: "sales-funnel-analyse",
+    domain: "sales_marketing",
+    title: "Sales Funnel Analyse",
+    short: "Analyse von Funnel-Stufen und Conversion-Raten zur gezielten Optimierung von Vertrieb und Marketing.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_sales_marketing",
+    priority: "green",
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
+    ]
+  },
+  {
+    id: "reklamations-analyse",
+    domain: "sales_marketing",
+    title: "Reklamations-Analyse",
+    short: "Transparenz über Reklamationsursachen, Häufigkeiten und Kosten zur nachhaltigen Qualitätsverbesserung.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_sales_marketing",
+    priority: "green",
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Maßnahmenliste"
+    ]
+  },
+  {
+    id: "lieferantenscoring",
+    domain: "procurement",
+    title: "Lieferantenscoring",
+    short: "Bewertung von Lieferanten nach Preis, Qualität und Lieferperformance für bessere Beschaffungsentscheidungen.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_procurement",
+    priority: "green",
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "KPI-Definition & Kennzahlenkatalog",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Risiko- und Maßnahmenkatalog"
+    ]
+  },
+  {
+    id: "oee-analyse",
+    domain: "production",
+    title: "OEE-Analyse",
+    short: "Auswertung von Verfügbarkeit, Leistung und Qualität zur transparenten Steuerung der Gesamtanlageneffektivität.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_production_logistics",
+    priority: "green",
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi"] },
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Maßnahmenliste"
+    ]
+  },
+  {
+    id: "durchlaufzeit-bottleneck-analyse",
+    domain: "production",
+    title: "Durchlaufzeit- und Bottleneck-Analyse",
+    short: "Identifikation von Engpässen und Verzögerungen entlang der Prozesskette zur Steigerung des Materialflusses.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_production_logistics",
+    priority: "green",
+    tags: { intent: ["insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell",
+      "Monitoring- & Alerting-Setup"
+    ]
+  },
+  {
+    id: "itsm-analytics",
+    domain: "it_data",
+    title: "ITSM Analytics",
+    short: "Analyse von Tickets, SLA-Einhaltung und Servicequalität zur datenbasierten Steuerung des IT-Betriebs.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_it_ops",
+    priority: "green",
+    tags: { intent: ["insights", "transparency"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
+    outputs: [
+      "Betriebs- und Supportmodell",
+      "Ticket- und Service-Automatisierung",
+      "Optimierungsmodell"
+    ]
+  },
+  {
+    id: "cloud-cost-observability",
+    domain: "it_data",
+    title: "Cloud-Cost-Observability",
+    short: "Transparenz über Cloud-Kosten und Ressourcennutzung zur kontinuierlichen Kosten- und Effizienzoptimierung.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_it_ops",
+    priority: "green",
+    tags: { intent: ["transparency", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
+    ]
+  },
+  {
+    id: "cybersicherheit-dashboard",
+    domain: "it_data",
+    title: "Cybersicherheit-Dashboard",
+    short: "Zentrale Sicht auf Sicherheitslage, Vorfälle und Reaktionsfähigkeit für ein belastbares Security-Controlling.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_it_ops",
+    priority: "green",
+    tags: { intent: ["transparency", "compliance"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "governance"] },
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Betriebs- und Supportmodell"
+    ]
+  },
+  {
+    id: "prozesseffizienz-analyse",
+    domain: "it_data",
+    title: "Prozesseffizienz-Analyse",
+    short: "Messung und Vergleich von Prozesslaufzeiten, Aufwänden und Qualitätskennzahlen zur gezielten Effizienzsteigerung.",
+    portfolio_area: "solutions",
+    solution_cluster: "insights_it_ops",
+    priority: "green",
+    tags: { intent: ["insights", "automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "integration"] },
+    outputs: [
+      "Management-Dashboard",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Maßnahmenliste"
+    ]
+  },
+
+  // Block 3: Automatisierung & KI Fokus-Use-Cases
+  {
+    id: "sales-chatbot-webseite",
+    domain: "sales_marketing",
+    title: "Sales-Chatbot Webseite",
+    short: "Automatisierter Web-Chatbot zur Lead-Qualifizierung und Übergabe qualifizierter Anfragen an den Vertrieb.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_sales_marketing",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai", "integration"] },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Monitoring- & Alerting-Setup",
+      "Handlungs- und Entscheidungsempfehlungen"
+    ]
+  },
+  {
+    id: "dynamic-pricing",
+    domain: "sales_marketing",
+    title: "Dynamic Pricing",
+    short: "Dynamische Preissteuerung auf Basis von Nachfrage, Wettbewerb und Margenzielen.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_sales_marketing",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "l", tech_hint: ["ai", "bi"] },
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Monitoring- & Alerting-Setup",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
+  },
+  {
+    id: "ausschreibungsautomatisierung",
+    domain: "procurement",
+    title: "Ausschreibungsautomatisierung",
+    short: "Automatisierte Erstellung, Auswertung und Dokumentation von Ausschreibungen für schnellere Beschaffungszyklen.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_procurement",
+    priority: "green",
+    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["integration", "ai"] },
+    outputs: [
+      "Automatisierter Workflow",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
+    ]
+  },
+  {
+    id: "automatisierte-rechnungsverarbeitung",
+    domain: "finance",
+    title: "Automatisierte Rechnungsverarbeitung",
+    short: "Automatische Extraktion, Prüfung und Verbuchung von Eingangsrechnungen zur Beschleunigung des Finanzprozesses.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_finance",
+    priority: "green",
+    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "integration"] },
+    outputs: [
+      "Automatisierter Workflow",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
+  },
+  {
+    id: "ai-helpdeskassistent",
+    domain: "it_data",
+    title: "AI-Helpdeskassistent",
+    short: "KI-Assistenz im Agentenarbeitsplatz mit Lösungsvorschlägen für wiederkehrende IT-Anfragen.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_it_ops",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai"] },
+    outputs: [
+      "Ticket- und Service-Automatisierung",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Zielarchitektur & Datenmodell"
+    ]
+  },
+  {
+    id: "agentic-coding",
+    domain: "it_data",
+    title: "Agentic-Coding",
+    short: "Einsatz autonomer Coding-Agents zur Beschleunigung von Entwicklungsaufgaben mit kontrollierten Qualitätsleitplanken.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_it_ops",
+    priority: "green",
+    tags: { intent: ["automation", "scale"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Zielbild & Strategiepapier",
+      "Monitoring- & Alerting-Setup"
+    ]
+  },
+  {
+    id: "self-service-helpdesk",
+    domain: "it_data",
+    title: "Self-Service Helpdesk",
+    short: "Nutzerseitige Selbsthilfe über Portal und automatisierte Lösungspfade.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_it_ops",
+    priority: "green",
+    tags: { intent: ["automation"], data_scope: "single_source", complexity: "m", tech_hint: ["integration", "ai"] },
+    outputs: [
+      "Automatisierter Workflow",
+      "Ticket- und Service-Automatisierung",
+      "Zielarchitektur & Datenmodell"
+    ]
+  },
+  {
+    id: "ki-preisueberwachung",
+    domain: "procurement",
+    title: "KI-Preisüberwachung",
+    short: "Kontinuierliche KI-gestützte Überwachung von Preisänderungen und Beschaffungsrisiken über Lieferanten hinweg.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_procurement",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "bi"] },
+    outputs: [
+      "Monitoring- & Alerting-Setup",
+      "Anomalieerkennung",
+      "Handlungs- und Entscheidungsempfehlungen"
+    ]
+  },
+  {
+    id: "automatisierte-bestellverarbeitung",
+    domain: "procurement",
+    title: "Automatisierte Bestellverarbeitung",
+    short: "Durchgängige Automatisierung von Bestellprozessen von der Anlage bis zur Statusrückmeldung.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_procurement",
+    priority: "green",
+    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["integration"] },
+    outputs: [
+      "Automatisierter Workflow",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Optimierungsmodell"
+    ]
+  },
+  {
+    id: "spendmanagement-automatisieren",
+    domain: "procurement",
+    title: "Spendmanagement automatisieren",
+    short: "Automatisierte Auswertung von Ausgabenstrukturen zur Identifikation von Einsparpotenzialen und Maverick Buying.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_procurement",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["bi", "ai"] },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Anomalieerkennung",
+      "Priorisierte Maßnahmenliste"
+    ]
+  },
+  {
+    id: "kyc-automatisierung",
+    domain: "risk_compliance",
+    title: "KYC-Automatisierung",
+    short: "Automatisierte KYC-Prüfprozesse mit risikobasierter Priorisierung für schnellere und sichere Onboarding-Abläufe.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_risk_compliance",
+    priority: "green",
+    tags: { intent: ["automation", "compliance"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "governance"] },
+    outputs: [
+      "Automatisierter Workflow",
+      "Risiko- und Maßnahmenkatalog",
+      "Dokumentations- und Nachweispaket"
+    ]
+  },
+  {
+    id: "esg-datenerhebung-automatisiert",
+    domain: "risk_compliance",
+    title: "Automatisierte ESG-Datenerhebung",
+    short: "Automatisierte Sammlung und Aufbereitung von ESG-Daten für konsistente Nachhaltigkeitsberichterstattung.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_risk_compliance",
+    priority: "green",
+    tags: { intent: ["automation", "compliance"], data_scope: "enterprise_wide", complexity: "m", tech_hint: ["integration", "governance"] },
+    outputs: [
+      "Datenpipeline- und Integrationssetup",
+      "Automatisierter Workflow",
+      "KPI-Definition & Kennzahlenkatalog"
+    ]
+  },
+  {
+    id: "ai-oberflaechenanalyse",
+    domain: "it_data",
+    title: "AI-Oberflächenanalyse",
+    short: "KI-gestützte Analyse digitaler Oberflächen zur Erkennung von Usability-Hürden und Optimierungspotenzialen.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_it_ops",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai"] },
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Priorisierte Maßnahmenliste",
+      "Zielarchitektur & Datenmodell"
+    ]
+  },
+  {
+    id: "ai-produktentwicklung",
+    domain: "rnd",
+    title: "AI-Produktentwicklung",
+    short: "Beschleunigte Produktentwicklung durch KI-gestützte Ideation, Prototyping und Validierung.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_rnd",
+    priority: "green",
+    tags: { intent: ["automation", "scale"], data_scope: "multi_source", complexity: "l", tech_hint: ["ai"] },
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Szenario- und Simulationsanalyse",
+      "KI-Modell (Pilot)"
+    ]
+  },
+  {
+    id: "rag-literaturrecherche",
+    domain: "rnd",
+    title: "RAG-Literaturrecherche",
+    short: "Recherche-Assistenz mit Retrieval-Augmented Generation für schnellere Auswertung wissenschaftlicher Quellen.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_rnd",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai"] },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Szenario- und Simulationsanalyse"
+    ]
+  },
+  {
+    id: "ai-video-qualitaetsanalyse",
+    domain: "production",
+    title: "AI-Video-Qualitätsanalyse",
+    short: "Qualitätsautomatisierung mit Schwerpunkt auf visueller Inspektion per Video- und Bilddaten.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_production_logistics",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "KI-Modell (Pilot)",
+      "Monitoring- & Alerting-Setup"
+    ]
+  },
+  {
+    id: "ki-warenausgangs-scanning",
+    domain: "logistics",
+    title: "KI-Warenausgangs-Scanning",
+    short: "KI-gestütztes Scanning im Warenausgang zur automatischen Vollständigkeits- und Qualitätskontrolle vor Versand.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_production_logistics",
+    priority: "green",
+    tags: { intent: ["automation"], data_scope: "single_source", complexity: "m", tech_hint: ["ai", "integration"] },
+    outputs: [
+      "Handlungs- und Entscheidungsempfehlungen",
+      "Dokumentations- und Nachweispaket",
+      "Optimierungsmodell"
+    ]
+  },
+  {
+    id: "objekterkennung",
+    domain: "production",
+    title: "Objekterkennung",
+    short: "Generische Computer-Vision-Erkennung als Baustein für Qualitäts- und Logistikprozesse.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_production_logistics",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "l", tech_hint: ["ai"] },
+    outputs: [
+      "KI-Modell (Pilot)",
+      "Monitoring- & Alerting-Setup",
+      "KPI-Definition & Kennzahlenkatalog"
     ]
   }
 ];
 
+const defaultClusterByDomain: Record<ProductDomain, SolutionClusterTag> = {
+  general_mgmt: "orientation_prioritization",
+  it_data: "data_mgmt_architecture",
+  finance: "insights_finance",
+  sales_marketing: "insights_sales_marketing",
+  procurement: "insights_procurement",
+  production: "insights_production_logistics",
+  logistics: "insights_production_logistics",
+  hr: "automation_cross_domain",
+  rnd: "automation_rnd",
+  risk_compliance: "automation_risk_compliance",
+};
+
+const defaultBestForByDomain: Record<ProductDomain, string[]> = {
+  general_mgmt: ["Geschäftsführung", "Bereichsleitungen"],
+  it_data: ["IT-Leitung", "Data-Teams"],
+  finance: ["Finance", "Controlling"],
+  sales_marketing: ["Sales", "Marketing"],
+  procurement: ["Beschaffung", "Einkauf"],
+  production: ["Produktion", "Operations"],
+  logistics: ["Logistik", "Operations"],
+  hr: ["HR", "People & Culture"],
+  rnd: ["R&D", "Innovationsteams"],
+  risk_compliance: ["Risk", "Compliance"],
+};
+
+const curatedProductData: Record<string, { details: NonNullable<Product["details"]> }> = {
+  "data-ai-leadership": {
+    details: {
+      problem: "Führungsteams treiben Data- und KI-Initiativen ohne einheitliche Steuerungslogik und klare Verantwortungen.",
+      typicalResult: "Ein belastbares Führungsmodell mit klaren Entscheidungswegen, KPIs und Verantwortlichkeiten.",
+      typicalDeliverables: ["KPI Definition Workshop", "Datenstrategie Sprint", "Management Reporting Setup"],
+      bestFor: ["Geschäftsführung", "Transformation Office", "Bereichsleitungen"],
+    },
+  },
+  "data-catalog": {
+    details: {
+      problem: "Begriffe, Datenobjekte und Verantwortlichkeiten sind verteilt oder uneinheitlich dokumentiert.",
+      typicalResult: "Ein zentraler, gepflegter Katalog mit klaren Definitionen und eindeutigen Verantwortlichkeiten.",
+      typicalDeliverables: ["KPI & Daten-Glossar Sprint", "Datenquellen- & Integrationsanalyse", "Governance Starter"],
+      bestFor: ["Führungsteams mit Governance-Fokus", "Fachbereiche mit Abstimmungsbedarf", "Organisationen mit Compliance-Anforderungen"],
+    },
+  },
+  "data-mesh-organisation": {
+    details: {
+      problem: "Domänen arbeiten mit Daten, aber Ownership, Standards und Verantwortung sind nicht klar geregelt.",
+      typicalResult: "Ein Data-Mesh-Betriebsmodell mit klaren Rollen, Verantwortungen und Umsetzungsfahrplan.",
+      typicalDeliverables: ["Data Governance Starter", "Target Architecture", "Domain Enablement Plan"],
+      bestFor: ["Data-Leads", "Domänenverantwortliche", "IT-Architektur"],
+    },
+  },
+  "datenstrategie": {
+    details: {
+      problem: "Es fehlen priorisierte Dateninitiativen, ein klares Zielbild und eine umsetzbare Reihenfolge.",
+      typicalResult: "Eine abgestimmte Datenstrategie mit priorisierter Roadmap und messbaren Business-Zielen.",
+      typicalDeliverables: ["Datenstrategie Sprint", "Roadmap", "KPI Definition Workshop"],
+      bestFor: ["Geschäftsführung", "Strategieteams", "Data-Verantwortliche"],
+    },
+  },
+  "dsgvo-dsb": {
+    details: {
+      problem: "Datenschutzanforderungen sind verteilt umgesetzt und im Alltag schwer auditierbar nachweisbar.",
+      typicalResult: "Ein praktikables DSGVO-Setup mit klaren Rollen, Nachweisen und definierten Prozessen.",
+      typicalDeliverables: ["Data Governance Starter", "KPI & Daten-Glossar Sprint", "IAM Konzept"],
+      bestFor: ["Datenschutzbeauftragte", "Compliance", "Fachbereiche mit personenbezogenen Daten"],
+    },
+  },
+  iam: {
+    details: {
+      problem: "Zugriffsrechte sind historisch gewachsen, inkonsistent und nur eingeschränkt auditierbar.",
+      typicalResult: "Ein strukturiertes IAM-Zielbild mit rollenbasierten Rechten und klaren Governance-Prozessen.",
+      typicalDeliverables: ["IAM Konzept", "Rollen- und Rechte-Blueprint", "Integrationsanalyse"],
+      bestFor: ["IT-Security", "Compliance", "IT-Operations"],
+    },
+  },
+  dwh: {
+    details: {
+      problem: "Reporting basiert auf fragmentierten Quellen, manuellen Extracts und uneinheitlicher Datenlogik.",
+      typicalResult: "Ein stabiles Data-Warehouse-Fundament als Single Source of Truth für Analytics und Reporting.",
+      typicalDeliverables: ["DWH Starter", "Source Integration Review", "Reporting Standards"],
+      bestFor: ["Data Engineering", "BI-Teams", "Finance & Controlling"],
+    },
+  },
+  "data-lake": {
+    details: {
+      problem: "Unstrukturierte und strukturierte Daten sind nicht zentral nutzbar und schwer governbar.",
+      typicalResult: "Ein skalierbares Data-Lake/Lakehouse-Fundament mit klaren Ingestion- und Governance-Regeln.",
+      typicalDeliverables: ["Source Integration Review", "DWH/Lakehouse Starter", "Target Architecture"],
+      bestFor: ["Data Platform Teams", "IT-Architektur", "Analytics-Teams"],
+    },
+  },
+  "management-dashboard": {
+    details: {
+      problem: "Management-Entscheidungen basieren auf verstreuten Reports und verspäteten Kennzahlen.",
+      typicalResult: "Ein zentrales Steuerungsdashboard mit konsistenten KPIs und schneller Entscheidungsgrundlage.",
+      typicalDeliverables: ["BI Fix & Fertig Setup", "KPI Definition Workshop", "Erster Management-Bericht"],
+      bestFor: ["Geschäftsführung", "Bereichsleitungen", "Organisationen mit mehreren Steuerungsbereichen"],
+    },
+  },
+  "sales-dashboard": {
+    details: {
+      problem: "Vertrieb und Management haben keine einheitliche, aktuelle Sicht auf Pipeline und Performance.",
+      typicalResult: "Ein Sales-Dashboard mit klaren KPIs, Pipeline-Transparenz und automatischen Updates.",
+      typicalDeliverables: ["BI Fix & Fertig Setup", "KPI Definition Workshop", "KPI & Daten-Glossar Sprint"],
+      bestFor: ["Sales-Leitung", "Vertriebsteams", "Unternehmen mit CRM-basierter Pipeline-Steuerung"],
+    },
+  },
+  "itsm-analytics": {
+    details: {
+      problem: "Servicequalität und SLA-Erfüllung werden mit isolierten Reports statt übergreifender Transparenz gesteuert.",
+      typicalResult: "Ein ITSM-Cockpit mit Ticket-, SLA- und Ursachenanalysen für datenbasierte Steuerung.",
+      typicalDeliverables: ["Source Integration Review", "BI Setup", "Management Bericht ITSM"],
+      bestFor: ["IT-Operations", "Service Management", "IT-Leitung"],
+    },
+  },
+  "ai-helpdeskassistent": {
+    details: {
+      problem: "Support-Teams bearbeiten wiederkehrende Anfragen manuell und verlieren Zeit bei Erstlösungen.",
+      typicalResult: "Ein KI-Assistent unterstützt Agenten mit Lösungsvorschlägen und reduziert Bearbeitungszeiten.",
+      typicalDeliverables: ["Integrationsanalyse Ticket-/Wissensdaten", "KPI-Set für Assistenzqualität", "Betriebsmonitoring"],
+      bestFor: ["Helpdesk-Teams", "IT-Operations", "Service-Owner"],
+    },
+  },
+  "helpdesk-automation": {
+    details: {
+      problem: "Tickets landen häufig im falschen Team und verursachen unnötige Weiterleitungen und SLA-Risiken.",
+      typicalResult: "Automatisiertes Routing mit klarer Priorisierung und transparenter SLA-Steuerung.",
+      typicalDeliverables: ["Ticketdaten-Integrationsanalyse", "Routing-Regelwerk", "Service-Reporting-Standards"],
+      bestFor: ["IT-Operations", "Service Desk", "Prozessverantwortliche"],
+    },
+  },
+  "automatisierte-rechnungsverarbeitung": {
+    details: {
+      problem: "Rechnungsprüfung und Freigaben sind manuell, fehleranfällig und verursachen lange Durchlaufzeiten.",
+      typicalResult: "Ein automatisierter Rechnungseingangsprozess mit transparentem Status und kürzeren Bearbeitungszeiten.",
+      typicalDeliverables: ["Source Integration Review", "Workflow-/Freigabe-Design", "Prozess-KPI-Reporting"],
+      bestFor: ["Finance", "Shared Services", "Accounting Operations"],
+    },
+  },
+  "ki-preisueberwachung": {
+    details: {
+      problem: "Preisänderungen und Beschaffungsrisiken werden zu spät erkannt und nur manuell ausgewertet.",
+      typicalResult: "Kontinuierliche Preisüberwachung mit Frühwarnungen und klaren Handlungsempfehlungen.",
+      typicalDeliverables: ["Preis- und Lieferantendatenanalyse", "Warnlogik für Abweichungen", "Management-Report"],
+      bestFor: ["Einkauf", "Category Management", "Finanzsteuerung"],
+    },
+  },
+  "ai-video-qualitaetsanalyse": {
+    details: {
+      problem: "Visuelle Qualitätsprüfungen sind personalintensiv und Inkonsistenzen werden zu spät erkannt.",
+      typicalResult: "KI-gestützte Videoanalyse erkennt Qualitätsabweichungen frühzeitig und reduziert Ausschuss.",
+      typicalDeliverables: ["Integrationsanalyse für Bild-/Videodaten", "KI-Qualitätsmodell (Pilot)", "Monitoring der Modellgüte"],
+      bestFor: ["Produktion", "Qualitätssicherung", "Werksleitung"],
+    },
+  },
+};
+
+export const products: Product[] = rawProducts.map((product) => {
+  const resolvedCluster = product.solution_cluster ?? defaultClusterByDomain[product.domain];
+  const resolvedPortfolio =
+    product.portfolio_area ?? (resolvedCluster.startsWith("automation_") ? "automation_ai" : "solutions");
+  const details = product.details ?? {
+    problem: product.short,
+    typicalResult: product.outputs[0] ?? "Messbarer Mehrwert durch ein klar priorisiertes Produkt.",
+    typicalDeliverables: product.outputs.slice(0, 3),
+    bestFor: defaultBestForByDomain[product.domain],
+  };
+
+  const curated = curatedProductData[product.id];
+  return {
+    ...product,
+    solution_cluster: resolvedCluster,
+    portfolio_area: resolvedPortfolio,
+    priority: product.priority ?? "normal",
+    details: curated?.details ?? details,
+  };
+});
+
+export type UiClusterId =
+  | "orientation_prioritization"
+  | "data_mgmt_architecture"
+  | "insights_analytics"
+  | "general_management"
+  | "finance"
+  | "sales_marketing"
+  | "procurement"
+  | "it_ops"
+  | "production_logistics"
+  | "risk_compliance"
+  | "rnd"
+  | "cross_domain_automation";
+
+export const uiClusterOrder: UiClusterId[] = [
+  "orientation_prioritization",
+  "data_mgmt_architecture",
+  "insights_analytics",
+  "general_management",
+  "finance",
+  "sales_marketing",
+  "procurement",
+  "it_ops",
+  "production_logistics",
+  "risk_compliance",
+  "rnd",
+  "cross_domain_automation",
+];
+
+export const uiClusterLabels: Record<UiClusterId, string> = {
+  orientation_prioritization: "Orientierung & Priorisierung",
+  data_mgmt_architecture: "Datenmanagement & Architektur",
+  insights_analytics: "Insights & Analytics",
+  general_management: "General Management",
+  finance: "Finance",
+  sales_marketing: "Sales & Marketing",
+  procurement: "Beschaffung",
+  it_ops: "IT & Operations",
+  production_logistics: "Produktion & Logistik",
+  risk_compliance: "Risiko & Compliance",
+  rnd: "Research & Development",
+  cross_domain_automation: "Bereichsübergreifende Automatisierung",
+};
+
+export function getUiClusterForProduct(product: Product): UiClusterId {
+  if (product.solution_cluster === "orientation_prioritization") return "orientation_prioritization";
+  if (product.solution_cluster === "data_mgmt_architecture") return "data_mgmt_architecture";
+
+  if (product.solution_cluster === "insights_general_mgmt") return "insights_analytics";
+
+  if (product.domain === "finance") return "finance";
+  if (product.domain === "sales_marketing") return "sales_marketing";
+  if (product.domain === "procurement") return "procurement";
+  if (product.domain === "it_data") return "it_ops";
+  if (product.domain === "production" || product.domain === "logistics") return "production_logistics";
+  if (product.domain === "risk_compliance") return "risk_compliance";
+  if (product.domain === "rnd") return "rnd";
+  if (product.domain === "hr" || product.solution_cluster === "automation_cross_domain") return "cross_domain_automation";
+  if (product.domain === "general_mgmt") return "general_management";
+
+  return "insights_analytics";
+}
+
+export function getProductsForUiCluster(clusterId: UiClusterId): Product[] {
+  return products.filter((uc) => getUiClusterForProduct(uc) === clusterId);
+}
+
 // Helper-Funktionen
-export function getUseCaseById(id: string): UseCase | undefined {
-  return useCases.find(uc => uc.id === id);
+export function getProductById(id: string): Product | undefined {
+  return products.find(uc => uc.id === id);
 }
 
-export function getUseCasesByDomain(domain: UseCaseDomain): UseCase[] {
-  return useCases.filter(uc => uc.domain === domain);
+export function getProductsByDomain(domain: ProductDomain): Product[] {
+  return products.filter(uc => uc.domain === domain);
 }
 
-export function getAllDomains(): UseCaseDomain[] {
-  return Array.from(new Set(useCases.map(uc => uc.domain)));
+export function getAllDomains(): ProductDomain[] {
+  return Array.from(new Set(products.map(uc => uc.domain)));
 }

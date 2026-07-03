@@ -22,12 +22,12 @@ export interface Parameter {
     type: 'multiplier' | 'additive';
     values: Record<string, number>; // value -> factor oder add-on
   };
-  applicableTo?: string[]; // deliverable IDs, wenn leer dann für alle
+  applicableTo?: string[]; // deliverable keys, wenn leer dann für alle
 }
 
 // Deliverable (kaufbares Produktpaket)
 export interface Deliverable {
-  id: string;
+  key: string;
   name: string;
   family: ProductFamily;
   shortDescription: string;
@@ -41,12 +41,19 @@ export interface Deliverable {
   outOfScope: string;
 }
 
-// Use Case nach Domäne
-export interface UseCase {
+// Product nach Domäne
+export interface Product {
   id: string;
+  slug?: string;
   title: string;
   description: string;
   domain: string; // "Sales & Marketing", "Finance", "IT & Data"
+  details?: {
+    problem: string;
+    typicalResult: string;
+    typicalDeliverables: string[];
+    bestFor: string[];
+  };
   recommendedDeliverableIds: string[]; // Bundle
   optionalDeliverableIds?: Array<{
     deliverableId: string;
@@ -75,7 +82,7 @@ export interface CartItem {
 
 // Konfiguration
 export interface Configuration {
-  useCaseId: string | null;
+  productId: string | null;
   cartItems: CartItem[];
   customizations: Record<string, any>;
 }

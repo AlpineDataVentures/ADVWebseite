@@ -39,9 +39,16 @@ const architectureUseCases = [
     title: "Architektur & Modellierung",
     text: "Die richtigen Frameworks & Systeme für Ihre Daten",
     links: [
-      { label: "Datenmodellierung für Fachbereiche" },
-      { label: "Domänenbasierte Datenarchitektur" },
-      { label: "Lakehouse- und Warehouse-Blueprints" },
+      {
+        label: "Datenmodellierung für Fachbereiche",
+        product_slug: "master-data-management",
+      },
+      { label: "Domänen-basierte Datenarchitektur" },
+      {
+        label: "Lakehouse- und Warehouse-Blueprints",
+        product_slug: "data-warehouse",
+      },
+      { label: "Data Lake Plattform", product_slug: "data-lake" },
       { label: "Referenzarchitektur für Skalierung" },
     ],
   },
@@ -110,7 +117,7 @@ const architectureUseCasesWithLinks = architectureUseCases.map((useCase) => ({
   <SplitInfoSection data={splitInfoData} />
 
   <ExpandableInfoBoxesSection
-    title="Anwendungsfälle für Ihr Unternehmen"
+    title="Produkte für Ihr Unternehmen"
     items={architectureUseCasesWithLinks}
   />
 

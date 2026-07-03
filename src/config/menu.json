@@ -6,7 +6,7 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Orientierung & Priorisierung",
+          "name": "Strategie & Governance",
           "url": "/guidance/"
         },
         {
@@ -34,10 +34,6 @@
         },
         {
           "name": "Warum ADV",
-          "url": "/whyadv/"
-        },
-        {
-          "name": "Unsere Werte",
           "url": "/values/"
         },
         {
@@ -52,20 +48,20 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Fixpreis-Projekte",
-          "url": "/fixedprice/"
+          "name": "Weg zum Projekt",
+          "url": "/projectstart/"
         },
         {
-          "name": "Forschungsprojekte",
-          "url": "/research/"
+          "name": "Fixpreis-Projekte",
+          "url": "/fixedprice/"
         },
         {
           "name": "Kundenstimmen",
           "url": "/feedback/"
         },
         {
-          "name": "Weg zum Projekt",
-          "url": "/projectstart/"
+          "name": "Forschungsprojekte",
+          "url": "/research/"
         }
       ]
     },

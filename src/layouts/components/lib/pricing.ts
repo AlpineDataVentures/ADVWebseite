@@ -61,45 +61,46 @@ export function calculateDeliverablePrice(
   const multipliers: MultiplierInfo[] = [];
   const addons: AddOnInfo[] = [];
   const breakdownLines: BreakdownLine[] = [];
-  
+
   // Base-Preis als erste Line
   breakdownLines.push({
     label: 'Basispreis',
     amount: base,
     type: 'base'
   });
-  
+
   let currentAmount = base;
-  
+
   // Alle Parameter durchgehen, die für dieses Deliverable gelten
-  deliverable.parameters.forEach(paramKey => {
+  const applicableParameters = deliverable.parameters ?? [];
+  applicableParameters.forEach(paramKey => {
     const param = getParameterByKey(paramKey);
     if (!param) return;
-    
+
     const paramValue = selectedParams[paramKey];
-    const valueToUse = paramValue !== undefined 
+    const valueToUse = paramValue !== undefined
       ? String(paramValue)
       : (typeof param.default === 'string' ? param.default : String(param.default));
-    
+
     const effect = param.pricingEffect.values[valueToUse];
     if (effect === undefined) return;
-    
+
     if (param.pricingEffect.type === 'multiplier') {
       // Multiplier: Berechne Impact
       const amountBefore = currentAmount;
       currentAmount *= effect;
       const amountImpact = currentAmount - amountBefore;
-      
+
       // Finde Label für den Wert
       const optionLabel = param.options?.find(opt => opt.value === valueToUse)?.label || valueToUse;
-      
+
       multipliers.push({
         label: param.label,
         factor: effect,
         amountImpact: roundToNearest100(amountImpact),
         value: valueToUse
       });
-      
+
       breakdownLines.push({
         label: `${param.label}: ${optionLabel}`,
         amount: roundToNearest100(amountImpact),
@@ -110,7 +111,7 @@ export function calculateDeliverablePrice(
       // Additive: spezielle Behandlung für trainingParticipants
       let addOnAmount = 0;
       let addOnLabel = param.label;
-      
+
       if (paramKey === 'trainingParticipants') {
         const participants = Number(valueToUse);
         if (participants >= 13 && participants <= 20) {
@@ -124,16 +125,16 @@ export function calculateDeliverablePrice(
       } else {
         addOnAmount = effect;
       }
-      
+
       if (addOnAmount > 0) {
         currentAmount += addOnAmount;
-        
+
         addons.push({
           label: addOnLabel,
           amount: addOnAmount,
           value: valueToUse
         });
-        
+
         breakdownLines.push({
           label: addOnLabel,
           amount: addOnAmount,
@@ -142,23 +143,23 @@ export function calculateDeliverablePrice(
       }
     }
   });
-  
+
   // Subtotal (vor Rundung)
   breakdownLines.push({
     label: 'Zwischensumme',
     amount: roundToNearest100(currentAmount),
     type: 'subtotal'
   });
-  
+
   // Finaler Preis (gerundet)
   const total = roundToNearest100(currentAmount);
-  
+
   breakdownLines.push({
     label: 'Gesamtpreis',
     amount: total,
     type: 'total'
   });
-  
+
   return {
     total,
     base,
@@ -172,7 +173,7 @@ export function calculateDeliverablePrice(
  * Berechnet den Preis für ein Cart-Item
  */
 export function calculateCartItemPrice(cartItem: CartItem): PriceCalculationResult {
-  const deliverable = deliverables.find(d => d.id === cartItem.deliverableId);
+  const deliverable = deliverables.find(d => d.key === cartItem.deliverableId);
   if (!deliverable) {
     return {
       total: 0,
@@ -182,9 +183,9 @@ export function calculateCartItemPrice(cartItem: CartItem): PriceCalculationResu
       breakdownLines: []
     };
   }
-  
+
   const breakdown = calculateDeliverablePrice(deliverable, cartItem.parameters);
-  
+
   // Bei quantity > 1: Preis multiplizieren
   if (cartItem.quantity > 1) {
     return {
@@ -205,7 +206,7 @@ export function calculateCartItemPrice(cartItem: CartItem): PriceCalculationResu
       }))
     };
   }
-  
+
   return breakdown;
 }
 
@@ -235,7 +236,7 @@ export function formatPrice(price: number): string {
  * Gibt ein Deliverable nach ID zurück
  */
 export function getDeliverableById(deliverableId: string): Deliverable | undefined {
-  return deliverables.find(d => d.id === deliverableId);
+  return deliverables.find(d => d.key === deliverableId);
 }
 
 /**
@@ -251,13 +252,13 @@ export function getMinimumPrice(deliverable: Deliverable): number {
     deliverable.parameters.forEach(paramKey => {
       const param = getParameterByKey(paramKey);
       if (param) {
-        defaultParams[param.key] = typeof param.default === 'string' 
-          ? param.default 
+        defaultParams[param.key] = typeof param.default === 'string'
+          ? param.default
           : param.default;
       }
     });
   }
-  
+
   const result = calculateDeliverablePrice(deliverable, defaultParams);
   return result.total;
 }

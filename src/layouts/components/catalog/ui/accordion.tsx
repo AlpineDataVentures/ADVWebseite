@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 
 interface AccordionContextValue {
   value: string[];
-  onValueChange: (value: string[]) => void;
+  onItemToggle: (itemValue: string) => void;
 }
 
 const AccordionContext = React.createContext<AccordionContextValue | undefined>(undefined);
@@ -48,7 +48,7 @@ const Accordion = ({ type = "single", defaultValue, value, onValueChange, childr
   };
 
   return (
-    <AccordionContext.Provider value={{ value: currentValue, onValueChange: (itemValue: string[]) => handleValueChange(itemValue[0]) }}>
+    <AccordionContext.Provider value={{ value: currentValue, onItemToggle: handleValueChange }}>
       <div className={cn("space-y-2", className)}>
         {children}
       </div>
@@ -87,7 +87,7 @@ const AccordionTrigger = ({ children, className }: AccordionTriggerProps) => {
   return (
     <button
       type="button"
-      onClick={() => context.onValueChange(item.value)}
+      onClick={() => context.onItemToggle(item.value)}
       className={cn(
         "flex w-full items-center justify-between p-4 font-medium transition-all",
         "rounded-lg hover:bg-light/60 dark:hover:bg-darkmode-light/60",

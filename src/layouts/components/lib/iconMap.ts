@@ -73,8 +73,8 @@ export const deliverableIcons: Record<string, LucideIcon> = {
 /**
  * Get Icon für Domain
  */
-export function getDomainIcon(domainId: string): LucideIcon {
-  return domainIcons[domainId] || LayoutDashboard;
+export function getDomainIcon(domainKey: string): LucideIcon {
+  return domainIcons[domainKey] || LayoutDashboard;
 }
 
 /**

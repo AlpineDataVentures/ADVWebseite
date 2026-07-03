@@ -10,6 +10,9 @@ import { ShoppingCart, Trash2, ChevronDown, Copy, Check } from "lucide-react";
 import { useMemo, useState } from "react";
 import { getParameterByKey } from "../data/parameters";
 import { getDeliverableIcon } from "../lib/iconMap";
+import { getProductById } from "../data/useCases";
+import { buildInquirySubject, buildInquiryText, buildMailtoLink } from "../lib/inquiry";
+import { PRODUCT_CATALOG_INQUIRY_EMAIL, PRODUCT_CATALOG_MEETING_URL } from "@/config/products";
 
 interface CartSheetProps {
   open: boolean;
@@ -22,8 +25,10 @@ interface CartSheetProps {
  */
 export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) {
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
+  const activeProduct = useConfigStore((state) => state.activeProduct);
+  const selectedProducts = useConfigStore((state) => state.selectedProducts);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
-  const [copied, setCopied] = useState(false);
+  const [copiedInquiry, setCopiedInquiry] = useState(false);
   const cartWithPrices = useMemo(
     () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
     [selectedDeliverables]
@@ -37,24 +42,64 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
     toggleDeliverable(deliverableId, false);
   };
 
-  const handleCopyConfiguration = () => {
-    const config = useConfigStore.getState();
-    const configJson = JSON.stringify({
-      selectedUseCases: config.selectedUseCases,
-      selectedDeliverables: config.selectedDeliverables,
-      totalPrice: totalPrice
-    }, null, 2);
+  const getResolvedProductTitle = () => {
+    const preferredProductId = activeProduct ?? selectedProducts[0] ?? null;
+    if (!preferredProductId) return "Nicht angegeben";
+    return getProductById(preferredProductId)?.title ?? preferredProductId;
+  };
 
-    navigator.clipboard.writeText(configJson).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+  const getDeliverableParamsForInquiry = (deliverableId: string, params: Record<string, any>) => {
+    const state = selectedDeliverables[deliverableId];
+    if (!state) return [];
+    return Object.entries(state.params)
+      .filter(([_, rawValue]) => rawValue !== undefined && rawValue !== null && String(rawValue).trim() !== "")
+      .map(([key, rawValue]) => {
+        const parameter = getParameterByKey(key);
+        const optionLabel = parameter?.options?.find((opt) => opt.value === String(rawValue))?.label;
+        return {
+          label: parameter?.label ?? key,
+          value: optionLabel ?? String(rawValue),
+        };
+      });
+  };
+
+  const inquirySubject = useMemo(() => {
+    return buildInquirySubject(getResolvedProductTitle());
+  }, [activeProduct, selectedProducts]);
+
+  const inquiryText = useMemo(() => {
+    const productTitle = getResolvedProductTitle();
+    const deliverables = cartWithPrices
+      .filter((item) => Boolean(item.deliverable))
+      .map((item) => ({
+        name: item.deliverable?.name ?? item.deliverableId,
+        price: item.price,
+        selectedParameters: getDeliverableParamsForInquiry(item.deliverableId, item.parameters || {}),
+      }));
+
+    return buildInquiryText({
+      productTitle,
+      deliverables,
+      estimatedTotalPrice: totalPrice > 0 ? totalPrice : undefined,
+    });
+  }, [cartWithPrices, totalPrice, activeProduct, selectedProducts, selectedDeliverables]);
+
+  const handlePrepareInquiryEmail = () => {
+    const mailtoHref = buildMailtoLink(PRODUCT_CATALOG_INQUIRY_EMAIL, inquirySubject, inquiryText);
+    window.location.href = mailtoHref;
+  };
+
+  const handleCopyInquiry = () => {
+    navigator.clipboard.writeText(inquiryText).then(() => {
+      setCopiedInquiry(true);
+      setTimeout(() => setCopiedInquiry(false), 2000);
     });
   };
 
   // Get selected params as tags (2-4 key params)
   const getSelectedParamsTags = (params: Record<string, any>) => {
     const tags: Array<{ key: string; label: string; value: string }> = [];
-    const keyParams = ['companySize', 'speed', 'dataSources', 'deployment', 'reportComplexity'];
+    const keyParams = ['companySize', 'speed', 'reportCount', 'sourceSystemCount', 'strategyHorizonMonths', 'deployment', 'reportComplexity'];
 
     keyParams.forEach(key => {
       if (params[key] !== undefined) {
@@ -95,7 +140,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                 Warenkorb ist leer
               </p>
               <p className="text-xs text-text-light dark:text-darkmode-text-light">
-                Wählen Sie einen Use Case aus, um mit der Konfiguration zu beginnen.
+                Wählen Sie ein Produkt aus, um mit der Konfiguration zu beginnen.
               </p>
             </div>
           ) : (
@@ -231,21 +276,37 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
               )}
               <Button
                 variant="outline"
-                onClick={handleCopyConfiguration}
+                onClick={handlePrepareInquiryEmail}
                 className="w-full"
                 size="sm"
               >
-                {copied ? (
+                Anfrage per E-Mail vorbereiten
+              </Button>
+              <Button
+                variant="outline"
+                onClick={handleCopyInquiry}
+                className="w-full"
+                size="sm"
+              >
+                {copiedInquiry ? (
                   <>
                     <Check className="h-4 w-4 mr-2" />
-                    Kopiert!
+                    Anfrage kopiert!
                   </>
                 ) : (
                   <>
                     <Copy className="h-4 w-4 mr-2" />
-                    Konfiguration kopieren
+                    Anfrage kopieren
                   </>
                 )}
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full"
+                size="sm"
+                onClick={() => window.open(PRODUCT_CATALOG_MEETING_URL, "_blank", "noopener,noreferrer")}
+              >
+                Termin vereinbaren
               </Button>
             </div>
           </div>

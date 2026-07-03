@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { DeliverableParameters, CartItem } from '../data/models';
 import { globalParameters } from '../data/parameters';
-import { getBundleForUseCase } from '../data/recommendations';
+import { getBundleForProduct } from '../data/recommendations';
 import { getDeliverableById, calculateCartItemPrice } from '../lib/pricing';
 
 /**
@@ -17,18 +17,18 @@ interface DeliverableState {
  */
 interface ConfigState {
   // State
-  selectedUseCases: string[];
+  selectedProducts: string[];
   selectedDeliverables: Record<string, DeliverableState>;
   persistEnabled: boolean;
-  activeUseCase: string | null;
+  activeProduct: string | null;
   wizardStep: 1 | 2; // 1 = Recommendation, 2 = Configuration
-  hasBundleLoadedForUseCase: string | null; // Track which useCase has bundle loaded
+  hasBundleLoadedForProduct: string | null; // Track which product has bundle loaded
 
   // Actions
-  selectUseCase: (id: string) => void;
-  deselectUseCase: (id: string) => void;
-  setActiveUseCase: (id: string | null) => void;
-  setBundleFromUseCase: (useCaseId: string) => void;
+  selectProduct: (id: string) => void;
+  deselectProduct: (id: string) => void;
+  setActiveProduct: (id: string | null) => void;
+  setBundleFromProduct: (productId: string) => void;
   setWizardStep: (step: 1 | 2) => void;
   toggleDeliverable: (id: string, enabled: boolean) => void;
   updateDeliverableParam: (id: string, key: string, value: string | number) => void;
@@ -45,7 +45,7 @@ export function getCartFromSelectedDeliverables(
   selectedDeliverables: Record<string, DeliverableState>
 ): CartItem[] {
   return Object.entries(selectedDeliverables)
-    .filter(([_, deliverableState]) => deliverableState.enabled)
+    .filter(([, deliverableState]) => deliverableState.enabled)
     .map(([deliverableId, deliverableState]) => ({
       deliverableId,
       quantity: 1,
@@ -91,12 +91,12 @@ function getDefaultParameters(): DeliverableParameters {
 
 // Initial State
 const initialState = {
-  selectedUseCases: [],
+  selectedProducts: [],
   selectedDeliverables: {},
   persistEnabled: true, // Default enabled for persistence
-  activeUseCase: null,
+  activeProduct: null,
   wizardStep: 1 as const,
-  hasBundleLoadedForUseCase: null
+  hasBundleLoadedForProduct: null
 };
 
 // Load from localStorage
@@ -108,12 +108,12 @@ function loadFromStorage(): Partial<ConfigState> {
     if (stored) {
       const parsed = JSON.parse(stored);
       return {
-        selectedUseCases: parsed.selectedUseCases || [],
+        selectedProducts: parsed.selectedUseCases || [],
         selectedDeliverables: parsed.selectedDeliverables || {},
         persistEnabled: parsed.persistEnabled !== undefined ? parsed.persistEnabled : true,
-        activeUseCase: parsed.activeUseCase || null,
-        wizardStep: parsed.wizardStep || 1,
-        hasBundleLoadedForUseCase: parsed.hasBundleLoadedForUseCase || null
+        activeProduct: parsed.activeUseCase || null,
+        wizardStep: parsed.wizardStep === 2 ? 2 : 1,
+        hasBundleLoadedForProduct: parsed.hasBundleLoadedForUseCase || null
       };
     }
   } catch (e) {
@@ -129,12 +129,12 @@ function saveToStorage(state: ConfigState) {
 
   try {
     localStorage.setItem('produktkatalog-config', JSON.stringify({
-      selectedUseCases: state.selectedUseCases,
+      selectedUseCases: state.selectedProducts,
       selectedDeliverables: state.selectedDeliverables,
       persistEnabled: state.persistEnabled,
-      activeUseCase: state.activeUseCase,
+      activeUseCase: state.activeProduct,
       wizardStep: state.wizardStep,
-      hasBundleLoadedForUseCase: state.hasBundleLoadedForUseCase
+      hasBundleLoadedForUseCase: state.hasBundleLoadedForProduct
     }));
   } catch (e) {
     console.warn('Failed to save to localStorage', e);
@@ -163,33 +163,33 @@ export const useConfigStore = create<ConfigState>((set, get) => {
     },
 
     // Actions
-    selectUseCase: (id: string) => {
+    selectProduct: (id: string) => {
       set((state) => {
         const newState = {
           ...state,
-          selectedUseCases: state.selectedUseCases.includes(id)
-            ? state.selectedUseCases
-            : [...state.selectedUseCases, id]
+          selectedProducts: state.selectedProducts.includes(id)
+            ? state.selectedProducts
+            : [...state.selectedProducts, id]
         };
         saveToStorage(newState);
         return newState;
       });
     },
 
-    deselectUseCase: (id: string) => {
+    deselectProduct: (id: string) => {
       set((state) => {
         const newState = {
           ...state,
-          selectedUseCases: state.selectedUseCases.filter(ucId => ucId !== id)
+          selectedProducts: state.selectedProducts.filter(productId => productId !== id)
         };
         saveToStorage(newState);
         return newState;
       });
     },
 
-    setActiveUseCase: (id: string | null) => {
+    setActiveProduct: (id: string | null) => {
       set((state) => {
-        const newState = { ...state, activeUseCase: id };
+        const newState = { ...state, activeProduct: id };
         saveToStorage(newState);
         return newState;
       });
@@ -203,45 +203,44 @@ export const useConfigStore = create<ConfigState>((set, get) => {
       });
     },
 
-    setBundleFromUseCase: (useCaseId: string) => {
-      // Skip if bundle already loaded for this useCase
-      const state = get();
-      if (state.hasBundleLoadedForUseCase === useCaseId) {
+    setBundleFromProduct: (productId: string) => {
+      // Skip if bundle already loaded for this product
+      const currentState = get();
+      if (currentState.hasBundleLoadedForProduct === productId) {
         return;
       }
 
-      // Verwende getBundleForUseCase aus recommendations.ts
-      const recommendations = getBundleForUseCase(useCaseId);
+      // Verwende getBundleForProduct aus recommendations.ts
+      const recommendations = getBundleForProduct(productId);
       if (recommendations.length === 0) return;
 
-      set((state) => {
-        const newDeliverables: Record<string, DeliverableState> = { ...state.selectedDeliverables };
+      const newDeliverables: Record<string, DeliverableState> = { ...currentState.selectedDeliverables };
 
-        // Registriere alle Recommendations, aber aktiviere NICHTS automatisch.
-        // Der Nutzer muss Deliverables explizit per Toggle auswählen.
-        recommendations.forEach(rec => {
-          if (!newDeliverables[rec.deliverableId]) {
-            newDeliverables[rec.deliverableId] = {
-              enabled: false,
-              params: getDefaultParameters()
-            };
-          }
-          // Bereits vorhandene Deliverables behalten ihren enabled-Status
-        });
-
-        const newState = {
-          ...state,
-          selectedDeliverables: newDeliverables,
-          selectedUseCases: state.selectedUseCases.includes(useCaseId)
-            ? state.selectedUseCases
-            : [...state.selectedUseCases, useCaseId],
-          activeUseCase: useCaseId,
-          hasBundleLoadedForUseCase: useCaseId,
-          wizardStep: 1 // Reset to step 1 when loading bundle
-        };
-        saveToStorage(newState);
-        return newState;
+      // Registriere alle Recommendations, aber aktiviere NICHTS automatisch.
+      // Der Nutzer muss Deliverables explizit per Toggle auswählen.
+      recommendations.forEach(rec => {
+        if (!newDeliverables[rec.deliverableId]) {
+          newDeliverables[rec.deliverableId] = {
+            enabled: false,
+            params: getDefaultParameters()
+          };
+        }
+        // Bereits vorhandene Deliverables behalten ihren enabled-Status
       });
+
+      const stateUpdate: Partial<ConfigState> = {
+        selectedDeliverables: newDeliverables,
+        selectedProducts: currentState.selectedProducts.includes(productId)
+          ? currentState.selectedProducts
+          : [...currentState.selectedProducts, productId],
+        activeProduct: productId,
+        hasBundleLoadedForProduct: productId,
+        wizardStep: 1 // Reset to step 1 when loading bundle
+      };
+
+      const newState: ConfigState = { ...currentState, ...stateUpdate };
+      saveToStorage(newState);
+      set(stateUpdate);
     },
 
     toggleDeliverable: (id: string, enabled: boolean) => {

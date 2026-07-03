@@ -32,8 +32,8 @@ const employmentTypeLabel: Record<string, string> = {
     <div class="container">
       <div class="row justify-center">
         <div class="text-center md:col-10 lg:col-8">
-          <h2 class="mb-4">Arbeiten bei ADV</h2>
-          <p class="text-lg">
+          <h2 class="mb-4 font-primary">Arbeiten bei ADV</h2>
+          <p class="text-lg font-secondary">
             Wir verbinden Datenstrategie, Architektur und moderne Umsetzung.
             Wenn du in einem kleinen Team schnell Verantwortung übernehmen und
             mit echten Projekten wachsen willst, bist du hier richtig.
@@ -48,23 +48,28 @@ const employmentTypeLabel: Record<string, string> = {
       <section class="section-sm bg-gradient">
         <div class="container">
           <div class="mb-10 text-center">
-            <h2 class="mb-3">Offene Stellen</h2>
-            <p>
+            <h2 class="mb-3 font-primary">Offene Stellen</h2>
+            <p class="font-secondary">
               Aktuell suchen wir Verstärkung für folgende Rollen. Klick auf die
               Stelle und springe direkt zu den Details.
             </p>
           </div>
           <div class="row">
             {jobs.map((job) => (
-              <div class="mb-6 md:col-6">
+              <div class="mb-6 flex md:col-6">
                 <a
                   href={`/career/${job.id}/`}
-                  class="block rounded border border-border bg-body p-6 transition duration-300 hover:-translate-y-1 dark:border-darkmode-border dark:bg-darkmode-body"
+                  class="flex h-full w-full flex-col rounded border border-border bg-body p-6 transition duration-300 hover:-translate-y-1 dark:border-darkmode-border dark:bg-darkmode-body"
                 >
-                  <h3 class="mb-3 h5 text-dark dark:text-darkmode-text-dark">
+                  {job.data.eyebrow && (
+                    <p class="mb-2 font-secondary text-lg font-normal! text-text-dark dark:text-darkmode-text-light">
+                      {job.data.eyebrow}
+                    </p>
+                  )}
+                  <h3 class="mb-3 h5 font-primary text-dark dark:text-darkmode-text-dark">
                     {job.data.title}
                   </h3>
-                  <p class="mb-4 text-justify">
+                  <p class="mb-4 text-justify font-secondary">
                     {job.data.summary ?? job.data.description}
                   </p>
                   <div class="mb-3 flex flex-wrap gap-2">
@@ -78,8 +83,8 @@ const employmentTypeLabel: Record<string, string> = {
                       {job.data.location}
                     </span>
                   </div>
-                  <div class="flex justify-center mt-4">
-                    <span class="btn-adv btn-outline-primary btn-sm">
+                  <div class="mt-auto flex justify-center pt-4">
+                    <span class="btn-adv btn-outline-primary btn-sm font-secondary">
                       Details ansehen
                     </span>
                   </div>
@@ -96,8 +101,8 @@ const employmentTypeLabel: Record<string, string> = {
     jobs.length === 0 && (
       <section class="section-sm">
         <div class="container text-center">
-          <h2 class="mb-4">Aktuell keine offenen Stellen</h2>
-          <p>
+          <h2 class="mb-4 font-primary">Aktuell keine offenen Stellen</h2>
+          <p class="font-secondary">
             Wir freuen uns trotzdem über eine Initiativbewerbung an
             <a
               class="ml-1 text-primary underline"
