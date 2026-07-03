@@ -1,7 +1,6 @@
 ---
 import DynamicIcon from "@/helpers/DynamicIcon";
 
-// CoreValues.astro
 export interface CoreValue {
   title: string;
   icon: string;
@@ -10,36 +9,31 @@ export interface CoreValue {
 
 interface Props {
   core_values: CoreValue[];
+  sectionClassName?: string;
 }
 
-const { core_values } = Astro.props;
+const { core_values, sectionClassName = "mb-16" } = Astro.props as Props;
 ---
 
-{
-  (
-    <section class="mb-8">
-      <div class="container">
-        <div class="flex w-full items-center justify-center rounded-xl p-4 sm:p-16">
-          <div class="grid grid-cols-4 gap-6 gap-y-12 lg:grid-cols-12">
-            {Array.isArray(core_values) &&
-              core_values.map((value) => (
-                <div class="col-span-4">
-                  <div class="flex flex-col items-center gap-4 text-center">
-                    <div class="flex items-center rounded bg-emerald-500 p-2 text-white">
-                      <DynamicIcon className="w-12 h-12" icon={value.icon} />
-                    </div>
-                    <div class="flex w-full min-w-0 flex-col items-center justify-center gap-0 text-base">
-                      <h3 class="mb-2 py-2 text-lg leading-6 text-slate-700">
-                        {value.title}
-                      </h3>
-                      <p class="text-slate-500">{value.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+<section class={sectionClassName}>
+  <div class="container">
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        Array.isArray(core_values) &&
+          core_values.map((value) => (
+            <article class="group flex h-full flex-col rounded-2xl border border-black/80 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#00CE7E] hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] dark:border-white/70 dark:bg-darkmode-body">
+              <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#00CE7E]/10 text-[#00CE7E] transition-colors duration-300 group-hover:bg-[#00CE7E] group-hover:text-white">
+                <DynamicIcon className="h-6 w-6" icon={value.icon} />
+              </div>
+              <h3 class="mb-3 font-primary text-h4 font-bold text-text-dark dark:text-darkmode-text-dark">
+                {value.title}
+              </h3>
+              <p class="font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light">
+                {value.description}
+              </p>
+            </article>
+          ))
+      }
+    </div>
+  </div>
+</section>

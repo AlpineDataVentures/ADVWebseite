@@ -48,7 +48,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
     return getProductById(preferredProductId)?.title ?? preferredProductId;
   };
 
-  const getDeliverableParamsForInquiry = (deliverableId: string, params: Record<string, any>) => {
+  const getDeliverableParamsForInquiry = (deliverableId: string) => {
     const state = selectedDeliverables[deliverableId];
     if (!state) return [];
     return Object.entries(state.params)
@@ -74,7 +74,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
       .map((item) => ({
         name: item.deliverable?.name ?? item.deliverableId,
         price: item.price,
-        selectedParameters: getDeliverableParamsForInquiry(item.deliverableId, item.parameters || {}),
+        selectedParameters: getDeliverableParamsForInquiry(item.deliverableId),
       }));
 
     return buildInquiryText({

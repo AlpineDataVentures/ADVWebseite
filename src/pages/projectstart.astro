@@ -1,0 +1,201 @@
+---
+import Base from "@/layouts/Base.astro";
+import SplitInfoSection from "@/components/SplitInfoSection.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
+import ExpandableInfoBoxesSection from "@/partials/ExpandableInfoBoxesSection.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+
+const splitInfoData = {
+  enable: true,
+  left_intro: "Unser Ziel ist es,",
+  left_highlight: "gemeinsam mit unseren Kunden Projekte aufzubauen",
+  left_outro: ", die nachhaltig tragen.",
+  left_text:
+    "Wir denken Daten- und KI-Vorhaben immer als Zusammenspiel aus Wirtschaftlichkeit, Organisation, Technologie und Compliance.",
+  right_title: "Projekte, die",
+  listItems: [
+    "wirtschaftlich sinnvoll sind",
+    "organisatorisch tragfähig bleiben",
+    "technisch skalieren können",
+    "regulatorische Anforderungen berücksichtigen",
+    "langfristig echten Geschäftswert erzeugen",
+  ],
+};
+
+const collaborationSteps = [
+  {
+    icon: "FaComments",
+    title: "1. Erstgespräch und strategische Einordnung",
+    text: "Wir lernen Ihr Unternehmen, Ihre Prozesse und Ihre Ziele kennen und ordnen Potenziale geschäftlich ein.",
+    links: [
+      { label: "Bestehende Systemlandschaften" },
+      { label: "Datenquellen und aktuelle Prozesse" },
+      { label: "Reporting- und Steuerungsanforderungen" },
+      { label: "Organisatorische Strukturen" },
+      { label: "Regulatorische Rahmenbedingungen" },
+      { label: "Potenziale für Automatisierung und KI" },
+      { label: "Zielbild: konkreter Business-Mehrwert" },
+    ],
+  },
+  {
+    icon: "FaMagnifyingGlassChart",
+    title: "2. Analyse von Potenzialen und Use Cases",
+    text: "Wir identifizieren relevante Anwendungsfälle und priorisieren sie nach Wirkung, Machbarkeit und Aufwand.",
+    links: [
+      { label: "Management-Dashboards und KPI-Systeme" },
+      { label: "Data Warehousing und Datenintegration" },
+      { label: "Forecasting und Vertriebs-/Produktionsanalysen" },
+      { label: "Stammdatenmanagement und Data Governance" },
+      { label: "Dokumentenautomatisierung" },
+      { label: "KI-gestützte Wissenssysteme" },
+      { label: "Predictive Analytics und Machine Learning" },
+      { label: "Priorisierung nach Impact, Reife und Datenverfügbarkeit" },
+    ],
+  },
+  {
+    icon: "FaDiagramProject",
+    title: "3. Architektur, Governance und technische Konzeption",
+    text: "Wir schaffen die fachliche und technische Grundlage, damit Lösungen stabil, sicher und weiterentwickelbar bleiben.",
+    links: [
+      { label: "Datenarchitekturen, Zielbilder und Datenmodelle" },
+      { label: "Integrationskonzepte" },
+      { label: "Governance-Strukturen" },
+      { label: "Sicherheits- und Berechtigungskonzepte" },
+      { label: "Datenschutz- und Compliance-Betrachtungen" },
+      { label: "Rollenmodelle sowie Skalierungs- und Betriebsmodelle" },
+      {
+        label: "Pragmatischer Aufbau mit Fokus auf Transparenz und Stabilität",
+      },
+    ],
+  },
+  {
+    icon: "FaListCheck",
+    title: "4. Projektdefinition und Umsetzung",
+    text: "Wir übersetzen die Konzeption in einen klaren Umsetzungsrahmen mit Verantwortlichkeiten, Meilensteinen und Transparenz.",
+    links: [
+      { label: "Projektumfang und konkrete Deliverables" },
+      { label: "Verantwortlichkeiten und Kommunikationswege" },
+      { label: "Meilensteine und Zeitplanung" },
+      { label: "Vorgehensmodell: agil, hybrid oder Fixpreis" },
+      { label: "Transparenz über Fortschritt, Risiken und Entscheidungen" },
+      { label: "Fokus auf nachvollziehbare Ergebnisse" },
+    ],
+  },
+];
+---
+
+<Base
+  title="Weg zum Projekt"
+  meta_title="Weg zum Projekt"
+  description="Gemeinsam von der Idee zur skalierbaren Daten- und KI-Loesung."
+>
+  <HomepageLeadHeading
+    eyebrow="Weg zum Projekt"
+    title="Gemeinsam von der Idee zur skalierbaren Daten- und KI-Lösung."
+  />
+
+  <TextLeftImageRightSection
+    text="Digitale Projekte scheitern selten an Technologie. Sie scheitern meist an fehlender Struktur, unklaren Verantwortlichkeiten, mangelnder Priorisierung oder daran, dass Unternehmen zu früh in Tools investieren, ohne die fachlichen und organisatorischen Grundlagen sauber aufzubauen.
+Genau deshalb legen wir bei ADV großen Wert auf einen strukturierten, transparenten und partnerschaftlichen Weg zum Projekt.
+Wir begleiten mittelständische Unternehmen von der ersten strategischen Einordnung über die technische Konzeption bis hin zur Umsetzung moderner Daten-, Analytics- und KI-Lösungen.
+Dabei arbeiten wir bewusst pragmatisch. Nicht jedes Unternehmen benötigt sofort eine komplexe KI-Plattform oder eine hochskalierte Enterprise-Architektur. Oft entstehen die größten Mehrwerte dort, wo Prozesse strukturiert, Daten zugänglich und Entscheidungen nachvollziehbar werden."
+    imageSrc="/images/path_to_project.jpg"
+    imageAlt="Weg zum Projekt"
+    imageWidth={4032}
+    imageHeight={3024}
+  />
+
+  <SplitInfoSection data={splitInfoData} />
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <h2
+        class="mb-5 font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
+      >
+        <span class="adv-contact-gradient">
+          Warum ein strukturierter Projektstart entscheidend ist
+        </span>
+      </h2>
+      <p
+        class="mb-8 max-w-4xl font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light md:text-[1.125rem]"
+      >
+        Viele Unternehmen verfügen bereits über große Mengen an Daten. Trotzdem
+        fehlt oft die Grundlage, um daraus verlässlich steuerbare und
+        wirtschaftlich sinnvolle Projekte zu machen.
+      </p>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        <article
+          class="rounded-xl border border-black/80 bg-white p-7 dark:border-white/70 dark:bg-darkmode-body"
+        >
+          <h3
+            class="mb-4 font-primary text-h4 font-bold text-text-dark dark:text-darkmode-text-dark"
+          >
+            Häufig fehlen
+          </h3>
+          <ul
+            class="list-disc space-y-2 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light"
+          >
+            <li>zentrale Datenstrukturen</li>
+            <li>einheitliche Verantwortlichkeiten</li>
+            <li>belastbare Datenqualität</li>
+            <li>skalierbare Datenarchitekturen</li>
+            <li>Priorisierung von Use Cases</li>
+            <li>klare Business-Ziele</li>
+            <li>
+              technische Grundlagen für moderne Analytics- und KI-Anwendungen
+            </li>
+          </ul>
+        </article>
+
+        <article
+          class="rounded-xl border border-black/80 bg-white p-7 dark:border-white/70 dark:bg-darkmode-body"
+        >
+          <h3
+            class="mb-4 font-primary text-h4 font-bold text-text-dark dark:text-darkmode-text-dark"
+          >
+            Typische Fragen im Mittelstand
+          </h3>
+          <ul
+            class="list-disc space-y-2 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light"
+          >
+            <li>Wo sollte man anfangen?</li>
+            <li>Welche Projekte bringen wirklich Mehrwert?</li>
+            <li>Welche Daten werden benötigt?</li>
+            <li>Welche Architektur ist sinnvoll?</li>
+            <li>Wie hoch ist der Aufwand?</li>
+            <li>Welche regulatorischen Anforderungen gelten?</li>
+            <li>Wann lohnt sich künstliche Intelligenz wirklich?</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <ExpandableInfoBoxesSection
+    title="Unser gemeinsamer Weg zur Zusammenarbeit"
+    items={collaborationSteps}
+  />
+
+  <TextLeftImageRightSection
+    text="Wir verstehen uns nicht als klassische externe Beratung, die Konzepte erstellt und anschließend verschwindet. Unser Anspruch ist es, gemeinsam mit unseren Kunden nachhaltige Lösungen aufzubauen. Das bedeutet enge Zusammenarbeit, transparente Kommunikation, ehrliche Einschätzungen, pragmatische Entscheidungen und technologische Lösungen mit echtem Business-Fokus. Viele unserer Kunden verfügen über starke fachliche Expertise in ihren jeweiligen Branchen. Unsere Aufgabe besteht darin, diese Expertise mit moderner Daten-, Analytics- und KI-Kompetenz zu verbinden."
+    imageSrc="/images/adv_at_work.jpg"
+    imageAlt="Zusammenarbeit auf Augenhöhe"
+    imageWidth={5000}
+    imageHeight={3333}
+  />
+
+  <ContactSpotlightSection
+    titleStart="Der erste Schritt beginnt mit einem"
+    titleHighlight="Gespräch"
+    leadText="Jedes Unternehmen befindet sich an einem anderen Punkt. Manche Organisationen benötigen zunächst Orientierung und Struktur. Andere möchten bestehende Datenlandschaften modernisieren oder konkrete KI-Use-Cases umsetzen."
+    followupText="Entscheidend ist, dass Projekte wirtschaftlich sinnvoll, organisatorisch tragfähig und technisch sauber aufgebaut werden. Genau dabei unterstützen wir."
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Erstgespräch vereinbaren"
+    imageSrc="/images/kennenlernen.jpg"
+    imageAlt="Erstgespräch zum Projektstart"
+  />
+</Base>
