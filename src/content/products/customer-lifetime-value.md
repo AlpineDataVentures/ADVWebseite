@@ -2,9 +2,9 @@
 title: "Customer Lifetime Value"
 eyebrow: "Produkt"
 meta_title: "Customer Lifetime Value"
-description: "Der Customer Lifetime Value (CLV) gibt an, wie viel Umsatz ein Kunde über die gesamte Dauer seiner Geschäftsbeziehung voraussichtlich bringt. Das klingt einfach, hat aber weitreichende Konsequenzen: Wer weiß welche Kunden langfristig am wertvollsten sind, kann Marketingbudgets gezielter einsetzen, Kundenbindungsmaßnahmen besser priorisieren und Akquisitionskosten realistisch bewerten"
+description: "Der Customer Lifetime Value (CLV) gibt an, wie viel Umsatz ein Kunde über die gesamte Dauer seiner Geschäftsbeziehung voraussichtlich bringt. Das klingt einfach, hat aber weitreichende Konsequenzen: Wer weiß welche Kunden langfristig am wertvollsten sind, kann Marketingbudgets gezielter einsetzen, Kundenbindungsmaßnahmen besser priorisieren und Akquisitionskosten realistisch bewerten."
 highlight_text: "wie viel Umsatz ein Kunde über die gesamte Dauer seiner Geschäftsbeziehung voraussichtlich bringt"
-image: "/images/products/churn-prevention.png"
+image: "/images/products/customer-lifetime-value.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
 customer_value_title: "Ihr Mehrwert"
 benefits:
@@ -25,13 +25,13 @@ contact:
 collaboration_title: "Unsere Zusammenarbeit"
 collaboration_steps:
   - title: "Datenbasis prüfen"
-    text: "Welche Transaktions- und Kundendaten sind vorhanden, wie weit reichen sie zurück und wie vollständig sind sie? Das bestimmt welches CLV-Modell sinnvoll ist."
+    text: "Welche Transaktions- und Kundendaten sind vorhanden, wie weit reichen sie zurück und wie vollständig sind sie? Das bestimmt, welches CLV-Modell sinnvoll ist."
   - title: "Modell entwickeln und validieren"
-    text: "Das CLV-Modell wird auf Basis der historischen Daten entwickelt und gegen reale Kundenverläufe validiert. Je nach Datenlage kommen statistische oder ML-basierte Ansätze zum Einsatz."
+    text: "Das CLV-Modell wird auf Basis historischer Daten entwickelt und gegen reale Kundenverläufe validiert. Je nach Datenlage kommen statistische oder Machine Learning-basierte Ansätze zum Einsatz."
   - title: "Segmente ableiten und visualisieren"
-    text: "Aus dem CLV-Modell werden konkrete Kundensegmente abgeleitet und in einem Dashboard visualisiert das Vertrieb und Marketing direkt nutzen können."
+    text: "Aus dem CLV-Modell werden konkrete Kundensegmente abgeleitet und in einem Dashboard visualisiert, das Vertrieb und Marketing direkt nutzen können."
   - title: "Übergabe und laufende Aktualisierung"
-    text: "Das Modell wird übergeben und regelmäßig mit neuen Daten aktualisiert damit die CLV-Werte aktuell bleiben und Veränderungen im Kundenverhalten sichtbar werden."
+    text: "Das Modell wird übergeben und regelmäßig mit neuen Daten aktualisiert. Somit bleiben die CLV-Werte aktuell und Veränderungen im Kundenverhalten werden sichtbar."
 delivery:
   technologies:
     - "Power BI"
