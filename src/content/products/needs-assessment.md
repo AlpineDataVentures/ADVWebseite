@@ -1,0 +1,59 @@
+---
+title: "Materialbedarfsplanung "
+eyebrow: "Produkt"
+meta_title: "Materialbedarfsplanung "
+description: "Zu viel Material auf Lager bindet Kapital und verursacht Lagerkosten. Zu wenig stoppt die Produktion. Beides passiert wenn Bedarfe auf Basis von Erfahrungswerten oder starren Planungszyklen geschätzt werden statt auf Basis der tatsächlichen Datenlage. Eine datengestützte Bedarfsanalyse berechnet auf Basis historischer Verbrauchsdaten, aktueller Auftragslagen und saisonaler Muster automatisch, wie viel von welchem Material zu welchem Zeitpunkt benötigt wird."
+highlight_text: "auf Basis historischer Verbrauchsdaten, aktueller Auftragslagen und saisonaler Muster"
+image: "/images/products/needs-assessment.png"
+intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
+customer_value_title: "Ihr Mehrwert"
+benefits:
+  - title: "Weniger Kapitalbindung im Lager"
+    text: "Materialien werden bedarfsgerecht bestellt statt auf Vorrat. Lagerbestände sinken, ohne dass die Versorgungssicherheit leidet."
+  - title: "Keine Produktionsstopps durch fehlende Materialien"
+    text: "Materialengpässe werden frühzeitig erkannt. Der Einkauf hat genug Vorlauf um rechtzeitig nachzubestellen."
+  - title: "Einkauf, der gezielt bestellt"
+    text: "Statt pauschaler Bestellmengen bekommt der Einkauf konkrete Bedarfsprognosen je Material und Zeitraum als Grundlage für Bestellentscheidungen und Lieferantengespräche."
+  - title: "Planungssicherheit für Produktion und Einkauf"
+    text: "Beide Bereiche arbeiten mit denselben Zahlen. Das reduziert Abstimmungsaufwand und verhindert, dass Produktion und Einkauf mit unterschiedlichen Annahmen planen."
+contact:
+  author_id: "paul-springer"
+  expertise: "Paul bringt über 10 Jahre Erfahrung in KI-Entwicklung, Data Science und Projektleitung mit. Er hat komplexe KI-Projekte in Versicherung, Medizin, Landwirtschaft und Finanzdienstleistung geleitet und kennt sowohl die technische als auch die strategische Seite von KI-Vorhaben."
+  question_cta_label: "Frage stellen"
+  meeting_cta_label: "Gespräch vereinbaren"
+  meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+collaboration_title: "Unsere Zusammenarbeit"
+collaboration_steps:
+  - title: "Verbrauchsdaten und Planungslogik verstehen"
+    text: "Zu Beginn werden die relevanten Materialien, der aktuelle Planungsprozess sowie die vorhandenen Datenquellen erfasst wie z. B. ERP, Auftragseingang oder manuelle Planung."
+  - title: "Prognosemodell entwickeln"
+    text: "Ein Modell wird entwickelt, das Verbrauchsmuster, Saisonalität und Auftragslagen kombiniert, um Bedarfe je Material und Zeitraum vorherzusagen."
+  - title: "Ergebnisse in den Planungsalltag integrieren"
+    text: "Die Bedarfsprognosen werden in ein Dashboard oder direkt ins ERP-System überführt, damit Einkauf und Produktion täglich damit arbeiten können."
+  - title: "Übergabe und laufende Verbesserung"
+    text: "Nach der Übergabe wird das Modell mit neuen Daten aktualisiert, damit die Prognosequalität mit der Zeit besser wird."
+delivery:
+  technologies:
+    - "Python"
+    - "Zeitreihenmodelle"
+    - "ERP-Anbindung"
+  deliverables:
+    - "Bedarfsprognosen je Material & Zeitraum"
+    - "Dashboard"
+    - "Dokumentation"
+  operations:
+    - "Durch Ihren Einkauf"
+related_products:
+  - "predictive-maintenance"
+  - "management-dashboard"
+tags:
+  - "Dynamic Pricing"
+final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
+final_cta_text: "Beantworten Sie ein paar kurze Fragen, wir zeigen Ihnen direkt, was das Projekt kosten würde und wie lange es dauert"
+final_cta_button_label: "Zum Produkt-Katalog"
+final_cta_image: "/images/goat.jpg"
+draft: false
+---
+
+Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
+
