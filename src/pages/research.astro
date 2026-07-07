@@ -1,0 +1,253 @@
+---
+import Base from "@/layouts/Base.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+
+const researchSections = [
+  {
+    title: "Daten und KI als Innovationstreiber im Mittelstand",
+    paragraphs: [
+      "Der deutsche Mittelstand steht vor großen Herausforderungen:",
+      "Gleichzeitig entstehen enorme Potenziale durch:",
+      "Forschungsprojekte ermöglichen es Unternehmen, neue Technologien frühzeitig zu evaluieren und innovative Lösungen gemeinsam mit spezialisierten Partnern aufzubauen.",
+    ],
+    lists: [
+      [
+        "steigender Wettbewerbsdruck",
+        "Fachkräftemangel",
+        "zunehmende regulatorische Anforderungen",
+        "wachsende Datenmengen",
+        "sowie steigende Anforderungen an Effizienz und Transparenz",
+      ],
+      [
+        "moderne Datenplattformen",
+        "künstliche Intelligenz",
+        "intelligente Automatisierung",
+        "digitale Prozesssteuerung",
+        "sowie datengetriebene Entscheidungsmodelle",
+      ],
+    ],
+  },
+  {
+    title: "Unsere Rolle als Konsortialpartner",
+    paragraphs: [
+      "Alpine Data Ventures unterstützt Forschungs- und Innovationsprojekte als technologie- und umsetzungsorientierter Partner.",
+      "Wir bringen insbesondere Kompetenzen ein in:",
+      "Dabei verbinden wir wissenschaftliche und technologische Ansätze mit pragmatischen Anforderungen aus realen Unternehmensprozessen.",
+    ],
+    lists: [
+      [
+        "Datenarchitekturen",
+        "Analytics und BI",
+        "KI- und Automatisierungslösungen",
+        "Datenintegration",
+        "ETL-Prozessen",
+        "Cloud- und Plattformarchitekturen",
+        "Governance und Datenmanagement",
+        "Reporting- und Steuerungssystemen",
+        "Use-Case-Definition",
+        "technischer Konzeption",
+        "Prototyping",
+        "Umsetzungsbegleitung",
+      ],
+    ],
+  },
+  {
+    title: "Verbindung von Forschung und Praxis",
+    paragraphs: [
+      "Viele Forschungsprojekte scheitern daran, dass theoretische Konzepte nicht sauber in reale Organisationen überführt werden.",
+      "Unser Fokus liegt deshalb auf:",
+      "Wir unterstützen dabei, Forschungsergebnisse nicht nur theoretisch zu entwickeln, sondern in reale Anwendungen und operative Prozesse zu überführen.",
+    ],
+    lists: [
+      [
+        "praktischer Umsetzbarkeit",
+        "wirtschaftlicher Sinnhaftigkeit",
+        "technischer Skalierbarkeit",
+        "organisatorischer Integration",
+        "sowie nachhaltiger Nutzbarkeit",
+      ],
+    ],
+  },
+  {
+    title: "Typische Themenfelder",
+    paragraphs: [
+      "Mögliche Forschungs- und Innovationsfelder umfassen beispielsweise:",
+    ],
+    lists: [
+      [
+        "künstliche Intelligenz im Mittelstand",
+        "intelligente Wissenssysteme",
+        "Predictive Analytics",
+        "industrielle Datenplattformen",
+        "digitale Zwillinge",
+        "Datenräume und Datenaustausch",
+        "Data Governance",
+        "automatisierte Dokumentenverarbeitung",
+        "Machine Learning",
+        "Produktionsanalytik",
+        "intelligente Reporting-Systeme",
+        "semantische Datenmodelle",
+        "KI-gestützte Entscheidungsunterstützung",
+        "Prozessautomatisierung",
+        "Cloud- und Datenarchitekturen",
+        "Datenqualität und Stammdatenmanagement",
+      ],
+    ],
+  },
+  {
+    title: "Zusammenarbeit mit Unternehmen, Forschung und Technologiepartnern",
+    paragraphs: [
+      "Wir arbeiten interdisziplinär mit:",
+      "Dabei verstehen wir uns als Bindeglied zwischen:",
+    ],
+    lists: [
+      [
+        "mittelständischen Unternehmen",
+        "Technologieanbietern",
+        "Hochschulen",
+        "Forschungseinrichtungen",
+        "sowie weiteren Konsortialpartnern",
+      ],
+      [
+        "technischer Innovation",
+        "datengetriebener Umsetzung",
+        "und realen Geschäftsanforderungen",
+      ],
+    ],
+  },
+  {
+    title: "Förderprojekte und Innovationsprogramme",
+    paragraphs: [
+      "Forschungs- und Innovationsprojekte bieten Unternehmen die Möglichkeit, neue Technologien mit reduziertem Risiko zu evaluieren.",
+      "Gerade im Bereich Daten und KI entstehen zahlreiche Fördermöglichkeiten rund um:",
+      "Wir unterstützen dabei:",
+    ],
+    lists: [
+      [
+        "Digitalisierung",
+        "künstliche Intelligenz",
+        "Datenräume",
+        "Industrie 4.0",
+        "Automatisierung",
+        "Nachhaltigkeit",
+        "sowie digitale Wertschöpfung",
+      ],
+      [
+        "technologische Potenziale zu identifizieren",
+        "Anwendungsfälle zu strukturieren",
+        "technische Konzepte zu entwickeln",
+        "und datengetriebene Innovationsprojekte operativ zu begleiten",
+      ],
+    ],
+  },
+  {
+    title: "Warum Datenkompetenz in Forschungsprojekten entscheidend ist",
+    paragraphs: [
+      "Nahezu jedes moderne Innovationsprojekt basiert heute auf Daten.",
+      "Entscheidend sind dabei unter anderem:",
+      "Gerade künstliche Intelligenz benötigt belastbare Datenstrukturen und nachvollziehbare Prozesse.",
+      "Deshalb spielen moderne Datenarchitekturen eine zentrale Rolle in erfolgreichen Forschungs- und Innovationsprojekten.",
+    ],
+    lists: [
+      [
+        "Datenverfügbarkeit",
+        "Datenqualität",
+        "Integrationsfähigkeit",
+        "Governance",
+        "Skalierbarkeit",
+        "sowie analytische Auswertbarkeit",
+      ],
+    ],
+  },
+];
+---
+
+<Base
+  title="Forschungsprojekte"
+  meta_title="Forschungsprojekte"
+  description="Forschungs- und Innovationsprojekte im Bereich Daten, Analytics und künstliche Intelligenz."
+>
+  <HomepageLeadHeading
+    eyebrow="Forschungsprojekte"
+    title="Forschungs- und Innovationsprojekte im Bereich Daten, Analytics und Künstliche Intelligenz"
+  />
+
+  <TextLeftImageRightSection
+    text="Technologische Innovation entsteht selten isoliert. Gerade in den Bereichen Data & Analytics, künstliche Intelligenz, Datenplattformen, Automatisierung, industrielle Digitalisierung und intelligente Informationssysteme werden neue Lösungen zunehmend in Kooperation zwischen Unternehmen, Forschungseinrichtungen und Technologiepartnern entwickelt. Deshalb engagieren wir uns aktiv als Partner in Forschungs- und Innovationsprojekten."
+    imageSrc="/images/solving_complex_things.jpg"
+    imageAlt="Forschungs- und Innovationsprojekte"
+    imageWidth={2000}
+    imageHeight={1368}
+  />
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <div class="mb-10 max-w-4xl border-l-4 border-[#00CE7E] pl-5">
+        <p
+          class="font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light md:text-[1.125rem]"
+        >
+          Wir verbinden strategische Forschung mit operativer Umsetzung und
+          schaffen damit konkrete Mehrwerte aus Daten, Analytics und KI.
+        </p>
+      </div>
+
+      {
+        researchSections.map((section, index) => (
+          <>
+            <article class="mb-8 rounded-2xl border border-black/80 bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)] dark:border-white/70 dark:bg-darkmode-body md:p-8">
+              <h2 class="mb-5 font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2">
+                {section.title}
+              </h2>
+
+              {section.paragraphs.map((paragraph) => (
+                <p class="mb-4 max-w-5xl font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light md:text-[1.125rem]">
+                  {paragraph}
+                </p>
+              ))}
+
+              {section.lists.map((listItems) => (
+                <ul class="mb-5 list-disc space-y-2 pl-5 font-secondary text-base leading-relaxed text-text dark:text-darkmode-text-light md:text-[1.125rem]">
+                  {listItems.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ))}
+            </article>
+
+            {index < researchSections.length - 1 && (
+              <div class="mb-8 h-px w-full bg-black/15 dark:bg-white/20" />
+            )}
+
+            {index === 2 && (
+              <div class="mb-10 overflow-hidden rounded-2xl border border-black/80 dark:border-white/70">
+                <img
+                  src="/images/adv_at_work.jpg"
+                  alt="Zusammenarbeit in Forschungsprojekten"
+                  width="5000"
+                  height="3333"
+                  loading="lazy"
+                  class="h-65 w-full object-cover md:h-90"
+                />
+              </div>
+            )}
+          </>
+        ))
+      }
+    </div>
+  </section>
+
+  <ContactSpotlightSection
+    titleStart="Gemeinsam"
+    titleHighlight="Innovationen umsetzen"
+    leadText="Wir unterstützen Unternehmen und Projektpartner dabei, innovative Daten- und KI-Lösungen strukturiert aufzubauen. Von der ersten Use-Case-Idee über Architektur und Governance bis hin zu Prototyping und operativer Umsetzung begleiten wir Forschungs- und Innovationsprojekte mit technischem, strategischem und analytischem Fokus."
+    followupText="Unser Ziel ist es, Innovation nicht nur theoretisch zu denken, sondern reale Mehrwerte für Unternehmen und Organisationen zu schaffen."
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Erstgespräch vereinbaren"
+    imageSrc="/images/kennenlernen.jpg"
+    imageAlt="Gemeinsam Innovationen umsetzen"
+  />
+</Base>
