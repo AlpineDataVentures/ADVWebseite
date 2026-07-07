@@ -75,8 +75,8 @@ export const deliverables: Deliverable[] = [
   {
     key: "kpi_ws",
     family: "BI & Analytics",
-    name: "KPI Definition Workshop",
-    shortDescription: "Gemeinsame Definition Ihrer wichtigsten Kennzahlen und Erfolgsmessung. Klarheit über das, was wirklich zählt.",
+    name: "KPI-Workshop und Kennzahlenkonzept",
+    shortDescription: "Gemeinsame Definition Ihrer wichtigsten Kennzahlen – einheitlich, nachvollziehbar und steuerungsrelevant.",
     longDescription: "In diesem Workshop erarbeiten wir gemeinsam die für Ihr Unternehmen relevanten Kennzahlen (KPIs). Wir analysieren Ihre Geschäftsziele, identifizieren die wichtigsten Metriken und definieren klare Messgrößen. Sie erhalten ein strukturiertes KPI-Framework, das als Grundlage für alle zukünftigen Berichte und Analysen dient.",
     basePrice: 6900,
     active: true,
@@ -212,8 +212,8 @@ export const deliverables: Deliverable[] = [
   {
     key: "source_integration_review",
     family: "Data Architecture",
-    name: "Datenquellen- & Integrationsanalyse",
-    shortDescription: "Systematische Analyse Ihrer Datenquellen und Empfehlungen für Integration. Klarheit über Ihre Datenlandschaft.",
+    name: "Analyse Ihrer Datenquellen und Schnittstellen",
+    shortDescription: "Systematische Bestandsaufnahme Ihrer Datenquellen, Schnittstellen und Integrationsoptionen.",
     longDescription: "Wir analysieren alle Ihre Datenquellen, identifizieren Herausforderungen bei der Integration und entwickeln einen Plan für die zentrale Datenablage. Sie erhalten eine vollständige Übersicht Ihrer Datenlandschaft mit Empfehlungen für die beste Integrationsstrategie.",
     basePrice: 8900,
     active: true,
@@ -582,8 +582,8 @@ export const deliverables: Deliverable[] = [
   {
     key: "anomaly_detection",
     family: "AI & Data Science",
-    name: "Anomaly Detection",
-    shortDescription: "Automatische Erkennung von Anomalien in Daten. Früherkennung von Problemen und Betrug.",
+    name: "Anomalieerkennung (KI)",
+    shortDescription: "Automatische Erkennung ungewöhnlicher Muster in Daten – für Frühwarnung, Qualität und Betrugserkennung.",
     longDescription: "Wir entwickeln ein System zur automatischen Erkennung von Anomalien in Ihren Daten. Das System lernt normale Muster und erkennt Abweichungen, die auf Probleme, Betrug oder interessante Entwicklungen hinweisen können. Ideal für Qualitätssicherung, Betrugserkennung oder Prozessoptimierung.",
     basePrice: 22900,
     active: true,
@@ -648,8 +648,8 @@ export const deliverables: Deliverable[] = [
   {
     key: "qa_ai",
     family: "AI & Data Science",
-    name: "Quality Assurance AI",
-    shortDescription: "Automatische Qualitätsprüfung mit KI. Früherkennung von Fehlern, weniger Ausschuss.",
+    name: "KI-gestützte Qualitätsprüfung",
+    shortDescription: "Automatische Qualitätsprüfung mit KI – z. B. für Bild-, Video- oder Prozessdaten.",
     longDescription: "Wir entwickeln ein KI-System zur automatischen Qualitätsprüfung Ihrer Produkte. Basierend auf Bildern, Sensordaten oder anderen Messwerten erkennt das System Fehler und Qualitätsprobleme frühzeitig, sodass Sie Ausschuss reduzieren und Qualität verbessern können.",
     basePrice: 24900,
     active: true,
@@ -683,8 +683,8 @@ export const deliverables: Deliverable[] = [
   {
     key: "target_architecture",
     family: "Enterprise Architecture",
-    name: "Target Architecture",
-    shortDescription: "Zielarchitektur für Ihre Datenlandschaft. Klare Vision für die Zukunft.",
+    name: "Zielarchitektur für Daten & Analytics",
+    shortDescription: "Zielbild für Ihre Daten- und Analytics-Landschaft – klar, umsetzbar und abgestimmt mit dem Business.",
     longDescription: "Wir entwickeln eine Zielarchitektur für Ihre gesamte Datenlandschaft. Mit klaren Prinzipien, Technologie-Empfehlungen und einem Migrationspfad haben Sie eine Roadmap, wie Ihre Dateninfrastruktur in Zukunft aussehen soll.",
     basePrice: 17900,
     active: true,
@@ -749,8 +749,8 @@ export const deliverables: Deliverable[] = [
   {
     key: "monitoring_ops",
     family: "Data Operations",
-    name: "Monitoring & Operations",
-    shortDescription: "Umfassendes Monitoring für Ihre Dateninfrastruktur. Proaktive Fehlererkennung, höhere Verfügbarkeit.",
+    name: "Monitoring & Betrieb",
+    shortDescription: "Proaktives Monitoring Ihrer Datenplattform und Analytics-Lösungen im laufenden Betrieb.",
     longDescription: "Wir richten ein umfassendes Monitoring-System für Ihre Dateninfrastruktur ein. Mit automatisierten Checks, Alarmen und Dashboards erkennen Sie Probleme frühzeitig und können proaktiv reagieren. Höhere Verfügbarkeit, weniger Ausfälle.",
     basePrice: 16900,
     active: true,
@@ -809,6 +809,738 @@ export const deliverables: Deliverable[] = [
       "24/7 Support (gegen Aufpreis möglich)"
     ],
     parameters: ["companySize", "speed"]
+  },
+
+  // ========== PHASE 4 ERWEITERT – NEUE PRODUKTBAUSTEINE ==========
+
+  {
+    key: "api_integration",
+    family: "Data Architecture",
+    name: "API- & Schnittstellenentwicklung",
+    shortDescription: "Entwicklung und Anbindung von APIs und Schnittstellen zwischen Systemen. Stabile Datenflüsse für Automatisierung und Integration.",
+    longDescription: "Wir entwickeln und implementieren APIs und Schnittstellen zwischen Ihren Geschäftssystemen – z. B. ERP, CRM, Helpdesk oder Fachanwendungen. Sie erhalten dokumentierte, wartbare Integrationen als Grundlage für Automatisierung, BI und KI-Use-Cases.",
+    basePrice: 15900,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["stabilize", "scale"],
+      impact: ["foundation", "performance"],
+      coverage: ["data_layer", "operations"]
+    },
+    estimatedDuration: "8–12 Tage",
+    deliverablesOutput: [
+      "Implementierte API- oder Schnittstellenanbindung (1–2 Kernintegrationen)",
+      "Technische Dokumentation und Fehlerbehandlung",
+      "Test- und Abnahmekonzept",
+      "Empfehlungen für Monitoring und Weiterentwicklung",
+      "Übergabe an Ihr IT- oder Betriebsteam"
+    ],
+    assumptions: [
+      "Zugang zu beteiligten Systemen und Testumgebungen",
+      "Ansprechpartner für Fachlogik und Freigaben sind verfügbar"
+    ],
+    outOfScope: [
+      "Umfangreiche Legacy-Migration",
+      "24/7 Betrieb nach Go-Live",
+      "Mehr als zwei komplexe End-to-End-Integrationen ohne Zusatzscope"
+    ],
+    parameters: ["companySize", "speed", "sourceSystemCount", "securityLevel"]
+  },
+  {
+    key: "data_modeling",
+    family: "Data Architecture",
+    name: "Datenmodellierung",
+    shortDescription: "Strukturiertes Datenmodell für Reporting, Analytics und zentrale Datenablage. Konsistente Semantik über Systeme hinweg.",
+    longDescription: "Wir modellieren Ihre Kerndatenbereiche – z. B. Vertrieb, Finanzen oder Stammdaten – in einem belastbaren logischen und technischen Datenmodell. Das Modell bildet die Basis für DWH, BI, Self-Service und spätere KI-Anwendungen.",
+    basePrice: 12900,
+    active: true,
+    tags: {
+      type: ["build", "blueprint"],
+      maturity: ["start", "stabilize"],
+      impact: ["foundation"],
+      coverage: ["data_layer", "semantic_layer"]
+    },
+    estimatedDuration: "6–10 Tage",
+    deliverablesOutput: [
+      "Logisches und technisches Datenmodell für definierte Kernbereiche",
+      "Entity-Relationship-Dokumentation",
+      "Benennungs- und Modellierungsstandards",
+      "Abstimmung mit Fachbereich und IT",
+      "Empfehlungen für nächste Ausbaustufen"
+    ],
+    assumptions: [
+      "Relevante Datenquellen sind bekannt oder werden parallel analysiert",
+      "Fachliche Ansprechpartner für Modell-Reviews sind verfügbar"
+    ],
+    outOfScope: [
+      "Vollständige DWH-Implementierung",
+      "Historisierung und komplexe ETL-Entwicklung",
+      "Stammdatenbereinigung in Quellsystemen"
+    ],
+    parameters: ["companySize", "speed", "sourceSystemCount"]
+  },
+  {
+    key: "data_migration",
+    family: "Data Architecture",
+    name: "Datenmigration",
+    shortDescription: "Geplante Migration von Daten in neue Systeme oder Plattformen. Strukturiert, nachvollziehbar und mit Qualitätssicherung.",
+    longDescription: "Wir migrieren Ihre Daten kontrolliert in Zielsysteme – z. B. beim Wechsel von Excel zu BI, DWH-Aufbau oder Systemkonsolidierung. Mit Migrationsplan, Mapping, Testläufen und Abnahme stellen wir sicher, dass Ihre Daten im Ziel belastbar ankommen.",
+    basePrice: 14900,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["stabilize"],
+      impact: ["foundation", "performance"],
+      coverage: ["data_layer"]
+    },
+    estimatedDuration: "8–15 Tage",
+    deliverablesOutput: [
+      "Migrationsplan mit Mapping und Schnittstellenlogik",
+      "Testmigration und Validierungsergebnisse",
+      "Produktive Migration der vereinbarten Datenbereiche",
+      "Rollback- und Abnahmedokumentation",
+      "Übergabe an Betrieb oder Weiterentwicklungsteam"
+    ],
+    assumptions: [
+      "Quell- und Zielsysteme sind zugänglich",
+      "Migrationsumfang ist vor Start abgestimmt"
+    ],
+    outOfScope: [
+      "Unbegrenzte historische Vollmigration ohne Scope-Freeze",
+      "Anwendungsentwicklung im Zielsystem",
+      "Paralleler 24/7-Betrieb während der Migration"
+    ],
+    parameters: ["companySize", "speed", "sourceSystemCount", "dataSources"]
+  },
+  {
+    key: "data_quality",
+    family: "Data Architecture",
+    name: "Datenbereinigung & Validierung",
+    shortDescription: "Systematische Bereinigung und Validierung Ihrer Daten. Höhere Datenqualität für Reporting, Stammdaten und Automatisierung.",
+    longDescription: "Wir analysieren Datenqualitätsprobleme, bereinigen kritische Datenbestände und richten Validierungsregeln ein. Ideal vor DWH-/MDM-Projekten, BI-Rollouts oder Automatisierungsinitiativen, wenn belastbare Daten die Grundlage sein müssen.",
+    basePrice: 11900,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["start", "stabilize"],
+      impact: ["foundation", "performance"],
+      coverage: ["data_layer", "semantic_layer"]
+    },
+    estimatedDuration: "6–10 Tage",
+    deliverablesOutput: [
+      "Datenqualitätsanalyse mit priorisierten Befunden",
+      "Bereinigung definierter Datenbereiche",
+      "Validierungsregeln und Qualitätskennzahlen",
+      "Dokumentation der Regeln und Verantwortlichkeiten",
+      "Empfehlungen für dauerhafte Datenqualitätssicherung"
+    ],
+    assumptions: [
+      "Zugriff auf relevante Quell- und Zieldaten",
+      "Fachliche Entscheidungen zu Dubletten und Ausnahmen sind zeitnah möglich"
+    ],
+    outOfScope: [
+      "Dauerhafte MDM-Plattform als Vollprojekt",
+      "Manuelle Pflege aller historischen Datensätze ohne Priorisierung",
+      "Vollautomatische Stammdaten-Governance ohne Prozessdesign"
+    ],
+    parameters: ["companySize", "speed", "dataSources"]
+  },
+  {
+    key: "automation_pilot",
+    family: "Data Operations",
+    name: "Automatisierungs-Pilot",
+    shortDescription: "Kompakter Proof of Concept für Prozessautomatisierung. Schnell validieren, ob Automatisierung sich lohnt – ohne BI-Zwang.",
+    longDescription: "In einem fokussierten Pilot automatisieren wir einen klar abgegrenzten Geschäftsprozess – z. B. Rechnungseingang, Bestellfreigabe oder Ticket-Routing. Sie erhalten einen funktionsfähigen PoC mit Messgrößen und einer Empfehlung für Skalierung oder Produktivbetrieb.",
+    basePrice: 9900,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["start"],
+      impact: ["quickwin", "performance"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "5–8 Tage",
+    deliverablesOutput: [
+      "Abgestimmter Pilot-Scope und Erfolgskriterien",
+      "Funktionsfähiger Automatisierungs-PoC",
+      "Dokumentation der Prozesslogik",
+      "Messgrößen zu Durchlaufzeit, Fehlerquote oder Entlastung",
+      "Empfehlung für Rollout oder nächste Ausbaustufe"
+    ],
+    assumptions: [
+      "Ein klar abgrenzbarer Prozess ist vorhanden",
+      "Systemzugänge und Testdaten stehen zur Verfügung"
+    ],
+    outOfScope: [
+      "Unternehmensweite Prozessautomatisierung",
+      "Komplexe KI-Modelle im Pilot ohne separaten Scope",
+      "Langfristiger Betrieb nach Pilotende"
+    ],
+    parameters: ["companySize", "speed", "sourceSystemCount"]
+  },
+  {
+    key: "rag_foundation",
+    family: "AI & Data Science",
+    name: "RAG-Grundlagen-Setup",
+    shortDescription: "Aufbau einer Retrieval-Augmented-Generation-Basis für Wissensrecherche und interne Assistenzsysteme.",
+    longDescription: "Wir richten eine belastbare RAG-Grundlage ein: Dokumentenaufbereitung, Wissensindex, Retrieval-Pipeline und erste Assistenzfunktion. Ideal für Literaturrecherche, internes Wissensmanagement oder fachliche Q&A-Assistenten.",
+    basePrice: 16900,
+    active: true,
+    tags: {
+      type: ["setup", "build"],
+      maturity: ["start", "stabilize"],
+      impact: ["foundation", "adoption"],
+      coverage: ["semantic_layer", "operations"]
+    },
+    estimatedDuration: "8–12 Tage",
+    deliverablesOutput: [
+      "Aufbereitete Wissensbasis und Indexierung",
+      "RAG-Pipeline mit konfigurierbarem Retrieval",
+      "Erster fachlicher Assistenz-Use-Case",
+      "Qualitäts- und Halluzinations-Checks",
+      "Betriebs- und Erweiterungsempfehlungen"
+    ],
+    assumptions: [
+      "Relevante Dokumente und Wissensquellen sind verfügbar",
+      "Datenschutz- und Zugriffsanforderungen sind geklärt"
+    ],
+    outOfScope: [
+      "Unternehmensweites Wissensmanagement ohne Scope",
+      "Vollständige Integration in alle Fachsysteme",
+      "24/7 Managed Service für LLM-Betrieb"
+    ],
+    parameters: ["companySize", "speed", "securityLevel", "dataSources"]
+  },
+  {
+    key: "ai_agent_dev",
+    family: "AI & Data Science",
+    name: "AI-Agent Entwicklung",
+    shortDescription: "Entwicklung eines fokussierten KI-Agenten für klar definierte Aufgaben – z. B. Coding, Recherche oder Prozessunterstützung.",
+    longDescription: "Wir entwickeln einen KI-Agenten für einen abgegrenzten Use-Case mit klaren Leitplanken, Tool-Anbindungen und Qualitätschecks. Der Agent ist auf Ihre Daten, Systeme und Governance-Anforderungen zugeschnitten – nicht als generische Demo, sondern als belastbarer Prototyp oder erste Produktivversion.",
+    basePrice: 19900,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["stabilize", "scale"],
+      impact: ["performance", "adoption"],
+      coverage: ["operations", "semantic_layer"]
+    },
+    estimatedDuration: "10–15 Tage",
+    deliverablesOutput: [
+      "Definierter Agenten-Use-Case und Leitplanken",
+      "Implementierter KI-Agent mit Tool-/Schnittstellenanbindung",
+      "Testfälle und Qualitätsmetriken",
+      "Dokumentation für Betrieb und Weiterentwicklung",
+      "Empfehlung für Skalierung oder Produktivbetrieb"
+    ],
+    assumptions: [
+      "Use-Case und Erfolgskriterien sind vor Projektstart abgestimmt",
+      "Benötigte Schnittstellen und Datenquellen sind zugänglich"
+    ],
+    outOfScope: [
+      "Unkontrollierte Agenten-Autonomie ohne Governance",
+      "Vollständige Unternehmens-Rollout-Automatisierung",
+      "Langfristiger Managed Agent-Betrieb ohne Retainer"
+    ],
+    parameters: ["companySize", "speed", "securityLevel", "sourceSystemCount"]
+  },
+  {
+    key: "ai_review",
+    family: "AI & Data Science",
+    name: "AI Review & Qualitätskontrolle",
+    shortDescription: "Unabhängige Prüfung von KI-Modellen, Architektur und Betriebsreife. Risiken erkennen, Qualität absichern.",
+    longDescription: "Wir prüfen bestehende oder geplante KI-Lösungen auf Modellqualität, Datenbasis, Governance, Sicherheit und Betriebsfähigkeit. Sie erhalten eine strukturierte Bewertung mit priorisierten Maßnahmen – ideal vor Go-Live, nach Piloten oder bei Architekturentscheidungen.",
+    basePrice: 9900,
+    active: true,
+    tags: {
+      type: ["workshop", "blueprint"],
+      maturity: ["stabilize", "scale"],
+      impact: ["compliance", "performance"],
+      coverage: ["operations", "semantic_layer"]
+    },
+    estimatedDuration: "4–6 Tage",
+    deliverablesOutput: [
+      "Review-Bericht mit Befunden und Risikoeinstufung",
+      "Bewertung von Daten, Modell und Architektur",
+      "Governance- und Sicherheitsempfehlungen",
+      "Priorisierte Maßnahmenliste",
+      "Management-Präsentation der Ergebnisse"
+    ],
+    assumptions: [
+      "Zugang zu Modell, Dokumentation und relevanten Stakeholdern",
+      "Projektziele und Rahmenbedingungen sind bekannt"
+    ],
+    outOfScope: [
+      "Vollständige Modell-Neuentwicklung",
+      "Penetrationstests oder formale Zertifizierung",
+      "Dauerhafter Modellbetrieb"
+    ],
+    parameters: ["companySize", "speed", "securityLevel"]
+  },
+  {
+    key: "maturity_assessment",
+    family: "Data Strategy",
+    name: "Data & Analytics Maturity Assessment",
+    shortDescription: "Strukturierte Reifegradanalyse für Daten, Analytics und KI. Klarheit über Stärken, Lücken und nächste Schritte.",
+    longDescription: "Wir bewerten Ihre Data-&-Analytics-Reife entlang definierter Dimensionen – z. B. Strategie, Governance, Architektur, Analytics und KI. Sie erhalten einen belastbaren Reifegradbericht mit Handlungsfeldern und priorisierten Empfehlungen.",
+    basePrice: 12900,
+    active: true,
+    tags: {
+      type: ["workshop", "blueprint"],
+      maturity: ["start"],
+      impact: ["foundation", "performance"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "5–7 Tage",
+    deliverablesOutput: [
+      "Reifegradmodell und Bewertungsmatrix",
+      "Analyseergebnis je Dimension",
+      "Heatmap und Gap-Analyse",
+      "Priorisierte Maßnahmenempfehlungen",
+      "Management-Präsentation"
+    ],
+    assumptions: [
+      "Interviews mit Fach-, IT- und Management-Stakeholdern sind möglich",
+      "Grundlegende Informationen zur Ist-Situation sind verfügbar"
+    ],
+    outOfScope: [
+      "Vollständige technische Umsetzung der Empfehlungen",
+      "Externe Audits oder Zertifizierungen",
+      "Strategieentwicklung ohne separaten Sprint"
+    ],
+    parameters: ["companySize", "speed"]
+  },
+  {
+    key: "compliance_package",
+    family: "Governance & Culture",
+    name: "Compliance-Paket",
+    shortDescription: "Gebündeltes Paket für regulatorische Anforderungen – Governance, Kennzahlen und Umsetzungsroadmap.",
+    longDescription: "Wir strukturieren Ihre Compliance-Anforderungen – z. B. NIS2, ISMS oder branchenspezifische Vorgaben – in ein umsetzbares Paket aus Governance-Rahmen, KPIs und priorisierten Maßnahmen. Ideal als Einstieg, wenn Reporting und Verantwortlichkeiten noch nicht klar sind.",
+    basePrice: 14900,
+    active: true,
+    tags: {
+      type: ["blueprint", "setup"],
+      maturity: ["start", "stabilize"],
+      impact: ["compliance", "foundation"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "6–9 Tage",
+    deliverablesOutput: [
+      "Compliance-Gap-Analyse",
+      "Governance- und Verantwortlichkeitsrahmen",
+      "KPI-Set für Compliance-Steuerung",
+      "Priorisierte Maßnahmen- und Umsetzungsplan",
+      "Management-Präsentation"
+    ],
+    assumptions: [
+      "Relevante regulatorische Anforderungen sind benannt",
+      "Ansprechpartner aus IT, Security und Fachbereich sind verfügbar"
+    ],
+    outOfScope: [
+      "Formale Zertifizierung oder Audit-Begleitung",
+      "Technische Vollimplementierung aller Controls",
+      "Externe Rechtsberatung"
+    ],
+    parameters: ["companySize", "speed", "securityLevel"]
+  },
+  {
+    key: "privacy_package",
+    family: "Governance & Culture",
+    name: "Datenschutzpaket (DSGVO)",
+    shortDescription: "Praxisnahes DSGVO-Paket mit Governance, Dateninventar und Maßnahmenplan. Fundament für datenschutzkonforme Datenarbeit.",
+    longDescription: "Wir erstellen ein umsetzbares Datenschutzpaket für Ihre Daten- und Analytics-Initiativen: Verarbeitungsübersicht, Rollen, Governance-Strukturen und priorisierte Maßnahmen. Das Paket schafft die Basis für DSGVO-konforme BI-, KI- und Automatisierungsprojekte.",
+    basePrice: 13900,
+    active: true,
+    tags: {
+      type: ["blueprint", "setup"],
+      maturity: ["start", "stabilize"],
+      impact: ["compliance", "foundation"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "6–9 Tage",
+    deliverablesOutput: [
+      "Datenschutz-Governance-Rahmen",
+      "Übersicht relevanter Verarbeitungstätigkeiten",
+      "Rollen- und Verantwortlichkeitsmodell",
+      "Maßnahmenplan mit Prioritäten",
+      "Abstimmung mit Datenschutzbeauftragtem / Management"
+    ],
+    assumptions: [
+      "Grundlegende Informationen zu Systemen und Datenflüssen sind verfügbar",
+      "Datenschutzbeauftragter oder Verantwortlicher ist einbindbar"
+    ],
+    outOfScope: [
+      "Rechtsverbindliche Datenschutzberatung",
+      "Vollständige TOM-Implementierung in allen Systemen",
+      "Externe Audits durch Aufsichtsbehörden"
+    ],
+    parameters: ["companySize", "speed", "securityLevel"]
+  },
+  {
+    key: "architecture_workshop",
+    family: "Enterprise Architecture",
+    name: "Architektur-Workshop",
+    shortDescription: "Kompakter Workshop für Architekturentscheidungen. Schnelle Klarheit über Zielbild, Optionen und nächste Schritte.",
+    longDescription: "In einem fokussierten Architektur-Workshop klären wir Ihr Zielbild, bewerten Optionen und leiten konkrete nächste Schritte ab – z. B. für Datenplattform, Integration, KI-Infrastruktur oder Data Mesh. Kürzer und operativer als ein vollständiges Target-Architecture-Projekt.",
+    basePrice: 8900,
+    active: true,
+    tags: {
+      type: ["workshop", "blueprint"],
+      maturity: ["start"],
+      impact: ["foundation", "quickwin"],
+      coverage: ["data_layer", "operations"]
+    },
+    estimatedDuration: "2–4 Tage",
+    deliverablesOutput: [
+      "Workshop-Ergebnisdokument mit Architekturoptionen",
+      "Bewertung von Vor- und Nachteilen",
+      "Empfohlene Zielrichtung",
+      "Nächste Schritte und Abhängigkeiten",
+      "Präsentation für IT und Management"
+    ],
+    assumptions: [
+      "Relevante Stakeholder aus IT und Fachbereich nehmen teil",
+      "Grundlegende Ist-Informationen liegen vor oder werden im Workshop erhoben"
+    ],
+    outOfScope: [
+      "Detaillierte Migrationsplanung",
+      "Technische Implementierung",
+      "Umfangreiche Tool-Auswahlstudien ohne Vorarbeit"
+    ],
+    parameters: ["companySize", "speed", "deployment"]
+  },
+
+  // ========== PHASE 4b – MODULARE PRODUKTPAKETE ==========
+
+  {
+    key: "etl_pipeline",
+    family: "Data Architecture",
+    name: "ETL/ELT Pipeline Setup",
+    shortDescription: "Aufbau stabiler Datenpipelines für regelmäßige Datenaktualisierung. Brücke zwischen Quellen, DWH und BI.",
+    longDescription: "Wir implementieren ETL- oder ELT-Pipelines für Ihre Kernprozesse – von der Quelle bis zur konsumierbaren Datenschicht. Die Pipelines sind dokumentiert, überwachbar und erweiterbar. Ideal als Baustein zwischen Integrationsanalyse, DWH und Reporting.",
+    basePrice: 17900,
+    active: true,
+    tags: {
+      type: ["build", "setup"],
+      maturity: ["stabilize"],
+      impact: ["foundation", "performance"],
+      coverage: ["data_layer", "operations"]
+    },
+    estimatedDuration: "10–14 Tage",
+    deliverablesOutput: [
+      "Implementierte Pipelines für vereinbarte Datenbereiche",
+      "Fehlerbehandlung und Wiederanlaufkonzept",
+      "Dokumentation der Datenflüsse und Abhängigkeiten",
+      "Monitoring-Hooks für DataOps",
+      "Übergabe an Betrieb oder Weiterentwicklungsteam"
+    ],
+    assumptions: [
+      "Quell- und Zielsysteme sind definiert und zugänglich",
+      "Datenmodell oder Integrationskonzept liegt vor oder wird parallel erstellt"
+    ],
+    outOfScope: [
+      "Unbegrenzte Pipeline-Anzahl ohne Scope-Freeze",
+      "Komplexe Streaming-Architekturen ohne Vorarbeit",
+      "24/7 Managed Operations ohne Retainer"
+    ],
+    parameters: ["companySize", "speed", "sourceSystemCount", "deployment"]
+  },
+  {
+    key: "process_discovery",
+    family: "Data Operations",
+    name: "Prozessanalyse Workshop",
+    shortDescription: "Strukturierte Analyse eines Geschäftsprozesses vor Automatisierung oder Optimierung. Klarer Scope, messbare Hebel.",
+    longDescription: "Wir analysieren einen fokussierten Geschäftsprozess gemeinsam mit Fachbereich und IT: Ist-Ablauf, Medienbrüche, Datenquellen und Automatisierungspotenzial. Das Ergebnis ist ein belastbarer Umsetzungs-Scope – ideal vor Automatisierungs-Pilot oder Rollout.",
+    basePrice: 7900,
+    active: true,
+    tags: {
+      type: ["workshop", "blueprint"],
+      maturity: ["start"],
+      impact: ["quickwin", "foundation"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "2–4 Tage",
+    deliverablesOutput: [
+      "Prozesslandkarte und Schwachstellenanalyse",
+      "Daten- und Systembezug je Prozessschritt",
+      "Automatisierungs- und Integrationshebel",
+      "Priorisierte Empfehlungen und Aufwandseinschätzung",
+      "Workshop-Dokumentation für Entscheider"
+    ],
+    assumptions: [
+      "Fachliche Prozessverantwortliche nehmen am Workshop teil",
+      "Ein klar abgrenzbarer Prozess ist vorgegeben"
+    ],
+    outOfScope: [
+      "Technische Implementierung im Workshop",
+      "Organisationsweite Prozessreorganisation",
+      "Vollständige BPM-Modellierung aller Nebenprozesse"
+    ],
+    parameters: ["companySize", "speed"]
+  },
+  {
+    key: "automation_rollout",
+    family: "Data Operations",
+    name: "Automatisierungs-Rollout",
+    shortDescription: "Skalierung eines validierten Automatisierungs-PoC in den produktiven Betrieb. Stabil, dokumentiert, überwachbar.",
+    longDescription: "Nach einem erfolgreichen Pilot überführen wir die Automatisierung in den Regelbetrieb: Produktivierung, Fehlerpfade, Freigaben und Monitoring. Der Baustein schließt an Automatisierungs-Pilot und API-Integration an.",
+    basePrice: 14900,
+    active: true,
+    tags: {
+      type: ["build", "run"],
+      maturity: ["stabilize", "scale"],
+      impact: ["performance", "adoption"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "8–12 Tage",
+    deliverablesOutput: [
+      "Produktive Automatisierung mit Abnahme",
+      "Betriebs- und Eskalationshandbuch",
+      "Monitoring und Alerting für kritische Fehlerpfade",
+      "Übergabe an Fachbereich und IT-Betrieb",
+      "Empfehlungen für nächste Automatisierungsschritte"
+    ],
+    assumptions: [
+      "Erfolgreicher Pilot oder klar dokumentierter Scope liegt vor",
+      "Produktivumgebungen und Freigaben sind verfügbar"
+    ],
+    outOfScope: [
+      "Pilot ohne vorherige Validierung",
+      "Parallele Automatisierung weiterer Prozesse ohne Zusatzscope",
+      "Langfristiger 24/7-Support ohne Retainer"
+    ],
+    parameters: ["companySize", "speed", "sourceSystemCount"]
+  },
+  {
+    key: "semantic_layer",
+    family: "BI & Analytics",
+    name: "Semantic Layer & Kennzahlenmodell",
+    shortDescription: "Einheitliches Kennzahlen- und Semantikmodell für BI und Self-Service. Eine Wahrheit, viele Reports.",
+    longDescription: "Wir bauen einen Semantic Layer auf Ihrer Datenbasis: zentrale Metriken, Dimensionen und Berechnungslogik. Damit werden Reports konsistent, Wartung einfacher und Self-Service belastbar – der natürliche Baustein nach KPI-Workshop und vor Management-Reports.",
+    basePrice: 11900,
+    active: true,
+    tags: {
+      type: ["build", "blueprint"],
+      maturity: ["stabilize"],
+      impact: ["foundation", "adoption"],
+      coverage: ["semantic_layer", "bi_layer"]
+    },
+    estimatedDuration: "6–10 Tage",
+    deliverablesOutput: [
+      "Semantikmodell mit Kernkennzahlen und Dimensionen",
+      "Dokumentierte Berechnungslogik",
+      "Anbindung an BI-/Reporting-Schicht",
+      "Naming- und Pflegestandards",
+      "Empfehlungen für Self-Service und Erweiterung"
+    ],
+    assumptions: [
+      "KPIs sind definiert oder werden parallel im Workshop erarbeitet",
+      "Datenquelle oder DWH/BI-Basis ist vorhanden oder wird parallel aufgebaut"
+    ],
+    outOfScope: [
+      "Vollständiges DWH-Projekt",
+      "Unternehmensweite Harmonisierung aller historischen Reports ohne Priorisierung",
+      "Komplexe ML-Features im Semantic Layer"
+    ],
+    parameters: ["companySize", "speed", "reportComplexity"]
+  },
+  {
+    key: "self_service_enablement",
+    family: "Data Knowledge",
+    name: "Self-Service BI Enablement",
+    shortDescription: "Befähigung von Fachbereichen zu eigenständigem Reporting. Governance, Templates und Schulung im Paket.",
+    longDescription: "Wir etablieren Self-Service BI für Ihre Fachbereiche: Berechtigungsmodell, Report-Templates, Kurzschulung und Leitplanken. Der Baustein ergänzt BI-Setup und Semantic Layer – für nachhaltige Adoption statt Einzelberichte.",
+    basePrice: 8900,
+    active: true,
+    tags: {
+      type: ["enablement", "setup"],
+      maturity: ["stabilize"],
+      impact: ["adoption"],
+      coverage: ["bi_layer", "semantic_layer"]
+    },
+    estimatedDuration: "4–6 Tage",
+    deliverablesOutput: [
+      "Self-Service-Rahmen mit Rollen und Leitplanken",
+      "Template-Bibliothek für Fachbereichsreports",
+      "Kurzschulung für Key User (halber bis ganzer Tag)",
+      "Pflege- und Freigabeprozess",
+      "Dokumentation für IT und Fachbereich"
+    ],
+    assumptions: [
+      "Power BI oder vergleichbare Plattform ist im Einsatz",
+      "Key User aus Fachbereichen sind benannt"
+    ],
+    outOfScope: [
+      "BI-Grundinstallation",
+      "Umfangreiche Entwickler-Schulung",
+      "Individuelle Beratung pro Key User über den Rahmen hinaus"
+    ],
+    parameters: ["companySize", "speed", "trainingParticipants"]
+  },
+  {
+    key: "ai_use_case_sprint",
+    family: "Data Strategy",
+    name: "KI Use-Case Sprint",
+    shortDescription: "Priorisierung und Konkretisierung von KI-Use-Cases. Von der Idee zum umsetzbaren ersten Schritt.",
+    longDescription: "In einem kompakten Sprint identifizieren und priorisieren wir KI-Use-Cases mit Business Value, Datenverfügbarkeit und Umsetzbarkeit. Sie erhalten eine belastbare Shortlist und Empfehlungen für Pilot, Agent, RAG oder Modellprojekt.",
+    basePrice: 10900,
+    active: true,
+    tags: {
+      type: ["workshop", "blueprint"],
+      maturity: ["start"],
+      impact: ["foundation", "quickwin"],
+      coverage: ["operations", "semantic_layer"]
+    },
+    estimatedDuration: "3–5 Tage",
+    deliverablesOutput: [
+      "Longlist und priorisierte Shortlist von KI-Use-Cases",
+      "Bewertung nach Nutzen, Daten und Machbarkeit",
+      "Empfohlene Umsetzungsbausteine pro Use-Case",
+      "Grobe Roadmap für die nächsten 6–12 Monate",
+      "Management-Präsentation"
+    ],
+    assumptions: [
+      "Fach- und IT-Stakeholder sind für Workshops verfügbar",
+      "Grundlegende Geschäftsziele sind bekannt"
+    ],
+    outOfScope: [
+      "Technische Modellentwicklung im Sprint",
+      "Vollständige KI-Strategie ohne separaten Sprint",
+      "Produktive Implementierung"
+    ],
+    parameters: ["companySize", "speed"]
+  },
+  {
+    key: "change_enablement",
+    family: "Governance & Culture",
+    name: "Change & Adoption Begleitung",
+    shortDescription: "Begleitung von Daten-, BI- und KI-Initiativen bei Menschen und Organisation. Adoption sicherstellen.",
+    longDescription: "Wir begleiten die organisatorische Seite Ihrer Dateninitiative: Stakeholder, Kommunikation, Rollenklärung und Adoption-Maßnahmen. Ideal ergänzend zu Strategie-, Leadership- und Technikbausteinen – damit Projekte im Alltag ankommen.",
+    basePrice: 9900,
+    active: true,
+    tags: {
+      type: ["workshop", "enablement"],
+      maturity: ["start", "stabilize"],
+      impact: ["adoption", "foundation"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "4–6 Tage",
+    deliverablesOutput: [
+      "Stakeholder- und Kommunikationsplan",
+      "Rollen- und Verantwortlichkeitsklärung für Adoption",
+      "Maßnahmenplan für Schulung und Kommunikation",
+      "Erfolgskriterien für Adoption",
+      "Begleitung der ersten Management- und Team-Sessions"
+    ],
+    assumptions: [
+      "Sponsorship aus Geschäftsführung oder Bereichsleitung ist vorhanden",
+      "Projektziele und Zeitrahmen sind definiert"
+    ],
+    outOfScope: [
+      "Klassisches Projektmanagement der Technikumsetzung",
+      "HR-Organisationsentwicklung ohne Datenbezug",
+      "Dauerhaftes Change-Management über 3 Monate ohne Retainer"
+    ],
+    parameters: ["companySize", "speed"]
+  },
+  {
+    key: "data_catalog_setup",
+    family: "Data Architecture",
+    name: "Data Catalog Einrichtung",
+    shortDescription: "Technisches und fachliches Setup eines Data Catalogs – Metadaten, Ownership und Auffindbarkeit.",
+    longDescription: "Wir richten einen Data Catalog für Ihre wichtigsten Datenobjekte ein: Metadaten, Ownership, Glossar-Anbindung und Suchfunktion. Der Baustein vervollständigt Governance- und Glossar-Arbeit zu einem nutzbaren Katalog-Produkt.",
+    basePrice: 14900,
+    active: true,
+    tags: {
+      type: ["setup", "build"],
+      maturity: ["stabilize"],
+      impact: ["foundation", "adoption"],
+      coverage: ["semantic_layer", "operations"]
+    },
+    estimatedDuration: "8–12 Tage",
+    deliverablesOutput: [
+      "Konfigurierter Data Catalog für Kern-Datenobjekte",
+      "Metadaten- und Ownership-Struktur",
+      "Anbindung an Glossar und Datenquellen",
+      "Such- und Navigationskonzept",
+      "Schulung für Data Stewards und Nutzer"
+    ],
+    assumptions: [
+      "Governance-Rollen oder Glossar-Basis liegen vor oder werden parallel aufgebaut",
+      "Relevante Datenquellen sind identifiziert"
+    ],
+    outOfScope: [
+      "Enterprise-weite Vollabdeckung aller Systeme ohne Priorisierung",
+      "Kommerzielle Tool-Lizenzbeschaffung",
+      "Vollautomatische Lineage für alle Legacy-Systeme"
+    ],
+    parameters: ["companySize", "speed", "sourceSystemCount"]
+  },
+  {
+    key: "security_access_review",
+    family: "Governance & Culture",
+    name: "Security & Access Review",
+    shortDescription: "Prüfung von Zugriffen, Berechtigungen und Sicherheitsrisiken in der Datenlandschaft.",
+    longDescription: "Wir prüfen Zugriffswege, Berechtigungsmodelle und Sicherheitsrisiken rund um Ihre Datenplattform und Fachsysteme. Das Ergebnis ist ein priorisierter Maßnahmenplan – ideal vor IAM-Rollout, Security-Dashboards oder Compliance-Paketen.",
+    basePrice: 11900,
+    active: true,
+    tags: {
+      type: ["workshop", "blueprint"],
+      maturity: ["stabilize"],
+      impact: ["compliance", "foundation"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "5–7 Tage",
+    deliverablesOutput: [
+      "Review-Bericht zu Zugriffen und Berechtigungen",
+      "Risikobewertung kritischer Datenpfade",
+      "Empfehlungen für IAM- und Monitoring-Maßnahmen",
+      "Priorisierte Maßnahmenliste",
+      "Präsentation für IT-Security und Management"
+    ],
+    assumptions: [
+      "Zugang zu relevanten Systemen, Rollenmodellen oder Dokumentation",
+      "IT-Security oder verantwortliche Ansprechpartner sind einbindbar"
+    ],
+    outOfScope: [
+      "Penetrationstest oder formale Zertifizierung",
+      "Technische IAM-Vollimplementierung",
+      "Forensische Incident-Analyse"
+    ],
+    parameters: ["companySize", "speed", "securityLevel"]
+  },
+  {
+    key: "finops_review",
+    family: "Data Operations",
+    name: "FinOps Review",
+    shortDescription: "Analyse von Cloud- und Plattformkosten mit konkreten Einspar- und Steuerungshebeln.",
+    longDescription: "Wir analysieren Ihre Cloud- und Datenplattformkosten, identifizieren Treiber und leiten konkrete Optimierungsmaßnahmen ab. Der Baustein ist der Einstieg vor FinOps-Dashboards und laufendem Kostenmonitoring.",
+    basePrice: 9900,
+    active: true,
+    tags: {
+      type: ["workshop", "blueprint"],
+      maturity: ["stabilize"],
+      impact: ["performance", "quickwin"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "4–6 Tage",
+    deliverablesOutput: [
+      "Kostenanalyse nach Services, Umgebungen und Treibern",
+      "Quick-Wins und strukturelle Optimierungshebel",
+      "Empfehlungen für Tagging, Budgets und Verantwortlichkeiten",
+      "KPI-Set für laufendes FinOps-Monitoring",
+      "Management-Präsentation"
+    ],
+    assumptions: [
+      "Zugriff auf Billing-, Cloud- oder Plattformkostendaten",
+      "Ansprechpartner aus IT und Finance sind verfügbar"
+    ],
+    outOfScope: [
+      "Verhandlung mit Cloud-Anbietern",
+      "Technische Rightsizing-Umsetzung aller Ressourcen",
+      "Dauerhaftes FinOps ohne Monitoring-Baustein"
+    ],
+    parameters: ["companySize", "speed", "deployment"]
   }
 ];
 

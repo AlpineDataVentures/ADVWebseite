@@ -2,11 +2,11 @@ import { useState } from "react";
 import { ChevronDown, LayoutGrid, Boxes } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
 import {
-  getProductsForUiCluster,
   uiClusterLabels,
   uiClusterOrder,
   type UiClusterId,
 } from "../data/useCases";
+import { getProductsForClusterBrowse } from "../data/catalogStrategy";
 import { cn } from "../lib/utils";
 
 interface DomainDrawerProps {
@@ -35,7 +35,7 @@ export function DomainDrawer({
   const [expanded, setExpanded] = useState<UiClusterId | null>(activeCluster);
 
   const clusters = uiClusterOrder.filter(
-    (id) => getProductsForUiCluster(id).length > 0
+    (id) => getProductsForClusterBrowse(id).length > 0
   );
 
   const close = () => onOpenChange(false);
@@ -100,8 +100,8 @@ export function DomainDrawer({
           </p>
 
           {clusters.map((clusterId) => {
-            const products = getProductsForUiCluster(clusterId);
-            const count = products.length;
+            const clusterProducts = getProductsForClusterBrowse(clusterId);
+            const count = clusterProducts.length;
             const isActive = activeCluster === clusterId;
             const isOpen = expanded === clusterId;
 
@@ -151,7 +151,7 @@ export function DomainDrawer({
                       Alle {count} Produkte anzeigen →
                     </button>
                     <ul>
-                      {products.map((product) => (
+                      {clusterProducts.map((product) => (
                         <li key={product.id}>
                           <button
                             type="button"
