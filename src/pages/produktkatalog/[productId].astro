@@ -59,6 +59,8 @@ if (!canonicalProductId) {
 
 <Base title="Produktkatalog – ADV Alpine Data Ventures">
   <section class="adv-catalog">
-    <ProductCatalogApp client:load initialProductId={canonicalProductId} />
+    <ProductCatalogApp client:only="react" initialProductId={canonicalProductId}>
+      <p slot="fallback" class="adv-catalog-loading">Produktkatalog wird geladen …</p>
+    </ProductCatalogApp>
   </section>
 </Base>

@@ -141,13 +141,18 @@ function saveToStorage(state: ConfigState) {
   }
 }
 
-export const useConfigStore = create<ConfigState>((set, get) => {
-  // Initial load
+/** Nach Client-Mount laden, damit SSR/Hydration nicht von localStorage abweicht. */
+export function rehydrateConfigFromStorage(): void {
+  if (typeof window === 'undefined') return;
   const loaded = loadFromStorage();
-  const initial = { ...initialState, ...loaded };
+  if (Object.keys(loaded).length > 0) {
+    useConfigStore.setState(loaded);
+  }
+}
 
+export const useConfigStore = create<ConfigState>((set, get) => {
   return {
-    ...initial,
+    ...initialState,
 
     // Getters
     getCart: () => {

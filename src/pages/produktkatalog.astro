@@ -6,6 +6,8 @@ import "@/styles/catalog.css";
 
 <Base title="Produktkatalog – ADV Alpine Data Ventures">
   <section class="adv-catalog">
-    <ProductCatalogApp client:load initialProductId={null} />
+    <ProductCatalogApp client:only="react" initialProductId={null}>
+      <p slot="fallback" class="adv-catalog-loading">Produktkatalog wird geladen …</p>
+    </ProductCatalogApp>
   </section>
 </Base>

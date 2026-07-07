@@ -98,4 +98,13 @@
   .adv-catalog-text-balance {
     text-wrap: balance;
   }
+
+  .adv-catalog-loading {
+    margin: 2rem auto;
+    max-width: 48rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
 }

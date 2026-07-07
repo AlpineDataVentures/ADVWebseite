@@ -12,7 +12,7 @@ import { CartButton } from './CartButton';
 import { CartSheet } from './CartSheet';
 import { Button } from './ui/button';
 import { Boxes } from 'lucide-react';
-import { useConfigStore } from '../stores/configStore';
+import { useConfigStore, rehydrateConfigFromStorage } from '../stores/configStore';
 import {
   getProductById,
   products,
@@ -69,16 +69,32 @@ function buildCatalogListUrl(options: {
   return qs ? `${PRODUCT_CATALOG_URL}?${qs}` : PRODUCT_CATALOG_URL;
 }
 
+function readInitialCatalogListState(): {
+  q: string;
+  showAll: boolean;
+  showDeliverables: boolean;
+  viewLayout: ViewLayout;
+} {
+  const { q, view } = readCatalogQueryParams();
+  return {
+    q,
+    showAll: view === 'all',
+    showDeliverables: view === 'deliverables',
+    viewLayout: view === 'all' || view === 'deliverables' ? 'list' : 'grid',
+  };
+}
+
 export default function ProductCatalogApp({ initialProductId = null }: ProductCatalogAppProps) {
+  const initialListState = readInitialCatalogListState();
   const [activeCluster, setActiveCluster] = useState<UiClusterId | null>(null);
   const [activeProductId, setActiveProductId] = useState<string | null>(initialProductId);
   const [viewMode, setViewMode] = useState<'bundle' | 'configure'>('bundle');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(initialListState.q);
   const [cartOpen, setCartOpen] = useState(false);
   const [domainDrawerOpen, setDomainDrawerOpen] = useState(false);
-  const [viewLayout, setViewLayout] = useState<ViewLayout>('grid');
-  const [showAll, setShowAll] = useState(false);
-  const [showDeliverables, setShowDeliverables] = useState(false);
+  const [viewLayout, setViewLayout] = useState<ViewLayout>(initialListState.viewLayout);
+  const [showAll, setShowAll] = useState(initialListState.showAll);
+  const [showDeliverables, setShowDeliverables] = useState(initialListState.showDeliverables);
 
   const setBundleFromProduct = useConfigStore((state) => state.setBundleFromProduct);
   const setActiveProduct = useConfigStore((state) => state.setActiveProduct);
@@ -227,6 +243,10 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setViewMode('configure');
     setCartOpen(false);
   };
+
+  useEffect(() => {
+    rehydrateConfigFromStorage();
+  }, []);
 
   useEffect(() => {
     if (activeProductId && process.env.NODE_ENV === 'development') {
