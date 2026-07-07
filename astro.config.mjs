@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import { parse as parsePath, resolve } from "node:path";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
@@ -108,11 +109,13 @@ export default defineConfig({
   ],
 
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [remarkCollapse, { test: "Table of contents" }],
-      remarkInjectMdxImports(mdxAutoImports),
-    ],
+    processor: unified({
+      remarkPlugins: [
+        remarkToc,
+        [remarkCollapse, { test: "Table of contents" }],
+        remarkInjectMdxImports(mdxAutoImports),
+      ],
+    }),
     shikiConfig: { theme: "one-dark-pro", wrap: true },
   },
 });
