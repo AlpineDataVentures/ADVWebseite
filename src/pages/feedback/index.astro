@@ -3,7 +3,7 @@ import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import PageHeader from "@/partials/PageHeader.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import { getEntry, type CollectionEntry } from "astro:content";
 
 const FEEDBACK_FOLDER = "feedback";
@@ -21,7 +21,7 @@ const feedbacks = await getSinglePage(FEEDBACK_FOLDER);
   image={feedbackIndex.data.image}
   description={feedbackIndex.data.description}
 >
-  <PageHeader title={feedbackIndex.data.title} />
+  <HomepageLeadHeading eyebrow="Wissen" title="Kundenstimmen" />
 
   {
     feedbacks.map((feedback, index: number) => (

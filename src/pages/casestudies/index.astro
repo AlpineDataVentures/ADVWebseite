@@ -3,7 +3,7 @@ import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import PageHeader from "@/partials/PageHeader.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import { getEntry, type CollectionEntry } from "astro:content";
 
 const CASE_STUDY_FOLDER = "casestudies";
@@ -21,7 +21,7 @@ const casestudies = await getSinglePage(CASE_STUDY_FOLDER);
   image={casestudyIndex.data.image}
   description={casestudyIndex.data.description}
 >
-  <PageHeader title={casestudyIndex.data.title} />
+  <HomepageLeadHeading eyebrow="Wissen" title="Case Studies" />
 
   {
     casestudies.map((casestudy, index: number) => (
