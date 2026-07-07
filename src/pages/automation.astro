@@ -39,8 +39,11 @@ const automationUseCases = [
     title: "Research & Development",
     text: "Beschleunigen Sie Ihre Innovations- und Entwicklungsarbeit",
     links: [
-      { label: "KI-Oberflächenanalyse" },
-      { label: "RAG-System Literaturrecherche" },
+      {
+        label: "KI-Oberflächenanalyse",
+        product_slug: "automated-visual-inspection",
+      },
+      { label: "RAG-System Literaturrecherche", product_slug: "rag-research" },
       { label: "KI-Produktentwicklung", product_slug: "ai-produktentwicklung" },
       { label: "Simulation von Experimenten" },
     ],
@@ -50,7 +53,10 @@ const automationUseCases = [
     title: "Finance",
     text: "Von Rechnungseingang bis Anomalien im Zahlungsverkehr",
     links: [
-      { label: "Rechnungsverarbeitung" },
+      {
+        label: "Rechnungsverarbeitung",
+        product_slug: "automatische-rechnungsverarbeitung",
+      },
       { label: "KI-Cash-Flow-Prognose" },
       { label: "Anomaly-Detection Zahlungen" },
     ],
@@ -63,7 +69,10 @@ const automationUseCases = [
       { label: "Customer Support Automatisierung" },
       { label: "Sales-Chatbot Webseite" },
       { label: "Ausschreibungsautomatisierung" },
-      { label: "Bestelleingangsbearbeitung" },
+      {
+        label: "Bestelleingangsbearbeitung",
+        product_slug: "automated-order-intake",
+      },
       { label: "Dynamic Pricing" },
     ],
   },
@@ -74,7 +83,10 @@ const automationUseCases = [
     links: [
       { label: "KI-Preisüberwachung" },
       { label: "Spendmanagement" },
-      { label: "Autom. Bestellverarbeitung" },
+      {
+        label: "Autom. Bestellverarbeitung",
+        product_slug: "automated-order-intake",
+      },
     ],
   },
   {
@@ -82,10 +94,13 @@ const automationUseCases = [
     title: "Produktion & Logistik",
     text: "Reduzieren Sie Ihren größten Kostenfaktor durch Automatisierung",
     links: [
-      { label: "KI-Video-Qualitätsanalyse" },
+      {
+        label: "KI-Video-Qualitätsanalyse",
+        product_slug: "automated-visual-inspection",
+      },
       { label: "KI-Routenoptimierung" },
       { label: "KI-Warenausgangs-Scanning" },
-      { label: "Objekterkennung" },
+      { label: "Objekterkennung", product_slug: "automated-visual-inspection" },
     ],
   },
   {
@@ -106,7 +121,7 @@ const automationUseCases = [
     links: [
       { label: "Autom. Vertragsprüfung" },
       { label: "Autom. ESG-Datenerhebung" },
-      { label: "KYC-Automatisierung" },
+      { label: "KYC-Automatisierung", product_slug: "know-your-customer" },
     ],
   },
 ];

@@ -1,7 +1,7 @@
 ---
-title: "Informationssicherheitsbeauftragter & ISMS"
+title: "Informationssicherheitsbeauftragter & Informationssicherheits-Managementsystem"
 eyebrow: "Produkt"
-meta_title: "Informationssicherheitsbeauftragter & ISMS"
+meta_title: "Informationssicherheitsbeauftragter & Informationssicherheits-Managementsystem"
 description: "Ein Informationssicherheits-Managementsystem (ISMS) legt fest, wie ein Unternehmen mit schützenswerten Informationen umgeht: welche Risiken bestehen, welche Maßnahmen dagegen greifen und wer dafür verantwortlich ist. Der Informationssicherheitsbeauftragte (ISB) ist die Person, die diese Prozesse steuert und aktuell hält. Beides zusammen ist die Grundlage für ISO 27001, NIS2 und die meisten Sicherheitsanforderungen die Kunden und Partner heute stellen. Wir bauen Ihr ISMS, neu oder auf bestehenden Strukturen, und übernehmen auf Wunsch dauerhaft die ISB-Funktion."
 highlight_text:  "neu oder auf bestehenden Strukturen"
 image: "/images/products/isb-isms.png"
@@ -59,4 +59,3 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
-
