@@ -92,8 +92,10 @@ const advisorEmail = authorEntry?.data.email
 >
   <section class="section pt-4">
     <div class="container">
-      <div class="row items-stretch gap-y-10">
-        <div class="col-12 md:col-7 md:pr-10">
+      <div
+        class="flex flex-col gap-y-10 lg:flex-row lg:items-stretch lg:gap-y-0"
+      >
+        <div class="min-w-0 lg:flex-1 lg:pr-10">
           <div class="flex h-full flex-col justify-center text-left">
             <p
               class="mb-3 font-secondary text-lg font-normal text-text-dark dark:text-darkmode-text-light"
@@ -101,7 +103,7 @@ const advisorEmail = authorEntry?.data.email
               {eyebrow}
             </p>
             <h1
-              class="mb-6 font-primary text-h1-sm font-bold text-dark dark:text-darkmode-text-dark md:text-h1"
+              class="mb-6 font-primary text-h1-sm font-bold text-dark dark:text-darkmode-text-dark md:text-h1 hyphens-auto wrap-break-word"
             >
               {title}
             </h1>
@@ -120,13 +122,13 @@ const advisorEmail = authorEntry?.data.email
             </p>
           </div>
         </div>
-        <div class="col-12 md:col-5 md:pl-10">
+        <div class="lg:w-md lg:shrink-0 lg:pl-10">
           <ImageMod
             src={image}
             width={1200}
             height={900}
             alt={title}
-            class="h-full w-full rounded-2xl object-cover"
+            class="w-full rounded-2xl"
             format="webp"
           />
         </div>
@@ -136,8 +138,8 @@ const advisorEmail = authorEntry?.data.email
 
   <section class="section pt-0">
     <div class="container">
-      <div class="row items-start gap-y-10">
-        <div class="md:col-7 md:pr-10">
+      <div class="flex flex-col gap-y-10 lg:flex-row lg:items-start lg:gap-y-0">
+        <div class="min-w-0 lg:flex-1 lg:pr-10">
           <h2
             class="mb-8 font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
           >
@@ -160,7 +162,7 @@ const advisorEmail = authorEntry?.data.email
           </ul>
         </div>
 
-        <div class="md:col-5 md:pl-10">
+        <div class="lg:w-md lg:shrink-0 lg:pl-10">
           <div
             class="rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
           >
@@ -218,8 +220,8 @@ const advisorEmail = authorEntry?.data.email
 
   <section class="section pt-0">
     <div class="container">
-      <div class="row items-start gap-y-10">
-        <div class="md:col-7 md:pr-10">
+      <div class="flex flex-col gap-y-10 lg:flex-row lg:items-start lg:gap-y-0">
+        <div class="min-w-0 lg:flex-1 lg:pr-10">
           <h2 class="mb-10 font-primary text-h2-sm font-bold md:text-h2">
             {collaboration_title}
           </h2>
@@ -250,7 +252,7 @@ const advisorEmail = authorEntry?.data.email
           </ul>
         </div>
 
-        <div class="md:col-5 md:pl-10">
+        <div class="lg:w-md lg:shrink-0 lg:pl-10">
           <div
             class="rounded-2xl border border-border bg-white p-6 dark:border-darkmode-border dark:bg-darkmode-body"
           >
@@ -311,7 +313,7 @@ const advisorEmail = authorEntry?.data.email
           </h2>
           <div class="row">
             {relatedProductEntries.map((relatedProduct) => (
-              <div class="mb-6 md:col-6">
+              <div class="mb-6 col-12 lg:col-6">
                 <a
                   class="block h-full rounded-2xl border border-border bg-white p-6 transition-colors hover:border-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body"
                   href={`/products/${relatedProduct.id}/`}
@@ -336,8 +338,10 @@ const advisorEmail = authorEntry?.data.email
 
   <section class="section pt-0">
     <div class="container">
-      <div class="row items-stretch gap-y-10">
-        <div class="col-12 md:col-7 md:pr-10">
+      <div
+        class="flex flex-col gap-y-10 lg:flex-row lg:items-stretch lg:gap-y-0"
+      >
+        <div class="min-w-0 lg:flex-1 lg:pr-10">
           <div class="flex h-full flex-col text-left">
             <h2
               class="mb-4 font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
@@ -358,7 +362,7 @@ const advisorEmail = authorEntry?.data.email
             </a>
           </div>
         </div>
-        <div class="col-12 md:col-5 md:pl-10">
+        <div class="lg:w-md lg:shrink-0 lg:pl-10">
           <ImageMod
             src={final_cta_image}
             width={1200}
@@ -382,7 +386,7 @@ const advisorEmail = authorEntry?.data.email
           </h2>
           <div class="row justify-center">
             {relatedPosts.map((post) => (
-              <div class="mb-10 md:col-6 lg:col-4">
+              <div class="mb-10 col-12 lg:col-4">
                 <BlogCard data={post} />
               </div>
             ))}
