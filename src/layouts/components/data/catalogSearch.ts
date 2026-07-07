@@ -4,6 +4,7 @@ import type { Deliverable } from "./deliverables";
 import { deliverables } from "./deliverables";
 import { getBundleForProduct } from "./recommendations";
 import { getDeliverableById } from "./deliverables";
+import { isFeaturedProduct, sortProductsForCatalog } from "./catalogStrategy";
 
 const intentLabels: Record<string, string> = {
   transparency: "Transparenz",
@@ -81,27 +82,82 @@ function textMatchesTerms(haystack: string, terms: string[]): boolean {
   return terms.some((term) => normalized.includes(term));
 }
 
-function collectProductSearchText(product: Product): string {
+function normalizeText(value: string | undefined | null): string {
+  return (value ?? "").toLowerCase().trim();
+}
+
+function tokenize(value: string | undefined | null): string[] {
+  return normalizeText(value)
+    .split(/[^a-z0-9äöüß]+/i)
+    .filter(Boolean);
+}
+
+function includesAnyTerm(text: string, terms: string[]): boolean {
+  return terms.some((term) => textHasTerm(text, term));
+}
+
+function textHasTerm(text: string, term: string): boolean {
+  const normalized = normalizeText(text);
+  const normalizedTerm = normalizeText(term);
+  if (!normalized || !normalizedTerm) return false;
+
+  if (normalizedTerm.includes(" ")) {
+    return normalized.includes(normalizedTerm);
+  }
+
+  const tokens = tokenize(text);
+  if (normalizedTerm.length <= 2) {
+    return tokens.some((token) => token === normalizedTerm);
+  }
+
+  return tokens.some((token) => token === normalizedTerm || token.startsWith(normalizedTerm));
+}
+
+function getQueryVariants(query: string): { rawTerms: string[]; expandedTerms: string[]; synonymTerms: string[] } {
+  const rawTerms = query
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+  const expandedTerms = expandQueryTerms(query);
+  const rawSet = new Set(rawTerms);
+  return {
+    rawTerms,
+    expandedTerms,
+    synonymTerms: expandedTerms.filter((term) => !rawSet.has(term)),
+  };
+}
+
+type SearchableProductSections = {
+  title: string;
+  short: string;
+  keywords: string[];
+  problem: string;
+  result: string;
+  tags: string[];
+  bundleTexts: string[];
+};
+
+function getProductSearchSections(product: Product): SearchableProductSections {
   const tags = product.tags;
-  const parts = [
-    product.title ?? "",
-    product.short ?? "",
+  const keywords = [
     ...safeStrings(product.outputs),
-    product.details?.problem ?? "",
-    product.details?.typicalResult ?? "",
     ...safeStrings(product.details?.bestFor),
     ...safeStrings(product.details?.typicalDeliverables),
+  ];
+  const tagTexts = [
     ...safeStrings(tags?.intent).map((i) => intentLabels[i as keyof typeof intentLabels] ?? i),
     dataScopeLabels[tags?.data_scope as keyof typeof dataScopeLabels] ?? tags?.data_scope ?? "",
     ...safeStrings(tags?.tech_hint).map((t) => techHintLabels[t as keyof typeof techHintLabels] ?? t),
-  ];
+  ].filter(Boolean);
 
+  const bundleTexts: string[] = [];
   try {
     const bundle = getBundleForProduct(product.id);
     for (const rec of bundle) {
       const d = getDeliverableById(rec.deliverableId);
       if (!d) continue;
-      parts.push(
+      bundleTexts.push(
         d.name ?? "",
         d.shortDescription ?? "",
         d.longDescription ?? "",
@@ -114,7 +170,164 @@ function collectProductSearchText(product: Product): string {
     // Bundle-Lookup darf Suche nicht abbrechen
   }
 
-  return parts.filter(Boolean).join(" ");
+  return {
+    title: product.title ?? "",
+    short: product.short ?? "",
+    keywords,
+    problem: product.details?.problem ?? "",
+    result: product.details?.typicalResult ?? "",
+    tags: tagTexts,
+    bundleTexts: bundleTexts.filter(Boolean),
+  };
+}
+
+type ProductSearchRank = {
+  titleExact: number;
+  titleStarts: number;
+  keywordScore: number;
+  shortScore: number;
+  detailScore: number;
+  bundleScore: number;
+  tagScore: number;
+  deliverableScore: number;
+  featuredBonus: number;
+};
+
+function getBestTitleScore(title: string, terms: string[], mode: "exact" | "starts"): number {
+  const normalizedTitle = normalizeText(title);
+  if (!normalizedTitle) return 0;
+
+  const titleTokens = tokenize(title);
+  let best = 0;
+
+  for (const term of terms) {
+    if (!term) continue;
+
+    if (mode === "exact") {
+      if (normalizedTitle === term) best = Math.max(best, 4);
+      if (textHasTerm(title, term)) best = Math.max(best, 3);
+      const exactIndex = titleTokens.findIndex((token) => token === term);
+      if (exactIndex >= 0) best = Math.max(best, Math.max(1, 3 - exactIndex * 0.4));
+      continue;
+    }
+
+    if (normalizedTitle.startsWith(term)) best = Math.max(best, 4);
+    const startIndex = titleTokens.findIndex((token) => token.startsWith(term));
+    if (startIndex >= 0) best = Math.max(best, Math.max(1, 3 - startIndex * 0.4));
+  }
+
+  return best;
+}
+
+function scoreTextMatches(texts: string[], terms: string[], weight: number): number {
+  if (terms.length === 0) return 0;
+  let matches = 0;
+  for (const term of terms) {
+    if (texts.some((text) => textHasTerm(text, term))) matches += 1;
+  }
+  return matches * weight;
+}
+
+function getProductSearchRank(product: Product, query: string): ProductSearchRank {
+  const { rawTerms, synonymTerms } = getQueryVariants(query);
+  const sections = getProductSearchSections(product);
+
+  const titleExactRaw = getBestTitleScore(sections.title, rawTerms, "exact");
+  const titleStartsRaw = getBestTitleScore(sections.title, rawTerms, "starts");
+  const titleExactSynonym = getBestTitleScore(sections.title, synonymTerms, "exact");
+  const titleStartsSynonym = getBestTitleScore(sections.title, synonymTerms, "starts");
+
+  const keywordTexts = sections.keywords;
+  const detailTexts = [sections.problem, sections.result].filter(Boolean);
+
+  return {
+    titleExact: titleExactRaw,
+    titleStarts: titleStartsRaw,
+    keywordScore:
+      titleExactSynonym * 4 +
+      titleStartsSynonym * 3 +
+      scoreTextMatches(keywordTexts, rawTerms, 18) +
+      scoreTextMatches(keywordTexts, synonymTerms, 12),
+    shortScore:
+      scoreTextMatches([sections.short], rawTerms, 22) +
+      scoreTextMatches([sections.short], synonymTerms, 12),
+    detailScore:
+      scoreTextMatches(detailTexts, rawTerms, 14) +
+      scoreTextMatches(detailTexts, synonymTerms, 8),
+    bundleScore:
+      scoreTextMatches(sections.bundleTexts, rawTerms, 10) +
+      scoreTextMatches(sections.bundleTexts, synonymTerms, 6),
+    tagScore:
+      scoreTextMatches(sections.tags, rawTerms, 8) +
+      scoreTextMatches(sections.tags, synonymTerms, 5),
+    deliverableScore: scoreTextMatches(sections.bundleTexts, rawTerms, 4),
+    featuredBonus: isFeaturedProduct(product.id) ? 1 : 0,
+  };
+}
+
+function compareProductSearchRank(a: Product, b: Product, query: string): number {
+  const rankA = getProductSearchRank(a, query);
+  const rankB = getProductSearchRank(b, query);
+  const titleSignalA = rankA.titleExact + rankA.titleStarts + Math.min(rankA.keywordScore, 12);
+  const titleSignalB = rankB.titleExact + rankB.titleStarts + Math.min(rankB.keywordScore, 12);
+  const indirectFactorA = titleSignalA > 0 ? 1 : 0.35;
+  const indirectFactorB = titleSignalB > 0 ? 1 : 0.35;
+
+  const totalA =
+    rankA.titleExact * 8 +
+    rankA.titleStarts * 7 +
+    rankA.keywordScore * 1.4 +
+    rankA.shortScore * 1.2 * indirectFactorA +
+    rankA.detailScore * indirectFactorA +
+    rankA.bundleScore * 0.8 * indirectFactorA +
+    rankA.tagScore * 0.6 * indirectFactorA +
+    rankA.deliverableScore * 0.4 * indirectFactorA +
+    rankA.featuredBonus * 6;
+  const totalB =
+    rankB.titleExact * 8 +
+    rankB.titleStarts * 7 +
+    rankB.keywordScore * 1.4 +
+    rankB.shortScore * 1.2 * indirectFactorB +
+    rankB.detailScore * indirectFactorB +
+    rankB.bundleScore * 0.8 * indirectFactorB +
+    rankB.tagScore * 0.6 * indirectFactorB +
+    rankB.deliverableScore * 0.4 * indirectFactorB +
+    rankB.featuredBonus * 6;
+
+  if (totalB !== totalA) return totalB - totalA;
+
+  const deltas = [
+    rankB.titleExact - rankA.titleExact,
+    rankB.titleStarts - rankA.titleStarts,
+    rankB.keywordScore - rankA.keywordScore,
+    rankB.shortScore - rankA.shortScore,
+    rankB.detailScore - rankA.detailScore,
+    rankB.bundleScore - rankA.bundleScore,
+    rankB.tagScore - rankA.tagScore,
+    rankB.deliverableScore - rankA.deliverableScore,
+    rankB.featuredBonus - rankA.featuredBonus,
+  ];
+  const firstDiff = deltas.find((delta) => delta !== 0);
+  if (firstDiff) return firstDiff;
+
+  return sortProductsForCatalog([a, b])[0].id === a.id
+    ? -1
+    : a.title.localeCompare(b.title, "de");
+}
+
+function collectProductSearchText(product: Product): string {
+  const sections = getProductSearchSections(product);
+  return [
+    sections.title,
+    sections.short,
+    ...sections.keywords,
+    sections.problem,
+    sections.result,
+    ...sections.tags,
+    ...sections.bundleTexts,
+  ]
+    .filter(Boolean)
+    .join(" ");
 }
 
 function collectDeliverableSearchText(deliverable: Deliverable): string {
@@ -154,7 +367,9 @@ export function deliverableMatchesSearch(deliverable: Deliverable, query: string
 export function searchProducts(query: string, pool: Product[] = products): Product[] {
   const terms = expandQueryTerms(query);
   if (terms.length === 0) return pool;
-  return pool.filter((p) => productMatchesSearch(p, query));
+  return pool
+    .filter((p) => productMatchesSearch(p, query))
+    .sort((a, b) => compareProductSearchRank(a, b, query));
 }
 
 export function searchDeliverables(query: string): Deliverable[] {
@@ -177,16 +392,18 @@ export function findProductsByDeliverableMatch(query: string, pool: Product[] = 
 
   if (matchingDeliverableIds.size === 0) return [];
 
-  return pool.filter((product) => {
-    if (productMatchesSearch(product, query)) return false;
-    try {
-      return getBundleForProduct(product.id).some((rec) =>
-        matchingDeliverableIds.has(rec.deliverableId)
-      );
-    } catch {
-      return false;
-    }
-  });
+  return pool
+    .filter((product) => {
+      if (productMatchesSearch(product, query)) return false;
+      try {
+        return getBundleForProduct(product.id).some((rec) =>
+          matchingDeliverableIds.has(rec.deliverableId)
+        );
+      } catch {
+        return false;
+      }
+    })
+    .sort((a, b) => compareProductSearchRank(a, b, query));
 }
 
 export interface CatalogSearchResult {

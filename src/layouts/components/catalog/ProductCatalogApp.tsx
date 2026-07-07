@@ -316,8 +316,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     const query = searchQuery.trim();
 
     if (query && searchResults) {
-      const combined = [...searchResults.products, ...searchResults.productsViaDeliverable];
-      return sortProductsForCatalog(combined);
+      return [...searchResults.products, ...searchResults.productsViaDeliverable];
     }
 
     if (showAll) {
