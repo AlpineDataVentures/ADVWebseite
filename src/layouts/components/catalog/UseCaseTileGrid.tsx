@@ -103,7 +103,7 @@ export function ProductTileGrid({
               <Button
                 type="button"
                 variant="default"
-                className="mt-4 w-full"
+                className="mt-4 w-full min-h-[44px] h-12 text-base font-semibold sm:min-h-0 sm:h-10 sm:text-sm"
                 onClick={() => onSelect(product.id)}
               >
                 Produktbausteine ansehen

@@ -8,46 +8,49 @@ import { getProductsForUiCluster, type UiClusterId } from "./useCases";
  * Schwerpunkt: Produktbausteine als kaufbarer Kern des Angebots.
  */
 
-/** Kuratierte Einstiege (breiter als Top-20, aber nicht das volle Portfolio). */
+/** Kuratierte Einstiege – Reihenfolge = Anzeige (nicht alphabetisch). */
 export const FEATURED_PRODUCT_IDS = [
+  // Gängige Einstiegsangebote
   "datenstrategie",
   "data-ai-leadership",
   "maturity-assessment",
-  "ki-strategie",
   "management-dashboard",
   "setup-bi",
   "excel-to-bi-migration",
   "dwh",
-  "data-lake",
   "data-catalog",
   "master-data-management",
-  "dataops",
   "controlling-via-bi",
   "liquiditaetsplanung-bi",
-  "financial-forecasting",
-  "financial-planning",
   "sales-dashboard",
   "sales-reporting",
   "sales-funnel-analyse",
-  "churn-prevention-algo",
-  "predictive-maintenance",
-  "produktionsplanung",
-  "oee-analyse",
   "automatisierte-rechnungsverarbeitung",
-  "automatisierte-bestellverarbeitung",
-  "helpdesk-automation",
-  "ausschreibungsautomatisierung",
-  "bedarfsanalyse",
+  "churn-prevention-algo",
   "dsgvo-dsb",
   "iam",
-  "nis2",
+  "ki-strategie",
   "data-mesh-organisation",
-  "enterprise-architecture-management",
-  "api-management",
-  "adf-aufsetzen",
+  // KI / Automatisierung
   "rag-literaturrecherche",
   "ai-video-qualitaetsanalyse",
   "agentic-coding",
+  "predictive-maintenance",
+  "helpdesk-automation",
+  "automatisierte-bestellverarbeitung",
+  "ausschreibungsautomatisierung",
+  "produktionsplanung",
+  "oee-analyse",
+  "bedarfsanalyse",
+  // Architektur / Plattform / Add-ons
+  "data-lake",
+  "dataops",
+  "enterprise-architecture-management",
+  "api-management",
+  "adf-aufsetzen",
+  "nis2",
+  "financial-forecasting",
+  "financial-planning",
   "wartung-support",
 ] as const;
 
@@ -147,10 +150,9 @@ export function sortProductsForCatalog(products: Product[]): Product[] {
 }
 
 export function getFeaturedProducts(allProducts: Product[]): Product[] {
-  const featured = FEATURED_PRODUCT_IDS.map((id) => allProducts.find((p) => p.id === id)).filter(
+  return FEATURED_PRODUCT_IDS.map((id) => allProducts.find((p) => p.id === id)).filter(
     (p): p is Product => Boolean(p)
   );
-  return sortProductsForCatalog(featured);
 }
 
 export function getProductsForClusterBrowse(clusterId: UiClusterId): Product[] {

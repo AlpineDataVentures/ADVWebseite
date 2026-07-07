@@ -61,17 +61,16 @@ export function ProductListView({
                 </p>
               </div>
 
-              <div className="flex items-center justify-between gap-4 sm:justify-end sm:w-auto">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end sm:shrink-0">
                 {fromPrice > 0 && (
-                  <span className="text-sm text-text-light dark:text-darkmode-text-light whitespace-nowrap">
+                  <span className="text-sm text-text-light dark:text-darkmode-text-light sm:whitespace-nowrap">
                     Bausteine ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPrice(fromPrice)}</span>
                   </span>
                 )}
                 <Button
                   type="button"
                   variant="default"
-                  size="sm"
-                  className="shrink-0"
+                  className="w-full min-h-[44px] h-12 text-base font-semibold sm:w-auto sm:min-h-0 sm:h-9 sm:px-3 sm:text-sm shrink-0"
                   onClick={() => onSelect(product.id)}
                 >
                   Produktbausteine ansehen

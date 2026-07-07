@@ -45,14 +45,27 @@ const searchSynonyms: Record<string, string[]> = {
   controlling: ["finance", "kpi", "reporting"],
   churn: ["abwanderung", "kundenbindung"],
   agent: ["agentic", "ki-agent"],
+  dashboard: ["bi", "reporting", "management"],
+  ki: ["ai", "künstliche intelligenz"],
 };
 
-function normalizeQuery(query: string): string {
-  return query.trim().toLowerCase();
+function safeStrings(values: unknown): string[] {
+  if (!Array.isArray(values)) return [];
+  return values.filter((v): v is string => typeof v === "string" && v.length > 0);
+}
+
+function flattenDeliverableTags(tags: Deliverable["tags"] | undefined): string[] {
+  if (!tags || typeof tags !== "object") return [];
+  return [
+    ...safeStrings(tags.type),
+    ...safeStrings(tags.maturity),
+    ...safeStrings(tags.impact),
+    ...safeStrings(tags.coverage),
+  ];
 }
 
 function expandQueryTerms(query: string): string[] {
-  const base = normalizeQuery(query);
+  const base = query.trim().toLowerCase();
   if (!base) return [];
   const terms = new Set(base.split(/\s+/).filter(Boolean));
   for (const word of [...terms]) {
@@ -63,59 +76,79 @@ function expandQueryTerms(query: string): string[] {
 }
 
 function textMatchesTerms(haystack: string, terms: string[]): boolean {
+  if (!haystack || terms.length === 0) return terms.length === 0;
   const normalized = haystack.toLowerCase();
   return terms.some((term) => normalized.includes(term));
 }
 
 function collectProductSearchText(product: Product): string {
+  const tags = product.tags;
   const parts = [
-    product.title,
-    product.short,
-    ...product.outputs,
+    product.title ?? "",
+    product.short ?? "",
+    ...safeStrings(product.outputs),
     product.details?.problem ?? "",
     product.details?.typicalResult ?? "",
-    ...(product.details?.bestFor ?? []),
-    ...(product.details?.typicalDeliverables ?? []),
-    ...product.tags.intent.map((i) => intentLabels[i] ?? i),
-    dataScopeLabels[product.tags.data_scope] ?? product.tags.data_scope,
-    ...product.tags.tech_hint.map((t) => techHintLabels[t] ?? t),
+    ...safeStrings(product.details?.bestFor),
+    ...safeStrings(product.details?.typicalDeliverables),
+    ...safeStrings(tags?.intent).map((i) => intentLabels[i as keyof typeof intentLabels] ?? i),
+    dataScopeLabels[tags?.data_scope as keyof typeof dataScopeLabels] ?? tags?.data_scope ?? "",
+    ...safeStrings(tags?.tech_hint).map((t) => techHintLabels[t as keyof typeof techHintLabels] ?? t),
   ];
 
-  const bundle = getBundleForProduct(product.id);
-  for (const rec of bundle) {
-    const d = getDeliverableById(rec.deliverableId);
-    if (d) {
-      parts.push(d.name, d.shortDescription, d.longDescription, d.family, ...d.tags);
-      parts.push(...d.deliverablesOutput);
+  try {
+    const bundle = getBundleForProduct(product.id);
+    for (const rec of bundle) {
+      const d = getDeliverableById(rec.deliverableId);
+      if (!d) continue;
+      parts.push(
+        d.name ?? "",
+        d.shortDescription ?? "",
+        d.longDescription ?? "",
+        d.family ?? "",
+        ...flattenDeliverableTags(d.tags),
+        ...safeStrings(d.deliverablesOutput)
+      );
     }
+  } catch {
+    // Bundle-Lookup darf Suche nicht abbrechen
   }
 
-  return parts.join(" ");
+  return parts.filter(Boolean).join(" ");
 }
 
 function collectDeliverableSearchText(deliverable: Deliverable): string {
   return [
-    deliverable.name,
-    deliverable.shortDescription,
-    deliverable.longDescription,
-    deliverable.family,
-    ...deliverable.tags,
-    ...deliverable.deliverablesOutput,
-    ...deliverable.assumptions,
-  ].join(" ");
+    deliverable.name ?? "",
+    deliverable.shortDescription ?? "",
+    deliverable.longDescription ?? "",
+    deliverable.family ?? "",
+    ...flattenDeliverableTags(deliverable.tags),
+    ...safeStrings(deliverable.deliverablesOutput),
+    ...safeStrings(deliverable.assumptions),
+  ]
+    .filter(Boolean)
+    .join(" ");
 }
 
 export function productMatchesSearch(product: Product, query: string): boolean {
-  const terms = expandQueryTerms(query);
-  if (terms.length === 0) return true;
-  const text = collectProductSearchText(product);
-  return textMatchesTerms(text, terms);
+  try {
+    const terms = expandQueryTerms(query);
+    if (terms.length === 0) return true;
+    return textMatchesTerms(collectProductSearchText(product), terms);
+  } catch {
+    return false;
+  }
 }
 
 export function deliverableMatchesSearch(deliverable: Deliverable, query: string): boolean {
-  const terms = expandQueryTerms(query);
-  if (terms.length === 0) return true;
-  return textMatchesTerms(collectDeliverableSearchText(deliverable), terms);
+  try {
+    const terms = expandQueryTerms(query);
+    if (terms.length === 0) return true;
+    return textMatchesTerms(collectDeliverableSearchText(deliverable), terms);
+  } catch {
+    return false;
+  }
 }
 
 export function searchProducts(query: string, pool: Product[] = products): Product[] {
@@ -146,9 +179,13 @@ export function findProductsByDeliverableMatch(query: string, pool: Product[] = 
 
   return pool.filter((product) => {
     if (productMatchesSearch(product, query)) return false;
-    return getBundleForProduct(product.id).some((rec) =>
-      matchingDeliverableIds.has(rec.deliverableId)
-    );
+    try {
+      return getBundleForProduct(product.id).some((rec) =>
+        matchingDeliverableIds.has(rec.deliverableId)
+      );
+    } catch {
+      return false;
+    }
   });
 }
 
@@ -159,15 +196,19 @@ export interface CatalogSearchResult {
 }
 
 export function searchCatalog(query: string, productPool: Product[] = products): CatalogSearchResult {
-  const productsDirect = searchProducts(query, productPool);
-  const directIds = new Set(productsDirect.map((p) => p.id));
-  const productsViaDeliverable = findProductsByDeliverableMatch(query, productPool).filter(
-    (p) => !directIds.has(p.id)
-  );
+  try {
+    const productsDirect = searchProducts(query, productPool);
+    const directIds = new Set(productsDirect.map((p) => p.id));
+    const productsViaDeliverable = findProductsByDeliverableMatch(query, productPool).filter(
+      (p) => !directIds.has(p.id)
+    );
 
-  return {
-    products: productsDirect,
-    deliverables: searchDeliverables(query),
-    productsViaDeliverable,
-  };
+    return {
+      products: productsDirect,
+      deliverables: searchDeliverables(query),
+      productsViaDeliverable,
+    };
+  } catch {
+    return { products: [], deliverables: [], productsViaDeliverable: [] };
+  }
 }
