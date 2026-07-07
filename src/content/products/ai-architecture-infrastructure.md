@@ -25,7 +25,7 @@ contact:
 collaboration_title: "Unsere Zusammenarbeit"
 collaboration_steps:
   - title: "Ist-Zustand und Anforderungen aufnehmen"
-    text: "Welche KI-Anwendungen sollen betrieben werden, was ist bereits vorhanden und wo sind die Engpässe: auf dieser Basis wird eine Architektur entworfen, die zur Systemlandschaft passt und langfristig wartbar bleibt.
+    text: "Welche KI-Anwendungen sollen betrieben werden, was ist bereits vorhanden und wo sind die Engpässe: auf dieser Basis wird eine Architektur entworfen, die zur Systemlandschaft passt und langfristig wartbar bleibt."
   - title: "Architektur entwerfen"
     text: "Je nach Anforderungen und bestehender Systemlandschaft wird die benötigte Rechen- und Speicherinfrastruktur wird eingerichtet; in der Cloud, On-Premise oder als Hybrid-Lösung "
   - title: "Datenpipelines und MLOps-Prozesse einrichten"
@@ -56,4 +56,3 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
-
