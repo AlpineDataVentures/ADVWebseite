@@ -42,7 +42,7 @@ delivery:
     - "Architekturkonzept"
     - "Umsetzungsfahrplan"
   operations:
-    - "Durch Ihre Fachbereichsverantwortlichen"
+    - "Durch Ihre Fachbereiche"
 related_products:
   - "data-strategy"
   - "data-ai-leadership"
@@ -56,4 +56,3 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
-

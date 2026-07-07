@@ -42,7 +42,7 @@ delivery:
     - "laufender Pilot"
     - "Handbuch"
   operations:
-    - "Durch Ihre Fachbereichsverantwortlichen"
+    - "Durch Ihre Fachbereiche"
 related_products:
   - "data-ai-leadership"
   - "data-mesh"
@@ -59,4 +59,3 @@ draft: false
 ---
 
 Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
-
