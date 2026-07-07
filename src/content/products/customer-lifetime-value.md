@@ -2,8 +2,8 @@
 title: "Customer Lifetime Value"
 eyebrow: "Produkt"
 meta_title: "Customer Lifetime Value"
-description: "Der Customer Lifetime Value (CLV) gibt an, wie viel Umsatz ein Kunde über die gesamte Dauer seiner Geschäftsbeziehung voraussichtlich bringt. Das klingt einfach, hat aber weitreichende Konsequenzen: Wer weiß welche Kunden langfristig am wertvollsten sind, kann Marketingbudgets gezielter einsetzen, Kundenbindungsmaßnahmen besser priorisieren und Akquisitionskosten realistisch bewerten."
-highlight_text: "wie viel Umsatz ein Kunde über die gesamte Dauer seiner Geschäftsbeziehung voraussichtlich bringt"
+description: "Wer in Marketing und Vertrieb investiert ohne zu wissen welche Kunden langfristig profitabel sind, verteilt Budget nach Bauchgefühl. Der Customer Lifetime Value (CLV) berechnet für jeden Kunden, wie profitabel er über die gesamte Geschäftsbeziehung voraussichtlich sein wird. Auf Basis der vorhandenen Kundendaten wird ein Modell entwickelt, das CLV-Werte je Kunde berechnet, Segmente ableitet und die Ergebnisse in einem Dashboard nutzbar macht, damit Marketing und Vertrieb wissen wo sich Investitionen rentieren."
+highlight_text: "wie profitabel er über die gesamte Geschäftsbeziehung voraussichtlich sein wird"
 image: "/images/products/customer-lifetime-value.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
 customer_value_title: "Ihr Mehrwert"
@@ -45,7 +45,6 @@ delivery:
 related_products:
   - "churn-prevention"
   - "sales-funnel-analysis"
-  - "management-dashboard"
 tags:
   - "Business Intelligence"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
