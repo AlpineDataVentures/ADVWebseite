@@ -1,6 +1,7 @@
 import { Card } from "./ui/card";
 import { Switch } from "./ui/switch";
 import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { Separator } from "./ui/separator";
 import { CheckCircle2, XCircle } from "lucide-react";
@@ -17,11 +18,12 @@ interface DeliverableCardProps {
   onToggle: (enabled: boolean) => void;
   onConfigure?: () => void;
   layout?: "grid" | "list";
+  showCoreBadge?: boolean;
 }
 
 /**
  * Kompakte Produktbaustein-Karte für die Produktdetailansicht.
- * Geschlossen: Titel, Kurzbeschreibung, Preis, Auswahl, CTA.
+ * Geschlossen: Name, Kategorie, Preis, Auswahl, CTA.
  * Aufgeklappt: Lieferumfang, Voraussetzungen, Details.
  */
 export function DeliverableCard({
@@ -31,6 +33,7 @@ export function DeliverableCard({
   onToggle,
   onConfigure,
   layout = "grid",
+  showCoreBadge = false,
 }: DeliverableCardProps) {
   const isActive = deliverable.active;
   const isDisabled = !isActive;
@@ -41,16 +44,51 @@ export function DeliverableCard({
   const limitedOutOfScope = deliverable.outOfScope.slice(0, 3);
   const minPrice = getMinimumPrice(deliverable);
 
+  const actionCluster = isActive ? (
+    <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+      {minPrice > 0 && (
+        <span className="text-xs sm:text-sm text-text-light dark:text-darkmode-text-light whitespace-nowrap tabular-nums">
+          ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPrice(minPrice)}</span>
+        </span>
+      )}
+      <div className="flex items-center gap-1.5">
+        <span className="text-[11px] text-text-light dark:text-darkmode-text-light whitespace-nowrap hidden sm:inline">
+          {isEnabled ? "Ausgewählt" : "Auswählen"}
+        </span>
+        <Switch
+          checked={isEnabled}
+          onChange={(e) => onToggle(e.target.checked)}
+          disabled={isDisabled}
+        />
+      </div>
+      <Button
+        type="button"
+        size="sm"
+        variant="default"
+        className="shrink-0 whitespace-nowrap h-8 px-3 text-xs"
+        onClick={() => {
+          onToggle(true);
+          onConfigure?.();
+        }}
+      >
+        Konfigurieren
+      </Button>
+    </div>
+  ) : null;
+
   const detailsAccordion = (
     <Accordion type="single">
       <AccordionItem value={`details-${deliverable.key}`} className="border-0">
         <AccordionTrigger
-          className="py-1.5 text-xs text-text-light dark:text-darkmode-text-light hover:no-underline"
+          className="py-1 text-[11px] text-text-light dark:text-darkmode-text-light hover:no-underline"
           aria-label={`Details zu ${deliverable.name} ein- oder ausklappen`}
         >
-          Details anzeigen
+          Mehr Details
         </AccordionTrigger>
-        <AccordionContent className="pt-2 space-y-4">
+        <AccordionContent className="pt-1.5 pb-0 space-y-3">
+          <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
+            {deliverable.shortDescription}
+          </p>
           <p className="text-xs text-text-light dark:text-darkmode-text-light italic">
             <span className="font-medium text-text dark:text-darkmode-text not-italic">Warum empfohlen?</span>{" "}
             {recommendation.reason}
@@ -82,7 +120,7 @@ export function DeliverableCard({
           {(limitedAssumptions.length > 0 || limitedOutOfScope.length > 0) && (
             <>
               <Separator />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {limitedAssumptions.length > 0 && (
                   <div className="space-y-1.5">
                     <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Voraussetzungen</h4>
@@ -117,6 +155,24 @@ export function DeliverableCard({
     </Accordion>
   );
 
+  const titleBlock = (
+    <div className="min-w-0 flex-1">
+      <div className="flex items-center gap-1.5 flex-wrap">
+        <h3 className="text-sm font-semibold text-text dark:text-darkmode-text leading-tight line-clamp-1">
+          {deliverable.name}
+        </h3>
+        {showCoreBadge && (
+          <Badge variant="secondary" className="text-[10px] px-1.5 py-0 shrink-0">
+            Kern
+          </Badge>
+        )}
+      </div>
+      <p className="text-[11px] text-text-light dark:text-darkmode-text-light leading-tight mt-0.5 line-clamp-1">
+        {deliverable.family}
+      </p>
+    </div>
+  );
+
   if (layout === "list") {
     return (
       <li
@@ -126,66 +182,21 @@ export function DeliverableCard({
           isDisabled && "opacity-60"
         )}
       >
-        <div className="flex flex-col gap-2.5 px-4 py-3 sm:flex-row sm:items-center">
-          <div className="flex min-w-0 flex-1 items-start gap-2.5">
+        <div className="flex flex-col gap-2 px-3.5 py-2.5 sm:flex-row sm:items-center">
+          <div className="flex min-w-0 flex-1 items-center gap-2">
             <Icon
               className={cn(
-                "h-4 w-4 mt-0.5 shrink-0",
+                "h-4 w-4 shrink-0",
                 isEnabled && isActive
                   ? "text-green-600 dark:text-green-400"
                   : "text-text-light dark:text-darkmode-text-light"
               )}
             />
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2">
-                <h3 className="text-sm font-semibold text-text dark:text-darkmode-text truncate">
-                  {deliverable.name}
-                </h3>
-                <span className="hidden md:inline text-xs text-text-light dark:text-darkmode-text-light shrink-0">
-                  · {deliverable.family}
-                </span>
-              </div>
-              <p className="mt-0.5 text-xs text-text-light dark:text-darkmode-text-light line-clamp-1">
-                {deliverable.shortDescription}
-              </p>
-            </div>
+            {titleBlock}
           </div>
-
-          <div className="flex items-center justify-between gap-3 sm:justify-end shrink-0">
-            {isActive && minPrice > 0 && (
-              <span className="text-sm text-text-light dark:text-darkmode-text-light whitespace-nowrap">
-                ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPrice(minPrice)}</span>
-              </span>
-            )}
-            {isActive && (
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-text-light dark:text-darkmode-text-light whitespace-nowrap hidden sm:inline">
-                  {isEnabled ? "Ausgewählt" : "Auswählen"}
-                </span>
-                <Switch
-                  checked={isEnabled}
-                  onChange={(e) => onToggle(e.target.checked)}
-                  disabled={isDisabled}
-                />
-              </div>
-            )}
-            {isActive && (
-              <Button
-                type="button"
-                size="sm"
-                variant="default"
-                className="shrink-0 whitespace-nowrap"
-                onClick={() => {
-                  onToggle(true);
-                  onConfigure?.();
-                }}
-              >
-                Konfigurieren
-              </Button>
-            )}
-          </div>
+          {actionCluster}
         </div>
-        <div className="px-4 pb-2">{detailsAccordion}</div>
+        <div className="px-3.5 pb-1.5 pt-0">{detailsAccordion}</div>
       </li>
     );
   }
@@ -198,64 +209,21 @@ export function DeliverableCard({
         isDisabled && "opacity-60"
       )}
     >
-      <div className="px-4 py-3 space-y-2.5">
-        <div className="flex items-start gap-2.5">
-          <Icon
-            className={cn(
-              "h-4 w-4 mt-0.5 shrink-0",
-              isEnabled && isActive
-                ? "text-green-600 dark:text-green-400"
-                : "text-text-light dark:text-darkmode-text-light"
-            )}
-          />
-          <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-sm text-text dark:text-darkmode-text line-clamp-2 leading-snug">
-              {deliverable.name}
-            </h3>
-            <p className="text-xs text-text-light dark:text-darkmode-text-light">{deliverable.family}</p>
+      <div className="px-3.5 py-2.5 space-y-1.5">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <div className="flex min-w-0 flex-1 items-center gap-2">
+            <Icon
+              className={cn(
+                "h-4 w-4 shrink-0",
+                isEnabled && isActive
+                  ? "text-green-600 dark:text-green-400"
+                  : "text-text-light dark:text-darkmode-text-light"
+              )}
+            />
+            {titleBlock}
           </div>
+          {actionCluster}
         </div>
-
-        <p className="text-xs text-text-light dark:text-darkmode-text-light line-clamp-2 leading-relaxed">
-          {deliverable.shortDescription}
-        </p>
-
-        <div className="flex items-center justify-between pt-2 border-t border-border/80">
-          {isActive && minPrice > 0 ? (
-            <p className="font-semibold text-sm text-text dark:text-darkmode-text">
-              ab {formatPrice(minPrice)}
-            </p>
-          ) : (
-            <span />
-          )}
-          {isActive && (
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-text-light dark:text-darkmode-text-light whitespace-nowrap">
-                {isEnabled ? "Ausgewählt" : "Auswählen"}
-              </span>
-              <Switch
-                checked={isEnabled}
-                onChange={(e) => onToggle(e.target.checked)}
-                disabled={isDisabled}
-              />
-            </div>
-          )}
-        </div>
-
-        {isActive && (
-          <Button
-            size="sm"
-            variant="default"
-            onClick={() => {
-              onToggle(true);
-              onConfigure?.();
-            }}
-            className="w-full"
-          >
-            Baustein konfigurieren
-          </Button>
-        )}
-
         {detailsAccordion}
       </div>
     </Card>

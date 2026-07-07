@@ -13,6 +13,7 @@ import { getParametersForDeliverable } from "../data/parameters";
 import { calculateDeliverablePrice, formatPrice } from "../lib/pricing";
 import type { DeliverableParameters } from "../data/models";
 import { getDeliverableIcon } from "../lib/iconMap";
+import { CatalogFlowSteps } from "./CatalogFlowSteps";
 
 interface ConfigViewProps {
   productId: string | null;
@@ -71,6 +72,8 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
 
   return (
     <div className="space-y-8">
+      <CatalogFlowSteps current="config" />
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>

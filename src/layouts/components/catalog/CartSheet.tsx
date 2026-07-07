@@ -6,13 +6,17 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./
 import { useConfigStore } from "../stores/configStore";
 import { getCartWithPricesFromSelectedDeliverables, getTotalPriceFromSelectedDeliverables } from "../stores/configStore";
 import { formatPrice } from "../lib/pricing";
-import { ShoppingCart, Trash2, ChevronDown, Copy, Check } from "lucide-react";
-import { useMemo, useState } from "react";
+import { ShoppingCart, Trash2, ChevronDown } from "lucide-react";
+import { useMemo } from "react";
 import { getParameterByKey } from "../data/parameters";
 import { getDeliverableIcon } from "../lib/iconMap";
 import { getProductById } from "../data/useCases";
 import { buildInquirySubject, buildInquiryText, buildMailtoLink } from "../lib/inquiry";
-import { PRODUCT_CATALOG_INQUIRY_EMAIL, PRODUCT_CATALOG_MEETING_URL } from "@/config/products";
+import {
+  PRODUCT_CATALOG_INQUIRY_EMAIL,
+  PRODUCT_CATALOG_ORDER_MEETING_TITLE,
+  PRODUCT_CATALOG_ORDER_MEETING_URL,
+} from "@/config/products";
 
 interface CartSheetProps {
   open: boolean;
@@ -28,7 +32,6 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
   const activeProduct = useConfigStore((state) => state.activeProduct);
   const selectedProducts = useConfigStore((state) => state.selectedProducts);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
-  const [copiedInquiry, setCopiedInquiry] = useState(false);
   const cartWithPrices = useMemo(
     () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
     [selectedDeliverables]
@@ -84,19 +87,11 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
     });
   }, [cartWithPrices, totalPrice, activeProduct, selectedProducts, selectedDeliverables]);
 
-  const handlePrepareInquiryEmail = () => {
+  const handleSendInquiryEmail = () => {
     const mailtoHref = buildMailtoLink(PRODUCT_CATALOG_INQUIRY_EMAIL, inquirySubject, inquiryText);
     window.location.href = mailtoHref;
   };
 
-  const handleCopyInquiry = () => {
-    navigator.clipboard.writeText(inquiryText).then(() => {
-      setCopiedInquiry(true);
-      setTimeout(() => setCopiedInquiry(false), 2000);
-    });
-  };
-
-  // Get selected params as tags (2-4 key params)
   const getSelectedParamsTags = (params: Record<string, any>) => {
     const tags: Array<{ key: string; label: string; value: string }> = [];
     const keyParams = ['companySize', 'speed', 'reportCount', 'sourceSystemCount', 'strategyHorizonMonths', 'deployment', 'reportComplexity'];
@@ -113,7 +108,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
       }
     });
 
-    return tags.slice(0, 4); // Max 4 tags
+    return tags.slice(0, 4);
   };
 
   return (
@@ -154,7 +149,6 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                 return (
                   <AccordionItem key={item.deliverableId} value={item.deliverableId} className="border-0">
                     <div className="rounded-xl p-4 space-y-2 bg-light dark:bg-darkmode-light border border-border dark:border-darkmode-border">
-                      {/* Item Header */}
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex items-start gap-2 flex-1 min-w-0">
                           <Icon className="h-4 w-4 text-text dark:text-darkmode-text mt-0.5 shrink-0" />
@@ -177,7 +171,6 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                         </Button>
                       </div>
 
-                      {/* Expand Caret */}
                       <AccordionTrigger className="py-1 text-xs hover:no-underline">
                         <span className="flex items-center gap-1">
                           Details
@@ -185,9 +178,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                         </span>
                       </AccordionTrigger>
 
-                      {/* Accordion Content: Mini Breakdown + Selected Params */}
                       <AccordionContent className="pt-2 space-y-3">
-                        {/* Selected Params Tags */}
                         {selectedParamsTags.length > 0 && (
                           <div>
                             <p className="text-xs font-medium text-text-light dark:text-darkmode-text-light mb-1.5">
@@ -203,7 +194,6 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                           </div>
                         )}
 
-                        {/* Mini Breakdown */}
                         <div className="space-y-1.5 text-xs border-t border-border pt-2">
                           <div className="flex justify-between">
                             <span className="text-text-light dark:text-darkmode-text-light">Basispreis</span>
@@ -251,7 +241,6 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
           )}
         </div>
 
-        {/* Footer - Sticky, clear structure */}
         {cartWithPrices.length > 0 && (
           <div className="shrink-0 pt-4 border-t border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light px-5 pb-6 space-y-3">
             <div className="flex items-center justify-between">
@@ -263,7 +252,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
             <div className="space-y-2">
               {onGoToConfig && (
                 <Button
-                  variant="default"
+                  variant="outline"
                   onClick={() => {
                     onGoToConfig();
                     onOpenChange(false);
@@ -275,38 +264,26 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                 </Button>
               )}
               <Button
-                variant="outline"
-                onClick={handlePrepareInquiryEmail}
+                variant="default"
+                onClick={handleSendInquiryEmail}
                 className="w-full"
-                size="sm"
+                size="lg"
               >
-                Anfrage per E-Mail vorbereiten
+                Anfrage per E-Mail senden
               </Button>
+              <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed px-0.5">
+                Vielen Dank für Ihr Interesse, das Projekt mit uns umzusetzen. Wählen Sie nun zur
+                Besprechung des Projekts noch einen gemeinsamen Termin und sofort danach kann es in
+                die Umsetzung gehen!
+              </p>
               <Button
-                variant="outline"
-                onClick={handleCopyInquiry}
+                variant="order"
                 className="w-full"
-                size="sm"
+                size="lg"
+                onClick={() => window.open(PRODUCT_CATALOG_ORDER_MEETING_URL, "_blank", "noopener,noreferrer")}
+                title={PRODUCT_CATALOG_ORDER_MEETING_TITLE}
               >
-                {copiedInquiry ? (
-                  <>
-                    <Check className="h-4 w-4 mr-2" />
-                    Anfrage kopiert!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="h-4 w-4 mr-2" />
-                    Anfrage kopieren
-                  </>
-                )}
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full"
-                size="sm"
-                onClick={() => window.open(PRODUCT_CATALOG_MEETING_URL, "_blank", "noopener,noreferrer")}
-              >
-                Termin vereinbaren
+                Termin zur Bestellung vereinbaren
               </Button>
             </div>
           </div>

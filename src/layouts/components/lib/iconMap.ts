@@ -20,6 +20,14 @@ import {
   Network,
   BookOpen,
   GraduationCap,
+  Code2,
+  GitBranch,
+  Sparkles,
+  ClipboardCheck,
+  Route,
+  Wrench,
+  FileKey,
+  ScanSearch,
   type LucideIcon
 } from 'lucide-react';
 
@@ -66,8 +74,30 @@ export const deliverableIcons: Record<string, LucideIcon> = {
   source_integration_review: Network,
   glossary_sprint: BookOpen,
   pbi_training_user: GraduationCap,
+  api_integration: Code2,
+  etl_pipeline: GitBranch,
+  data_modeling: Database,
+  data_migration: Route,
+  data_quality: ScanSearch,
+  automation_pilot: Wrench,
+  automation_rollout: Wrench,
+  semantic_layer: Layers,
+  self_service_enablement: GraduationCap,
+  rag_foundation: BookOpen,
+  ai_agent_dev: Bot,
+  ai_review: ClipboardCheck,
+  ai_use_case_sprint: Sparkles,
+  maturity_assessment: BarChart3,
+  compliance_package: ShieldCheck,
+  privacy_package: FileKey,
+  architecture_workshop: Layers,
+  change_enablement: Users,
+  data_catalog_setup: Database,
+  security_access_review: Shield,
+  finops_review: Banknote,
+  process_discovery: Target,
   // Fallback für unbekannte Deliverables
-  default: LayoutDashboard,
+  default: Sparkles,
 };
 
 /**

@@ -1,4 +1,4 @@
-import { deliverables } from "../data/deliverables";
+import { deliverables, type Deliverable } from "../data/deliverables";
 import { getMinimumPrice, formatPrice } from "../lib/pricing";
 import { getDeliverableIcon } from "../lib/iconMap";
 import { Button } from "./ui/button";
@@ -9,14 +9,34 @@ interface DeliverableListViewProps {
   onConfigure: (deliverableId: string) => void;
   layout?: "list" | "grid";
   className?: string;
+  /** Optional: gefilterte Bausteine (z. B. Suche). */
+  items?: Deliverable[];
+  emptyMessage?: string;
 }
 
 /**
  * Übersicht ALLER Produktbausteine (kauf-/konfigurierbare Leistungen).
  * Bewusst getrennt von Produkten (= fachlicher Einstieg).
  */
-export function DeliverableListView({ onConfigure, layout = "list", className }: DeliverableListViewProps) {
-  const items = deliverables.filter((d) => d.active);
+export function DeliverableListView({
+  onConfigure,
+  layout = "list",
+  className,
+  items: itemsProp,
+  emptyMessage = "Keine Produktbausteine gefunden",
+}: DeliverableListViewProps) {
+  const items = itemsProp ?? deliverables.filter((d) => d.active);
+
+  if (items.length === 0) {
+    return (
+      <div className={cn("py-16 text-center", className)}>
+        <p className="text-text dark:text-darkmode-text font-medium mb-1">{emptyMessage}</p>
+        <p className="text-sm text-text-light dark:text-darkmode-text-light">
+          Passen Sie die Suche an oder wählen Sie „Alle Produktbausteine“.
+        </p>
+      </div>
+    );
+  }
 
   if (layout === "grid") {
     return (

@@ -3,7 +3,7 @@ import { cn } from "../../lib/utils";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+  variant?: "default" | "order" | "destructive" | "outline" | "secondary" | "ghost" | "link";
   size?: "default" | "sm" | "lg" | "icon";
 }
 
@@ -16,6 +16,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {
             // Primärer ADV-Button (edleres Grün, weniger neon)
             "bg-green-600 text-white hover:bg-green-700": variant === "default",
+            "bg-green-800 text-white hover:bg-green-900 dark:bg-green-900 dark:hover:bg-green-950": variant === "order",
             "bg-destructive text-destructive-foreground hover:bg-destructive/90": variant === "destructive",
             // Neutraler Outline-Button im ADV-Look
             "border border-border bg-light dark:bg-darkmode-light text-text dark:text-darkmode-text hover:bg-green-500/10 hover:border-green-600/40": variant === "outline",

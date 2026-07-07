@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { Copy, Check, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Badge } from "./ui/badge";
 import {
   buildCustomInquiryText,
@@ -33,7 +33,6 @@ const emptyFields: CustomInquiryFields = {
 
 export function CustomRequestForm({ productTitle, isAddon = false, embedded = false, prominent = false }: CustomRequestFormProps) {
   const [fields, setFields] = useState<CustomInquiryFields>(emptyFields);
-  const [copied, setCopied] = useState(false);
 
   const set = (key: keyof CustomInquiryFields) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -42,16 +41,6 @@ export function CustomRequestForm({ productTitle, isAddon = false, embedded = fa
   const text = buildCustomInquiryText(productTitle, fields, isAddon);
   const subject = buildInquirySubject(productTitle);
   const mailto = buildMailtoLink(PRODUCT_CATALOG_INQUIRY_EMAIL, subject, text);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      /* clipboard nicht verfügbar – Mailto bleibt nutzbar */
-    }
-  };
 
   return (
     <div
@@ -69,11 +58,9 @@ export function CustomRequestForm({ productTitle, isAddon = false, embedded = fa
               <Mail className="h-4 w-4 text-green-700 dark:text-green-400" />
               Individuelle Anfrage
             </h4>
-            {prominent && (
-              <Badge variant="default" className="text-[11px] px-2 py-0">
-                Individuell geplant
-              </Badge>
-            )}
+            <Badge variant="default" className="text-[11px] px-2 py-0">
+              {isAddon ? "Individuell möglich" : "Individuell geplant"}
+            </Badge>
           </div>
         )}
         <p className="text-sm text-text-light dark:text-darkmode-text-light">
@@ -118,23 +105,17 @@ export function CustomRequestForm({ productTitle, isAddon = false, embedded = fa
         />
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 pt-1">
-        <Button
-          type="button"
-          size="lg"
-          className="w-full sm:w-auto sm:min-w-[17rem] shrink-0"
-          onClick={() => {
-            window.location.href = mailto;
-          }}
-        >
-          <Mail className="h-4 w-4 shrink-0" />
-          <span className="whitespace-nowrap">Individuelle Anfrage vorbereiten</span>
-        </Button>
-        <Button type="button" variant="outline" size="lg" onClick={handleCopy} className="whitespace-nowrap shrink-0">
-          {copied ? <Check className="h-4 w-4 shrink-0" /> : <Copy className="h-4 w-4 shrink-0" />}
-          {copied ? "Kopiert" : "Text kopieren"}
-        </Button>
-      </div>
+      <Button
+        type="button"
+        size="lg"
+        className="w-full sm:w-auto gap-2"
+        onClick={() => {
+          window.location.href = mailto;
+        }}
+      >
+        <Mail className="h-4 w-4 shrink-0" />
+        <span className="whitespace-nowrap">Individuelle Anfrage senden</span>
+      </Button>
     </div>
   );
 }

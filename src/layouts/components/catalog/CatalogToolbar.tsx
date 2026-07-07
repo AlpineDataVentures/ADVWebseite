@@ -36,9 +36,9 @@ export function CatalogToolbar({
               type="search"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="Produkte durchsuchen…"
+              placeholder="Produkte, Bausteine, Themen durchsuchen…"
               className="h-11 pl-10 bg-light dark:bg-darkmode-light border-border/80"
-              aria-label="Produkte durchsuchen"
+              aria-label="Produktkatalog durchsuchen"
             />
           </div>
         </div>

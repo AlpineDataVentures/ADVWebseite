@@ -12,42 +12,89 @@ import { CartButton } from './CartButton';
 import { CartSheet } from './CartSheet';
 import { Button } from './ui/button';
 import { Boxes } from 'lucide-react';
-import { useConfigStore } from '../stores/configStore';
+import { useConfigStore, rehydrateConfigFromStorage } from '../stores/configStore';
 import {
   getProductById,
-  getProductsForUiCluster,
   products,
   uiClusterLabels,
   type UiClusterId,
 } from '../data/useCases';
 import { getBundleForProduct } from '../data/recommendations';
 import { getDeliverableById, getMinimumPrice } from '../lib/pricing';
+import {
+  buildProductCatalogUrl,
+  getCanonicalProductId,
+} from '../data/productCatalogRouting';
+import {
+  getFeaturedProducts,
+  getProductsForClusterBrowse,
+  sortProductsForCatalog,
+} from '../data/catalogStrategy';
+import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
+import { PRODUCT_CATALOG_URL } from '@/config/products';
 
 type ViewLayout = 'grid' | 'list';
 
-// Kuratierte, vertriebsnahe Einstiege (nicht alphabetisch). Fallback: green-Priorität.
-const FEATURED_IDS = [
-  'management-dashboard',
-  'sales-dashboard',
-  'controlling-via-bi',
-  'data-catalog',
-  'dwh',
-  'datenstrategie',
-  'data-ai-leadership',
-  'automatisierte-rechnungsverarbeitung',
-  'ai-helpdeskassistent',
-];
+interface ProductCatalogAppProps {
+  initialProductId?: string | null;
+}
 
-export default function ProductCatalogApp() {
+function getProductIdFromPathname(pathname: string): string | null {
+  if (!pathname.startsWith(PRODUCT_CATALOG_URL)) return null;
+
+  const remainder = pathname.slice(PRODUCT_CATALOG_URL.length).replace(/^\/+|\/+$/g, '');
+  if (!remainder) return null;
+
+  const [productOrAlias] = remainder.split('/');
+  return getCanonicalProductId(productOrAlias);
+}
+
+function readCatalogQueryParams(): { q: string; view: 'all' | 'deliverables' | null } {
+  if (typeof window === 'undefined') return { q: '', view: null };
+  const params = new URLSearchParams(window.location.search);
+  const viewParam = params.get('view');
+  const view = viewParam === 'all' || viewParam === 'deliverables' ? viewParam : null;
+  return { q: params.get('q') ?? '', view };
+}
+
+function buildCatalogListUrl(options: {
+  q?: string;
+  view?: 'all' | 'deliverables' | null;
+}): string {
+  const params = new URLSearchParams();
+  if (options.q?.trim()) params.set('q', options.q.trim());
+  if (options.view === 'all') params.set('view', 'all');
+  if (options.view === 'deliverables') params.set('view', 'deliverables');
+  const qs = params.toString();
+  return qs ? `${PRODUCT_CATALOG_URL}?${qs}` : PRODUCT_CATALOG_URL;
+}
+
+function readInitialCatalogListState(): {
+  q: string;
+  showAll: boolean;
+  showDeliverables: boolean;
+  viewLayout: ViewLayout;
+} {
+  const { q, view } = readCatalogQueryParams();
+  return {
+    q,
+    showAll: view === 'all',
+    showDeliverables: view === 'deliverables',
+    viewLayout: view === 'all' || view === 'deliverables' ? 'list' : 'grid',
+  };
+}
+
+export default function ProductCatalogApp({ initialProductId = null }: ProductCatalogAppProps) {
+  const initialListState = readInitialCatalogListState();
   const [activeCluster, setActiveCluster] = useState<UiClusterId | null>(null);
-  const [activeProductId, setActiveProductId] = useState<string | null>(null);
+  const [activeProductId, setActiveProductId] = useState<string | null>(initialProductId);
   const [viewMode, setViewMode] = useState<'bundle' | 'configure'>('bundle');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(initialListState.q);
   const [cartOpen, setCartOpen] = useState(false);
   const [domainDrawerOpen, setDomainDrawerOpen] = useState(false);
-  const [viewLayout, setViewLayout] = useState<ViewLayout>('grid');
-  const [showAll, setShowAll] = useState(false);
-  const [showDeliverables, setShowDeliverables] = useState(false);
+  const [viewLayout, setViewLayout] = useState<ViewLayout>(initialListState.viewLayout);
+  const [showAll, setShowAll] = useState(initialListState.showAll);
+  const [showDeliverables, setShowDeliverables] = useState(initialListState.showDeliverables);
 
   const setBundleFromProduct = useConfigStore((state) => state.setBundleFromProduct);
   const setActiveProduct = useConfigStore((state) => state.setActiveProduct);
@@ -57,12 +104,72 @@ export default function ProductCatalogApp() {
     Object.values(state.selectedDeliverables).filter((d) => d.enabled).length
   );
 
+  const navigateToCatalogUrl = (
+    productId: string | null,
+    historyMode: 'push' | 'replace' = 'push',
+    listState?: { q?: string; view?: 'all' | 'deliverables' | null }
+  ) => {
+    if (typeof window === 'undefined') return;
+
+    const nextUrl = productId
+      ? buildProductCatalogUrl(productId)
+      : buildCatalogListUrl({
+          q: listState?.q ?? searchQuery,
+          view: listState?.view ?? (showDeliverables ? 'deliverables' : showAll ? 'all' : null),
+        });
+    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (currentUrl === nextUrl) return;
+
+    const method = historyMode === 'replace' ? 'replaceState' : 'pushState';
+    window.history[method]({}, '', nextUrl);
+  };
+
+  const syncListUrl = (overrides?: {
+    q?: string;
+    view?: 'all' | 'deliverables' | null;
+  }) => {
+    if (typeof window === 'undefined' || activeProductId) return;
+    navigateToCatalogUrl(null, 'replace', overrides);
+  };
+
+  const handleSearchChange = (query: string) => {
+    const hadProduct = Boolean(activeProductId);
+    setSearchQuery(query);
+    if (query.trim() && hadProduct) {
+      setActiveProductId(null);
+      setActiveProduct(null);
+      setViewMode('bundle');
+      navigateToCatalogUrl(null, 'replace', { q: query });
+      return;
+    }
+    syncListUrl({ q: query });
+  };
+
+  const openProductFromUrl = (productId: string | null) => {
+    if (!productId) {
+      setActiveProductId(null);
+      setActiveProduct(null);
+      setViewMode('bundle');
+      return;
+    }
+
+    setActiveCluster(null);
+    setShowAll(false);
+    setShowDeliverables(false);
+    setActiveProductId(productId);
+    setActiveProduct(productId);
+    setBundleFromProduct(productId);
+    setViewMode('bundle');
+  };
+
   const handleClusterSelect = (cluster: UiClusterId) => {
     setActiveCluster(cluster);
     setShowAll(false);
     setShowDeliverables(false);
     setActiveProductId(null);
+    setActiveProduct(null);
     setViewMode('bundle');
+    navigateToCatalogUrl(null);
   };
 
   const handleShowAll = () => {
@@ -70,8 +177,10 @@ export default function ProductCatalogApp() {
     setShowAll(true);
     setShowDeliverables(false);
     setActiveProductId(null);
+    setActiveProduct(null);
     setViewMode('bundle');
-    setViewLayout('list'); // „Alle Produkte“ startet in Listenansicht
+    setViewLayout('list');
+    navigateToCatalogUrl(null, 'push', { view: 'all' });
   };
 
   const handleShowDeliverables = () => {
@@ -79,14 +188,18 @@ export default function ProductCatalogApp() {
     setShowAll(false);
     setShowDeliverables(true);
     setActiveProductId(null);
+    setActiveProduct(null);
     setViewMode('bundle');
-    setViewLayout('list'); // „Alle Produktbausteine“ startet in Listenansicht
+    setViewLayout('list');
+    navigateToCatalogUrl(null, 'push', { view: 'deliverables' });
   };
 
   const handleConfigureDeliverable = (deliverableId: string) => {
     toggleDeliverable(deliverableId, true);
     setActiveProductId(null);
+    setActiveProduct(null);
     setViewMode('configure');
+    navigateToCatalogUrl(null);
     setTimeout(() => {
       const panel = document.querySelector('[data-catalog-main]');
       if (panel) panel.scrollTop = 0;
@@ -95,11 +208,8 @@ export default function ProductCatalogApp() {
 
   const handleProductSelect = (productId: string) => {
     if (!productId) return;
-    setShowDeliverables(false);
-    setActiveProductId(productId);
-    setActiveProduct(productId);
-    setBundleFromProduct(productId);
-    setViewMode('bundle');
+    openProductFromUrl(productId);
+    navigateToCatalogUrl(productId);
 
     setTimeout(() => {
       const panel = document.querySelector('[data-catalog-main]');
@@ -125,6 +235,7 @@ export default function ProductCatalogApp() {
     } else if (activeProductId) {
       setActiveProductId(null);
       setActiveProduct(null);
+      navigateToCatalogUrl(null);
     }
   };
 
@@ -132,6 +243,10 @@ export default function ProductCatalogApp() {
     setViewMode('configure');
     setCartOpen(false);
   };
+
+  useEffect(() => {
+    rehydrateConfigFromStorage();
+  }, []);
 
   useEffect(() => {
     if (activeProductId && process.env.NODE_ENV === 'development') {
@@ -142,41 +257,84 @@ export default function ProductCatalogApp() {
     }
   }, [activeProductId]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const productIdFromUrl = getProductIdFromPathname(window.location.pathname) ?? initialProductId;
+    const { q, view } = readCatalogQueryParams();
+
+    if (productIdFromUrl) {
+      openProductFromUrl(productIdFromUrl);
+    } else {
+      if (q) setSearchQuery(q);
+      if (view === 'all') {
+        setShowAll(true);
+        setShowDeliverables(false);
+        setViewLayout('list');
+      } else if (view === 'deliverables') {
+        setShowDeliverables(true);
+        setShowAll(false);
+        setViewLayout('list');
+      }
+    }
+  }, [initialProductId]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handlePopState = () => {
+      const productIdFromUrl = getProductIdFromPathname(window.location.pathname);
+      const { q, view } = readCatalogQueryParams();
+
+      if (productIdFromUrl) {
+        openProductFromUrl(productIdFromUrl);
+        return;
+      }
+
+      openProductFromUrl(null);
+      setSearchQuery(q);
+      setShowAll(view === 'all');
+      setShowDeliverables(view === 'deliverables');
+      if (view === 'all' || view === 'deliverables') setViewLayout('list');
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const activeProduct = activeProductId ? getProductById(activeProductId) : null;
 
-  const filteredProducts = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
+  const searchResults = useMemo(() => {
+    const query = searchQuery.trim();
+    if (!query) return null;
 
-    let pool = activeCluster
-      ? getProductsForUiCluster(activeCluster)
-      : products.filter((uc) => uc.priority === 'green');
-
-    if (query) {
-      pool = (activeCluster ? getProductsForUiCluster(activeCluster) : products).filter((uc) =>
-        uc.title.toLowerCase().includes(query) ||
-        uc.short.toLowerCase().includes(query) ||
-        uc.tags.intent.some((intent) => intent.toLowerCase().includes(query))
-      );
-    }
-
-    // Startansicht (ohne Domäne/Suche/„Alle Produkte“): kuratierte, vertriebsnahe Einstiege.
-    if (!activeCluster && !query && !showAll) {
-      const featured = FEATURED_IDS
-        .map((id) => products.find((uc) => uc.id === id))
-        .filter((uc): uc is NonNullable<typeof uc> => Boolean(uc));
-      // Fallback, falls IDs fehlen: mit green-Priorität auffüllen.
-      if (featured.length >= 6) return featured;
-      const fallback = products.filter((uc) => uc.priority === 'green');
-      return [...featured, ...fallback.filter((uc) => !FEATURED_IDS.includes(uc.id))].slice(0, 9);
-    }
-
-    return [...pool].sort((a, b) => {
-      const aPriority = a.priority === 'green' ? 1 : 0;
-      const bPriority = b.priority === 'green' ? 1 : 0;
-      if (aPriority !== bPriority) return bPriority - aPriority;
-      return a.title.localeCompare(b.title, 'de');
-    });
+    const pool = showAll ? products : activeCluster ? getProductsForClusterBrowse(activeCluster) : products;
+    return searchCatalog(query, pool);
   }, [activeCluster, searchQuery, showAll]);
+
+  const filteredProducts = useMemo(() => {
+    const query = searchQuery.trim();
+
+    if (query && searchResults) {
+      return [...searchResults.products, ...searchResults.productsViaDeliverable];
+    }
+
+    if (showAll) {
+      return sortProductsForCatalog(products);
+    }
+
+    if (activeCluster) {
+      return getProductsForClusterBrowse(activeCluster);
+    }
+
+    return getFeaturedProducts(products);
+  }, [activeCluster, searchQuery, showAll, searchResults]);
+
+  const filteredDeliverables = useMemo(() => {
+    const query = searchQuery.trim();
+    if (!query) return null;
+    return searchDeliverables(query);
+  }, [searchQuery]);
 
   // "ab"-Preis je Produkt = günstigster Baustein im empfohlenen Set.
   const fromPriceById = useMemo(() => {
@@ -202,7 +360,12 @@ export default function ProductCatalogApp() {
 
   const tileSubtitle = useMemo(() => {
     if (searchQuery.trim()) {
-      return `Treffer für „${searchQuery.trim()}“`;
+      const deliverableCount = searchResults?.deliverables.length ?? 0;
+      const extra =
+        deliverableCount > 0
+          ? ` · ${deliverableCount} passende ${deliverableCount === 1 ? 'Baustein' : 'Bausteine'}`
+          : '';
+      return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} für „${searchQuery.trim()}“${extra}`;
     }
     if (activeCluster) {
       return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} in diesem Bereich`;
@@ -210,7 +373,7 @@ export default function ProductCatalogApp() {
     if (showAll) {
       return `${filteredProducts.length} Produkte insgesamt`;
     }
-    return 'Wählen Sie „Alle Domänen“ oder „Alle Produkte“, um den Katalog zu durchsuchen.';
+    return 'Wählen Sie „Alle Domänen“ oder „Alle Produkte“, um den gesamten Katalog zu durchsuchen.';
   }, [activeCluster, searchQuery, showAll, filteredProducts.length]);
 
   const renderContent = () => {
@@ -219,6 +382,7 @@ export default function ProductCatalogApp() {
     }
 
     if (!activeProduct && showDeliverables) {
+      const deliverableItems = filteredDeliverables ?? undefined;
       return (
         <div className="space-y-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -227,12 +391,21 @@ export default function ProductCatalogApp() {
                 Alle Produktbausteine
               </h2>
               <p className="text-base text-text-light dark:text-darkmode-text-light max-w-2xl leading-relaxed">
-                Kauf- und konfigurierbare Leistungen. Direkt konfigurieren und zur Anfrage hinzufügen.
+                Kauf- und konfigurierbare Leistungen – einzeln auswählbar, direkt zur Konfiguration und Anfrage.
               </p>
             </div>
             <ViewToggle value={viewLayout} onChange={setViewLayout} />
           </div>
-          <DeliverableListView layout={viewLayout} onConfigure={handleConfigureDeliverable} />
+          <DeliverableListView
+            layout={viewLayout}
+            onConfigure={handleConfigureDeliverable}
+            items={deliverableItems}
+            emptyMessage={
+              searchQuery.trim()
+                ? `Keine Bausteine für „${searchQuery.trim()}“`
+                : 'Keine Produktbausteine gefunden'
+            }
+          />
         </div>
       );
     }
@@ -271,9 +444,27 @@ export default function ProductCatalogApp() {
               />
             )}
 
+            {searchQuery.trim() && searchResults && searchResults.deliverables.length > 0 && (
+              <div className="space-y-4 pt-4 border-t border-border">
+                <div className="space-y-1">
+                  <h3 className="text-lg font-semibold text-text dark:text-darkmode-text">
+                    Passende Produktbausteine
+                  </h3>
+                  <p className="text-sm text-text-light dark:text-darkmode-text-light">
+                    Direkt konfigurieren – ohne ein Produkt zu öffnen.
+                  </p>
+                </div>
+                <DeliverableListView
+                  layout="list"
+                  onConfigure={handleConfigureDeliverable}
+                  items={searchResults.deliverables}
+                />
+              </div>
+            )}
+
             {showIntro && (
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Button variant="default" size="lg" onClick={handleShowAll}>
+                <Button variant="outline" size="lg" onClick={handleShowAll}>
                   Alle Produkte ansehen
                 </Button>
                 <Button variant="outline" size="lg" onClick={handleShowDeliverables}>
@@ -306,7 +497,7 @@ export default function ProductCatalogApp() {
     <div className="min-h-screen flex flex-col bg-body dark:bg-darkmode-body text-text dark:text-darkmode-text">
       <CatalogToolbar
         searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
+        onSearchChange={handleSearchChange}
         activeCluster={activeCluster}
         onOpenDomains={() => setDomainDrawerOpen(true)}
       />

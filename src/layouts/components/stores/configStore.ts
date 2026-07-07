@@ -28,7 +28,7 @@ interface ConfigState {
   selectProduct: (id: string) => void;
   deselectProduct: (id: string) => void;
   setActiveProduct: (id: string | null) => void;
-  setBundleFromProduct: (productId: string) => void;
+  setBundleFromProduct: (productId: string, options?: { force?: boolean; resetSelection?: boolean }) => void;
   setWizardStep: (step: 1 | 2) => void;
   toggleDeliverable: (id: string, enabled: boolean) => void;
   updateDeliverableParam: (id: string, key: string, value: string | number) => void;
@@ -141,13 +141,18 @@ function saveToStorage(state: ConfigState) {
   }
 }
 
-export const useConfigStore = create<ConfigState>((set, get) => {
-  // Initial load
+/** Nach Client-Mount laden, damit SSR/Hydration nicht von localStorage abweicht. */
+export function rehydrateConfigFromStorage(): void {
+  if (typeof window === 'undefined') return;
   const loaded = loadFromStorage();
-  const initial = { ...initialState, ...loaded };
+  if (Object.keys(loaded).length > 0) {
+    useConfigStore.setState(loaded);
+  }
+}
 
+export const useConfigStore = create<ConfigState>((set, get) => {
   return {
-    ...initial,
+    ...initialState,
 
     // Getters
     getCart: () => {
@@ -203,29 +208,36 @@ export const useConfigStore = create<ConfigState>((set, get) => {
       });
     },
 
-    setBundleFromProduct: (productId: string) => {
-      // Skip if bundle already loaded for this product
+    setBundleFromProduct: (productId: string, options?: { force?: boolean; resetSelection?: boolean }) => {
       const currentState = get();
-      if (currentState.hasBundleLoadedForProduct === productId) {
+      if (!options?.force && currentState.hasBundleLoadedForProduct === productId) {
         return;
       }
 
-      // Verwende getBundleForProduct aus recommendations.ts
       const recommendations = getBundleForProduct(productId);
       if (recommendations.length === 0) return;
 
       const newDeliverables: Record<string, DeliverableState> = { ...currentState.selectedDeliverables };
 
-      // Registriere alle Recommendations, aber aktiviere NICHTS automatisch.
-      // Der Nutzer muss Deliverables explizit per Toggle auswählen.
-      recommendations.forEach(rec => {
-        if (!newDeliverables[rec.deliverableId]) {
-          newDeliverables[rec.deliverableId] = {
-            enabled: false,
-            params: getDefaultParameters()
-          };
+      recommendations.forEach((rec) => {
+        const deliverable = getDeliverableById(rec.deliverableId);
+        if (!deliverable?.active) return;
+
+        const existing = newDeliverables[rec.deliverableId];
+        let enabled: boolean;
+
+        if (options?.resetSelection) {
+          enabled = Boolean(rec.defaultEnabled);
+        } else if (!existing) {
+          enabled = Boolean(rec.defaultEnabled);
+        } else {
+          enabled = existing.enabled;
         }
-        // Bereits vorhandene Deliverables behalten ihren enabled-Status
+
+        newDeliverables[rec.deliverableId] = {
+          enabled,
+          params: existing?.params ?? getDefaultParameters(),
+        };
       });
 
       const stateUpdate: Partial<ConfigState> = {
@@ -235,7 +247,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
           : [...currentState.selectedProducts, productId],
         activeProduct: productId,
         hasBundleLoadedForProduct: productId,
-        wizardStep: 1 // Reset to step 1 when loading bundle
+        wizardStep: 1,
       };
 
       const newState: ConfigState = { ...currentState, ...stateUpdate };
