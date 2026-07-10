@@ -11,11 +11,11 @@ benefits:
   - title: "Gesetzliche Anforderungen erfüllt"
     text: "Das System prüft Identitäten, gleicht Kundendaten gegen Sanktions-, Watch- und PEP-Listen ab und dokumentiert jeden Schritt prüfungssicher und nachvollziehbar."
   - title: "Schnelleres Onboarding ohne Qualitätsverlust"
-    text: "Identitäten werden digital deutlich schneller verifiziert, als manuelle Prüfprozesse es erlauben. Kunden, die den Prozess wegen langer Wartezeiten abbrechen, werden seltener."
+    text: "Identitäten werden digital deutlich schneller verifiziert als manuelle Prüfprozesse es erlauben. Kunden, die den Prozess wegen langer Wartezeiten abbrechen, werden seltener."
   - title: "Laufende Überwachung ohne manuellen Aufwand"
-    text: "KYC endet nicht mit der Registrierung. Bestandskundendaten werden kontinuierlich überwacht und bei Auffälligkeiten automatisch eskaliert."
+    text: "KYC endet nicht mit der Registrierung. Bestandskundendaten werden kontinuierlich überprüft und bei Auffälligkeiten automatisch eskaliert."
   - title: "DSGVO-konform von Anfang an"
-    text: "KYC-Prozesse verarbeiten sensible personenbezogene Daten. Das System wird so aufgebaut dass Datenspeicherung, Zugriffsrechte und Löschfristen den Anforderungen der DSGVO entsprechen."
+    text: "KYC-Prozesse verarbeiten sensible personenbezogene Daten. Das System wird so aufgebaut, dass Datenspeicherung, Zugriffsrechte und Löschfristen den Anforderungen der DSGVO entsprechen."
 contact:
   author_id: "julian-koller"
   expertise: "Julian bringt über 6 Jahre Erfahrung in Business Intelligence und Data Science mit. Er macht aus komplexen Datenmodellen Entscheidungsgrundlagen die echte Menschen verstehen und im Alltag nutzen."
@@ -29,14 +29,14 @@ collaboration_steps:
   - title: "Automatisierte Identifikation einrichten"
     text: "Ausweisdokumente werden automatisch eingelesen, relevante Daten extrahiert und gegen Sanktions- und Watchlisten abgeglichen."
   - title: "Laufende Überwachung aufsetzen"
-    text: "Bestandskundendaten werden in regelmäßigen Abständen automatisch geprüft mit definierten Eskalationspfaden wenn eine Prüfung auffällig wird."
+    text: "Bestandskundendaten werden in regelmäßigen Abständen automatisch geprüft mit definierten Eskalationspfaden, wenn eine Prüfung auffällig wird."
   - title: "Übergabe und Dokumentation"
-    text: "Das Compliance-Team wird eingewiesen und erhält eine vollständige Dokumentation — damit der Prozess intern betrieben und bei Prüfungen nachgewiesen werden kann."
+    text: "Das Compliance-Team wird eingewiesen und erhält eine vollständige Dokumentation, damit der Prozess intern betrieben und bei Prüfungen nachgewiesen werden kann."
 delivery:
   technologies:
     - "Python"
     - "Machine Learning"
-    - "Shop-Anbindung"
+    - "CRM-Anbindung"
   deliverables:
     - "Automatisierter KYC-Prozess"
     - "Dokumentation"
@@ -47,7 +47,7 @@ related_products:
   - "dsgvo-compliance"
   - "nis2"
 tags:
-  - "Dynamic Pricing"
+  - "Know Your Customer Pricing"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
 final_cta_text: "Beantworten Sie ein paar kurze Fragen, wir zeigen Ihnen direkt, was das Projekt kosten würde und wie lange es dauert"
 final_cta_button_label: "Zum Produkt-Katalog"

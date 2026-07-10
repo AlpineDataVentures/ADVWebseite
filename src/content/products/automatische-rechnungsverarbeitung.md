@@ -2,14 +2,14 @@
 title: "Automatische Rechnungsverarbeitung"
 eyebrow: "Produkt"
 meta_title: "Automatische Rechnungsverarbeitung"
-description: "Rechnungen manuell abtippen, prüfen und weiterleiten kostet Zeit und jede Eingabe ist eine potenzielle Fehlerquelle. Ab etwa 50 bis 100 Eingangsrechnungen pro Monat rechnet sich eine automatisierte Lösung. Der Prozess liest Rechnungsdaten automatisch aus - inklusive elektronischer Formate wie XRechnung, die seit Januar 2025 im B2B-Bereich Pflicht sind - gleicht sie gegen Bestellungen ab und übergibt sie direkt ans Buchhaltungssystem, egal ob ERP, DATEV oder DMS."
+description: "Rechnungen manuell abtippen, prüfen und weiterleiten kostet Zeit. Dazu kommt, dass jede manuelle Eingabe eine potenzielle Fehlerquelle birgt. Ab etwa 50 bis 100 Eingangsrechnungen pro Monat rechnet sich eine automatisierte Lösung. Der Prozess liest Rechnungsdaten automatisch aus - inklusive elektronischer Formate wie XRechnung, die seit Januar 2025 im B2B-Bereich Pflicht sind - gleicht sie gegen Bestellungen ab und übergibt sie direkt ans Buchhaltungssystem, egal ob ERP, DATEV oder DMS."
 highlight_text: "Ab etwa 50 bis 100 Eingangsrechnungen pro Monat"
 image: "/images/products/automatische-rechnungsverarbeitung.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
 customer_value_title: "Ihr Mehrwert"
 benefits:
   - title: "Weniger Fehler bei der Datenerfassung"
-    text: "Falsch abgetippte Beträge, vertauschte IBANs, übersehene Positionen — manuelle Eingaben sind fehleranfällig. Der Prozess überträgt Rechnungsdaten direkt und ohne Umweg über eine Tastatur."
+    text: "Falsch abgetippte Beträge, vertauschte IBANs, übersehene Positionen — manuelle Eingaben sind fehleranfällig. Der Prozess überträgt Rechnungsdaten direkt und ohne Umweg über eine manuelle Eingabe."
   - title: "Transparenz über den gesamten Prozess"
     text: "Jede Rechnung ist jederzeit nachverfolgbar: wo sie gerade steht, wer sie freigegeben hat und wann sie gebucht wurde."
   - title: "Skontofristen werden eingehalten"
@@ -34,7 +34,7 @@ collaboration_steps:
     text: "Die Buchhaltung wird eingewiesen und kann den Prozess danach selbst betreiben, inklusive Monitoring der Erkennungsqualität und Behandlung von Ausnahmen."
 delivery:
   technologies:
-    - "OCR"
+    - "Optische Zeichenerkennung"
     - "Python"
     - "ERP-Anbindung"
   deliverables:
@@ -44,8 +44,8 @@ delivery:
   operations:
     - "Durch Ihre Buchhaltung"
 related_products:
-  - "management-dashboard"
-  - "bestelleingangsbearbeitung"
+  - "automated-order-intake"
+  - "dynamic-pricing"
 tags:
   - "Rechnungsverarbeitung"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
