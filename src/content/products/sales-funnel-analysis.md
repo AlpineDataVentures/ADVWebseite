@@ -2,7 +2,7 @@
 title: "Sales Funnel Analyse"
 eyebrow: "Produkt"
 meta_title: "Sales Funnel Analyse"
-description: "Leads kommen rein aber Abschlüsse bleiben aus. Das Problem liegt meist nicht am Produkt, sondern daran, dass Interessenten an einer bestimmten Stelle im Verkaufsprozess abspringen und niemand weiß wo und warum. Eine Sales Funnel Analyse macht den gesamten Verkaufsprozess sichtbar: von der ersten Kontaktaufnahme bis zum Abschluss. Jede Stufe wird gemessen, Conversion Rates verglichen und Schwachstellen identifiziert. Das Ergebnis sind konkrete Maßnahmen die den Umsatz steigern ohne mehr Leads generieren zu müssen."
+description: "Leads kommen rein, aber die Abschlüsse bleiben aus. Das Problem liegt meist nicht am Produkt, sondern daran, dass Interessenten an einer bestimmten Stelle im Verkaufsprozess abspringen und niemand weiß wo und warum. Eine Sales Funnel Analyse macht den gesamten Verkaufsprozess sichtbar: von der ersten Kontaktaufnahme bis zum Abschluss. Jede Stufe wird gemessen, Conversion Rates verglichen und Schwachstellen identifiziert. Das Ergebnis sind konkrete Maßnahmen, die den Umsatz steigern ohne mehr Leads generieren zu müssen."
 highlight_text: "Das Problem liegt meist nicht am Produkt, sondern daran, dass Interessenten an einer bestimmten Stelle im Verkaufsprozess abspringen"
 image: "/images/products/sales-funnel-analysis.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
@@ -11,9 +11,9 @@ benefits:
   - title: "Klarheit, wo Interessenten abspringen"
     text: "Jede Stufe des Verkaufsprozesses wird gemessen: wie viele Interessenten kommen rein, wie viele gehen weiter und wo ist der Verlust am größten."
   - title: "Höhere Abschlussquoten ohne mehr Leads"
-    text: "Wenn bekannt ist, wo der Funnel leckt, können gezielte Maßnahmen den Umsatz steigern ohne das Marketingbudget erhöhen zu müssen."
+    text: "Wenn bekannt ist, wo der Funnel leckt, können gezielte Maßnahmen den Umsatz steigern, ohne das Marketingbudget erhöhen zu müssen."
   - title: "Bessere Bewertung der Marketingkanäle"
-    text: "Welcher Kanal bringt die Leads die tatsächlich kaufen? Die Analyse zeigt, welche Quellen wirklich konvertieren und welche nur Volumen ohne Qualität liefern."
+    text: "Welcher Kanal bringt die Leads, die tatsächlich kaufen? Die Analyse zeigt, welche Quellen wirklich konvertieren und welche nur Volumen ohne Qualität liefern."
   - title: "Ein Vertrieb, der gezielter arbeitet"
     text: "Mit klaren Conversion Rates je Stufe weiß der Vertrieb, wo er ansetzen muss und kann seine Zeit auf die Phasen konzentrieren, die den größten Hebel haben."
 contact:
@@ -34,18 +34,17 @@ collaboration_steps:
     text: "Konkrete Maßnahmen werden empfohlen und ein Dashboard eingerichtet, das den Funnel kontinuierlich überwacht, damit Veränderungen sofort sichtbar werden."
 delivery:
   technologies:
-    - "Power BI"
-    - "Qlik"
-    - "Tableau"
+    - "CRM-Datenanalyse"
+    - "Conversion-Tracking je Funnel-Stufe"
+    - "BI-Tool"
   deliverables:
-    - "Analyse"
-    - "Dashboard"
-    - "Maßnahmenkatalog"
+    - "Funnel-Analyse mit Conversion Rates"
+    - "Priorisierter Maßnahmenkatalog"
+    - "Monitoring-Dashboard"
   operations:
     - "Durch Ihren Vertrieb"
 related_products:
   - "churn-prevention"
-  - "management-dashboard"
   - "department-reporting"
 tags:
   - "Business Intelligence"

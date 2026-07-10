@@ -3,15 +3,15 @@ title: "Bereichsreporting"
 eyebrow: "Produkt"
 meta_title: "Department Reporting"
 description: "Ein Management Dashboard gibt der Unternehmensführung einen Top-Level-Überblick. Bereichs-Reports gehen eine Ebene tiefer: Jede Abteilung bekommt einen eigenen Report, der genau die Kennzahlen zeigt, die für ihre Arbeit relevant sind. Der Vertrieb sieht seine Pipeline und Abschlussquoten, die Produktion ihre Auslastung und Ausschussrate, der Einkauf seine Lieferantenperformance. Reports laufen automatisch und sind jederzeit aktuell ohne manuelles Zusammenstellen."
-highlight_text: "Jede Abteilung bekommt einen eigenen Report der genau die Kennzahlen zeigt die für ihre Arbeit relevant sind."
+highlight_text: "Jede Abteilung bekommt einen eigenen Report, der genau die Kennzahlen zeigt, die für ihre Arbeit relevant sind"
 image: "/images/products/department-reporting.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
 customer_value_title: "Ihr Mehrwert"
 benefits:
   - title: "Relevante Kennzahlen für jeden Bereich"
-    text: "Vertrieb, Produktion, Einkauf, Logistik: jede Abteilung bekommt einen Report der auf ihre spezifischen Kennzahlen und Fragestellungen zugeschnitten ist."
+    text: "Vertrieb, Produktion, Einkauf: jede Abteilung bekommt einen Report, der auf ihre spezifischen Kennzahlen und Fragestellungen zugeschnitten ist."
   - title: "Kein manuelles Standard-Reporting mehr"
-    text: "Reports die bisher manuell in Excel zusammengestellt wurden laufen künftig automatisch. Das spart Zeit und eliminiert Fehlerquellen durch manuelle Übertragung."
+    text: "Reports, die bisher händisch z. B. in Excel zusammengestellt wurden, laufen künftig automatisch. Das spart Zeit und eliminiert Fehlerquellen durch manuelle Übertragung."
   - title: "Bereichsleiter, die eigenständig steuern können"
     text: "Alle Führungskräfte sehen dieselben Zahlen zur selben Zeit. Diskussionen über unterschiedliche Datenstände entfallen, das Meeting kann sich auf Entscheidungen konzentrieren."
   - title: "Einheitliche Datenbasis für alle Bereiche"
@@ -25,7 +25,7 @@ contact:
 collaboration_title: "Unsere Zusammenarbeit"
 collaboration_steps:
   - title: "Kennzahlen je Bereich festlegen"
-    text: "Gemeinsam mit den Bereichsleitern wird festgelegt welche Kennzahlen wirklich steuerungsrelevant sind und wie sie definiert werden."
+    text: "Gemeinsam mit den Bereichsleitern wird festgelegt, welche Kennzahlen wirklich steuerungsrelevant sind und wie sie definiert werden."
   - title: "Datenquellen anbinden"
     text: "Die relevanten Systeme werden angebunden und die Daten automatisch aufbereitet, damit das Dashboard ohne manuellen Aufwand immer den aktuellen Stand zeigt."
   - title: "Reports aufbauen und abstimmen"
@@ -34,17 +34,16 @@ collaboration_steps:
     text: "Experten im jeweiligen Fachbereich werden eingewiesen und können Reports danach selbst anpassen und erweitern."
 delivery:
   technologies:
-    - "Power BI"
-    - "Qlik"
-    - "Tableau"
+    - "Workshops mit Fachbereichen"
+    - "Datenmodellierung & Systemanbindung"
+    - "BI-Tool"
   deliverables:
-    - "Dashboard(s)"
-    - "Datenmodell"
+    - "Bereichsreport je Abteilung"
+    - "Gemeinsames Datenmodell"
     - "Dokumentation"
   operations:
     - "Durch Ihre Fachbereiche"
 related_products:
-  - "business-intelligence"
   - "management-dashboard"
   - "data-warehouse"
 tags:
