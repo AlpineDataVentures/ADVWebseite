@@ -39,24 +39,11 @@ const insightUseCases = [
     text: "Das gesamte Unternehmen inkl. Fachbereiche im Blick für das Management",
     links: [
       { label: "Management Dashboard", product_slug: "management-dashboard" },
-      { label: "Frühwarnsysteme" },
       { label: "Bereichs-Reporting", product_slug: "department-reporting" },
       { label: "Business Intelligence", product_slug: "business-intelligence" },
     ],
   },
-  {
-    icon: "LuCoins",
-    title: "Finance",
-    text: "Live alle Finanzdaten und zukünftigen Liquiditätsbedarfe verwalten",
-    links: [
-      { label: "Liquiditätsplanung mit BI" },
-      { label: "Deckungsbeitragsrechnung" },
-      { label: "Working Capital Analyse" },
-      { label: "Budget-Controlling" },
-      { label: "Kostenstruktur & Gemeinkosten" },
-      { label: "Investitionscontrolling & CAPEX" },
-    ],
-  },
+
   {
     icon: "FaShop",
     title: "Sales & Marketing",
@@ -66,59 +53,37 @@ const insightUseCases = [
         label: "Customer Lifetime Value (CLV)",
         product_slug: "customer-lifetime-value",
       },
-      { label: "Lead Scoring" },
       { label: "Sales Funnel Analyse", product_slug: "sales-funnel-analysis" },
-      { label: "Sales Dashboard" },
       { label: "Churn Prevention", product_slug: "churn-prevention" },
-      { label: "Data Driven Marketing" },
-      { label: "Reklamationsanalyse" },
-      { label: "Sales Forecast" },
     ],
   },
   {
     icon: "MdOutlineShoppingCartCheckout",
     title: "Procurement",
     text: "Alle Insights für Einkäufer, um langfristig Einkaufsvorteile zu nutzen",
-    links: [
-      { label: "Bedarfsanalyse", product_slug: "needs-assessment" },
-      { label: "Preisentwicklungsanalyse" },
-      { label: "Bestellzeitpunkt-Forecast" },
-      { label: "Lieferantenscoring" },
-    ],
+    links: [{ label: "Bedarfsanalyse", product_slug: "needs-assessment" }],
   },
   {
     icon: "FaTruckFast",
     title: "Produktion & Logistik",
     text: "Reduzieren Sie Ihren größten Kostenfaktor durch smarte Metriken und Live-Daten",
     links: [
-      { label: "Predictive Maintenance" },
-      { label: "Routenplanung" },
-      { label: "Durchlaufzeit-Analyse" },
+      {
+        label: "Predictive Maintenance",
+        product_slug: "predictive-maintenance",
+      },
       {
         label: "Produktionsplanung",
         product_slug: "automated-production-planning",
       },
-      { label: "Lagerplatzoptimierung" },
       {
         label: "OEE-Analyse (Anlageneffektivität)",
         product_slug: "oee-analysis",
       },
-      { label: "Ausschuss- und Qualitätscontrolling" },
       {
         label: "Digitale Lagerplatzverwaltung",
         product_slug: "digital-warehouse-management",
       },
-    ],
-  },
-  {
-    icon: "FaRegCirclePlay",
-    title: "IT & Operations",
-    text: "Machen Sie Ihre Prozesse & Organisation in Daten sichtbar",
-    links: [
-      { label: "ITSM-Analytics" },
-      { label: "Cybersicherheit-Dashboard" },
-      { label: "Cloud-Cost-Observability" },
-      { label: "Prozesseffizienz-Analyse" },
     ],
   },
 ];
