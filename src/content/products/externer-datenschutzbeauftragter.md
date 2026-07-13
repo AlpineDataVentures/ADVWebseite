@@ -2,7 +2,7 @@
 title: "Externer Datenschutzbeauftragter"
 eyebrow: "Produkt"
 meta_title: "Externer Datenschutzbeauftragter"
-description: "Die DSGVO verpflichtet viele Unternehmen zur Benennung eines Datenschutzbeauftragten (DSB), z. B. ab 20 Mitarbeitern, die regelmäßig personenbezogene Daten verarbeiten oder bei besonders sensiblen Daten. Wir übernehmen diese Funktion extern: TÜV-zertifiziert, offiziell benannt, rechtssicher dokumentiert. Als externer DSB sind wir Ansprechpartner für Mitarbeiter und Behörden, halten die Dokumentation aktuell und binden uns frühzeitig ein wenn neue Prozesse datenschutzrelevant sind. Wer die datenschutzrechtliche Basis noch aufbauen muss findet den richtigen Einstieg in unserer [DSGVO-Compliance Prüfung]."
+description: "Die Datenschutzgrundverordnung (DSGVO) verpflichtet viele Unternehmen zur Benennung eines Datenschutzbeauftragten (DSB), z. B. ab 20 Mitarbeitern, die regelmäßig personenbezogene Daten verarbeiten oder bei besonders sensiblen Daten. Wir übernehmen diese Funktion extern: TÜV-zertifiziert, offiziell benannt, rechtssicher dokumentiert. Als externer DSB sind wir Ansprechpartner für Mitarbeiter und Behörden, halten Dokumentationen aktuell und binden uns frühzeitig ein wenn neue Prozesse datenschutzrelevant sind."
 highlight_text:  "TÜV-zertifiziert, offiziell benannt, rechtssicher dokumentiert"
 image: "/images/products/externer-datenschutzbeauftragter.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
@@ -25,11 +25,11 @@ contact:
 collaboration_title: "Unsere Zusammenarbeit"
 collaboration_steps:
   - title: "Einarbeitung"
-    text: "Als Grundlage werden bestehende Dokumentation, laufende Verarbeitungen und offene Punkte vollständig erfasst."
+    text: "Als Grundlage werden bestehende Dokumentationen, laufende Verarbeitungen und offene Punkte vollständig erfasst."
   - title: "Formale Bestellung"
     text: "Entsprechend der Vorgaben der DSGVO wird die Bestellung als externer DSB dokumentiert und der zuständigen Datenschutzbehörde gemeldet."
   - title: "Laufende Betreuung"
-    text: "Erreichbarkeit für Mitarbeiter und Behörden, Aktualisierung der Dokumentation, Begleitung bei neuen Projekten, Schulungen und jährliche Reviews."
+    text: "Als benannter DSB stehen wir Mitarbeitern und Behörden als Ansprechpartner zur Verfügung, halten die Dokumentation aktuell, begleiten neue Projekte datenschutzrechtlich und führen jährliche Reviews durch."
   - title: "Reporting an die Geschäftsführung"
     text: "Regelmäßige Berichte über den aktuellen Datenschutzstand, offene Punkte und Empfehlungen, damit die Geschäftsführung jederzeit informiert ist."
 delivery:
@@ -45,10 +45,8 @@ delivery:
 related_products:
   - "dsgvo-compliance"
   - "isb-isms"
-  - "nis2"
 tags:
   - "Datenschutz"
-  - "DSGVO"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
 final_cta_text: "Beantworten Sie ein paar kurze Fragen, wir zeigen Ihnen direkt, was das Projekt kosten würde und wie lange es dauert"
 final_cta_button_label: "Zum Produkt-Katalog"

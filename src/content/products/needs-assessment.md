@@ -2,8 +2,8 @@
 title: "Materialbedarfsplanung "
 eyebrow: "Produkt"
 meta_title: "Materialbedarfsplanung "
-description: "Zu viel Material auf Lager bindet Kapital und verursacht Lagerkosten. Zu wenig stoppt die Produktion. Beides passiert wenn Bedarfe auf Basis von Erfahrungswerten oder starren Planungszyklen geschätzt werden statt auf Basis der tatsächlichen Datenlage. Eine datengestützte Bedarfsanalyse berechnet auf Basis historischer Verbrauchsdaten, aktueller Auftragslagen und saisonaler Muster automatisch, wie viel von welchem Material zu welchem Zeitpunkt benötigt wird."
-highlight_text: "auf Basis historischer Verbrauchsdaten, aktueller Auftragslagen und saisonaler Muster"
+description: "Zu viel Material auf Lager bindet Kapital und verursacht Lagerkosten, zu wenig Material kann die Produktion verzögern. Beides passiert, wenn Bedarfe auf Basis von Erfahrungswerten oder starren Planungszyklen geschätzt werden anstatt auf Basis der tatsächlichen Datenlage. Eine datengestützte Bedarfsanalyse berechnet unter Verwendung historischer Verbrauchsdaten, aktueller Auftragslagen und saisonaler Muster automatisch, wie viel von welchem Material zu welchem Zeitpunkt benötigt wird."
+highlight_text: "unter Verwendung historischer Verbrauchsdaten, aktueller Auftragslagen und saisonaler Muster"
 image: "/images/products/needs-assessment.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
 customer_value_title: "Ihr Mehrwert"
@@ -11,7 +11,7 @@ benefits:
   - title: "Weniger Kapitalbindung im Lager"
     text: "Materialien werden bedarfsgerecht bestellt statt auf Vorrat. Lagerbestände sinken, ohne dass die Versorgungssicherheit leidet."
   - title: "Keine Produktionsstopps durch fehlende Materialien"
-    text: "Materialengpässe werden frühzeitig erkannt. Der Einkauf hat genug Vorlauf um rechtzeitig nachzubestellen."
+    text: "Materialengpässe werden frühzeitig erkannt. Der Einkauf hat genug Vorlauf, um rechtzeitig nachzubestellen."
   - title: "Einkauf, der gezielt bestellt"
     text: "Statt pauschaler Bestellmengen bekommt der Einkauf konkrete Bedarfsprognosen je Material und Zeitraum als Grundlage für Bestellentscheidungen und Lieferantengespräche."
   - title: "Planungssicherheit für Produktion und Einkauf"
@@ -25,13 +25,13 @@ contact:
 collaboration_title: "Unsere Zusammenarbeit"
 collaboration_steps:
   - title: "Verbrauchsdaten und Planungslogik verstehen"
-    text: "Zu Beginn werden die relevanten Materialien, der aktuelle Planungsprozess sowie die vorhandenen Datenquellen erfasst wie z. B. ERP, Auftragseingang oder manuelle Planung."
+    text: "Zu Beginn werden die relevanten Materialien, der aktuelle Planungsprozess sowie die vorhandenen Datenquellen wie ERP, Auftragseingang oder manuelle Excel Files erfasst."
   - title: "Prognosemodell entwickeln"
     text: "Ein Modell wird entwickelt, das Verbrauchsmuster, Saisonalität und Auftragslagen kombiniert, um Bedarfe je Material und Zeitraum vorherzusagen."
   - title: "Ergebnisse in den Planungsalltag integrieren"
-    text: "Die Bedarfsprognosen werden in ein Dashboard oder direkt ins ERP-System überführt, damit Einkauf und Produktion täglich damit arbeiten können."
+    text: "Die Bedarfsprognosen werden in ein Dashboard oder direkt ins ERP-System überführt, damit Einkauf und Produktion täglich über aktuelle Daten verfügen."
   - title: "Übergabe und laufende Verbesserung"
-    text: "Nach der Übergabe wird das Modell mit neuen Daten aktualisiert, damit die Prognosequalität mit der Zeit besser wird."
+    text: "Nach der Übergabe wird das Modell mit neuen Daten aktualisiert, damit die Prognosequalität über die Zeit besser wird."
 delivery:
   technologies:
     - "Python"
@@ -45,9 +45,9 @@ delivery:
     - "Durch Ihren Einkauf"
 related_products:
   - "predictive-maintenance"
-  - "management-dashboard"
+  - "automated-visual-inspection"
 tags:
-  - "Dynamic Pricing"
+  - "Bedarfsanalyse"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
 final_cta_text: "Beantworten Sie ein paar kurze Fragen, wir zeigen Ihnen direkt, was das Projekt kosten würde und wie lange es dauert"
 final_cta_button_label: "Zum Produkt-Katalog"
