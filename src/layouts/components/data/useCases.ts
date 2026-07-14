@@ -1243,6 +1243,31 @@ const rawProducts: Product[] = [
     ]
   },
   {
+    id: "externer-datenschutzbeauftragter",
+    domain: "risk_compliance",
+    title: "Externer Datenschutzbeauftragter",
+    short:
+      "TÜV-zertifizierter externer Datenschutzbeauftragter als dauerhafter Ansprechpartner – laufende Unterstützung bei Datenschutzfragen im Retainer-Modell, skalierbar nach Unternehmensgröße und Betreuungsbedarf.",
+    portfolio_area: "solutions",
+    solution_cluster: "orientation_prioritization",
+    priority: "green",
+    tags: {
+      intent: ["compliance"],
+      data_scope: "enterprise_wide",
+      complexity: "m",
+      tech_hint: ["governance"]
+    },
+    outputs: [
+      "Laufende Datenschutzberatung",
+      "Ansprechpartner für interne Datenschutzfragen",
+      "Unterstützung bei Betroffenenanfragen",
+      "Prüfung und Begleitung datenschutzrelevanter Prozesse",
+      "Unterstützung bei Dokumentation und organisatorischen Maßnahmen",
+      "Regelmäßige Abstimmung",
+      "Bei Bedarf Eskalation und fachliche Einordnung"
+    ]
+  },
+  {
     id: "isms-isb-bestellung",
     domain: "risk_compliance",
     title: "ISMS & ISB Bestellung",
@@ -1929,6 +1954,21 @@ const curatedProductData: Record<string, { details: NonNullable<Product["details
       typicalResult: "Ein praktikables DSGVO-Setup mit klaren Rollen, Nachweisen und definierten Prozessen.",
       typicalDeliverables: ["Data Governance Starter", "KPI & Daten-Glossar Sprint", "IAM Konzept"],
       bestFor: ["Datenschutzbeauftragte", "Compliance", "Fachbereiche mit personenbezogenen Daten"],
+    },
+  },
+  "externer-datenschutzbeauftragter": {
+    details: {
+      problem:
+        "Viele mittelständische Unternehmen benötigen laufende Datenschutzunterstützung, verfügen intern aber nicht über die nötige Rolle oder Kapazität.",
+      typicalResult:
+        "Ein TÜV-zertifizierter externer Datenschutzbeauftragter steht als dauerhafter Ansprechpartner zur Verfügung und begleitet laufende Datenschutzfragen, Prüfungen und organisatorische Anforderungen.",
+      typicalDeliverables: ["Externer Datenschutzbeauftragter – Retainer"],
+      bestFor: [
+        "Mittelständische Unternehmen",
+        "Unternehmen ohne internen Datenschutzbeauftragten",
+        "Unternehmen mit begrenzten internen Datenschutzressourcen",
+        "Unternehmen mit laufendem Beratungsbedarf",
+      ],
     },
   },
   iam: {

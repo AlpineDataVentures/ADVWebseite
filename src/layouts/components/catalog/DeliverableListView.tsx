@@ -1,5 +1,5 @@
 import { deliverables, type Deliverable } from "../data/deliverables";
-import { getMinimumPrice, formatPrice } from "../lib/pricing";
+import { getMinimumPrice, formatPriceLabel } from "../lib/pricing";
 import { getDeliverableIcon } from "../lib/iconMap";
 import { Button } from "./ui/button";
 import { cn } from "../lib/utils";
@@ -65,7 +65,7 @@ export function DeliverableListView({
               </div>
               {price > 0 && (
                 <p className="mt-4 text-sm text-text-light dark:text-darkmode-text-light">
-                  ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPrice(price)}</span>
+                  ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPriceLabel(price, deliverable.pricePeriod)}</span>
                 </p>
               )}
               <Button type="button" variant="default" className="mt-4 w-full" onClick={() => onConfigure(deliverable.key)}>
@@ -110,7 +110,7 @@ export function DeliverableListView({
               <div className="flex items-center justify-between gap-4 sm:justify-end">
                 {price > 0 && (
                   <span className="text-sm text-text-light dark:text-darkmode-text-light whitespace-nowrap">
-                    ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPrice(price)}</span>
+                    ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPriceLabel(price, deliverable.pricePeriod)}</span>
                   </span>
                 )}
                 <Button

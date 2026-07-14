@@ -240,6 +240,12 @@ export function formatPrice(price: number): string {
   }).format(price);
 }
 
+/** Formatiert Preis mit optionalem Zeitraum-Suffix (z. B. „pro Monat“). */
+export function formatPriceLabel(price: number, period?: string): string {
+  const formatted = formatPrice(price);
+  return period ? `${formatted} ${period}` : formatted;
+}
+
 /**
  * Gibt ein Deliverable nach ID zurück
  */

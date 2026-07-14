@@ -21,6 +21,8 @@ interface CustomRequestFormProps {
   embedded?: boolean;
   /** true = hervorgehobene Darstellung für reine Custom-Produkte. */
   prominent?: boolean;
+  /** Optionaler Button-Text für die E-Mail-Anfrage. */
+  submitButtonLabel?: string;
 }
 
 const emptyFields: CustomInquiryFields = {
@@ -31,7 +33,7 @@ const emptyFields: CustomInquiryFields = {
   notes: "",
 };
 
-export function CustomRequestForm({ productTitle, isAddon = false, embedded = false, prominent = false }: CustomRequestFormProps) {
+export function CustomRequestForm({ productTitle, isAddon = false, embedded = false, prominent = false, submitButtonLabel }: CustomRequestFormProps) {
   const [fields, setFields] = useState<CustomInquiryFields>(emptyFields);
 
   const set = (key: keyof CustomInquiryFields) => (
@@ -114,7 +116,7 @@ export function CustomRequestForm({ productTitle, isAddon = false, embedded = fa
         }}
       >
         <Mail className="h-4 w-4 shrink-0" />
-        <span className="whitespace-nowrap">Individuelle Anfrage senden</span>
+        <span className="whitespace-nowrap">{submitButtonLabel ?? "Individuelle Anfrage senden"}</span>
       </Button>
     </div>
   );

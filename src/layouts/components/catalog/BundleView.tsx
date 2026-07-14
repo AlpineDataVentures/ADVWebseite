@@ -5,7 +5,7 @@ import { useConfigStore } from "../stores/configStore";
 import { getProductById } from "../data/useCases";
 import { getDeliverableById } from "../data/deliverables";
 import { getBundleForProduct } from "../data/recommendations";
-import { getRequestMode } from "../data/requestModes";
+import { getRequestMode, getHybridInquiryCopy } from "../data/requestModes";
 import { getProductDetailViewModel } from "../data/productDetailMeta";
 import { DeliverableCard } from "./DeliverableCard";
 import { CustomRequestForm } from "./CustomRequestForm";
@@ -96,6 +96,7 @@ export function BundleView({ productId, onNext, onBack, viewLayout, onViewLayout
   }
 
   const mode = getRequestMode(product.id);
+  const hybridInquiryCopy = getHybridInquiryCopy(product.id);
   const recommendations = getBundleForProduct(product.id);
   const activeCount = recommendations.filter((rec) => getDeliverableById(rec.deliverableId)?.active).length;
   const details = getProductDetailViewModel(product);
@@ -292,8 +293,8 @@ export function BundleView({ productId, onNext, onBack, viewLayout, onViewLayout
                   </h4>
                 </div>
                 <p className="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed">
-                  Die Bausteine oben sind unser Standardangebot. Wenn Ihr Bedarf darüber hinausgeht, beschreiben Sie
-                  ihn – wir erstellen ein passendes Angebot.
+                  {hybridInquiryCopy?.hintText ??
+                    "Die Bausteine oben sind unser Standardangebot. Wenn Ihr Bedarf darüber hinausgeht, beschreiben Sie ihn – wir erstellen ein passendes Angebot."}
                 </p>
                 <Accordion type="single" className="space-y-0">
                   <AccordionItem
@@ -303,11 +304,18 @@ export function BundleView({ productId, onNext, onBack, viewLayout, onViewLayout
                     <AccordionTrigger className="py-3.5 px-4 hover:no-underline hover:bg-green-500/5 group">
                       <span className="flex items-center gap-2 text-sm font-semibold text-text dark:text-darkmode-text min-w-0">
                         <Mail className="h-4 w-4 text-green-700 dark:text-green-400 shrink-0" />
-                        <span className="whitespace-nowrap">Individuelle Anfrage senden</span>
+                        <span className="whitespace-nowrap">
+                          {hybridInquiryCopy?.accordionTriggerLabel ?? "Individuelle Anfrage senden"}
+                        </span>
                       </span>
                     </AccordionTrigger>
                     <AccordionContent className="px-4 pb-4">
-                      <CustomRequestForm productTitle={product.title} isAddon embedded />
+                      <CustomRequestForm
+                        productTitle={product.title}
+                        isAddon
+                        embedded
+                        submitButtonLabel={hybridInquiryCopy?.submitButtonLabel}
+                      />
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>

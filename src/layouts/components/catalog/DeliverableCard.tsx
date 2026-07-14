@@ -7,7 +7,7 @@ import { Separator } from "./ui/separator";
 import { CheckCircle2, XCircle } from "lucide-react";
 import type { Deliverable } from "../data/deliverables";
 import type { Recommendation } from "../data/recommendations";
-import { getMinimumPrice, formatPrice } from "../lib/pricing";
+import { getMinimumPrice, formatPriceLabel } from "../lib/pricing";
 import { cn } from "../lib/utils";
 import { getDeliverableIcon } from "../lib/iconMap";
 
@@ -48,7 +48,7 @@ export function DeliverableCard({
     <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
       {minPrice > 0 && (
         <span className="text-xs sm:text-sm text-text-light dark:text-darkmode-text-light whitespace-nowrap tabular-nums">
-          ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPrice(minPrice)}</span>
+          ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPriceLabel(minPrice, deliverable.pricePeriod)}</span>
         </span>
       )}
       <div className="flex items-center gap-1.5">

@@ -12,6 +12,26 @@
 
 export type RequestMode = "standard" | "custom" | "hybrid";
 
+/** Optionale produktspezifische Texte für Hybrid-Anfragen */
+export type HybridInquiryCopy = {
+  hintText?: string;
+  accordionTriggerLabel?: string;
+  submitButtonLabel?: string;
+};
+
+const hybridInquiryCopyByProductId: Record<string, HybridInquiryCopy> = {
+  "externer-datenschutzbeauftragter": {
+    hintText:
+      "Der monatliche Betreuungsumfang richtet sich nach Unternehmensgröße, Risikoprofil und gewünschter Betreuungsintensität. Gerne erstellen wir Ihnen ein individuelles Angebot.",
+    accordionTriggerLabel: "Individuelle Anfrage per E-Mail senden",
+    submitButtonLabel: "Individuelle Anfrage per E-Mail senden",
+  },
+};
+
+export function getHybridInquiryCopy(productId: string): HybridInquiryCopy | undefined {
+  return hybridInquiryCopyByProductId[productId];
+}
+
 const requestModeById: Record<string, RequestMode> = {
   // ── Strategie & Leadership ──
   "datenstrategie": "hybrid",
@@ -35,6 +55,7 @@ const requestModeById: Record<string, RequestMode> = {
 
   // ── Compliance & Security ──
   "dsgvo-dsb": "hybrid",
+  "externer-datenschutzbeauftragter": "hybrid",
   "iam": "hybrid",
   "nis2": "hybrid",
   "isms-isb-bestellung": "hybrid",

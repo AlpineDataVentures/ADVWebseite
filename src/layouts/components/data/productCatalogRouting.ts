@@ -16,7 +16,6 @@ export const productCatalogMarketingMap = {
   "data-mesh": "data-mesh-organisation",
   "data-warehouse": "dwh",
   "department-reporting": "management-dashboard",
-  "externer-datenschutzbeauftragter": "dsgvo-dsb",
   "isb-isms": "isms-isb-bestellung",
   "management-dashboard": "management-dashboard",
   "master-data-management": "master-data-management",

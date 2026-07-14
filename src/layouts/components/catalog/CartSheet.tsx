@@ -5,7 +5,7 @@ import { Badge } from "./ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { useConfigStore } from "../stores/configStore";
 import { getCartWithPricesFromSelectedDeliverables, getTotalPriceFromSelectedDeliverables } from "../stores/configStore";
-import { formatPrice } from "../lib/pricing";
+import { formatPrice, formatPriceLabel } from "../lib/pricing";
 import { ShoppingCart, Trash2, ChevronDown } from "lucide-react";
 import { useMemo } from "react";
 import { getParameterByKey } from "../data/parameters";
@@ -157,7 +157,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                               {item.deliverable.name}
                             </h4>
                             <p className="text-xs font-semibold text-text dark:text-darkmode-text mt-0.5">
-                              {formatPrice(item.price)}
+                              {formatPriceLabel(item.price, item.deliverable.pricePeriod)}
                             </p>
                           </div>
                         </div>
@@ -229,7 +229,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                           <Separator className="my-1.5" />
                           <div className="flex justify-between font-semibold">
                             <span>Gesamt</span>
-                            <span>{formatPrice(item.breakdown.total)}</span>
+                            <span>{formatPriceLabel(item.breakdown.total, item.deliverable.pricePeriod)}</span>
                           </div>
                         </div>
                       </AccordionContent>

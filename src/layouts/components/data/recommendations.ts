@@ -717,6 +717,30 @@ const hardOverrides: Record<string, Recommendation[]> = {
     }
   ],
 
+  // Externer Datenschutzbeauftragter (Risk & Compliance)
+  "externer-datenschutzbeauftragter": [
+    {
+      deliverableId: "dsb_retainer",
+      defaultEnabled: true,
+      reason: "Laufende Betreuung durch einen TÜV-zertifizierten externen Datenschutzbeauftragter im monatlichen Retainer"
+    },
+    {
+      deliverableId: "governance_starter",
+      defaultEnabled: false,
+      reason: "Governance-Grundlagen für Datenschutzprozesse und Verantwortlichkeiten"
+    },
+    {
+      deliverableId: "security_access_review",
+      defaultEnabled: false,
+      reason: "Prüfung von Zugriffen auf personenbezogene Daten"
+    },
+    {
+      deliverableId: "privacy_package",
+      defaultEnabled: false,
+      reason: "Ergänzendes Datenschutzpaket bei projektbezogenen DSGVO-Aufgaben (optional)"
+    }
+  ],
+
   // ISMS & ISB Bestellung (Risk & Compliance)
   "isms-isb-bestellung": [
     {

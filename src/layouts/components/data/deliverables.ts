@@ -28,6 +28,8 @@ export interface Deliverable {
     coverage: CoverageTag[];
   };
   estimatedDuration: string;
+  /** Optional: Suffix für Preisanzeige, z. B. „pro Monat“ */
+  pricePeriod?: string;
   deliverablesOutput: string[];
   assumptions: string[];
   outOfScope: string[];
@@ -1541,6 +1543,47 @@ export const deliverables: Deliverable[] = [
       "Dauerhaftes FinOps ohne Monitoring-Baustein"
     ],
     parameters: ["companySize", "speed", "deployment"]
+  },
+  {
+    key: "dsb_retainer",
+    family: "Governance & Culture",
+    name: "Externer Datenschutzbeauftragter – Retainer",
+    shortDescription:
+      "Laufende Betreuung durch einen TÜV-zertifizierten externen Datenschutzbeauftragter auf monatlicher Retainer-Basis – ab ca. 500 € pro Monat, skalierbar nach Unternehmensgröße und Betreuungsintensität.",
+    longDescription:
+      "Ein TÜV-zertifizierter externer Datenschutzbeauftragter begleitet Ihr Unternehmen dauerhaft als Ansprechpartner für Datenschutzfragen. Im monatlichen Retainer sind Beratung, Abstimmung und definiertes Kontingent enthalten – keine einmalige Projektumsetzung, sondern laufende Unterstützung im operativen Datenschutzalltag. Bei Großunternehmen (1000+ MA) oder erhöhtem Bedarf ist eine individuelle Kalkulation erforderlich.",
+    basePrice: 500,
+    active: true,
+    pricePeriod: "pro Monat",
+    tags: {
+      type: ["run"],
+      maturity: ["stabilize", "scale"],
+      impact: ["compliance"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "Laufend (monatlicher Retainer)",
+    deliverablesOutput: [
+      "TÜV-zertifizierter externer Datenschutzbeauftragter",
+      "Laufender Ansprechpartner für Datenschutzfragen",
+      "Definiertes monatliches Beratungskontingent",
+      "Regelmäßige Abstimmung",
+      "Fachliche Unterstützung bei Datenschutzfragen",
+      "Unterstützung bei Betroffenenanfragen",
+      "Begleitung organisatorischer Datenschutzmaßnahmen",
+      "Dokumentierte Handlungsempfehlungen"
+    ],
+    assumptions: [
+      "Benannte interne Ansprechperson",
+      "Zugang zu relevanten Informationen und Prozessen",
+      "Klare Kommunikationswege"
+    ],
+    outOfScope: [
+      "Umfassende Rechtsberatung außerhalb des Datenschutzkontexts",
+      "Unbegrenztes Beratungskontingent",
+      "Vollständige operative Umsetzung aller Maßnahmen",
+      "Zusätzliche Audits oder Großprojekte ohne separate Beauftragung"
+    ],
+    parameters: ["companySize", "dsbCareIntensity", "dsbMonthlyQuota"]
   }
 ];
 

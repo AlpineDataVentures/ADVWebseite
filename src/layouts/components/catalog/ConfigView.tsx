@@ -10,7 +10,7 @@ import { CheckCircle2, XCircle } from "lucide-react";
 import { useConfigStore } from "../stores/configStore";
 import { getDeliverableById } from "../data/deliverables";
 import { getParametersForDeliverable } from "../data/parameters";
-import { calculateDeliverablePrice, formatPrice } from "../lib/pricing";
+import { calculateDeliverablePrice, formatPrice, formatPriceLabel } from "../lib/pricing";
 import type { DeliverableParameters } from "../data/models";
 import { getDeliverableIcon } from "../lib/iconMap";
 import { CatalogFlowSteps } from "./CatalogFlowSteps";
@@ -32,7 +32,9 @@ const parameterHelperText: Record<string, string> = {
   deployment: "On-Premise Installation erfordert vor-Ort Setup und Wartung.",
   securityLevel: "Erweiterte Sicherheit umfasst zusätzliche Compliance-Maßnahmen.",
   trainingParticipants: "Jeder zusätzliche Teilnehmer erhöht den Schulungsaufwand.",
-  reportComplexity: "Komplexere Berichte benötigen mehr Entwicklungszeit."
+  reportComplexity: "Komplexere Berichte benötigen mehr Entwicklungszeit.",
+  dsbCareIntensity: "Bestimmt, wie intensiv der externe Datenschutzbeauftragter Sie begleitet.",
+  dsbMonthlyQuota: "Definiert das monatliche Beratungskontingent im Retainer.",
 };
 
 /**
@@ -121,7 +123,7 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
                   {/* Aktueller Preis (live) */}
                   <div className="text-right shrink-0 ml-4">
                     <p className="font-semibold text-lg text-green-600 dark:text-green-400">
-                      {formatPrice(priceCalculation.total)}
+                      {formatPriceLabel(priceCalculation.total, deliverable.pricePeriod)}
                     </p>
                   </div>
                 </div>
@@ -144,7 +146,14 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
                         ) : (
                           applicableParameters.map((param) => {
                             const currentValue = params[param.key] ?? param.default;
-                            const helperText = parameterHelperText[param.key];
+                            let helperText = parameterHelperText[param.key];
+                            if (
+                              param.key === "companySize" &&
+                              id === "dsb_retainer" &&
+                              String(currentValue) === "Enterprise"
+                            ) {
+                              helperText = "Individuelle Kalkulation erforderlich.";
+                            }
 
                             return (
                               <div key={param.key} className="space-y-2">
@@ -347,7 +356,7 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
                         <div className="flex justify-between items-center pt-3 mt-2 border-t border-border">
                           <span className="font-semibold text-base text-text dark:text-darkmode-text">Gesamt</span>
                           <span className="font-bold text-lg text-green-600 dark:text-green-400">
-                            {formatPrice(priceCalculation.total)}
+                            {formatPriceLabel(priceCalculation.total, deliverable.pricePeriod)}
                           </span>
                         </div>
                       </div>
