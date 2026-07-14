@@ -32,7 +32,7 @@ const techHintLabels: Record<string, string> = {
 const searchSynonyms: Record<string, string[]> = {
   schnittstelle: ["integration", "api", "schnittstellen"],
   schnittstellen: ["integration", "api"],
-  migration: ["datenmigration", "excel"],
+  migration: ["datenmigration", "excel", "bi migration"],
   forecast: ["forecasting", "prognose"],
   prognose: ["forecast", "forecasting"],
   datenschutz: ["dsgvo", "privacy", "governance"],
@@ -48,6 +48,8 @@ const searchSynonyms: Record<string, string[]> = {
   agent: ["agentic", "ki-agent"],
   dashboard: ["bi", "reporting", "management"],
   ki: ["ai", "künstliche intelligenz"],
+  bi: ["business intelligence", "setup bi", "controlling", "reporting", "dashboard"],
+  data: ["daten", "datenstrategie", "datenmanagement"],
 };
 
 function safeStrings(values: unknown): string[] {
@@ -184,6 +186,7 @@ function getProductSearchSections(product: Product): SearchableProductSections {
 type ProductSearchRank = {
   titleExact: number;
   titleStarts: number;
+  titleTokenScore: number;
   keywordScore: number;
   shortScore: number;
   detailScore: number;
@@ -192,6 +195,26 @@ type ProductSearchRank = {
   deliverableScore: number;
   featuredBonus: number;
 };
+
+function getTitleTokenMatchScore(title: string, terms: string[]): number {
+  const tokens = tokenize(title);
+  let best = 0;
+
+  for (const term of terms) {
+    if (!term) continue;
+    const exactIndex = tokens.findIndex((token) => token === term);
+    if (exactIndex >= 0) {
+      best = Math.max(best, 14 - exactIndex * 2);
+      continue;
+    }
+    const prefixIndex = tokens.findIndex((token) => token.startsWith(term));
+    if (prefixIndex >= 0) {
+      best = Math.max(best, 10 - prefixIndex * 2);
+    }
+  }
+
+  return best;
+}
 
 function getBestTitleScore(title: string, terms: string[], mode: "exact" | "starts"): number {
   const normalizedTitle = normalizeText(title);
@@ -240,9 +263,14 @@ function getProductSearchRank(product: Product, query: string): ProductSearchRan
   const keywordTexts = sections.keywords;
   const detailTexts = [sections.problem, sections.result].filter(Boolean);
 
+  const titleTokenScore =
+    getTitleTokenMatchScore(sections.title, rawTerms) +
+    getTitleTokenMatchScore(sections.title, synonymTerms) * 0.5;
+
   return {
     titleExact: titleExactRaw,
     titleStarts: titleStartsRaw,
+    titleTokenScore,
     keywordScore:
       titleExactSynonym * 4 +
       titleStartsSynonym * 3 +
@@ -268,14 +296,17 @@ function getProductSearchRank(product: Product, query: string): ProductSearchRan
 function compareProductSearchRank(a: Product, b: Product, query: string): number {
   const rankA = getProductSearchRank(a, query);
   const rankB = getProductSearchRank(b, query);
-  const titleSignalA = rankA.titleExact + rankA.titleStarts + Math.min(rankA.keywordScore, 12);
-  const titleSignalB = rankB.titleExact + rankB.titleStarts + Math.min(rankB.keywordScore, 12);
+  const titleSignalA =
+    rankA.titleExact + rankA.titleStarts + rankA.titleTokenScore + Math.min(rankA.keywordScore, 12);
+  const titleSignalB =
+    rankB.titleExact + rankB.titleStarts + rankB.titleTokenScore + Math.min(rankB.keywordScore, 12);
   const indirectFactorA = titleSignalA > 0 ? 1 : 0.35;
   const indirectFactorB = titleSignalB > 0 ? 1 : 0.35;
 
   const totalA =
     rankA.titleExact * 8 +
     rankA.titleStarts * 7 +
+    rankA.titleTokenScore * 10 +
     rankA.keywordScore * 1.4 +
     rankA.shortScore * 1.2 * indirectFactorA +
     rankA.detailScore * indirectFactorA +
@@ -286,6 +317,7 @@ function compareProductSearchRank(a: Product, b: Product, query: string): number
   const totalB =
     rankB.titleExact * 8 +
     rankB.titleStarts * 7 +
+    rankB.titleTokenScore * 10 +
     rankB.keywordScore * 1.4 +
     rankB.shortScore * 1.2 * indirectFactorB +
     rankB.detailScore * indirectFactorB +
@@ -299,6 +331,7 @@ function compareProductSearchRank(a: Product, b: Product, query: string): number
   const deltas = [
     rankB.titleExact - rankA.titleExact,
     rankB.titleStarts - rankA.titleStarts,
+    rankB.titleTokenScore - rankA.titleTokenScore,
     rankB.keywordScore - rankA.keywordScore,
     rankB.shortScore - rankA.shortScore,
     rankB.detailScore - rankA.detailScore,

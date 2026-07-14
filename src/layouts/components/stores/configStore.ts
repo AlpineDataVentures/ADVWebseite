@@ -224,15 +224,8 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         if (!deliverable?.active) return;
 
         const existing = newDeliverables[rec.deliverableId];
-        let enabled: boolean;
-
-        if (options?.resetSelection) {
-          enabled = Boolean(rec.defaultEnabled);
-        } else if (!existing) {
-          enabled = Boolean(rec.defaultEnabled);
-        } else {
-          enabled = existing.enabled;
-        }
+        // Empfohlene Bausteine sind visuell markiert, aber nicht automatisch im Warenkorb.
+        const enabled = options?.resetSelection ? false : (existing?.enabled ?? false);
 
         newDeliverables[rec.deliverableId] = {
           enabled,

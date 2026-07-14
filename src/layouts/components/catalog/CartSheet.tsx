@@ -249,7 +249,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                 {formatPrice(totalPrice)}
               </span>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {onGoToConfig && (
                 <Button
                   variant="outline"
@@ -260,30 +260,30 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                   className="w-full"
                   size="lg"
                 >
-                  Zur Konfiguration
+                  Konfiguration prüfen oder bearbeiten
                 </Button>
               )}
+              <p className="text-xs sm:text-sm text-text-light dark:text-darkmode-text-light leading-relaxed text-balance">
+                Vielen Dank für Ihr Interesse, das Projekt mit uns umzusetzen. Prüfen Sie bei Bedarf noch
+                einmal Ihre Konfiguration. Anschließend können Sie die Anfrage per E-Mail senden oder
+                direkt einen Termin zur Besprechung der Bestellung auswählen.
+              </p>
               <Button
                 variant="default"
                 onClick={handleSendInquiryEmail}
-                className="w-full"
+                className="w-full min-h-[44px]"
                 size="lg"
               >
                 Anfrage per E-Mail senden
               </Button>
-              <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed px-0.5">
-                Vielen Dank für Ihr Interesse, das Projekt mit uns umzusetzen. Wählen Sie nun zur
-                Besprechung des Projekts noch einen gemeinsamen Termin und sofort danach kann es in
-                die Umsetzung gehen!
-              </p>
               <Button
                 variant="order"
-                className="w-full"
+                className="w-full min-h-[44px]"
                 size="lg"
                 onClick={() => window.open(PRODUCT_CATALOG_ORDER_MEETING_URL, "_blank", "noopener,noreferrer")}
                 title={PRODUCT_CATALOG_ORDER_MEETING_TITLE}
               >
-                Termin zur Bestellung vereinbaren
+                Besprechung zur Bestellung vereinbaren
               </Button>
             </div>
           </div>

@@ -2086,6 +2086,7 @@ export const uiClusterLabels: Record<UiClusterId, string> = {
 };
 
 export function getUiClusterForProduct(product: Product): UiClusterId {
+  if (product.domain === "risk_compliance") return "risk_compliance";
   if (product.solution_cluster === "orientation_prioritization") return "orientation_prioritization";
   if (product.solution_cluster === "data_mgmt_architecture") return "data_mgmt_architecture";
 
@@ -2096,7 +2097,6 @@ export function getUiClusterForProduct(product: Product): UiClusterId {
   if (product.domain === "procurement") return "procurement";
   if (product.domain === "it_data") return "it_ops";
   if (product.domain === "production" || product.domain === "logistics") return "production_logistics";
-  if (product.domain === "risk_compliance") return "risk_compliance";
   if (product.domain === "rnd") return "rnd";
   if (product.domain === "hr" || product.solution_cluster === "automation_cross_domain") return "cross_domain_automation";
   if (product.domain === "general_mgmt") return "general_management";

@@ -132,6 +132,11 @@ export function isBrowsableInCatalog(productId: string): boolean {
   return !isSecondaryProduct(productId) && !isArchivedProduct(productId);
 }
 
+/** Alphabetische Sortierung für „Alle Produkte“. */
+export function sortProductsAlphabetically(products: Product[]): Product[] {
+  return [...products].sort((a, b) => a.title.localeCompare(b.title, "de"));
+}
+
 export function sortProductsForCatalog(products: Product[]): Product[] {
   return [...products].sort((a, b) => {
     const score = (id: string) => {

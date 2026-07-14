@@ -287,7 +287,7 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
 
                   {/* Right: PriceBreakdown - ruhiger, weniger neon */}
                   <div className="lg:col-span-1">
-                    <div className="card p-5 sticky top-6">
+                    <div className="card p-5 static lg:sticky lg:top-6">
                       <h4 className="text-sm font-semibold text-text dark:text-darkmode-text mb-4">
                         Preisaufschlüsselung
                       </h4>

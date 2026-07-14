@@ -65,6 +65,17 @@
     position: sticky;
     top: 5.5rem;
     z-index: 20;
+    background-color: var(--color-body);
+    isolation: isolate;
+  }
+
+  .dark .adv-catalog .catalog-toolbar {
+    background-color: var(--color-darkmode-body);
+  }
+
+  /* ─ Domain drawer below global header dropdowns ─ */
+  .adv-catalog .catalog-sheet {
+    z-index: 25 !important;
   }
 
   /* ─ Sheets / drawers above site header (z-30) ─ */
@@ -72,7 +83,7 @@
     z-index: 60 !important;
   }
 
-  .adv-catalog .catalog-sheet {
+  .adv-catalog .catalog-sheet[data-side="right"] {
     z-index: 61 !important;
   }
 

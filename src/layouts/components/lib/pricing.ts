@@ -3,11 +3,19 @@ import type { Deliverable } from '../data/deliverables';
 import { deliverables } from '../data/deliverables';
 import { getParameterByKey } from '../data/parameters';
 
+/** Moderater Sicherheitspuffer für Schätzpreise (~10 %). */
+export const PRICE_ESTIMATE_BUFFER = 1.1;
+
 /**
  * Rundet auf die nächsten 100 EUR
  */
 export function roundToNearest100(amount: number): number {
   return Math.round(amount / 100) * 100;
+}
+
+/** Wendet den Schätzpreis-Puffer an und rundet kundenfreundlich. */
+export function applyPriceEstimateBuffer(amount: number): number {
+  return roundToNearest100(amount * PRICE_ESTIMATE_BUFFER);
 }
 
 /**
@@ -151,8 +159,8 @@ export function calculateDeliverablePrice(
     type: 'subtotal'
   });
 
-  // Finaler Preis (gerundet)
-  const total = roundToNearest100(currentAmount);
+  // Finaler Schätzpreis (Puffer + Rundung)
+  const total = applyPriceEstimateBuffer(currentAmount);
 
   breakdownLines.push({
     label: 'Gesamtpreis',

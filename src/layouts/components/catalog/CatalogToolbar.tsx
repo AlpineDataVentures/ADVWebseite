@@ -17,7 +17,7 @@ export function CatalogToolbar({
   onOpenDomains,
 }: CatalogToolbarProps) {
   return (
-    <div className="catalog-toolbar border-b border-border dark:border-darkmode-border bg-body/95 dark:bg-darkmode-body/95 backdrop-blur supports-[backdrop-filter]:bg-body/80">
+    <div className="catalog-toolbar border-b border-border dark:border-darkmode-border bg-body dark:bg-darkmode-body shadow-[0_1px_0_0_var(--color-border)] dark:shadow-[0_1px_0_0_var(--color-darkmode-border)]">
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
           <Button

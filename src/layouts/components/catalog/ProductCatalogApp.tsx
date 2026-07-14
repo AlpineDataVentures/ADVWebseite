@@ -28,12 +28,21 @@ import {
 import {
   getFeaturedProducts,
   getProductsForClusterBrowse,
+  sortProductsAlphabetically,
   sortProductsForCatalog,
 } from '../data/catalogStrategy';
 import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
 import { PRODUCT_CATALOG_URL } from '@/config/products';
 
 type ViewLayout = 'grid' | 'list';
+
+type CatalogReturnContext = {
+  activeCluster: UiClusterId | null;
+  searchQuery: string;
+  showAll: boolean;
+  showDeliverables: boolean;
+  viewLayout: ViewLayout;
+};
 
 interface ProductCatalogAppProps {
   initialProductId?: string | null;
@@ -95,6 +104,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const [viewLayout, setViewLayout] = useState<ViewLayout>(initialListState.viewLayout);
   const [showAll, setShowAll] = useState(initialListState.showAll);
   const [showDeliverables, setShowDeliverables] = useState(initialListState.showDeliverables);
+  const [returnContext, setReturnContext] = useState<CatalogReturnContext | null>(null);
 
   const setBundleFromProduct = useConfigStore((state) => state.setBundleFromProduct);
   const setActiveProduct = useConfigStore((state) => state.setActiveProduct);
@@ -130,6 +140,26 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   }) => {
     if (typeof window === 'undefined' || activeProductId) return;
     navigateToCatalogUrl(null, 'replace', overrides);
+  };
+
+  const captureReturnContext = (): CatalogReturnContext => ({
+    activeCluster,
+    searchQuery,
+    showAll,
+    showDeliverables,
+    viewLayout,
+  });
+
+  const restoreReturnContext = (context: CatalogReturnContext) => {
+    setActiveCluster(context.activeCluster);
+    setSearchQuery(context.searchQuery);
+    setShowAll(context.showAll);
+    setShowDeliverables(context.showDeliverables);
+    setViewLayout(context.viewLayout);
+    navigateToCatalogUrl(null, 'push', {
+      q: context.searchQuery || undefined,
+      view: context.showAll ? 'all' : context.showDeliverables ? 'deliverables' : null,
+    });
   };
 
   const handleSearchChange = (query: string) => {
@@ -195,6 +225,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   };
 
   const handleConfigureDeliverable = (deliverableId: string) => {
+    setReturnContext(captureReturnContext());
     toggleDeliverable(deliverableId, true);
     setActiveProductId(null);
     setActiveProduct(null);
@@ -208,6 +239,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const handleProductSelect = (productId: string) => {
     if (!productId) return;
+    setReturnContext(captureReturnContext());
     openProductFromUrl(productId);
     navigateToCatalogUrl(productId);
 
@@ -228,14 +260,32 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const handleBack = () => {
     if (viewMode === 'configure') {
       setViewMode('bundle');
-      // Konfiguration aus „Alle Produktbausteine“: zurück zur Bausteinliste
-      if (!activeProductId && !showDeliverables) {
-        setShowDeliverables(true);
+      if (activeProductId) {
+        return;
       }
-    } else if (activeProductId) {
+      if (returnContext?.showDeliverables || showDeliverables) {
+        setShowDeliverables(true);
+        setShowAll(false);
+        setActiveProductId(null);
+        setActiveProduct(null);
+        if (returnContext) {
+          restoreReturnContext(returnContext);
+        } else {
+          navigateToCatalogUrl(null, 'push', { view: 'deliverables' });
+        }
+      }
+      return;
+    }
+
+    if (activeProductId) {
       setActiveProductId(null);
       setActiveProduct(null);
-      navigateToCatalogUrl(null);
+      setViewMode('bundle');
+      if (returnContext) {
+        restoreReturnContext(returnContext);
+      } else {
+        navigateToCatalogUrl(null);
+      }
     }
   };
 
@@ -320,7 +370,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     }
 
     if (showAll) {
-      return sortProductsForCatalog(products);
+      return sortProductsAlphabetically(products);
     }
 
     if (activeCluster) {
