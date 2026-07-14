@@ -5,6 +5,10 @@ import ImageMod from "@/components/ImageMod.astro";
 import { getEntry, type CollectionEntry } from "astro:content";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { FaCheck } from "react-icons/fa";
+import {
+  buildProductCatalogUrl,
+  getCanonicalProductId,
+} from "@/layouts/components/data/productCatalogRouting";
 
 export async function getStaticPaths() {
   const products = await getSinglePage("products");
@@ -25,6 +29,7 @@ const {
   eyebrow,
   highlight_text,
   image,
+  intro_cta_label,
   benefits,
   contact,
   collaboration_title,
@@ -34,8 +39,12 @@ const {
   tags,
   final_cta_title,
   final_cta_text,
+  final_cta_button_label,
   final_cta_image,
 } = product.data;
+
+const catalogProductId = getCanonicalProductId(product.id);
+const catalogProductUrl = buildProductCatalogUrl(catalogProductId);
 
 const allProducts = await getSinglePage("products");
 const allPosts = await getSinglePage("blog");
@@ -120,6 +129,13 @@ const advisorEmail = authorEntry?.data.email
               }
               {descriptionAfter}
             </p>
+            <a
+              class="mt-8 inline-flex w-fit items-center justify-center rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90"
+              href={catalogProductUrl}
+            >
+              {intro_cta_label}
+              <span class="ml-2" aria-hidden="true">&rarr;</span>
+            </a>
           </div>
         </div>
         <div class="lg:w-lg lg:shrink-0 lg:pl-10">
@@ -353,13 +369,21 @@ const advisorEmail = authorEntry?.data.email
             >
               {final_cta_text}
             </p>
-            <a
-              class="inline-flex items-center justify-center self-start rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90"
-              href={contact.meeting_cta_link}
-            >
-              Erstgespräch vereinbaren
-              <span class="ml-2" aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                class="inline-flex items-center justify-center self-start rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90"
+                href={catalogProductUrl}
+              >
+                {final_cta_button_label}
+                <span class="ml-2" aria-hidden="true">&rarr;</span>
+              </a>
+              <a
+                class="inline-flex items-center justify-center self-start rounded-md border border-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-[#00A869] transition-colors hover:bg-[#e8fff5] dark:text-[#7ff2bf] dark:hover:bg-[#0f2a20]"
+                href={contact.meeting_cta_link}
+              >
+                Erstgespraech vereinbaren
+              </a>
+            </div>
           </div>
         </div>
         <div class="lg:w-lg lg:shrink-0 lg:pl-10">
