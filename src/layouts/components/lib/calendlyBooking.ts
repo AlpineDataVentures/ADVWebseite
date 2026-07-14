@@ -1,8 +1,17 @@
 import type { InquiryPayload } from "./inquiry";
 import { formatPrice, formatPriceLabel } from "./pricing";
 
-/** Calendly-Custom-Questions: a1–a10 (Reihenfolge = Fragen im Event-Typ). */
-export const CALENDLY_CUSTOM_ANSWER_KEYS = ["a1", "a2", "a3", "a4", "a5"] as const;
+/**
+ * Calendly Custom Questions im Event `adv-bestellung` (Reihenfolge im Event):
+ * a1 – Wann wollen Sie mit dem Projekt starten?
+ * a2 – Welche Stakeholder sind von dem Projekt betroffen?
+ * a3 – Bis wann soll das Projekt abgeschlossen sein?
+ * a4 – Projekt-/Bestellkonfiguration aus dem ADV-Produktkatalog  ← Prefill-Ziel
+ */
+export const CALENDLY_CONFIGURATION_ANSWER_KEY = "a4";
+
+/** Keys für Aufteilung sehr langer Konfigurationen (nur a4, sofern keine weiteren Freitextfragen). */
+export const CALENDLY_CONFIG_ANSWER_KEYS = ["a4"] as const;
 
 /** Praktische Obergrenze für Browser-URLs (Query-String inkl.). */
 export const CALENDLY_MAX_URL_LENGTH = 7500;
@@ -23,7 +32,7 @@ export interface CalendlyBookingResult {
   url: string;
   summary: string;
   truncated: boolean;
-  /** Welche a-Parameter gesetzt wurden (z. B. a1, a2). */
+  /** Welche a-Parameter gesetzt wurden (z. B. a4). */
   usedAnswerKeys: string[];
   /** Warenkorb war leer – individuelle Anfrage. */
   isIndividualInquiry: boolean;
@@ -117,10 +126,8 @@ function buildUrlWithAnswers(
 }
 
 /**
- * Erzeugt die Calendly-Buchungs-URL mit vorausgefüllter Konfiguration.
- *
- * Calendly-Event `adv-bestellung` benötigt mindestens eine Custom Question (→ a1).
- * Optional bis a3 für längere Konfigurationen (Reihenfolge der Fragen im Event).
+ * Erzeugt die Calendly-Buchungs-URL mit vorausgefüllter Konfiguration in a4.
+ * a1–a3 bleiben frei für die Angaben des Nutzers (Start, Stakeholder, Deadline).
  */
 export function buildCalendlyBookingUrl(
   baseUrl: string,
@@ -144,17 +151,17 @@ export function buildCalendlyBookingUrl(
   });
 
   const tryAssign = (text: string, wasTruncated = false): CalendlyBookingResult | null => {
-    const chunks = splitIntoChunks(text, CALENDLY_CUSTOM_ANSWER_KEYS.length);
+    const chunks = splitIntoChunks(text, CALENDLY_CONFIG_ANSWER_KEYS.length);
     const answers: Record<string, string> = {};
     chunks.forEach((chunk, index) => {
-      answers[CALENDLY_CUSTOM_ANSWER_KEYS[index]] = chunk;
+      answers[CALENDLY_CONFIG_ANSWER_KEYS[index]] = chunk;
     });
     const url = buildUrlWithAnswers(baseUrl, answers);
     if (url.length <= CALENDLY_MAX_URL_LENGTH) {
       return buildResult(
         url,
         text,
-        chunks.map((_, i) => CALENDLY_CUSTOM_ANSWER_KEYS[i]),
+        chunks.map((_, i) => CALENDLY_CONFIG_ANSWER_KEYS[i]),
         wasTruncated
       );
     }

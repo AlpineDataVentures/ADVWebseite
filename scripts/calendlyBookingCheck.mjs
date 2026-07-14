@@ -38,7 +38,7 @@ function buildSummary(payload) {
 
 function buildUrl(summary) {
   const url = new URL(BASE_URL);
-  url.searchParams.set("a1", summary);
+  url.searchParams.set("a4", summary);
   return url.toString();
 }
 
@@ -132,11 +132,11 @@ for (const test of tests) {
     })),
   });
   const url = buildUrl(summary);
-  const decoded = new URL(url).searchParams.get("a1") ?? "";
+  const decoded = new URL(url).searchParams.get("a4") ?? "";
   const ok =
     url.startsWith(BASE_URL) &&
     url.length <= MAX_URL &&
-    url.includes("a1=") &&
+    url.includes("a4=") &&
     decoded.includes("€") &&
     !decoded.includes("<") &&
     test.payload.deliverables.every((d) => decoded.includes(d.name));
