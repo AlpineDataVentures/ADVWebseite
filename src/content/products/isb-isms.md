@@ -18,7 +18,7 @@ benefits:
     text: "Ein ISMS identifiziert systematisch welche Informationen schützenswert sind, bewertet die Risiken und legt fest welche Maßnahmen sie konkret reduzieren."
 contact:
   author_id: "ben-diez"
-  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
+  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
   meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
@@ -31,7 +31,7 @@ collaboration_steps:
   - title: "ISMS aufbauen und dokumentieren"
     text: "Richtlinien, Prozesse und Maßnahmen werden definiert und dokumentiert, so dass das ISMS den relevanten Anforderungen entspricht und im Alltag handhabbar bleibt."
   - title: "ISB-Funktion übernehmen"
-    text: "Nach dem Aufbau übernehmen wir die Funktion des externen Informationssicherheitsbeauftragten als fester Ansprechpartner für Mitarbeiter, Kunden und Behörden, und als die Kraft, die das ISMS aktuell hält."
+    text: "Nach dem Aufbau übernehmen wir auf Wunsch die Funktion des externen Informationssicherheitsbeauftragten als fester Ansprechpartner für Mitarbeiter, Kunden und Behörden, und als die Kraft, die das ISMS aktuell hält."
 delivery:
   technologies:
     - "Gap Analyse"

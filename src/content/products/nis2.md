@@ -18,7 +18,7 @@ benefits:
     text: "Alle umgesetzten Maßnahmen sind vollständig dokumentiert und bei einer Prüfung durch das BSI oder Geschäftspartner jederzeit nachweisbar."
 contact:
   author_id: "ben-diez"
-  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
+  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
   meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
@@ -36,7 +36,7 @@ delivery:
   technologies:
     - "NIS2-Anforderungskatalog"
     - "Gap-Analyse nach §30 BSIG"
-    - "ISMS-Software zur Nachweisführung"
+    - "Information Security Management System (ISMS)-Software zur Nachweisführung"
   deliverables:
     - "Betroffenheitsanalyse"
     - "Gap-Analyse & Maßnahmenplan"

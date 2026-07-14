@@ -2,7 +2,7 @@
 title: "Data Warehouse"
 eyebrow: "Produkt"
 meta_title: "Data Warehouse"
-description: "In den meisten Unternehmen liegen Daten verteilt: ERP, CRM, Excel oder spezielle Branchensysteme. Wer eine Auswertung braucht sucht und verbringt mehr Zeit mit dem Zusammensetzen der Daten als mit der eigentlichen Analyse. Ein Data Warehouse löst dieses Problem: alle relevanten Daten fließen automatisch an einem Ort zusammen, werden bereinigt und stehen als Grundlage für Dashboards, Berichte und KI-Anwendungen in verlässlicher Qualität zur Verfügung."
+description: "In den meisten Unternehmen liegen Daten verteilt: ERP, CRM, Excel oder spezielle Branchensysteme. Wer eine Auswertung braucht sucht und verbringt mehr Zeit mit dem Zusammensetzen der Daten als mit der eigentlichen Analyse. Ein Data Warehouse (DWH) löst dieses Problem: alle relevanten Daten fließen automatisch an einem Ort zusammen, werden bereinigt und stehen als Grundlage für Dashboards, Berichte und KI-Anwendungen in verlässlicher Qualität zur Verfügung."
 highlight_text: "Daten aus verschiedenen Quellen zusammengeführt, bereinigt und strukturiert gespeichert werden."
 image: "/images/products/data-warehouse.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
@@ -18,7 +18,7 @@ benefits:
     text: "Weil alle Daten zentral und strukturiert vorliegen, lassen sich Berichte und Dashboards ohne manuelles Zusammensuchen und Zusammenführen direkt erstellen."
 contact:
   author_id: "ben-diez"
-  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
+  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
   meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"

@@ -2,14 +2,14 @@
 title: "Automatisierte Sichtprüfung"
 eyebrow: "Produkt"
 meta_title: "Automatisierte Sichtprüfung"
-description: "Manuelle Sichtprüfungen sind langsam, fehleranfällig und lückenhaft. Prüfer übersehen Fehler, weil die Konzentration nachlässt oder manche Defekte für das bloße Auge kaum sichtbar sind. Ein KI-gestütztes Bildverarbeitungssystem prüft jedes Teil vollautomatisch: Kameras nehmen die Oberfläche auf, das Modell erkennt Kratzer, Risse, Verformungen oder Verunreinigungen in Echtzeit und schlägt fehlerhafte Teile sofort zur Aussonderung vor. Die Erkennungsrate ist konsistent, unabhängig von Tageszeit oder Schichtbelastung."
-highlight_text: "das Modell erkennt Kratzer, Risse, Verformungen oder Verunreinigungen in Echtzeit und schlägt fehlerhafte Teile sofort zur Aussonderung vor"
+description: "Manuelle Sichtprüfungen sind langsam, fehleranfällig und lückenhaft. Prüfer übersehen Fehler, weil die Konzentration nachlässt oder manche Defekte für das bloße Auge kaum sichtbar sind. Ein KI-gestütztes Bildverarbeitungssystem prüft jedes Teil vollautomatisch: Kameras nehmen die Oberfläche auf, das KI-System erkennt Kratzer, Risse, Verformungen oder Verunreinigungen in Echtzeit und schlägt fehlerhafte Teile sofort zur Aussonderung vor. Die Erkennungsrate ist konsistent, unabhängig von Tageszeit oder Schichtbelastung."
+highlight_text: "das KI-System erkennt Kratzer, Risse, Verformungen oder Verunreinigungen in Echtzeit und schlägt fehlerhafte Teile sofort zur Aussonderung vor"
 image: "/images/products/automated-visual-inspection.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
 customer_value_title: "Ihr Mehrwert"
 benefits:
   - title: "Fehlerhafte Teile werden aussortiert"
-    text: "Das Modell erkennt Oberflächendefekte zuverlässig und in Echtzeit, bevor ein fehlerhaftes Teil verpackt, ausgeliefert oder weiterverarbeitet wird."
+    text: "Die KI erkennt Oberflächendefekte zuverlässig und in Echtzeit, bevor ein fehlerhaftes Teil verpackt, ausgeliefert oder weiterverarbeitet wird."
   - title: "Konsistente Prüfqualität rund um die Uhr"
     text: "Keine Ermüdung, keine Schwankungen zwischen Schichten. Jedes Teil wird mit derselben Sorgfalt geprüft."
   - title: "Prüfprozess skaliert mit der Produktion"
@@ -25,20 +25,20 @@ contact:
 collaboration_title: "Unsere Zusammenarbeit"
 collaboration_steps:
   - title: "Fehlerbilder und Prüfkriterien aufnehmen"
-    text: "Fehlerbilder und Ausschussteile bilden die Trainingsgrundlage. Gemeinsam wird festgelegt, welche Defekte das Modell erkennen soll."
+    text: "Fehlerbilder und Ausschussteile bilden die Trainingsgrundlage. Gemeinsam wird festgelegt, welche Defekte der KI-Algorithmus erkennen soll."
   - title: "Modell trainieren und validieren"
     text: "Ein Computer-Vision-Modell wird auf den spezifischen Fehlerbildern trainiert und gegen reale Produktionsteile validiert, bis die Erkennungsrate den Anforderungen entspricht."
   - title: "Kameraaufbau und Integration in die Linie"
-    text: "Kameras werden an der richtigen Stelle im Produktionsprozess positioniert. Anschließend wird das Modell samt definiertem Aussonderungsprozess bei erkannten Fehlern in die Linie integriert."
+    text: "Kameras werden an der richtigen Stelle im Produktionsprozess positioniert. Anschließend wird das KI-System samt definiertem Aussonderungsprozess bei erkannten Fehlern in die Linie integriert."
   - title: "Übergabe und laufende Verbesserung"
-    text: "Nach der Übergabe wird das Modell mit neuen Fehlerbildern weiter trainiert, damit die Erkennungsrate über die Zeit noch genauer wird."
+    text: "Nach der Übergabe wird die KI mit neuen Fehlerbildern weiter trainiert, damit die Erkennungsrate über die Zeit noch genauer wird."
 delivery:
   technologies:
     - "Python"
     - "Computer Vision"
     - "Kameraintegration"
   deliverables:
-    - "Trainiertes Modell"
+    - "Funktionsfähiges KI-System"
     - "Kameraintegration"
     - "Qualitätsdokumentation"
   operations:

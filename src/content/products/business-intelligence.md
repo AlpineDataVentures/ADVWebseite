@@ -30,7 +30,7 @@ collaboration_steps:
     text: "Die relevanten Systeme werden angebunden, Daten bereinigt und in ein einheitliches Modell gebracht."
   - title: "Dashboards und Berichte aufbauen"
     text: "Die vereinbarten Dashboards und Berichte werden verständlich und übersichtlich aufgebaut und so gestaltet, dass sie im Alltag tatsächlich genutzt werden."
-  - title: "Übergabe und Einweisung"
+  - title: "Übergabe und Schulung"
     text: "Das Team wird eingewiesen und kann danach eigenständig Berichte erstellen und anpassen."
 delivery:
   technologies:

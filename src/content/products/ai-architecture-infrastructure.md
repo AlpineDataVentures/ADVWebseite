@@ -1,8 +1,8 @@
 ---
-title: "KI Architektur & Infrastruktur"
+title: "KI Systemarchitektur & Infrastruktur"
 eyebrow: "Produkt"
-meta_title: "KI Architektur & Infrastruktur"
-description: "Viele KI-Projekte scheitern nicht am Algorithmus, sondern an der fehlenden technischen Grundlage fehlt: Daten liegen verteilt über verschiedene Systeme, Rechenkapazität ist knapp und Modelle, die im Test funktionieren, laufen nie im echten Betrieb. Eine KI Architektur & Infrastruktur schafft diese Grundlage durch korrekte Ablage für Daten, ausreichende Rechenleistung und Prozesse, die einen zuverlässigen Betrieb gewährleisten. Die Architektur wird auf die bestehende Systemlandschaft abgestimmt und so aufgebaut, dass sie mit wachsenden Anforderungen skaliert."
+meta_title: "KI Systemarchitektur & Infrastruktur"
+description: "Viele KI-Projekte scheitern nicht am Algorithmus, sondern an der fehlenden technischen Grundlage: Daten liegen verteilt über verschiedene Systeme, Rechenkapazität ist knapp und Modelle, die im Test funktionieren, laufen nie im echten Betrieb. Eine KI Systemarchitektur & Infrastruktur schafft diese Grundlage durch korrekte Ablage für Daten, ausreichende Rechenleistung und Prozesse, die einen zuverlässigen Betrieb gewährleisten. Die Architektur wird auf die bestehende Systemlandschaft abgestimmt und so aufgebaut, dass sie mit wachsenden Anforderungen skaliert."
 highlight_text: "durch korrekte Ablage für Daten, ausreichende Rechenleistung und Prozesse, die einen zuverlässigen Betrieb gewährleisten"
 image: "/images/products/ai-architecture-infrastructure.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"

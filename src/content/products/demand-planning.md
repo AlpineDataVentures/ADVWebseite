@@ -1,10 +1,10 @@
 ---
-title: "Materialbedarfsplanung "
+title: "Materialbedarfsplanung"
 eyebrow: "Produkt"
 meta_title: "Materialbedarfsplanung "
-description: "Zu viel Material auf Lager bindet Kapital und verursacht Lagerkosten, zu wenig Material kann die Produktion verzögern. Beides passiert, wenn Bedarfe auf Basis von Erfahrungswerten oder starren Planungszyklen geschätzt werden anstatt auf Basis der tatsächlichen Datenlage. Eine datengestützte Bedarfsanalyse berechnet unter Verwendung historischer Verbrauchsdaten, aktueller Auftragslagen und saisonaler Muster automatisch, wie viel von welchem Material zu welchem Zeitpunkt benötigt wird."
+description: "Zu viel Material auf Lager bindet Kapital und verursacht Lagerkosten, zu wenig Material kann die Produktion verzögern. Beides passiert, wenn Bedarfe auf Basis von Erfahrungswerten oder starren Planungszyklen geschätzt werden anstatt auf Basis der tatsächlichen Datenlage. Eine KI-gestützte Bedarfsanalyse analysiert historische Verbrauchsdaten, aktuelle Auftragslagen und saisonale Muster, um den zukünftigen Materialbedarf präzise zu prognostizieren und den optimalen Bestellzeitpunkt zu bestimmen."
 highlight_text: "unter Verwendung historischer Verbrauchsdaten, aktueller Auftragslagen und saisonaler Muster"
-image: "/images/products/needs-assessment.png"
+image: "/images/products/demand-planning.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
 customer_value_title: "Ihr Mehrwert"
 benefits:
