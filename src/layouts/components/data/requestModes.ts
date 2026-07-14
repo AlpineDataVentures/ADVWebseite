@@ -22,7 +22,7 @@ export type HybridInquiryCopy = {
 const hybridInquiryCopyByProductId: Record<string, HybridInquiryCopy> = {
   "externer-datenschutzbeauftragter": {
     hintText:
-      "Der monatliche Betreuungsumfang richtet sich nach Unternehmensgröße, Risikoprofil und gewünschter Betreuungsintensität. Gerne erstellen wir Ihnen ein individuelles Angebot.",
+      "Der monatliche Betreuungsumfang richtet sich nach dem gewählten Kontingent, Risikoprofil und Unternehmensgröße. Für Großunternehmen liegt der Orientierungswert bei ca. 6.000 € pro Monat – gerne erstellen wir Ihnen ein individuelles Angebot.",
     accordionTriggerLabel: "Individuelle Anfrage per E-Mail senden",
     submitButtonLabel: "Individuelle Anfrage per E-Mail senden",
   },

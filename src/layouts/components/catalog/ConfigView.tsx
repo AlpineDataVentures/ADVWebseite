@@ -33,8 +33,8 @@ const parameterHelperText: Record<string, string> = {
   securityLevel: "Erweiterte Sicherheit umfasst zusätzliche Compliance-Maßnahmen.",
   trainingParticipants: "Jeder zusätzliche Teilnehmer erhöht den Schulungsaufwand.",
   reportComplexity: "Komplexere Berichte benötigen mehr Entwicklungszeit.",
-  dsbCareIntensity: "Bestimmt, wie intensiv der externe Datenschutzbeauftragter Sie begleitet.",
-  dsbMonthlyQuota: "Definiert das monatliche Beratungskontingent im Retainer.",
+  dsbMonthlyQuota:
+    "Basis: laufende Ansprechpartner-Betreuung (ca. 500 €/Monat). Erweitert: intensive Begleitung (Orientierungswert ca. 2.500 €/Monat für mittelgroße Unternehmen). Großunternehmen (ca. 6.000 €/Monat): bitte individuelle Anfrage nutzen.",
 };
 
 /**
@@ -94,7 +94,7 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
       {/* Accordion für jedes Deliverable - mehr Abstand, größere Cards */}
       <Accordion type="multiple" defaultValue={enabledDeliverables.map((item) => item.id)} className="space-y-6">
         {enabledDeliverables.map(({ id, deliverable, params }) => {
-          const applicableParameters = getParametersForDeliverable(id);
+          const applicableParameters = getParametersForDeliverable(id, deliverable.parameters);
           const priceCalculation = calculateDeliverablePrice(deliverable, params);
           const Icon = getDeliverableIcon(id);
 
@@ -146,14 +146,7 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
                         ) : (
                           applicableParameters.map((param) => {
                             const currentValue = params[param.key] ?? param.default;
-                            let helperText = parameterHelperText[param.key];
-                            if (
-                              param.key === "companySize" &&
-                              id === "dsb_retainer" &&
-                              String(currentValue) === "Enterprise"
-                            ) {
-                              helperText = "Individuelle Kalkulation erforderlich.";
-                            }
+                            const helperText = parameterHelperText[param.key];
 
                             return (
                               <div key={param.key} className="space-y-2">

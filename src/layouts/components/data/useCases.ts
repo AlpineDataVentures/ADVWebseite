@@ -1247,7 +1247,7 @@ const rawProducts: Product[] = [
     domain: "risk_compliance",
     title: "Externer Datenschutzbeauftragter",
     short:
-      "TÜV-zertifizierter externer Datenschutzbeauftragter als dauerhafter Ansprechpartner – laufende Unterstützung bei Datenschutzfragen im Retainer-Modell, skalierbar nach Unternehmensgröße und Betreuungsbedarf.",
+      "TÜV-zertifizierter externer Datenschutzbeauftragter als dauerhafter Ansprechpartner – laufende Unterstützung bei Datenschutzfragen im Retainer-Modell mit Basis- oder Erweitert-Kontingent.",
     portfolio_area: "solutions",
     solution_cluster: "orientation_prioritization",
     priority: "green",

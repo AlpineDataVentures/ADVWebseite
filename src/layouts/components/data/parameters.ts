@@ -211,41 +211,19 @@ export const productParameters: Parameter[] = [
     applicableTo: ['mgmt_report_1', 'reporting_standards'] // Management-Bericht und Reporting-Struktur
   },
   {
-    key: 'dsbCareIntensity',
-    label: 'Betreuungsintensität',
-    type: 'radio',
-    options: [
-      { value: 'low', label: 'Gering' },
-      { value: 'regular', label: 'Regelmäßig' },
-      { value: 'high', label: 'Erhöht' }
-    ],
-    default: 'regular',
-    pricingEffect: {
-      type: 'multiplier',
-      values: {
-        'low': 1.0,
-        'regular': 1.15,
-        'high': 1.25
-      }
-    },
-    applicableTo: ['dsb_retainer']
-  },
-  {
     key: 'dsbMonthlyQuota',
     label: 'Monatliches Kontingent',
     type: 'radio',
     options: [
       { value: 'basis', label: 'Basis' },
-      { value: 'standard', label: 'Standard' },
       { value: 'extended', label: 'Erweitert' }
     ],
-    default: 'standard',
+    default: 'basis',
     pricingEffect: {
       type: 'multiplier',
       values: {
         'basis': 1.0,
-        'standard': 1.15,
-        'extended': 1.25
+        'extended': 4.55
       }
     },
     applicableTo: ['dsb_retainer']
@@ -261,8 +239,14 @@ export function getParameterByKey(key: string): Parameter | undefined {
 }
 
 // Helper: Parameter für ein Deliverable
-export function getParametersForDeliverable(deliverableId: string): Parameter[] {
-  return allParameters.filter(p => 
-    !p.applicableTo || p.applicableTo.includes(deliverableId)
+export function getParametersForDeliverable(deliverableId: string, parameterKeys?: string[]): Parameter[] {
+  if (parameterKeys && parameterKeys.length > 0) {
+    return parameterKeys
+      .map((key) => getParameterByKey(key))
+      .filter((p): p is Parameter => p !== undefined);
+  }
+
+  return allParameters.filter(
+    (p) => !p.applicableTo || p.applicableTo.includes(deliverableId)
   );
 }

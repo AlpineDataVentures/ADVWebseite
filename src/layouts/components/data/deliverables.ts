@@ -1549,9 +1549,9 @@ export const deliverables: Deliverable[] = [
     family: "Governance & Culture",
     name: "Externer Datenschutzbeauftragter – Retainer",
     shortDescription:
-      "Laufende Betreuung durch einen TÜV-zertifizierten externen Datenschutzbeauftragter auf monatlicher Retainer-Basis – ab ca. 500 € pro Monat, skalierbar nach Unternehmensgröße und Betreuungsintensität.",
+      "Laufende Betreuung durch einen TÜV-zertifizierten externen Datenschutzbeauftragter auf monatlicher Retainer-Basis – Basis ab ca. 500 € pro Monat, Erweitert ab ca. 2.500 € pro Monat bei intensiver Betreuung (Orientierungswert für mittelgroße Unternehmen).",
     longDescription:
-      "Ein TÜV-zertifizierter externer Datenschutzbeauftragter begleitet Ihr Unternehmen dauerhaft als Ansprechpartner für Datenschutzfragen. Im monatlichen Retainer sind Beratung, Abstimmung und definiertes Kontingent enthalten – keine einmalige Projektumsetzung, sondern laufende Unterstützung im operativen Datenschutzalltag. Bei Großunternehmen (1000+ MA) oder erhöhtem Bedarf ist eine individuelle Kalkulation erforderlich.",
+      "Ein TÜV-zertifizierter externer Datenschutzbeauftragter begleitet Ihr Unternehmen dauerhaft als Ansprechpartner für Datenschutzfragen. Im monatlichen Retainer sind Beratung, Abstimmung und definiertes Kontingent enthalten – keine einmalige Projektumsetzung, sondern laufende Unterstützung im operativen Datenschutzalltag. Das Kontingent „Erweitert“ bildet intensive Betreuung ab (Orientierungswert ca. 2.500 € pro Monat für mittelgroße Unternehmen). Für Großunternehmen ist eine individuelle Kalkulation erforderlich (Orientierungswert ca. 6.000 € pro Monat) – nutzen Sie dafür die individuelle Anfrage.",
     basePrice: 500,
     active: true,
     pricePeriod: "pro Monat",
@@ -1583,7 +1583,7 @@ export const deliverables: Deliverable[] = [
       "Vollständige operative Umsetzung aller Maßnahmen",
       "Zusätzliche Audits oder Großprojekte ohne separate Beauftragung"
     ],
-    parameters: ["companySize", "dsbCareIntensity", "dsbMonthlyQuota"]
+    parameters: ["dsbMonthlyQuota"]
   }
 ];
 
