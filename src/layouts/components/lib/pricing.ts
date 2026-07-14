@@ -3,7 +3,7 @@ import type { Deliverable } from '../data/deliverables';
 import { deliverables } from '../data/deliverables';
 import { getParameterByKey } from '../data/parameters';
 
-/** Moderater Sicherheitspuffer für Schätzpreise (~10 %). */
+/** Historischer Schätzpuffer – liegt in den Basispreisen in `deliverables.ts`, nicht in der Runtime. */
 export const PRICE_ESTIMATE_BUFFER = 1.1;
 
 /**
@@ -13,7 +13,7 @@ export function roundToNearest100(amount: number): number {
   return Math.round(amount / 100) * 100;
 }
 
-/** Wendet den Schätzpreis-Puffer an und rundet kundenfreundlich. */
+/** @deprecated Puffer ist in Basispreisen enthalten; nur noch für Migration/Tests. */
 export function applyPriceEstimateBuffer(amount: number): number {
   return roundToNearest100(amount * PRICE_ESTIMATE_BUFFER);
 }
@@ -105,13 +105,13 @@ export function calculateDeliverablePrice(
       multipliers.push({
         label: param.label,
         factor: effect,
-        amountImpact: roundToNearest100(amountImpact),
+        amountImpact: Math.round(amountImpact),
         value: valueToUse
       });
 
       breakdownLines.push({
         label: `${param.label}: ${optionLabel}`,
-        amount: roundToNearest100(amountImpact),
+        amount: Math.round(amountImpact),
         type: 'multiplier',
         details: `×${effect.toFixed(2)}`
       });
@@ -159,8 +159,8 @@ export function calculateDeliverablePrice(
     type: 'subtotal'
   });
 
-  // Finaler Schätzpreis (Puffer + Rundung)
-  const total = applyPriceEstimateBuffer(currentAmount);
+  // Gesamtpreis (Puffer ist im Basispreis enthalten)
+  const total = roundToNearest100(currentAmount);
 
   breakdownLines.push({
     label: 'Gesamtpreis',

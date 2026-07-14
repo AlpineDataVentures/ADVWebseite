@@ -11,7 +11,7 @@ export const globalParameters: Parameter[] = [
       { value: 'Mid', label: 'Mittelgroß (250-1000 MA)' },
       { value: 'Enterprise', label: 'Großunternehmen (1000+ MA)' }
     ],
-    default: 'Mid',
+    default: 'SMB',
     pricingEffect: {
       type: 'multiplier',
       values: {
@@ -223,10 +223,9 @@ export const productParameters: Parameter[] = [
     pricingEffect: {
       type: 'multiplier',
       values: {
-        // Kalibriert auf Basispreis 600 € inkl. 10-%-Puffer → Zielwerte 600–8.000 €/Monat
-        'SMB': 10 / 11,
-        'Mid': 100 / 33,
-        'Enterprise': 200 / 33
+        'SMB': 1.0,
+        'Mid': 10 / 3,
+        'Enterprise': 20 / 3
       }
     },
     applicableTo: ['dsb_retainer']

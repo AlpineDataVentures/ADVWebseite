@@ -108,7 +108,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const setBundleFromProduct = useConfigStore((state) => state.setBundleFromProduct);
   const setActiveProduct = useConfigStore((state) => state.setActiveProduct);
-  const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
+  const configureSingleDeliverable = useConfigStore((state) => state.configureSingleDeliverable);
 
   const cartCount = useConfigStore((state) =>
     Object.values(state.selectedDeliverables).filter((d) => d.enabled).length
@@ -226,7 +226,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const handleConfigureDeliverable = (deliverableId: string) => {
     setReturnContext(captureReturnContext());
-    toggleDeliverable(deliverableId, true);
+    configureSingleDeliverable(deliverableId);
     setActiveProductId(null);
     setActiveProduct(null);
     setViewMode('configure');

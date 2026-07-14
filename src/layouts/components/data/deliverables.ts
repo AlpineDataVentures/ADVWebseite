@@ -46,7 +46,7 @@ export const deliverables: Deliverable[] = [
     name: "BI Fix & Fertig Setup",
     shortDescription: "Komplettes Business Intelligence Setup mit Power BI, Dashboards und erster Datenanbindung. Sofort einsatzbereit.",
     longDescription: "Wir richten Ihr komplettes BI-System ein: Power BI Installation, erste Datenquellen-Anbindung, Basis-Dashboards und eine zentrale Berichtsstruktur. Sie erhalten ein sofort einsatzfähiges System mit Best Practices und können direkt loslegen. Ideal für Unternehmen, die schnell erste Einblicke in ihre Daten gewinnen möchten.",
-    basePrice: 9900,
+    basePrice: 10900,
     active: true,
     tags: {
       type: ["setup", "build"],
@@ -80,7 +80,7 @@ export const deliverables: Deliverable[] = [
     name: "KPI-Workshop und Kennzahlenkonzept",
     shortDescription: "Gemeinsame Definition Ihrer wichtigsten Kennzahlen – einheitlich, nachvollziehbar und steuerungsrelevant.",
     longDescription: "In diesem Workshop erarbeiten wir gemeinsam die für Ihr Unternehmen relevanten Kennzahlen (KPIs). Wir analysieren Ihre Geschäftsziele, identifizieren die wichtigsten Metriken und definieren klare Messgrößen. Sie erhalten ein strukturiertes KPI-Framework, das als Grundlage für alle zukünftigen Berichte und Analysen dient.",
-    basePrice: 6900,
+    basePrice: 7600,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -113,7 +113,7 @@ export const deliverables: Deliverable[] = [
     name: "Erster Management-Bericht",
     shortDescription: "Professioneller Management-Bericht mit den wichtigsten Kennzahlen. Übersichtlich, verständlich, handlungsorientiert.",
     longDescription: "Wir erstellen Ihren ersten maßgeschneiderten Management-Bericht mit den wichtigsten Kennzahlen für die Geschäftsführung. Der Bericht ist übersichtlich gestaltet, zeigt Trends auf und hilft bei strategischen Entscheidungen. Sie erhalten sowohl eine interaktive Power BI Version als auch ein druckbares PDF-Format.",
-    basePrice: 12900,
+    basePrice: 14200,
     active: true,
     tags: {
       type: ["build"],
@@ -147,7 +147,7 @@ export const deliverables: Deliverable[] = [
     name: "Reporting-Struktur (Templates & Standards)",
     shortDescription: "Einheitliche Berichtsvorlagen und Standards für Ihr gesamtes Unternehmen. Konsistenz und Effizienz.",
     longDescription: "Wir entwickeln eine einheitliche Reporting-Struktur mit wiederverwendbaren Vorlagen, Design-Standards und Best Practices. Alle zukünftigen Berichte folgen diesem Framework, was Konsistenz, Wartbarkeit und schnelle Erstellung neuer Reports ermöglicht. Ideal für Unternehmen, die mehrere Abteilungen und Berichte haben.",
-    basePrice: 7900,
+    basePrice: 8700,
     active: true,
     tags: {
       type: ["blueprint", "build"],
@@ -182,7 +182,7 @@ export const deliverables: Deliverable[] = [
     name: "Zentrale Datenablage Starter (DWH/Lakehouse Light)",
     shortDescription: "Grundlegende zentrale Datenablage für strukturierte und unstrukturierte Daten. Solide Basis für Analytics.",
     longDescription: "Wir richten eine zentrale Datenablage ein, die als Single Source of Truth für Ihre Daten dient. Dies kann ein Data Warehouse oder ein moderner Lakehouse-Ansatz sein, je nach Ihren Anforderungen. Die Lösung ist skalierbar und bildet die Grundlage für alle zukünftigen Analytics-Projekte.",
-    basePrice: 19900,
+    basePrice: 21900,
     active: true,
     tags: {
       type: ["setup", "build"],
@@ -217,7 +217,7 @@ export const deliverables: Deliverable[] = [
     name: "Analyse Ihrer Datenquellen und Schnittstellen",
     shortDescription: "Systematische Bestandsaufnahme Ihrer Datenquellen, Schnittstellen und Integrationsoptionen.",
     longDescription: "Wir analysieren alle Ihre Datenquellen, identifizieren Herausforderungen bei der Integration und entwickeln einen Plan für die zentrale Datenablage. Sie erhalten eine vollständige Übersicht Ihrer Datenlandschaft mit Empfehlungen für die beste Integrationsstrategie.",
-    basePrice: 8900,
+    basePrice: 9800,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -253,7 +253,7 @@ export const deliverables: Deliverable[] = [
     name: "KPI & Daten-Glossar Sprint",
     shortDescription: "Zentrales Glossar mit allen Kennzahlen, Datenfeldern und Definitionen. Gemeinsames Verständnis im Unternehmen.",
     longDescription: "Wir erstellen ein umfassendes Glossar mit allen wichtigen Kennzahlen, Datenfeldern und Fachbegriffen. Dies schafft Klarheit und ein gemeinsames Verständnis im gesamten Unternehmen. Das Glossar wird in einem zugänglichen Format bereitgestellt und kann kontinuierlich erweitert werden.",
-    basePrice: 5900,
+    basePrice: 6500,
     active: true,
     tags: {
       type: ["workshop", "build"],
@@ -286,7 +286,7 @@ export const deliverables: Deliverable[] = [
     name: "Power BI Anwender-Schulung",
     shortDescription: "Praktische Schulung für Ihre Mitarbeiter. Selbstständig Berichte erstellen und Daten analysieren.",
     longDescription: "Ihre Mitarbeiter lernen, wie sie selbstständig Berichte in Power BI erstellen, Daten analysieren und Dashboards nutzen. Die Schulung ist praxisorientiert und verwendet Ihre eigenen Daten. Nach der Schulung können Ihre Teams eigenständig arbeiten und sind nicht mehr auf externe Unterstützung angewiesen.",
-    basePrice: 4900,
+    basePrice: 5400,
     active: true,
     tags: {
       type: ["enablement"],
@@ -320,7 +320,7 @@ export const deliverables: Deliverable[] = [
     name: "Power BI Entwickler-Schulung",
     shortDescription: "Fortgeschrittene Schulung für Power BI Entwickler. Datenmodellierung, DAX und komplexe Berichte.",
     longDescription: "Ihre Entwickler lernen fortgeschrittene Techniken für Power BI: Datenmodellierung, DAX-Formeln, Performance-Optimierung und komplexe Visualisierungen. Die Schulung ist praxisorientiert und vermittelt Best Practices für professionelle BI-Lösungen.",
-    basePrice: 6900,
+    basePrice: 7600,
     active: true,
     tags: {
       type: ["enablement"],
@@ -357,7 +357,7 @@ export const deliverables: Deliverable[] = [
     name: "Datenstrategie Sprint",
     shortDescription: "Entwicklung einer klaren Strategie für den Umgang mit Daten. Roadmap für die nächsten Jahre.",
     longDescription: "In einem intensiven Sprint entwickeln wir gemeinsam Ihre Datenstrategie. Wir analysieren Ihre Geschäftsziele, identifizieren Datenbedarfe und erstellen eine Roadmap für die nächsten Jahre. Sie erhalten ein klares Konzept, wie Daten Ihr Unternehmen voranbringen können.",
-    basePrice: 14900,
+    basePrice: 16400,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -389,7 +389,7 @@ export const deliverables: Deliverable[] = [
     name: "Daten-Roadmap",
     shortDescription: "Detaillierte Roadmap für Ihre Dateninitiativen. Klare Prioritäten und Meilensteine.",
     longDescription: "Wir erstellen eine detaillierte Roadmap für alle geplanten Dateninitiativen. Mit klaren Prioritäten, Meilensteinen und Abhängigkeiten können Sie Ihre Datenprojekte strukturiert angehen und Ressourcen optimal einsetzen.",
-    basePrice: 9900,
+    basePrice: 10900,
     active: true,
     tags: {
       type: ["blueprint"],
@@ -423,7 +423,7 @@ export const deliverables: Deliverable[] = [
     name: "Data Governance Starter",
     shortDescription: "Grundlegende Data Governance Struktur. Verantwortlichkeiten, Prozesse und Standards.",
     longDescription: "Wir richten eine grundlegende Data Governance Struktur ein: Rollen und Verantwortlichkeiten, Prozesse für Datenqualität und Standards für den Umgang mit Daten. Sie erhalten ein solides Fundament für den verantwortungsvollen Umgang mit Daten in Ihrem Unternehmen.",
-    basePrice: 13900,
+    basePrice: 15300,
     active: true,
     tags: {
       type: ["setup", "blueprint"],
@@ -455,7 +455,7 @@ export const deliverables: Deliverable[] = [
     name: "IAM Konzept",
     shortDescription: "Konzept für Identity und Access Management. Sicherer und kontrollierter Zugriff auf Daten und Systeme.",
     longDescription: "Wir entwickeln ein Konzept für Identity und Access Management (IAM) in Ihrem Unternehmen. Mit klaren Rollen, Rechten und Prozessen stellen wir sicher, dass nur berechtigte Personen Zugriff auf die richtigen Daten haben.",
-    basePrice: 11900,
+    basePrice: 13100,
     active: true,
     tags: {
       type: ["blueprint"],
@@ -487,7 +487,7 @@ export const deliverables: Deliverable[] = [
     name: "Umsetzung von Rechte- & Rollenkonzepten",
     shortDescription: "Technische Umsetzung von Zugriffsrechten und Rollen. Sicherer Datenzugriff nach dem Prinzip der geringsten Rechte.",
     longDescription: "Wir setzen Ihr Rechte- und Rollenkonzept technisch um. Mit automatisierten Prozessen und klaren Regeln stellen wir sicher, dass jeder Mitarbeiter nur Zugriff auf die Daten hat, die er für seine Arbeit benötigt.",
-    basePrice: 18900,
+    basePrice: 20800,
     active: true,
     tags: {
       type: ["build"],
@@ -521,7 +521,7 @@ export const deliverables: Deliverable[] = [
     name: "Forecasting-Modell",
     shortDescription: "Vorhersagemodell für Ihre Geschäftskennzahlen. Realistischere Prognosen für Planung und Budgetierung.",
     longDescription: "Wir entwickeln ein Forecasting-Modell für Ihre wichtigsten Geschäftskennzahlen. Basierend auf historischen Daten und Trends können Sie realistischere Prognosen erstellen und bessere Entscheidungen treffen. Das Modell wird kontinuierlich verbessert und passt sich an neue Entwicklungen an.",
-    basePrice: 21900,
+    basePrice: 24100,
     active: true,
     tags: {
       type: ["build"],
@@ -554,7 +554,7 @@ export const deliverables: Deliverable[] = [
     name: "Churn Prevention Modell",
     shortDescription: "Früherkennung von Kunden mit Abwanderungsrisiko. Rechtzeitige Maßnahmen zur Kundenbindung.",
     longDescription: "Wir entwickeln ein Machine Learning Modell zur Vorhersage von Kundenabwanderung. Basierend auf Verhaltensdaten und Transaktionshistorie identifiziert das Modell Kunden mit hohem Abwanderungsrisiko, sodass Sie rechtzeitig Maßnahmen zur Kundenbindung ergreifen können.",
-    basePrice: 23900,
+    basePrice: 26300,
     active: true,
     tags: {
       type: ["build"],
@@ -587,7 +587,7 @@ export const deliverables: Deliverable[] = [
     name: "Anomalieerkennung (KI)",
     shortDescription: "Automatische Erkennung ungewöhnlicher Muster in Daten – für Frühwarnung, Qualität und Betrugserkennung.",
     longDescription: "Wir entwickeln ein System zur automatischen Erkennung von Anomalien in Ihren Daten. Das System lernt normale Muster und erkennt Abweichungen, die auf Probleme, Betrug oder interessante Entwicklungen hinweisen können. Ideal für Qualitätssicherung, Betrugserkennung oder Prozessoptimierung.",
-    basePrice: 22900,
+    basePrice: 25200,
     active: true,
     tags: {
       type: ["build"],
@@ -620,7 +620,7 @@ export const deliverables: Deliverable[] = [
     name: "Predictive Maintenance",
     shortDescription: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig – nicht zu früh, nicht zu spät.",
     longDescription: "Wir entwickeln ein Predictive Maintenance System, das Wartungsbedarfe für Ihre Maschinen und Anlagen vorhersagt. Basierend auf Sensordaten und historischen Wartungsdaten sagt das Modell voraus, wann Wartung nötig ist, sodass Sie Ausfälle vermeiden und Wartungskosten optimieren können.",
-    basePrice: 26900,
+    basePrice: 29600,
     active: true,
     tags: {
       type: ["build"],
@@ -653,7 +653,7 @@ export const deliverables: Deliverable[] = [
     name: "KI-gestützte Qualitätsprüfung",
     shortDescription: "Automatische Qualitätsprüfung mit KI – z. B. für Bild-, Video- oder Prozessdaten.",
     longDescription: "Wir entwickeln ein KI-System zur automatischen Qualitätsprüfung Ihrer Produkte. Basierend auf Bildern, Sensordaten oder anderen Messwerten erkennt das System Fehler und Qualitätsprobleme frühzeitig, sodass Sie Ausschuss reduzieren und Qualität verbessern können.",
-    basePrice: 24900,
+    basePrice: 27400,
     active: true,
     tags: {
       type: ["build"],
@@ -688,7 +688,7 @@ export const deliverables: Deliverable[] = [
     name: "Zielarchitektur für Daten & Analytics",
     shortDescription: "Zielbild für Ihre Daten- und Analytics-Landschaft – klar, umsetzbar und abgestimmt mit dem Business.",
     longDescription: "Wir entwickeln eine Zielarchitektur für Ihre gesamte Datenlandschaft. Mit klaren Prinzipien, Technologie-Empfehlungen und einem Migrationspfad haben Sie eine Roadmap, wie Ihre Dateninfrastruktur in Zukunft aussehen soll.",
-    basePrice: 17900,
+    basePrice: 19700,
     active: true,
     tags: {
       type: ["blueprint"],
@@ -722,7 +722,7 @@ export const deliverables: Deliverable[] = [
     name: "BI Factory",
     shortDescription: "Skalierbare Prozesse für die Erstellung von BI-Lösungen. Schnellere Entwicklung, höhere Qualität.",
     longDescription: "Wir richten eine BI Factory ein: standardisierte Prozesse, wiederverwendbare Komponenten und automatisierte Qualitätssicherung. Mit diesem Ansatz können Sie BI-Lösungen schneller entwickeln, bei höherer Qualität und konsistenten Standards.",
-    basePrice: 21900,
+    basePrice: 24100,
     active: true,
     tags: {
       type: ["setup", "build"],
@@ -754,7 +754,7 @@ export const deliverables: Deliverable[] = [
     name: "Monitoring & Betrieb",
     shortDescription: "Proaktives Monitoring Ihrer Datenplattform und Analytics-Lösungen im laufenden Betrieb.",
     longDescription: "Wir richten ein umfassendes Monitoring-System für Ihre Dateninfrastruktur ein. Mit automatisierten Checks, Alarmen und Dashboards erkennen Sie Probleme frühzeitig und können proaktiv reagieren. Höhere Verfügbarkeit, weniger Ausfälle.",
-    basePrice: 16900,
+    basePrice: 18600,
     active: true,
     tags: {
       type: ["setup", "run"],
@@ -786,7 +786,7 @@ export const deliverables: Deliverable[] = [
     name: "Data Operations Retainer",
     shortDescription: "Laufende Unterstützung für Ihre Dateninfrastruktur. Kontinuierliche Optimierung und schnelle Reaktion auf Probleme.",
     longDescription: "Mit einem Data Operations Retainer erhalten Sie laufende Unterstützung für Ihre Dateninfrastruktur. Wir optimieren kontinuierlich, reagieren schnell auf Probleme und helfen bei der Weiterentwicklung. Ideal für Unternehmen, die keine eigene Data Operations Abteilung haben.",
-    basePrice: 12900,
+    basePrice: 14200,
     active: true,
     tags: {
       type: ["run"],
@@ -821,7 +821,7 @@ export const deliverables: Deliverable[] = [
     name: "API- & Schnittstellenentwicklung",
     shortDescription: "Entwicklung und Anbindung von APIs und Schnittstellen zwischen Systemen. Stabile Datenflüsse für Automatisierung und Integration.",
     longDescription: "Wir entwickeln und implementieren APIs und Schnittstellen zwischen Ihren Geschäftssystemen – z. B. ERP, CRM, Helpdesk oder Fachanwendungen. Sie erhalten dokumentierte, wartbare Integrationen als Grundlage für Automatisierung, BI und KI-Use-Cases.",
-    basePrice: 15900,
+    basePrice: 17500,
     active: true,
     tags: {
       type: ["build"],
@@ -854,7 +854,7 @@ export const deliverables: Deliverable[] = [
     name: "Datenmodellierung",
     shortDescription: "Strukturiertes Datenmodell für Reporting, Analytics und zentrale Datenablage. Konsistente Semantik über Systeme hinweg.",
     longDescription: "Wir modellieren Ihre Kerndatenbereiche – z. B. Vertrieb, Finanzen oder Stammdaten – in einem belastbaren logischen und technischen Datenmodell. Das Modell bildet die Basis für DWH, BI, Self-Service und spätere KI-Anwendungen.",
-    basePrice: 12900,
+    basePrice: 14200,
     active: true,
     tags: {
       type: ["build", "blueprint"],
@@ -887,7 +887,7 @@ export const deliverables: Deliverable[] = [
     name: "Datenmigration",
     shortDescription: "Geplante Migration von Daten in neue Systeme oder Plattformen. Strukturiert, nachvollziehbar und mit Qualitätssicherung.",
     longDescription: "Wir migrieren Ihre Daten kontrolliert in Zielsysteme – z. B. beim Wechsel von Excel zu BI, DWH-Aufbau oder Systemkonsolidierung. Mit Migrationsplan, Mapping, Testläufen und Abnahme stellen wir sicher, dass Ihre Daten im Ziel belastbar ankommen.",
-    basePrice: 14900,
+    basePrice: 16400,
     active: true,
     tags: {
       type: ["build"],
@@ -920,7 +920,7 @@ export const deliverables: Deliverable[] = [
     name: "Datenbereinigung & Validierung",
     shortDescription: "Systematische Bereinigung und Validierung Ihrer Daten. Höhere Datenqualität für Reporting, Stammdaten und Automatisierung.",
     longDescription: "Wir analysieren Datenqualitätsprobleme, bereinigen kritische Datenbestände und richten Validierungsregeln ein. Ideal vor DWH-/MDM-Projekten, BI-Rollouts oder Automatisierungsinitiativen, wenn belastbare Daten die Grundlage sein müssen.",
-    basePrice: 11900,
+    basePrice: 13100,
     active: true,
     tags: {
       type: ["build"],
@@ -953,7 +953,7 @@ export const deliverables: Deliverable[] = [
     name: "Automatisierungs-Pilot",
     shortDescription: "Kompakter Proof of Concept für Prozessautomatisierung. Schnell validieren, ob Automatisierung sich lohnt – ohne BI-Zwang.",
     longDescription: "In einem fokussierten Pilot automatisieren wir einen klar abgegrenzten Geschäftsprozess – z. B. Rechnungseingang, Bestellfreigabe oder Ticket-Routing. Sie erhalten einen funktionsfähigen PoC mit Messgrößen und einer Empfehlung für Skalierung oder Produktivbetrieb.",
-    basePrice: 9900,
+    basePrice: 10900,
     active: true,
     tags: {
       type: ["build"],
@@ -986,7 +986,7 @@ export const deliverables: Deliverable[] = [
     name: "RAG-Grundlagen-Setup",
     shortDescription: "Aufbau einer Retrieval-Augmented-Generation-Basis für Wissensrecherche und interne Assistenzsysteme.",
     longDescription: "Wir richten eine belastbare RAG-Grundlage ein: Dokumentenaufbereitung, Wissensindex, Retrieval-Pipeline und erste Assistenzfunktion. Ideal für Literaturrecherche, internes Wissensmanagement oder fachliche Q&A-Assistenten.",
-    basePrice: 16900,
+    basePrice: 18600,
     active: true,
     tags: {
       type: ["setup", "build"],
@@ -1019,7 +1019,7 @@ export const deliverables: Deliverable[] = [
     name: "AI-Agent Entwicklung",
     shortDescription: "Entwicklung eines fokussierten KI-Agenten für klar definierte Aufgaben – z. B. Coding, Recherche oder Prozessunterstützung.",
     longDescription: "Wir entwickeln einen KI-Agenten für einen abgegrenzten Use-Case mit klaren Leitplanken, Tool-Anbindungen und Qualitätschecks. Der Agent ist auf Ihre Daten, Systeme und Governance-Anforderungen zugeschnitten – nicht als generische Demo, sondern als belastbarer Prototyp oder erste Produktivversion.",
-    basePrice: 19900,
+    basePrice: 21900,
     active: true,
     tags: {
       type: ["build"],
@@ -1052,7 +1052,7 @@ export const deliverables: Deliverable[] = [
     name: "AI Review & Qualitätskontrolle",
     shortDescription: "Unabhängige Prüfung von KI-Modellen, Architektur und Betriebsreife. Risiken erkennen, Qualität absichern.",
     longDescription: "Wir prüfen bestehende oder geplante KI-Lösungen auf Modellqualität, Datenbasis, Governance, Sicherheit und Betriebsfähigkeit. Sie erhalten eine strukturierte Bewertung mit priorisierten Maßnahmen – ideal vor Go-Live, nach Piloten oder bei Architekturentscheidungen.",
-    basePrice: 9900,
+    basePrice: 10900,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -1085,7 +1085,7 @@ export const deliverables: Deliverable[] = [
     name: "Data & Analytics Maturity Assessment",
     shortDescription: "Strukturierte Reifegradanalyse für Daten, Analytics und KI. Klarheit über Stärken, Lücken und nächste Schritte.",
     longDescription: "Wir bewerten Ihre Data-&-Analytics-Reife entlang definierter Dimensionen – z. B. Strategie, Governance, Architektur, Analytics und KI. Sie erhalten einen belastbaren Reifegradbericht mit Handlungsfeldern und priorisierten Empfehlungen.",
-    basePrice: 12900,
+    basePrice: 14200,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -1118,7 +1118,7 @@ export const deliverables: Deliverable[] = [
     name: "Compliance-Paket",
     shortDescription: "Gebündeltes Paket für regulatorische Anforderungen – Governance, Kennzahlen und Umsetzungsroadmap.",
     longDescription: "Wir strukturieren Ihre Compliance-Anforderungen – z. B. NIS2, ISMS oder branchenspezifische Vorgaben – in ein umsetzbares Paket aus Governance-Rahmen, KPIs und priorisierten Maßnahmen. Ideal als Einstieg, wenn Reporting und Verantwortlichkeiten noch nicht klar sind.",
-    basePrice: 14900,
+    basePrice: 16400,
     active: true,
     tags: {
       type: ["blueprint", "setup"],
@@ -1151,7 +1151,7 @@ export const deliverables: Deliverable[] = [
     name: "Datenschutzpaket (DSGVO)",
     shortDescription: "Praxisnahes DSGVO-Paket mit Governance, Dateninventar und Maßnahmenplan. Fundament für datenschutzkonforme Datenarbeit.",
     longDescription: "Wir erstellen ein umsetzbares Datenschutzpaket für Ihre Daten- und Analytics-Initiativen: Verarbeitungsübersicht, Rollen, Governance-Strukturen und priorisierte Maßnahmen. Das Paket schafft die Basis für DSGVO-konforme BI-, KI- und Automatisierungsprojekte.",
-    basePrice: 13900,
+    basePrice: 15300,
     active: true,
     tags: {
       type: ["blueprint", "setup"],
@@ -1184,7 +1184,7 @@ export const deliverables: Deliverable[] = [
     name: "Architektur-Workshop",
     shortDescription: "Kompakter Workshop für Architekturentscheidungen. Schnelle Klarheit über Zielbild, Optionen und nächste Schritte.",
     longDescription: "In einem fokussierten Architektur-Workshop klären wir Ihr Zielbild, bewerten Optionen und leiten konkrete nächste Schritte ab – z. B. für Datenplattform, Integration, KI-Infrastruktur oder Data Mesh. Kürzer und operativer als ein vollständiges Target-Architecture-Projekt.",
-    basePrice: 8900,
+    basePrice: 9800,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -1220,7 +1220,7 @@ export const deliverables: Deliverable[] = [
     name: "ETL/ELT Pipeline Setup",
     shortDescription: "Aufbau stabiler Datenpipelines für regelmäßige Datenaktualisierung. Brücke zwischen Quellen, DWH und BI.",
     longDescription: "Wir implementieren ETL- oder ELT-Pipelines für Ihre Kernprozesse – von der Quelle bis zur konsumierbaren Datenschicht. Die Pipelines sind dokumentiert, überwachbar und erweiterbar. Ideal als Baustein zwischen Integrationsanalyse, DWH und Reporting.",
-    basePrice: 17900,
+    basePrice: 19700,
     active: true,
     tags: {
       type: ["build", "setup"],
@@ -1253,7 +1253,7 @@ export const deliverables: Deliverable[] = [
     name: "Prozessanalyse Workshop",
     shortDescription: "Strukturierte Analyse eines Geschäftsprozesses vor Automatisierung oder Optimierung. Klarer Scope, messbare Hebel.",
     longDescription: "Wir analysieren einen fokussierten Geschäftsprozess gemeinsam mit Fachbereich und IT: Ist-Ablauf, Medienbrüche, Datenquellen und Automatisierungspotenzial. Das Ergebnis ist ein belastbarer Umsetzungs-Scope – ideal vor Automatisierungs-Pilot oder Rollout.",
-    basePrice: 7900,
+    basePrice: 8700,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -1286,7 +1286,7 @@ export const deliverables: Deliverable[] = [
     name: "Automatisierungs-Rollout",
     shortDescription: "Skalierung eines validierten Automatisierungs-PoC in den produktiven Betrieb. Stabil, dokumentiert, überwachbar.",
     longDescription: "Nach einem erfolgreichen Pilot überführen wir die Automatisierung in den Regelbetrieb: Produktivierung, Fehlerpfade, Freigaben und Monitoring. Der Baustein schließt an Automatisierungs-Pilot und API-Integration an.",
-    basePrice: 14900,
+    basePrice: 16400,
     active: true,
     tags: {
       type: ["build", "run"],
@@ -1319,7 +1319,7 @@ export const deliverables: Deliverable[] = [
     name: "Semantic Layer & Kennzahlenmodell",
     shortDescription: "Einheitliches Kennzahlen- und Semantikmodell für BI und Self-Service. Eine Wahrheit, viele Reports.",
     longDescription: "Wir bauen einen Semantic Layer auf Ihrer Datenbasis: zentrale Metriken, Dimensionen und Berechnungslogik. Damit werden Reports konsistent, Wartung einfacher und Self-Service belastbar – der natürliche Baustein nach KPI-Workshop und vor Management-Reports.",
-    basePrice: 11900,
+    basePrice: 13100,
     active: true,
     tags: {
       type: ["build", "blueprint"],
@@ -1352,7 +1352,7 @@ export const deliverables: Deliverable[] = [
     name: "Self-Service BI Enablement",
     shortDescription: "Befähigung von Fachbereichen zu eigenständigem Reporting. Governance, Templates und Schulung im Paket.",
     longDescription: "Wir etablieren Self-Service BI für Ihre Fachbereiche: Berechtigungsmodell, Report-Templates, Kurzschulung und Leitplanken. Der Baustein ergänzt BI-Setup und Semantic Layer – für nachhaltige Adoption statt Einzelberichte.",
-    basePrice: 8900,
+    basePrice: 9800,
     active: true,
     tags: {
       type: ["enablement", "setup"],
@@ -1385,7 +1385,7 @@ export const deliverables: Deliverable[] = [
     name: "KI Use-Case Sprint",
     shortDescription: "Priorisierung und Konkretisierung von KI-Use-Cases. Von der Idee zum umsetzbaren ersten Schritt.",
     longDescription: "In einem kompakten Sprint identifizieren und priorisieren wir KI-Use-Cases mit Business Value, Datenverfügbarkeit und Umsetzbarkeit. Sie erhalten eine belastbare Shortlist und Empfehlungen für Pilot, Agent, RAG oder Modellprojekt.",
-    basePrice: 10900,
+    basePrice: 12000,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -1418,7 +1418,7 @@ export const deliverables: Deliverable[] = [
     name: "Change & Adoption Begleitung",
     shortDescription: "Begleitung von Daten-, BI- und KI-Initiativen bei Menschen und Organisation. Adoption sicherstellen.",
     longDescription: "Wir begleiten die organisatorische Seite Ihrer Dateninitiative: Stakeholder, Kommunikation, Rollenklärung und Adoption-Maßnahmen. Ideal ergänzend zu Strategie-, Leadership- und Technikbausteinen – damit Projekte im Alltag ankommen.",
-    basePrice: 9900,
+    basePrice: 10900,
     active: true,
     tags: {
       type: ["workshop", "enablement"],
@@ -1451,7 +1451,7 @@ export const deliverables: Deliverable[] = [
     name: "Data Catalog Einrichtung",
     shortDescription: "Technisches und fachliches Setup eines Data Catalogs – Metadaten, Ownership und Auffindbarkeit.",
     longDescription: "Wir richten einen Data Catalog für Ihre wichtigsten Datenobjekte ein: Metadaten, Ownership, Glossar-Anbindung und Suchfunktion. Der Baustein vervollständigt Governance- und Glossar-Arbeit zu einem nutzbaren Katalog-Produkt.",
-    basePrice: 14900,
+    basePrice: 16400,
     active: true,
     tags: {
       type: ["setup", "build"],
@@ -1484,7 +1484,7 @@ export const deliverables: Deliverable[] = [
     name: "Security & Access Review",
     shortDescription: "Prüfung von Zugriffen, Berechtigungen und Sicherheitsrisiken in der Datenlandschaft.",
     longDescription: "Wir prüfen Zugriffswege, Berechtigungsmodelle und Sicherheitsrisiken rund um Ihre Datenplattform und Fachsysteme. Das Ergebnis ist ein priorisierter Maßnahmenplan – ideal vor IAM-Rollout, Security-Dashboards oder Compliance-Paketen.",
-    basePrice: 11900,
+    basePrice: 13100,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],
@@ -1517,7 +1517,7 @@ export const deliverables: Deliverable[] = [
     name: "FinOps Review",
     shortDescription: "Analyse von Cloud- und Plattformkosten mit konkreten Einspar- und Steuerungshebeln.",
     longDescription: "Wir analysieren Ihre Cloud- und Datenplattformkosten, identifizieren Treiber und leiten konkrete Optimierungsmaßnahmen ab. Der Baustein ist der Einstieg vor FinOps-Dashboards und laufendem Kostenmonitoring.",
-    basePrice: 9900,
+    basePrice: 10900,
     active: true,
     tags: {
       type: ["workshop", "blueprint"],

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { DeliverableParameters, CartItem } from '../data/models';
-import { globalParameters } from '../data/parameters';
+import { getParameterByKey } from '../data/parameters';
 import { getBundleForProduct } from '../data/recommendations';
 import { getDeliverableById, calculateCartItemPrice } from '../lib/pricing';
 
@@ -31,6 +31,7 @@ interface ConfigState {
   setBundleFromProduct: (productId: string, options?: { force?: boolean; resetSelection?: boolean }) => void;
   setWizardStep: (step: 1 | 2) => void;
   toggleDeliverable: (id: string, enabled: boolean) => void;
+  configureSingleDeliverable: (id: string) => void;
   updateDeliverableParam: (id: string, key: string, value: string | number) => void;
   resetAll: () => void;
   setPersistEnabled: (enabled: boolean) => void;
@@ -78,14 +79,16 @@ export function getTotalPriceFromSelectedDeliverables(
   }, 0);
 }
 
-// Default-Parameter aus globalen Parametern
-function getDefaultParameters(): DeliverableParameters {
+function getDefaultParametersForDeliverable(deliverableId: string): DeliverableParameters {
+  const deliverable = getDeliverableById(deliverableId);
   const defaults: DeliverableParameters = {};
-  globalParameters.forEach(param => {
-    defaults[param.key] = typeof param.default === 'string'
-      ? param.default
-      : param.default;
-  });
+  if (!deliverable?.parameters) return defaults;
+
+  for (const paramKey of deliverable.parameters) {
+    const param = getParameterByKey(paramKey);
+    if (!param) continue;
+    defaults[param.key] = typeof param.default === 'string' ? param.default : param.default;
+  }
   return defaults;
 }
 
@@ -229,7 +232,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
 
         newDeliverables[rec.deliverableId] = {
           enabled,
-          params: existing?.params ?? getDefaultParameters(),
+          params: existing?.params ?? getDefaultParametersForDeliverable(rec.deliverableId),
         };
       });
 
@@ -257,9 +260,31 @@ export const useConfigStore = create<ConfigState>((set, get) => {
             ...state.selectedDeliverables,
             [id]: {
               enabled,
-              params: current?.params || getDefaultParameters()
+              params: current?.params ?? getDefaultParametersForDeliverable(id)
             }
           }
+        };
+        saveToStorage(newState);
+        return newState;
+      });
+    },
+
+    configureSingleDeliverable: (id: string) => {
+      const deliverable = getDeliverableById(id);
+      if (!deliverable?.active) return;
+
+      set((state) => {
+        const newState: ConfigState = {
+          ...state,
+          selectedDeliverables: {
+            [id]: {
+              enabled: true,
+              params: getDefaultParametersForDeliverable(id),
+            },
+          },
+          activeProduct: null,
+          hasBundleLoadedForProduct: null,
+          wizardStep: 2,
         };
         saveToStorage(newState);
         return newState;
@@ -279,7 +304,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
             [id]: {
               enabled: true,
               params: {
-                ...getDefaultParameters(),
+                ...getDefaultParametersForDeliverable(id),
                 [key]: value
               }
             }

@@ -1,24 +1,18 @@
-/** Prüft alle 6 DSB-Retainer-Preiskombinationen gegen Zielwerte. */
-
-const PRICE_ESTIMATE_BUFFER = 1.1;
+/** Prüft alle 6 DSB-Retainer-Preiskombinationen gegen Zielwerte (ohne Runtime-Puffer). */
 
 function roundToNearest100(amount) {
   return Math.round(amount / 100) * 100;
 }
 
-function applyPriceEstimateBuffer(amount) {
-  return roundToNearest100(amount * PRICE_ESTIMATE_BUFFER);
-}
-
 function calculateTotal(base, companyMult, careMult) {
-  return applyPriceEstimateBuffer(base * companyMult * careMult);
+  return roundToNearest100(base * companyMult * careMult);
 }
 
 const base = 600;
 const companyMults = {
-  SMB: 10 / 11,
-  Mid: 100 / 33,
-  Enterprise: 200 / 33,
+  SMB: 1.0,
+  Mid: 10 / 3,
+  Enterprise: 20 / 3,
 };
 const careMults = {
   basis: 1.0,

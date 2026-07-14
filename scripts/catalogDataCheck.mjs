@@ -7,6 +7,7 @@
 import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, "../src/layouts/components/data");
@@ -270,4 +271,16 @@ if (aliasInFeatured.length > 0) {
 }
 
 console.log(`\nGesamt kritische Befunde: ${errorCount}`);
+
+const pricingCheck = spawnSync(process.execPath, ["scripts/catalogPricingCheck.mjs"], {
+  cwd: join(__dirname, ".."),
+  encoding: "utf8",
+});
+if (pricingCheck.stdout) process.stdout.write("\n" + pricingCheck.stdout);
+if (pricingCheck.stderr) process.stderr.write(pricingCheck.stderr);
+if (pricingCheck.status !== 0) {
+  console.log(`\n✗ Preis-Konsistenzcheck fehlgeschlagen (Exit ${pricingCheck.status})`);
+  process.exit(1);
+}
+
 process.exit(errorCount > 0 ? 1 : 0);
