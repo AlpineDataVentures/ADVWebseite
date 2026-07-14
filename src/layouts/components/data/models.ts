@@ -78,6 +78,8 @@ export interface CartItem {
   deliverableId: string;
   quantity: number;
   parameters: DeliverableParameters;
+  /** Produkt-Kontext beim Hinzufügen zum Warenkorb */
+  sourceProductId?: string | null;
 }
 
 // Konfiguration

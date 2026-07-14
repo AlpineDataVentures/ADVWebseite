@@ -35,8 +35,6 @@ interface CartSheetProps {
  */
 export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) {
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
-  const activeProduct = useConfigStore((state) => state.activeProduct);
-  const selectedProducts = useConfigStore((state) => state.selectedProducts);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
   const cartWithPrices = useMemo(
     () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
@@ -47,21 +45,16 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
     [selectedDeliverables]
   );
 
-  const handleRemove = (deliverableId: string) => {
-    toggleDeliverable(deliverableId, false);
-  };
-
-  const getResolvedProductTitle = () => {
-    const preferredProductId = activeProduct ?? selectedProducts[0] ?? null;
-    if (!preferredProductId) return "Individuelle Anfrage";
-    return getProductById(preferredProductId)?.title ?? preferredProductId;
-  };
-
   const hasCartItems = cartWithPrices.length > 0;
+
+  const getSourceProductTitle = (deliverableId: string) => {
+    const productId = selectedDeliverables[deliverableId]?.sourceProductId;
+    if (!productId) return null;
+    return getProductById(productId)?.title ?? productId;
+  };
 
   const inquiryPayload = useMemo(() => {
     return buildInquiryPayloadFromCart({
-      productTitle: getResolvedProductTitle(),
       items: cartWithPrices
         .filter((item) => Boolean(item.deliverable))
         .map((item) => ({
@@ -70,10 +63,11 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
           price: item.price,
           pricePeriod: item.deliverable?.pricePeriod,
           parameters: item.parameters ?? {},
+          sourceProductId: item.sourceProductId ?? selectedDeliverables[item.deliverableId]?.sourceProductId ?? null,
         })),
       estimatedTotalPrice: totalPrice > 0 ? totalPrice : undefined,
     });
-  }, [cartWithPrices, totalPrice, activeProduct, selectedProducts]);
+  }, [cartWithPrices, totalPrice, selectedDeliverables]);
 
   const inquirySubject = useMemo(() => {
     return buildInquirySubject(inquiryPayload.productTitle);
@@ -93,6 +87,10 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
 
   const handleOpenCalendlyBooking = () => {
     window.open(calendlyBooking.url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleRemove = (deliverableId: string) => {
+    toggleDeliverable(deliverableId, false);
   };
 
   const getSelectedParamsTags = (params: Record<string, any>) => {
@@ -149,6 +147,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
 
                 const selectedParamsTags = getSelectedParamsTags(item.parameters || {});
                 const Icon = getDeliverableIcon(item.deliverableId);
+                const sourceProductTitle = getSourceProductTitle(item.deliverableId);
 
                 return (
                   <AccordionItem key={item.deliverableId} value={item.deliverableId} className="border-0">
@@ -160,6 +159,11 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                             <h4 className="font-medium text-sm text-text dark:text-darkmode-text truncate">
                               {item.deliverable.name}
                             </h4>
+                            {sourceProductTitle && (
+                              <p className="text-xs text-text-light dark:text-darkmode-text-light mt-0.5 truncate">
+                                Produkt: {sourceProductTitle}
+                              </p>
+                            )}
                             <p className="text-xs font-semibold text-text dark:text-darkmode-text mt-0.5">
                               {formatPriceLabel(item.price, item.deliverable.pricePeriod)}
                             </p>

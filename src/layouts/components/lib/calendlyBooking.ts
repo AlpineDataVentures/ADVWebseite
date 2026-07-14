@@ -49,9 +49,30 @@ function formatParameterHint(
   return params.map((p) => `${p.label}: ${p.value}`).join("; ");
 }
 
+function formatDeliverableLine(
+  item: InquiryPayload["deliverables"][number],
+  index: number
+): string {
+  const productPrefix = item.productTitle ? `[${item.productTitle}] ` : "";
+  return `${index + 1}. ${productPrefix}${item.name} | ${formatParameterHint(item.selectedParameters)} | ${formatDeliverablePrice(item.price, item.pricePeriod)}`;
+}
+
+function buildSummaryHeader(payload: InquiryPayload): string {
+  if (payload.deliverables.length === 0) {
+    return `Produkt: ${payload.productTitle}`;
+  }
+  const titles = [
+    ...new Set(payload.deliverables.map((item) => item.productTitle).filter(Boolean)),
+  ] as string[];
+  if (titles.length <= 1) {
+    return `Produkt: ${titles[0] ?? payload.productTitle}`;
+  }
+  return `Produkte: ${titles.join(", ")}`;
+}
+
 /** Kompakte, informative Zusammenfassung für Calendly (Standardformat). */
 export function buildCalendlyConfigurationSummary(payload: InquiryPayload): string {
-  const lines: string[] = [`Produkt: ${payload.productTitle}`];
+  const lines: string[] = [buildSummaryHeader(payload)];
 
   if (payload.deliverables.length === 0) {
     lines.push("");
@@ -64,9 +85,7 @@ export function buildCalendlyConfigurationSummary(payload: InquiryPayload): stri
   lines.push("", "Bausteine:");
 
   payload.deliverables.forEach((item, index) => {
-    lines.push(
-      `${index + 1}. ${item.name} | ${formatParameterHint(item.selectedParameters)} | ${formatDeliverablePrice(item.price, item.pricePeriod)}`
-    );
+    lines.push(formatDeliverableLine(item, index));
   });
 
   if (typeof payload.estimatedTotalPrice === "number" && payload.estimatedTotalPrice > 0) {
@@ -176,14 +195,14 @@ export function buildCalendlyBookingUrl(
   truncated = true;
   // Fallback: nur Name + Preis je Baustein
   const minimalLines = [
-    `Produkt: ${payload.productTitle}`,
+    buildSummaryHeader(payload),
     "",
     ...(payload.deliverables.length === 0
       ? [EMPTY_CART_NOTICE]
-      : payload.deliverables.map(
-          (item, i) =>
-            `${i + 1}. ${item.name} – ${formatDeliverablePrice(item.price, item.pricePeriod)}`
-        )),
+      : payload.deliverables.map((item, i) => {
+          const productPrefix = item.productTitle ? `[${item.productTitle}] ` : "";
+          return `${i + 1}. ${productPrefix}${item.name} – ${formatDeliverablePrice(item.price, item.pricePeriod)}`;
+        })),
     "",
     TRUNCATION_NOTICE,
     CATALOG_FOOTER,
