@@ -1549,10 +1549,10 @@ export const deliverables: Deliverable[] = [
     family: "Governance & Culture",
     name: "Externer Datenschutzbeauftragter – Retainer",
     shortDescription:
-      "Laufende Betreuung durch einen TÜV-zertifizierten externen Datenschutzbeauftragter auf monatlicher Retainer-Basis – Basis ab ca. 500 € pro Monat, Erweitert ab ca. 2.500 € pro Monat bei intensiver Betreuung (Orientierungswert für mittelgroße Unternehmen).",
+      "Laufende Betreuung durch einen TÜV-zertifizierten externen Datenschutzbeauftragter auf monatlicher Retainer-Basis – ab 600 € pro Monat (Kleinunternehmen, Basisbetreuung).",
     longDescription:
-      "Ein TÜV-zertifizierter externer Datenschutzbeauftragter begleitet Ihr Unternehmen dauerhaft als Ansprechpartner für Datenschutzfragen. Im monatlichen Retainer sind Beratung, Abstimmung und definiertes Kontingent enthalten – keine einmalige Projektumsetzung, sondern laufende Unterstützung im operativen Datenschutzalltag. Das Kontingent „Erweitert“ bildet intensive Betreuung ab (Orientierungswert ca. 2.500 € pro Monat für mittelgroße Unternehmen). Für Großunternehmen ist eine individuelle Kalkulation erforderlich (Orientierungswert ca. 6.000 € pro Monat) – nutzen Sie dafür die individuelle Anfrage.",
-    basePrice: 500,
+      "Ein TÜV-zertifizierter externer Datenschutzbeauftragter begleitet Ihr Unternehmen dauerhaft als Ansprechpartner für Datenschutzfragen. Der monatliche Retainer wird nach Unternehmensgröße und Betreuungsumfang kalkuliert – von 600 € (Kleinunternehmen, Basis) bis 8.000 € (Großunternehmen, intensive Betreuung). Für Unternehmensgruppen, Konzerne oder besondere Anforderungen erstellen wir gerne ein individuelles Angebot.",
+    basePrice: 600,
     active: true,
     pricePeriod: "pro Monat",
     tags: {
@@ -1583,7 +1583,7 @@ export const deliverables: Deliverable[] = [
       "Vollständige operative Umsetzung aller Maßnahmen",
       "Zusätzliche Audits oder Großprojekte ohne separate Beauftragung"
     ],
-    parameters: ["dsbMonthlyQuota"]
+    parameters: ["dsbCompanySize", "dsbCareScope"]
   }
 ];
 

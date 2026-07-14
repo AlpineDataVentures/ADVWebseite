@@ -211,19 +211,40 @@ export const productParameters: Parameter[] = [
     applicableTo: ['mgmt_report_1', 'reporting_standards'] // Management-Bericht und Reporting-Struktur
   },
   {
-    key: 'dsbMonthlyQuota',
-    label: 'Monatliches Kontingent',
+    key: 'dsbCompanySize',
+    label: 'Unternehmensgröße',
     type: 'radio',
     options: [
-      { value: 'basis', label: 'Basis' },
-      { value: 'extended', label: 'Erweitert' }
+      { value: 'SMB', label: 'Klein & Mittelstand (bis 250 MA)' },
+      { value: 'Mid', label: 'Mittelgroß (250-1000 MA)' },
+      { value: 'Enterprise', label: 'Großunternehmen (1000+ MA)' }
+    ],
+    default: 'SMB',
+    pricingEffect: {
+      type: 'multiplier',
+      values: {
+        // Kalibriert auf Basispreis 600 € inkl. 10-%-Puffer → Zielwerte 600–8.000 €/Monat
+        'SMB': 10 / 11,
+        'Mid': 100 / 33,
+        'Enterprise': 200 / 33
+      }
+    },
+    applicableTo: ['dsb_retainer']
+  },
+  {
+    key: 'dsbCareScope',
+    label: 'Betreuungsumfang',
+    type: 'radio',
+    options: [
+      { value: 'basis', label: 'Basisbetreuung' },
+      { value: 'intensive', label: 'Intensive Betreuung' }
     ],
     default: 'basis',
     pricingEffect: {
       type: 'multiplier',
       values: {
         'basis': 1.0,
-        'extended': 4.55
+        'intensive': 2.0
       }
     },
     applicableTo: ['dsb_retainer']

@@ -33,9 +33,10 @@ const parameterHelperText: Record<string, string> = {
   securityLevel: "Erweiterte Sicherheit umfasst zusätzliche Compliance-Maßnahmen.",
   trainingParticipants: "Jeder zusätzliche Teilnehmer erhöht den Schulungsaufwand.",
   reportComplexity: "Komplexere Berichte benötigen mehr Entwicklungszeit.",
-  dsbMonthlyQuota:
-    "Basis: laufende Ansprechpartner-Betreuung (ca. 500 €/Monat). Erweitert: intensive Begleitung (Orientierungswert ca. 2.500 €/Monat für mittelgroße Unternehmen). Großunternehmen (ca. 6.000 €/Monat): bitte individuelle Anfrage nutzen.",
 };
+
+const DSB_RETAINER_CONFIG_HINT =
+  "Hinweis: Der monatliche Retainer richtet sich nach Unternehmensgröße und gewünschtem Betreuungsumfang. Für Unternehmensgruppen, Konzerne oder besondere Anforderungen erstellen wir gerne ein individuelles Angebot.";
 
 /**
  * Config View - Konfiguration für alle ausgewählten Produktbausteine
@@ -146,7 +147,10 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
                         ) : (
                           applicableParameters.map((param) => {
                             const currentValue = params[param.key] ?? param.default;
-                            const helperText = parameterHelperText[param.key];
+                            const helperText =
+                              id === "dsb_retainer"
+                                ? undefined
+                                : parameterHelperText[param.key];
 
                             return (
                               <div key={param.key} className="space-y-2">
@@ -222,6 +226,11 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
                           })
                         )}
                       </div>
+                      {id === "dsb_retainer" && (
+                        <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed mt-4 p-3 rounded-lg border border-border bg-light/50 dark:bg-darkmode-light/50">
+                          {DSB_RETAINER_CONFIG_HINT}
+                        </p>
+                      )}
                     </div>
 
                     {/* Leistungsumfang - flach (keine verschachtelte Disclosure-Ebene) */}
