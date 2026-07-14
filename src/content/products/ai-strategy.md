@@ -55,4 +55,4 @@ final_cta_image: "/images/goat.jpg"
 draft: false
 ---
 
-Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte koennen als eigene Markdown-Dateien im gleichen Format angelegt werden.
+Dieser Inhalt ist der erste Pilot fuer die neue Produkt-Collection. Weitere Produkte können als eigene Markdown-Dateien im gleichen Format angelegt werden.

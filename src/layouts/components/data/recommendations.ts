@@ -898,7 +898,7 @@ const hardOverrides: Record<string, Recommendation[]> = {
   ],
   "itsm-analytics": [
     { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Ticket- und Betriebsdaten aus ITSM-Systemen konsolidieren" },
-    { deliverableId: "bi_setup", defaultEnabled: true, reason: "SLA-, Volumen- und Loesungszeitmetriken transparent auswerten" },
+    { deliverableId: "bi_setup", defaultEnabled: true, reason: "SLA-, Volumen- und Lösungszeitmetriken transparent auswerten" },
     { deliverableId: "mgmt_report_1", defaultEnabled: true, reason: "IT-Service-Reporting fuer Leitung und Operations bereitstellen" }
   ],
   "cloud-cost-observability": [
@@ -968,7 +968,7 @@ const hardOverrides: Record<string, Recommendation[]> = {
   ],
   "ai-helpdeskassistent": [
     { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Wissensbasis und Ticketdaten fuer Assistenzfunktionen anbinden" },
-    { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Qualitaets- und Loesungskennzahlen fuer Assistentenleistung definieren" },
+    { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Qualitaets- und Lösungskennzahlen fuer Assistentenleistung definieren" },
     { deliverableId: "monitoring_ops", defaultEnabled: false, reason: "Nutzungs- und Antwortqualitaet im Betrieb kontinuierlich ueberwachen (Coming Soon)" }
   ],
   "agentic-coding": [
