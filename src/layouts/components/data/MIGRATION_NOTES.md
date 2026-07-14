@@ -1,6 +1,6 @@
 # Produktkatalog – Migrationsnotizen (Phase 2)
 
-Scope: ausschließlich Produktkatalog (`/produktkatalog`, `/demo`).
+Scope: ausschließlich Produktkatalog (`/produktkatalog`).
 Nicht betroffen: globale Website-Struktur, Routing außerhalb des Katalogs.
 
 Leitprinzip: **Lokale Daten bleiben Source of Truth.** Strapi wird vorbereitet,

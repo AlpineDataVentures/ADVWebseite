@@ -1,6 +1,6 @@
 /* ============================================
    ADV Produktkatalog – Scoped styles
-   Imported in src/pages/produktkatalog.astro (und Legacy src/pages/demo.astro).
+   Imported in src/pages/produktkatalog.astro
    All selectors MUST be under .adv-catalog.
    Follows site conventions: @layer components / utilities.
    Uses existing ADV tokens — no new token definitions.

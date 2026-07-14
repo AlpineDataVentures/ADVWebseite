@@ -45,8 +45,6 @@ Physisch gelöscht (kein Import im gesamten Repo):
 
 | Item | Grund |
 |------|-------|
-| `demo.astro` | Legacy-Route, identisch mit `produktkatalog.astro` – Redirect-Risiko bei Entfernung |
-| `demo-v2.astro` | 301-Redirect auf `/produktkatalog/` – bewusst für Bookmarks |
 | `PRODUCT_CATALOG_URL` in `config/products.ts` | Definiert, noch nicht überall importiert – für künftige CTAs/Links reserviert |
 | `catalogSource.ts` + `productModel.ts` | Strapi-Vorbereitung, nicht in UI verdrahtet – Adapter bereit |
 | `models.ts` Legacy-Interfaces (`Deliverable`, `UseCase`, `Configuration`) | Noch in Typen-Imports; schrittweise entfernen |
@@ -113,4 +111,3 @@ Bekannte inhaltliche Punkte (kein technischer Blocker):
 2. `useCases.ts` / `deliverables.ts` / `recommendations.ts` in JSON oder Strapi auslagern
 3. `configStore` Legacy-API entfernen (`wizardStep`, Multi-UseCase)
 4. `defaultBestForByDomain` zentralisieren
-5. `demo.astro` → Redirect wie `demo-v2.astro` (nach Abstimmung)
