@@ -3,7 +3,7 @@ import Logo from "@/components/Logo.astro";
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
-import { IoSearch } from "react-icons/io5";
+import { IoSearch, IoStorefrontOutline } from "react-icons/io5";
 
 export interface ChildNavigationLink {
   name: string;
@@ -110,10 +110,11 @@ const { pathname } = Astro.url;
         navigation_button.enable && (
           <li class="mt-4 inline-block lg:hidden">
             <a
-              class="btn btn-outline-primary btn-sm"
+              class="btn btn-outline-primary btn-sm inline-flex items-center gap-2"
               href={navigation_button.link}
             >
-              {navigation_button.label}
+              <IoStorefrontOutline aria-hidden="true" className="text-base" />
+              <span>{navigation_button.label}</span>
             </a>
           </li>
         )
@@ -136,10 +137,11 @@ const { pathname } = Astro.url;
       {
         navigation_button.enable && (
           <a
-            class="btn btn-outline-primary btn-sm hidden lg:inline-block"
+            class="btn btn-outline-primary btn-sm hidden lg:inline-flex items-center gap-2 shadow-[0_10px_24px_rgba(2,199,128,0.22)] transition hover:-translate-y-0.5"
             href={navigation_button.link}
           >
-            {navigation_button.label}
+            <IoStorefrontOutline aria-hidden="true" className="text-base" />
+            <span>{navigation_button.label}</span>
           </a>
         )
       }

@@ -31,8 +31,8 @@
   },
   "navigation_button": {
     "enable": true,
-    "label": "Termin vereinbaren",
-    "link": "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    "label": "Produktkatalog",
+    "link": "/produktkatalog/"
   },
   "metadata": {
     "meta_author": "Alpine Data Ventures",
