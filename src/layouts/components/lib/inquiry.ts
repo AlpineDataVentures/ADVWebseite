@@ -1,8 +1,14 @@
-import { formatPrice } from "./pricing";
+import { formatPrice, formatPriceLabel, getDeliverableById } from "./pricing";
+import { getParameterByKey } from "../data/parameters";
+import { getProductById } from "../data/useCases";
 
 export interface InquiryDeliverableItem {
   name: string;
   price: number;
+  /** z. B. „pro Monat“ für Retainer-Bausteine */
+  pricePeriod?: string;
+  /** Produkt, aus dem der Baustein ausgewählt wurde */
+  productTitle?: string;
   selectedParameters: Array<{ label: string; value: string }>;
 }
 
@@ -10,6 +16,84 @@ export interface InquiryPayload {
   productTitle: string;
   deliverables: InquiryDeliverableItem[];
   estimatedTotalPrice?: number;
+}
+
+export interface CartInquirySourceItem {
+  deliverableId: string;
+  deliverableName: string;
+  price: number;
+  pricePeriod?: string;
+  parameters: Record<string, string | number>;
+  sourceProductId?: string | null;
+}
+
+function resolveProductTitle(productId: string | null | undefined): string | undefined {
+  if (!productId) return undefined;
+  return getProductById(productId)?.title ?? productId;
+}
+
+/** Kopfzeilen-Produkt aus den Baustein-Produkten ableiten. */
+export function resolveInquiryProductTitle(
+  deliverables: Pick<InquiryDeliverableItem, "productTitle">[]
+): string {
+  const titles = [
+    ...new Set(deliverables.map((item) => item.productTitle).filter(Boolean)),
+  ] as string[];
+  if (titles.length === 0) return "Individuelle Anfrage";
+  if (titles.length === 1) return titles[0];
+  return "Mehrere Produkte";
+}
+
+/** Löst Parameter-Labels für Anfrage/Calendly auf (nur relevante Baustein-Parameter). */
+export function resolveInquiryParameters(
+  deliverableId: string,
+  parameters: Record<string, string | number>
+): Array<{ label: string; value: string }> {
+  const deliverable = getDeliverableById(deliverableId);
+  const paramKeys =
+    deliverable?.parameters && deliverable.parameters.length > 0
+      ? deliverable.parameters
+      : Object.keys(parameters);
+
+  return paramKeys
+    .filter((key) => {
+      const rawValue = parameters[key];
+      return rawValue !== undefined && rawValue !== null && String(rawValue).trim() !== "";
+    })
+    .map((key) => {
+      const parameter = getParameterByKey(key);
+      const rawValue = parameters[key];
+      const optionLabel = parameter?.options?.find((opt) => opt.value === String(rawValue))?.label;
+      return {
+        label: parameter?.label ?? key,
+        value: optionLabel ?? String(rawValue),
+      };
+    });
+}
+
+/** Gemeinsame Payload für E-Mail-Anfrage und Calendly (eine Datenquelle). */
+export function buildInquiryPayloadFromCart(options: {
+  productTitle?: string;
+  items: CartInquirySourceItem[];
+  estimatedTotalPrice?: number;
+}): InquiryPayload {
+  const deliverables = options.items.map((item) => ({
+    name: item.deliverableName,
+    price: item.price,
+    pricePeriod: item.pricePeriod,
+    productTitle: resolveProductTitle(item.sourceProductId),
+    selectedParameters: resolveInquiryParameters(item.deliverableId, item.parameters),
+  }));
+
+  return {
+    productTitle: options.productTitle ?? resolveInquiryProductTitle(deliverables),
+    deliverables,
+    estimatedTotalPrice: options.estimatedTotalPrice,
+  };
+}
+
+function formatDeliverablePriceForInquiry(price: number, pricePeriod?: string): string {
+  return pricePeriod ? formatPriceLabel(price, pricePeriod) : formatPrice(price);
 }
 
 export function buildInquirySubject(productTitle: string): string {
@@ -27,7 +111,10 @@ export function buildInquiryText(payload: InquiryPayload): string {
   lines.push("Ausgewählte Produktbausteine:");
 
   payload.deliverables.forEach((item, index) => {
-    lines.push(`${index + 1}. ${item.name} (${formatPrice(item.price)})`);
+    const productHint = item.productTitle ? ` (${item.productTitle})` : "";
+    lines.push(
+      `${index + 1}. ${item.name}${productHint} (${formatDeliverablePriceForInquiry(item.price, item.pricePeriod)})`
+    );
     if (item.selectedParameters.length > 0) {
       lines.push("   Konfigurationsparameter:");
       item.selectedParameters.forEach((param) => {

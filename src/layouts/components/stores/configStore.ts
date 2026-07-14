@@ -10,6 +10,8 @@ import { getDeliverableById, calculateCartItemPrice } from '../lib/pricing';
 interface DeliverableState {
   enabled: boolean;
   params: DeliverableParameters;
+  /** Produkt, aus dem der Baustein in den Warenkorb gelegt wurde */
+  sourceProductId?: string | null;
 }
 
 /**
@@ -50,7 +52,8 @@ export function getCartFromSelectedDeliverables(
     .map(([deliverableId, deliverableState]) => ({
       deliverableId,
       quantity: 1,
-      parameters: deliverableState.params
+      parameters: deliverableState.params,
+      sourceProductId: deliverableState.sourceProductId ?? null,
     }));
 }
 
@@ -233,6 +236,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         newDeliverables[rec.deliverableId] = {
           enabled,
           params: existing?.params ?? getDefaultParametersForDeliverable(rec.deliverableId),
+          sourceProductId: existing?.sourceProductId ?? null,
         };
       });
 
@@ -260,9 +264,12 @@ export const useConfigStore = create<ConfigState>((set, get) => {
             ...state.selectedDeliverables,
             [id]: {
               enabled,
-              params: current?.params ?? getDefaultParametersForDeliverable(id)
-            }
-          }
+              params: current?.params ?? getDefaultParametersForDeliverable(id),
+              sourceProductId: enabled
+                ? (state.activeProduct ?? current?.sourceProductId ?? null)
+                : (current?.sourceProductId ?? null),
+            },
+          },
         };
         saveToStorage(newState);
         return newState;
@@ -274,12 +281,14 @@ export const useConfigStore = create<ConfigState>((set, get) => {
       if (!deliverable?.active) return;
 
       set((state) => {
+        const sourceProductId = state.activeProduct;
         const newState: ConfigState = {
           ...state,
           selectedDeliverables: {
             [id]: {
               enabled: true,
               params: getDefaultParametersForDeliverable(id),
+              sourceProductId,
             },
           },
           activeProduct: null,
@@ -298,28 +307,28 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         let newDeliverables: Record<string, DeliverableState>;
 
         if (!current) {
-          // Erstelle neues Deliverable mit Default-Parametern
           newDeliverables = {
             ...state.selectedDeliverables,
             [id]: {
               enabled: true,
               params: {
                 ...getDefaultParametersForDeliverable(id),
-                [key]: value
-              }
-            }
+                [key]: value,
+              },
+              sourceProductId: state.activeProduct ?? null,
+            },
           };
         } else {
-          // Update bestehendes Deliverable
           newDeliverables = {
             ...state.selectedDeliverables,
             [id]: {
               ...current,
               params: {
                 ...current.params,
-                [key]: value
-              }
-            }
+                [key]: value,
+              },
+              sourceProductId: current.sourceProductId ?? state.activeProduct ?? null,
+            },
           };
         }
 

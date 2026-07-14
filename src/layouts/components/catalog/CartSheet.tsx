@@ -11,7 +11,13 @@ import { useMemo } from "react";
 import { getParameterByKey } from "../data/parameters";
 import { getDeliverableIcon } from "../lib/iconMap";
 import { getProductById } from "../data/useCases";
-import { buildInquirySubject, buildInquiryText, buildMailtoLink } from "../lib/inquiry";
+import {
+  buildInquiryPayloadFromCart,
+  buildInquirySubject,
+  buildInquiryText,
+  buildMailtoLink,
+} from "../lib/inquiry";
+import { buildCalendlyBookingUrl } from "../lib/calendlyBooking";
 import {
   PRODUCT_CATALOG_INQUIRY_EMAIL,
   PRODUCT_CATALOG_ORDER_MEETING_TITLE,
@@ -29,8 +35,6 @@ interface CartSheetProps {
  */
 export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) {
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
-  const activeProduct = useConfigStore((state) => state.activeProduct);
-  const selectedProducts = useConfigStore((state) => state.selectedProducts);
   const toggleDeliverable = useConfigStore((state) => state.toggleDeliverable);
   const cartWithPrices = useMemo(
     () => getCartWithPricesFromSelectedDeliverables(selectedDeliverables),
@@ -41,55 +45,52 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
     [selectedDeliverables]
   );
 
-  const handleRemove = (deliverableId: string) => {
-    toggleDeliverable(deliverableId, false);
+  const hasCartItems = cartWithPrices.length > 0;
+
+  const getSourceProductTitle = (deliverableId: string) => {
+    const productId = selectedDeliverables[deliverableId]?.sourceProductId;
+    if (!productId) return null;
+    return getProductById(productId)?.title ?? productId;
   };
 
-  const getResolvedProductTitle = () => {
-    const preferredProductId = activeProduct ?? selectedProducts[0] ?? null;
-    if (!preferredProductId) return "Nicht angegeben";
-    return getProductById(preferredProductId)?.title ?? preferredProductId;
-  };
-
-  const getDeliverableParamsForInquiry = (deliverableId: string) => {
-    const state = selectedDeliverables[deliverableId];
-    if (!state) return [];
-    return Object.entries(state.params)
-      .filter(([_, rawValue]) => rawValue !== undefined && rawValue !== null && String(rawValue).trim() !== "")
-      .map(([key, rawValue]) => {
-        const parameter = getParameterByKey(key);
-        const optionLabel = parameter?.options?.find((opt) => opt.value === String(rawValue))?.label;
-        return {
-          label: parameter?.label ?? key,
-          value: optionLabel ?? String(rawValue),
-        };
-      });
-  };
-
-  const inquirySubject = useMemo(() => {
-    return buildInquirySubject(getResolvedProductTitle());
-  }, [activeProduct, selectedProducts]);
-
-  const inquiryText = useMemo(() => {
-    const productTitle = getResolvedProductTitle();
-    const deliverables = cartWithPrices
-      .filter((item) => Boolean(item.deliverable))
-      .map((item) => ({
-        name: item.deliverable?.name ?? item.deliverableId,
-        price: item.price,
-        selectedParameters: getDeliverableParamsForInquiry(item.deliverableId),
-      }));
-
-    return buildInquiryText({
-      productTitle,
-      deliverables,
+  const inquiryPayload = useMemo(() => {
+    return buildInquiryPayloadFromCart({
+      items: cartWithPrices
+        .filter((item) => Boolean(item.deliverable))
+        .map((item) => ({
+          deliverableId: item.deliverableId,
+          deliverableName: item.deliverable?.name ?? item.deliverableId,
+          price: item.price,
+          pricePeriod: item.deliverable?.pricePeriod,
+          parameters: item.parameters ?? {},
+          sourceProductId: item.sourceProductId ?? selectedDeliverables[item.deliverableId]?.sourceProductId ?? null,
+        })),
       estimatedTotalPrice: totalPrice > 0 ? totalPrice : undefined,
     });
-  }, [cartWithPrices, totalPrice, activeProduct, selectedProducts, selectedDeliverables]);
+  }, [cartWithPrices, totalPrice, selectedDeliverables]);
+
+  const inquirySubject = useMemo(() => {
+    return buildInquirySubject(inquiryPayload.productTitle);
+  }, [inquiryPayload.productTitle]);
+
+  const inquiryText = useMemo(() => buildInquiryText(inquiryPayload), [inquiryPayload]);
+
+  const calendlyBooking = useMemo(
+    () => buildCalendlyBookingUrl(PRODUCT_CATALOG_ORDER_MEETING_URL, inquiryPayload),
+    [inquiryPayload]
+  );
 
   const handleSendInquiryEmail = () => {
     const mailtoHref = buildMailtoLink(PRODUCT_CATALOG_INQUIRY_EMAIL, inquirySubject, inquiryText);
     window.location.href = mailtoHref;
+  };
+
+  const handleOpenCalendlyBooking = () => {
+    window.open(calendlyBooking.url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleRemove = (deliverableId: string) => {
+    toggleDeliverable(deliverableId, false);
   };
 
   const getSelectedParamsTags = (params: Record<string, any>) => {
@@ -135,7 +136,8 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                 Warenkorb ist leer
               </p>
               <p className="text-xs text-text-light dark:text-darkmode-text-light">
-                Wählen Sie ein Produkt aus, um mit der Konfiguration zu beginnen.
+                Wählen Sie ein Produkt aus, um mit der Konfiguration zu beginnen – oder buchen Sie
+                unten direkt einen Beratungstermin für eine individuelle Anfrage.
               </p>
             </div>
           ) : (
@@ -145,6 +147,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
 
                 const selectedParamsTags = getSelectedParamsTags(item.parameters || {});
                 const Icon = getDeliverableIcon(item.deliverableId);
+                const sourceProductTitle = getSourceProductTitle(item.deliverableId);
 
                 return (
                   <AccordionItem key={item.deliverableId} value={item.deliverableId} className="border-0">
@@ -156,6 +159,11 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
                             <h4 className="font-medium text-sm text-text dark:text-darkmode-text truncate">
                               {item.deliverable.name}
                             </h4>
+                            {sourceProductTitle && (
+                              <p className="text-xs text-text-light dark:text-darkmode-text-light mt-0.5 truncate">
+                                Produkt: {sourceProductTitle}
+                              </p>
+                            )}
                             <p className="text-xs font-semibold text-text dark:text-darkmode-text mt-0.5">
                               {formatPriceLabel(item.price, item.deliverable.pricePeriod)}
                             </p>
@@ -241,33 +249,41 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
           )}
         </div>
 
-        {cartWithPrices.length > 0 && (
-          <div className="shrink-0 pt-4 border-t border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light px-5 pb-6 space-y-3">
+        <div className="shrink-0 pt-4 border-t border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light px-5 pb-6 space-y-3">
+          {hasCartItems && (
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold text-text dark:text-darkmode-text">Gesamtsumme</span>
               <span className="font-bold text-xl text-green-600 dark:text-green-400">
                 {formatPrice(totalPrice)}
               </span>
             </div>
-            <div className="space-y-3">
-              {onGoToConfig && (
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    onGoToConfig();
-                    onOpenChange(false);
-                  }}
-                  className="w-full"
-                  size="lg"
-                >
-                  Konfiguration prüfen oder bearbeiten
-                </Button>
-              )}
-              <p className="text-xs sm:text-sm text-text-light dark:text-darkmode-text-light leading-relaxed text-balance">
-                Vielen Dank für Ihr Interesse, das Projekt mit uns umzusetzen. Prüfen Sie bei Bedarf noch
-                einmal Ihre Konfiguration. Anschließend können Sie die Anfrage per E-Mail senden oder
-                direkt einen Termin zur Besprechung der Bestellung auswählen.
+          )}
+          <div className="space-y-3">
+            {hasCartItems && onGoToConfig && (
+              <Button
+                variant="outline"
+                onClick={() => {
+                  onGoToConfig();
+                  onOpenChange(false);
+                }}
+                className="w-full"
+                size="lg"
+              >
+                Konfiguration prüfen oder bearbeiten
+              </Button>
+            )}
+            <p className="text-xs sm:text-sm text-text-light dark:text-darkmode-text-light leading-relaxed text-balance">
+              {hasCartItems
+                ? "Vielen Dank für Ihr Interesse. Prüfen Sie bei Bedarf Ihre Konfiguration und senden Sie die Anfrage per E-Mail oder buchen Sie direkt einen Termin."
+                : "Noch keine Bausteine ausgewählt? Sie können trotzdem einen Termin für eine individuelle Beratung oder Anfrage vereinbaren."}
+            </p>
+            {calendlyBooking.truncated && hasCartItems && (
+              <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
+                Die wichtigsten Angaben werden an die Terminbuchung übergeben. Die vollständige
+                Konfiguration wird zusätzlich in Ihrer Anfrage berücksichtigt.
               </p>
+            )}
+            {hasCartItems && (
               <Button
                 variant="default"
                 onClick={handleSendInquiryEmail}
@@ -276,18 +292,18 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
               >
                 Anfrage per E-Mail senden
               </Button>
-              <Button
-                variant="order"
-                className="w-full min-h-[44px]"
-                size="lg"
-                onClick={() => window.open(PRODUCT_CATALOG_ORDER_MEETING_URL, "_blank", "noopener,noreferrer")}
-                title={PRODUCT_CATALOG_ORDER_MEETING_TITLE}
-              >
-                Besprechung zur Bestellung vereinbaren
-              </Button>
-            </div>
+            )}
+            <Button
+              variant="order"
+              className="w-full min-h-[44px]"
+              size="lg"
+              onClick={handleOpenCalendlyBooking}
+              title={PRODUCT_CATALOG_ORDER_MEETING_TITLE}
+            >
+              Besprechung zur Bestellung vereinbaren
+            </Button>
           </div>
-        )}
+        </div>
       </SheetContent>
     </Sheet>
   );
