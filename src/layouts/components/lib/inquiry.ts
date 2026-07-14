@@ -1,8 +1,11 @@
-import { formatPrice } from "./pricing";
+import { formatPrice, formatPriceLabel, getDeliverableById } from "./pricing";
+import { getParameterByKey } from "../data/parameters";
 
 export interface InquiryDeliverableItem {
   name: string;
   price: number;
+  /** z. B. „pro Monat“ für Retainer-Bausteine */
+  pricePeriod?: string;
   selectedParameters: Array<{ label: string; value: string }>;
 }
 
@@ -10,6 +13,63 @@ export interface InquiryPayload {
   productTitle: string;
   deliverables: InquiryDeliverableItem[];
   estimatedTotalPrice?: number;
+}
+
+export interface CartInquirySourceItem {
+  deliverableId: string;
+  deliverableName: string;
+  price: number;
+  pricePeriod?: string;
+  parameters: Record<string, string | number>;
+}
+
+/** Löst Parameter-Labels für Anfrage/Calendly auf (nur relevante Baustein-Parameter). */
+export function resolveInquiryParameters(
+  deliverableId: string,
+  parameters: Record<string, string | number>
+): Array<{ label: string; value: string }> {
+  const deliverable = getDeliverableById(deliverableId);
+  const paramKeys =
+    deliverable?.parameters && deliverable.parameters.length > 0
+      ? deliverable.parameters
+      : Object.keys(parameters);
+
+  return paramKeys
+    .filter((key) => {
+      const rawValue = parameters[key];
+      return rawValue !== undefined && rawValue !== null && String(rawValue).trim() !== "";
+    })
+    .map((key) => {
+      const parameter = getParameterByKey(key);
+      const rawValue = parameters[key];
+      const optionLabel = parameter?.options?.find((opt) => opt.value === String(rawValue))?.label;
+      return {
+        label: parameter?.label ?? key,
+        value: optionLabel ?? String(rawValue),
+      };
+    });
+}
+
+/** Gemeinsame Payload für E-Mail-Anfrage und Calendly (eine Datenquelle). */
+export function buildInquiryPayloadFromCart(options: {
+  productTitle: string;
+  items: CartInquirySourceItem[];
+  estimatedTotalPrice?: number;
+}): InquiryPayload {
+  return {
+    productTitle: options.productTitle,
+    deliverables: options.items.map((item) => ({
+      name: item.deliverableName,
+      price: item.price,
+      pricePeriod: item.pricePeriod,
+      selectedParameters: resolveInquiryParameters(item.deliverableId, item.parameters),
+    })),
+    estimatedTotalPrice: options.estimatedTotalPrice,
+  };
+}
+
+function formatDeliverablePriceForInquiry(price: number, pricePeriod?: string): string {
+  return pricePeriod ? formatPriceLabel(price, pricePeriod) : formatPrice(price);
 }
 
 export function buildInquirySubject(productTitle: string): string {
@@ -27,7 +87,9 @@ export function buildInquiryText(payload: InquiryPayload): string {
   lines.push("Ausgewählte Produktbausteine:");
 
   payload.deliverables.forEach((item, index) => {
-    lines.push(`${index + 1}. ${item.name} (${formatPrice(item.price)})`);
+    lines.push(
+      `${index + 1}. ${item.name} (${formatDeliverablePriceForInquiry(item.price, item.pricePeriod)})`
+    );
     if (item.selectedParameters.length > 0) {
       lines.push("   Konfigurationsparameter:");
       item.selectedParameters.forEach((param) => {
