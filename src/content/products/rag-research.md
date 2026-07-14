@@ -14,7 +14,7 @@ benefits:
     text: "Jede Antwort verweist auf die genaue Textstelle, aus der sie stammt. Das macht Ergebnisse zitierfähig und nachprüfbar."
   - title: "Keine Halluzinationen"
     text: "Das Modell antwortet nur auf Basis der gefundenen Dokumente. Wenn keine passende Quelle vorhanden ist, sagt es das, statt eine Antwort zu erfinden."
-  - title: "Aktuell ohne Nachtraining"
+  - title: "Schnell umsetzbar"
     text: "Neue Dokumente werden in die Wissensbasis aufgenommen. Das Modell muss dafür nicht neu trainiert werden, somit bleiben Aufwand und Kosten überschaubar."
 contact:
   author_id: "paul-springer"
@@ -36,7 +36,7 @@ delivery:
   technologies:
     - "Python"
     - "Vektordatenbank"
-    - "LLM-Anbindung"
+    - "LLM-Auswahl und -Anbindung"
   deliverables:
     - "RAG-System"
     - "Dokumentenbasis"

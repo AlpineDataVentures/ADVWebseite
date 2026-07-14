@@ -30,7 +30,7 @@ collaboration_steps:
     text: "Die relevanten Systeme werden angebunden und die Daten automatisch aufbereitet, damit das Dashboard ohne manuellen Aufwand immer den aktuellen Stand zeigt."
   - title: "Dashboard aufbauen und abstimmen"
     text: "Das Dashboard wird iterativ aufgebaut und in enger Abstimmung mit der Führungsebene verfeinert, bis Inhalt und Darstellung passen."
-  - title: "Übergabe und Einweisung"
+  - title: "Übergabe und Schulung"
     text: "Das Dashboard wird übergeben und das Team eingewiesen. Anpassungen an Kennzahlen oder Darstellungen können danach selbst vorgenommen werden."
 delivery:
   technologies:

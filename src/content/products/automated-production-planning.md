@@ -2,7 +2,7 @@
 title: "Automatisierte Produktionsplanung"
 eyebrow: "Produkt"
 meta_title: "Automatisierte Produktionsplanung"
-description: "Die Produktionsplanung läuft vielerorts noch im Kopf des Schichtleiters oder in Excel. Das funktioniert, solange die Auftragslage stabil ist. Sobald ein Eilauftrag reinkommt, eine Maschine ausfällt oder mehrere Aufträge gleichzeitig priorisiert werden müssen, bricht kommen bestehende System schnell an ihre Grenzen. Ein Planungsalgorithmus löst diese Aufgabe: er berücksichtigt Auftragsvolumen, Deadlines, Maschinenkapazitäten sowie Rüstzeiten und schlägt automatisch vor, welcher Auftrag an welcher Maschine in welcher Reihenfolge abgearbeitet wird."
+description: "Die Produktionsplanung läuft vielerorts noch im Kopf des Schichtleiters oder in Excel. Das funktioniert, solange die Auftragslage stabil ist. Sobald ein Eilauftrag reinkommt, eine Maschine ausfällt oder mehrere Aufträge gleichzeitig priorisiert werden müssen, kommen bestehende Systeme schnell an ihre Grenzen. Ein Planungsalgorithmus löst diese Aufgabe: er berücksichtigt Auftragsvolumen, Deadlines, Maschinenkapazitäten sowie Rüstzeiten und schlägt automatisch vor, welcher Auftrag an welcher Maschine in welcher Reihenfolge abgearbeitet wird."
 highlight_text: "Sobald ein Eilauftrag reinkommt, eine Maschine ausfällt oder mehrere Aufträge gleichzeitig priorisiert werden müssen"
 image: "/images/products/automated-production-planning.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"

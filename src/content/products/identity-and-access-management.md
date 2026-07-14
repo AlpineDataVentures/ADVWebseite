@@ -18,7 +18,7 @@ benefits:
     text: "Statt Zugriffsrechte ad hoc und manuell zu vergeben, gibt es klare Prozesse und Rollen. Das spart Zeit und verhindert dass Berechtigungen über Jahre unkontrolliert wachsen."
 contact:
   author_id: "ben-diez"
-  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
+  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
   meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"

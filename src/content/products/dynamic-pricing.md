@@ -45,7 +45,7 @@ delivery:
     - "Durch Ihr Vertriebsteam"
 related_products:
   - "sales-funnel-analysis"
-  - "bedarfsanalyse"
+  - "churn-prevention"
 tags:
   - "Dynamic Pricing"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"

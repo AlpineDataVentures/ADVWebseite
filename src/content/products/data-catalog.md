@@ -2,7 +2,7 @@
 title: "Data Catalog"
 eyebrow: "Produkt"
 meta_title: "Data Catalog"
-description: "Ein Data Catalog ist das zentrale Verzeichnis aller Daten im Unternehmen: welche Datensätze es gibt, was sie bedeuten, wo sie herkommen und wer dafür zuständig ist. Er schafft Transparenz über die eigene Datenbasis und stellt sicher, dass Begriffe wie Umsatz oder Kunde überall dieselbe Definition haben. Die Einführung umfasst sowohl den technischen Aufbau als auch das Befüllen gemeinsam mit den Fachbereichen, damit der Catalog im Alltag tatsächlich genutzt wird und seinen Wert entfalten kann."
+description: "Ein Data Catalog ist das zentrale Verzeichnis aller Daten im Unternehmen: welche Datensätze es gibt, was sie bedeuten, wo sie herkommen und wer dafür zuständig ist. Er schafft Transparenz über die eigene Datenbasis und stellt sicher, dass Begriffe wie Umsatz, Kunde oder Materialbestand überall dieselbe Definition haben. Die Einführung umfasst sowohl den technischen Aufbau als auch das Befüllen gemeinsam mit den Fachbereichen, damit der Catalog im Alltag tatsächlich genutzt wird und seinen Wert entfalten kann."
 highlight_text: "zentrale Verzeichnis aller Daten im Unternehmen"
 image: "/images/products/data-catalog.png"
 intro_cta_label: "Jetzt im Produkt-Katalog konfigurieren und bestellen"
@@ -18,7 +18,7 @@ benefits:
     text: "Ein Data Catalog schafft die  Grundlage für KI-Projekte, indem er aufzeigt, welche Daten verfügbar und verlässlich sind. Gleichzeitig erleichtert er so die Nachweispflichten aus DSGVO und anderen Regularien."
 contact:
   author_id: "ben-diez"
-  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
+  expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
   meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"

@@ -30,7 +30,7 @@ collaboration_steps:
     text: "Der interaktive Grundriss wird digital abgebildet: jeder Lagerplatz ist einem Produkt zugeordnet und zeigt Status, Bestand und Mindesthaltbarkeitsdatum in Echtzeit."
   - title: "Einkaufs- und Lagerarbeiter-Ansicht einrichten"
     text: "Zwei Perspektiven werden konfiguriert: die operative Sicht für den Lagerarbeiter und die strategische Sicht für den Einkauf mit Bestandsprognosen und Engpasswarnungen."
-  - title: "Übergabe und Einweisung"
+  - title: "Übergabe und Schulung"
     text: "Das Team wird eingewiesen und kann das Dashboard danach selbst nutzen, Bestände abrufen, Produkte suchen und Lagerplätze einsehen."
 delivery:
   technologies:
@@ -44,7 +44,7 @@ delivery:
   operations:
     - "Durch Ihre Lager- und Einkaufsteams"
 related_products:
-  - "needs-assessment"
+  - "demand-planning"
   - "automated-production-planning"
 tags:
   - "Business Intelligence"
