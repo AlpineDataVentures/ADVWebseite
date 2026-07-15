@@ -50,7 +50,7 @@ tags:
   - "Data Strategy"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
 final_cta_text: "Beantworten Sie ein paar kurze Fragen, wir zeigen Ihnen direkt, was das Projekt kosten würde und wie lange es dauert"
-final_cta_button_label: "Zum Produkt-Katalog"
+final_cta_button_label: "Zum Shop"
 final_cta_image: "/images/goat.jpg"
 draft: false
 ---

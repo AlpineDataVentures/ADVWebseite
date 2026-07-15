@@ -307,7 +307,7 @@ const productsCollection = defineCollection({
       ),
     final_cta_button_label: z
       .string()
-      .default("Zum Produkt-Katalog"),
+      .default("Zum Shop"),
     final_cta_image: z.string().default("/images/goat.jpg"),
     draft: z.boolean().default(false),
   }),
