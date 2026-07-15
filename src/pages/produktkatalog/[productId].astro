@@ -2,7 +2,8 @@
 import Base from "@/layouts/Base.astro";
 import ProductCatalogApp from "@/layouts/components/catalog/ProductCatalogApp";
 import "@/styles/catalog.css";
-import { products } from "@/layouts/components/data/useCases";
+import config from "@/config/config.json";
+import { getProductById, products } from "@/layouts/components/data/useCases";
 import { PRODUCT_CATALOG_ALIAS_MAP } from "@/layouts/components/data/catalogStrategy";
 import {
   buildProductCatalogUrl,
@@ -21,7 +22,9 @@ export function getStaticPaths() {
       params: { productId: product.id },
       props: {
         initialProductId: canonicalId,
-        redirectTo: redirectTarget ? buildProductCatalogUrl(redirectTarget) : null,
+        redirectTo: redirectTarget
+          ? buildProductCatalogUrl(redirectTarget)
+          : null,
       },
     };
   });
@@ -50,17 +53,33 @@ if (redirectTo) {
   return Astro.redirect(redirectTo, 301);
 }
 
-const canonicalProductId = getCanonicalProductId(requestedProductId) ?? initialProductId;
+const canonicalProductId =
+  getCanonicalProductId(requestedProductId) ?? initialProductId;
 
 if (!canonicalProductId) {
   return Astro.redirect("/produktkatalog/", 302);
 }
+
+const canonicalProduct = getProductById(canonicalProductId);
+
+if (!canonicalProduct) {
+  return Astro.redirect("/produktkatalog/", 302);
+}
+
+const canonicalUrl = `${config.site.base_url}${buildProductCatalogUrl(canonicalProductId)}`;
+const pageTitle = `${canonicalProduct.title} | Produktkatalog – ADV Alpine Data Ventures`;
+const pageDescription = canonicalProduct.short;
 ---
 
-<Base title="Produktkatalog – ADV Alpine Data Ventures">
+<Base title={pageTitle} description={pageDescription} canonical={canonicalUrl}>
   <section class="adv-catalog">
-    <ProductCatalogApp client:only="react" initialProductId={canonicalProductId}>
-      <p slot="fallback" class="adv-catalog-loading">Produktkatalog wird geladen …</p>
+    <ProductCatalogApp
+      client:only="react"
+      initialProductId={canonicalProductId}
+    >
+      <p slot="fallback" class="adv-catalog-loading">
+        Produktkatalog wird geladen …
+      </p>
     </ProductCatalogApp>
   </section>
 </Base>

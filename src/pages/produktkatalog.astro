@@ -1,13 +1,22 @@
 ---
 import Base from "@/layouts/Base.astro";
 import ProductCatalogApp from "@/layouts/components/catalog/ProductCatalogApp";
+import config from "@/config/config.json";
+import { PRODUCT_CATALOG_URL } from "@/config/products";
 import "@/styles/catalog.css";
+
+const canonicalUrl = `${config.site.base_url}${PRODUCT_CATALOG_URL}`;
 ---
 
-<Base title="Produktkatalog – ADV Alpine Data Ventures">
+<Base
+  title="Produktkatalog – ADV Alpine Data Ventures"
+  canonical={canonicalUrl}
+>
   <section class="adv-catalog">
     <ProductCatalogApp client:only="react" initialProductId={null}>
-      <p slot="fallback" class="adv-catalog-loading">Produktkatalog wird geladen …</p>
+      <p slot="fallback" class="adv-catalog-loading">
+        Produktkatalog wird geladen …
+      </p>
     </ProductCatalogApp>
   </section>
 </Base>
