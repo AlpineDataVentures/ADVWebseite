@@ -19,6 +19,7 @@ NODE_VERSION = "22"
   # https://docs.netlify.com/site-deploys/overview/#deploy-contexts
   [plugins.inputs]
     contexts = [
+      'production',
       'branch-deploy',
       'deploy-preview'
     ]
