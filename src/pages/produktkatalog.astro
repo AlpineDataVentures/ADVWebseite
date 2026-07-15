@@ -1,0 +1,13 @@
+---
+import Base from "@/layouts/Base.astro";
+import ProductCatalogApp from "@/layouts/components/catalog/ProductCatalogApp";
+import "@/styles/catalog.css";
+---
+
+<Base title="Produktkatalog – ADV Alpine Data Ventures">
+  <section class="adv-catalog">
+    <ProductCatalogApp client:only="react" initialProductId={null}>
+      <p slot="fallback" class="adv-catalog-loading">Produktkatalog wird geladen …</p>
+    </ProductCatalogApp>
+  </section>
+</Base>

@@ -1,4 +1,4 @@
-import searchData from ".json/search.json";
+import searchData from "../../../.json/search.json";
 import React, { useEffect, useState } from "react";
 import SearchResult, { type ISearchItem } from "./SearchResult";
 
@@ -19,7 +19,7 @@ const SearchModal = () => {
   const [searchString, setSearchString] = useState("");
 
   // handle input change
-  const handleSearch = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchString(e.currentTarget.value.replace("\\", "").toLowerCase());
   };
 

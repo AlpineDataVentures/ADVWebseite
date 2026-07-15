@@ -32,7 +32,7 @@ const handleFormSubmission = (event: SubmitEvent) => {
 
   // Handle the response
   xhr.onload = function () {
-    const response = JSON.parse(xhr.responseText);
+    // const response = JSON.parse(xhr.responseText);
 
     if (xhr.status === 200) {
       // The request was successful

@@ -6,7 +6,7 @@ import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
-import PageHeader from "@/partials/PageHeader.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import PostSidebar from "@/partials/PostSidebar.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
@@ -38,7 +38,7 @@ const isPaginatedPage = Astro.url.pathname.includes("/page/");
   description={postIndex.data.description}
   noindex={isPaginatedPage}
 >
-  <PageHeader title={postIndex.data.title} />
+  <HomepageLeadHeading eyebrow="Wissen" title="Unser Blog" />
   <section class="section">
     <div class="container">
       <div class="row gx-5">

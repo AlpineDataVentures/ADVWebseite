@@ -1,0 +1,131 @@
+---
+import Base from "@/layouts/Base.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
+import DynamicIcon from "@/helpers/DynamicIcon";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+import { getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const values = (await getEntry(
+  "values",
+  "-index",
+)) as CollectionEntry<"values">;
+
+const {
+  title,
+  description,
+  meta_title,
+  image,
+  collaboration,
+  corevalues,
+  vision_method,
+} = values.data;
+
+const visionCards = [
+  {
+    eyebrow: "Vision",
+    title: vision_method.title_1,
+    text: vision_method.content_1,
+  },
+  {
+    eyebrow: "Ansatz",
+    title: vision_method.title_2,
+    text: vision_method.content_2,
+  },
+];
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  image={image}
+  description={description}
+>
+  <HomepageLeadHeading eyebrow="Unsere Philosophie" title={title} />
+
+  <TextLeftImageRightSection
+    text={description}
+    imageSrc={image}
+    imageAlt={title}
+    imageWidth={2048}
+    imageHeight={1152}
+  />
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <div class="grid gap-5 md:grid-cols-2">
+        {
+          visionCards.map((card) => (
+            <article class="group relative overflow-hidden rounded-2xl border border-black/80 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#00CE7E] hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] dark:border-white/70 dark:bg-darkmode-body">
+              <div class="mb-6 h-1.5 w-16 rounded-full bg-[#00CE7E] transition-all duration-300 group-hover:w-24" />
+              <p class="mb-3 font-secondary text-sm font-bold uppercase tracking-[0.24em] text-[#00A869]">
+                {card.eyebrow}
+              </p>
+              <h2 class="mb-4 font-primary text-h3 font-bold text-text-dark dark:text-darkmode-text-dark">
+                {card.title}
+              </h2>
+              <p class="font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light">
+                {card.text}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {
+          corevalues.map((value) => (
+            <article class="group flex h-full flex-col rounded-2xl border border-black/80 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#00CE7E] hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] dark:border-white/70 dark:bg-darkmode-body">
+              <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#00CE7E]/10 text-[#00CE7E] transition-colors duration-300 group-hover:bg-[#00CE7E] group-hover:text-white">
+                <DynamicIcon className="h-6 w-6" icon={value.icon} />
+              </div>
+              <h2 class="mb-3 font-primary text-h4 font-bold text-text-dark dark:text-darkmode-text-dark">
+                {value.title}
+              </h2>
+              <p class="font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light">
+                {value.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 pb-20">
+    <div class="container">
+      <div
+        class="rounded-2xl bg-linear-to-br from-white via-white to-[#ECFFF5] p-8 md:p-10 dark:from-darkmode-body dark:via-darkmode-body dark:to-darkmode-body"
+      >
+        <h2
+          class="mb-5 font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
+        >
+          {collaboration.title}
+        </h2>
+        <p
+          class="max-w-5xl font-secondary text-base font-normal leading-relaxed text-text dark:text-darkmode-text-light md:text-[1.125rem]"
+        >
+          {collaboration.content}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ContactSpotlightSection
+    titleStart="Wie können wir"
+    titleHighlight="Sie unterstützen"
+    titleEnd="?"
+    leadText="Wenn Sie Ihre Datenstrategie, Ihre Architektur oder Ihre Zusammenarbeit mit uns besprechen möchten, steigen wir gern unverbindlich ein. In 30 Minuten bekommen Sie eine erste Einschätzung zu Ihrem Vorhaben und den nächsten sinnvollen Schritten."
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Termin buchen"
+    imageSrc="/images/kennenlernen.jpg"
+    imageAlt="Kennenlernen"
+  />
+</Base>

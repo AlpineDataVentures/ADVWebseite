@@ -1,0 +1,24 @@
+---
+import Base from "@/layouts/Base.astro";
+import CareerSingle from "@/layouts/CareerSingle.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+
+export async function getStaticPaths() {
+  const CAREER_FOLDER = "career";
+  const jobs = await getSinglePage(CAREER_FOLDER);
+
+  return jobs.map((job) => ({
+    params: {
+      single: job.id,
+    },
+    props: { job },
+  }));
+}
+
+const { job } = Astro.props;
+const { title, meta_title, description } = job.data;
+---
+
+<Base title={title} meta_title={meta_title ?? title} description={description}>
+  <CareerSingle job={job} />
+</Base>

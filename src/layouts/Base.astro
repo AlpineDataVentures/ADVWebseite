@@ -82,13 +82,13 @@ const {
         {
           src: [
             {
-              style: "400",
-              weight: "normal",
+              style: "normal",
+              weight: "700",
               path: join(
                 process.cwd(),
                 "public",
                 "fonts",
-                "Poppins-Regular.woff2",
+                "outfit-latin-700-normal.woff2",
               ),
             },
           ],
@@ -101,13 +101,23 @@ const {
         {
           src: [
             {
-              style: "500",
-              weight: "normal",
+              style: "normal",
+              weight: "400",
               path: join(
                 process.cwd(),
                 "public",
                 "fonts",
-                "Poppins-Medium.woff2",
+                "manrope-latin-400-normal.woff2",
+              ),
+            },
+            {
+              style: "normal",
+              weight: "700",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "manrope-latin-700-normal.woff2",
               ),
             },
           ],
@@ -135,7 +145,8 @@ const {
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
 
     <!-- add sitemap for crawlers convenience -->
-    <link rel="sitemap" href="/sitemap-index.xml/" />
+    <!-- since Astro 6 no trailing slash is needed -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- index robots -->
     <!-- for branch-deploys do NOT allow INDEXing, nor let crawler follow links -->
@@ -280,8 +291,10 @@ const {
       });
     </script>
 
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TML73X7L"
-    ></script>
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtm.js?id=GTM-TML73X7L"></script>
   </head>
 
   <body>
@@ -304,5 +317,39 @@ const {
       <slot />
     </main>
     <Footer />
+
+    <script is:inline>
+      (function () {
+        // Beim Scrollen: Wasserzeichen tritt hervor
+        // Nach Scroll-Ende: zurück zur Ausgangsposition
+        const SCALE_ACTIVE = 1.12; // Zoom beim Scrollen
+        const OPACITY_ACTIVE = 1.0; // Sichtbarkeit beim Scrollen
+        const SCALE_IDLE = 1; // Ausgangs-Zoom
+        const OPACITY_IDLE = 0.75; // Ausgangs-Sichtbarkeit
+        const TIMEOUT_MS = 400; // ms nach letztem Scroll bis Rückkehr
+
+        let timer = null;
+
+        function onScrollStart() {
+          document.body.style.setProperty("--wz-scale", SCALE_ACTIVE);
+          document.body.style.setProperty("--wz-opacity", OPACITY_ACTIVE);
+        }
+
+        function onScrollEnd() {
+          document.body.style.setProperty("--wz-scale", SCALE_IDLE);
+          document.body.style.setProperty("--wz-opacity", OPACITY_IDLE);
+        }
+
+        window.addEventListener(
+          "scroll",
+          function () {
+            onScrollStart();
+            clearTimeout(timer);
+            timer = setTimeout(onScrollEnd, TIMEOUT_MS);
+          },
+          { passive: true },
+        );
+      })();
+    </script>
   </body>
 </html>

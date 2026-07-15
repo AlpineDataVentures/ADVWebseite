@@ -1,0 +1,46 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+const { faq } = Astro.props;
+---
+
+{
+  faq.data.enable && (
+    <section class="bg-white py-24 dark:bg-darkmode-body">
+      <div class="container">
+        <h2 class="mb-8 font-primary font-bold text-black dark:text-white">
+          {faq.data.title}
+        </h2>
+
+        <div class="space-y-6">
+          {faq.data.items.map(
+            (item: {
+              question: string;
+              answer_short: string;
+              answer_long: string;
+            }) => (
+              <details class="group bg-light px-7 py-4 dark:bg-darkmode-light">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-primary text-h5 font-bold text-text-dark marker:hidden dark:text-darkmode-text-dark">
+                  <span set:html={markdownify(item.question)} />
+                  <span
+                    class="shrink-0 text-2xl leading-none transition-transform duration-200 group-open:rotate-45"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+
+                <p class="mt-3 font-secondary text-base text-text dark:text-darkmode-text">
+                  <span
+                    class="font-bold"
+                    set:html={markdownify(item.answer_short)}
+                  />{" "}
+                  <span set:html={markdownify(item.answer_long)} />
+                </p>
+              </details>
+            ),
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}

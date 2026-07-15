@@ -1,10 +1,8 @@
 ---
 import config from "@/config/config.json";
 
-const {
-  theme_switcher,
-  default_theme,
-}: { theme_switcher: boolean; default_theme: string } = config.settings;
+const { theme_switcher }: { theme_switcher: boolean; default_theme: string } =
+  config.settings;
 const { className }: { className?: string } = Astro.props;
 ---
 
@@ -49,17 +47,17 @@ const { className }: { className?: string } = Astro.props;
   const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
   matchMedia.addEventListener("change", () =>
-    toggleTheme(document.querySelectorAll("[data-theme-switcher]"))
+    toggleTheme(document.querySelectorAll("[data-theme-switcher]")),
   );
 
   function toggleTheme(themeSwitch: NodeListOf<Element>) {
-    const defaulTheme =
+    const defaultTheme =
       settings.default_theme === "system"
         ? matchMedia.matches
           ? "dark"
           : "light"
         : settings.default_theme;
-    const currentTheme = localStorage.getItem("theme") || defaulTheme;
+    const currentTheme = localStorage.getItem("theme") || defaultTheme;
     const isDarkTheme = currentTheme === "dark";
     themeSwitch.forEach((sw: any) => (sw.checked = isDarkTheme));
     document.documentElement.classList.toggle("dark", isDarkTheme);
@@ -70,13 +68,13 @@ const { className }: { className?: string } = Astro.props;
     toggleTheme(themeSwitch);
     themeSwitch.forEach((sw) => {
       sw.addEventListener("click", function () {
-        const defaulTheme =
+        const defaultTheme =
           settings.default_theme === "system"
             ? matchMedia.matches
               ? "dark"
               : "light"
             : settings.default_theme;
-        const currentTheme = localStorage.getItem("theme") || defaulTheme;
+        const currentTheme = localStorage.getItem("theme") || defaultTheme;
         const newTheme = currentTheme === "light" ? "dark" : "light";
         localStorage.setItem("theme", newTheme);
         toggleTheme(themeSwitch);

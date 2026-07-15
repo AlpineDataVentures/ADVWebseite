@@ -1,9 +1,35 @@
 html {
   @apply text-base-sm md:text-base;
+  scrollbar-gutter: stable;
 }
 
 body {
-  @apply bg-body text-base dark:bg-darkmode-body font-primary font-normal leading-relaxed text-text dark:text-darkmode-text;
+  @apply bg-body text-base dark:bg-darkmode-body font-secondary font-normal leading-relaxed text-text dark:text-darkmode-text;
+  position: relative;
+}
+
+p {
+  @apply font-secondary;
+}
+
+/* Wasserzeichen-Hintergrund */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--wz-scale, 1));
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/images/wasserzeichen.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: var(--wz-opacity, 0.75);
+  z-index: -1;
+  pointer-events: none;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
 /* Fix für überdeckte Anker */
@@ -14,7 +40,10 @@ body {
 h1,
 h2,
 h3,
-h4,
+h4 {
+  @apply font-primary font-bold leading-tight text-dark dark:text-darkmode-text-dark;
+}
+
 h5,
 h6 {
   @apply font-secondary font-bold leading-tight text-dark dark:text-darkmode-text-dark;
@@ -61,32 +90,4 @@ code {
 
 blockquote > p {
   @apply my-0!;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-weight: 400;
-  src: url(/fonts/Poppins-Regular.woff2) format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-weight: 500;
-  src: url(/fonts/Poppins-Medium.woff2) format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-weight: 600;
-  src: url(/fonts/Poppins-SemiBold.woff2) format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-weight: 700;
-  src: url(/fonts/Poppins-Bold.woff2) format("woff2");
-  font-display: swap;
 }

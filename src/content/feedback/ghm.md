@@ -9,6 +9,7 @@ name: "Thorsten Wernard"
 position: "CIO - Chief Information Officer"
 project: "Data Driven Company & GHM SSO Portal"
 rating: 5.0
+summary: "Ein absoluter Glücksgriff! Die enge Bindung, Vertrauen & gegenseitiger Respekt führen zu schnellen und flexiblen Lösungen, die trotzdem nachhaltig an der IT Strategie und Architektur ausgerichtet sind."
 
 sections:
   - section: "Zur Zusammenarbeit"

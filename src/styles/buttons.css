@@ -1,5 +1,5 @@
 .btn {
-  @apply inline-block rounded border border-transparent px-5 py-2 font-semibold transition ;
+  @apply inline-block rounded border border-transparent px-5 py-2 font-secondary font-semibold transition ;
   text-decoration: none; /* Unterstreichung entfernen */
 }
 
@@ -34,4 +34,12 @@
   background-color: #009000; /* Helleres Grün beim Hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensivere Schattierung */
   transform: scale(1.05); /* Leichter Vergrößerungseffekt */
+}
+
+.btn-landing-cta {
+  @apply font-secondary inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-bold text-black transition-colors hover:opacity-90 dark:bg-black dark:text-white;
+}
+
+.btn-testimonial-invert {
+  @apply font-secondary inline-flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-bold text-white transition-colors hover:opacity-90 dark:bg-white dark:text-black;
 }

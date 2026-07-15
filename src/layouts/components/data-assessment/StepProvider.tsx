@@ -170,7 +170,7 @@ type AnswersStore = {
 // Initialisiere den Store mit allen Fragen und leeren Antworten
 const initialAnswers: AnswersStore = {};
 
-assessItems.forEach((item, index) => {
+assessItems.forEach((_item, index) => {
   initialAnswers[index + 1] = ''; // Initialisiere jede Frage-ID mit leerem String
 });
 

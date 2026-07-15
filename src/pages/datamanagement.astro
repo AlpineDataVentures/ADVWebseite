@@ -1,0 +1,116 @@
+---
+import Base from "@/layouts/Base.astro";
+import SplitInfoSection from "@/components/SplitInfoSection.astro";
+import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
+import ExpandableInfoBoxesSection from "@/partials/ExpandableInfoBoxesSection.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { slugify } from "@/lib/utils/textConverter";
+
+const splitInfoData = {
+  enable: true,
+  left_intro:
+    "Wir optimieren Ihre Datenflüsse, eliminieren Redundanzen und schaffen die technischen Voraussetzungen für moderne Anwendungen. ",
+  left_highlight:
+    "Ob Cloud-Migration oder lokales Warehouse, wir begleiten Sie bei der Auswahl und Umsetzung der passenden Technologien für eine zukunftssichere IT-Landschaft.",
+  left_outro: "",
+  left_text: "",
+  right_title: "Ihr Ergebnis",
+  items: [
+    {
+      caption: "Zuverlässige Datenbasis",
+      text: "Eliminieren Sie Datensilos und schaffen Sie eine einheitliche Informationsquelle für das gesamte Unternehmen, auf die sich alle Abteilungen verlassen können.",
+    },
+    {
+      caption: "Nachhaltige Kosteneffizienz",
+      text: "Durch optimierte Speicherstrategien und moderne Cloud-Architekturen reduzieren wir Ihre IT-Betriebskosten und vermeiden unnötige Hardware-Investitionen.",
+    },
+    {
+      caption: "Zukunftssichere Skalierbarkeit",
+      text: "Ihre Architektur wächst flexibel mit Ihren Anforderungen mit, unabhängig davon, wie stark Ihr Datenvolumen oder die Anzahl der Nutzer zunimmt.",
+    },
+  ],
+};
+
+const architectureUseCases = [
+  {
+    icon: "MdOutlineAccountTree",
+    title: "Architektur & Modellierung",
+    text: "Die richtigen Frameworks & Systeme für Ihre Daten",
+    links: [
+      {
+        label: "Datenmodellierung für Fachbereiche",
+        product_slug: "master-data-management",
+      },
+      {
+        label: "Lakehouse- und Warehouse-Blueprints",
+        product_slug: "data-warehouse",
+      },
+      { label: "Data Lake Plattform", product_slug: "data-lake" },
+      {
+        label: "KI Architektur & Infrastruktur",
+        product_slug: "ai-architecture-infrastructure",
+      },
+    ],
+  },
+];
+
+const products = await getSinglePage("products");
+const productSlugs = new Set(products.map((product) => product.id));
+
+const architectureUseCasesWithLinks = architectureUseCases.map((useCase) => ({
+  ...useCase,
+  links: useCase.links.map((link) => {
+    const resolvedSlug = link.product_slug ?? slugify(link.label);
+
+    if (!productSlugs.has(resolvedSlug)) {
+      return { label: link.label };
+    }
+
+    return {
+      label: link.label,
+      href: `/products/${resolvedSlug}/`,
+    };
+  }),
+}));
+---
+
+<Base
+  title="Datenmanagement & Architektur"
+  meta_title="Datenmanagement & Architektur"
+  description="Fundamente bauen. Daten verfügbar machen. Komplexität beherrschen."
+>
+  <HomepageLeadHeading
+    eyebrow="Datenmanagement & Architektur"
+    title="Fundamente bauen. Daten verfügbar machen. Komplexität beherrschen."
+  />
+
+  <TextLeftImageRightSection
+    text="Eine stabile und durchdachte Architektur ist das Rückgrat jeder erfolgreichen Datenstrategie. Wir konzipieren und implementieren Infrastrukturen, die sicher, skalierbar und performant auf Ihre Bedürfnisse zugeschnitten sind. Dabei sorgen wir dafür, dass Ihre Daten jederzeit dort verfügbar sind, wo sie gebraucht werden, während wir gleichzeitig höchste Datenqualität über alle Systeme hinweg garantieren."
+    imageSrc="/images/datamanagement.png"
+    imageAlt="Datenmanagement und Architektur"
+    imageWidth={1200}
+    imageHeight={900}
+  />
+
+  <SplitInfoSection data={splitInfoData} />
+
+  <ExpandableInfoBoxesSection
+    title="Produkte für Ihr Unternehmen"
+    items={architectureUseCasesWithLinks}
+  />
+
+  <ContactSpotlightSection
+    titleStart="Wie finde ich die"
+    titleHighlight="richtige Lösung"
+    titleEnd="für mein Problem?"
+    leadText="Werden Sie in den Use Cases nicht fündig, dann beraten wir Sie gerne individuell zu Ihrer Herausforderung. Buchen Sie sich dafür gerne einfach einen Termin mit unserem Vertrieb und erhalten Sie in 30 Minuten eine erste Einschätzung zur Lösung Ihres Problems."
+    avatarSrc="/images/andreas.jpg"
+    avatarAlt="Andreas"
+    buttonHref="https://calendly.com/andreas-klostermann-alpinedata/ersttermin"
+    buttonLabel="Termin buchen"
+    imageSrc="/images/kennenlernen.jpg"
+    imageAlt="Kennenlernen"
+  />
+</Base>

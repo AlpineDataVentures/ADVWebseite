@@ -1,0 +1,85 @@
+import type { Product } from "../data/useCases";
+import { getUiClusterForProduct, uiClusterLabels } from "../data/useCases";
+import { Button } from "./ui/button";
+import { formatPrice } from "../lib/pricing";
+import { cn } from "../lib/utils";
+
+interface ProductListViewProps {
+  products: Product[];
+  onSelect: (productId: string) => void;
+  /** Map: productId -> günstigster Einstiegspreis ("ab"). */
+  fromPriceById?: Record<string, number>;
+  className?: string;
+}
+
+/**
+ * Kompakte Listenansicht: Name · Kurzbeschreibung · Domäne · ab-Preis · CTA.
+ * Alternative zur Kachelansicht für schnelles Scannen/Vergleichen.
+ */
+export function ProductListView({
+  products,
+  onSelect,
+  fromPriceById,
+  className,
+}: ProductListViewProps) {
+  if (products.length === 0) {
+    return (
+      <div className={cn("py-16 text-center", className)}>
+        <p className="text-text dark:text-darkmode-text font-medium mb-1">
+          Keine Produkte gefunden
+        </p>
+        <p className="text-sm text-text-light dark:text-darkmode-text-light">
+          Passen Sie Suche oder Domäne an.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <ul className={cn("divide-y divide-border rounded-2xl border border-border overflow-hidden", className)}>
+      {products.map((product) => {
+        const domainLabel = uiClusterLabels[getUiClusterForProduct(product)];
+        const fromPrice = fromPriceById?.[product.id] ?? 0;
+
+        return (
+          <li
+            key={product.id}
+            className="group bg-light dark:bg-darkmode-light hover:bg-body dark:hover:bg-darkmode-body transition-colors"
+          >
+            <div className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center">
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-base font-semibold text-text dark:text-darkmode-text truncate">
+                    {product.title}
+                  </h3>
+                  <span className="hidden md:inline text-xs text-text-light dark:text-darkmode-text-light shrink-0">
+                    · {domainLabel}
+                  </span>
+                </div>
+                <p className="mt-0.5 text-sm text-text-light dark:text-darkmode-text-light line-clamp-1">
+                  {product.short}
+                </p>
+              </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end sm:shrink-0">
+                {fromPrice > 0 && (
+                  <span className="text-sm text-text-light dark:text-darkmode-text-light sm:whitespace-nowrap">
+                    Bausteine ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPrice(fromPrice)}</span>
+                  </span>
+                )}
+                <Button
+                  type="button"
+                  variant="default"
+                  className="w-full min-h-[44px] h-12 text-base font-semibold sm:w-auto sm:min-h-0 sm:h-9 sm:px-3 sm:text-sm shrink-0"
+                  onClick={() => onSelect(product.id)}
+                >
+                  Produktbausteine ansehen
+                </Button>
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}

@@ -17,9 +17,9 @@ BI allein bleibt oft reaktiv – ein Instrument, das erklärt, was passiert ist.
 
 Die Kombination von **KI und BI** ist keine Spielerei, sondern ein essenzieller Schritt für Unternehmen, die zur echten **Data-Driven Company** werden wollen. Was bedeutet das für Ihr Unternehmen? Und wie können Sie den Einstieg finden?
 
-[Blog-Beitrag zu BI](https://alpinedata.de/blog/business-intelligence-diy/)
+[Blog-Beitrag zu BI](/blog/business-intelligence-diy/)
 
-[Blog-Beitrag zu KI](https://alpinedata.de/blog/kann-man-da-was-mit-ki-machen/)
+[Blog-Beitrag zu KI](/blog/kann-man-da-was-mit-ki-machen/)
 
 
 #### **Warum KI und BI eine unschlagbare Kombination sind**
@@ -76,7 +76,7 @@ Die Kombination von KI und BI setzt eine solide technische Basis voraus:
 
 #### **Ihre Roadmap: So integrieren Sie KI in Ihre BI-Strategie**
 
-Wir haben bereits in vorherigen [Blog-Beiträgen](https://alpinedata.de/blog/kann-man-da-was-mit-ki-machen/) beleuchtet wie schnell und intuitiv man einzelne KI Projekte entwerfen und vorantreiben kann. Wie bekomme ich das nun aber Unternehmensweit umgesetzt? Der Einstieg in KI-gestützte BI muss nicht kompliziert sein. Die richtigen ersten Schritte schaffen eine solide Basis und garantieren schnelle Erfolge. Mit einem klaren Plan und einem praktischen Beispiel wie der Verbesserung der Lagerbestände lassen sich sichtbare Ergebnisse erzielen, hier analysiert KI Verkaufsdaten und prognostiziert künftige Bestellungen, um Engpässe und Überbestände zu vermeiden. BI visualisiert die Ergebnisse und zeigt konkrete Maßnahmen auf.
+Wir haben bereits in vorherigen [Blog-Beiträgen](/blog/kann-man-da-was-mit-ki-machen/) beleuchtet wie schnell und intuitiv man einzelne KI Projekte entwerfen und vorantreiben kann. Wie bekomme ich das nun aber Unternehmensweit umgesetzt? Der Einstieg in KI-gestützte BI muss nicht kompliziert sein. Die richtigen ersten Schritte schaffen eine solide Basis und garantieren schnelle Erfolge. Mit einem klaren Plan und einem praktischen Beispiel wie der Verbesserung der Lagerbestände lassen sich sichtbare Ergebnisse erzielen, hier analysiert KI Verkaufsdaten und prognostiziert künftige Bestellungen, um Engpässe und Überbestände zu vermeiden. BI visualisiert die Ergebnisse und zeigt konkrete Maßnahmen auf.
 
 ##### 1. Datenanalyse und Ist-Stand bewerten
 

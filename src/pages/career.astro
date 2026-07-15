@@ -1,0 +1,119 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import type { CollectionEntry } from "astro:content";
+
+const jobs = (await getSinglePage("career")) as CollectionEntry<"career">[];
+const firstJob = jobs[0];
+
+const pageTitle = "Karriere";
+const pageDescription =
+  "Werde Teil von Alpine Data Ventures und arbeite an echten Web-, Data- und Analytics-Projekten in einem interdisziplinären Team.";
+const pageMetaTitle =
+  firstJob?.data.meta_title ?? "Karriere | Alpine Data Ventures";
+
+const employmentTypeLabel: Record<string, string> = {
+  praktikum: "Praktikum",
+  werkstudium: "Werkstudium",
+  vollzeit: "Vollzeit",
+  teilzeit: "Teilzeit",
+};
+---
+
+<Base
+  title={pageTitle}
+  meta_title={pageMetaTitle}
+  description={pageDescription}
+>
+  <PageHeader title={pageTitle} />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="text-center md:col-10 lg:col-8">
+          <h2 class="mb-4 font-primary">Arbeiten bei ADV</h2>
+          <p class="text-lg font-secondary">
+            Wir verbinden Datenstrategie, Architektur und moderne Umsetzung.
+            Wenn du in einem kleinen Team schnell Verantwortung übernehmen und
+            mit echten Projekten wachsen willst, bist du hier richtig.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {
+    jobs.length > 0 && (
+      <section class="section-sm bg-gradient">
+        <div class="container">
+          <div class="mb-10 text-center">
+            <h2 class="mb-3 font-primary">Offene Stellen</h2>
+            <p class="font-secondary">
+              Aktuell suchen wir Verstärkung für folgende Rollen. Klick auf die
+              Stelle und springe direkt zu den Details.
+            </p>
+          </div>
+          <div class="row">
+            {jobs.map((job) => (
+              <div class="mb-6 flex md:col-6">
+                <a
+                  href={`/career/${job.id}/`}
+                  class="flex h-full w-full flex-col rounded border border-border bg-body p-6 transition duration-300 hover:-translate-y-1 dark:border-darkmode-border dark:bg-darkmode-body"
+                >
+                  {job.data.eyebrow && (
+                    <p class="mb-2 font-secondary text-lg font-normal! text-text-dark dark:text-darkmode-text-light">
+                      {job.data.eyebrow}
+                    </p>
+                  )}
+                  <h3 class="mb-3 h5 font-primary text-dark dark:text-darkmode-text-dark">
+                    {job.data.title}
+                  </h3>
+                  <p class="mb-4 text-justify font-secondary">
+                    {job.data.summary ?? job.data.description}
+                  </p>
+                  <div class="mb-3 flex flex-wrap gap-2">
+                    <span class="rounded bg-theme-light px-3 py-1 text-sm">
+                      {employmentTypeLabel[job.data.employment_type]}
+                    </span>
+                    <span class="rounded bg-theme-light px-3 py-1 text-sm">
+                      Start: {job.data.start_date}
+                    </span>
+                    <span class="rounded bg-theme-light px-3 py-1 text-sm">
+                      {job.data.location}
+                    </span>
+                  </div>
+                  <div class="mt-auto flex justify-center pt-4">
+                    <span class="btn-adv btn-outline-primary btn-sm font-secondary">
+                      Details ansehen
+                    </span>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    jobs.length === 0 && (
+      <section class="section-sm">
+        <div class="container text-center">
+          <h2 class="mb-4 font-primary">Aktuell keine offenen Stellen</h2>
+          <p class="font-secondary">
+            Wir freuen uns trotzdem über eine Initiativbewerbung an
+            <a
+              class="ml-1 text-primary underline"
+              href="mailto:recruiting@alpinedata.de"
+            >
+              recruiting@alpinedata.de
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+    )
+  }
+</Base>

@@ -1,75 +1,82 @@
 {
   "main": [
     {
-      "name": "Unsere Leistungen",
-      "url": "",
+      "name": "Lösungen",
+      "url": "/solutions/",
       "hasChildren": true,
       "children": [
         {
-          "name": "Data Strategy",
-          "url": "/strategy/"
+          "name": "Strategie & Governance",
+          "url": "/guidance/"
         },
         {
-          "name": "Governance & Culture",
-          "url": "/culture/"
+          "name": "Datenmanagement & Architektur",
+          "url": "/datamanagement/"
         },
         {
-          "name": "Data Architecture",
-          "url": "/architecture/"
+          "name": "Insights & Analytics",
+          "url": "/insights/"
         },
         {
-          "name": "BI & Analytics",
-          "url": "/analytics/"
-        },
-        {
-          "name": "AI & Data Science",
-          "url": "/datascience/"
-        },
-        {
-          "name": "Data Knowledge",
-          "url": "/knowledge/"
-        },
-        {
-          "name": "Data Operations",
-          "url": "/operations/"
-        },
-        {
-          "name": "Enterprise Architecture",
-          "url": "/eam/"
+          "name": "Automatisierung & KI",
+          "url": "/automation/"
         }
       ]
     },
     {
-      "name": "Unsere Kunden",
-      "url": "",
+      "name": "Über ADV",
+      "url": "/about-adv/",
       "hasChildren": true,
       "children": [
         {
-          "name": "Erfolgsgeschichten",
-          "url": "/casestudies/"
+          "name": "Das Team",
+          "url": "/team/"
+        },
+        {
+          "name": "Warum ADV",
+          "url": "/values/"
+        },
+        {
+          "name": "Karriere",
+          "url": "/career/"
+        }
+      ]
+    },
+    {
+      "name": "Zusammenarbeit",
+      "url": "/collaboration/",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Weg zum Projekt",
+          "url": "/projectstart/"
+        },
+        {
+          "name": "Fixpreis-Projekte",
+          "url": "/fixedprice/"
         },
         {
           "name": "Kundenstimmen",
           "url": "/feedback/"
+        },
+        {
+          "name": "Forschungsprojekte",
+          "url": "/research/"
         }
       ]
     },
     {
-      "name": "Blog",
-      "url": "/blog/"
-    },
-    {
-      "name": "Über uns",
-      "url": "",
+      "name": "Wissen",
+      "url": "/knowhow/",
       "hasChildren": true,
       "children": [
         {
-          "name": "Unsere Philosophie",
-          "url": "/about/"
+          "name": "Blog",
+          "url": "/blog/"
         },
         {
-          "name": "Das Team",
-          "url": "/team/"
+          "name": "Erfolge",
+          "url": "/casestudies/"
         }
       ]
     }

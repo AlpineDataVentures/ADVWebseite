@@ -1,12 +1,12 @@
 ---
-title: "Data Leadership beginnt ganz oben – was Führungskräfte wirklich tun müssen"
+title: "Data Leadership beginnt ganz oben: was Führungskräfte tun müssen"
 meta_title: "Wie Datenstrategie und gelebte Führung die Grundlage für Veränderung schaffen"
 description: "Zwischen BI-Tools und Buzzwords fehlt oft das Entscheidende: echtes Data Leadership. Warum Veränderung im Kopf beginnt und was Frank Rosin damit zu tun hat."
 date: 2025-05-29T07:00:00Z
 image: "/images/blog/data_leadership.png"
 categories: ["Data Strategy", "Data Leadership"]
 author: "Ben Diez"
-tags: ["Change", "Governance"]
+tags: ["Data Leadership", "Governance"]
 draft: false
 summary: "Datenstrategie funktioniert nur mit aktivem Buy-in der Unternehmensführung. Warum Data Leadership kein Lippenbekenntnis ist und wie man statt Gulasch von gestern wirklich Neues schafft."
 ---
