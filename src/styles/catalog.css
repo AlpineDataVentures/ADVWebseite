@@ -7,7 +7,6 @@
    ============================================ */
 
 /* ── Component-level rules ── */
-@layer components {
 
   /* ─── Surface hierarchy ───
      Level 0 (page):  bg-body / dark:bg-darkmode-body
@@ -91,10 +90,8 @@
   .adv-catalog [data-finder-list] > * + * {
     margin-top: 0.25rem;
   }
-}
 
 /* ── Utility-level rules ── */
-@layer utilities {
 
   /* Hide scrollbar but keep scrolling */
   .adv-catalog-hide-scrollbar {
@@ -118,4 +115,3 @@
     color: var(--color-text-light);
     font-size: 0.95rem;
   }
-}
