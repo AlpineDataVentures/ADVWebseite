@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
 import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import InsightCardsSection from "@/partials/InsightCardsSection.astro";
+import ImageMod from "@/components/ImageMod.astro";
 import { getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
@@ -91,9 +92,11 @@ const { title, description, meta_title, image } = aboutAdv.data;
         </div>
 
         <div class="col-12 md:col-6">
-          <img
+          <ImageMod
             src="/images/team_adv.jpg"
             alt="Team ADV"
+            width={1600}
+            height={720}
             class="h-full w-full object-cover"
             loading="lazy"
           />
@@ -112,11 +115,14 @@ const { title, description, meta_title, image } = aboutAdv.data;
       <div class="mt-8 grid grid-cols-2 gap-6 lg:grid-cols-4">
         {
           managingDirectors.map((director) => (
-            <img
+            <ImageMod
               src={director.src}
               alt={director.alt}
+              width={800}
+              height={1200}
               class="h-full w-full rounded-xl object-cover"
               loading="lazy"
+              format="webp"
             />
           ))
         }

@@ -1,5 +1,6 @@
 ---
 import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
+import ImageMod from "@/components/ImageMod.astro";
 ---
 
 <>
@@ -50,19 +51,27 @@ import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
             data-hero-compare
             style="--split: 50%;"
           >
-            <img
+            <ImageMod
               src="/images/heropath.jpg"
               alt="ADV Hero"
+              width={1400}
+              height={1050}
               class="hero-image-compare__image"
-              loading="lazy"
+              loading="eager"
+              decoding="async"
+              format="webp"
             />
 
             <div class="hero-image-compare__overlay" aria-hidden="true">
-              <img
+              <ImageMod
                 src="/images/heropath_pixel.jpg"
                 alt=""
+                width={1400}
+                height={1050}
                 class="hero-image-compare__image"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
+                format="webp"
               />
             </div>
 

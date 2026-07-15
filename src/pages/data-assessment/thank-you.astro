@@ -1,6 +1,7 @@
 ---
 // src/pages/assessment/thank-you.astro
 import Base from "@/layouts/Base.astro";
+import ImageMod from "@/components/ImageMod.astro";
 ---
 
 <Base title={"Danke für deine Teilnahme"}>
@@ -8,9 +9,11 @@ import Base from "@/layouts/Base.astro";
     <div class="container">
       <div class="row justify-center">
         <div class="thank-you">
-          <img
+          <ImageMod
             src={`/images/data-assessment/icon-thank-you.svg`}
             alt="red check icon"
+            width={120}
+            height={120}
           />
           <h1>Vielen Dank!</h1>
           <p>

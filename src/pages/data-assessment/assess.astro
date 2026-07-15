@@ -47,23 +47,6 @@ import Base from "@/layouts/Base.astro";
             <PersonalInfo client:only="react" />
           </Step>
 
-          <!-- Last step is on a separate page to track conversion for the AD! -->
-          <!-- Last Step start  -->
-          <!--Step step={assessItems.length + 2} client:idle>
-            <article class="thank-you">
-              <img
-                src={`/images/data-assessment/icon-thank-you.svg`}
-                alt="red check icon"
-              />
-              <h1>Vielen Dank!</h1>
-              <p>
-                Deine Antworten wurden erfolgreich erfasst! In Kürze erhältst
-                per E-Mail das Ergebnis deiner Data-readiness!
-              </p>
-            </article>
-          </Step-->
-          <!-- Last Step end -->
-
           <!-- Add buttons for navigation for non-mobile phones -->
           <StepNavigation client:only="react" />
           <!--/AssessmentLayout-->

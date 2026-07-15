@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import ImageMod from "@/components/ImageMod.astro";
 import ContactSpotlightSection from "@/partials/ContactSpotlightSection.astro";
 import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 import TextLeftImageRightSection from "@/partials/TextLeftImageRightSection.astro";
@@ -222,12 +223,13 @@ const researchSections = [
 
             {index === 2 && (
               <div class="mb-10 overflow-hidden rounded-2xl border border-black/80 dark:border-white/70">
-                <img
+                <ImageMod
                   src="/images/adv_at_work.jpg"
                   alt="Zusammenarbeit in Forschungsprojekten"
-                  width="5000"
-                  height="3333"
+                  width={1500}
+                  height={1000}
                   loading="lazy"
+                  format="webp"
                   class="h-65 w-full object-cover md:h-90"
                 />
               </div>
