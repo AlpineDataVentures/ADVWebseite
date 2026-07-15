@@ -215,44 +215,6 @@ const pagesCollection = defineCollection({
   }),
 });
 
-// Collection of ADV Portfolio
-const portfolioCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/portfolio" }),
-  schema: z.object({
-    title: z.string(),
-    title_image: z.string().optional(),
-    meta_title: z.string(),
-    description: z.string(),
-    image: z.string().optional(),
-    draft: z.boolean().default(false),
-    overview: z.array(z.string()),
-    subsections: z.array(
-      z.object({
-        title: z.string(),
-        description: z.string(),
-        tasks: z.array(
-          z.object({
-            title: z.string(),
-            icon: z.string(),
-            description: z.string(),
-          })
-        ),
-      })
-    ).optional(),
-    customer_value: z.object({
-      title: z.string(),
-      image: z.string().optional(),
-      description: z.string().optional(),
-      values: z.array(z.string()),
-      button: z.object({
-        enable: z.boolean(),
-        label: z.string(),
-        link: z.string(),
-      }),
-    }),
-  }),
-});
-
 const productsCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/products" }),
   schema: z.object({
@@ -540,7 +502,6 @@ export const collections = {
   dictionary: dictionaryCollection,
   feedback: feedbackCollection,
   pages: pagesCollection,
-  portfolio: portfolioCollection,
   products: productsCollection,
   team: teamCollection,
 

@@ -23,7 +23,7 @@ Um den Mittelweg zwischen diesen beiden Extremen – das vorbehaltlose Akzeptier
 
 ### Doch was bedeutet Data Culture eigentlich?
 
-[Data Culture](/culture/) beschreibt die Haltung und das Verhalten eines Unternehmens im Umgang mit Daten. Es geht um mehr als nur die Technologie oder den Einsatz von Systemen und Tools: Data Culture steht für eine Arbeitsweise, bei der datenbasierte Entscheidungen auf allen Ebenen des Unternehmens gefördert und unterstützt werden. In einer starken Datenkultur wird jeder Mitarbeiter dazu befähigt, Daten zu verstehen und sinnvoll zu nutzen – vom Vertrieb über die Buchhaltung bis hin zur Geschäftsführung. 
+[Data Culture](/guidance/) beschreibt die Haltung und das Verhalten eines Unternehmens im Umgang mit Daten. Es geht um mehr als nur die Technologie oder den Einsatz von Systemen und Tools: Data Culture steht für eine Arbeitsweise, bei der datenbasierte Entscheidungen auf allen Ebenen des Unternehmens gefördert und unterstützt werden. In einer starken Datenkultur wird jeder Mitarbeiter dazu befähigt, Daten zu verstehen und sinnvoll zu nutzen – vom Vertrieb über die Buchhaltung bis hin zur Geschäftsführung. 
 
 Genauso wird jeder in die Lage versetzt, die richtigen Fragen an die Daten zu stellen. *„Wie viele Einheiten von Produkt X haben wir gestern über die Website verkauft? Bitte nach Tageszeiten splitten?“* ist deutlich besser formuliert als *„Ey, schick mal Zahlen!“* Gerade die letzte Aussage dürfte jedem Analysten die Tränen in die Augen treiben.
 
