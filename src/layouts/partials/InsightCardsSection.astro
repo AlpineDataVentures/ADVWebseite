@@ -19,6 +19,9 @@ interface Props {
 
 const { titleStart, titleHighlight, titleEnd, cards } = Astro.props as Props;
 
+const desktopGridColsClass =
+  cards.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4";
+
 const escapeHtml = (value: string) =>
   value
     .replaceAll("&", "&amp;")
@@ -42,7 +45,9 @@ const buildHighlightedTitle = (
       set:html={buildHighlightedTitle(titleStart, titleHighlight, titleEnd)}
     />
 
-    <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
+    <div
+      class={`grid grid-cols-1 gap-3 md:grid-cols-2 ${desktopGridColsClass}`}
+    >
       {
         cards.map((item) => (
           <a
