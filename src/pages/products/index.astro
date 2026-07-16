@@ -1,0 +1,63 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { buildProductCatalogUrl } from "@/layouts/components/data/productCatalogRouting";
+import { products } from "@/layouts/components/data/useCases";
+
+const marketingProducts = (await getSinglePage("products"))
+  .map((entry) => ({
+    slug: entry.id,
+    title: entry.data.title,
+  }))
+  .sort((a, b) => a.title.localeCompare(b.title, "de"));
+
+const catalogProducts = [...products]
+  .map((product) => ({
+    id: product.id,
+    title: product.title,
+    url: buildProductCatalogUrl(product.id),
+  }))
+  .sort((a, b) => a.title.localeCompare(b.title, "de"));
+---
+
+<Base
+  title="Produktlinks Übersicht | ADV Alpine Data Ventures"
+  description="SEO-Übersicht aller Produktseiten und Produktkatalog-Einträge."
+>
+  <section class="section">
+    <div class="container">
+      <h1 class="mb-6">Produktlinks Übersicht</h1>
+      <p class="mb-10">
+        Diese Seite bündelt interne Produkt-URLs für Suchmaschinen-Crawling.
+      </p>
+
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div>
+          <h2 class="mb-4">Produktseiten (/products/*)</h2>
+          <ul class="space-y-2">
+            {
+              marketingProducts.map((product) => (
+                <li>
+                  <a href={`/products/${product.slug}/`}>{product.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-4">Produktkatalog (/produktkatalog/*)</h2>
+          <ul class="space-y-2">
+            {
+              catalogProducts.map((product) => (
+                <li>
+                  <a href={product.url}>{product.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
