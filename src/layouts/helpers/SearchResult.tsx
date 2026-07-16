@@ -37,6 +37,11 @@ const SearchResult = ({
   searchResult: ISearchItem[];
   searchString: string;
 }) => {
+  const groupLabels: Record<string, string> = {
+    products: "Produkte",
+    blog: "Blog-Artikel",
+  };
+
   // generate search result group
   const generateSearchGroup = (searchResult: ISearchItem[]) => {
     const joinDataByGroup: ISearchGroup[] = searchResult.reduce(
@@ -134,7 +139,7 @@ const SearchResult = ({
             finalResult.map((result) => (
               <div className="search-result-group" key={result.group}>
                 <p className="search-result-group-title">
-                  {titleify(result.group)}
+                  {groupLabels[result.group] ?? titleify(result.group)}
                 </p>
 
                 {result.groupItems.map((item) => (

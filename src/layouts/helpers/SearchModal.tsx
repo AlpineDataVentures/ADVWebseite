@@ -18,6 +18,11 @@ import SearchResult, { type ISearchItem } from "./SearchResult";
 const SearchModal = () => {
   const [searchString, setSearchString] = useState("");
 
+  const resultPriority: Record<string, number> = {
+    products: 0,
+    blog: 1,
+  };
+
   // handle input change
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchString(e.currentTarget.value.replace("\\", "").toLowerCase());
@@ -48,7 +53,11 @@ const SearchModal = () => {
           return item;
         }
       });
-      return searchResult;
+      return searchResult.sort((a, b) => {
+        const aPriority = resultPriority[a.group] ?? Number.MAX_SAFE_INTEGER;
+        const bPriority = resultPriority[b.group] ?? Number.MAX_SAFE_INTEGER;
+        return aPriority - bPriority;
+      });
     }
   };
 
