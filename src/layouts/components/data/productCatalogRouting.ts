@@ -1,5 +1,4 @@
 import { PRODUCT_CATALOG_URL } from "@/config/products";
-import { PRODUCT_CATALOG_ALIAS_MAP } from "./catalogStrategy";
 import { products } from "./useCases";
 
 /** Marketing-Slugs (/products/…) → Katalog-Produkt-ID */
@@ -41,12 +40,8 @@ export type ProductCatalogMarketingSlug = keyof typeof productCatalogMarketingMa
 
 const productIds = new Set(products.map((product) => product.id));
 const marketingAliases = new Set(Object.keys(productCatalogMarketingMap));
-const catalogAliases = new Set(Object.keys(PRODUCT_CATALOG_ALIAS_MAP));
 
 export function resolveProductAlias(productOrAlias: string): string | null {
-  if (PRODUCT_CATALOG_ALIAS_MAP[productOrAlias]) {
-    return PRODUCT_CATALOG_ALIAS_MAP[productOrAlias];
-  }
   if (productOrAlias in productCatalogMarketingMap) {
     return productCatalogMarketingMap[productOrAlias as ProductCatalogMarketingSlug];
   }
@@ -57,8 +52,7 @@ export function getCanonicalProductId(productOrAlias: string | null | undefined)
   if (!productOrAlias) return null;
 
   if (productIds.has(productOrAlias)) {
-    const aliasTarget = PRODUCT_CATALOG_ALIAS_MAP[productOrAlias];
-    return aliasTarget ?? productOrAlias;
+    return productOrAlias;
   }
 
   return resolveProductAlias(productOrAlias);
@@ -66,27 +60,10 @@ export function getCanonicalProductId(productOrAlias: string | null | undefined)
 
 export function isKnownProductCatalogPath(productOrAlias: string | null | undefined): boolean {
   if (!productOrAlias) return false;
-  return productIds.has(productOrAlias) || marketingAliases.has(productOrAlias) || catalogAliases.has(productOrAlias);
+  return productIds.has(productOrAlias) || marketingAliases.has(productOrAlias);
 }
 
 export function buildProductCatalogUrl(productId?: string | null): string {
   if (!productId) return PRODUCT_CATALOG_URL;
   return `${PRODUCT_CATALOG_URL}${productId}/`;
-}
-
-/** Alle Alias-Pfade, die auf ein kanonisches Produkt weiterleiten (301). */
-export function getCatalogAliasRedirects(): Array<{ alias: string; target: string }> {
-  const entries: Array<{ alias: string; target: string }> = [];
-
-  for (const [alias, target] of Object.entries(PRODUCT_CATALOG_ALIAS_MAP)) {
-    entries.push({ alias, target });
-  }
-
-  for (const [alias, target] of Object.entries(productCatalogMarketingMap)) {
-    if (!productIds.has(alias)) {
-      entries.push({ alias, target });
-    }
-  }
-
-  return entries;
 }

@@ -4,54 +4,25 @@ import ProductCatalogApp from "@/layouts/components/catalog/ProductCatalogApp";
 import "@/styles/catalog.css";
 import config from "@/config/config.json";
 import { getProductById, products } from "@/layouts/components/data/useCases";
-import { PRODUCT_CATALOG_ALIAS_MAP } from "@/layouts/components/data/catalogStrategy";
 import {
   buildProductCatalogUrl,
   getCanonicalProductId,
-  getCatalogAliasRedirects,
 } from "@/layouts/components/data/productCatalogRouting";
 
 export function getStaticPaths() {
-  const productIds = new Set(products.map((product) => product.id));
-
-  const productPaths = products.map((product) => {
-    const redirectTarget = PRODUCT_CATALOG_ALIAS_MAP[product.id];
-    const canonicalId = redirectTarget ?? product.id;
-
-    return {
-      params: { productId: product.id },
-      props: {
-        initialProductId: canonicalId,
-        redirectTo: redirectTarget
-          ? buildProductCatalogUrl(redirectTarget)
-          : null,
-      },
-    };
-  });
-
-  const externalAliasPaths = getCatalogAliasRedirects()
-    .filter(({ alias }) => !productIds.has(alias))
-    .map(({ alias, target }) => ({
-      params: { productId: alias },
-      props: {
-        initialProductId: target,
-        redirectTo: buildProductCatalogUrl(target),
-      },
-    }));
-
-  return [...productPaths, ...externalAliasPaths];
+  return products.map((product) => ({
+    params: { productId: product.id },
+    props: {
+      initialProductId: product.id,
+    },
+  }));
 }
 
 const { productId } = Astro.params;
 const requestedProductId = typeof productId === "string" ? productId : "";
-const { initialProductId, redirectTo } = Astro.props as {
+const { initialProductId } = Astro.props as {
   initialProductId: string | null;
-  redirectTo: string | null;
 };
-
-if (redirectTo) {
-  return Astro.redirect(redirectTo, 301);
-}
 
 const canonicalProductId =
   getCanonicalProductId(requestedProductId) ?? initialProductId;

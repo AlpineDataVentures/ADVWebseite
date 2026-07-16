@@ -58,7 +58,6 @@ const requestModeIds = [...reqSrc.matchAll(/"([^"]+)":\s*"(standard|custom|hybri
 // --- catalogStrategy (Phase 3) ---
 let featuredIds = [];
 let archivedIds = [];
-let aliasIds = [];
 try {
   const strategySrc = read("catalogStrategy.ts");
   const featuredBlock = strategySrc.match(/FEATURED_PRODUCT_IDS = \[([\s\S]*?)\] as const/)?.[1] ?? "";
@@ -66,9 +65,6 @@ try {
 
   const archivedBlock = strategySrc.match(/ARCHIVED_PRODUCT_IDS = new Set\(\[([\s\S]*?)\]\)/)?.[1] ?? "";
   archivedIds = [...archivedBlock.matchAll(/"([^"]+)"/g)].map((m) => m[1]);
-
-  const aliasBlock = strategySrc.match(/PRODUCT_CATALOG_ALIAS_MAP: Record<string, string> = \{([\s\S]*?)\};/)?.[1] ?? "";
-  aliasIds = [...aliasBlock.matchAll(/"([^"]+)":/g)].map((m) => m[1]);
 } catch {
   // optional
 }
@@ -92,16 +88,6 @@ const issues = {
   brokenRecommendations: brokenRecs,
   requestModeUnknownIds: requestModeIds.filter((id) => !useCaseIds.has(id)),
   featuredUnknownIds: featuredIds.filter((id) => !useCaseIds.has(id)),
-  aliasUnknownTargets: aliasIds
-    .map((alias) => {
-      const aliasBlock = read("catalogStrategy.ts").match(
-        /PRODUCT_CATALOG_ALIAS_MAP: Record<string, string> = \{([\s\S]*?)\};/
-      )?.[1] ?? "";
-      const target = aliasBlock.match(new RegExp(`"${alias}":\\s*"([^"]+)"`))?.[1];
-      return target ? { alias, target } : null;
-    })
-    .filter(Boolean)
-    .filter(({ target }) => !useCaseIds.has(target)),
 };
 
 // Produkte ohne sinnvollen Pfad (vereinfacht: custom ohne Formular-Pfad = ok in UI;
@@ -135,7 +121,6 @@ console.log(`Produktbausteine: ${deliverables.length} (${deliverables.filter((d)
 console.log(`requestMode-Overrides: ${requestModeIds.length}`);
 if (featuredIds.length > 0) {
   console.log(`Featured (Top-Produkte): ${featuredIds.length}`);
-  console.log(`Katalog-Aliase: ${aliasIds.length}`);
   console.log(`Archiviert (zurückgestuft): ${archivedIds.length}`);
 }
 console.log("");
@@ -151,7 +136,6 @@ const sections = [
   ["Empfehlungen auf nicht existierende Bausteine", issues.brokenRecommendations.map((id) => ({ id }))],
   ["requestMode auf unbekannte Produkt-IDs", issues.requestModeUnknownIds.map((id) => ({ id }))],
   ["Featured-IDs ohne Produkt", issues.featuredUnknownIds.map((id) => ({ id }))],
-  ["Alias-Ziele ohne Produkt", issues.aliasUnknownTargets],
 ];
 
 let errorCount = 0;
@@ -175,7 +159,7 @@ console.log(`\nStandard-Produkte ohne Hard-Override-Bausteine (Info, Rule-Engine
 
 // --- Aktive Browse-Produkte & Top-Produkt-Audit (Phase 5) ---
 const browseActiveCount = useCases.filter(
-  (uc) => !aliasIds.includes(uc.id) && !archivedIds.includes(uc.id)
+  (uc) => !archivedIds.includes(uc.id)
 ).length;
 
 const TOP_PRODUCT_IDS = [
@@ -251,7 +235,6 @@ try {
 }
 
 const archivedInFeatured = featuredIds.filter((id) => archivedIds.includes(id));
-const aliasInFeatured = featuredIds.filter((id) => aliasIds.includes(id));
 
 console.log(`\nMarketing-Slug-Ziele ungültig: ${marketingMapIssues.length}`);
 marketingMapIssues.slice(0, 5).forEach((item) => console.log(`    - ${item.slug} → ${item.target}: ${item.issue}`));
@@ -262,12 +245,6 @@ if (archivedInFeatured.length > 0) {
   errorCount += archivedInFeatured.length;
 } else {
   console.log(`✓ Archivierte Produkte in Featured: 0`);
-}
-
-if (aliasInFeatured.length > 0) {
-  console.log(`ℹ Alias-Produkte in Featured (prüfen): ${aliasInFeatured.length}`);
-} else {
-  console.log(`✓ Alias-Produkte in Featured: 0`);
 }
 
 console.log(`\nGesamt kritische Befunde: ${errorCount}`);

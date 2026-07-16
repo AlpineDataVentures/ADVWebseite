@@ -57,44 +57,9 @@ export const FEATURED_PRODUCT_IDS = [
 export type FeaturedProductId = (typeof FEATURED_PRODUCT_IDS)[number];
 
 /**
- * Varianten → Zielprodukt. Alte URLs leiten weiter; Datensätze bleiben erhalten.
+ * Keine produktinternen Alias-Slugs mehr: Jede Produkt-ID steht für genau eine Seite.
  */
-export const PRODUCT_CATALOG_ALIAS_MAP: Record<string, string> = {
-  // Helpdesk-Varianten
-  "ai-helpdeskassistent": "helpdesk-automation",
-  "self-service-helpdesk": "helpdesk-automation",
-  "sales-chatbot-webseite": "helpdesk-automation",
-  // Bestell-/Beschaffungsvarianten
-  "automatisierung-bestelldaten": "automatisierte-bestellverarbeitung",
-  // IAM / Governance-Varianten
-  "iam-konzept": "iam",
-  "data-governance-konzept": "data-catalog",
-  "governance-schulungen": "data-catalog",
-  "umsetzung-rechte-rollenkonzepte": "iam",
-  // Strategie-Varianten
-  "datenstrategie-erstellung": "datenstrategie",
-  "change-begleitung": "data-ai-leadership",
-  "ai-produktentwicklung": "ki-strategie",
-  // Data Mesh / DWH / Infrastruktur
-  "data-mesh-einfuehrung": "data-mesh-organisation",
-  "data-mesh-skalierung": "data-mesh-organisation",
-  "data-warehouse-implementierung": "dwh",
-  "setup-data-infrastructure": "setup-bi",
-  // BI / Sales-Varianten
-  "bereichs-reports": "management-dashboard",
-  "ki-preisueberwachung": "best-price-purchase",
-  // Qualität / Vision-Varianten
-  "quality-assurance-ai": "ai-video-qualitaetsanalyse",
-  "objekterkennung": "ai-video-qualitaetsanalyse",
-  "ki-wissensmanagement": "rag-literaturrecherche",
-  // HR-Varianten
-  "strategische-personalplanung": "personal-controlling",
-  "operative-personaleinsatzplanung": "personal-controlling",
-  "ki-warenausgangs-scanning": "lagerbestandsverwaltung",
-};
-
-/** Aus Domänen-/Standardlisten ausgeblendet – weiter unter „Alle Produkte“ und Suche. */
-export const SECONDARY_PRODUCT_IDS = new Set(Object.keys(PRODUCT_CATALOG_ALIAS_MAP));
+export const SECONDARY_PRODUCT_IDS = new Set<string>();
 
 /**
  * Nur wenige klare Duplikate/Nischen – bewusst klein gehalten.

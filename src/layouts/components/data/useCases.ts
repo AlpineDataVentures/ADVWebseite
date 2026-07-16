@@ -637,23 +637,6 @@ const rawProducts: Product[] = [
     ]
   },
   {
-    id: "data-warehouse-implementierung",
-    domain: "it_data",
-    title: "Data Warehouse Implementierung",
-    short: "Technische DWH-Implementierung inkl. ETL und operativer Datenbereitstellung.",
-    tags: {
-      intent: ["scale"],
-      data_scope: "enterprise_wide",
-      complexity: "l",
-      tech_hint: ["dwh", "integration"]
-    },
-    outputs: [
-      "Handlungs- und Entscheidungsempfehlungen",
-      "Datenpipeline- und Integrationssetup",
-      "Zielarchitektur & Datenmodell"
-    ]
-  },
-  {
     id: "adf-aufsetzen",
     domain: "it_data",
     title: "ADF Aufsetzen",
