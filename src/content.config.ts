@@ -92,19 +92,6 @@ const casestudiesCollection = defineCollection({
   }),
 });
 
-// contact collection
-export const contactCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/contact" }),
-  schema: z.object({
-    title: z.string(),
-    meta_title: z.string(),
-    description: z.string(),
-    draft: z.boolean(),
-    image: z.string().optional(),
-  }),
-});
-
-
 export const datareadyCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/dataready" }),
   schema: z.object({
@@ -497,7 +484,6 @@ export const collections = {
   blog: blogCollection,
   career: careerCollection,
   casestudies: casestudiesCollection,
-  contact: contactCollection,
   dataready: datareadyCollection,
   dictionary: dictionaryCollection,
   feedback: feedbackCollection,
