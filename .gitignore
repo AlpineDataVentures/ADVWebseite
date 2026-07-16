@@ -30,6 +30,7 @@ yarn.lock
 # ignore .astro directory
 .astro
 public/images/removed
+public/images/search-thumbnails/
 
 # concepts, ideas, removed things
 .concepts

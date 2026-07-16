@@ -7,6 +7,7 @@ export interface ISearchItem {
   frontmatter: {
     title: string;
     image?: string;
+    search_image?: string;
     description?: string;
     categories?: string[];
     tags?: string[];
@@ -21,6 +22,7 @@ export interface ISearchGroup {
     frontmatter: {
       title: string;
       image?: string;
+      search_image?: string;
       description?: string;
       categories?: string[];
       tags?: string[];
@@ -148,11 +150,16 @@ const SearchResult = ({
                     id="searchItem"
                     className="search-result-item"
                   >
-                    {item.frontmatter.image && (
+                    {(item.frontmatter.search_image || item.frontmatter.image) && (
                       <div className="search-result-item-image">
                         <img
-                          src={item.frontmatter.image}
+                          src={item.frontmatter.search_image || item.frontmatter.image}
                           alt={item.frontmatter.title}
+                          loading="lazy"
+                          decoding="async"
+                          fetchPriority="low"
+                          width={100}
+                          height={100}
                         />
                       </div>
                     )}
