@@ -1,7 +1,7 @@
 ---
 title: "Initiativbewerbung Data, Analytics & KI (m/w/d)"
 eyebrow: "Initiativbewerbung"
-meta_title: "Initiativbewerbung Data, Analytics & KI (m/w/d) bei Alpine Data Ventures"
+meta_title: "Initiativbewerbung Data & KI (m/w/d) | Alpine Data Ventures"
 description: "Du möchtest mit Daten, Analytics, Automatisierung oder KI echten Mehrwert schaffen? Dann werde Teil von Alpine Data Ventures."
 draft: false
 summary: "Wir suchen Menschen mit analytischer Stärke, technischer Neugier und Lust auf anspruchsvolle Daten- und Technologieprojekte."

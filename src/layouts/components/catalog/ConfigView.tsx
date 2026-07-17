@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Button } from "./ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { Badge } from "./ui/badge";
@@ -43,17 +44,29 @@ const DSB_RETAINER_CONFIG_HINT =
  */
 export function ConfigView({ productId: _productId, onBack, onOpenCart }: ConfigViewProps) {
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
+  const lastFocusedDeliverableId = useConfigStore((state) => state.lastFocusedDeliverableId);
   const updateDeliverableParam = useConfigStore((state) => state.updateDeliverableParam);
 
-  const enabledDeliverables = Object.entries(selectedDeliverables)
-    .filter(([_, state]) => state.enabled)
-    .map(([id, state]) => {
-      const deliverable = getDeliverableById(id);
-      return deliverable ? { id, deliverable, params: state.params } : null;
-    })
-    .filter((item): item is { id: string; deliverable: NonNullable<ReturnType<typeof getDeliverableById>>; params: DeliverableParameters } =>
-      item !== null
-    );
+  const enabledDeliverables = useMemo(() => {
+    const items = Object.entries(selectedDeliverables)
+      .filter(([_, state]) => state.enabled)
+      .map(([id, state]) => {
+        const deliverable = getDeliverableById(id);
+        return deliverable ? { id, deliverable, params: state.params } : null;
+      })
+      .filter((item): item is { id: string; deliverable: NonNullable<ReturnType<typeof getDeliverableById>>; params: DeliverableParameters } =>
+        item !== null
+      );
+
+    if (!lastFocusedDeliverableId) return items;
+
+    const focusIndex = items.findIndex((item) => item.id === lastFocusedDeliverableId);
+    if (focusIndex <= 0) return items;
+
+    const sorted = [...items];
+    const [focused] = sorted.splice(focusIndex, 1);
+    return [focused, ...sorted];
+  }, [selectedDeliverables, lastFocusedDeliverableId]);
 
   if (enabledDeliverables.length === 0) {
     return (

@@ -1,7 +1,7 @@
 ---
 title: "Data Lake"
 eyebrow: "Produkt"
-meta_title: "Data Lake"
+meta_title: "Data Lake | Alpine Data Ventures"
 description: "Ein Data Lake ist ein zentraler Speicher für große Mengen roher Daten, egal ob Maschinendaten, Dokumente, Videos oder Logdateien. Die Daten werden gespeichert, wie sie anfallen und erst bei der Analyse strukturiert. Das unterscheidet ihn vom Data Warehouse, das fertige, strukturierte Daten für konkrete Berichte bereithält. Ein Data Lake ist die richtige Wahl, wenn große Datenmengen verschiedenen Typs flexibel gespeichert werden sollen und die genauen Anwendungsfälle noch nicht feststehen, zum Beispiel als Grundlage für KI-Projekte und maschinelles Lernen."
 highlight_text: "Die Daten werden gespeichert, wie sie anfallen und erst bei der Analyse strukturiert."
 image: "/images/products/data-lake.png"

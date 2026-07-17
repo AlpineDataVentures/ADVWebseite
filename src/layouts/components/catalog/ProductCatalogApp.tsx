@@ -33,6 +33,7 @@ import {
 } from '../data/catalogStrategy';
 import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
 import { PRODUCT_CATALOG_URL } from '@/config/products';
+import { scrollCatalogToTopAfterPaint } from '../lib/catalogScroll';
 
 type ViewLayout = 'grid' | 'list';
 
@@ -231,10 +232,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setActiveProduct(null);
     setViewMode('configure');
     navigateToCatalogUrl(null);
-    setTimeout(() => {
-      const panel = document.querySelector('[data-catalog-main]');
-      if (panel) panel.scrollTop = 0;
-    }, 100);
+    scrollCatalogToTopAfterPaint();
   };
 
   const handleProductSelect = (productId: string) => {
@@ -242,19 +240,12 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setReturnContext(captureReturnContext());
     openProductFromUrl(productId);
     navigateToCatalogUrl(productId);
-
-    setTimeout(() => {
-      const panel = document.querySelector('[data-catalog-main]');
-      if (panel) panel.scrollTop = 0;
-    }, 100);
+    scrollCatalogToTopAfterPaint();
   };
 
   const handleNextToConfiguration = () => {
     setViewMode('configure');
-    setTimeout(() => {
-      const panel = document.querySelector('[data-catalog-main]');
-      if (panel) panel.scrollTop = 0;
-    }, 100);
+    scrollCatalogToTopAfterPaint();
   };
 
   const handleBack = () => {
@@ -292,7 +283,14 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const handleGoToConfig = () => {
     setViewMode('configure');
     setCartOpen(false);
+    scrollCatalogToTopAfterPaint();
   };
+
+  useEffect(() => {
+    if (viewMode === 'configure') {
+      scrollCatalogToTopAfterPaint();
+    }
+  }, [viewMode]);
 
   useEffect(() => {
     rehydrateConfigFromStorage();
