@@ -1,7 +1,7 @@
 ---
 title: "KI Strategie"
 eyebrow: "Produkt"
-meta_title: "KI Strategie"
+meta_title: "KI Strategie | Alpine Data Ventures"
 description: "KI-Projekte entstehen heute oft spontan: ein Tool wird ausprobiert, ein Pilot gestartet, ein Budget freigegeben. Ohne Strategie bleibt es bei Experimenten, die selten in den Betrieb übergehen. Eine KI-Strategie legt fest, wo Künstliche Intelligenz im Unternehmen Sinn ergibt, welche Voraussetzungen dafür erfüllt sein müssen und in welcher Reihenfolge Projekte angegangen werden. Das Ergebnis sind Investitionen, die nachweisbar wirken statt im Piloten steckenzubleiben."
 highlight_text: "Eine KI-Strategie legt fest, wo Künstliche Intelligenz im Unternehmen Sinn ergibt, welche Voraussetzungen dafür erfüllt sein müssen und in welcher Reihenfolge Projekte angegangen werden"
 image: "/images/products/ai-strategy.png"

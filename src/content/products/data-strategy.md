@@ -1,7 +1,7 @@
 ---
 title: "Data Strategy"
 eyebrow: "Produkt"
-meta_title: "Datenstrategie"
+meta_title: "Datenstrategie | Alpine Data Ventures"
 description: "Digitalisierung erzeugt Daten. Oft haben Unternehmen davon mehr als genug, ohne klare Strategie bleibt das Potenzial jedoch ungenutzt. Eine Datenstrategie legt fest, welche Daten relevant sind, wo der größte Hebel liegt und welche datenspezifischen Themen als nächstes angegangen werden sollten. Sie schafft Orientierung für das Führungsteam und eine gemeinsame Grundlage, auf der konkrete Maßnahmen aufbauen."
 highlight_text: "welche Daten relevant sind"
 image: "/images/products/data-strategy.png"

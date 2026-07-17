@@ -25,6 +25,8 @@ interface ConfigState {
   activeProduct: string | null;
   wizardStep: 1 | 2; // 1 = Recommendation, 2 = Configuration
   hasBundleLoadedForProduct: string | null; // Track which product has bundle loaded
+  /** Zuletzt ausgewählter/geöffneter Baustein (Sortierung in ConfigView) */
+  lastFocusedDeliverableId: string | null;
 
   // Actions
   selectProduct: (id: string) => void;
@@ -102,7 +104,8 @@ const initialState = {
   persistEnabled: true, // Default enabled for persistence
   activeProduct: null,
   wizardStep: 1 as const,
-  hasBundleLoadedForProduct: null
+  hasBundleLoadedForProduct: null,
+  lastFocusedDeliverableId: null,
 };
 
 // Load from localStorage
@@ -119,7 +122,8 @@ function loadFromStorage(): Partial<ConfigState> {
         persistEnabled: parsed.persistEnabled !== undefined ? parsed.persistEnabled : true,
         activeProduct: parsed.activeUseCase || null,
         wizardStep: parsed.wizardStep === 2 ? 2 : 1,
-        hasBundleLoadedForProduct: parsed.hasBundleLoadedForUseCase || null
+        hasBundleLoadedForProduct: parsed.hasBundleLoadedForUseCase || null,
+        lastFocusedDeliverableId: parsed.lastFocusedDeliverableId ?? null,
       };
     }
   } catch (e) {
@@ -140,7 +144,8 @@ function saveToStorage(state: ConfigState) {
       persistEnabled: state.persistEnabled,
       activeUseCase: state.activeProduct,
       wizardStep: state.wizardStep,
-      hasBundleLoadedForUseCase: state.hasBundleLoadedForProduct
+      hasBundleLoadedForUseCase: state.hasBundleLoadedForProduct,
+      lastFocusedDeliverableId: state.lastFocusedDeliverableId,
     }));
   } catch (e) {
     console.warn('Failed to save to localStorage', e);
@@ -260,6 +265,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         const current = state.selectedDeliverables[id];
         const newState = {
           ...state,
+          lastFocusedDeliverableId: enabled ? id : state.lastFocusedDeliverableId,
           selectedDeliverables: {
             ...state.selectedDeliverables,
             [id]: {
@@ -284,6 +290,7 @@ export const useConfigStore = create<ConfigState>((set, get) => {
         const sourceProductId = state.activeProduct;
         const newState: ConfigState = {
           ...state,
+          lastFocusedDeliverableId: id,
           selectedDeliverables: {
             [id]: {
               enabled: true,
@@ -334,7 +341,8 @@ export const useConfigStore = create<ConfigState>((set, get) => {
 
         const newState = {
           ...state,
-          selectedDeliverables: newDeliverables
+          lastFocusedDeliverableId: id,
+          selectedDeliverables: newDeliverables,
         };
         saveToStorage(newState);
         return newState;

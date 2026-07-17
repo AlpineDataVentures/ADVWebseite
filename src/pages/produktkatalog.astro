@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import ProductCatalogApp from "@/layouts/components/catalog/ProductCatalogApp";
 import config from "@/config/config.json";
 import { PRODUCT_CATALOG_URL } from "@/config/products";
+import { CATALOG_INDEX_META_DESCRIPTION } from "@/layouts/components/lib/productCatalogSeo";
 import "@/styles/catalog.css";
 
 const canonicalUrl = `${config.site.base_url}${PRODUCT_CATALOG_URL}`;
@@ -10,6 +11,7 @@ const canonicalUrl = `${config.site.base_url}${PRODUCT_CATALOG_URL}`;
 
 <Base
   title="Produktkatalog – ADV Alpine Data Ventures"
+  description={CATALOG_INDEX_META_DESCRIPTION}
   canonical={canonicalUrl}
 >
   <section class="adv-catalog">

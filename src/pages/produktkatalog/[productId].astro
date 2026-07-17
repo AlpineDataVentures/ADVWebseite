@@ -8,6 +8,7 @@ import {
   buildProductCatalogUrl,
   getCanonicalProductId,
 } from "@/layouts/components/data/productCatalogRouting";
+import { getProductCatalogMetaDescriptionForProduct } from "@/layouts/components/lib/productCatalogSeo";
 
 export function getStaticPaths() {
   return products.map((product) => ({
@@ -38,12 +39,13 @@ if (!canonicalProduct) {
 }
 
 const canonicalUrl = `${config.site.base_url}${buildProductCatalogUrl(canonicalProductId)}`;
-const pageTitle = `${canonicalProduct.title} | Produktkatalog – ADV Alpine Data Ventures`;
-const pageDescription = canonicalProduct.short;
+const pageTitle = `${canonicalProduct.title} | ADV Produktkatalog`;
+const pageDescription = getProductCatalogMetaDescriptionForProduct(canonicalProduct);
 ---
 
 <Base title={pageTitle} description={pageDescription} canonical={canonicalUrl}>
   <section class="adv-catalog">
+    <h1 class="sr-only">{canonicalProduct.title}</h1>
     <ProductCatalogApp
       client:only="react"
       initialProductId={canonicalProductId}

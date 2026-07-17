@@ -66,7 +66,8 @@ export function DeliverableCard({
         size="sm"
         variant="default"
         className="shrink-0 whitespace-nowrap h-8 px-3 text-xs"
-        onClick={() => {
+        onClick={(e) => {
+          e.currentTarget.blur();
           onToggle(true);
           onConfigure?.();
         }}

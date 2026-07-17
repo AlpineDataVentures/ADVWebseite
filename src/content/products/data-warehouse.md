@@ -1,7 +1,7 @@
 ---
 title: "Data Warehouse"
 eyebrow: "Produkt"
-meta_title: "Data Warehouse"
+meta_title: "Data Warehouse | Alpine Data Ventures"
 description: "In den meisten Unternehmen liegen Daten verteilt: ERP, CRM, Excel oder spezielle Branchensysteme. Wer eine Auswertung braucht sucht und verbringt mehr Zeit mit dem Zusammensetzen der Daten als mit der eigentlichen Analyse. Ein Data Warehouse (DWH) löst dieses Problem: alle relevanten Daten fließen automatisch an einem Ort zusammen, werden bereinigt und stehen als Grundlage für Dashboards, Berichte und KI-Anwendungen in verlässlicher Qualität zur Verfügung."
 highlight_text: "Daten aus verschiedenen Quellen zusammengeführt, bereinigt und strukturiert gespeichert werden."
 image: "/images/products/data-warehouse.png"
