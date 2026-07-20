@@ -50,6 +50,7 @@ tags:
   - "IAM"
   - "NIS2"
   - "ISMS"
+  - "Informationssicherheit"
 final_cta_title: "Ihr individuelles Projekt mit Preis und Zeitplan in 3 Minuten"
 final_cta_text: "Beantworten Sie ein paar kurze Fragen, wir zeigen Ihnen direkt, was das Projekt kosten würde und wie lange es dauert"
 final_cta_button_label: "Zum Shop"
