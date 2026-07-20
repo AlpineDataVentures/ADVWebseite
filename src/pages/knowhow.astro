@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import config from "@/config/config.json";
 import BlogCard from "@/components/BlogCard.astro";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
@@ -20,9 +21,11 @@ const blogCards = [
   },
 ];
 
+const { preview_items } = config.settings;
+
 const latestPosts = sortByDate(
   (await getSinglePage("blog")) as CollectionEntry<"blog">[],
-).slice(0, 3);
+).slice(0, preview_items);
 ---
 
 <Base

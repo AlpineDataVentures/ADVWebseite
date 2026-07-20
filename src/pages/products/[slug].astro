@@ -1,6 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import BlogCard from "@/components/BlogCard.astro";
+import config from "@/config/config.json";
 import ImageMod from "@/components/ImageMod.astro";
 import { getEntry, type CollectionEntry } from "astro:content";
 import { getSinglePage } from "@/lib/contentParser.astro";
@@ -45,6 +46,7 @@ const {
 
 const catalogProductId = getCanonicalProductId(product.id);
 const catalogProductUrl = buildProductCatalogUrl(catalogProductId);
+const { preview_items } = config.settings;
 
 const allProducts = await getSinglePage("products");
 const allPosts = await getSinglePage("blog");
@@ -68,7 +70,7 @@ const relatedPosts = allPosts
     ),
   )
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
+  .slice(0, preview_items);
 
 const highlightValue = highlight_text ?? "";
 const highlightIndex = highlightValue
