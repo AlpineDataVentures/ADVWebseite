@@ -6,7 +6,7 @@ date: 2026-04-21T10:00:00Z
 image: "/images/blog/kickoff.jpg"
 categories: ["Data Strategy"]
 author: "Ben Diez"
-tags: ["Data Culture", "Business Intelligence", "Data Warehouse", "KPI"]
+tags: ["Data Culture", "Management Dashboard", "Data Warehouse", "Data Strategy"]
 draft: false
 summary: "Kickoff unserer Serie über den kompletten Aufbau eines datengetriebenen Unternehmens: von der ersten KPI-Frage über Dateninfrastruktur und Dashboards bis zu einer datengetriebenen Organisation."
 ---

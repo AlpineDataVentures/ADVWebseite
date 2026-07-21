@@ -1,14 +1,14 @@
 ---
-title: "Qualitätsprobleme vor dem ersten Ausschuss – warum Daten die besseren Qualitätsmanager sind"
+title: "Qualitätsprobleme vor dem ersten Ausschuss: warum Daten die besseren Qualitätsmanager sind"
 meta_title: "Qualität proaktiv sichern: Mit Daten zu weniger Ausschuss und stabilen Prozessen"
 description: "Wie moderne Datenanalytik hilft, Qualitätsprobleme zu verhindern, bevor sie entstehen – und warum das klassische QS-Verständnis dafür nicht mehr ausreicht."
 date: 2025-07-17T10:00:00Z
 image: "/images/blog/qualitaet.png"
-categories: ["Manufacturing", "Data Analytics", "Qualitätssicherung"]
+categories: ["Data Analytics", "Qualitätssicherung"]
 author: "Ben Diez"
-tags: [ "Predictive"]
+tags: [ "Predictive Maintenance", "KI Oberflächenanalyse", "OEE"]
 draft: false
-summary: "Datenanalyse ersetzt keine Menschen – aber sie zeigt, was wir sonst übersehen: schleichende Prozessabweichungen, versteckte Fehlerquellen und die echten Gründe für instabile Qualität."
+summary: "Datenanalyse ersetzt keine Menschen, aber sie zeigt, was wir sonst übersehen: schleichende Prozessabweichungen, versteckte Fehlerquellen und die echten Gründe für instabile Qualität."
 ---
 
 ### Der perfekte Sturm aus Unschärfen

@@ -47,7 +47,6 @@ related_products:
   - "dsgvo-compliance"
   - "identity-and-access-management"
 tags:
-  - "IAM"
   - "NIS2"
   - "ISMS"
   - "Informationssicherheit"

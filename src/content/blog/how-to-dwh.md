@@ -1,12 +1,12 @@
 ---
-title: "Data Warehouse aufbauen: Cloud, On-Prem oder Hybrid?"
+title: "Data Warehouse aufbauen: Cloud, On-Prem oder doch Hybrid?"
 meta_title: "Data Warehouse aufbauen: Cloud, On-Prem oder Hybrid? Eine ehrliche Entscheidungshilfe"
 description: "Cloud klingt modern, On-Prem klingt sicher, Hybrid klingt nach dem besten aus beiden Welten. Wir erklären welche Architektur für welches Unternehmen wirklich passt — und warum die Antwort meistens einfacher ist als gedacht."
 date: 2026-06-01T08:30:00Z
 image: "/images/blog/how-to-dwh.png"
 categories: ["Data Architecture"]
 author: "Ben Diez"
-tags: ["Data Warehouse", "Cloud", "On-Premises", "Azure", "Data Engineering", "Data Infrastructure", "Digitale Souveränität"]
+tags: ["Data Warehouse", "Cloud", "On-Premises", "Azure", "Data Engineering", "Data Infrastructure", "Datenschutz"]
 draft: false
 summary: "On-Prem, Cloud oder Hybrid — bevor Thalberg auch nur eine Zeile baut, muss diese Frage beantwortet sein. Wir zeigen welche Kriterien wirklich zählen."
 ---

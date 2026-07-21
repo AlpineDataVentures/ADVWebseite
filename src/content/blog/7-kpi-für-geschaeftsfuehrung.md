@@ -6,7 +6,7 @@ date: 2026-04-29T08:30:00Z
 image: "/images/blog/kpis-fuer-gf.png"
 categories: ["Business Intelligence"]
 author: "Ben Diez"
-tags: ["KPI", "Dashboard", "Business Intelligence", "Data Strategy", "Management Dashboard"]
+tags: ["KPI", "Dashboard", "Management Dashboard", "Data Strategy", "Bereichsreporting"]
 draft: false
 summary: "34 KPIs, drei Tabellenblätter, niemand weiß wer sie definiert hat. Wir zeigen welche 7 Kennzahlen eine Geschäftsführung wirklich braucht und welche 5 man sofort vom Dashboard streichen sollte."
 ---
