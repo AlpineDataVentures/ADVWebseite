@@ -29,7 +29,6 @@ import {
   getFeaturedProducts,
   getProductsForClusterBrowse,
   sortProductsAlphabetically,
-  sortProductsForCatalog,
 } from '../data/catalogStrategy';
 import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
 import { PRODUCT_CATALOG_URL } from '@/config/products';
@@ -125,9 +124,9 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     const nextUrl = productId
       ? buildProductCatalogUrl(productId)
       : buildCatalogListUrl({
-          q: listState?.q ?? searchQuery,
-          view: listState?.view ?? (showDeliverables ? 'deliverables' : showAll ? 'all' : null),
-        });
+        q: listState?.q ?? searchQuery,
+        view: listState?.view ?? (showDeliverables ? 'deliverables' : showAll ? 'all' : null),
+      });
     const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
     if (currentUrl === nextUrl) return;
 

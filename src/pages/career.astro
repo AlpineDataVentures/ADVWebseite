@@ -5,7 +5,6 @@ import { getSinglePage } from "@/lib/contentParser.astro";
 import type { CollectionEntry } from "astro:content";
 
 const jobs = (await getSinglePage("career")) as CollectionEntry<"career">[];
-const firstJob = jobs[0];
 
 const pageTitle = "Karriere";
 const pageDescription =

@@ -153,7 +153,6 @@ export function buildCalendlyBookingUrl(
   payload: InquiryPayload
 ): CalendlyBookingResult {
   const isIndividualInquiry = payload.deliverables.length === 0;
-  let truncated = false;
   let summary = buildCalendlyConfigurationSummary(payload);
 
   const buildResult = (
@@ -192,7 +191,6 @@ export function buildCalendlyBookingUrl(
     return fullResult;
   }
 
-  truncated = true;
   // Fallback: nur Name + Preis je Baustein
   const minimalLines = [
     buildSummaryHeader(payload),
@@ -200,9 +198,9 @@ export function buildCalendlyBookingUrl(
     ...(payload.deliverables.length === 0
       ? [EMPTY_CART_NOTICE]
       : payload.deliverables.map((item, i) => {
-          const productPrefix = item.productTitle ? `[${item.productTitle}] ` : "";
-          return `${i + 1}. ${productPrefix}${item.name} – ${formatDeliverablePrice(item.price, item.pricePeriod)}`;
-        })),
+        const productPrefix = item.productTitle ? `[${item.productTitle}] ` : "";
+        return `${i + 1}. ${productPrefix}${item.name} – ${formatDeliverablePrice(item.price, item.pricePeriod)}`;
+      })),
     "",
     TRUNCATION_NOTICE,
     CATALOG_FOOTER,
