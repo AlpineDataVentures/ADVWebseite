@@ -6,7 +6,7 @@ date: 2026-03-30T10:00:00Z
 image: "/images/blog/knowledge-management-3.png"
 categories: ["Knowledge Management"]
 author: "Ben Diez"
-tags: ["Governance", "Data Lineage"]
+tags: ["Data Governance", "Data Lineage", "Data Catalog", "Master Data Management"]
 draft: false
 summary: "Daten helfen nur, wenn man versteht, was sie bedeuten. Dieser Artikel erklärt, warum technisches, semantisches und kontextuelles Wissen über Daten entscheidend ist und welche Rolle Data Catalog, Glossar und Lineage für verlässliche Entscheidungen spielen."
 ---
