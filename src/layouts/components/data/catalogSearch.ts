@@ -98,10 +98,6 @@ function tokenize(value: string | undefined | null): string[] {
     .filter(Boolean);
 }
 
-function includesAnyTerm(text: string, terms: string[]): boolean {
-  return terms.some((term) => textHasTerm(text, term));
-}
-
 function textHasTerm(text: string, term: string): boolean {
   const normalized = normalizeText(text);
   const normalizedTerm = normalizeText(term);
