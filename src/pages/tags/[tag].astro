@@ -6,7 +6,7 @@ import { getTaxonomy } from "@/lib/taxonomyParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import { slugify } from "@/lib/utils/textConverter";
-import PageHeader from "@/partials/PageHeader.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 
 export async function getStaticPaths() {
   const BLOG_FOLDER = "blog";
@@ -29,11 +29,11 @@ const sortedPosts = sortByDate(filterByTags);
 const tags = await getTaxonomy(BLOG_FOLDER, "tags", true);
 const tag_no_slug = tags.find((element: string) => slugify(element) === tag);
 
-const tagLabel = tag_no_slug ? `Stichwort: ${tag_no_slug}` : "";
+const tagLabel = tag_no_slug ?? "";
 ---
 
 <Base title={tagLabel} noindex={true}>
-  <PageHeader title={tagLabel} />
+  <HomepageLeadHeading eyebrow="Stichwort" title={tagLabel} />
   <div class="section-sm pb-0">
     <div class="container">
       <div class="row">
