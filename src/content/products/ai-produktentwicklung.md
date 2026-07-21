@@ -1,7 +1,7 @@
 ---
-title: "AI-Produktentwicklung"
+title: "KI-Produktentwicklung"
 eyebrow: "Produkt"
-meta_title: "AI-Produktentwicklung"
+meta_title: "KI-Produktentwicklung"
 description: "Der klassische Forschungs- und Entwicklungsprozess ist oft langsam, teuer und von iterativen Schleifen geprägt. Mit KI-gestützter Produktentwicklung drehen Sie diesen Prozess um: Algorithmen generieren und simulieren tausende Design- und Materialvarianten digital, bewerten Eigenschaften im Voraus und schlagen optimale Konzepte vor. So beschleunigen Sie Ihre R&D-Zyklen drastisch und erschließen neue Lösungsräume."
 highlight_text: "Algorithmen generieren und simulieren tausende Design- und Materialvarianten digital"
 image: "/images/products/ai-produktentwicklung.png"

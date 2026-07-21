@@ -6,12 +6,12 @@ date: 2025-01-13T10:00:00Z
 image: "/images/blog/datenkultur_sport.png"
 categories: ["Data Culture"]
 author: "Ben Diez"
-tags: []
+tags: ["Data Leadership", "Business Intelligence"]
 draft: false
 summary: "US-Sport zeigt, wie Statistiken Unterhaltung und Datenkompetenz fördern. Während Analysen in Europa oft oberflächlich sind, prägen sie in den USA den Alltag – allgegenwärtig und unbewusst wirksam."
 ---
 
-Als Fußballfan verspürt man eine gewisse Genugtuung, wenn sich der bereits gelbverwarnte Spieler der gegnerischen Mannschaft, der dem eigenen Team gerade einen eingeschenkt hat, vor Freude sein Trikot vom Leib reißt. Dafür gibt es die zweite Karte und der Spieler darf frühzeitig zum Duschen.
+Als Fußballfan verspürt man eine gewisse Genugtuung, wenn sich der bereits gelbverwarnte Spieler der gegnerischen Mannschaft, der dem eigenen Team gerade einen eingeschenkt hat, vor Freude sein Trikot vom Leib reißt. Dafür gibt es regelkonform die zweite Karte und der Mann darf frühzeitig zum Duschen.
 
 Dem geneigten Zuschauer stellen sich dabei zwei Fragen. Erstens: **muss das sein**? Zweitens: **was trägt der Spieler da für ein interessantes Unterhemd, das etwas an einen Sport-BH erinnert?**
 
@@ -24,9 +24,9 @@ Für die Zuschauer werden diese Mengen an Informationen in der Regel zu einer ku
 
 Diese Fakten an sich sind erst mal interessant, allerdings leider oft nicht aussagekräftig. Wer glaubt, nur weil jemand längere Strecken zurücklegt, würde er automatisch erfolgreicher sein, hat früher nie Fredi Bobic bei der Arbeit zugeschaut.
 
-Herausragende Erkenntnisse aus diesen Daten werden im Fernsehen selten gezeigt. Ausnahmen sind z.B. die fragwürdigen Analysen zwischen zwei EM-Spielen, bei denen Experten in weißen Sneakern diverse Pfeile auf ihr Tablet kritzeln und etwas von Raumdeutung erzählen. Das mag für die Pep Guardiolas dieser Welt interessant sein, für den durchschnittlichen Zuschauer ist es in der Regel aber nur eins: ein Grund, abzuschalten und/oder einen bösen Brief an die GEZ zu schreiben.
+Herausragende Erkenntnisse aus diesen Daten werden im Fernsehen selten gezeigt. Ausnahmen sind z.B. die fragwürdigen Analysen zwischen zwei EM-Spielen, bei denen Experten in weißen Sneakern diverse Pfeile auf ihr Tablet kritzeln und etwas von Raumdeutung erzählen. Das mag für die Pep Guardiolas dieser Welt interessant sein, für den durchschnittlichen Zuschauer ist es in der Regel aber nur eins: ein Grund, abzuschalten und/oder aufs Klo zu gehen.
 
-Wer sich hingegen regelmäßig mit US-Sport auseinandersetzt, der weiß, dass die Vermittlung von Daten zu Spiel und Spielern dort um einiges tiefgreifender ist und von der Trefferhistorie einzelner Akteure bis hin zur Auswirkung der Schuhgröße auf das Kickverhalten fast jeder Datenpunkt in eine Story gepackt wird, die im Spielverlauf über den Bildschirm flackert oder vom Kommentator erläutert wird.
+Wer sich hingegen regelmäßig mit US-Sport auseinandersetzt, der weiß, dass die Vermittlung von Daten zu Spiel und Spielern dort um einiges tiefgreifender ist. Von der Trefferhistorie einzelner Akteure bis hin zur Auswirkung der Schuhgröße auf das Kickverhalten wird fast jeder Datenpunkt in eine Story gepackt wird, die im Spielverlauf über den Bildschirm flackert oder vom Kommentator erläutert wird.
 
 In den Vereinigten Staaten sind Sportereignisse nämlich nicht nur Unterhaltung, sondern auch eine der effektivsten Plattformen zur Vermittlung von Datenkompetenz. Ob Eishockey, Basketball oder Football (Fußball lassen wir im Beispiel USA mal außenvor) – bei jedem Spiel gehören Statistiken, Analysen und Trends zum festen Bestandteil der Berichterstattung. 
 

@@ -6,7 +6,7 @@ date: 2024-12-20T07:00:00Z
 image: "/images/blog/Christmas.png"
 categories: ["Data Analytics"]
 author: "Andreas Klostermann"
-tags: ["Weihnachten", "ADV"]
+tags: ["Weihnachten", "ADV", "Data Strategy", "Sales Funnel Analyse", "Data Mesh"]
 draft: false
 summary: "Der Weihnachtsmann steht jedes Jahr vor einer logistischen Herausforderung: Milliarden Haushalte in einer Nacht. Wie schafft er das? Mit einem Lächeln, ein wenig Magie – oder moderner Mathematik?"
 ---

@@ -6,7 +6,7 @@ date: 2024-11-11T07:00:00Z
 image: "/images/blog/data_driven_sales.png"
 categories: ["Sales"]
 author: "Andreas Klostermann"
-tags: ["HowTo"]
+tags: ["How To", "Data Strategy", "Sales Funnel Analyse", "Data Mesh"]
 draft: false
 summary: "Echte Einblicke statt Floskeln: Wie datengetriebener Vertrieb wirklich funktioniert – mit Strategien, die nicht nur auf KPIs setzen, sondern Effizienz und Kundennutzen in den Mittelpunkt stellen."
 ---

@@ -1,12 +1,12 @@
 ---
-title: "Respekt, wer’s selber macht! – Wie funktioniert der BI-Eigenbau?"
-meta_title: "Respekt, wer’s selber macht! – Wie funktioniert der BI-Eigenbau?"
+title: "Respekt, wer’s selber macht: Wie funktioniert der BI-Eigenbau?"
+meta_title: "Respekt, wer’s selber macht: Wie funktioniert der BI-Eigenbau?"
 description: "Wenn Ihr Unternehmen seine Daten in die eigenen Hände nehmen könnte – schneller, flexibler und selbstbestimmt? Unser Artikel zeigt, wie das konkret aussieht."
 date: 2024-11-04T07:00:00Z
 image: "/images/blog/BIDIY-Blog.png"
-categories: ["Business Intelligence", "Data Strategy"]
+categories: ["Business Intelligence"]
 author: "Julian Koller"
-tags: ["BI", "HowTo"]
+tags: ["Business Intelligence", "How To"]
 draft: false
 summary: "Was wäre, wenn Ihr Unternehmen seine Daten in die eigenen Hände nehmen könnte – schneller, flexibler und selbstbestimmt? Unser Artikel zeigt, wie das konkret aussieht."
 ---
@@ -19,7 +19,7 @@ Indem wir selbst den Prozess durchlaufen, lernen wir, besser auf komplexe Situat
 
 Eine eigene BI-Landschaft bedeutet, dass ein Unternehmen seine Daten und Strategien wirklich versteht und flexibel darauf reagieren kann. Selbst zu gestalten, fördert nicht nur die Datenkompetenz und eine [Datenkultur](/blog/data-culture/), sondern baut eine robuste, langfristige Infrastruktur auf, die perfekt auf die individuellen Unternehmensziele zugeschnitten ist. Durch den eigenständigen Aufbau wird BI zu einem wertvollen Teil der Unternehmenskultur und einer nachhaltigen Grundlage für die Zukunft.
 
-#### Die 5 "Why"s für BI
+#### Die 5 Whys für BI
 - BI ermöglicht fundierte Entscheidungen auf Basis aktueller Daten anstelle von Intuition oder Schätzungen.
 - Routinetätigkeiten lassen sich durch BI und Automatisierung schneller und fehlerfrei durchführen.
 - BI entlastet Mitarbeiter von monotonen Aufgaben, sodass sie sich auf strategischere Tätigkeiten konzentrieren können.
