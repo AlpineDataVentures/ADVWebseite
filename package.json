@@ -45,7 +45,7 @@
     "remark-toc": "^9.0.0",
     "resend": "^6.17.2",
     "sharp": "0.35.3",
-    "swiper": "^12.1.4",
+    "swiper": "^14.0.6",
     "tailwind-merge": "^3.6.0",
     "zustand": "^5.0.14"
   },
@@ -62,12 +62,12 @@
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-react": "^7.37.5",
-    "prettier": "^3.8.3",
+    "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
     "typescript": "5.9.3",
-    "typescript-eslint": "^8.59.2"
+    "typescript-eslint": "^8.65.0"
   },
   "allowScripts": {
     "@parcel/watcher@2.5.6": true,
