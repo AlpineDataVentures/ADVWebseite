@@ -4,7 +4,7 @@ meta_title: "ADV-Ansatz: Kundenorientierte Beratung neu gedacht"
 description: "Wie Alpine Data Ventures klassische Beratung neu definiert und Kunden mit einem einzigartigen Ansatz begeistert."
 date: 2025-01-27T07:00:00Z
 image: "/images/blog/Wie-wir-arbeiten.png"
-categories: ["ADV", "Data Strategy"]
+categories: ["ADV"]
 author: "Andreas Klostermann"
 tags: ["Transformation"]
 draft: false

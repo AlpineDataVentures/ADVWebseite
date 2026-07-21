@@ -21,12 +21,12 @@
     "sticky_header": true,
     "theme_switcher": true,
     "default_theme": "system",
-    "pagination": 4,
+    "pagination": 6,
+    "preview_items": 3,
     "summary_length": 200,
     "blog_folder": "blog"
   },
   "params": {
-    "contact_form_action": "#",
     "copyright": "Designed And Developed by [Alpine Data Ventures](https://alpinedata.de) · Alle Rechte vorbehalten."
   },
   "navigation_button": {

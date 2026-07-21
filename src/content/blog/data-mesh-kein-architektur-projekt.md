@@ -6,12 +6,12 @@ date: 2024-10-14T07:00:00Z
 image: "/images/blog/DataMesh_Blog.png"
 categories: ["Data Architecture", "Data Culture"]
 author: "Andreas Klostermann"
-tags: ["DataMesh", "HowTo"]
+tags: ["Data Mesh", "How To", "Data Leadership", "Data Strategy"]
 draft: false
 summary: "Data Mesh erfordert einen kulturellen Wandel im Unternehmen, nicht nur neue Technologie. Der Einstieg beginnt mit der Definition von Daten als Produkt, der Identifizierung von Domain-Teams und der schrittweisen Einführung einer Self-Service-Infrastruktur."
 ---
 
- Data Mesh – klingt erstmal so, als würde es nur in den High-Tech-Hochburgen großer Konzerne Sinn machen. Aber das ist ein Irrtum! Data Mesh kann gerade für kleine und mittelständische Unternehmen (KMU) einen enormen Mehrwert bieten. Doch bevor wir uns in die Details stürzen: Was genau ist Data Mesh eigentlich? Was bringt es? Und wie kann man in einem Unternehmen starten – auch wenn dieses nicht mit unbegrenzten Budgets und endlosen Teams ausgestattet ist? 
+ Data Mesh – klingt erstmal so, als würde es nur in den High-Tech-Hochburgen großer Konzerne Sinn machen. Aber das ist ein Irrtum! Data Mesh kann gerade für kleine und mittelständische Unternehmen (KMU) einen enormen Mehrwert bieten. Doch bevor wir uns in die Details stürzen: Was genau ist Data Mesh eigentlich? Was bringt es? Und wie kann man in einem Unternehmen starten, auch wenn dieses nicht mit unbegrenzten Budgets und endlosen Teams ausgestattet ist? 
 
 ### Was ist Data Mesh überhaupt? 
 

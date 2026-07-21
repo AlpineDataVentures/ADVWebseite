@@ -9,6 +9,7 @@ interface Props {
   imageWidth: number;
   imageHeight: number;
   imageFormat?: "auto" | "avif" | "jpeg" | "png" | "svg" | "webp";
+  imageQuality?: number;
   sectionClassName?: string;
 }
 
@@ -20,6 +21,7 @@ const {
   imageWidth,
   imageHeight,
   imageFormat = "webp",
+  imageQuality,
   sectionClassName = "section pt-0 pb-20",
 } = Astro.props as Props;
 ---
@@ -52,6 +54,7 @@ const {
           width={imageWidth}
           height={imageHeight}
           format={imageFormat}
+          quality={imageQuality}
         />
       </div>
     </div>

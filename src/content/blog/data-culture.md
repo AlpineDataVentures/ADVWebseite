@@ -6,7 +6,7 @@ date: 2024-10-28T07:00:00Z
 image: "/images/blog/data_culture.png"
 categories: ["Data Culture"]
 author: "Ben Diez"
-tags: []
+tags: ["Data Mesh", "Data Leadership", "Data Strategy"]
 draft: false
 summary: "Eine starke Data Culture stärkt Entscheidungen, senkt Risiken und schafft Wettbewerbsvorteile. Sind Sie bereit für die Transformation zur Data Driven Company?"
 ---
@@ -23,13 +23,13 @@ Um den Mittelweg zwischen diesen beiden Extremen – das vorbehaltlose Akzeptier
 
 ### Doch was bedeutet Data Culture eigentlich?
 
-[Data Culture](/guidance/) beschreibt die Haltung und das Verhalten eines Unternehmens im Umgang mit Daten. Es geht um mehr als nur die Technologie oder den Einsatz von Systemen und Tools: Data Culture steht für eine Arbeitsweise, bei der datenbasierte Entscheidungen auf allen Ebenen des Unternehmens gefördert und unterstützt werden. In einer starken Datenkultur wird jeder Mitarbeiter dazu befähigt, Daten zu verstehen und sinnvoll zu nutzen – vom Vertrieb über die Buchhaltung bis hin zur Geschäftsführung. 
+Data Culture beschreibt die Haltung und das Verhalten eines Unternehmens im Umgang mit Daten. Es geht um mehr als nur die Technologie oder den Einsatz von Systemen und Tools: Data Culture steht für eine Arbeitsweise, bei der datenbasierte Entscheidungen auf allen Ebenen des Unternehmens gefördert und unterstützt werden. In einer starken Datenkultur wird jeder Mitarbeiter dazu befähigt, Daten zu verstehen und sinnvoll zu nutzen – vom Vertrieb über die Buchhaltung bis hin zur Geschäftsführung. 
 
 Genauso wird jeder in die Lage versetzt, die richtigen Fragen an die Daten zu stellen. *„Wie viele Einheiten von Produkt X haben wir gestern über die Website verkauft? Bitte nach Tageszeiten splitten?“* ist deutlich besser formuliert als *„Ey, schick mal Zahlen!“* Gerade die letzte Aussage dürfte jedem Analysten die Tränen in die Augen treiben.
 
 Eine gute Datenkultur hilft, Entscheidungen nicht auf Bauchgefühl oder Erfahrungen allein zu stützen, sondern objektiv und nachvollziehbar zu treffen. Das Ziel ist, dass Daten die Basis aller Entscheidungen im Unternehmen werden und zu besseren, fundierteren Entscheidungen beitragen.
 
-Klar sollte auch sein, dass die Voraussetzung dafür ist, dass Daten verfügbar und korrekt sind, um das notwendige Vertrauen aufzubauen. Zudem müssen die notwendigen Skills vorhanden sein, um aus scheinbar endlosen Tabellen mit Zahlen die richtigen Insights zu finden.
+Klar sollte auch sein, dass die Voraussetzung dafür sein muss, dass Daten verfügbar und korrekt sind, um das notwendige Vertrauen aufzubauen. Zudem müssen die notwendigen Skills vorhanden sein, um aus scheinbar endlosen Tabellen mit Zahlen die richtigen Insights zu finden.
 
 ### Warum ist Data Culture für Ihr Unternehmen wichtig?
 
@@ -37,9 +37,9 @@ Die Erwartungen an Unternehmen sind hoch. Kunden und Geschäftspartner erwarten 
 
 Hier sind einige Gründe, wie eine gute Datenkultur zum Erfolg Ihres Unternehmens beiträgt:
 
-- **Schnellere und bessere Entscheidungen**: In Unternehmen mit einer etablierten Datenkultur haben Führungskräfte und Mitarbeiter einfachen Zugang zu den Informationen, die sie für ihre täglichen Entscheidungen benötigen, z.B. durch automatisierte Reports oder eine Self Service Business Intelligence Lösung. Dank einer datengetriebenen Arbeitsweise kann Ihr Unternehmen agiler reagieren und Entscheidungen schneller und auf einer soliden analytischen Basis treffen.
+- **Schnellere und bessere Entscheidungen**: In Unternehmen mit einer etablierten Datenkultur haben Führungskräfte und Mitarbeiter einfachen Zugang zu den Informationen, die sie für ihre täglichen Entscheidungen benötigen, z.B. durch automatisierte Reports oder eine [Self Service Business Intelligence Lösung](/products/department-reporting/). Dank einer datengetriebenen Arbeitsweise kann Ihr Unternehmen agiler reagieren und Entscheidungen schneller und auf einer soliden analytischen Basis treffen.
 
-- **Vermeidung von Fehlern und Risiken**: Entscheidungen, die auf Daten basieren, sind objektiver und weniger anfällig für (Denk-) Fehler und Missverständnisse. Durch die Nutzung von Datenanalysen können Risiken frühzeitig erkannt und proaktiv adressiert werden. In einer guten Datenkultur wird jeder dazu angehalten, Entscheidungen kritisch zu überprüfen und mögliche Risiken auf Basis der vorhandenen Daten zu bewerten.
+- **Vermeidung von Fehlern und Risiken**: Entscheidungen, die auf Daten basieren, sind objektiver und weniger anfällig für (Denk-)Fehler und Missverständnisse. Durch die Nutzung von Datenanalysen können Risiken frühzeitig erkannt und proaktiv adressiert werden. In einer guten Datenkultur wird jeder dazu angehalten, Entscheidungen kritisch zu überprüfen und mögliche Risiken auf Basis der vorhandenen Daten zu bewerten.
 
 - **Motivierte und befähigte Mitarbeiter**: Eine starke Datenkultur stellt sicher, dass alle Mitarbeiter den Wert von Daten verstehen und mit ihnen arbeiten können, ein Skill, der als **Data Literacy** bekannt ist. Das sorgt für eine positive Einstellung im Umgang mit Daten und stärkt das Vertrauen in die Entscheidungen des Unternehmens (sofern diese auf Analysen fußen). Mit den richtigen Schulungen und Prozessen kann jeder im Unternehmen dazu befähigt werden, Daten sinnvoll zu nutzen und selbstständig an Entscheidungsprozessen teilzunehmen.
 
@@ -48,7 +48,7 @@ Hier sind einige Gründe, wie eine gute Datenkultur zum Erfolg Ihres Unternehmen
 ### Wie Sie Data Culture in Ihrem Unternehmen fördern können
 Die Einführung einer Datenkultur ist kein Projekt, das von heute auf morgen abgeschlossen wird. Wie der Name schon sagt, findet hier ein Kulturwandel statt, der sich über Monate oder sogar Jahre erstrecken kann. 
 
-Die größte Herausforderung bei diesem Prozess liegt darin, die zu erwartenden Vorbehalte bei Teilen der Belegschaft, die sich nicht mit der neuen Art zu arbeiten anfreunden können, aufzufangen. Wie der Bäcker in der Nachbarschaft seine Antwort auf meine Frage, warum nicht mit Karte zahlen könnte, passend formulierte: „Das haben wir schon immer so gemacht!“. Dieser Einstellung können Sie mit der richtigen Herangehensweise entgegenwirken, auch wenn Sie sich bewusst sein müssen, dass es immer den einen oder anderen Nörgler geben wird:
+Die größte Herausforderung bei diesem Prozess liegt darin, die zu erwartenden Vorbehalte bei Teilen der Belegschaft, die sich nicht mit der neuen Art zu arbeiten anfreunden können, aufzufangen. Wie der Bäcker in der Nachbarschaft seine Antwort auf meine Frage, warum man nicht mit Karte zahlen könnte, passend formulierte: „Das haben wir schon immer so gemacht!“. Dieser Einstellung können Sie mit der richtigen Herangehensweise entgegenwirken, auch wenn Sie sich bewusst sein müssen, dass es immer den einen oder anderen Nörgler geben wird:
 
 - **Schaffen Sie eine Vision und betonen Sie den Nutzen von Daten**: Zeigen Sie auf, warum Daten wichtig sind und wie sie dem Unternehmen und dem einzelnen Mitarbeiter nützen können („What's in it for you“). Wenn die Mitarbeiter erkennen, dass Daten ihre Arbeit erleichtern und verbessern, werden Akzeptanz und die Bereitschaft, bei dieser Transformation mitzumachen, steigen.
 

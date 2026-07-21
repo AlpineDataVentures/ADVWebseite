@@ -1,7 +1,7 @@
 ---
 title: "Bereichsreporting"
 eyebrow: "Produkt"
-meta_title: "Department Reporting"
+meta_title: "Bereichsreporting"
 description: "Ein Management Dashboard gibt der Unternehmensführung einen Top-Level-Überblick. Bereichs-Reports gehen eine Ebene tiefer: Jede Abteilung bekommt einen eigenen Report, der genau die Kennzahlen zeigt, die für ihre Arbeit relevant sind. Der Vertrieb sieht seine Pipeline und Abschlussquoten, die Produktion ihre Auslastung und Ausschussrate, der Einkauf seine Lieferantenperformance. Reports laufen automatisch und sind jederzeit aktuell ohne manuelles Zusammenstellen."
 highlight_text: "Jede Abteilung bekommt einen eigenen Report, der genau die Kennzahlen zeigt, die für ihre Arbeit relevant sind"
 image: "/images/products/department-reporting.png"

@@ -54,24 +54,26 @@ import ImageMod from "@/components/ImageMod.astro";
             <ImageMod
               src="/images/heropath.jpg"
               alt="ADV Hero"
-              width={1400}
-              height={1050}
+              width={900}
+              height={675}
               class="hero-image-compare__image"
               loading="eager"
               decoding="async"
               format="webp"
+              quality={55}
             />
 
             <div class="hero-image-compare__overlay" aria-hidden="true">
               <ImageMod
                 src="/images/heropath_pixel.jpg"
                 alt=""
-                width={1400}
-                height={1050}
+                width={900}
+                height={675}
                 class="hero-image-compare__image"
                 loading="eager"
                 decoding="async"
                 format="webp"
+                quality={55}
               />
             </div>
 

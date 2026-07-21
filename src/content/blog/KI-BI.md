@@ -6,7 +6,7 @@ date: 2024-11-18T07:00:00Z
 image: "/images/blog/KIBI_Blog.png"
 categories: ["Artificial Intelligence", "Data Strategy"]
 author: "Julian Koller"
-tags: ["BI", "KI" ]
+tags: ["AI Strategy", "Management Dashboard", "Data Warehouse"]
 draft: false
 summary: "Wie saubere Daten die Grundlage für KI und BI bilden und Unternehmen zukunftsfähig machen – ein Leitfaden für datengetriebene Entscheidungen."
 ---

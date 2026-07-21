@@ -6,7 +6,7 @@ date: 2024-10-07T07:00:00Z
 image: "/images/blog/Blog_KI.png"
 categories: ["Enterprise Architecture", "Data Analytics"]
 author: "Julian Koller"
-tags: ["KI"]
+tags: ["KI","AI-Produktentwicklung", "AI Strategy", "KI Systemarchitektur"]
 draft: false
 summary: "KI kann Unternehmensprozesse von einfachen Aufgaben in 10 Minuten bis hin zur vollständigen Automatisierung in einem Jahr erheblich beschleunigen aber nur mit den richtigen Tools."
 ---

@@ -6,7 +6,7 @@ date: 2024-09-24T07:00:00Z
 image: "/images/blog/BTS_Website.png"
 categories: ["Enterprise Architecture", "ADV"]
 author: "Carsten Hof"
-tags: ["DevOps", "Webseite"]
+tags: ["DevOps", "Webseite", "AI Agents"]
 draft: false
 summary: "Bei Alpine Data Ventures setzen wir auf Innovation & Struktur. Das zeigen wir auch mit unserer Webseite, die auf einem modernsten Entwicklungsprozess basiert, den wir auch in Daten-Projekten einsetzen."
 ---

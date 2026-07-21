@@ -8,6 +8,7 @@ interface Props {
   alt: string;
   width: number;
   height: number;
+  quality?: number;
   loading?: "eager" | "lazy" | null | undefined;
   decoding?: "async" | "auto" | "sync" | null | undefined;
   format?: "auto" | "avif" | "jpeg" | "png" | "svg" | "webp";
@@ -21,6 +22,7 @@ let {
   alt,
   width,
   height,
+  quality,
   loading,
   decoding,
   class: className,
@@ -52,6 +54,7 @@ const isValidPath = images[src] ? true : false;
       alt={alt}
       width={width}
       height={height}
+      quality={quality}
       loading={loading}
       decoding={decoding}
       class={className}
