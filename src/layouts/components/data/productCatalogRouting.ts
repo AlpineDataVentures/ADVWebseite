@@ -21,6 +21,7 @@ export const productCatalogMarketingMap = {
   "data-warehouse": "dwh",
   "digital-warehouse-management": "lagerbestandsverwaltung",
   "department-reporting": "management-dashboard",
+  "demand-planning": "bedarfsanalyse",
   "isb-isms": "isms-isb-bestellung",
   "know-your-customer": "kyc-automatisierung",
   "management-dashboard": "management-dashboard",
