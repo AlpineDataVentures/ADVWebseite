@@ -53,6 +53,12 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
     return getProductById(productId)?.title ?? productId;
   };
 
+  const sanitizeInquiryParameters = (parameters: Record<string, string | number | undefined>) => {
+    return Object.fromEntries(
+      Object.entries(parameters).filter(([, value]) => value !== undefined)
+    ) as Record<string, string | number>;
+  };
+
   const inquiryPayload = useMemo(() => {
     return buildInquiryPayloadFromCart({
       items: cartWithPrices
@@ -62,7 +68,7 @@ export function CartSheet({ open, onOpenChange, onGoToConfig }: CartSheetProps) 
           deliverableName: item.deliverable?.name ?? item.deliverableId,
           price: item.price,
           pricePeriod: item.deliverable?.pricePeriod,
-          parameters: item.parameters ?? {},
+          parameters: sanitizeInquiryParameters(item.parameters ?? {}),
           sourceProductId: item.sourceProductId ?? selectedDeliverables[item.deliverableId]?.sourceProductId ?? null,
         })),
       estimatedTotalPrice: totalPrice > 0 ? totalPrice : undefined,
