@@ -6,7 +6,7 @@ date: 2025-03-17T10:00:00Z
 image: "/images/blog/fussball_fan_heinrich.webp"
 categories: ["Data Culture", "Artificial Intelligence"]
 author: "Ben Diez"
-tags: ["GenAI", "KI"]
+tags: ["GenAI", "KI", "AI Strategy", "AI-Produktentwicklung"]
 draft: false
 summary: "Wer GenAI effektiv nutzen will, muss präzise prompten – denn nur mit klaren Anweisungen und gezielter Personalisierung entstehen wirklich brauchbare Antworten."
 ---

@@ -1,12 +1,12 @@
 ---
-title: "Kultur frisst Datenstrategie zum Frühstück, oder: warum Change nicht nebenbei passiert"
+title: "Kultur frisst Datenstrategie: warum Change nicht nebenbei passiert"
 meta_title: "Wenn der Putzplan ignoriert wird: Kultur als Erfolgsfaktor für Datenstrategien"
 description: "Warum viele Datenstrategien im Unternehmensalltag verpuffen und wie man mit Kulturarbeit echte Veränderung schafft."
 date: 2025-06-05T10:00:00Z
 image: "/images/blog/kultur_frisst_strategie.png"
 categories: ["Data Strategy", "Data Culture"]
 author: "Ben Diez"
-tags: ["Change" ]
+tags: ["Change Management", "Data Strategy", "Data Catalog"]
 draft: false
 summary: "Datenstrategie ist kein Laminiervorgang: Ohne kulturelle Verankerung bleibt sie Theorie. Der Artikel zeigt, warum Change aktive Führung braucht – und was wir vom WG-Putzplan lernen können."
 ---

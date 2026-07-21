@@ -6,7 +6,7 @@ date: 2025-06-03T10:00:00Z
 image: "/images/blog/UseCases_Datenstrategie.png"
 categories: ["Data Strategy", "Data Culture"]
 author: "Ben Diez"
-tags: ["Use Case"]
+tags: ["Data Leadership", "Data Mesh", "Data Strategy"]
 draft: false
 summary: "Ohne konkrete Anwendungsfälle bleibt jede Datenstrategie ein leeres Versprechen. Dieser Artikel erklärt, warum Use Cases nicht nur Beiwerk sind, sondern der eigentliche Schlüssel zur Wirkung."
 ---
