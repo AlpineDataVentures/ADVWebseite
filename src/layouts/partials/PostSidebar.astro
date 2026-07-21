@@ -2,6 +2,9 @@
 import { humanize, slugify } from "@/lib/utils/textConverter";
 
 const { categories, allCategories } = Astro.props;
+const sortedCategories = [...categories].sort((a: string, b: string) =>
+  a.localeCompare(b, "de"),
+);
 ---
 
 <div class="lg:col-4 mt-16 lg:mt-0">
@@ -11,7 +14,7 @@ const { categories, allCategories } = Astro.props;
     <div class="rounded bg-light p-8 dark:bg-darkmode-light">
       <ul class="space-y-4">
         {
-          categories.map((category: string) => {
+          sortedCategories.map((category: string) => {
             const count = allCategories.filter(
               (c: string) => c === category,
             ).length;
