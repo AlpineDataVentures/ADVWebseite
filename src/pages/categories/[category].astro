@@ -6,7 +6,7 @@ import { getTaxonomy } from "@/lib/taxonomyParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import { slugify } from "@/lib/utils/textConverter";
-import PageHeader from "@/partials/PageHeader.astro";
+import HomepageLeadHeading from "@/partials/HomepageLeadHeading.astro";
 
 // get static paths for all categories
 export async function getStaticPaths() {
@@ -31,11 +31,11 @@ const categories = await getTaxonomy(BLOG_FOLDER, "categories", true);
 const category_no_slug = categories.find(
   (element: string) => slugify(element) === category,
 );
-const categoryLabel = category_no_slug ? `Kategorie: ${category_no_slug}` : "";
+const categoryLabel = category_no_slug ?? "";
 ---
 
 <Base title={categoryLabel} noindex={true}>
-  <PageHeader title={categoryLabel} />
+  <HomepageLeadHeading eyebrow="Kategorie" title={categoryLabel} />
   <div class="section-sm pb-0">
     <div class="container">
       <div class="row">
