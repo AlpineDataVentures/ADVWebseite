@@ -3,7 +3,7 @@ title: "Tech & Web im Data- & Analytics-Umfeld (m/w/d)"
 eyebrow: "Praktikum / Werkstudium"
 meta_title: "Praktikum / Werkstudium Tech & Web (m/w/d) bei Alpine Data Ventures"
 description: "Du willst verstehen, wie moderne Webentwicklung, Datenarchitektur und Analytics in echten Projekten zusammenwirken? Dann komm ins Team ADV."
-draft: false
+draft: true
 summary: "Für den Relaunch unserer Website und die Unterstützung in technischen sowie datenbezogenen Themen suchen wir ab sofort Praktikanten oder Werkstudenten (m/w/d)."
 employment_type: "werkstudium"
 start_date: "ab sofort"

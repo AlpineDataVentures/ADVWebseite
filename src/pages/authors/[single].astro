@@ -67,16 +67,20 @@ const role_title = `${role} ${title}`;
         </div>
       </div>
 
-      <div class="row justify-center pb-16 pt-14">
-        <h2 class="h3 mb-12 text-center">Letzte Blog-Posts von {blog_name}</h2>
-        {
-          postFilterByAuthor.map((post) => (
-            <div class="mb-12 md:col-6 lg:col-4">
-              <BlogCard data={post} />
-            </div>
-          ))
-        }
-      </div>
+      {
+        postFilterByAuthor.length > 0 && (
+          <div class="row justify-center pb-16 pt-14">
+            <h2 class="h3 mb-12 text-center">
+              Letzte Blog-Posts von {blog_name}
+            </h2>
+            {postFilterByAuthor.map((post) => (
+              <div class="mb-12 md:col-6 lg:col-4">
+                <BlogCard data={post} />
+              </div>
+            ))}
+          </div>
+        )
+      }
     </div>
   </section>
 </Base>
