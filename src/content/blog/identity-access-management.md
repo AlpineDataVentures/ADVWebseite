@@ -8,7 +8,7 @@ categories: ["Informationssicherheit"]
 author: "Ben Diez"
 tags: ["IAM", "Informationssicherheit"]
 draft: false
-summary: "Thalbergs neuer ISB braucht keinen langen ersten Arbeitstag um sein erstes Problem zu finden. Was Identity & Access Management ist, welche vier Fehler im Mittelstand am häufigsten vorkommen und was man konkret dagegen tun kann."
+summary: "Was ist Identity & Access Management, welche vier Fehler kommen im Mittelstand am häufigsten vor und was kann man konkret dagegen tun."
 ---
 
 *Teil 10 unserer Serie über den kompletten Aufbau eines datengetriebenen Unternehmens [Teil 9 lesen](/blog/isb-aufgaben/)*

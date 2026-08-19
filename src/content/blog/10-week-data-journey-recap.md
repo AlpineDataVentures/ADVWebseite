@@ -8,7 +8,7 @@ categories: ["Data Strategy"]
 author: "Ben Diez"
 tags: ["Data Strategy", "Data Governance"]
 draft: false
-summary: "Zehn Wochen sind vergangen seit Thalberg beschlossen hat das Datenchaos zu beenden. Was steht? Eine ehrliche Bestandsaufnahme ohne Hochglanzreport: was wurde erreicht, was ist schiefgelaufen ist und die fünf wichtigsten Learnings."
+summary: "Zehn Wochen sind vergangen seit Thalberg beschlossen hat das Datenchaos zu beenden. Eine ehrliche Bestandsaufnahme über die fünf wichtigsten Learnings."
 ---
 
 *Teil 11 unserer Serie über den kompletten Aufbau eines datengetriebenen Unternehmens [Teil 10 lesen](/blog/identity-access-management/)*
