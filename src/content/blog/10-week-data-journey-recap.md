@@ -1,5 +1,5 @@
 ---
-title: "Wer darf was? Identity & Access Management einfach erklärt"
+title: "10 Wochen, ein Datenprojekt: Die wichtigsten Learnings"
 meta_title: "Data Project Recap: 5 Learnings aus 10 Wochen Datenprojekt im Mittelstand"
 description: "KPIs definiert, DWH aufgebaut, ETL läuft, DSB und ISB an Bord. Was Thalberg in zehn Wochen erreicht hat, was schiefgelaufen ist und warum das Projekt jetzt erst richtig beginnt."
 date: 2026-08-19T08:30:00Z
