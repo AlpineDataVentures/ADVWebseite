@@ -8,10 +8,10 @@ draft: false
 ---
 
 <p>
-  <em>letztes Update:</em> 24. Februar 2025
+  <em>letztes Update:</em> 14. August 2026
 </p>
 
-#### Anbieter gemäß dem Gesetz für Digitale Dienste (DDG)
+#### Angaben gemäß § 5 DDG
 <p>
   Alpine Data Ventures GmbH<br>
   Leopoldstraße 31<br> 
@@ -21,7 +21,7 @@ draft: false
 #### Kontakt
 <p>
 Telefon: +49 160 8014 812<br>
-E-Mail: <a href="mailto:info@alpinedata.de">info(at)alpinedata.de</a> <br>
+E-Mail: <a href="mailto:info@alpinedata.de">info@alpinedata.de</a> <br>
 Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
 </p>
 
@@ -33,14 +33,9 @@ Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
     Julian Koller<br>
   </p>
 
-#### Registernummer 
+#### Handelsregister 
 <p>
-  HRB 300287<br>
-</p>
-
-#### Registergericht
-<p>
-  Registergericht: Amtsgericht München<br>
+  Amtsgericht München, HRB 300287<br>
 </p>
 
 #### Umsatzsteueridentifikationsnummer gemäß § 27a Umsatzsteuergesetz   
@@ -48,12 +43,9 @@ Internet: <a href="https://alpinedata.de">https://alpinedata.de</a>
  DE453880543<br>
 </p>
 
-#### Inhaltlich Verantwortlicher gemäß § 55 RStV
+#### Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV
 <p>
-  Alpine Data Ventures GmbH<br>
-  vertreten durch die Geschäftsführer <br>
+  Benjamin Diez<br>
   Leopoldstraße 31<br> 
   80802 München<br>  
 </p>
-Plattform der EU-Kommission zur Online-Streitbeilegung: <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a><br>
-Der Verkäufer ist weder verpflichtet noch bereit, an einem Streitbeilegungsverfahren vor einer alternativen Streitbeilegungsstelle teilzunehmen. 

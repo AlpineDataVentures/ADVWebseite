@@ -21,11 +21,11 @@ Verantwortlicher im Sinne der DSGVO und anderer nationaler Datenschutzgesetze de
 </p>
 <p>
   Telefon: +491608014812<br>
-  E-Mail: <a href="mailto:info@alpinedata.de">info(at)alpinedata.de</a> <br>
+  E-Mail: <a href="mailto:info@alpinedata.de">info@alpinedata.de</a> <br>
   Vertreten durch die Geschäftsführer Benjamin Diez, Dr. Carsten Hof, Andreas Klostermann & Julian Koller. <br>
 </p>
 
-Bei Fragen zu unserem Datenschutz oder zur Geltendmachung Ihrer Betroffenenrechte können Sie uns jederzeit kontaktieren unter: <a href="mailto:datenschutz@alpinedata.de">datenschutz(at)alpinedata.de</a>.
+Bei Fragen zu unserem Datenschutz oder zur Geltendmachung Ihrer Betroffenenrechte können Sie uns jederzeit kontaktieren unter: <a href="mailto:datenschutz@alpinedata.de">datenschutz@alpinedata.de</a>.
 Ein Datenschutzbeauftragter ist nicht bestellt, da hierfür keine gesetzliche Verpflichtung besteht.
 
 
