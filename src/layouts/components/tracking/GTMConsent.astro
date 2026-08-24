@@ -14,9 +14,6 @@
 <!-- Banner-Container -->
 <div id="klaro"></div>
 
-<!-- Klaro JS -->
-<script is:inline defer type="module" src="/klaro/klaro.js"></script>
-
 <script is:inline type="module">
   window.klaroConfig = {
     version: 1,
@@ -93,8 +90,7 @@
     ],
   };
 
-  // Klaro initialisieren
-  if (window.klaro) {
-    window.klaro.setup(window.klaroConfig);
-  }
 </script>
+
+<!-- Klaro JS muss die Konfiguration bereits vor dem Laden vorfinden. -->
+<script is:inline defer type="module" src="/klaro/klaro.js"></script>
