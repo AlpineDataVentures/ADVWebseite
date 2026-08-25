@@ -22,6 +22,7 @@
     privacyPolicy: "/datenschutz",
     default: false,
     acceptAll: true, // confirm on the initial dialog confirms everything
+    mustConsent: true, // user must consent to at least one service
     services: [
       {
         name: "google-tag-manager",
@@ -87,9 +88,12 @@
           });
         `,
       },
+      {
+        name: "apollo",
+        purposes: ["analytics"],
+      },
     ],
   };
-
 </script>
 
 <!-- Klaro JS muss die Konfiguration bereits vor dem Laden vorfinden. -->
