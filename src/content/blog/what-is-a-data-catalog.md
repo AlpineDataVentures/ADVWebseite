@@ -1,6 +1,6 @@
 ---
 title: "Data Catalog: warum ein DWH ohne Inhaltsverzeichnis nur halb fertig ist"
-meta_title: "Identity & Access Management im Mittelstand: Zugriffsrechte, Offboarding und Rollenkonzepte"
+meta_title: "Data Catalog: Warum Daten auffindbar, dokumentiert und verantwortet sein müssen"
 description: "Das Warehouse läuft, aber niemand weiß wo die Kundensegmentierung liegt. Ein Data Catalog löst dieses Problem. Wir erklären, was er enthält, wann man ihn braucht und warum OpenMetadata für den Mittelstand die pragmatischste Wahl ist."
 date: 2026-08-26T08:30:00Z
 image: "/images/blog/what-is-a-data-catalog.png"
