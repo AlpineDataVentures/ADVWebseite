@@ -394,13 +394,16 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const filteredProducts = useMemo(() => {
     const query = searchQuery.trim();
 
-    if (
-      searchMode === 'ki' &&
-      query &&
-      llmSearch.status === 'success' &&
-      llmSearch.query === query
-    ) {
-      return llmSearch.products;
+    // KI-Modus: Ergebnisse bleiben eingefroren (letzter Submit), bis erneut Enter
+    // gedrückt wird – reagiert bewusst NICHT auf jeden Tastendruck wie die Standardsuche.
+    if (searchMode === 'ki') {
+      if (llmSearch.status === 'success' || llmSearch.status === 'error' || llmSearch.status === 'loading') {
+        return llmSearch.products;
+      }
+      // status === 'idle': noch keine KI-Suche abgeschickt -> Standard-Landing-Inhalt
+      if (showAll) return sortProductsAlphabetically(products);
+      if (activeCluster) return getProductsForClusterBrowse(activeCluster);
+      return getFeaturedProducts(products);
     }
 
     if (query && searchResults) {
@@ -421,13 +424,11 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const kiSearchStatus = useMemo(() => {
     if (searchMode !== 'ki') return null;
     const query = searchQuery.trim();
-    if (!query) return null;
-    if (llmSearch.query !== query) {
-      return llmSearch.status === 'loading' ? null : 'stale';
-    }
     if (llmSearch.status === 'loading') return 'loading';
-    if (llmSearch.status === 'error') return 'error';
-    return null;
+    if (query && llmSearch.query === query) {
+      return llmSearch.status === 'error' ? 'error' : null;
+    }
+    return query ? 'stale' : null;
   }, [searchMode, searchQuery, llmSearch]);
 
   const filteredDeliverables = useMemo(() => {
@@ -451,21 +452,29 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     return map;
   }, [filteredProducts]);
 
+  // Im KI-Modus zeigt die Kachel-Liste erst dann "Suchergebnisse", wenn tatsächlich
+  // eine (eingefrorene) KI-Antwort vorliegt – nicht schon beim reinen Tippen.
+  const showingSearchResults =
+    searchMode === 'ki'
+      ? llmSearch.status === 'success' || llmSearch.status === 'error'
+      : Boolean(searchQuery.trim());
+
   const tileTitle = useMemo(() => {
-    if (searchQuery.trim()) return 'Suchergebnisse';
+    if (showingSearchResults) return 'Suchergebnisse';
     if (activeCluster) return uiClusterLabels[activeCluster];
     if (showAll) return 'Alle Produkte';
     return 'Beliebte Einstiege';
-  }, [activeCluster, searchQuery, showAll]);
+  }, [activeCluster, showAll, showingSearchResults]);
 
   const tileSubtitle = useMemo(() => {
-    if (searchQuery.trim()) {
+    if (showingSearchResults) {
+      const query = searchMode === 'ki' ? llmSearch.query : searchQuery.trim();
       const deliverableCount = searchResults?.deliverables.length ?? 0;
       const extra =
         deliverableCount > 0
           ? ` · ${deliverableCount} passende ${deliverableCount === 1 ? 'Baustein' : 'Bausteine'}`
           : '';
-      return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} für „${searchQuery.trim()}“${extra}`;
+      return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} für „${query}“${extra}`;
     }
     if (activeCluster) {
       return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} in diesem Bereich`;
@@ -474,7 +483,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
       return `${filteredProducts.length} Produkte insgesamt`;
     }
     return 'Wählen Sie „Alle Domänen“ oder „Alle Produkte“, um den gesamten Katalog zu durchsuchen.';
-  }, [activeCluster, searchQuery, showAll, filteredProducts.length]);
+  }, [activeCluster, showAll, filteredProducts.length, showingSearchResults, searchMode, llmSearch.query, searchQuery]);
 
   const renderContent = () => {
     if (viewMode === 'configure' && cartCount > 0) {
