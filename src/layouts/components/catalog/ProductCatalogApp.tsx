@@ -103,6 +103,11 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const [viewMode, setViewMode] = useState<'bundle' | 'configure'>('bundle');
   const [searchQuery, setSearchQuery] = useState(initialListState.q);
   const [searchMode, setSearchMode] = useState<SearchMode>('standard');
+  // Eigenes Feld/State für die KI-Suche: bewusst entkoppelt von searchQuery, damit
+  // Tippen im KI-Modus weder die URL (history.replaceState) noch die lokale
+  // Stichwortsuche bei jedem Tastendruck auslöst (war zuvor die Ursache für die
+  // spürbare Verlangsamung bei längeren Eingaben).
+  const [kiQuery, setKiQuery] = useState('');
   const [llmSearch, setLlmSearch] = useState<{
     status: 'idle' | 'loading' | 'success' | 'error';
     query: string;
@@ -188,12 +193,12 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setSearchMode(mode);
     if (mode === 'standard') {
       setLlmSearch({ status: 'idle', query: '', products: [] });
+      setKiQuery('');
     }
   };
 
-  const handleSearchSubmit = async (query: string) => {
-    if (searchMode !== 'ki') return;
-    const trimmed = query.trim();
+  const handleSearchSubmit = async () => {
+    const trimmed = kiQuery.trim();
     if (!trimmed) {
       setLlmSearch({ status: 'idle', query: '', products: [] });
       return;
@@ -383,13 +388,18 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const activeProduct = activeProductId ? getProductById(activeProductId) : null;
 
+  // Im KI-Modus basiert die lokale Bausteine-Suche bewusst auf der zuletzt
+  // abgeschickten KI-Anfrage (llmSearch.query), nicht auf jedem Tastendruck im
+  // KI-Suchfeld – das war zuvor der Grund für die spürbare Verlangsamung.
+  const effectiveSearchQuery = searchMode === 'ki' ? llmSearch.query : searchQuery.trim();
+
   const searchResults = useMemo(() => {
-    const query = searchQuery.trim();
+    const query = effectiveSearchQuery;
     if (!query) return null;
 
     const pool = showAll ? products : activeCluster ? getProductsForClusterBrowse(activeCluster) : products;
     return searchCatalog(query, pool);
-  }, [activeCluster, searchQuery, showAll]);
+  }, [activeCluster, effectiveSearchQuery, showAll]);
 
   const filteredProducts = useMemo(() => {
     const query = searchQuery.trim();
@@ -423,13 +433,13 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const kiSearchStatus = useMemo(() => {
     if (searchMode !== 'ki') return null;
-    const query = searchQuery.trim();
+    const query = kiQuery.trim();
     if (llmSearch.status === 'loading') return 'loading';
     if (query && llmSearch.query === query) {
       return llmSearch.status === 'error' ? 'error' : null;
     }
     return query ? 'stale' : null;
-  }, [searchMode, searchQuery, llmSearch]);
+  }, [searchMode, kiQuery, llmSearch]);
 
   const filteredDeliverables = useMemo(() => {
     const query = searchQuery.trim();
@@ -520,7 +530,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     }
 
     if (!activeProduct) {
-      const showIntro = !activeCluster && !searchQuery.trim() && !showAll;
+      const showIntro = !activeCluster && !showAll && !showingSearchResults;
       return (
         <div className="space-y-8">
           {showIntro && <CatalogIntro />}
@@ -551,7 +561,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
             )}
             {kiSearchStatus === 'stale' && (
               <p className="text-sm text-text-light dark:text-darkmode-text-light">
-                Enter drücken, um die KI-Suche für „{searchQuery.trim()}“ zu starten.
+                Enter drücken, um die KI-Suche für „{kiQuery.trim()}“ zu starten.
               </p>
             )}
 
@@ -569,7 +579,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
               />
             )}
 
-            {searchQuery.trim() && searchResults && searchResults.deliverables.length > 0 && (
+            {effectiveSearchQuery && searchResults && searchResults.deliverables.length > 0 && (
               <div className="space-y-4 pt-4 border-t border-border">
                 <div className="space-y-1">
                   <h3 className="text-lg font-semibold text-text dark:text-darkmode-text">
@@ -625,6 +635,8 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
         onSearchChange={handleSearchChange}
         searchMode={searchMode}
         onSearchModeChange={handleSearchModeChange}
+        kiQuery={kiQuery}
+        onKiQueryChange={setKiQuery}
         onSearchSubmit={handleSearchSubmit}
         activeCluster={activeCluster}
         onOpenDomains={() => setDomainDrawerOpen(true)}
