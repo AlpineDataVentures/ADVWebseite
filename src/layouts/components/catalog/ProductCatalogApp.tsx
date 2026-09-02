@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { CatalogToolbar } from './CatalogToolbar';
+import type { SearchMode } from './SearchModeToggle';
 import { DomainDrawer } from './DomainDrawer';
 import { CatalogIntro } from './CatalogIntro';
 import { ProductTileGrid } from './UseCaseTileGrid';
@@ -17,6 +18,7 @@ import {
   getProductById,
   products,
   uiClusterLabels,
+  type Product,
   type UiClusterId,
 } from '../data/useCases';
 import { getBundleForProduct } from '../data/recommendations';
@@ -31,6 +33,7 @@ import {
   sortProductsAlphabetically,
 } from '../data/catalogStrategy';
 import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
+import { searchCatalogWithLLM } from '../data/catalogSearchLLM';
 import { PRODUCT_CATALOG_URL } from '@/config/products';
 import { scrollCatalogToTopAfterPaint } from '../lib/catalogScroll';
 
@@ -99,6 +102,12 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const [activeProductId, setActiveProductId] = useState<string | null>(initialProductId);
   const [viewMode, setViewMode] = useState<'bundle' | 'configure'>('bundle');
   const [searchQuery, setSearchQuery] = useState(initialListState.q);
+  const [searchMode, setSearchMode] = useState<SearchMode>('standard');
+  const [llmSearch, setLlmSearch] = useState<{
+    status: 'idle' | 'loading' | 'success' | 'error';
+    query: string;
+    products: Product[];
+  }>({ status: 'idle', query: '', products: [] });
   const [cartOpen, setCartOpen] = useState(false);
   const [domainDrawerOpen, setDomainDrawerOpen] = useState(false);
   const [viewLayout, setViewLayout] = useState<ViewLayout>(initialListState.viewLayout);
@@ -173,6 +182,29 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
       return;
     }
     syncListUrl({ q: query });
+  };
+
+  const handleSearchModeChange = (mode: SearchMode) => {
+    setSearchMode(mode);
+    if (mode === 'standard') {
+      setLlmSearch({ status: 'idle', query: '', products: [] });
+    }
+  };
+
+  const handleSearchSubmit = async (query: string) => {
+    if (searchMode !== 'ki') return;
+    const trimmed = query.trim();
+    if (!trimmed) {
+      setLlmSearch({ status: 'idle', query: '', products: [] });
+      return;
+    }
+    setLlmSearch({ status: 'loading', query: trimmed, products: [] });
+    const result = await searchCatalogWithLLM(trimmed);
+    setLlmSearch({
+      status: result.failed ? 'error' : 'success',
+      query: trimmed,
+      products: result.products,
+    });
   };
 
   const openProductFromUrl = (productId: string | null) => {
@@ -362,6 +394,15 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const filteredProducts = useMemo(() => {
     const query = searchQuery.trim();
 
+    if (
+      searchMode === 'ki' &&
+      query &&
+      llmSearch.status === 'success' &&
+      llmSearch.query === query
+    ) {
+      return llmSearch.products;
+    }
+
     if (query && searchResults) {
       return [...searchResults.products, ...searchResults.productsViaDeliverable];
     }
@@ -375,7 +416,19 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     }
 
     return getFeaturedProducts(products);
-  }, [activeCluster, searchQuery, showAll, searchResults]);
+  }, [activeCluster, searchQuery, showAll, searchResults, searchMode, llmSearch]);
+
+  const kiSearchStatus = useMemo(() => {
+    if (searchMode !== 'ki') return null;
+    const query = searchQuery.trim();
+    if (!query) return null;
+    if (llmSearch.query !== query) {
+      return llmSearch.status === 'loading' ? null : 'stale';
+    }
+    if (llmSearch.status === 'loading') return 'loading';
+    if (llmSearch.status === 'error') return 'error';
+    return null;
+  }, [searchMode, searchQuery, llmSearch]);
 
   const filteredDeliverables = useMemo(() => {
     const query = searchQuery.trim();
@@ -477,6 +530,22 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
               <ViewToggle value={viewLayout} onChange={setViewLayout} />
             </div>
 
+            {kiSearchStatus === 'loading' && (
+              <p className="text-sm text-text-light dark:text-darkmode-text-light">
+                KI durchsucht den Katalog…
+              </p>
+            )}
+            {kiSearchStatus === 'error' && (
+              <p className="text-sm text-amber-600 dark:text-amber-400">
+                KI-Suche derzeit nicht verfügbar – Ergebnisse der Standardsuche werden angezeigt.
+              </p>
+            )}
+            {kiSearchStatus === 'stale' && (
+              <p className="text-sm text-text-light dark:text-darkmode-text-light">
+                Enter drücken, um die KI-Suche für „{searchQuery.trim()}“ zu starten.
+              </p>
+            )}
+
             {viewLayout === 'grid' ? (
               <ProductTileGrid
                 products={filteredProducts}
@@ -545,6 +614,9 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
       <CatalogToolbar
         searchQuery={searchQuery}
         onSearchChange={handleSearchChange}
+        searchMode={searchMode}
+        onSearchModeChange={handleSearchModeChange}
+        onSearchSubmit={handleSearchSubmit}
         activeCluster={activeCluster}
         onOpenDomains={() => setDomainDrawerOpen(true)}
       />

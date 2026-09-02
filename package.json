@@ -15,10 +15,11 @@
     "preview": "astro preview",
     "format": "prettier -w ./src",
     "generate-domains": "node scripts/generate-domains-from-strapi.mjs",
-    "generate-json": "node scripts/jsonGenerator.js",
+    "generate-json": "node scripts/jsonGenerator.js && tsx scripts/generateCatalogSearchCorpus.mjs",
     "remove-darkmode": "node scripts/removeDarkmode.js && npm run format"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0",
     "@astrojs/check": "^0.9.10",
     "@astrojs/markdown-remark": "^7.2.2",
     "@astrojs/mdx": "^7.0.5",
@@ -66,6 +67,7 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.19.2",
     "typescript": "5.9.3",
     "typescript-eslint": "^8.66.0"
   },
