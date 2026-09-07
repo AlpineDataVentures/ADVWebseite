@@ -147,6 +147,7 @@ export function AiSearchLanding({
           {kiSearchStatus === 'error' && (
             <p className="text-sm text-amber-600 dark:text-amber-400 text-center">
               KI-Suche derzeit nicht verfügbar – Ergebnisse der Standardsuche werden angezeigt.
+              Nutzen Sie bitte Schlagwörter anstatt ausformulierter Texte.
             </p>
           )}
           {kiSearchStatus === 'rate_limited' && (
@@ -160,6 +161,7 @@ export function AiSearchLanding({
             <p className="text-sm text-amber-600 dark:text-amber-400 text-center">
               Unsere KI-Suche hat heute bereits sehr viele Anfragen bekommen und ist gerade nicht
               erreichbar – bitte versuche es morgen noch einmal. Ergebnisse der Standardsuche werden angezeigt.
+              Nutzen Sie bitte Schlagwörter anstatt ausformulierter Texte.
             </p>
           )}
           {kiSearchStatus === 'stale' && (
