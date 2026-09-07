@@ -33,7 +33,7 @@ import {
   sortProductsAlphabetically,
 } from '../data/catalogStrategy';
 import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
-import { searchCatalogWithLLM } from '../data/catalogSearchLLM';
+import { searchCatalogWithLLM, type LLMSearchOutcome } from '../data/catalogSearchLLM';
 import { PRODUCT_CATALOG_URL } from '@/config/products';
 import { scrollCatalogToTopAfterPaint } from '../lib/catalogScroll';
 
@@ -109,10 +109,13 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   // spürbare Verlangsamung bei längeren Eingaben).
   const [kiQuery, setKiQuery] = useState('');
   const [llmSearch, setLlmSearch] = useState<{
-    status: 'idle' | 'loading' | 'success' | 'error';
+    status: 'idle' | 'loading' | LLMSearchOutcome;
     query: string;
     products: Product[];
+    retryAfterSeconds?: number;
   }>({ status: 'idle', query: '', products: [] });
+  // Live-Countdown für das Pro-IP-Rate-Limit (Sekunden bis zum nächsten Versuch).
+  const [rateLimitCountdown, setRateLimitCountdown] = useState<number | null>(null);
   const [cartOpen, setCartOpen] = useState(false);
   const [domainDrawerOpen, setDomainDrawerOpen] = useState(false);
   const [viewLayout, setViewLayout] = useState<ViewLayout>(initialListState.viewLayout);
@@ -203,13 +206,23 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
       setLlmSearch({ status: 'idle', query: '', products: [] });
       return;
     }
+    // Vorherige Ergebnisse merken: beim Pro-IP-Limit bleiben sie sichtbar,
+    // statt die Liste während des Wartens zu leeren.
+    const previousProducts = llmSearch.products;
     setLlmSearch({ status: 'loading', query: trimmed, products: [] });
     const result = await searchCatalogWithLLM(trimmed);
-    setLlmSearch({
-      status: result.failed ? 'error' : 'success',
-      query: trimmed,
-      products: result.products,
-    });
+
+    if (result.outcome === 'rate_limited') {
+      setLlmSearch({
+        status: 'rate_limited',
+        query: trimmed,
+        products: previousProducts,
+        retryAfterSeconds: result.retryAfterSeconds,
+      });
+      return;
+    }
+
+    setLlmSearch({ status: result.outcome, query: trimmed, products: result.products });
   };
 
   const openProductFromUrl = (productId: string | null) => {
@@ -332,6 +345,26 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     rehydrateConfigFromStorage();
   }, []);
 
+  // Zählt das Pro-IP-Rate-Limit für die KI-Suche live herunter und setzt den
+  // Status danach automatisch zurück, damit ein neuer Versuch möglich ist.
+  useEffect(() => {
+    if (llmSearch.status !== 'rate_limited' || !llmSearch.retryAfterSeconds) {
+      setRateLimitCountdown(null);
+      return;
+    }
+    const deadline = Date.now() + llmSearch.retryAfterSeconds * 1000;
+    const tick = () => {
+      const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+      setRateLimitCountdown(remaining);
+      if (remaining <= 0) {
+        setLlmSearch({ status: 'idle', query: '', products: [] });
+      }
+    };
+    tick();
+    const interval = setInterval(tick, 1000);
+    return () => clearInterval(interval);
+  }, [llmSearch.status, llmSearch.retryAfterSeconds]);
+
   useEffect(() => {
     if (activeProductId && process.env.NODE_ENV === 'development') {
       const recommendations = getBundleForProduct(activeProductId);
@@ -407,7 +440,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     // KI-Modus: Ergebnisse bleiben eingefroren (letzter Submit), bis erneut Enter
     // gedrückt wird – reagiert bewusst NICHT auf jeden Tastendruck wie die Standardsuche.
     if (searchMode === 'ki') {
-      if (llmSearch.status === 'success' || llmSearch.status === 'error' || llmSearch.status === 'loading') {
+      if (llmSearch.status !== 'idle') {
         return llmSearch.products;
       }
       // status === 'idle': noch keine KI-Suche abgeschickt -> Standard-Landing-Inhalt
@@ -435,6 +468,8 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     if (searchMode !== 'ki') return null;
     const query = kiQuery.trim();
     if (llmSearch.status === 'loading') return 'loading';
+    if (llmSearch.status === 'rate_limited') return 'rate_limited';
+    if (llmSearch.status === 'daily_limit') return 'daily_limit';
     if (query && llmSearch.query === query) {
       return llmSearch.status === 'error' ? 'error' : null;
     }
@@ -557,6 +592,19 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
             {kiSearchStatus === 'error' && (
               <p className="text-sm text-amber-600 dark:text-amber-400">
                 KI-Suche derzeit nicht verfügbar – Ergebnisse der Standardsuche werden angezeigt.
+              </p>
+            )}
+            {kiSearchStatus === 'rate_limited' && (
+              <p className="text-sm text-amber-600 dark:text-amber-400">
+                Zu viele Anfragen kurz hintereinander – bitte warte{' '}
+                {rateLimitCountdown ?? llmSearch.retryAfterSeconds ?? ''} Sekunde
+                {(rateLimitCountdown ?? llmSearch.retryAfterSeconds ?? 0) === 1 ? '' : 'n'}, bevor du erneut suchst.
+              </p>
+            )}
+            {kiSearchStatus === 'daily_limit' && (
+              <p className="text-sm text-amber-600 dark:text-amber-400">
+                Unsere KI-Suche hat heute bereits sehr viele Anfragen bekommen und ist gerade nicht
+                erreichbar – bitte versuche es morgen noch einmal. Ergebnisse der Standardsuche werden angezeigt.
               </p>
             )}
             {kiSearchStatus === 'stale' && (

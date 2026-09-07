@@ -4,27 +4,32 @@ import { searchCatalog } from "./catalogSearch";
 
 const LLM_SEARCH_ENDPOINT = "/.netlify/functions/catalog-llm-search";
 const REQUEST_TIMEOUT_MS = 15_000;
+const DEFAULT_RETRY_AFTER_SECONDS = 60;
+
+export type LLMSearchOutcome = "success" | "error" | "daily_limit" | "rate_limited";
 
 export interface LLMSearchResult {
+  outcome: LLMSearchOutcome;
   products: Product[];
-  /** true, wenn die KI-Suche fehlgeschlagen ist und stattdessen lokal (Standardsuche) gesucht wurde. */
-  failed: boolean;
+  /** Nur bei outcome "rate_limited" gesetzt. */
+  retryAfterSeconds?: number;
 }
 
-/** Fallback bei Fehler/Timeout: exakt dieselbe lokale Logik wie im Standard-Suchmodus. */
-function localFallback(query: string): LLMSearchResult {
+/** Fallback-Inhalt bei Fehler/Tageslimit: exakt dieselbe lokale Logik wie im Standard-Suchmodus. */
+function localFallbackProducts(query: string): Product[] {
   const local = searchCatalog(query);
-  return { products: [...local.products, ...local.productsViaDeliverable], failed: true };
+  return [...local.products, ...local.productsViaDeliverable];
 }
 
 /**
  * LLM-gestützte Produktsuche. Rankt ausschließlich Produkte (siehe catalog-llm-search.ts).
- * Fällt bei jedem Fehler (Netzwerk, Timeout, Server-Fehler) transparent auf die
- * bestehende lokale Keyword-Suche zurück – die KI-Suche ist eine reine Ergänzung.
+ * Fällt bei Fehlern/Tageslimit transparent auf die bestehende lokale Keyword-Suche zurück;
+ * beim Pro-IP-Limit wird bewusst NICHT zurückgefallen, sondern der Nutzer informiert
+ * (siehe retryAfterSeconds) – das Limit soll ja gerade weitere Anfragen bremsen.
  */
 export async function searchCatalogWithLLM(query: string): Promise<LLMSearchResult> {
   const trimmed = query.trim();
-  if (!trimmed) return { products: [], failed: false };
+  if (!trimmed) return { outcome: "success", products: [] };
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
@@ -37,13 +42,30 @@ export async function searchCatalogWithLLM(query: string): Promise<LLMSearchResu
       signal: controller.signal,
     });
 
+    if (response.status === 429) {
+      const data: { retryAfterSeconds?: number } = await response.json().catch(() => ({}));
+      return {
+        outcome: "rate_limited",
+        products: [],
+        retryAfterSeconds: data.retryAfterSeconds ?? DEFAULT_RETRY_AFTER_SECONDS,
+      };
+    }
+
+    if (response.status === 503) {
+      const data: { error?: string } = await response.json().catch(() => ({}));
+      if (data.error === "daily_limit_reached") {
+        return { outcome: "daily_limit", products: localFallbackProducts(trimmed) };
+      }
+      return { outcome: "error", products: localFallbackProducts(trimmed) };
+    }
+
     if (!response.ok) {
-      return localFallback(trimmed);
+      return { outcome: "error", products: localFallbackProducts(trimmed) };
     }
 
     const data: { productIds?: unknown } = await response.json();
     if (!Array.isArray(data.productIds)) {
-      return localFallback(trimmed);
+      return { outcome: "error", products: localFallbackProducts(trimmed) };
     }
 
     const products = data.productIds
@@ -51,9 +73,9 @@ export async function searchCatalogWithLLM(query: string): Promise<LLMSearchResu
       .map((id) => getProductById(id))
       .filter((p): p is Product => Boolean(p));
 
-    return { products, failed: false };
+    return { outcome: "success", products };
   } catch {
-    return localFallback(trimmed);
+    return { outcome: "error", products: localFallbackProducts(trimmed) };
   } finally {
     clearTimeout(timeout);
   }

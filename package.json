@@ -27,6 +27,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@nanostores/react": "^1.1.0",
+    "@netlify/blobs": "^8.2.0",
     "astro": "^7.1.6",
     "astro-font": "^1.1.0",
     "clsx": "^2.1.1",
