@@ -11,7 +11,7 @@ import { getStore } from "@netlify/blobs";
 
 const PER_IP_WINDOW_MS = 60_000;
 const PER_IP_MAX_REQUESTS = 5;
-const DAILY_MAX_REQUESTS = 100;
+const DAILY_MAX_REQUESTS = 7;
 
 interface IpWindowRecord {
   count: number;
@@ -38,12 +38,15 @@ export interface IpRateLimitResult {
 
 /** Max. PER_IP_MAX_REQUESTS Anfragen pro IP innerhalb von PER_IP_WINDOW_MS (fixes Zeitfenster). */
 export async function checkIpRateLimit(ip: string): Promise<IpRateLimitResult> {
-  const store = getIpStore();
-  const key = `ip:${ip}`;
-  const now = Date.now();
-
+  // getStore() kann synchron werfen (z.B. MissingBlobsEnvironmentError) – deshalb
+  // muss der komplette Block inkl. getIpStore() im try/catch stehen, sonst greift
+  // das gewollte Fail-Open nicht und die Function crasht ungefangen (502).
   try {
-    const record = await store.get(key, { type: "json" }) as IpWindowRecord | null;
+    const store = getIpStore();
+    const key = `ip:${ip}`;
+    const now = Date.now();
+
+    const record = (await store.get(key, { type: "json" })) as IpWindowRecord | null;
 
     if (!record || now - record.windowStart >= PER_IP_WINDOW_MS) {
       await store.setJSON(key, { count: 1, windowStart: now } satisfies IpWindowRecord);
@@ -65,10 +68,10 @@ export async function checkIpRateLimit(ip: string): Promise<IpRateLimitResult> {
 
 /** Max. DAILY_MAX_REQUESTS Anfragen insgesamt pro Kalendertag (UTC), IP-unabhängig. */
 export async function checkAndIncrementDailyLimit(): Promise<boolean> {
-  const store = getDailyStore();
-  const key = todayKey();
-
   try {
+    const store = getDailyStore();
+    const key = todayKey();
+
     const count = ((await store.get(key, { type: "json" })) as number | null) ?? 0;
     if (count >= DAILY_MAX_REQUESTS) {
       return false;
