@@ -15,8 +15,13 @@ export interface LLMSearchResult {
   retryAfterSeconds?: number;
 }
 
-/** Fallback-Inhalt bei Fehler/Tageslimit: exakt dieselbe lokale Logik wie im Standard-Suchmodus. */
-function localFallbackProducts(query: string): Product[] {
+/**
+ * Fallback-Inhalt bei Fehler/Tageslimit: exakt dieselbe lokale Logik wie im
+ * Standard-Suchmodus. Exportiert, damit die KI-Landing-Ansicht nach einem
+ * erkannten Tageslimit weitere Anfragen direkt lokal beantworten kann, ohne
+ * jedes Mal erneut (erfolglos) die Function aufzurufen.
+ */
+export function localFallbackProducts(query: string): Product[] {
   const local = searchCatalog(query);
   return [...local.products, ...local.productsViaDeliverable];
 }

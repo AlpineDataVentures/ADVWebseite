@@ -1,8 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { CatalogToolbar } from './CatalogToolbar';
-import type { SearchMode } from './SearchModeToggle';
+import { AiSearchLanding } from './AiSearchLanding';
 import { DomainDrawer } from './DomainDrawer';
-import { CatalogIntro } from './CatalogIntro';
 import { ProductTileGrid } from './UseCaseTileGrid';
 import { ProductListView } from './ProductListView';
 import { DeliverableListView } from './DeliverableListView';
@@ -11,18 +10,15 @@ import { BundleView } from './BundleView';
 import { ConfigView } from './ConfigView';
 import { CartButton } from './CartButton';
 import { CartSheet } from './CartSheet';
-import { Button } from './ui/button';
-import { Boxes } from 'lucide-react';
 import { useConfigStore, rehydrateConfigFromStorage } from '../stores/configStore';
 import {
   getProductById,
   products,
   uiClusterLabels,
-  type Product,
   type UiClusterId,
 } from '../data/useCases';
 import { getBundleForProduct } from '../data/recommendations';
-import { getDeliverableById, getMinimumPrice } from '../lib/pricing';
+import { getFromPriceMap } from '../lib/pricing';
 import {
   buildProductCatalogUrl,
   getCanonicalProductId,
@@ -33,7 +29,6 @@ import {
   sortProductsAlphabetically,
 } from '../data/catalogStrategy';
 import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
-import { searchCatalogWithLLM, type LLMSearchOutcome } from '../data/catalogSearchLLM';
 import { PRODUCT_CATALOG_URL } from '@/config/products';
 import { scrollCatalogToTopAfterPaint } from '../lib/catalogScroll';
 
@@ -102,20 +97,6 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const [activeProductId, setActiveProductId] = useState<string | null>(initialProductId);
   const [viewMode, setViewMode] = useState<'bundle' | 'configure'>('bundle');
   const [searchQuery, setSearchQuery] = useState(initialListState.q);
-  const [searchMode, setSearchMode] = useState<SearchMode>('standard');
-  // Eigenes Feld/State für die KI-Suche: bewusst entkoppelt von searchQuery, damit
-  // Tippen im KI-Modus weder die URL (history.replaceState) noch die lokale
-  // Stichwortsuche bei jedem Tastendruck auslöst (war zuvor die Ursache für die
-  // spürbare Verlangsamung bei längeren Eingaben).
-  const [kiQuery, setKiQuery] = useState('');
-  const [llmSearch, setLlmSearch] = useState<{
-    status: 'idle' | 'loading' | LLMSearchOutcome;
-    query: string;
-    products: Product[];
-    retryAfterSeconds?: number;
-  }>({ status: 'idle', query: '', products: [] });
-  // Live-Countdown für das Pro-IP-Rate-Limit (Sekunden bis zum nächsten Versuch).
-  const [rateLimitCountdown, setRateLimitCountdown] = useState<number | null>(null);
   const [cartOpen, setCartOpen] = useState(false);
   const [domainDrawerOpen, setDomainDrawerOpen] = useState(false);
   const [viewLayout, setViewLayout] = useState<ViewLayout>(initialListState.viewLayout);
@@ -192,37 +173,16 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     syncListUrl({ q: query });
   };
 
-  const handleSearchModeChange = (mode: SearchMode) => {
-    setSearchMode(mode);
-    if (mode === 'standard') {
-      setLlmSearch({ status: 'idle', query: '', products: [] });
-      setKiQuery('');
-    }
-  };
-
-  const handleSearchSubmit = async () => {
-    const trimmed = kiQuery.trim();
-    if (!trimmed) {
-      setLlmSearch({ status: 'idle', query: '', products: [] });
-      return;
-    }
-    // Vorherige Ergebnisse merken: beim Pro-IP-Limit bleiben sie sichtbar,
-    // statt die Liste während des Wartens zu leeren.
-    const previousProducts = llmSearch.products;
-    setLlmSearch({ status: 'loading', query: trimmed, products: [] });
-    const result = await searchCatalogWithLLM(trimmed);
-
-    if (result.outcome === 'rate_limited') {
-      setLlmSearch({
-        status: 'rate_limited',
-        query: trimmed,
-        products: previousProducts,
-        retryAfterSeconds: result.retryAfterSeconds,
-      });
-      return;
-    }
-
-    setLlmSearch({ status: result.outcome, query: trimmed, products: result.products });
+  /** Gegenstück zu handleShowAll(): zurück zum alleinigen KI-Such-Einstieg. */
+  const handleBackToKiLanding = () => {
+    setActiveCluster(null);
+    setShowAll(false);
+    setShowDeliverables(false);
+    setSearchQuery('');
+    setActiveProductId(null);
+    setActiveProduct(null);
+    setViewMode('bundle');
+    navigateToCatalogUrl(null, 'push', { q: '', view: null });
   };
 
   const openProductFromUrl = (productId: string | null) => {
@@ -345,26 +305,6 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     rehydrateConfigFromStorage();
   }, []);
 
-  // Zählt das Pro-IP-Rate-Limit für die KI-Suche live herunter und setzt den
-  // Status danach automatisch zurück, damit ein neuer Versuch möglich ist.
-  useEffect(() => {
-    if (llmSearch.status !== 'rate_limited' || !llmSearch.retryAfterSeconds) {
-      setRateLimitCountdown(null);
-      return;
-    }
-    const deadline = Date.now() + llmSearch.retryAfterSeconds * 1000;
-    const tick = () => {
-      const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
-      setRateLimitCountdown(remaining);
-      if (remaining <= 0) {
-        setLlmSearch({ status: 'idle', query: '', products: [] });
-      }
-    };
-    tick();
-    const interval = setInterval(tick, 1000);
-    return () => clearInterval(interval);
-  }, [llmSearch.status, llmSearch.retryAfterSeconds]);
-
   useEffect(() => {
     if (activeProductId && process.env.NODE_ENV === 'development') {
       const recommendations = getBundleForProduct(activeProductId);
@@ -421,33 +361,20 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const activeProduct = activeProductId ? getProductById(activeProductId) : null;
 
-  // Im KI-Modus basiert die lokale Bausteine-Suche bewusst auf der zuletzt
-  // abgeschickten KI-Anfrage (llmSearch.query), nicht auf jedem Tastendruck im
-  // KI-Suchfeld – das war zuvor der Grund für die spürbare Verlangsamung.
-  const effectiveSearchQuery = searchMode === 'ki' ? llmSearch.query : searchQuery.trim();
+  // "browse" wird ausschließlich über Alle-Produkte/Domäne/Bausteine-Buttons
+  // erreicht; ohne diese drei zeigt renderContent() stattdessen AiSearchLanding.
+  const catalogEntryMode: 'ki-landing' | 'browse' = showAll || activeCluster || showDeliverables ? 'browse' : 'ki-landing';
 
   const searchResults = useMemo(() => {
-    const query = effectiveSearchQuery;
+    const query = searchQuery.trim();
     if (!query) return null;
 
     const pool = showAll ? products : activeCluster ? getProductsForClusterBrowse(activeCluster) : products;
     return searchCatalog(query, pool);
-  }, [activeCluster, effectiveSearchQuery, showAll]);
+  }, [activeCluster, searchQuery, showAll]);
 
   const filteredProducts = useMemo(() => {
     const query = searchQuery.trim();
-
-    // KI-Modus: Ergebnisse bleiben eingefroren (letzter Submit), bis erneut Enter
-    // gedrückt wird – reagiert bewusst NICHT auf jeden Tastendruck wie die Standardsuche.
-    if (searchMode === 'ki') {
-      if (llmSearch.status !== 'idle') {
-        return llmSearch.products;
-      }
-      // status === 'idle': noch keine KI-Suche abgeschickt -> Standard-Landing-Inhalt
-      if (showAll) return sortProductsAlphabetically(products);
-      if (activeCluster) return getProductsForClusterBrowse(activeCluster);
-      return getFeaturedProducts(products);
-    }
 
     if (query && searchResults) {
       return [...searchResults.products, ...searchResults.productsViaDeliverable];
@@ -462,19 +389,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     }
 
     return getFeaturedProducts(products);
-  }, [activeCluster, searchQuery, showAll, searchResults, searchMode, llmSearch]);
-
-  const kiSearchStatus = useMemo(() => {
-    if (searchMode !== 'ki') return null;
-    const query = kiQuery.trim();
-    if (llmSearch.status === 'loading') return 'loading';
-    if (llmSearch.status === 'rate_limited') return 'rate_limited';
-    if (llmSearch.status === 'daily_limit') return 'daily_limit';
-    if (query && llmSearch.query === query) {
-      return llmSearch.status === 'error' ? 'error' : null;
-    }
-    return query ? 'stale' : null;
-  }, [searchMode, kiQuery, llmSearch]);
+  }, [activeCluster, searchQuery, showAll, searchResults]);
 
   const filteredDeliverables = useMemo(() => {
     const query = searchQuery.trim();
@@ -482,44 +397,23 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     return searchDeliverables(query);
   }, [searchQuery]);
 
-  // "ab"-Preis je Produkt = günstigster Baustein im empfohlenen Set.
-  const fromPriceById = useMemo(() => {
-    const map: Record<string, number> = {};
-    for (const product of filteredProducts) {
-      const prices = getBundleForProduct(product.id)
-        .map((rec) => {
-          const deliverable = getDeliverableById(rec.deliverableId);
-          return deliverable ? getMinimumPrice(deliverable) : 0;
-        })
-        .filter((p) => p > 0);
-      if (prices.length > 0) map[product.id] = Math.min(...prices);
-    }
-    return map;
-  }, [filteredProducts]);
-
-  // Im KI-Modus zeigt die Kachel-Liste erst dann "Suchergebnisse", wenn tatsächlich
-  // eine (eingefrorene) KI-Antwort vorliegt – nicht schon beim reinen Tippen.
-  const showingSearchResults =
-    searchMode === 'ki'
-      ? llmSearch.status === 'success' || llmSearch.status === 'error'
-      : Boolean(searchQuery.trim());
+  const fromPriceById = useMemo(() => getFromPriceMap(filteredProducts), [filteredProducts]);
 
   const tileTitle = useMemo(() => {
-    if (showingSearchResults) return 'Suchergebnisse';
+    if (searchQuery.trim()) return 'Suchergebnisse';
     if (activeCluster) return uiClusterLabels[activeCluster];
     if (showAll) return 'Alle Produkte';
     return 'Beliebte Einstiege';
-  }, [activeCluster, showAll, showingSearchResults]);
+  }, [activeCluster, showAll, searchQuery]);
 
   const tileSubtitle = useMemo(() => {
-    if (showingSearchResults) {
-      const query = searchMode === 'ki' ? llmSearch.query : searchQuery.trim();
+    if (searchQuery.trim()) {
       const deliverableCount = searchResults?.deliverables.length ?? 0;
       const extra =
         deliverableCount > 0
           ? ` · ${deliverableCount} passende ${deliverableCount === 1 ? 'Baustein' : 'Bausteine'}`
           : '';
-      return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} für „${query}“${extra}`;
+      return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} für „${searchQuery.trim()}“${extra}`;
     }
     if (activeCluster) {
       return `${filteredProducts.length} ${filteredProducts.length === 1 ? 'Produkt' : 'Produkte'} in diesem Bereich`;
@@ -527,8 +421,8 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     if (showAll) {
       return `${filteredProducts.length} Produkte insgesamt`;
     }
-    return 'Wählen Sie „Alle Domänen“ oder „Alle Produkte“, um den gesamten Katalog zu durchsuchen.';
-  }, [activeCluster, showAll, filteredProducts.length, showingSearchResults, searchMode, llmSearch.query, searchQuery]);
+    return 'Wählen Sie „Alle Domänen“, um den gesamten Katalog zu durchsuchen.';
+  }, [activeCluster, showAll, filteredProducts.length, searchQuery]);
 
   const renderContent = () => {
     if (viewMode === 'configure' && cartCount > 0) {
@@ -564,99 +458,63 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
       );
     }
 
-    if (!activeProduct) {
-      const showIntro = !activeCluster && !showAll && !showingSearchResults;
+    if (!activeProduct && catalogEntryMode === 'ki-landing') {
       return (
-        <div className="space-y-8">
-          {showIntro && <CatalogIntro />}
+        <AiSearchLanding
+          onShowAll={handleShowAll}
+          onSelectProduct={handleProductSelect}
+          onConfigureDeliverable={handleConfigureDeliverable}
+        />
+      );
+    }
 
-          <div className="space-y-6">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <div className="space-y-2">
-                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-text dark:text-darkmode-text">
-                  {tileTitle}
-                </h2>
-                <p className="text-base text-text-light dark:text-darkmode-text-light max-w-2xl leading-relaxed">
-                  {tileSubtitle}
-                </p>
-              </div>
-
-              <ViewToggle value={viewLayout} onChange={setViewLayout} />
+    if (!activeProduct) {
+      return (
+        <div className="space-y-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="space-y-2">
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-text dark:text-darkmode-text">
+                {tileTitle}
+              </h2>
+              <p className="text-base text-text-light dark:text-darkmode-text-light max-w-2xl leading-relaxed">
+                {tileSubtitle}
+              </p>
             </div>
 
-            {kiSearchStatus === 'loading' && (
-              <p className="text-sm text-text-light dark:text-darkmode-text-light">
-                KI durchsucht den Katalog…
-              </p>
-            )}
-            {kiSearchStatus === 'error' && (
-              <p className="text-sm text-amber-600 dark:text-amber-400">
-                KI-Suche derzeit nicht verfügbar – Ergebnisse der Standardsuche werden angezeigt.
-              </p>
-            )}
-            {kiSearchStatus === 'rate_limited' && (
-              <p className="text-sm text-amber-600 dark:text-amber-400">
-                Zu viele Anfragen kurz hintereinander – bitte warte{' '}
-                {rateLimitCountdown ?? llmSearch.retryAfterSeconds ?? ''} Sekunde
-                {(rateLimitCountdown ?? llmSearch.retryAfterSeconds ?? 0) === 1 ? '' : 'n'}, bevor du erneut suchst.
-              </p>
-            )}
-            {kiSearchStatus === 'daily_limit' && (
-              <p className="text-sm text-amber-600 dark:text-amber-400">
-                Unsere KI-Suche hat heute bereits sehr viele Anfragen bekommen und ist gerade nicht
-                erreichbar – bitte versuche es morgen noch einmal. Ergebnisse der Standardsuche werden angezeigt.
-              </p>
-            )}
-            {kiSearchStatus === 'stale' && (
-              <p className="text-sm text-text-light dark:text-darkmode-text-light">
-                Enter drücken, um die KI-Suche für „{kiQuery.trim()}“ zu starten.
-              </p>
-            )}
-
-            {viewLayout === 'grid' ? (
-              <ProductTileGrid
-                products={filteredProducts}
-                onSelect={handleProductSelect}
-                fromPriceById={fromPriceById}
-              />
-            ) : (
-              <ProductListView
-                products={filteredProducts}
-                onSelect={handleProductSelect}
-                fromPriceById={fromPriceById}
-              />
-            )}
-
-            {effectiveSearchQuery && searchResults && searchResults.deliverables.length > 0 && (
-              <div className="space-y-4 pt-4 border-t border-border">
-                <div className="space-y-1">
-                  <h3 className="text-lg font-semibold text-text dark:text-darkmode-text">
-                    Passende Produktbausteine
-                  </h3>
-                  <p className="text-sm text-text-light dark:text-darkmode-text-light">
-                    Direkt konfigurieren – ohne ein Produkt zu öffnen.
-                  </p>
-                </div>
-                <DeliverableListView
-                  layout="list"
-                  onConfigure={handleConfigureDeliverable}
-                  items={searchResults.deliverables}
-                />
-              </div>
-            )}
-
-            {showIntro && (
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Button variant="outline" size="lg" onClick={handleShowAll}>
-                  Alle Produkte ansehen
-                </Button>
-                <Button variant="outline" size="lg" onClick={handleShowDeliverables}>
-                  <Boxes className="h-4 w-4" />
-                  Alle Produktbausteine ansehen
-                </Button>
-              </div>
-            )}
+            <ViewToggle value={viewLayout} onChange={setViewLayout} />
           </div>
+
+          {viewLayout === 'grid' ? (
+            <ProductTileGrid
+              products={filteredProducts}
+              onSelect={handleProductSelect}
+              fromPriceById={fromPriceById}
+            />
+          ) : (
+            <ProductListView
+              products={filteredProducts}
+              onSelect={handleProductSelect}
+              fromPriceById={fromPriceById}
+            />
+          )}
+
+          {searchQuery.trim() && searchResults && searchResults.deliverables.length > 0 && (
+            <div className="space-y-4 pt-4 border-t border-border">
+              <div className="space-y-1">
+                <h3 className="text-lg font-semibold text-text dark:text-darkmode-text">
+                  Passende Produktbausteine
+                </h3>
+                <p className="text-sm text-text-light dark:text-darkmode-text-light">
+                  Direkt konfigurieren – ohne ein Produkt zu öffnen.
+                </p>
+              </div>
+              <DeliverableListView
+                layout="list"
+                onConfigure={handleConfigureDeliverable}
+                items={searchResults.deliverables}
+              />
+            </div>
+          )}
         </div>
       );
     }
@@ -676,19 +534,22 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     return <ConfigView productId={activeProductId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
   };
 
+  // Toolbar (Domänen + Standardsuche) nur außerhalb des reinen KI-Landing-Einstiegs
+  // sichtbar – auf Produktdetail/Konfiguration bleibt sie wie bisher immer sichtbar.
+  const showCatalogToolbar =
+    Boolean(activeProduct) || (viewMode === 'configure' && cartCount > 0) || catalogEntryMode === 'browse';
+
   return (
     <div className="min-h-screen flex flex-col bg-body dark:bg-darkmode-body text-text dark:text-darkmode-text">
-      <CatalogToolbar
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange}
-        searchMode={searchMode}
-        onSearchModeChange={handleSearchModeChange}
-        kiQuery={kiQuery}
-        onKiQueryChange={setKiQuery}
-        onSearchSubmit={handleSearchSubmit}
-        activeCluster={activeCluster}
-        onOpenDomains={() => setDomainDrawerOpen(true)}
-      />
+      {showCatalogToolbar && (
+        <CatalogToolbar
+          searchQuery={searchQuery}
+          onSearchChange={handleSearchChange}
+          activeCluster={activeCluster}
+          onOpenDomains={() => setDomainDrawerOpen(true)}
+          onBackToKiSearch={handleBackToKiLanding}
+        />
+      )}
 
       <main className="flex-1 min-h-0" data-catalog-main>
         <div className="container mx-auto px-4 py-8 md:py-10 max-w-6xl">

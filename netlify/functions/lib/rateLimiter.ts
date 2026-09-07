@@ -18,12 +18,33 @@ interface IpWindowRecord {
   windowStart: number;
 }
 
+/**
+ * Auf manchen Netlify-Sites (bekanntes Netlify-Problem, siehe Netlify-Docs
+ * "Netlify Blobs" > manuelle Konfiguration) erkennt getStore() die Umgebung
+ * nicht automatisch und wirft MissingBlobsEnvironmentError. Fallback: siteID
+ * (automatisch als NETLIFY_SITE_ID vorhanden) + Personal Access Token
+ * (NETLIFY_BLOBS_TOKEN, manuell in den Site-Settings zu hinterlegen) explizit
+ * übergeben. Fehlt der Token, bleibt es beim (aktuell fehlschlagenden, aber
+ * dank try/catch harmlosen) Auto-Modus.
+ */
+function getManualBlobsOptions(): { siteID: string; token: string } | undefined {
+  const siteID = process.env.NETLIFY_SITE_ID;
+  const token = process.env.NETLIFY_BLOBS_TOKEN;
+  return siteID && token ? { siteID, token } : undefined;
+}
+
 function getIpStore() {
-  return getStore("catalog-llm-search-rate-limit-ip");
+  const manual = getManualBlobsOptions();
+  return manual
+    ? getStore({ name: "catalog-llm-search-rate-limit-ip", ...manual })
+    : getStore("catalog-llm-search-rate-limit-ip");
 }
 
 function getDailyStore() {
-  return getStore("catalog-llm-search-rate-limit-daily");
+  const manual = getManualBlobsOptions();
+  return manual
+    ? getStore({ name: "catalog-llm-search-rate-limit-daily", ...manual })
+    : getStore("catalog-llm-search-rate-limit-daily");
 }
 
 function todayKey(): string {
