@@ -11,7 +11,7 @@ import { getStore } from "@netlify/blobs";
 
 const PER_IP_WINDOW_MS = 60_000;
 const PER_IP_MAX_REQUESTS = 5;
-const DAILY_MAX_REQUESTS = 7;
+const DAILY_MAX_REQUESTS = 100;
 
 interface IpWindowRecord {
   count: number;
