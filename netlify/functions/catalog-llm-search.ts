@@ -1,6 +1,6 @@
 import corpus from "../../.json/catalogSearchCorpus.json";
 import { getLlmSearchProvider } from "./lib/llmSearchProvider";
-import { checkIpRateLimit, checkAndIncrementDailyLimit } from "./lib/rateLimiter";
+import { checkIpRateLimit, checkAndIncrementDailyLimit, getBlobsDebugInfo } from "./lib/rateLimiter";
 
 const MAX_QUERY_LENGTH = 1000;
 
@@ -71,27 +71,30 @@ export const handler = async (event: NetlifyFunctionEvent) => {
 
   const ip = getClientIp(event);
   const ipLimit = await checkIpRateLimit(ip);
+  // TEMPORÄR zur Diagnose des Blobs-Problems – siehe rateLimiter.ts getBlobsDebugInfo().
+  const _debug = { ...getBlobsDebugInfo(), ipDebugError: ipLimit.debugError };
+
   if (!ipLimit.allowed) {
     return jsonResponse(
       429,
-      { error: "rate_limited_ip", retryAfterSeconds: ipLimit.retryAfterSeconds },
+      { error: "rate_limited_ip", retryAfterSeconds: ipLimit.retryAfterSeconds, _debug },
       { "Retry-After": String(ipLimit.retryAfterSeconds ?? 60) }
     );
   }
 
-  const dailyOk = await checkAndIncrementDailyLimit();
-  if (!dailyOk) {
-    return jsonResponse(503, { error: "daily_limit_reached" });
+  const daily = await checkAndIncrementDailyLimit();
+  if (!daily.ok) {
+    return jsonResponse(503, { error: "daily_limit_reached", _debug });
   }
 
   const provider = getLlmSearchProvider();
   if (!provider) {
-    return jsonResponse(500, { error: "Kein LLM-Suchprovider konfiguriert." });
+    return jsonResponse(500, { error: "Kein LLM-Suchprovider konfiguriert.", _debug });
   }
 
   try {
     const productIds = await provider.rankProducts(query, corpus);
-    return jsonResponse(200, { productIds });
+    return jsonResponse(200, { productIds, _debug: { ..._debug, dailyDebugError: daily.debugError } });
   } catch (err) {
     console.error("[catalog-llm-search] LLM-Suche fehlgeschlagen:", err);
     return jsonResponse(502, { error: "LLM-Suche derzeit nicht verfügbar." });

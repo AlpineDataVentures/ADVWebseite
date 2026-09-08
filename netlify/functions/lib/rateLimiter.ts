@@ -55,6 +55,31 @@ export interface IpRateLimitResult {
   allowed: boolean;
   /** Nur gesetzt, wenn allowed === false. */
   retryAfterSeconds?: number;
+  /** TEMPORÄR zu Diagnosezwecken – siehe getBlobsDebugInfo(). */
+  debugError?: string;
+}
+
+export interface DailyLimitResult {
+  ok: boolean;
+  /** TEMPORÄR zu Diagnosezwecken – siehe getBlobsDebugInfo(). */
+  debugError?: string;
+}
+
+function errorMessage(err: unknown): string {
+  return err instanceof Error ? err.message : String(err);
+}
+
+/**
+ * TEMPORÄRE Diagnosehilfe (siehe catalog-llm-search.ts _debug-Feld): zeigt nur,
+ * OB die Env-Variablen für die manuelle Blobs-Konfiguration gesetzt sind –
+ * niemals den Token-Wert selbst. Wieder entfernen, sobald das Limit bestätigt
+ * funktioniert.
+ */
+export function getBlobsDebugInfo() {
+  return {
+    hasSiteId: Boolean(process.env.NETLIFY_SITE_ID),
+    hasToken: Boolean(process.env.NETLIFY_BLOBS_TOKEN),
+  };
 }
 
 /** Max. PER_IP_MAX_REQUESTS Anfragen pro IP innerhalb von PER_IP_WINDOW_MS (fixes Zeitfenster). */
@@ -83,24 +108,24 @@ export async function checkIpRateLimit(ip: string): Promise<IpRateLimitResult> {
     return { allowed: false, retryAfterSeconds };
   } catch (err) {
     console.error("[rateLimiter] IP-Limit-Check fehlgeschlagen, erlaube Anfrage:", err);
-    return { allowed: true };
+    return { allowed: true, debugError: errorMessage(err) };
   }
 }
 
 /** Max. DAILY_MAX_REQUESTS Anfragen insgesamt pro Kalendertag (UTC), IP-unabhängig. */
-export async function checkAndIncrementDailyLimit(): Promise<boolean> {
+export async function checkAndIncrementDailyLimit(): Promise<DailyLimitResult> {
   try {
     const store = getDailyStore();
     const key = todayKey();
 
     const count = ((await store.get(key, { type: "json" })) as number | null) ?? 0;
     if (count >= DAILY_MAX_REQUESTS) {
-      return false;
+      return { ok: false };
     }
     await store.setJSON(key, count + 1);
-    return true;
+    return { ok: true };
   } catch (err) {
     console.error("[rateLimiter] Tageslimit-Check fehlgeschlagen, erlaube Anfrage:", err);
-    return true;
+    return { ok: true, debugError: errorMessage(err) };
   }
 }
