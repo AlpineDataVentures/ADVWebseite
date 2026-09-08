@@ -22,13 +22,21 @@ interface IpWindowRecord {
  * Auf manchen Netlify-Sites (bekanntes Netlify-Problem, siehe Netlify-Docs
  * "Netlify Blobs" > manuelle Konfiguration) erkennt getStore() die Umgebung
  * nicht automatisch und wirft MissingBlobsEnvironmentError. Fallback: siteID
- * (automatisch als NETLIFY_SITE_ID vorhanden) + Personal Access Token
- * (NETLIFY_BLOBS_TOKEN, manuell in den Site-Settings zu hinterlegen) explizit
- * übergeben. Fehlt der Token, bleibt es beim (aktuell fehlschlagenden, aber
- * dank try/catch harmlosen) Auto-Modus.
+ * + Personal Access Token (NETLIFY_BLOBS_TOKEN, manuell in den Site-Settings
+ * zu hinterlegen) explizit übergeben.
+ *
+ * Die Site-ID wird normalerweise automatisch als NETLIFY_SITE_ID bereitgestellt –
+ * bei uns war das (Stand Diagnose) nicht der Fall. Daher zusätzlich Fallback auf
+ * die ältere Variable SITE_ID, und als letzte Stufe auf eine manuell gesetzte
+ * NETLIFY_BLOBS_SITE_ID (Wert = "Site ID"/"Project ID" aus Site configuration →
+ * General → Site details).
  */
+function resolveSiteId(): string | undefined {
+  return process.env.NETLIFY_SITE_ID || process.env.SITE_ID || process.env.NETLIFY_BLOBS_SITE_ID;
+}
+
 function getManualBlobsOptions(): { siteID: string; token: string } | undefined {
-  const siteID = process.env.NETLIFY_SITE_ID;
+  const siteID = resolveSiteId();
   const token = process.env.NETLIFY_BLOBS_TOKEN;
   return siteID && token ? { siteID, token } : undefined;
 }
@@ -77,7 +85,10 @@ function errorMessage(err: unknown): string {
  */
 export function getBlobsDebugInfo() {
   return {
-    hasSiteId: Boolean(process.env.NETLIFY_SITE_ID),
+    hasSiteId: Boolean(resolveSiteId()),
+    hasNetlifySiteIdVar: Boolean(process.env.NETLIFY_SITE_ID),
+    hasPlainSiteIdVar: Boolean(process.env.SITE_ID),
+    hasManualSiteIdVar: Boolean(process.env.NETLIFY_BLOBS_SITE_ID),
     hasToken: Boolean(process.env.NETLIFY_BLOBS_TOKEN),
   };
 }
