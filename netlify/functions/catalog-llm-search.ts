@@ -1,32 +1,19 @@
+import type { Config, Context } from "@netlify/functions";
 import corpus from "../../.json/catalogSearchCorpus.json";
 import { getLlmSearchProvider } from "./lib/llmSearchProvider";
 import { checkIpRateLimit, checkAndIncrementDailyLimit } from "./lib/rateLimiter";
 
 const MAX_QUERY_LENGTH = 1000;
+const FUNCTION_PATH = "/.netlify/functions/catalog-llm-search";
 
 /** Erlaubte Herkunft für Origin/Referer – eigene Domain + alle Netlify-Deploy-Subdomains. */
 const ALLOWED_HOST_SUFFIXES = ["alpinedata.de", "netlify.app"];
 
-interface NetlifyFunctionEvent {
-  httpMethod: string;
-  body: string | null;
-  headers: Record<string, string | undefined>;
-}
-
 function jsonResponse(statusCode: number, body: unknown, extraHeaders?: Record<string, string>) {
-  return {
-    statusCode,
+  return new Response(JSON.stringify(body), {
+    status: statusCode,
     headers: { "Content-Type": "application/json", ...extraHeaders },
-    body: JSON.stringify(body),
-  };
-}
-
-function getClientIp(event: NetlifyFunctionEvent): string {
-  const nfIp = event.headers["x-nf-client-connection-ip"];
-  if (nfIp) return nfIp;
-  const forwarded = event.headers["x-forwarded-for"];
-  if (forwarded) return forwarded.split(",")[0].trim();
-  return "unknown";
+  });
 }
 
 /**
@@ -34,8 +21,8 @@ function getClientIp(event: NetlifyFunctionEvent): string {
  * (Header sind fälschbar), blockt aber Aufrufe, die nicht von unserer eigenen
  * Seite kommen (kein Origin/Referer, oder eine fremde Domain).
  */
-function isAllowedOrigin(event: NetlifyFunctionEvent): boolean {
-  const originHeader = event.headers["origin"] || event.headers["referer"];
+function isAllowedOrigin(request: Request): boolean {
+  const originHeader = request.headers.get("origin") || request.headers.get("referer");
   if (!originHeader) return false;
 
   let hostname: string;
@@ -48,19 +35,22 @@ function isAllowedOrigin(event: NetlifyFunctionEvent): boolean {
   return ALLOWED_HOST_SUFFIXES.some((suffix) => hostname === suffix || hostname.endsWith(`.${suffix}`));
 }
 
-export const handler = async (event: NetlifyFunctionEvent) => {
-  if (event.httpMethod !== "POST") {
+// v2-Function (Request/Response-Signatur) statt klassischem exports.handler –
+// nur damit unterstützt Netlify das native, plattformseitige Rate-Limiting
+// unten in `config` (zusätzliche, von Blobs unabhängige Schutzebene).
+export default async (request: Request, context: Context) => {
+  if (request.method !== "POST") {
     return jsonResponse(405, { error: "Nur POST erlaubt." });
   }
 
-  if (!isAllowedOrigin(event)) {
+  if (!isAllowedOrigin(request)) {
     return jsonResponse(403, { error: "Anfrage nicht erlaubt." });
   }
 
   let query: string;
   try {
-    const parsed = JSON.parse(event.body ?? "{}");
-    query = typeof parsed.query === "string" ? parsed.query.trim() : "";
+    const parsed = await request.json();
+    query = typeof parsed?.query === "string" ? parsed.query.trim() : "";
   } catch {
     return jsonResponse(400, { error: "Ungültiger Request-Body." });
   }
@@ -69,7 +59,7 @@ export const handler = async (event: NetlifyFunctionEvent) => {
     return jsonResponse(400, { error: "Suchanfrage fehlt oder ist zu lang." });
   }
 
-  const ip = getClientIp(event);
+  const ip = context.ip || "unknown";
   const ipLimit = await checkIpRateLimit(ip);
   if (!ipLimit.allowed) {
     return jsonResponse(
@@ -96,4 +86,13 @@ export const handler = async (event: NetlifyFunctionEvent) => {
     console.error("[catalog-llm-search] LLM-Suche fehlgeschlagen:", err);
     return jsonResponse(502, { error: "LLM-Suche derzeit nicht verfügbar." });
   }
+};
+
+export const config: Config = {
+  path: FUNCTION_PATH,
+  rateLimit: {
+    windowLimit: 10,
+    windowSize: 60,
+    aggregateBy: ["ip"],
+  },
 };
