@@ -149,7 +149,7 @@ export function AiSearchLanding({
             <p className="text-sm text-amber-600 dark:text-amber-400 text-center">
               Zu viele Anfragen kurz hintereinander – bitte warten Sie{' '}
               {rateLimitCountdown ?? llmSearch.retryAfterSeconds ?? ''} Sekunde
-              {(rateLimitCountdown ?? llmSearch.retryAfterSeconds ?? 0) === 1 ? '' : 'n'}, bevor Sie erneut suchsen.
+              {(rateLimitCountdown ?? llmSearch.retryAfterSeconds ?? 0) === 1 ? '' : 'n'}, bevor Sie erneut suchen.
             </p>
           )}
           {kiSearchStatus === 'daily_limit' && (
