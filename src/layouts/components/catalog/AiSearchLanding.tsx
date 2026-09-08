@@ -182,8 +182,8 @@ export function AiSearchLanding({
           <div className="w-full max-w-6xl mt-8 space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <p className="text-base text-text-light dark:text-darkmode-text-light">
-                {llmSearch.products.length} {llmSearch.products.length === 1 ? 'Produkt' : 'Produkte'} für „
-                {llmSearch.query}“
+                {llmSearch.products.length}{' '}
+                {llmSearch.products.length === 1 ? 'passendes Produkt gefunden' : 'passende Produkte gefunden'}
               </p>
               <ViewToggle value={viewLayout} onChange={setViewLayout} />
             </div>
