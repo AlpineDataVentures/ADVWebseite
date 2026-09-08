@@ -139,11 +139,6 @@ export function AiSearchLanding({
             />
           </form>
 
-          {kiUnavailableToday && (
-            <p className="text-sm text-amber-600 dark:text-amber-400 text-center">
-              KI-Suche heute ausgelastet – Standardsuche aktiv.
-            </p>
-          )}
           {kiSearchStatus === 'error' && (
             <p className="text-sm text-amber-600 dark:text-amber-400 text-center">
               KI-Suche derzeit nicht verfügbar – Ergebnisse der Standardsuche werden angezeigt.
@@ -157,7 +152,7 @@ export function AiSearchLanding({
               {(rateLimitCountdown ?? llmSearch.retryAfterSeconds ?? 0) === 1 ? '' : 'n'}, bevor du erneut suchst.
             </p>
           )}
-          {kiSearchStatus === 'daily_limit' && !kiUnavailableToday && (
+          {kiSearchStatus === 'daily_limit' && (
             <p className="text-sm text-amber-600 dark:text-amber-400 text-center">
               Unsere KI-Suche hat heute bereits sehr viele Anfragen bekommen und ist gerade nicht
               erreichbar – bitte versuche es morgen noch einmal. Ergebnisse der Standardsuche werden angezeigt.
