@@ -1,10 +1,9 @@
-import type { Config, Context } from "@netlify/functions";
+import type { Context } from "@netlify/functions";
 import corpus from "../../.json/catalogSearchCorpus.json";
 import { getLlmSearchProvider } from "./lib/llmSearchProvider";
 import { checkIpRateLimit, checkAndIncrementDailyLimit } from "./lib/rateLimiter";
 
 const MAX_QUERY_LENGTH = 1000;
-const FUNCTION_PATH = "/.netlify/functions/catalog-llm-search";
 
 /** Erlaubte Herkunft für Origin/Referer – eigene Domain + alle Netlify-Deploy-Subdomains. */
 const ALLOWED_HOST_SUFFIXES = ["alpinedata.de", "netlify.app"];
@@ -36,8 +35,7 @@ function isAllowedOrigin(request: Request): boolean {
 }
 
 // v2-Function (Request/Response-Signatur) statt klassischem exports.handler –
-// nur damit unterstützt Netlify das native, plattformseitige Rate-Limiting
-// unten in `config` (zusätzliche, von Blobs unabhängige Schutzebene).
+// context.ip liefert die Client-IP direkt, ohne Header manuell auszulesen.
 export default async (request: Request, context: Context) => {
   if (request.method !== "POST") {
     return jsonResponse(405, { error: "Nur POST erlaubt." });
@@ -86,13 +84,4 @@ export default async (request: Request, context: Context) => {
     console.error("[catalog-llm-search] LLM-Suche fehlgeschlagen:", err);
     return jsonResponse(502, { error: "LLM-Suche derzeit nicht verfügbar." });
   }
-};
-
-export const config: Config = {
-  path: FUNCTION_PATH,
-  rateLimit: {
-    windowLimit: 10,
-    windowSize: 60,
-    aggregateBy: ["ip"],
-  },
 };

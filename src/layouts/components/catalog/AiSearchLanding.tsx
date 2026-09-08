@@ -155,7 +155,7 @@ export function AiSearchLanding({
           {kiSearchStatus === 'daily_limit' && (
             <p className="text-sm text-amber-600 dark:text-amber-400 text-center">
               Unsere KI-Suche hat heute bereits sehr viele Anfragen bekommen und ist gerade nicht
-              erreichbar – bitte versuche es morgen noch einmal. Ergebnisse der Standardsuche werden angezeigt.
+              erreichbar – bitte versuchen Sie es morgen noch einmal. Ergebnisse der Standardsuche werden angezeigt.
               Nutzen Sie bitte Schlagwörter anstatt ausformulierter Texte.
             </p>
           )}
