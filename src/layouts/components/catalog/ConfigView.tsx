@@ -7,7 +7,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Separator } from "./ui/separator";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle2, XCircle, FileText } from "lucide-react";
 import { useConfigStore } from "../stores/configStore";
 import { getDeliverableById } from "../data/deliverables";
 import { getParametersForDeliverable } from "../data/parameters";
@@ -19,7 +19,7 @@ import { CatalogFlowSteps } from "./CatalogFlowSteps";
 interface ConfigViewProps {
   productId: string | null;
   onBack: () => void;
-  onOpenCart: () => void;
+  onNext: () => void;
 }
 
 // Helper Text für Parameter
@@ -42,7 +42,7 @@ const DSB_RETAINER_CONFIG_HINT =
 /**
  * Config View - Konfiguration für alle ausgewählten Produktbausteine
  */
-export function ConfigView({ productId: _productId, onBack, onOpenCart }: ConfigViewProps) {
+export function ConfigView({ productId: _productId, onBack, onNext }: ConfigViewProps) {
   const selectedDeliverables = useConfigStore((state) => state.selectedDeliverables);
   const lastFocusedDeliverableId = useConfigStore((state) => state.lastFocusedDeliverableId);
   const updateDeliverableParam = useConfigStore((state) => state.updateDeliverableParam);
@@ -98,6 +98,8 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
           </h2>
           <p className="text-sm text-text-light dark:text-darkmode-text-light max-w-xl">
             Passen Sie die Parameter Ihrer ausgewählten Produktbausteine an. Der Preis wird automatisch aktualisiert.
+            Die angezeigten Beträge sind Schätzungen der Fixpreise – final abgestimmt werden sie im
+            persönlichen Gespräch mit uns.
           </p>
         </div>
         <Button variant="outline" size="sm" onClick={onBack} className="shrink-0 whitespace-nowrap">
@@ -384,14 +386,28 @@ export function ConfigView({ productId: _productId, onBack, onOpenCart }: Config
         })}
       </Accordion>
 
-      {/* CTA – Nutzerfluss statt Entwickler-Export */}
-      <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 pt-6 border-t border-border">
-        <Button variant="outline" onClick={onBack} size="lg" className="whitespace-nowrap">
-          Weitere Produktbausteine auswählen
-        </Button>
-        <Button variant="default" onClick={onOpenCart} size="lg" className="whitespace-nowrap">
-          Zum Warenkorb
-        </Button>
+      {/* Weiter zum Projekt-Sheet – bewusst prominent, da nächster Hauptschritt */}
+      <div className="rounded-xl border border-green-600/25 dark:border-green-400/20 bg-green-500/6 dark:bg-green-500/10 px-5 py-5 space-y-4">
+        <div className="flex items-start gap-3">
+          <FileText className="h-5 w-5 text-green-700 dark:text-green-400 shrink-0 mt-0.5" />
+          <div className="space-y-1.5">
+            <h3 className="text-sm font-semibold text-text dark:text-darkmode-text">
+              Nächster Schritt: Projekt-Sheet ansehen
+            </h3>
+            <p className="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed">
+              Übersicht der Kosten sowie alle Details zu Produkt und Produktbausteinen – als Grundlage für
+              Ihre Projektplanung, eine Anfrage oder ein persönliches Gespräch.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3">
+          <Button variant="outline" onClick={onBack} size="lg" className="whitespace-nowrap">
+            Weitere Produktbausteine auswählen
+          </Button>
+          <Button onClick={onNext} size="lg" className="whitespace-nowrap">
+            Projekt-Sheet ansehen
+          </Button>
+        </div>
       </div>
     </div>
   );

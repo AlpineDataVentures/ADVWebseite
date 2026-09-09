@@ -1,0 +1,8 @@
+---
+import Base from "@/layouts/Base.astro";
+import CatalogAnalyticsDashboard from "@/layouts/components/analytics/CatalogAnalyticsDashboard";
+---
+
+<Base title="Produktkatalog-Analytics" description="Internes Analytics-Dashboard" noindex={true}>
+  <CatalogAnalyticsDashboard client:only="react" />
+</Base>

@@ -6,10 +6,10 @@ import { ProductTileGrid } from './UseCaseTileGrid';
 import { ProductListView } from './ProductListView';
 import { DeliverableListView } from './DeliverableListView';
 import { ViewToggle } from './ViewToggle';
-import { BundleView } from './BundleView';
+import { ProductOverview } from './ProductOverview';
+import { ModuleSelection } from './ModuleSelection';
 import { ConfigView } from './ConfigView';
-import { CartButton } from './CartButton';
-import { CartSheet } from './CartSheet';
+import { ProjectSheet } from './ProjectSheet';
 import { useConfigStore, rehydrateConfigFromStorage } from '../stores/configStore';
 import {
   getProductById,
@@ -32,6 +32,7 @@ import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
 import { searchCatalogWithLLM, localFallbackProducts } from '../data/catalogSearchLLM';
 import { PRODUCT_CATALOG_URL } from '@/config/products';
 import { scrollCatalogToTopAfterPaint } from '../lib/catalogScroll';
+import { trackCatalogEvent } from './lib/analytics';
 
 type ViewLayout = 'grid' | 'list';
 
@@ -96,9 +97,8 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const initialListState = readInitialCatalogListState();
   const [activeCluster, setActiveCluster] = useState<UiClusterId | null>(null);
   const [activeProductId, setActiveProductId] = useState<string | null>(initialProductId);
-  const [viewMode, setViewMode] = useState<'bundle' | 'configure'>('bundle');
+  const [viewMode, setViewMode] = useState<'product' | 'modules' | 'configure' | 'sheet'>('product');
   const [searchQuery, setSearchQuery] = useState(initialListState.q);
-  const [cartOpen, setCartOpen] = useState(false);
   const [domainDrawerOpen, setDomainDrawerOpen] = useState(false);
   const [viewLayout, setViewLayout] = useState<ViewLayout>(initialListState.viewLayout);
   const [showAll, setShowAll] = useState(initialListState.showAll);
@@ -175,7 +175,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setCameFromBrowse(false);
     setActiveProductId(null);
     setActiveProduct(null);
-    setViewMode('bundle');
+    setViewMode('product');
     navigateToCatalogUrl(null, 'push', { q: '', view: null });
   };
 
@@ -188,7 +188,12 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
     // Tageslimit für heute schon bekannt -> gar nicht erst anfragen.
     if (kiUnavailableToday) {
-      setLlmSearch({ status: 'daily_limit', query: trimmed, products: localFallbackProducts(trimmed) });
+      const fallbackProducts = localFallbackProducts(trimmed);
+      setLlmSearch({ status: 'daily_limit', query: trimmed, products: fallbackProducts });
+      trackCatalogEvent({
+        event: 'ki_search',
+        properties: { query: trimmed, outcome: 'daily_limit', resultCount: fallbackProducts.length },
+      });
       return;
     }
 
@@ -205,6 +210,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
         products: previousProducts,
         retryAfterSeconds: result.retryAfterSeconds,
       });
+      trackCatalogEvent({ event: 'ki_search', properties: { query: trimmed, outcome: 'rate_limited', resultCount: 0 } });
       return;
     }
 
@@ -213,13 +219,17 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     }
 
     setLlmSearch({ status: result.outcome, query: trimmed, products: result.products });
+    trackCatalogEvent({
+      event: 'ki_search',
+      properties: { query: trimmed, outcome: result.outcome, resultCount: result.products.length },
+    });
   };
 
-  const openProductFromUrl = (productId: string | null) => {
+  const openProductFromUrl = (productId: string | null, entry: 'ki_search' | 'browse' | 'direct_link' = 'direct_link') => {
     if (!productId) {
       setActiveProductId(null);
       setActiveProduct(null);
-      setViewMode('bundle');
+      setViewMode('product');
       return;
     }
 
@@ -229,7 +239,8 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setActiveProductId(productId);
     setActiveProduct(productId);
     setBundleFromProduct(productId);
-    setViewMode('bundle');
+    setViewMode('product');
+    trackCatalogEvent({ event: 'step_product_overview', properties: { productId, entry } });
   };
 
   const handleClusterSelect = (cluster: UiClusterId) => {
@@ -238,7 +249,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setShowDeliverables(false);
     setActiveProductId(null);
     setActiveProduct(null);
-    setViewMode('bundle');
+    setViewMode('product');
     navigateToCatalogUrl(null);
   };
 
@@ -248,7 +259,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setShowDeliverables(false);
     setActiveProductId(null);
     setActiveProduct(null);
-    setViewMode('bundle');
+    setViewMode('product');
     setViewLayout('list');
     navigateToCatalogUrl(null, 'push', { view: 'all' });
   };
@@ -259,7 +270,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     setShowDeliverables(true);
     setActiveProductId(null);
     setActiveProduct(null);
-    setViewMode('bundle');
+    setViewMode('product');
     setViewLayout('list');
     navigateToCatalogUrl(null, 'push', { view: 'deliverables' });
   };
@@ -277,24 +288,50 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const handleProductSelect = (productId: string) => {
     if (!productId) return;
+    const cameFromBrowseNow = Boolean(showAll || activeCluster || showDeliverables);
     setReturnContext(captureReturnContext());
-    setCameFromBrowse(Boolean(showAll || activeCluster || showDeliverables));
-    openProductFromUrl(productId);
+    setCameFromBrowse(cameFromBrowseNow);
+    openProductFromUrl(productId, cameFromBrowseNow ? 'browse' : 'ki_search');
     navigateToCatalogUrl(productId);
+    scrollCatalogToTopAfterPaint();
+  };
+
+  const handleShowModules = () => {
+    setViewMode('modules');
+    if (activeProductId) {
+      trackCatalogEvent({ event: 'step_modules', properties: { productId: activeProductId } });
+    }
     scrollCatalogToTopAfterPaint();
   };
 
   const handleNextToConfiguration = () => {
     setViewMode('configure');
+    if (activeProductId) {
+      trackCatalogEvent({ event: 'step_config', properties: { productId: activeProductId } });
+    }
+    scrollCatalogToTopAfterPaint();
+  };
+
+  const handleViewProjectSheet = () => {
+    setViewMode('sheet');
+    if (activeProductId) {
+      trackCatalogEvent({ event: 'step_project_sheet', properties: { productId: activeProductId } });
+    }
     scrollCatalogToTopAfterPaint();
   };
 
   const handleBack = () => {
+    if (viewMode === 'sheet') {
+      setViewMode('configure');
+      return;
+    }
+
     if (viewMode === 'configure') {
-      setViewMode('bundle');
       if (activeProductId) {
+        setViewMode('modules');
         return;
       }
+      setViewMode('product');
       if (returnContext?.showDeliverables || showDeliverables) {
         setShowDeliverables(true);
         setShowAll(false);
@@ -309,23 +346,21 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
       return;
     }
 
+    if (viewMode === 'modules') {
+      setViewMode('product');
+      return;
+    }
+
     if (activeProductId) {
       setActiveProductId(null);
       setActiveProduct(null);
-      setViewMode('bundle');
+      setViewMode('product');
       if (returnContext) {
         restoreReturnContext(returnContext);
       } else {
         navigateToCatalogUrl(null);
       }
     }
-  };
-
-  const handleGoToConfig = () => {
-    setCameFromBrowse(Boolean(showAll || activeCluster || showDeliverables));
-    setViewMode('configure');
-    setCartOpen(false);
-    scrollCatalogToTopAfterPaint();
   };
 
   useEffect(() => {
@@ -478,8 +513,11 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   }, [activeCluster, showAll, filteredProducts.length, searchQuery]);
 
   const renderContent = () => {
-    if (viewMode === 'configure' && cartCount > 0) {
-      return <ConfigView productId={activeProductId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
+    if ((viewMode === 'configure' || viewMode === 'sheet') && cartCount > 0) {
+      if (viewMode === 'sheet') {
+        return <ProjectSheet productId={activeProductId} onBack={handleBack} />;
+      }
+      return <ConfigView productId={activeProductId} onBack={handleBack} onNext={handleViewProjectSheet} />;
     }
 
     if (!activeProduct && showDeliverables) {
@@ -577,19 +615,23 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
       );
     }
 
-    if (viewMode === 'bundle') {
+    if (viewMode === 'product') {
       return (
-        <BundleView
-          productId={activeProductId}
-          onNext={handleNextToConfiguration}
-          onBack={handleBack}
-          viewLayout={viewLayout}
-          onViewLayoutChange={setViewLayout}
-        />
+        <ProductOverview productId={activeProductId} onNext={handleShowModules} onBack={handleBack} />
       );
     }
 
-    return <ConfigView productId={activeProductId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
+    if (viewMode === 'modules') {
+      return (
+        <ModuleSelection productId={activeProductId} onNext={handleNextToConfiguration} onBack={handleBack} />
+      );
+    }
+
+    if (viewMode === 'sheet') {
+      return <ProjectSheet productId={activeProductId} onBack={handleBack} />;
+    }
+
+    return <ConfigView productId={activeProductId} onBack={handleBack} onNext={handleViewProjectSheet} />;
   };
 
   // Toolbar (Domänen + "Zurück zur KI-Suche") nur in der klassischen
@@ -598,7 +640,8 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   // Kommt man aus der KI-Suche, bleibt es auch beim Produkt/Konfigurieren clean.
   const showCatalogToolbar =
     catalogEntryMode === 'browse' ||
-    ((Boolean(activeProduct) || (viewMode === 'configure' && cartCount > 0)) && cameFromBrowse);
+    ((Boolean(activeProduct) || ((viewMode === 'configure' || viewMode === 'sheet') && cartCount > 0)) &&
+      cameFromBrowse);
 
   return (
     <div className="min-h-screen flex flex-col bg-body dark:bg-darkmode-body text-text dark:text-darkmode-text">
@@ -627,16 +670,6 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
         onShowAll={handleShowAll}
         onShowDeliverables={handleShowDeliverables}
       />
-
-      <CartButton onClick={() => setCartOpen(true)} />
-
-      {cartOpen && (
-        <CartSheet
-          open={cartOpen}
-          onOpenChange={setCartOpen}
-          onGoToConfig={cartCount > 0 ? handleGoToConfig : undefined}
-        />
-      )}
     </div>
   );
 }

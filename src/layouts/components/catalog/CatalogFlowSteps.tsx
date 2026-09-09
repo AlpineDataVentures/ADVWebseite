@@ -3,10 +3,10 @@ import { cn } from "../lib/utils";
 type FlowStep = "browse" | "product" | "modules" | "config" | "inquiry";
 
 const steps: { id: FlowStep; label: string }[] = [
-  { id: "browse", label: "Produkt wählen" },
+  { id: "browse", label: "Produktbeschreibung" },
   { id: "modules", label: "Bausteine" },
   { id: "config", label: "Konfiguration" },
-  { id: "inquiry", label: "Anfrage" },
+  { id: "inquiry", label: "Projekt-Sheet" },
 ];
 
 interface CatalogFlowStepsProps {

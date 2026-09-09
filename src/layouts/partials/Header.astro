@@ -3,7 +3,7 @@ import Logo from "@/components/Logo.astro";
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
-import { IoSearch, IoStorefrontOutline } from "react-icons/io5";
+import { IoSearch, IoOptionsOutline } from "react-icons/io5";
 
 export interface ChildNavigationLink {
   name: string;
@@ -51,7 +51,7 @@ const { pathname } = Astro.url;
     <!-- Navigation -->
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 mobile-menu"
+      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-4 2xl:space-x-8 mobile-menu"
     >
       {
         main.map((menu) => (
@@ -113,7 +113,7 @@ const { pathname } = Astro.url;
               class="btn btn-outline-primary btn-sm inline-flex items-center gap-2"
               href={navigation_button.link}
             >
-              <IoStorefrontOutline aria-hidden="true" className="text-base" />
+              <IoOptionsOutline aria-hidden="true" className="text-base" />
               <span>{navigation_button.label}</span>
             </a>
           </li>
@@ -140,7 +140,7 @@ const { pathname } = Astro.url;
             class="btn btn-outline-primary btn-sm hidden lg:inline-flex items-center gap-2 shadow-[0_10px_24px_rgba(2,199,128,0.22)] transition hover:-translate-y-0.5"
             href={navigation_button.link}
           >
-            <IoStorefrontOutline aria-hidden="true" className="text-base" />
+            <IoOptionsOutline aria-hidden="true" className="text-base" />
             <span>{navigation_button.label}</span>
           </a>
         )

@@ -19,6 +19,12 @@ interface DeliverableCardProps {
   onConfigure?: () => void;
   layout?: "grid" | "list";
   showCoreBadge?: boolean;
+  /**
+   * Vereinfachte Darstellung für die reine Bausteinauswahl: kein Preis, kein
+   * "Konfigurieren"-Button (nur Auswahl-Toggle) und Details ohne Accordion
+   * immer sichtbar.
+   */
+  simple?: boolean;
 }
 
 /**
@@ -34,6 +40,7 @@ export function DeliverableCard({
   onConfigure,
   layout = "grid",
   showCoreBadge = false,
+  simple = false,
 }: DeliverableCardProps) {
   const isActive = deliverable.active;
   const isDisabled = !isActive;
@@ -46,7 +53,7 @@ export function DeliverableCard({
 
   const actionCluster = isActive ? (
     <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-      {minPrice > 0 && (
+      {!simple && minPrice > 0 && (
         <span className="text-xs sm:text-sm text-text-light dark:text-darkmode-text-light whitespace-nowrap tabular-nums">
           ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPriceLabel(minPrice, deliverable.pricePeriod)}</span>
         </span>
@@ -61,23 +68,96 @@ export function DeliverableCard({
           disabled={isDisabled}
         />
       </div>
-      <Button
-        type="button"
-        size="sm"
-        variant="default"
-        className="shrink-0 whitespace-nowrap h-8 px-3 text-xs"
-        onClick={(e) => {
-          e.currentTarget.blur();
-          onToggle(true);
-          onConfigure?.();
-        }}
-      >
-        Konfigurieren
-      </Button>
+      {!simple && (
+        <Button
+          type="button"
+          size="sm"
+          variant="default"
+          className="shrink-0 whitespace-nowrap h-8 px-3 text-xs"
+          onClick={(e) => {
+            e.currentTarget.blur();
+            onToggle(true);
+            onConfigure?.();
+          }}
+        >
+          Konfigurieren
+        </Button>
+      )}
     </div>
   ) : null;
 
-  const detailsAccordion = (
+  const detailsContent = (
+    <>
+      <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
+        {deliverable.shortDescription}
+      </p>
+      <p className="text-xs text-text-light dark:text-darkmode-text-light italic">
+        <span className="font-medium text-text dark:text-darkmode-text not-italic">Warum empfohlen?</span>{" "}
+        {recommendation.reason}
+      </p>
+
+      {deliverable.longDescription && (
+        <div className="space-y-1">
+          <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Beschreibung</h4>
+          <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
+            {deliverable.longDescription}
+          </p>
+        </div>
+      )}
+
+      {limitedOutputs.length > 0 && (
+        <div className="space-y-1.5">
+          <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Lieferumfang</h4>
+          <ul className="space-y-1">
+            {limitedOutputs.map((output, idx) => (
+              <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
+                <CheckCircle2 className="h-3 w-3 text-green-600/70 dark:text-green-400/70 mt-0.5 shrink-0" />
+                <span>{output}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {(limitedAssumptions.length > 0 || limitedOutOfScope.length > 0) && (
+        <>
+          <Separator />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {limitedAssumptions.length > 0 && (
+              <div className="space-y-1.5">
+                <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Voraussetzungen</h4>
+                <ul className="space-y-1">
+                  {limitedAssumptions.map((assumption, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
+                      <CheckCircle2 className="h-3 w-3 text-green-600/70 dark:text-green-400/70 mt-0.5 shrink-0" />
+                      <span>{assumption}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {limitedOutOfScope.length > 0 && (
+              <div className="space-y-1.5">
+                <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Nicht enthalten</h4>
+                <ul className="space-y-1">
+                  {limitedOutOfScope.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
+                      <XCircle className="h-3 w-3 text-red-500/80 mt-0.5 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+    </>
+  );
+
+  const detailsAccordion = simple ? (
+    <div className="pt-1.5 space-y-3">{detailsContent}</div>
+  ) : (
     <Accordion type="single">
       <AccordionItem value={`details-${deliverable.key}`} className="border-0">
         <AccordionTrigger
@@ -86,72 +166,7 @@ export function DeliverableCard({
         >
           Mehr Details
         </AccordionTrigger>
-        <AccordionContent className="pt-1.5 pb-0 space-y-3">
-          <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
-            {deliverable.shortDescription}
-          </p>
-          <p className="text-xs text-text-light dark:text-darkmode-text-light italic">
-            <span className="font-medium text-text dark:text-darkmode-text not-italic">Warum empfohlen?</span>{" "}
-            {recommendation.reason}
-          </p>
-
-          {deliverable.longDescription && (
-            <div className="space-y-1">
-              <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Beschreibung</h4>
-              <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
-                {deliverable.longDescription}
-              </p>
-            </div>
-          )}
-
-          {limitedOutputs.length > 0 && (
-            <div className="space-y-1.5">
-              <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Lieferumfang</h4>
-              <ul className="space-y-1">
-                {limitedOutputs.map((output, idx) => (
-                  <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
-                    <CheckCircle2 className="h-3 w-3 text-green-600/70 dark:text-green-400/70 mt-0.5 shrink-0" />
-                    <span>{output}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {(limitedAssumptions.length > 0 || limitedOutOfScope.length > 0) && (
-            <>
-              <Separator />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {limitedAssumptions.length > 0 && (
-                  <div className="space-y-1.5">
-                    <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Voraussetzungen</h4>
-                    <ul className="space-y-1">
-                      {limitedAssumptions.map((assumption, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
-                          <CheckCircle2 className="h-3 w-3 text-green-600/70 dark:text-green-400/70 mt-0.5 shrink-0" />
-                          <span>{assumption}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {limitedOutOfScope.length > 0 && (
-                  <div className="space-y-1.5">
-                    <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Nicht enthalten</h4>
-                    <ul className="space-y-1">
-                      {limitedOutOfScope.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5 text-xs text-text-light dark:text-darkmode-text-light">
-                          <XCircle className="h-3 w-3 text-red-500/80 mt-0.5 shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </>
-          )}
-        </AccordionContent>
+        <AccordionContent className="pt-1.5 pb-0 space-y-3">{detailsContent}</AccordionContent>
       </AccordionItem>
     </Accordion>
   );

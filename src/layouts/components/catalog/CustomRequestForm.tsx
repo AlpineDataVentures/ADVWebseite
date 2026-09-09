@@ -10,11 +10,14 @@ import {
   buildMailtoLink,
   type CustomInquiryFields,
 } from "../lib/inquiry";
+import { trackCatalogEvent } from "./lib/analytics";
 import { cn } from "../lib/utils";
 import { PRODUCT_CATALOG_INQUIRY_EMAIL } from "@/config/products";
 
 interface CustomRequestFormProps {
   productTitle: string;
+  /** Für die anonyme Funnel-Analytics (kein Pflichtfeld, um bestehende Nutzung nicht zu brechen). */
+  productId?: string;
   /** true = "Individuelle Ergänzung" (hybrid), false = vollständige individuelle Anfrage (custom). */
   isAddon?: boolean;
   /** true = ohne eigene Card/Überschrift (z. B. innerhalb eines Accordions). */
@@ -33,7 +36,14 @@ const emptyFields: CustomInquiryFields = {
   notes: "",
 };
 
-export function CustomRequestForm({ productTitle, isAddon = false, embedded = false, prominent = false, submitButtonLabel }: CustomRequestFormProps) {
+export function CustomRequestForm({
+  productTitle,
+  productId,
+  isAddon = false,
+  embedded = false,
+  prominent = false,
+  submitButtonLabel,
+}: CustomRequestFormProps) {
   const [fields, setFields] = useState<CustomInquiryFields>(emptyFields);
 
   const set = (key: keyof CustomInquiryFields) => (
@@ -113,6 +123,10 @@ export function CustomRequestForm({ productTitle, isAddon = false, embedded = fa
         className="w-full sm:w-auto gap-2"
         onClick={() => {
           window.location.href = mailto;
+          trackCatalogEvent({
+            event: "custom_inquiry_sent",
+            properties: { productId: productId ?? "unbekannt", mode: isAddon ? "hybrid_addon" : "custom" },
+          });
         }}
       >
         <Mail className="h-4 w-4 shrink-0" />

@@ -228,7 +228,18 @@ export const useConfigStore = create<ConfigState>((set, get) => {
       const recommendations = getBundleForProduct(productId);
       if (recommendations.length === 0) return;
 
-      const newDeliverables: Record<string, DeliverableState> = { ...currentState.selectedDeliverables };
+      const recommendedIds = new Set(recommendations.map((rec) => rec.deliverableId));
+
+      // Bausteine aus einer vorherigen Auswahl für ein ANDERES Produkt verwerfen:
+      // der Konfigurator soll nur die Bausteine des aktuell gewählten Produkts
+      // zeigen, nicht Reste aus früheren Produkten/Sitzungen (die sonst mangels
+      // Warenkorb nicht mehr entfernbar wären).
+      const newDeliverables: Record<string, DeliverableState> = {};
+      for (const [id, deliverableState] of Object.entries(currentState.selectedDeliverables)) {
+        if (recommendedIds.has(id)) {
+          newDeliverables[id] = deliverableState;
+        }
+      }
 
       recommendations.forEach((rec) => {
         const deliverable = getDeliverableById(rec.deliverableId);
@@ -341,7 +352,6 @@ export const useConfigStore = create<ConfigState>((set, get) => {
 
         const newState = {
           ...state,
-          lastFocusedDeliverableId: id,
           selectedDeliverables: newDeliverables,
         };
         saveToStorage(newState);

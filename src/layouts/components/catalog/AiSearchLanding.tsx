@@ -95,7 +95,11 @@ export function AiSearchLanding({
         <div className="w-full max-w-2xl space-y-4">
           {!hasResult && (
             <div className="text-center space-y-2 mb-2">
-              <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-text dark:text-darkmode-text">
+              <p className="text-sm md:text-base font-bold text-green-700 dark:text-green-400">
+                Unsere Produkte sind Fixpreisprojekte – klar kalkuliert, ohne Time & Material und
+                ohne nachträgliche Scope-Erweiterung. Das Risiko tragen wir, nicht Sie.
+              </p>
+              <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-text dark:text-darkmode-text pt-2">
                 Was möchten Sie umsetzen?
               </h1>
               <p className="text-base text-text-light dark:text-darkmode-text-light">

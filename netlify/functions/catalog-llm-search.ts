@@ -58,7 +58,11 @@ export default async (request: Request, context: Context) => {
   }
 
   const ip = context.ip || "unknown";
-  const ipLimit = await checkIpRateLimit(ip);
+  const ipLimit = await checkIpRateLimit(ip, {
+    storeName: "catalog-llm-search-rate-limit-ip",
+    windowMs: 60_000,
+    maxRequests: 5,
+  });
   if (!ipLimit.allowed) {
     return jsonResponse(
       429,
