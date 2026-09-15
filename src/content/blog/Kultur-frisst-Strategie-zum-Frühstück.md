@@ -5,7 +5,7 @@ description: "Warum viele Datenstrategien im Unternehmensalltag verpuffen und wi
 date: 2025-06-05T10:00:00Z
 image: "/images/blog/kultur_frisst_strategie.png"
 categories: ["Data Strategy", "Data Culture"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Change Management", "Data Strategy", "Data Catalog"]
 draft: false
 summary: "Datenstrategie ist kein Laminiervorgang: Ohne kulturelle Verankerung bleibt sie Theorie. Der Artikel zeigt, warum Change aktive Führung braucht – und was wir vom WG-Putzplan lernen können."

@@ -5,7 +5,7 @@ description: "KPIs definiert, DWH aufgebaut, ETL läuft, DSB und ISB an Bord. Wa
 date: 2026-08-19T08:30:00Z
 image: "/images/blog/10-week-data-recap.png"
 categories: ["Data Strategy"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Strategy", "Data Governance"]
 draft: false
 summary: "Zehn Wochen sind vergangen seit Thalberg beschlossen hat das Datenchaos zu beenden. Eine ehrliche Bestandsaufnahme über die fünf wichtigsten Learnings."

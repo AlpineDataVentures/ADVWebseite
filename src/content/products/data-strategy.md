@@ -17,7 +17,7 @@ benefits:
   - title: "Ein Plan, der nicht in der Schublade landet"
     text: "Die Strategie wird gemeinsam mit dem Team erarbeitet und direkt auf Umsetzbarkeit geprüft. Wir begleiten die ersten Schritte, damit aus Planung Realität wird."
 contact:
-  author_id: "ben-diez"
+  author_id: "benjamin-diez"
   expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"

@@ -5,11 +5,11 @@ role: "Head of Data Science"
 email: paul.springer@alpinedata.de
 image: "/images/authors/PaulSpringer.png"
 description: "Dr. Paul Springer – promovierter Physiker mit Leidenschaft für AI & Data Science. Er bringt datengetriebene Innovationen voran – auch für das Gemeinwohl."
-bullet_points: ["Data Science und AI Experte", "Analysiert jeden Fehler bis zur Wurzel des Problems", "Langjährige Führungserfahrung in Projekten, als auch intern", "Digging deep - nicht nur into Data, sondern auch mit Gummistiefeln in den Festivalmatsch"]
+bullet_points: ["Data Science und KI Experte", "Analysiert jeden Fehler bis zur Wurzel des Problems", "Langjährige Führungserfahrung, sowohl in Projekten als auch intern", "Watet genau so gerne durch Datensätze wie mit Gummistiefeln durch Festivalmatsch"]
 social:
   - name: linkedin
     icon: FaLinkedin
     link: https://www.linkedin.com/in/dr-paul-springer-94a5a817a/
 ---
 
-Paul Springer hat AI und Data Science im Blut. Als promovierter Physiker liegt die Nähe zu Daten, sowie seine Neugierde Neues zu entdecken bereits auf der Hand. Früh begann Paul sich mit der Kombination von mathematischen Modellen zum Zwecke von Unternehmen zu beschäftigen und setzt seine Kompetenzen bei der gemeinnützigen AI4Good-Organisation MI4People (www.mi4people.org) auch für das Gemeinwohl ein. Dort wo AI gebraucht wird, ist Paul Ihr Kompetenzzentrum!
+Paul Springer ist promovierter Physiker und beschäftigt sich seit Jahren mit KI und Data Science. Früh hat er begonnen, mathematische Modelle für unternehmerische Fragestellungen einzusetzen. Seine Kompetenz bringt er auch bei der gemeinnützigen AI4Good-Organisation **MI4People** fürs Gemeinwohl ein.

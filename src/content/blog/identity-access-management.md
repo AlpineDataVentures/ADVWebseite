@@ -5,7 +5,7 @@ description: "Ein ehemaliger Mitarbeiter hat noch immer Zugriff, der Außendiens
 date: 2026-08-12T08:30:00Z
 image: "/images/blog/identity-access-management.png"
 categories: ["Informationssicherheit"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["IAM", "Informationssicherheit"]
 draft: false
 summary: "Was genau versteht man eigentlich Identity & Access Management, welche vier Fehler kommen im Mittelstand am häufigsten vor und was kann man konkret dagegen tun."

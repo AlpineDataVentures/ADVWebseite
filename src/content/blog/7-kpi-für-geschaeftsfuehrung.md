@@ -5,7 +5,7 @@ description: "Zu viele KPIs sind wie kein KPI. Wir zeigen welche 7 Kennzahlen F�
 date: 2026-04-29T08:30:00Z
 image: "/images/blog/kpis-fuer-gf.png"
 categories: ["Business Intelligence"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["KPI", "Dashboard", "Management Dashboard", "Data Strategy", "Bereichsreporting"]
 draft: false
 summary: "34 KPIs, drei Tabellenblätter, niemand weiß wer sie definiert hat. Wir zeigen welche 7 Kennzahlen eine Geschäftsführung wirklich braucht und welche 5 man sofort vom Dashboard streichen sollte."

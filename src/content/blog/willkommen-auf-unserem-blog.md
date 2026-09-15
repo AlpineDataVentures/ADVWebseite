@@ -5,7 +5,7 @@ description: "Erfahren Sie auf unserem Blog alles über Datenstrategie, digitale
 date: 2024-09-06T07:00:00Z
 image: "/images/blog/ADV_Blog.jpg"
 categories: ["ADV"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["ADV"]
 draft: false
 summary: "Was Sie hier erwartet (und warum es sich lohnt, zu bleiben). Der erste Blog-Artikel gibt eine Einführung in das was Sie hier zukünftig lesen können. Spoiler: es geht um Daten..."
