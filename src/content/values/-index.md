@@ -1,7 +1,7 @@
 ---
-title: "Unsere Philosophie"
-meta_title: "Unsere Philosophie"
-description: "Unsere Philosophie: Wir glauben an die Kraft von Daten, um fundierte Entscheidungen zu ermöglichen und Unternehmen nachhaltig erfolgreicher zu machen."
+title: "Das macht uns aus"
+meta_title: "Warum ADV"
+description: "Der Mittelstand hat genug abstrakte Beratungsversprechen gehört. Wir lassen uns lieber daran messen, was am Ende bei Ihnen ankommt, angefangen bei unserer Vision sowie den sechs Prinzipien, nach denen wir arbeiten."
 image: "/images/PhilosophieTitel.webp"
 draft: false
 collaboration:
@@ -32,8 +32,8 @@ corevalues:
     icon: FaLightbulb
     description: "Wir holen Ihre Belegschaft von Anfang an mit ins Boot: mit Workshops und einer Dokumentation, die über das Projektende hinaus im Alltag hilft. Darüber hinaus steht am Ende eine saubere Übergabe, damit Ihr Team eigenständig weiterarbeiten kann."
 vision_method:
-  title_1: "Ziel: datengetrieben"
+  title_1: "Ziel: das datengetriebene Unternehmen"
   content_1: "Ein Mittelstand, der das wirtschaftliche Potenzial seiner Daten wirklich hebt. Dahin bringen wir jedes Unternehmen, das mit uns arbeitet: Daten als festen Teil jeder Entscheidung, weit über die IT-Abteilung hinaus. So wird aus einem digitalisierten Unternehmen ein datengetriebenes."
-  title_2: "Analyse, Strategie, Umsetzung"
+  title_2: "Von der Analyse, über Strategie bis hin zu Umsetzung"
   content_2: "Wir starten mit einer ehrlichen Analyse Ihrer Datenlandschaft, um die eigentlichen Herausforderungen zu verstehen. Daraus entwickeln wir gemeinsam eine Strategie, die zu Ihrem Unternehmen passt, nicht zu einer Vorlage. Am Ende zählt, was in der Praxis funktioniert, nicht was auf dem Papier gut aussieht"
 ---
