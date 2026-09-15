@@ -363,6 +363,61 @@ function collectProductSearchText(product: Product): string {
     .join(" ");
 }
 
+/**
+ * Kompakter Korpus-Eintrag für die LLM-Suche (Produkt).
+ * Nutzt exakt dieselben Felder wie getProductSearchSections(), aber ohne
+ * bundleTexts – die zugehörigen Bausteine werden separat als Glossar
+ * mitgeschickt (siehe getDeliverableLLMCorpusEntry) und hier nur referenziert.
+ */
+export interface ProductLLMCorpusEntry {
+  id: string;
+  title: string;
+  text: string;
+  deliverableIds: string[];
+}
+
+export function getProductLLMCorpusEntry(product: Product): ProductLLMCorpusEntry {
+  const sections = getProductSearchSections(product);
+  const text = [
+    sections.title,
+    sections.short,
+    ...sections.keywords,
+    sections.problem,
+    sections.result,
+    ...sections.tags,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  let deliverableIds: string[] = [];
+  try {
+    deliverableIds = getBundleForProduct(product.id).map((rec) => rec.deliverableId);
+  } catch {
+    // Bundle-Lookup darf Korpus-Erstellung nicht abbrechen
+  }
+
+  return { id: product.id, title: sections.title, text, deliverableIds };
+}
+
+/**
+ * Kompakter Korpus-Eintrag für die LLM-Suche (Baustein/Deliverable).
+ * Gleiche Feldauswahl wie collectDeliverableSearchText(), als Glossar-Eintrag
+ * für die LLM-Produktsuche (nicht für die direkte Baustein-Suche gedacht).
+ */
+export interface DeliverableLLMCorpusEntry {
+  id: string;
+  name: string;
+  text: string;
+}
+
+export function getDeliverableLLMCorpusEntry(deliverable: Deliverable): DeliverableLLMCorpusEntry {
+  return {
+    id: deliverable.key,
+    name: deliverable.name ?? "",
+    text: collectDeliverableSearchText(deliverable),
+  };
+}
+
 function collectDeliverableSearchText(deliverable: Deliverable): string {
   return [
     deliverable.name ?? "",

@@ -17,7 +17,7 @@ benefits:
   - title: "Weniger Fehler im operativen Betrieb"
     text: "Saubere Stammdaten verhindern operative Fehler wie falsche Lieferantenadressen, doppelte Bestellungen oder fehlerhafte Rechnungen, bevor sie zu Tragen kommen."
 contact:
-  author_id: "ben-diez"
+  author_id: "benjamin-diez"
   expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI trategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"

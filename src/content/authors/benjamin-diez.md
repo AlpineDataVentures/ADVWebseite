@@ -1,6 +1,6 @@
 ---
 title: "Benjamin Diez"
-blog_name: "Ben Diez" 
+blog_name: "Benjamin Diez" 
 role: "Geschäftsführer"
 email: benjamin.diez@alpinedata.de
 image: "/images/authors/BenDiez.jpg"

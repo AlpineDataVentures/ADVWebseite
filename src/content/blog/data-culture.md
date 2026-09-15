@@ -5,7 +5,7 @@ description: "Warum Data Culture? Eine starke Datenkultur fördert fundierte Ent
 date: 2024-10-28T07:00:00Z
 image: "/images/blog/data_culture.png"
 categories: ["Data Culture"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Mesh", "Data Leadership", "Data Strategy"]
 draft: false
 summary: "Eine starke Data Culture stärkt Entscheidungen, senkt Risiken und schafft Wettbewerbsvorteile. Sind Sie bereit für die Transformation zur Data Driven Company?"

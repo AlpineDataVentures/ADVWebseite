@@ -5,7 +5,7 @@ description: "Bevor ihr ein Dashboard baut, lohnt sich ein ehrlicher Blick auf e
 date: 2026-05-27T08:30:00Z
 image: "/images/blog/7-zeichen-datenbasis.png"
 categories: ["Business Intelligence"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Datenqualität", "Data Warehouse", "Dashboard", "Data Strategy", "IAM"]
 draft: false
 summary: "Das Konzept steht, alle sind motiviert — aber sind die Daten überhaupt bereit? Wir zeigen die 7 häufigsten Warnsignale, die darauf hindeuten dass man noch nicht anfangen sollte zu bauen."

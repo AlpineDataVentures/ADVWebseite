@@ -5,7 +5,7 @@ description: "Viele Datenstrategien scheitern an der Praxis. Dieser Beitrag zeig
 date: 2025-06-03T10:00:00Z
 image: "/images/blog/UseCases_Datenstrategie.png"
 categories: ["Data Strategy", "Data Culture"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Leadership", "Data Mesh", "Data Strategy"]
 draft: false
 summary: "Ohne konkrete Anwendungsfälle bleibt jede Datenstrategie ein leeres Versprechen. Dieser Artikel erklärt, warum Use Cases nicht nur Beiwerk sind, sondern der eigentliche Schlüssel zur Wirkung."

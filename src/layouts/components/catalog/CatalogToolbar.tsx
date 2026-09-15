@@ -1,46 +1,65 @@
-import { Search, LayoutGrid } from "lucide-react";
-import { Input } from "./ui/input";
+import { LayoutGrid, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { uiClusterLabels, type UiClusterId } from "../data/useCases";
 
 interface CatalogToolbarProps {
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
   activeCluster: UiClusterId | null;
   onOpenDomains: () => void;
+  /** "browse" (Standard): klassische Browsing-Ansicht mit Rückweg zur KI-Suche.
+   *  "ki-landing": KI-Such-Startseite, rechter Button führt stattdessen zu "Alle Produkte". */
+  mode?: "browse" | "ki-landing";
+  onBackToKiSearch?: () => void;
+  onShowAll?: () => void;
 }
 
+/**
+ * Leiste über der Katalog-Ansicht (klassisches Browsing ODER KI-Such-
+ * Startseite). Bewusst OHNE Sucheingabe: die manuelle Textsuche existiert nur
+ * noch im KI-Suchfeld auf der Landing-Seite (das bei Bedarf automatisch auf
+ * die lokale Standardsuche umschaltet) – hier gibt es nur Domänen-Navigation
+ * und, je nach Ansicht, den Rückweg zur KI-Suche oder zu "Alle Produkte".
+ */
 export function CatalogToolbar({
-  searchQuery,
-  onSearchChange,
   activeCluster,
   onOpenDomains,
+  mode = "browse",
+  onBackToKiSearch,
+  onShowAll,
 }: CatalogToolbarProps) {
   return (
     <div className="catalog-toolbar border-b border-border dark:border-darkmode-border bg-body dark:bg-darkmode-body shadow-[0_1px_0_0_var(--color-border)] dark:shadow-[0_1px_0_0_var(--color-darkmode-border)]">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <Button
             type="button"
             variant="outline"
-            className="shrink-0 justify-center sm:justify-start gap-2 h-11 px-4 font-medium"
+            className="shrink-0 gap-2 h-11 px-4 font-medium"
             onClick={onOpenDomains}
           >
             <LayoutGrid className="h-4 w-4" />
             Alle Domänen
           </Button>
 
-          <div className="relative flex-1 min-w-0">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-light dark:text-darkmode-text-light pointer-events-none" />
-            <Input
-              type="search"
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="Produkte, Bausteine, Themen durchsuchen…"
-              className="h-11 pl-10 bg-light dark:bg-darkmode-light border-border/80"
-              aria-label="Produktkatalog durchsuchen"
-            />
-          </div>
+          {mode === "browse" ? (
+            <Button
+              type="button"
+              variant="ghost"
+              className="shrink-0 gap-2 h-11 px-4 font-medium"
+              onClick={onBackToKiSearch}
+            >
+              <Sparkles className="h-4 w-4" />
+              Zurück zur KI-Suche
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              variant="outline"
+              className="shrink-0 h-11 px-4 font-medium"
+              onClick={onShowAll}
+            >
+              Alle Produkte
+            </Button>
+          )}
         </div>
 
         {activeCluster && (

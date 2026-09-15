@@ -5,7 +5,7 @@ description: "Tools allein retten kein Wissen. Was wirklich funktioniert und wel
 date: 2026-03-23T10:00:00Z
 image: "/images/blog/knowledge-management-2.png"
 categories: ["Knowledge Management"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Governance", "Data Catalog", "RAG Modell"]
 draft: false
 summary: "Wissen geht nicht verloren, weil das falsche Tool gewählt wurde. Es geht verloren, weil Dokumentation als Zusatzaufgabe behandelt wird statt als Teil der Arbeit."

@@ -49,6 +49,8 @@ const pageDescription = getProductCatalogMetaDescriptionForProduct(canonicalProd
     <ProductCatalogApp
       client:only="react"
       initialProductId={canonicalProductId}
+      transition:persist
+      transition:name="product-catalog-app"
     >
       <p slot="fallback" class="adv-catalog-loading">
         Produktkatalog wird geladen …

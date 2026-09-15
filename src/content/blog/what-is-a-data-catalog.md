@@ -5,7 +5,7 @@ description: "Das Warehouse läuft, aber niemand weiß wo die Kundensegmentierun
 date: 2026-08-26T08:30:00Z
 image: "/images/blog/what-is-a-data-catalog.png"
 categories: ["Data Governance"] 
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Catalog", "Informationssicherheit"]
 draft: false
 summary: "Drei Personen, drei verschiedene Antworten auf dieselbe Frage: wo liegt die Kundensegmentierung? Die Lösung: ein Data Catalog. Was er enthält und wann man ihn wirklich braucht."

@@ -5,7 +5,7 @@ description: "Cloud klingt modern, On-Prem klingt sicher, Hybrid klingt nach dem
 date: 2026-06-01T08:30:00Z
 image: "/images/blog/how-to-dwh.png"
 categories: ["Data Architecture"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Warehouse", "Cloud", "On-Premises", "Azure", "Data Engineering", "Data Infrastructure", "Datenschutz"]
 draft: false
 summary: "On-Prem, Cloud oder Hybrid — bevor Thalberg auch nur eine Zeile baut, muss diese Frage beantwortet sein. Wir zeigen welche Kriterien wirklich zählen."
