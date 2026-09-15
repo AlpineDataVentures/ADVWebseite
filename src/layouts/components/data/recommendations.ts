@@ -12,8 +12,38 @@ export type ProductBundle = {
   recommendations: Recommendation[];
 };
 
+// Bausteingruppe "KI Integration" (RAG, Chatbots, Copilots, LLM-Anwendungen,
+// Agenten, Dokumentenverarbeitung etc.) – feste Reihenfolge, für alle
+// zugeordneten Produkte identisch wiederverwendet.
+const KI_INTEGRATION_BUNDLE: Recommendation[] = [
+  { deliverableId: "ki_solution_design", defaultEnabled: true, reason: "Gemeinsames Verständnis von Use Case, Nutzen und Lösungsumfang schaffen." },
+  { deliverableId: "ki_data_knowledge_analysis", defaultEnabled: true, reason: "Qualität und Verfügbarkeit der Wissensbasis frühzeitig sicherstellen." },
+  { deliverableId: "ki_logic_prototyping", defaultEnabled: true, reason: "Den KI-Use-Case früh mit realen Daten validieren." },
+  { deliverableId: "ki_system_integration", defaultEnabled: true, reason: "KI direkt in bestehende Arbeitsabläufe integrieren." },
+  { deliverableId: "ki_user_interface", defaultEnabled: false, reason: "KI-Mensch-Interaktion ermöglichen." },
+  { deliverableId: "ki_testing_qa", defaultEnabled: true, reason: "Fehlerhafte oder ungeeignete KI-Ergebnisse vor dem produktiven Einsatz erkennen." },
+  { deliverableId: "ki_productive_handover", defaultEnabled: true, reason: "Einen stabilen Übergang vom Prototyp in den produktiven Einsatz sicherstellen." },
+];
+
+// Bausteingruppe "KI Entwicklung" (Forecasting, Klassifikation, Computer
+// Vision, Predictive Maintenance, Scoring, Anomaly Detection etc.) – feste
+// Reihenfolge, für alle zugeordneten Produkte identisch wiederverwendet.
+const KI_ENTWICKLUNG_BUNDLE: Recommendation[] = [
+  { deliverableId: "ki_dev_requirements", defaultEnabled: true, reason: "Geschäftlichen Nutzen und technische Zielsetzung eindeutig festlegen." },
+  { deliverableId: "ki_dev_data_prep", defaultEnabled: true, reason: "Sicherstellen, dass die vorhandenen Daten für den KI-Use-Case geeignet sind." },
+  { deliverableId: "ki_dev_model_concept", defaultEnabled: true, reason: "Komplexe Modellierung nur dort einsetzen, wo sie einen messbaren Mehrwert liefert." },
+  { deliverableId: "ki_dev_model_training", defaultEnabled: true, reason: "Aus Daten ein leistungsfähiges Modell für den konkreten Geschäftsprozess entwickeln." },
+  { deliverableId: "ki_dev_model_validation", defaultEnabled: true, reason: "Sicherstellen, dass das Modell auch außerhalb der Entwicklungsdaten zuverlässig funktioniert." },
+  { deliverableId: "ki_dev_model_integration", defaultEnabled: true, reason: "Modellergebnisse direkt im operativen Geschäftsprozess verfügbar machen." },
+  { deliverableId: "ki_dev_mlops", defaultEnabled: true, reason: "Modellqualität auch nach der Produktivsetzung kontrollierbar halten." },
+];
+
 // Hard Overrides für MVP Products
 const hardOverrides: Record<string, Recommendation[]> = {
+  // ── Neue KI-/LLM-Integrations-Produkte ──
+  "ki-angebotsassistent": KI_INTEGRATION_BUNDLE,
+  "ki-vertragsassistent": KI_INTEGRATION_BUNDLE,
+  "ki-meetingassistent": KI_INTEGRATION_BUNDLE,
   // Sales Dashboard (Sales & Marketing)
   "sales-dashboard": [
     {
@@ -251,48 +281,11 @@ const hardOverrides: Record<string, Recommendation[]> = {
     }
   ],
 
-  // Predictive Maintenance (Production)
-  "predictive-maintenance": [
-    {
-      deliverableId: "source_integration_review",
-      defaultEnabled: true,
-      reason: "Bewertung und Anbindung von Maschinen- und Sensordaten"
-    },
-    {
-      deliverableId: "predictive_maintenance",
-      defaultEnabled: true,
-      reason: "KI-Modell für vorausschauende Wartung"
-    },
-    {
-      deliverableId: "dwh_starter",
-      defaultEnabled: false,
-      reason: "Zentrale Datenbasis, falls noch nicht vorhanden"
-    },
-    {
-      deliverableId: "monitoring_ops",
-      defaultEnabled: false,
-      reason: "Betriebsüberwachung des Modells im laufenden Betrieb"
-    }
-  ],
+  // Predictive Maintenance (Production) – Bausteingruppe "KI Entwicklung"
+  "predictive-maintenance": KI_ENTWICKLUNG_BUNDLE,
 
-  // Anomaly Detection (IT & Data)
-  "anomaly-detection": [
-    {
-      deliverableId: "source_integration_review",
-      defaultEnabled: true,
-      reason: "Fundierte Analyse der Datenquellen für Anomalie-Use-Cases"
-    },
-    {
-      deliverableId: "anomaly_detection",
-      defaultEnabled: true,
-      reason: "Automatisierte Erkennung auffälliger Muster und Risiken"
-    },
-    {
-      deliverableId: "mgmt_report_1",
-      defaultEnabled: false,
-      reason: "Management-Sicht auf Auffälligkeiten und Risiken"
-    }
-  ],
+  // Anomaly Detection (IT & Data) – Bausteingruppe "KI Entwicklung"
+  "anomaly-detection": KI_ENTWICKLUNG_BUNDLE,
 
   // Datenstrategie (General Management)
   "datenstrategie": [
@@ -876,11 +869,8 @@ const hardOverrides: Record<string, Recommendation[]> = {
     { deliverableId: "bi_setup", defaultEnabled: true, reason: "Lagerplatzauslastung und Wege transparent darstellen" },
     { deliverableId: "mgmt_report_1", defaultEnabled: true, reason: "Regelreport fuer Lagerperformance und Effizienz erzeugen" }
   ],
-  "quality-assurance-ai": [
-    { deliverableId: "bi_setup", defaultEnabled: true, reason: "Qualitaets- und Ausschussdaten zentral visualisieren" },
-    { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Fehler- und Ausschusskennzahlen einheitlich definieren" },
-    { deliverableId: "qa_ai", defaultEnabled: false, reason: "Automatisierte Qualitaetspruefung als naechster Ausbauschritt (Coming Soon)" }
-  ],
+  // Ausschuss-/Qualitätscontrolling – Bausteingruppe "KI Entwicklung"
+  "quality-assurance-ai": KI_ENTWICKLUNG_BUNDLE,
   "lagerbestandsverwaltung": [
     { deliverableId: "bi_setup", defaultEnabled: true, reason: "Lagerplaetze und Bestandsbewegungen digital sichtbar machen" },
     { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Kennzahlen fuer Bestand, Reichweite und Umschlag festlegen" },
@@ -921,67 +911,38 @@ const hardOverrides: Record<string, Recommendation[]> = {
   ],
 
   // Block 3: Automatisierung & KI
-  "automatisierung-customer-success": [
-    { deliverableId: "process_discovery", defaultEnabled: true, reason: "Customer-Success-Prozesse und Automatisierungspotenzial klären" },
-    { deliverableId: "automation_pilot", defaultEnabled: true, reason: "PoC für Service-Automatisierung und Entlastung" },
-    { deliverableId: "churn_model", defaultEnabled: false, reason: "KI-gestützte Priorisierung kritischer Kundenfälle" },
-    { deliverableId: "automation_rollout", defaultEnabled: false, reason: "Erfolgreichen Pilot skalieren" }
-  ],
+  // Automatisierung Customer Success – Bausteingruppe "KI Integration"
+  "automatisierung-customer-success": KI_INTEGRATION_BUNDLE,
   "automatisierung-bestelldaten": [
     { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Bestellkanaele und ERP-Schnittstellen fuer Automatisierung harmonisieren" },
     { deliverableId: "reporting_standards", defaultEnabled: true, reason: "Durchlaufzeiten und Fehlerquoten standardisiert steuerbar machen" },
     { deliverableId: "monitoring_ops", defaultEnabled: false, reason: "Operatives Monitoring fuer stabile Bestellprozesse vorbereiten (Coming Soon)" }
   ],
-  "helpdesk-automation": [
-    { deliverableId: "process_discovery", defaultEnabled: true, reason: "Helpdesk-Prozess und Automatisierungspotenzial analysieren" },
-    { deliverableId: "automation_pilot", defaultEnabled: true, reason: "PoC für Ticket-Routing und Entlastung" },
-    { deliverableId: "api_integration", defaultEnabled: false, reason: "Schnittstellen zu ITSM- und Wissenssystemen" },
-    { deliverableId: "automation_rollout", defaultEnabled: false, reason: "Erfolgreichen Pilot in den Regelbetrieb überführen" }
-  ],
+  // Helpdesk-Automation (Ticket-Routing) – Bausteingruppe "KI Integration"
+  "helpdesk-automation": KI_INTEGRATION_BUNDLE,
   "financial-forecasting": [
     { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Zahlungs-, Forderungs- und Planungsdaten für Prognosen integrieren" },
     { deliverableId: "forecast_model", defaultEnabled: true, reason: "KI-gestützte Cashflow- und Prognosemodelle" },
     { deliverableId: "dwh_starter", defaultEnabled: false, reason: "Historisierte Datenbasis, falls noch nicht vorhanden" },
     { deliverableId: "mgmt_report_1", defaultEnabled: false, reason: "Management-Reporting auf Basis der Prognosen" }
   ],
-  "sales-chatbot-webseite": [
-    { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Website-, CRM- und Kampagnendaten fuer Chatbot-Logik anbinden" },
-    { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Lead- und Conversion-KPIs fuer Chatbot-Erfolg verbindlich definieren" },
-    { deliverableId: "churn_model", defaultEnabled: false, reason: "Praediktive Dialogpriorisierung und Personalisierung als Ausbau (Coming Soon)" }
-  ],
+  // Sales-Chatbot Webseite – Bausteingruppe "KI Integration"
+  "sales-chatbot-webseite": KI_INTEGRATION_BUNDLE,
   "dynamic-pricing": [
     { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Preis-, Nachfrage- und Wettbewerbsdaten fuer Automatisierung konsolidieren" },
     { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Margen- und Preisleitplanken fuer dynamische Steuerung festlegen" },
     { deliverableId: "forecast_model", defaultEnabled: false, reason: "Prognosebasierte Preisanpassung als naechster Schritt vorbereiten (Coming Soon)" }
   ],
-  "ausschreibungsautomatisierung": [
-    { deliverableId: "process_discovery", defaultEnabled: true, reason: "Vergabeprozess und Automatisierungspotenzial analysieren" },
-    { deliverableId: "automation_pilot", defaultEnabled: true, reason: "PoC für automatisierte Ausschreibungsabläufe" },
-    { deliverableId: "governance_starter", defaultEnabled: true, reason: "Regelwerk und Verantwortlichkeiten für Vergaben" },
-    { deliverableId: "automation_rollout", defaultEnabled: false, reason: "Validierten Workflow produktiv ausrollen" }
-  ],
-  "automatisierte-rechnungsverarbeitung": [
-    { deliverableId: "process_discovery", defaultEnabled: true, reason: "Rechnungsprozess und Automatisierungshebel analysieren" },
-    { deliverableId: "automation_pilot", defaultEnabled: true, reason: "PoC für automatisierte Rechnungsverarbeitung" },
-    { deliverableId: "api_integration", defaultEnabled: false, reason: "Schnittstellen zwischen Eingang, ERP und Freigabe" },
-    { deliverableId: "automation_rollout", defaultEnabled: false, reason: "Pilot produktiv skalieren" }
-  ],
-  "ai-helpdeskassistent": [
-    { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Wissensbasis und Ticketdaten fuer Assistenzfunktionen anbinden" },
-    { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Qualitaets- und Lösungskennzahlen fuer Assistentenleistung definieren" },
-    { deliverableId: "monitoring_ops", defaultEnabled: false, reason: "Nutzungs- und Antwortqualitaet im Betrieb kontinuierlich ueberwachen (Coming Soon)" }
-  ],
-  "agentic-coding": [
-    { deliverableId: "ai_agent_dev", defaultEnabled: true, reason: "Fokussierter KI-Agent für Coding- und Entwicklungsaufgaben" },
-    { deliverableId: "ai_review", defaultEnabled: true, reason: "Governance, Qualität und Leitplanken des Agenten absichern" },
-    { deliverableId: "kpi_ws", defaultEnabled: false, reason: "Metriken für Agentenleistung und Durchsatz definieren" },
-    { deliverableId: "retainer", defaultEnabled: false, reason: "Kontinuierliche Betriebs- und Verbesserungsunterstützung" }
-  ],
-  "self-service-helpdesk": [
-    { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Servicekatalog, Wissensbasis und Ticketlogik konsistent verknuepfen" },
-    { deliverableId: "reporting_standards", defaultEnabled: true, reason: "Self-Service-Nutzung und Ticketentlastung transparent messen" },
-    { deliverableId: "monitoring_ops", defaultEnabled: false, reason: "Betriebsqualitaet und Deflection-Rate laufend ueberwachen (Coming Soon)" }
-  ],
+  // Ausschreibungsautomatisierung – Bausteingruppe "KI Integration"
+  "ausschreibungsautomatisierung": KI_INTEGRATION_BUNDLE,
+  // Automatisierte Rechnungsverarbeitung – Bausteingruppe "KI Integration"
+  "automatisierte-rechnungsverarbeitung": KI_INTEGRATION_BUNDLE,
+  // AI-Helpdeskassistent – Bausteingruppe "KI Integration"
+  "ai-helpdeskassistent": KI_INTEGRATION_BUNDLE,
+  // Agentic-Coding – Bausteingruppe "KI Integration"
+  "agentic-coding": KI_INTEGRATION_BUNDLE,
+  // Self-Service Helpdesk – Bausteingruppe "KI Integration"
+  "self-service-helpdesk": KI_INTEGRATION_BUNDLE,
   "ki-preisueberwachung": [
     { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Preisquellen und Lieferantendaten fuer KI-Ueberwachung zusammenfuehren" },
     { deliverableId: "forecast_model", defaultEnabled: false, reason: "Praediktive Preistrends und Warnlogik als Ausbau vorbereiten (Coming Soon)" },
@@ -1011,33 +972,19 @@ const hardOverrides: Record<string, Recommendation[]> = {
     { deliverableId: "governance_starter", defaultEnabled: true, reason: "Verantwortlichkeiten und Datenqualitätsregeln etablieren" },
     { deliverableId: "reporting_standards", defaultEnabled: false, reason: "Einheitliche ESG-Berichtslogik" }
   ],
-  "ai-oberflaechenanalyse": [
-    { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Usability- und Conversion-Kennzahlen fuer KI-Analysen verbindlich festlegen" },
-    { deliverableId: "reporting_standards", defaultEnabled: true, reason: "Vergleichbare UI-Analyseberichte fuer Produktteams bereitstellen" },
-    { deliverableId: "forecast_model", defaultEnabled: false, reason: "Prognosen zu UX-Effekten geplanter Aenderungen vorbereiten (Coming Soon)" }
-  ],
+  // AI-Oberflächenanalyse – Bausteingruppe "KI Entwicklung"
+  "ai-oberflaechenanalyse": KI_ENTWICKLUNG_BUNDLE,
   "ai-produktentwicklung": [
     { deliverableId: "kpi_ws", defaultEnabled: true, reason: "Innovations- und Time-to-Market-KPIs fuer KI-gestuetzte Entwicklung definieren" },
     { deliverableId: "roadmap", defaultEnabled: false, reason: "Skalierungsroadmap fuer KI in der Produktentwicklung strukturieren (Coming Soon)" },
     { deliverableId: "retainer", defaultEnabled: false, reason: "Kontinuierliche Begleitung fuer iterative KI-Produktentwicklung vorsehen (Coming Soon)" }
   ],
-  "rag-literaturrecherche": [
-    { deliverableId: "rag_foundation", defaultEnabled: true, reason: "RAG-Basis für belastbare Wissensrecherche aufbauen" },
-    { deliverableId: "glossary_sprint", defaultEnabled: true, reason: "Fachbegriffe und Quellenstrukturen standardisieren" },
-    { deliverableId: "source_integration_review", defaultEnabled: false, reason: "Dokumentenquellen und Retrieval-Qualität vertiefen" },
-    { deliverableId: "ai_review", defaultEnabled: false, reason: "Qualität und Governance der RAG-Lösung prüfen" }
-  ],
-  "ai-video-qualitaetsanalyse": [
-    { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Video- und Produktionsdaten für KI-Qualitätsprüfung integrieren" },
-    { deliverableId: "qa_ai", defaultEnabled: true, reason: "KI-gestützte Qualitätsprüfung auf Basis von Bild-/Videodaten" },
-    { deliverableId: "ai_review", defaultEnabled: true, reason: "Modellqualität und Betriebsreife vor Go-Live prüfen" },
-    { deliverableId: "monitoring_ops", defaultEnabled: false, reason: "Laufendes Monitoring der Modellqualität im Betrieb" }
-  ],
-  "ki-warenausgangs-scanning": [
-    { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Scan-, Auftrags- und Versanddaten fuer Warenausgangspruefung verknuepfen" },
-    { deliverableId: "reporting_standards", defaultEnabled: true, reason: "Qualitaetskennzahlen fuer Versandpruefungen standardisieren" },
-    { deliverableId: "anomaly_detection", defaultEnabled: false, reason: "Anomalieerkennung im Warenausgang als Ausbau vorbereiten (Coming Soon)" }
-  ],
+  // RAG-Literaturrecherche – Bausteingruppe "KI Integration"
+  "rag-literaturrecherche": KI_INTEGRATION_BUNDLE,
+  // AI-Video-Qualitätsanalyse – Bausteingruppe "KI Entwicklung"
+  "ai-video-qualitaetsanalyse": KI_ENTWICKLUNG_BUNDLE,
+  // KI-Warenausgangs-Scanning – Bausteingruppe "KI Entwicklung"
+  "ki-warenausgangs-scanning": KI_ENTWICKLUNG_BUNDLE,
   "tourenplanung-automatisiert": [
     { deliverableId: "process_discovery", defaultEnabled: true, reason: "Touren- und Dispositionsprozesse analysieren" },
     { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Routen-, Auftrags- und Telematikdaten konsolidieren" },
@@ -1086,17 +1033,12 @@ const hardOverrides: Record<string, Recommendation[]> = {
     { deliverableId: "bi_setup", defaultEnabled: true, reason: "Planungssicht und Auslastung visualisieren" },
     { deliverableId: "forecast_model", defaultEnabled: false, reason: "Prognosebasierte Produktionsplanung" }
   ],
-  "innovationsresearch": [
-    { deliverableId: "ai_use_case_sprint", defaultEnabled: true, reason: "Innovations- und KI-Potenziale strukturiert bewerten" },
-    { deliverableId: "strategy_sprint", defaultEnabled: true, reason: "Innovationsrahmen und Prioritäten festlegen" },
-    { deliverableId: "roadmap", defaultEnabled: false, reason: "Umsetzungsroadmap für priorisierte Innovationen" },
-    { deliverableId: "rag_foundation", defaultEnabled: false, reason: "Wissens-RAG für Research und Scanning" }
-  ],
-  "objekterkennung": [
-    { deliverableId: "source_integration_review", defaultEnabled: true, reason: "Bild- und Prozessdaten fuer robuste Objekterkennung zusammenfuehren" },
-    { deliverableId: "qa_ai", defaultEnabled: false, reason: "KI-basierte Klassifikation und Qualitaetskontrolle als Ausbau aufsetzen (Coming Soon)" },
-    { deliverableId: "monitoring_ops", defaultEnabled: false, reason: "Betriebsueberwachung fuer Modellguete und Drift vorbereiten (Coming Soon)" }
-  ]
+  // Innovationsresearch – Bausteingruppe "KI Integration"
+  "innovationsresearch": KI_INTEGRATION_BUNDLE,
+  // Objekterkennung – Bausteingruppe "KI Entwicklung"
+  "objekterkennung": KI_ENTWICKLUNG_BUNDLE,
+  // Operative Personaleinsatzplanung – Bausteingruppe "KI Entwicklung"
+  "operative-personaleinsatzplanung": KI_ENTWICKLUNG_BUNDLE
 };
 
 // Prioritätsreihenfolge für Deduplizierung
@@ -1154,6 +1096,24 @@ const priorityOrder: string[] = [
   "rag_foundation",
   "ai_agent_dev",
   "ai_review",
+
+  // Bausteingruppe "KI Integration" (feste Reihenfolge 1–7)
+  "ki_solution_design",
+  "ki_data_knowledge_analysis",
+  "ki_logic_prototyping",
+  "ki_system_integration",
+  "ki_user_interface",
+  "ki_testing_qa",
+  "ki_productive_handover",
+
+  // Bausteingruppe "KI Entwicklung" (feste Reihenfolge 1–7)
+  "ki_dev_requirements",
+  "ki_dev_data_prep",
+  "ki_dev_model_concept",
+  "ki_dev_model_training",
+  "ki_dev_model_validation",
+  "ki_dev_model_integration",
+  "ki_dev_mlops",
 
   // Operations
   "bi_factory",
@@ -1359,16 +1319,17 @@ export function getBundleForProduct(productId: string): Recommendation[] {
 
   // Prüfe Hard Override
   if (hardOverrides[productId]) {
+    // .slice(0, 7): Bausteingruppen "KI Integration"/"KI Entwicklung" haben je 7 feste Schritte.
     const recommendations = toActiveRecommendations(
       deduplicateAndPrioritize(hardOverrides[productId])
-    ).slice(0, 6);
+    ).slice(0, 7);
     return recommendations.length > 0 ? recommendations : toActiveRecommendations(fallbackBundle);
   }
 
   // Fallback: Rule Engine
   const recommendations = toActiveRecommendations(
     deduplicateAndPrioritize(generateRecommendationsFromRules(productId))
-  ).slice(0, 6);
+  ).slice(0, 7);
   return recommendations.length > 0 ? recommendations : toActiveRecommendations(fallbackBundle);
 }
 

@@ -5,7 +5,7 @@ description: "Entlarven Sie die 10 häufigsten Irrtümer über Datenkultur und e
 date: 2024-11-25T10:00:00Z
 image: "/images/blog/irrtuemer-data-culture.png"
 categories: ["Data Culture"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Big Data", "Data Leadership", "Data Mesh", "Data Catalog"]
 draft: false
 summary: "Der Aufbau einer Datenkultur erfordert mehr als nur die richtigen Tools und den Zugang zu Daten. Es geht um die Förderung von Datenkompetenz, kritischem Denken & Verantwortung bei allen Mitarbeitern"

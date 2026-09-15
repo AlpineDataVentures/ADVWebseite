@@ -17,7 +17,7 @@ benefits:
   - title: "Auswertungen in Minuten statt Tagen"
     text: "Weil alle Daten zentral und strukturiert vorliegen, lassen sich Berichte und Dashboards ohne manuelles Zusammensuchen und Zusammenführen direkt erstellen."
 contact:
-  author_id: "ben-diez"
+  author_id: "benjamin-diez"
   expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"

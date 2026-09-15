@@ -5,7 +5,7 @@ description: "Wann ist ein Datenschutzbeauftragter Pflicht, wann nicht? Wir erkl
 date: 2026-07-08T08:30:00Z
 image: "/images/blog/dsb.png"
 categories: ["Datenschutz"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Datenschutz", "DSGVO", "Datenschutzbeauftragter"]
 draft: false
 summary: "Spätabends googelt der Projektleiter von Thalberg 'Datenschutzbeauftragter Pflicht Mittelstand' und findet widersprüchliche Antworten. Wir liefern die Antworten die er gesucht hat."

@@ -18,7 +18,7 @@ benefits:
     text: "Entwicklungsentscheidungen basieren nicht nur auf Erfahrung, sondern auf Berechnungen und der Auswertung historischer Produktdaten."
 contact:
   author_id: "carsten-hof"
-  expertise: "Wir verbinden Engineering-Erfahrung mit KI-Methodik und integrieren neue Modelle so in Ihre Prozesse, dass Ihr Team schneller entwickelt, besser entscheidet und messbar Kosten reduziert."
+  expertise: "Carsten programmiert seit über 30 Jahren. Durch die gezielte Steuerung von Agenten hat er heute neben Führung, Architektur und Projektsteuerung auch wieder Zeit zu coden."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
   meeting_cta_link: "https://calendly.com/andreas-klostermann-alpinedata/ersttermin"

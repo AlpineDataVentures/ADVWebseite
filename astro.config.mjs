@@ -105,8 +105,6 @@ export default defineConfig({
         page !== 'https://alpinedata.de/data-assessment/' &&
         page !== 'https://alpinedata.de/data-assessment/assess/' &&
         page !== 'https://alpinedata.de/data-assessment/thank-you/' &&
-        page !== 'https://alpinedata.de/bestaetigung/' &&
-        page !== 'https://alpinedata.de/contact/' &&
         !page.includes('/intern/')
     }),
     mdx(),

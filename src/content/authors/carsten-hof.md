@@ -20,4 +20,4 @@ social:
     link: https://www.linkedin.com/in/carstenhof/
 ---
 
-Carsten Hof ist promovierter Physiker, Big Data Experte und globaler IT-Leader. Er bringt 15 Jahre Erfahrung in globalen Konzernen und komplexen Datenlandschaften mit. Seine Schwerpunkte Enterprise- & IT-Architektur, digitale Transformation, Datenplattformen und Automatisierung von Geschäftsprozessen wendet er stets an der Strategie des Kunden ausgerichtet effizient in den Projekten an. Seine Vorliebe für's Detail lässt keine Stolpersteine unentdeckt.
+Carsten Hof ist promovierter Physiker, Big Data Experte und globaler IT-Leader. Er bringt 15 Jahre Erfahrung in globalen Konzernen und komplexen Datenlandschaften mit. Seine Schwerpunkte: Enterprise- und IT-Architektur, digitale Transformation, Datenplattformen und die Automatisierung von Geschäftsprozessen. Dabei richtet er sich immer an der Strategie des Kunden aus, damit Projekte effizient vorankommen. Seine Vorliebe für Details lässt keine Stolpersteine unentdeckt.

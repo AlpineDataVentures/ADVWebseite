@@ -5,7 +5,7 @@ description: "Der Informationssicherheitsbeauftragte ist nicht der IT-Administra
 date: 2026-08-03T08:30:00Z
 image: "/images/blog/isb-aufgaben.png"
 categories: ["Informationssicherheit"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["NIS2", "ISO 27001", "ISMS", "ISB", "Informationssicherheit", "IAM"]
 draft: false
 summary: "Der Geschäftsführer fragt, was ein ISB ist, jetzt wird es erklärt. Was der Informationssicherheitsbeauftragte konkret macht, wie er sich vom DSB unterscheidet und warum er kein IT-Administrator ist."

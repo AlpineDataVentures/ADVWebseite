@@ -5,7 +5,7 @@ description: "Nach Monaten der Vorbereitung ist es nun auch vor den Augen des St
 date: 2025-01-19T07:00:00Z
 image: "/images/blog/ADVNotar.png"
 categories: ["ADV"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["ADV"]
 draft: false
 summary: "Beim Notar wurde aus Vision Realität: Mit Unterschrift und Siegel wurde Alpine Data Ventures gegründet. Ein Moment, der mehr als Bürokratie war – der Startschuss für eine datengetriebene Mission."

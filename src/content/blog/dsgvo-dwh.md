@@ -5,7 +5,7 @@ description: "Ein Data Warehouse aggregiert Daten aus vielen Quellen — und mac
 date: 2026-07-01T08:30:00Z
 image: "/images/blog/dsgvo-dwh.png"
 categories: ["Datenschutz"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Warehouse", "Datenschutz", "DSGVO"]
 draft: false
 summary: "Das DWH steht, die ETL Pipeline läuft und plötzlich fragt jemand ob vorab eigentlich der Datenschutzbeauftragte einbezogen wurde. Spoiler: wurde er nicht."
