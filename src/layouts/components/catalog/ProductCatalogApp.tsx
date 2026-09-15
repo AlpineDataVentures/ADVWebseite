@@ -520,7 +520,6 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
           kiUnavailableToday={kiUnavailableToday}
           rateLimitCountdown={rateLimitCountdown}
           onSubmit={handleKiSearchSubmit}
-          onShowAll={handleShowAll}
           onSelectProduct={handleProductSelect}
         />
       );
@@ -592,12 +591,15 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     return <ConfigView productId={activeProductId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
   };
 
-  // Toolbar (Domänen + "Zurück zur KI-Suche") nur in der klassischen
-  // Browsing-Ansicht selbst, oder auf Produktdetail/Konfiguration, wenn diese
-  // aus der klassischen Ansicht heraus geöffnet wurden (cameFromBrowse).
-  // Kommt man aus der KI-Suche, bleibt es auch beim Produkt/Konfigurieren clean.
+  // Toolbar (Domänen + Rückweg) in drei Fällen: klassische Browsing-Ansicht,
+  // KI-Such-Startseite selbst (kein Produkt aktiv), oder auf Produktdetail/
+  // Konfiguration, wenn diese aus der klassischen Ansicht heraus geöffnet
+  // wurden (cameFromBrowse). Kommt man aus der KI-Suche zu einem Produkt,
+  // bleibt es beim Produkt/Konfigurieren clean.
+  const isKiLandingView = catalogEntryMode === 'ki-landing' && !activeProduct;
   const showCatalogToolbar =
     catalogEntryMode === 'browse' ||
+    isKiLandingView ||
     ((Boolean(activeProduct) || (viewMode === 'configure' && cartCount > 0)) && cameFromBrowse);
 
   return (
@@ -606,7 +608,9 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
         <CatalogToolbar
           activeCluster={activeCluster}
           onOpenDomains={() => setDomainDrawerOpen(true)}
+          mode={isKiLandingView ? 'ki-landing' : 'browse'}
           onBackToKiSearch={handleBackToKiLanding}
+          onShowAll={handleShowAll}
         />
       )}
 

@@ -5,17 +5,27 @@ import { uiClusterLabels, type UiClusterId } from "../data/useCases";
 interface CatalogToolbarProps {
   activeCluster: UiClusterId | null;
   onOpenDomains: () => void;
-  onBackToKiSearch: () => void;
+  /** "browse" (Standard): klassische Browsing-Ansicht mit Rückweg zur KI-Suche.
+   *  "ki-landing": KI-Such-Startseite, rechter Button führt stattdessen zu "Alle Produkte". */
+  mode?: "browse" | "ki-landing";
+  onBackToKiSearch?: () => void;
+  onShowAll?: () => void;
 }
 
 /**
- * Leiste für die klassische Browsing-Ansicht ("Alle Produkte"/Domänen).
- * Bewusst OHNE Sucheingabe: die manuelle Textsuche existiert nur noch im
- * KI-Suchfeld auf der Landing-Seite (das bei Bedarf automatisch auf die
- * lokale Standardsuche umschaltet) – hier gibt es nur Domänen-Navigation
- * und den Rückweg zur KI-Suche.
+ * Leiste über der Katalog-Ansicht (klassisches Browsing ODER KI-Such-
+ * Startseite). Bewusst OHNE Sucheingabe: die manuelle Textsuche existiert nur
+ * noch im KI-Suchfeld auf der Landing-Seite (das bei Bedarf automatisch auf
+ * die lokale Standardsuche umschaltet) – hier gibt es nur Domänen-Navigation
+ * und, je nach Ansicht, den Rückweg zur KI-Suche oder zu "Alle Produkte".
  */
-export function CatalogToolbar({ activeCluster, onOpenDomains, onBackToKiSearch }: CatalogToolbarProps) {
+export function CatalogToolbar({
+  activeCluster,
+  onOpenDomains,
+  mode = "browse",
+  onBackToKiSearch,
+  onShowAll,
+}: CatalogToolbarProps) {
   return (
     <div className="catalog-toolbar border-b border-border dark:border-darkmode-border bg-body dark:bg-darkmode-body shadow-[0_1px_0_0_var(--color-border)] dark:shadow-[0_1px_0_0_var(--color-darkmode-border)]">
       <div className="container mx-auto px-4 py-4">
@@ -30,15 +40,26 @@ export function CatalogToolbar({ activeCluster, onOpenDomains, onBackToKiSearch 
             Alle Domänen
           </Button>
 
-          <Button
-            type="button"
-            variant="ghost"
-            className="shrink-0 gap-2 h-11 px-4 font-medium"
-            onClick={onBackToKiSearch}
-          >
-            <Sparkles className="h-4 w-4" />
-            Zurück zur KI-Suche
-          </Button>
+          {mode === "browse" ? (
+            <Button
+              type="button"
+              variant="ghost"
+              className="shrink-0 gap-2 h-11 px-4 font-medium"
+              onClick={onBackToKiSearch}
+            >
+              <Sparkles className="h-4 w-4" />
+              Zurück zur KI-Suche
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              variant="outline"
+              className="shrink-0 h-11 px-4 font-medium"
+              onClick={onShowAll}
+            >
+              Alle Produkte
+            </Button>
+          )}
         </div>
 
         {activeCluster && (

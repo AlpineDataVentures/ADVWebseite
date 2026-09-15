@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { Loader2, Search, Sparkles } from 'lucide-react';
-import { Button } from './ui/button';
 import { ViewToggle, type ViewLayout } from './ViewToggle';
 import { ProductTileGrid } from './UseCaseTileGrid';
 import { ProductListView } from './ProductListView';
@@ -23,7 +22,6 @@ interface AiSearchLandingProps {
   kiUnavailableToday: boolean;
   rateLimitCountdown: number | null;
   onSubmit: () => void;
-  onShowAll: () => void;
   onSelectProduct: (productId: string) => void;
 }
 
@@ -31,7 +29,8 @@ interface AiSearchLandingProps {
  * Alleiniger Einstieg in den Produktkatalog: ein einzelnes, ChatGPT-artiges
  * Suchfeld (keine Konversation, nur Einzelanfragen). Zeigt bewusst keine
  * Produkt- oder Bausteinübersicht, bis eine Anfrage abgeschickt wurde – der
- * einzige weitere sichtbare Einstieg ist der "Alle Produkte"-Button.
+ * einzige weitere sichtbare Einstieg sind die Buttons "Alle Domänen"/"Alle
+ * Produkte" in der darüberliegenden, sticky CatalogToolbar.
  *
  * Zustand (kiQuery/llmSearch) wird bewusst vom Elternteil (ProductCatalogApp)
  * übergeben statt lokal gehalten: so bleiben die letzten Suchergebnisse
@@ -47,7 +46,6 @@ export function AiSearchLanding({
   kiUnavailableToday,
   rateLimitCountdown,
   onSubmit,
-  onShowAll,
   onSelectProduct,
 }: AiSearchLandingProps) {
   const [viewLayout, setViewLayout] = useState<ViewLayout>('grid');
@@ -80,12 +78,6 @@ export function AiSearchLanding({
 
   return (
     <div className="min-h-[70vh] flex flex-col">
-      <div className="flex justify-end pb-6">
-        <Button variant="outline" onClick={onShowAll}>
-          Alle Produkte
-        </Button>
-      </div>
-
       <div
         className={cn(
           'flex-1 flex flex-col items-center',
@@ -161,7 +153,7 @@ export function AiSearchLanding({
           )}
           {kiSearchStatus === 'stale' && (
             <p className="text-sm text-text-light dark:text-darkmode-text-light text-center">
-              Enter drücken, um {kiUnavailableToday ? 'zu suchen' : `die KI-Suche für „${kiQuery.trim()}“ zu starten`}.
+              Enter drücken, um die KI-Suche zu starten.
             </p>
           )}
         </div>
