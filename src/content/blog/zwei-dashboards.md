@@ -5,7 +5,7 @@ description: "Ein Dashboard für alle klingt effizient. In der Praxis enttäusch
 date: 2026-05-12T08:30:00Z
 image: "/images/blog/thalberg-dashboard-zielgruppen.png"
 categories: ["Business Intelligence"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Dashboard", "Business Intelligence", "Power BI"]
 draft: false
 summary: "Sobald ein Dashboard-Projekt offiziell wird, will jeder mitmachen. Wir erklären warum ein Dashboard für alle meistens für niemanden funktioniert und wie man es von Anfang an richtig denkt."

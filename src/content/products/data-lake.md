@@ -17,7 +17,7 @@ benefits:
   - title: "Flexibilität für zukünftige Anwendungsfälle"
     text: "Daten, die heute noch keinen offensichtlichen Nutzen haben, können morgen wertvoll sein. Ein Data Lake stellt sicher, dass diese Daten nicht verloren gehen, bevor ihr Potenzial erkannt wird."
 contact:
-  author_id: "ben-diez"
+  author_id: "benjamin-diez"
   expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"

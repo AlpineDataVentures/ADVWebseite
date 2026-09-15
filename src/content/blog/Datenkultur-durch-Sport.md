@@ -5,7 +5,7 @@ description: "Der US-Sport zeigt wie Sportereignisse die Datenkompetenz fördern
 date: 2025-01-13T10:00:00Z
 image: "/images/blog/datenkultur_sport.png"
 categories: ["Data Culture"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Leadership", "Business Intelligence"]
 draft: false
 summary: "US-Sport zeigt, wie Statistiken Unterhaltung und Datenkompetenz fördern. Während Analysen in Europa oft oberflächlich sind, prägen sie in den USA den Alltag – allgegenwärtig und unbewusst wirksam."

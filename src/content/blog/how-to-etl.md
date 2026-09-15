@@ -5,7 +5,7 @@ description: "Extract, Transform, Load: Wir erklären wie ETL in der Praxis funk
 date: 2026-06-22T08:30:00Z
 image: "/images/blog/how-to-etl.png"
 categories: ["Data Warehouse"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Warehouse", "Data Engineering", "Data Infrastructure", "ETL", "Data Catalog"]
 draft: false
 summary: "Das Warehouse steht, jetzt müssen die Daten rein. ETL klingt nach drei einfachen Schritten, ist in der Praxis aber vor allem eines: der Teil des Projekts über den hinterher alle reden."

@@ -5,7 +5,7 @@ description: "Wissen ist eine der wertvollsten, aber auch flüchtigsten Ressourc
 date: 2026-03-16T10:00:00Z
 image: "/images/blog/knowledge-management-1.png"
 categories: ["Knowledge Management"]
-author: "Ben Diez"
+author: "Benjamin Diez"
 tags: ["Data Governance", "Data Catalog", "RAG Modell"]
 draft: false
 summary: "Wissen steckt in Köpfen, Routinen und informellen Gesprächen – und verschwindet, wenn Menschen gehen. Warum Knowledge Management und Data Knowledge die Grundlage jeder lernenden Organisation sind."

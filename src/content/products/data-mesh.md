@@ -17,7 +17,7 @@ benefits:
   - title: "Bessere Grundlage für KI und Automatisierung"
     text: "Verlässliche und gut gepflegte Daten aus allen Bereichen sind die Voraussetzung für jedes KI-Projekt. Ein Data Mesh schafft diese Grundlage"
 contact:
-  author_id: "ben-diez"
+  author_id: "benjamin-diez"
   expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"

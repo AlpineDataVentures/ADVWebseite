@@ -17,7 +17,7 @@ benefits:
   - title: "Risiken kennen und gezielt adressieren"
     text: "Ein ISMS identifiziert systematisch welche Informationen schützenswert sind, bewertet die Risiken und legt fest welche Maßnahmen sie konkret reduzieren."
 contact:
-  author_id: "ben-diez"
+  author_id: "benjamin-diez"
   expertise: "Ben bringt über 10 Jahre Erfahrung mit und begleitet Unternehmen dabei, Daten und KI strategisch zu nutzen: von der ersten Standortbestimmung über Governance und Compliance bis hin zur Verankerung einer datengetriebenen Kultur."
   question_cta_label: "Frage stellen"
   meeting_cta_label: "Gespräch vereinbaren"
