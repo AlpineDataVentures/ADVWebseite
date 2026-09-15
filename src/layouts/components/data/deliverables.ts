@@ -588,7 +588,8 @@ export const deliverables: Deliverable[] = [
     shortDescription: "Automatische Erkennung ungewöhnlicher Muster in Daten – für Frühwarnung, Qualität und Betrugserkennung.",
     longDescription: "Wir entwickeln ein System zur automatischen Erkennung von Anomalien in Ihren Daten. Das System lernt normale Muster und erkennt Abweichungen, die auf Probleme, Betrug oder interessante Entwicklungen hinweisen können. Ideal für Qualitätssicherung, Betrugserkennung oder Prozessoptimierung.",
     basePrice: 25200,
-    active: true,
+    // Abgelöst durch die Bausteingruppe "KI Entwicklung" (ki_dev_*); kein Produkt empfiehlt diesen Baustein mehr.
+    active: false,
     tags: {
       type: ["build"],
       maturity: ["scale"],
@@ -621,7 +622,8 @@ export const deliverables: Deliverable[] = [
     shortDescription: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig – nicht zu früh, nicht zu spät.",
     longDescription: "Wir entwickeln ein Predictive Maintenance System, das Wartungsbedarfe für Ihre Maschinen und Anlagen vorhersagt. Basierend auf Sensordaten und historischen Wartungsdaten sagt das Modell voraus, wann Wartung nötig ist, sodass Sie Ausfälle vermeiden und Wartungskosten optimieren können.",
     basePrice: 29600,
-    active: true,
+    // Abgelöst durch die Bausteingruppe "KI Entwicklung" (ki_dev_*); kein Produkt empfiehlt diesen Baustein mehr.
+    active: false,
     tags: {
       type: ["build"],
       maturity: ["scale"],
@@ -654,7 +656,8 @@ export const deliverables: Deliverable[] = [
     shortDescription: "Automatische Qualitätsprüfung mit KI – z. B. für Bild-, Video- oder Prozessdaten.",
     longDescription: "Wir entwickeln ein KI-System zur automatischen Qualitätsprüfung Ihrer Produkte. Basierend auf Bildern, Sensordaten oder anderen Messwerten erkennt das System Fehler und Qualitätsprobleme frühzeitig, sodass Sie Ausschuss reduzieren und Qualität verbessern können.",
     basePrice: 27400,
-    active: true,
+    // Abgelöst durch die Bausteingruppe "KI Entwicklung" (ki_dev_*); kein Produkt empfiehlt diesen Baustein mehr.
+    active: false,
     tags: {
       type: ["build"],
       maturity: ["scale"],
@@ -987,7 +990,8 @@ export const deliverables: Deliverable[] = [
     shortDescription: "Aufbau einer Retrieval-Augmented-Generation-Basis für Wissensrecherche und interne Assistenzsysteme.",
     longDescription: "Wir richten eine belastbare RAG-Grundlage ein: Dokumentenaufbereitung, Wissensindex, Retrieval-Pipeline und erste Assistenzfunktion. Ideal für Literaturrecherche, internes Wissensmanagement oder fachliche Q&A-Assistenten.",
     basePrice: 18600,
-    active: true,
+    // Abgelöst durch die Bausteingruppe "KI Integration" (ki_*); kein Produkt empfiehlt diesen Baustein mehr.
+    active: false,
     tags: {
       type: ["setup", "build"],
       maturity: ["start", "stabilize"],
@@ -1020,7 +1024,8 @@ export const deliverables: Deliverable[] = [
     shortDescription: "Entwicklung eines fokussierten KI-Agenten für klar definierte Aufgaben – z. B. Coding, Recherche oder Prozessunterstützung.",
     longDescription: "Wir entwickeln einen KI-Agenten für einen abgegrenzten Use-Case mit klaren Leitplanken, Tool-Anbindungen und Qualitätschecks. Der Agent ist auf Ihre Daten, Systeme und Governance-Anforderungen zugeschnitten – nicht als generische Demo, sondern als belastbarer Prototyp oder erste Produktivversion.",
     basePrice: 21900,
-    active: true,
+    // Abgelöst durch die Bausteingruppe "KI Integration" (ki_*); kein Produkt empfiehlt diesen Baustein mehr.
+    active: false,
     tags: {
       type: ["build"],
       maturity: ["stabilize", "scale"],
@@ -1079,6 +1084,460 @@ export const deliverables: Deliverable[] = [
     ],
     parameters: ["companySize", "speed", "securityLevel"]
   },
+
+  // ── Bausteingruppe: KI Integration (RAG, Chatbots, Copilots, LLM-Anwendungen,
+  //    Agenten, Dokumentenverarbeitung etc.) – feste Reihenfolge 1–7 ──
+  {
+    key: "ki_solution_design",
+    family: "AI & Data Science",
+    name: "KI-Anforderungs- & Lösungsdesign",
+    shortDescription: "Anforderungen, Zielprozess und technische Zielarchitektur für den KI-Use-Case definieren.",
+    longDescription: "Wir analysieren den heutigen Prozess, definieren den gewünschten KI-gestützten Ablauf und leiten daraus Anforderungen und Lösungsdesign ab.",
+    basePrice: 6600,
+    active: true,
+    tags: {
+      type: ["workshop"],
+      maturity: ["start"],
+      impact: ["foundation"],
+      coverage: ["semantic_layer"]
+    },
+    estimatedDuration: "5–7 Tage",
+    deliverablesOutput: [
+      "Dokumentierte Anforderungen",
+      "Zielprozess und Use Cases",
+      "Technisches Lösungsdesign",
+      "Priorisierte Umsetzungsschritte"
+    ],
+    assumptions: [
+      "Fachliche Ansprechpartner verfügbar",
+      "Relevanter Prozess ist grundsätzlich bekannt"
+    ],
+    outOfScope: [
+      "Technische Umsetzung",
+      "Detaillierte Datenaufbereitung"
+    ],
+    parameters: ["aiProcessScope", "aiStakeholderCount"]
+  },
+  {
+    key: "ki_data_knowledge_analysis",
+    family: "AI & Data Science",
+    name: "Daten- & Wissensquellenanalyse",
+    shortDescription: "Relevante Dokumente, Datenquellen und Systeme für die KI-Anwendung analysieren und aufbereiten.",
+    longDescription: "Wir analysieren Struktur, Qualität und Zugänglichkeit der benötigten Daten und definieren ihre Nutzung innerhalb der KI-Lösung.",
+    basePrice: 8800,
+    active: true,
+    tags: {
+      type: ["workshop"],
+      maturity: ["start"],
+      impact: ["foundation"],
+      coverage: ["data_layer"]
+    },
+    estimatedDuration: "7–10 Tage",
+    deliverablesOutput: [
+      "Übersicht relevanter Datenquellen",
+      "Datenqualitätsbewertung",
+      "Daten- und Zugriffskonzept",
+      "Aufbereitete Beispieldaten",
+      "Empfehlungen zur weiteren Nutzung"
+    ],
+    assumptions: [
+      "Zugriff auf relevante Daten",
+      "Ansprechpartner für Quellsysteme"
+    ],
+    outOfScope: [
+      "Technische Umsetzung",
+      "Manuelle Digitalisierung großer Archive o. Ä."
+    ],
+    parameters: ["aiDataSourceCount", "aiDataComplexity"]
+  },
+  {
+    key: "ki_logic_prototyping",
+    family: "AI & Data Science",
+    name: "KI-Logik & Prototyping",
+    shortDescription: "KI-Logik konfigurieren und als funktionsfähigen Prototyp für den definierten Use Case umsetzen.",
+    longDescription: "Wir wählen geeignete Modelle und Verfahren aus, konfigurieren Prompts, Wissenszugriff und KI-Logik und erstellen einen testbaren Prototyp.",
+    basePrice: 8000,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["start", "stabilize"],
+      impact: ["foundation"],
+      coverage: ["semantic_layer"]
+    },
+    estimatedDuration: "7–10 Tage",
+    deliverablesOutput: [
+      "Konfigurierte KI-Lösung",
+      "Prompt- und Logikkonzept",
+      "Funktionsfähiger Prototyp",
+      "Dokumentierte Konfiguration"
+    ],
+    assumptions: [
+      "Anforderungen definiert",
+      "Beispieldaten verfügbar"
+    ],
+    outOfScope: [
+      "UI",
+      "Produktive Systemintegration"
+    ],
+    parameters: ["aiLogicType", "aiOperatingModel"]
+  },
+  {
+    key: "ki_system_integration",
+    family: "AI & Data Science",
+    name: "System- & Prozessintegration",
+    shortDescription: "KI-Lösung mit bestehenden Anwendungen, Datenquellen und Geschäftsprozessen verbinden.",
+    longDescription: "Wir entwickeln die notwendigen Schnittstellen und integrieren die KI-Anwendung in die relevanten Quell- und Zielsysteme.",
+    basePrice: 12000,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["stabilize"],
+      impact: ["performance"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "10–14 Tage",
+    deliverablesOutput: [
+      "Technische Schnittstellen",
+      "Datenübergabe zwischen Systemen",
+      "Prozessintegration",
+      "Fehler- und Logging-Konzept"
+    ],
+    assumptions: [
+      "Schnittstellen verfügbar",
+      "Technische Ansprechpartner vorhanden"
+    ],
+    outOfScope: [
+      "Anpassungen durch Drittanbieter",
+      "Lizenzkosten externer Systeme"
+    ],
+    parameters: ["aiIntegrationSystemCount", "aiIntegrationInterface", "aiIntegrationDepth"]
+  },
+  {
+    key: "ki_user_interface",
+    family: "AI & Data Science",
+    name: "KI-Benutzeroberfläche",
+    shortDescription: "Benutzeroberfläche für die einfache Interaktion mit der KI-Anwendung entwickeln oder anbinden.",
+    longDescription: "Wir integrieren die KI in eine bestehende Oberfläche oder entwickeln eine schlanke Benutzeroberfläche für den definierten Use Case.",
+    basePrice: 4000,
+    active: true,
+    tags: {
+      type: ["build", "enablement"],
+      maturity: ["stabilize"],
+      impact: ["adoption"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "4–6 Tage",
+    deliverablesOutput: [
+      "Benutzeroberfläche oder UI-Integration",
+      "Kerninteraktionen des Use Cases",
+      "Ergebnisdarstellung",
+      "Nutzerführung"
+    ],
+    assumptions: [
+      "Anforderungen an Nutzergruppen definiert",
+      "Technische Zielumgebung bekannt",
+      "Daten- und Zugriffskonzept vorhanden"
+    ],
+    outOfScope: [
+      "Umfangreiches UX-/Corporate-Design-Projekt",
+      "Native Mobile Apps o. Ä."
+    ],
+    parameters: ["aiUiScope", "aiUiDesignComplexity"]
+  },
+  {
+    key: "ki_testing_qa",
+    family: "AI & Data Science",
+    name: "KI-Testing & Qualitätssicherung",
+    shortDescription: "Qualität, Zuverlässigkeit und fachliche Eignung der KI-Lösung systematisch testen.",
+    longDescription: "Zusammen mit Ihrer Fachabteilung entwickeln wir geeignete Testfälle, messen die Ergebnisqualität und optimieren die KI-Lösung anhand definierter Abnahmekriterien.",
+    basePrice: 6000,
+    active: true,
+    tags: {
+      type: ["workshop"],
+      maturity: ["stabilize"],
+      impact: ["compliance", "performance"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "5–7 Tage",
+    deliverablesOutput: [
+      "Test- und Evaluationskonzept",
+      "Definierte Qualitätsmetriken",
+      "Testdatensatz und Testfälle",
+      "Ergebnis- und Fehleranalyse",
+      "Abnahmebericht"
+    ],
+    assumptions: [
+      "Fachliche Bewertungskriterien verfügbar",
+      "Repräsentative Testfälle vorhanden"
+    ],
+    outOfScope: [
+      "Formelle regulatorische Zertifizierung",
+      "Penetration Testing"
+    ],
+    parameters: ["aiTestScope", "aiTestCriticality"]
+  },
+  {
+    key: "ki_productive_handover",
+    family: "AI & Data Science",
+    name: "KI-Produktivsetzung & Übergabe",
+    shortDescription: "KI-Lösung produktiv bereitstellen, überwachen und an Betrieb und Anwender übergeben.",
+    longDescription: "Wir richten die Zielumgebung ein, konfigurieren Betrieb und Monitoring und übergeben die Lösung strukturiert an Ihre Organisation.",
+    basePrice: 6000,
+    active: true,
+    tags: {
+      type: ["run"],
+      maturity: ["scale"],
+      impact: ["adoption"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "5–7 Tage",
+    deliverablesOutput: [
+      "Produktives Deployment",
+      "Basis-Monitoring und Logging",
+      "Betriebsdokumentation",
+      "Anwenderschulung",
+      "Technische Übergabe"
+    ],
+    assumptions: [
+      "Zielumgebung verfügbar",
+      "Betriebsverantwortliche benannt"
+    ],
+    outOfScope: [
+      "Laufender Application Support",
+      "Cloud- und Lizenzkosten"
+    ],
+    parameters: ["aiHandoverEnvironment"]
+  },
+
+  // ── Bausteingruppe: KI Entwicklung (Forecasting, Klassifikation, Computer
+  //    Vision, Predictive Maintenance, Scoring, Anomaly Detection etc.) –
+  //    feste Reihenfolge 1–7 ──
+  {
+    key: "ki_dev_requirements",
+    family: "AI & Data Science",
+    name: "KI-Anforderungs- & Zielbild",
+    shortDescription: "Use Case, Zielgrößen und messbare Erfolgskriterien für die KI-Lösung definieren.",
+    longDescription: "Wir übersetzen den Geschäftsprozess in einen messbaren KI-Anwendungsfall und definieren Zielgrößen, Anforderungen und Evaluationskriterien.",
+    basePrice: 6000,
+    active: true,
+    tags: {
+      type: ["workshop"],
+      maturity: ["start"],
+      impact: ["foundation"],
+      coverage: ["semantic_layer"]
+    },
+    estimatedDuration: "5–7 Tage",
+    deliverablesOutput: [
+      "Dokumentierter KI-Use-Case",
+      "Zielgrößen und KPIs",
+      "Fachliche Anforderungen",
+      "Technisches Zielbild",
+      "Erfolgskriterien"
+    ],
+    assumptions: [
+      "Fachliche Ansprechpartner verfügbar",
+      "Relevanter Prozess ist grundsätzlich bekannt"
+    ],
+    outOfScope: [
+      "Technische Umsetzung",
+      "Detaillierte Datenanalyse/-aufbereitung"
+    ],
+    parameters: ["aiDevUseCaseScope", "aiDevStakeholderCount"]
+  },
+  {
+    key: "ki_dev_data_prep",
+    family: "AI & Data Science",
+    name: "Datenanalyse & Modellvorbereitung",
+    shortDescription: "Datenqualität, Eignung und Struktur analysieren und Daten für die Modellentwicklung vorbereiten.",
+    longDescription: "Wir sichern durch explorative Datenanalyse, dass die vorhandenen Daten für den KI-Use-Case geeignet sind, und bereiten einen belastbaren Entwicklungsdatensatz vor.",
+    basePrice: 12000,
+    active: true,
+    tags: {
+      type: ["workshop", "build"],
+      maturity: ["start"],
+      impact: ["foundation"],
+      coverage: ["data_layer"]
+    },
+    estimatedDuration: "10–14 Tage",
+    deliverablesOutput: [
+      "Explorative Datenanalyse",
+      "Datenqualitätsbewertung",
+      "Aufbereiteter Entwicklungsdatensatz",
+      "Feature- bzw. Datenkonzept",
+      "Dokumentierte Datenlücken"
+    ],
+    assumptions: [
+      "Relevante Datenquellen sind identifiziert",
+      "Zugriff auf Beispieldaten ist vorhanden"
+    ],
+    outOfScope: [
+      "Manuelle Datenannotation",
+      "Aufbau neuer Quellsysteme oder Datenplattformen"
+    ],
+    parameters: ["aiDevDataSourceCount", "aiDevDataQuality", "aiDevLabelingScope"]
+  },
+  {
+    key: "ki_dev_model_concept",
+    family: "AI & Data Science",
+    name: "Modellkonzept & Baseline",
+    shortDescription: "Geeignete Modellansätze auf Basis der kundenspezifischen Daten vergleichen und eine belastbare Baseline für die weitere Entwicklung erstellen.",
+    longDescription: "Wir vergleichen geeignete Modellansätze, erstellen eine erste Baseline und leiten daraus eine fundierte Empfehlung für das Zielmodell ab – so setzen wir komplexe Modellierung nur dort ein, wo sie messbaren Mehrwert liefert.",
+    basePrice: 6000,
+    active: true,
+    tags: {
+      type: ["blueprint"],
+      maturity: ["start", "stabilize"],
+      impact: ["foundation"],
+      coverage: ["data_layer"]
+    },
+    estimatedDuration: "5–7 Tage",
+    deliverablesOutput: [
+      "Auswahl geeigneter Modellansätze",
+      "Baseline-Modell",
+      "Erste Performance-Bewertung",
+      "Empfehlung für Zielmodell",
+      "Dokumentiertes Modellkonzept"
+    ],
+    assumptions: [
+      "Aufbereitete Entwicklungsdaten sind verfügbar",
+      "Zielgrößen und Erfolgskriterien sind definiert"
+    ],
+    outOfScope: [
+      "Produktives Zielmodell",
+      "Systemintegration und Deployment"
+    ],
+    parameters: ["aiDevMethodComplexity", "aiDevModelVariantCount"]
+  },
+  {
+    key: "ki_dev_model_training",
+    family: "AI & Data Science",
+    name: "KI-Modellentwicklung & Training",
+    shortDescription: "KI-Modell entwickeln, trainieren und auf die definierte Zielperformance optimieren.",
+    longDescription: "Aus Ihren Daten entwickeln wir ein leistungsfähiges Modell für den konkreten Geschäftsprozess – inklusive Feature- und Modellpipeline, Hyperparameter-Optimierung und Performance-Vergleich.",
+    basePrice: 18000,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["stabilize"],
+      impact: ["performance"],
+      coverage: ["data_layer"]
+    },
+    estimatedDuration: "15–20 Tage",
+    deliverablesOutput: [
+      "Trainiertes KI-Modell",
+      "Feature- und Modellpipeline",
+      "Hyperparameter-Optimierung",
+      "Performance-Vergleich",
+      "Dokumentierter Entwicklungsstand"
+    ],
+    assumptions: [
+      "Trainingsdaten in ausreichender Qualität und Menge sind verfügbar",
+      "Zielmetriken und Baseline sind definiert"
+    ],
+    outOfScope: [
+      "Manuelle Erstellung großer Trainingsdatensätze",
+      "Cloud-, GPU- und externe Lizenzkosten"
+    ],
+    parameters: ["aiDevModelComplexity", "aiDevOptimizationScope"]
+  },
+  {
+    key: "ki_dev_model_validation",
+    family: "AI & Data Science",
+    name: "Modellvalidierung & Qualitätssicherung",
+    shortDescription: "Modellleistung mit realistischen Testdaten prüfen und fachlich bewerten.",
+    longDescription: "Wir stellen durch eine unabhängige Modellevaluation sicher, dass Ihr Modell auch außerhalb der Entwicklungsdaten zuverlässig funktioniert – inklusive Fehler-, Segment- und Robustheitsanalyse.",
+    basePrice: 3600,
+    active: true,
+    tags: {
+      type: ["workshop"],
+      maturity: ["stabilize"],
+      impact: ["compliance", "performance"],
+      coverage: ["data_layer"]
+    },
+    estimatedDuration: "3–4 Tage",
+    deliverablesOutput: [
+      "Unabhängige Modellevaluation",
+      "Performance-Kennzahlen",
+      "Fehler- und Segmentanalyse",
+      "Robustheitsprüfung"
+    ],
+    assumptions: [
+      "Trainiertes Modell ist verfügbar",
+      "Repräsentative Testdaten und fachliche Bewertungskriterien liegen vor"
+    ],
+    outOfScope: [
+      "Regulatorische Zertifizierung",
+      "Erstellung umfangreicher zusätzlicher Testdaten"
+    ],
+    parameters: ["aiDevValidationScope"]
+  },
+  {
+    key: "ki_dev_model_integration",
+    family: "AI & Data Science",
+    name: "Modell- & Systemintegration",
+    shortDescription: "Trainiertes KI-Modell über APIs oder Datenpipelines in bestehende Systeme integrieren oder eine eigenständige UI.",
+    longDescription: "Wir machen Ihre Modellergebnisse direkt im operativen Geschäftsprozess verfügbar – über eine Inference-Schnittstelle, Systemintegration oder UI, inklusive Datenübergabe, Fehlerbehandlung und technischer Dokumentation.",
+    basePrice: 12000,
+    active: true,
+    tags: {
+      type: ["build"],
+      maturity: ["stabilize"],
+      impact: ["performance"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "10–14 Tage",
+    deliverablesOutput: [
+      "Inference-Schnittstelle",
+      "Systemintegration/UI",
+      "Datenübergabe",
+      "Fehlerbehandlung und Logging",
+      "Technische Dokumentation"
+    ],
+    assumptions: [
+      "Produktionsfähiges Modell ist verfügbar",
+      "Schnittstellen und technische Ansprechpartner sind verfügbar",
+      "Falls UI nötig, fachliche Anforderungen an UI"
+    ],
+    outOfScope: [
+      "Anpassungen an Drittsystemen",
+      "Lizenz- und Infrastrukturkosten externer Systeme"
+    ],
+    parameters: ["aiDevTargetSystemCount", "aiDevProcessingMode"]
+  },
+  {
+    key: "ki_dev_mlops",
+    family: "AI & Data Science",
+    name: "MLOps & Produktivsetzung",
+    shortDescription: "KI-Modell/System produktiv bereitstellen sowie Monitoring und zukünftige Aktualisierung ermöglichen.",
+    longDescription: "Wir stellen Ihr Modell produktiv bereit und sorgen mit Modellversionierung, Performance-Monitoring und Basis-Drift-Erkennung dafür, dass die Modellqualität auch nach der Produktivsetzung kontrollierbar bleibt.",
+    basePrice: 10800,
+    active: true,
+    tags: {
+      type: ["run"],
+      maturity: ["scale"],
+      impact: ["adoption"],
+      coverage: ["operations"]
+    },
+    estimatedDuration: "9–12 Tage",
+    deliverablesOutput: [
+      "Produktives Deployment",
+      "Modellversionierung",
+      "Performance-Monitoring",
+      "Basis-Drift-Erkennung",
+      "Betriebs- und Übergabedokumentation"
+    ],
+    assumptions: [
+      "Zielumgebung ist verfügbar",
+      "Betriebsverantwortliche und Deployment-Prozess sind abgestimmt",
+      "KI-Anwendung ist fertigentwickelt"
+    ],
+    outOfScope: [
+      "Laufender Betrieb und Application Support",
+      "Cloud-, Infrastruktur- und Lizenzkosten"
+    ],
+    parameters: ["aiDevDeploymentMode", "aiDevRetrainingMode", "aiDevMonitoringScope"]
+  },
+
   {
     key: "maturity_assessment",
     family: "Data Strategy",

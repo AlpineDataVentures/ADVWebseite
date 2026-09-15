@@ -6,6 +6,9 @@ command = "./netlify-build-setup.sh && npm run build"
 [context.branch-deploy]
 publish = "dist"
 command = "./netlify-build-setup.sh && npm run build_branch"
+[context.deploy-preview]
+publish = "dist"
+command = "./netlify-build-setup.sh && npm run build_branch"
 
 [build.environment]
 NODE_VERSION = "22"

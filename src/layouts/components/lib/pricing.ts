@@ -2,6 +2,8 @@ import type { DeliverableParameters, CartItem } from '../data/models';
 import type { Deliverable } from '../data/deliverables';
 import { deliverables } from '../data/deliverables';
 import { getParameterByKey } from '../data/parameters';
+import type { Product } from '../data/useCases';
+import { getBundleForProduct } from '../data/recommendations';
 
 /** Historischer Schätzpuffer – liegt in den Basispreisen in `deliverables.ts`, nicht in der Runtime. */
 export const PRICE_ESTIMATE_BUFFER = 1.1;
@@ -275,4 +277,23 @@ export function getMinimumPrice(deliverable: Deliverable): number {
 
   const result = calculateDeliverablePrice(deliverable, defaultParams);
   return result.total;
+}
+
+/**
+ * "ab"-Preis je Produkt = günstigster Baustein im empfohlenen Set.
+ * Gemeinsam genutzt von der klassischen Katalog-Browsing-Ansicht und der
+ * KI-Suche, damit die Preisanzeige in beiden Flows identisch berechnet wird.
+ */
+export function getFromPriceMap(products: Product[]): Record<string, number> {
+  const map: Record<string, number> = {};
+  for (const product of products) {
+    const prices = getBundleForProduct(product.id)
+      .map((rec) => {
+        const deliverable = getDeliverableById(rec.deliverableId);
+        return deliverable ? getMinimumPrice(deliverable) : 0;
+      })
+      .filter((p) => p > 0);
+    if (prices.length > 0) map[product.id] = Math.min(...prices);
+  }
+  return map;
 }

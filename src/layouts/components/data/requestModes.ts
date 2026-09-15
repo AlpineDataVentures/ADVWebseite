@@ -26,6 +26,18 @@ const hybridInquiryCopyByProductId: Record<string, HybridInquiryCopy> = {
     accordionTriggerLabel: "Individuelle Anfrage per E-Mail senden",
     submitButtonLabel: "Individuelle Anfrage per E-Mail senden",
   },
+  "ki-angebotsassistent": {
+    hintText:
+      "Wenn komplexe Kalkulationen, Produktkonfiguratoren oder mehrere ERP-/CRM-Systeme eingebunden werden sollen.",
+  },
+  "ki-vertragsassistent": {
+    hintText:
+      "Wenn viele Vertragstypen, individuelle Klauselwerke oder komplexe Systemintegrationen berücksichtigt werden müssen.",
+  },
+  "ki-meetingassistent": {
+    hintText:
+      "Wenn mehrere Meeting-Plattformen und Zielsysteme oder komplexe Folgeprozesse integriert werden sollen.",
+  },
 };
 
 export function getHybridInquiryCopy(productId: string): HybridInquiryCopy | undefined {
@@ -126,6 +138,11 @@ const requestModeById: Record<string, RequestMode> = {
   "potentialanalyse": "hybrid",
   "produktionsplanung": "hybrid",
   "kyc-automatisierung": "hybrid",
+
+  // ── Neue KI-/LLM-Integrations-Produkte ──
+  "ki-angebotsassistent": "hybrid",
+  "ki-vertragsassistent": "hybrid",
+  "ki-meetingassistent": "hybrid",
 };
 
 export function getRequestMode(productId: string): RequestMode {

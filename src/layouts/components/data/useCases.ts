@@ -1885,6 +1885,51 @@ const rawProducts: Product[] = [
       "Monitoring- & Alerting-Setup",
       "KPI-Definition & Kennzahlenkatalog"
     ]
+  },
+  {
+    id: "ki-angebotsassistent",
+    domain: "sales_marketing",
+    title: "KI-Angebotsassistent",
+    short: "Automatisierte Erstellung von Angebotsentwürfen aus Kundenanfragen, Produktdaten und bestehenden Vorlagen.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_sales_marketing",
+    priority: "green",
+    tags: { intent: ["automation"], data_scope: "multi_source", complexity: "m", tech_hint: ["ai", "integration"] },
+    outputs: [
+      "KI-gestützte Angebotserstellung",
+      "Automatisierter Workflow",
+      "Anbindung relevanter Produkt- und Preisdaten"
+    ]
+  },
+  {
+    id: "ki-vertragsassistent",
+    domain: "risk_compliance",
+    title: "KI-Vertragsassistent",
+    short: "Automatisierte Analyse von Verträgen zur schnellen Erkennung relevanter Inhalte, Fristen und Abweichungen.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_risk_compliance",
+    priority: "green",
+    tags: { intent: ["automation", "compliance"], data_scope: "single_source", complexity: "m", tech_hint: ["ai", "integration"] },
+    outputs: [
+      "KI-gestützte Vertragsanalyse",
+      "Automatische Informationsextraktion",
+      "Handlungs- und Entscheidungsempfehlungen"
+    ]
+  },
+  {
+    id: "ki-meetingassistent",
+    domain: "general_mgmt",
+    title: "KI-Meetingassistent",
+    short: "Automatisierte Meeting-Nachbereitung mit Zusammenfassungen, Aufgaben, Entscheidungen und Follow-ups.",
+    portfolio_area: "automation_ai",
+    solution_cluster: "automation_cross_domain",
+    priority: "green",
+    tags: { intent: ["automation", "insights"], data_scope: "single_source", complexity: "m", tech_hint: ["ai", "integration"] },
+    outputs: [
+      "Automatisierte Meeting-Zusammenfassung",
+      "Aufgaben- und Entscheidungsextraktion",
+      "Integration in bestehende Arbeitsprozesse"
+    ]
   }
 ];
 
@@ -2056,6 +2101,30 @@ const curatedProductData: Record<string, { details: NonNullable<Product["details
       typicalResult: "KI-gestützte Videoanalyse erkennt Qualitätsabweichungen frühzeitig und reduziert Ausschuss.",
       typicalDeliverables: ["Integrationsanalyse für Bild-/Videodaten", "KI-Qualitätsmodell (Pilot)", "Monitoring der Modellgüte"],
       bestFor: ["Produktion", "Qualitätssicherung", "Werksleitung"],
+    },
+  },
+  "ki-angebotsassistent": {
+    details: {
+      problem: "Die manuelle Angebotserstellung bindet Vertriebsressourcen und verzögert die Reaktion auf Kundenanfragen.",
+      typicalResult: "Schnellere und konsistente Angebotserstellung mit reduziertem manuellem Aufwand.",
+      typicalDeliverables: ["KI-Anforderungs- & Lösungsdesign", "Daten- & Wissensquellenanalyse", "KI-Logik & Prototyping"],
+      bestFor: ["Sales", "Vertrieb", "Inside Sales", "Vertriebsinnendienst"],
+    },
+  },
+  "ki-vertragsassistent": {
+    details: {
+      problem: "Vertragsinformationen und Fristen müssen häufig manuell gesucht, geprüft und übertragen werden.",
+      typicalResult: "Strukturierte Vertragsinformationen mit schnellerer Prüfung und weniger manuellem Aufwand.",
+      typicalDeliverables: ["KI-Anforderungs- & Lösungsdesign", "Daten- & Wissensquellenanalyse", "KI-Logik & Prototyping"],
+      bestFor: ["Legal", "Einkauf", "Finance", "Vertrieb", "Compliance"],
+    },
+  },
+  "ki-meetingassistent": {
+    details: {
+      problem: "Protokolle, Aufgaben und Follow-ups werden nach Meetings häufig manuell erstellt und in verschiedene Systeme übertragen.",
+      typicalResult: "Automatisierte Meeting-Nachbereitung mit klar dokumentierten nächsten Schritten.",
+      typicalDeliverables: ["KI-Anforderungs- & Lösungsdesign", "Daten- & Wissensquellenanalyse", "KI-Logik & Prototyping"],
+      bestFor: ["Sales", "Projektmanagement", "Consulting", "Customer Service", "Management"],
     },
   },
 };

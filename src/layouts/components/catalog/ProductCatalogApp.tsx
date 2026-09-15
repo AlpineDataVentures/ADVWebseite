@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { CatalogToolbar } from './CatalogToolbar';
+import { AiSearchLanding, type LlmSearchState } from './AiSearchLanding';
 import { DomainDrawer } from './DomainDrawer';
-import { CatalogIntro } from './CatalogIntro';
 import { ProductTileGrid } from './UseCaseTileGrid';
 import { ProductListView } from './ProductListView';
 import { DeliverableListView } from './DeliverableListView';
@@ -10,8 +10,6 @@ import { BundleView } from './BundleView';
 import { ConfigView } from './ConfigView';
 import { CartButton } from './CartButton';
 import { CartSheet } from './CartSheet';
-import { Button } from './ui/button';
-import { Boxes } from 'lucide-react';
 import { useConfigStore, rehydrateConfigFromStorage } from '../stores/configStore';
 import {
   getProductById,
@@ -20,7 +18,7 @@ import {
   type UiClusterId,
 } from '../data/useCases';
 import { getBundleForProduct } from '../data/recommendations';
-import { getDeliverableById, getMinimumPrice } from '../lib/pricing';
+import { getFromPriceMap } from '../lib/pricing';
 import {
   buildProductCatalogUrl,
   getCanonicalProductId,
@@ -31,6 +29,7 @@ import {
   sortProductsAlphabetically,
 } from '../data/catalogStrategy';
 import { searchCatalog, searchDeliverables } from '../data/catalogSearch';
+import { searchCatalogWithLLM, localFallbackProducts } from '../data/catalogSearchLLM';
 import { PRODUCT_CATALOG_URL } from '@/config/products';
 import { scrollCatalogToTopAfterPaint } from '../lib/catalogScroll';
 
@@ -106,6 +105,19 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const [showDeliverables, setShowDeliverables] = useState(initialListState.showDeliverables);
   const [returnContext, setReturnContext] = useState<CatalogReturnContext | null>(null);
 
+  // KI-Suche: bewusst hier oben (nicht in AiSearchLanding) gehalten, damit die
+  // letzten Ergebnisse erhalten bleiben, wenn man ein Produkt öffnet und per
+  // Zurück/Browser-Back wieder auf die Landing-Seite kommt (kein neuer API-Call).
+  const [kiQuery, setKiQuery] = useState('');
+  const [llmSearch, setLlmSearch] = useState<LlmSearchState>({ status: 'idle', query: '', products: [] });
+  const [rateLimitCountdown, setRateLimitCountdown] = useState<number | null>(null);
+  // Einmal erkanntes Tageslimit gilt für den Rest der Session.
+  const [kiUnavailableToday, setKiUnavailableToday] = useState(false);
+  // Merkt sich, ob das gerade betrachtete Produkt/Konfiguration aus der
+  // klassischen Browsing-Ansicht kam -> steuert, ob dort oben die Toolbar
+  // (Alle Domänen/Zurück zur KI-Suche) mit angezeigt wird.
+  const [cameFromBrowse, setCameFromBrowse] = useState(false);
+
   const setBundleFromProduct = useConfigStore((state) => state.setBundleFromProduct);
   const setActiveProduct = useConfigStore((state) => state.setActiveProduct);
   const configureSingleDeliverable = useConfigStore((state) => state.configureSingleDeliverable);
@@ -134,14 +146,6 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     window.history[method]({}, '', nextUrl);
   };
 
-  const syncListUrl = (overrides?: {
-    q?: string;
-    view?: 'all' | 'deliverables' | null;
-  }) => {
-    if (typeof window === 'undefined' || activeProductId) return;
-    navigateToCatalogUrl(null, 'replace', overrides);
-  };
-
   const captureReturnContext = (): CatalogReturnContext => ({
     activeCluster,
     searchQuery,
@@ -162,17 +166,53 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     });
   };
 
-  const handleSearchChange = (query: string) => {
-    const hadProduct = Boolean(activeProductId);
-    setSearchQuery(query);
-    if (query.trim() && hadProduct) {
-      setActiveProductId(null);
-      setActiveProduct(null);
-      setViewMode('bundle');
-      navigateToCatalogUrl(null, 'replace', { q: query });
+  /** Gegenstück zu handleShowAll(): zurück zum alleinigen KI-Such-Einstieg. */
+  const handleBackToKiLanding = () => {
+    setActiveCluster(null);
+    setShowAll(false);
+    setShowDeliverables(false);
+    setSearchQuery('');
+    setCameFromBrowse(false);
+    setActiveProductId(null);
+    setActiveProduct(null);
+    setViewMode('bundle');
+    navigateToCatalogUrl(null, 'push', { q: '', view: null });
+  };
+
+  const handleKiSearchSubmit = async () => {
+    const trimmed = kiQuery.trim();
+    if (!trimmed) {
+      setLlmSearch({ status: 'idle', query: '', products: [] });
       return;
     }
-    syncListUrl({ q: query });
+
+    // Tageslimit für heute schon bekannt -> gar nicht erst anfragen.
+    if (kiUnavailableToday) {
+      setLlmSearch({ status: 'daily_limit', query: trimmed, products: localFallbackProducts(trimmed) });
+      return;
+    }
+
+    // Vorherige Ergebnisse merken: beim Pro-IP-Limit bleiben sie sichtbar,
+    // statt die Liste während des Wartens zu leeren.
+    const previousProducts = llmSearch.products;
+    setLlmSearch({ status: 'loading', query: trimmed, products: [] });
+    const result = await searchCatalogWithLLM(trimmed);
+
+    if (result.outcome === 'rate_limited') {
+      setLlmSearch({
+        status: 'rate_limited',
+        query: trimmed,
+        products: previousProducts,
+        retryAfterSeconds: result.retryAfterSeconds,
+      });
+      return;
+    }
+
+    if (result.outcome === 'daily_limit') {
+      setKiUnavailableToday(true);
+    }
+
+    setLlmSearch({ status: result.outcome, query: trimmed, products: result.products });
   };
 
   const openProductFromUrl = (productId: string | null) => {
@@ -226,6 +266,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const handleConfigureDeliverable = (deliverableId: string) => {
     setReturnContext(captureReturnContext());
+    setCameFromBrowse(Boolean(showAll || activeCluster || showDeliverables));
     configureSingleDeliverable(deliverableId);
     setActiveProductId(null);
     setActiveProduct(null);
@@ -237,6 +278,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   const handleProductSelect = (productId: string) => {
     if (!productId) return;
     setReturnContext(captureReturnContext());
+    setCameFromBrowse(Boolean(showAll || activeCluster || showDeliverables));
     openProductFromUrl(productId);
     navigateToCatalogUrl(productId);
     scrollCatalogToTopAfterPaint();
@@ -280,6 +322,7 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   };
 
   const handleGoToConfig = () => {
+    setCameFromBrowse(Boolean(showAll || activeCluster || showDeliverables));
     setViewMode('configure');
     setCartOpen(false);
     scrollCatalogToTopAfterPaint();
@@ -294,6 +337,26 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
   useEffect(() => {
     rehydrateConfigFromStorage();
   }, []);
+
+  // Zählt das Pro-IP-Rate-Limit für die KI-Suche live herunter und setzt den
+  // Status danach automatisch zurück, damit ein neuer Versuch möglich ist.
+  useEffect(() => {
+    if (llmSearch.status !== 'rate_limited' || !llmSearch.retryAfterSeconds) {
+      setRateLimitCountdown(null);
+      return;
+    }
+    const deadline = Date.now() + llmSearch.retryAfterSeconds * 1000;
+    const tick = () => {
+      const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+      setRateLimitCountdown(remaining);
+      if (remaining <= 0) {
+        setLlmSearch({ status: 'idle', query: '', products: [] });
+      }
+    };
+    tick();
+    const interval = setInterval(tick, 1000);
+    return () => clearInterval(interval);
+  }, [llmSearch.status, llmSearch.retryAfterSeconds]);
 
   useEffect(() => {
     if (activeProductId && process.env.NODE_ENV === 'development') {
@@ -351,6 +414,10 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
 
   const activeProduct = activeProductId ? getProductById(activeProductId) : null;
 
+  // "browse" wird ausschließlich über Alle-Produkte/Domäne/Bausteine-Buttons
+  // erreicht; ohne diese drei zeigt renderContent() stattdessen AiSearchLanding.
+  const catalogEntryMode: 'ki-landing' | 'browse' = showAll || activeCluster || showDeliverables ? 'browse' : 'ki-landing';
+
   const searchResults = useMemo(() => {
     const query = searchQuery.trim();
     if (!query) return null;
@@ -383,27 +450,14 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     return searchDeliverables(query);
   }, [searchQuery]);
 
-  // "ab"-Preis je Produkt = günstigster Baustein im empfohlenen Set.
-  const fromPriceById = useMemo(() => {
-    const map: Record<string, number> = {};
-    for (const product of filteredProducts) {
-      const prices = getBundleForProduct(product.id)
-        .map((rec) => {
-          const deliverable = getDeliverableById(rec.deliverableId);
-          return deliverable ? getMinimumPrice(deliverable) : 0;
-        })
-        .filter((p) => p > 0);
-      if (prices.length > 0) map[product.id] = Math.min(...prices);
-    }
-    return map;
-  }, [filteredProducts]);
+  const fromPriceById = useMemo(() => getFromPriceMap(filteredProducts), [filteredProducts]);
 
   const tileTitle = useMemo(() => {
     if (searchQuery.trim()) return 'Suchergebnisse';
     if (activeCluster) return uiClusterLabels[activeCluster];
     if (showAll) return 'Alle Produkte';
     return 'Beliebte Einstiege';
-  }, [activeCluster, searchQuery, showAll]);
+  }, [activeCluster, showAll, searchQuery]);
 
   const tileSubtitle = useMemo(() => {
     if (searchQuery.trim()) {
@@ -420,8 +474,8 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     if (showAll) {
       return `${filteredProducts.length} Produkte insgesamt`;
     }
-    return 'Wählen Sie „Alle Domänen“ oder „Alle Produkte“, um den gesamten Katalog zu durchsuchen.';
-  }, [activeCluster, searchQuery, showAll, filteredProducts.length]);
+    return 'Wählen Sie „Alle Domänen“, um den gesamten Katalog zu durchsuchen.';
+  }, [activeCluster, showAll, filteredProducts.length, searchQuery]);
 
   const renderContent = () => {
     if (viewMode === 'configure' && cartCount > 0) {
@@ -457,70 +511,67 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
       );
     }
 
-    if (!activeProduct) {
-      const showIntro = !activeCluster && !searchQuery.trim() && !showAll;
+    if (!activeProduct && catalogEntryMode === 'ki-landing') {
       return (
-        <div className="space-y-8">
-          {showIntro && <CatalogIntro />}
+        <AiSearchLanding
+          kiQuery={kiQuery}
+          onKiQueryChange={setKiQuery}
+          llmSearch={llmSearch}
+          kiUnavailableToday={kiUnavailableToday}
+          rateLimitCountdown={rateLimitCountdown}
+          onSubmit={handleKiSearchSubmit}
+          onSelectProduct={handleProductSelect}
+        />
+      );
+    }
 
-          <div className="space-y-6">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <div className="space-y-2">
-                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-text dark:text-darkmode-text">
-                  {tileTitle}
-                </h2>
-                <p className="text-base text-text-light dark:text-darkmode-text-light max-w-2xl leading-relaxed">
-                  {tileSubtitle}
-                </p>
-              </div>
-
-              <ViewToggle value={viewLayout} onChange={setViewLayout} />
+    if (!activeProduct) {
+      return (
+        <div className="space-y-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="space-y-2">
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-text dark:text-darkmode-text">
+                {tileTitle}
+              </h2>
+              <p className="text-base text-text-light dark:text-darkmode-text-light max-w-2xl leading-relaxed">
+                {tileSubtitle}
+              </p>
             </div>
 
-            {viewLayout === 'grid' ? (
-              <ProductTileGrid
-                products={filteredProducts}
-                onSelect={handleProductSelect}
-                fromPriceById={fromPriceById}
-              />
-            ) : (
-              <ProductListView
-                products={filteredProducts}
-                onSelect={handleProductSelect}
-                fromPriceById={fromPriceById}
-              />
-            )}
-
-            {searchQuery.trim() && searchResults && searchResults.deliverables.length > 0 && (
-              <div className="space-y-4 pt-4 border-t border-border">
-                <div className="space-y-1">
-                  <h3 className="text-lg font-semibold text-text dark:text-darkmode-text">
-                    Passende Produktbausteine
-                  </h3>
-                  <p className="text-sm text-text-light dark:text-darkmode-text-light">
-                    Direkt konfigurieren – ohne ein Produkt zu öffnen.
-                  </p>
-                </div>
-                <DeliverableListView
-                  layout="list"
-                  onConfigure={handleConfigureDeliverable}
-                  items={searchResults.deliverables}
-                />
-              </div>
-            )}
-
-            {showIntro && (
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Button variant="outline" size="lg" onClick={handleShowAll}>
-                  Alle Produkte ansehen
-                </Button>
-                <Button variant="outline" size="lg" onClick={handleShowDeliverables}>
-                  <Boxes className="h-4 w-4" />
-                  Alle Produktbausteine ansehen
-                </Button>
-              </div>
-            )}
+            <ViewToggle value={viewLayout} onChange={setViewLayout} />
           </div>
+
+          {viewLayout === 'grid' ? (
+            <ProductTileGrid
+              products={filteredProducts}
+              onSelect={handleProductSelect}
+              fromPriceById={fromPriceById}
+            />
+          ) : (
+            <ProductListView
+              products={filteredProducts}
+              onSelect={handleProductSelect}
+              fromPriceById={fromPriceById}
+            />
+          )}
+
+          {searchQuery.trim() && searchResults && searchResults.deliverables.length > 0 && (
+            <div className="space-y-4 pt-4 border-t border-border">
+              <div className="space-y-1">
+                <h3 className="text-lg font-semibold text-text dark:text-darkmode-text">
+                  Passende Produktbausteine
+                </h3>
+                <p className="text-sm text-text-light dark:text-darkmode-text-light">
+                  Direkt konfigurieren – ohne ein Produkt zu öffnen.
+                </p>
+              </div>
+              <DeliverableListView
+                layout="list"
+                onConfigure={handleConfigureDeliverable}
+                items={searchResults.deliverables}
+              />
+            </div>
+          )}
         </div>
       );
     }
@@ -540,14 +591,28 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     return <ConfigView productId={activeProductId} onBack={handleBack} onOpenCart={() => setCartOpen(true)} />;
   };
 
+  // Toolbar (Domänen + Rückweg) in drei Fällen: klassische Browsing-Ansicht,
+  // KI-Such-Startseite selbst (kein Produkt aktiv), oder auf Produktdetail/
+  // Konfiguration, wenn diese aus der klassischen Ansicht heraus geöffnet
+  // wurden (cameFromBrowse). Kommt man aus der KI-Suche zu einem Produkt,
+  // bleibt es beim Produkt/Konfigurieren clean.
+  const isKiLandingView = catalogEntryMode === 'ki-landing' && !activeProduct;
+  const showCatalogToolbar =
+    catalogEntryMode === 'browse' ||
+    isKiLandingView ||
+    ((Boolean(activeProduct) || (viewMode === 'configure' && cartCount > 0)) && cameFromBrowse);
+
   return (
     <div className="min-h-screen flex flex-col bg-body dark:bg-darkmode-body text-text dark:text-darkmode-text">
-      <CatalogToolbar
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange}
-        activeCluster={activeCluster}
-        onOpenDomains={() => setDomainDrawerOpen(true)}
-      />
+      {showCatalogToolbar && (
+        <CatalogToolbar
+          activeCluster={activeCluster}
+          onOpenDomains={() => setDomainDrawerOpen(true)}
+          mode={isKiLandingView ? 'ki-landing' : 'browse'}
+          onBackToKiSearch={handleBackToKiLanding}
+          onShowAll={handleShowAll}
+        />
+      )}
 
       <main className="flex-1 min-h-0" data-catalog-main>
         <div className="container mx-auto px-4 py-8 md:py-10 max-w-6xl">
