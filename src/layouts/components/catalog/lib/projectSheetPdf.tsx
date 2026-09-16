@@ -199,7 +199,7 @@ function ProjectSheetDocument({
   const { product, items, totalPriceLabel } = data;
 
   return (
-    <Document title={`Projekt-Sheet${product ? ` – ${product.title}` : ""}`}>
+    <Document title={`Projektübersicht${product ? ` – ${product.title}` : ""}`}>
       <Page size="A4" style={styles.page}>
         <View style={styles.header} fixed>
           <Image src={logoDataUrl} style={styles.logo} />
@@ -211,7 +211,7 @@ function ProjectSheetDocument({
         </View>
 
         <View style={styles.titleBlock}>
-          <Text style={styles.title}>Projekt-Sheet</Text>
+          <Text style={styles.title}>Projektübersicht</Text>
           {product && <Text style={styles.subtitle}>{product.title}</Text>}
           <Text style={styles.meta}>Erstellt am {generatedAt}</Text>
         </View>
@@ -281,9 +281,9 @@ function ProjectSheetDocument({
               <Text style={styles.contactName}>Andreas Klostermann</Text>
               <Text style={styles.contactRole}>Geschäftsführer</Text>
               <Text style={styles.contactDetail}>E-Mail: andreas.klostermann@alpinedata.de</Text>
-              <Text style={styles.contactDetail}>Telefon (Zentrale): +49 160 8014 812</Text>
+              <Text style={styles.contactDetail}>Telefon: +49 160 956 066 71</Text>
               <Text style={styles.contactNote}>
-                Für Rückfragen zu diesem Projekt-Sheet stehe ich Ihnen gerne persönlich zur Verfügung.
+                Für Rückfragen zu dieser Projektübersicht stehe ich Ihnen gerne persönlich zur Verfügung.
               </Text>
             </View>
           </View>
@@ -291,7 +291,7 @@ function ProjectSheetDocument({
 
         <View style={styles.footer} fixed>
           <Text style={styles.footerText}>
-            Alpine Data Ventures GmbH · Leopoldstraße 31 · 80802 München · Telefon: +49 160 8014 812 ·
+            Alpine Data Ventures GmbH · Leopoldstraße 31 · 80802 München · Telefon: +49 160 956 066 71 ·
             info@alpinedata.de
           </Text>
           <Text style={styles.footerText}>
@@ -310,7 +310,7 @@ function ProjectSheetDocument({
 }
 
 /**
- * Erstellt das Projekt-Sheet-PDF und gibt es als Blob zurück. Lädt Logo und
+ * Erstellt das Projektübersicht-PDF und gibt es als Blob zurück. Lädt Logo und
  * Kontaktfoto client-seitig als (verkleinerte) Data-URLs, damit die Datei
  * nicht unnötig groß wird.
  */

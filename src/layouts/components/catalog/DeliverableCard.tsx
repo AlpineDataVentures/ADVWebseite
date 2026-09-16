@@ -1,10 +1,10 @@
+import { useState } from "react";
 import { Card } from "./ui/card";
 import { Switch } from "./ui/switch";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { Separator } from "./ui/separator";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle2, ChevronDown, XCircle } from "lucide-react";
 import type { Deliverable } from "../data/deliverables";
 import type { Recommendation } from "../data/recommendations";
 import { getMinimumPrice, formatPriceLabel } from "../lib/pricing";
@@ -44,6 +44,7 @@ export function DeliverableCard({
 }: DeliverableCardProps) {
   const isActive = deliverable.active;
   const isDisabled = !isActive;
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   const Icon = getDeliverableIcon(deliverable.key);
   const limitedOutputs = deliverable.deliverablesOutput.slice(0, 5);
@@ -58,14 +59,20 @@ export function DeliverableCard({
           ab <span className="font-semibold text-text dark:text-darkmode-text">{formatPriceLabel(minPrice, deliverable.pricePeriod)}</span>
         </span>
       )}
-      <div className="flex items-center gap-1.5">
-        <span className="text-[11px] text-text-light dark:text-darkmode-text-light whitespace-nowrap hidden sm:inline">
+      <div className="flex items-center gap-2">
+        <span
+          className={cn(
+            "text-sm font-semibold whitespace-nowrap",
+            isEnabled ? "text-green-700 dark:text-green-400" : "text-text dark:text-darkmode-text"
+          )}
+        >
           {isEnabled ? "Ausgewählt" : "Auswählen"}
         </span>
         <Switch
           checked={isEnabled}
           onChange={(e) => onToggle(e.target.checked)}
           disabled={isDisabled}
+          className="scale-110"
         />
       </div>
       {!simple && (
@@ -86,7 +93,7 @@ export function DeliverableCard({
     </div>
   ) : null;
 
-  const detailsContent = (
+  const summaryContent = (
     <>
       <p className="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">
         {deliverable.shortDescription}
@@ -104,7 +111,11 @@ export function DeliverableCard({
           </p>
         </div>
       )}
+    </>
+  );
 
+  const extraContent = (
+    <>
       {limitedOutputs.length > 0 && (
         <div className="space-y-1.5">
           <h4 className="font-semibold text-xs text-text dark:text-darkmode-text">Lieferumfang</h4>
@@ -155,20 +166,28 @@ export function DeliverableCard({
     </>
   );
 
-  const detailsAccordion = simple ? (
-    <div className="pt-1.5 space-y-3">{detailsContent}</div>
-  ) : (
-    <Accordion type="single">
-      <AccordionItem value={`details-${deliverable.key}`} className="border-0">
-        <AccordionTrigger
-          className="py-1 text-[11px] text-text-light dark:text-darkmode-text-light hover:no-underline"
+  const hasExtraContent =
+    limitedOutputs.length > 0 || limitedAssumptions.length > 0 || limitedOutOfScope.length > 0;
+
+  const detailsAccordion = (
+    <div className="pt-1.5 space-y-3">
+      {summaryContent}
+      {isDetailsOpen && hasExtraContent && <div className="space-y-4">{extraContent}</div>}
+      {hasExtraContent && (
+        <button
+          type="button"
+          onClick={() => setIsDetailsOpen((open) => !open)}
+          aria-expanded={isDetailsOpen}
           aria-label={`Details zu ${deliverable.name} ein- oder ausklappen`}
+          className="flex w-full items-center justify-center gap-1 text-[11px] text-text-light dark:text-darkmode-text-light hover:text-text dark:hover:text-darkmode-text"
         >
-          Mehr Details
-        </AccordionTrigger>
-        <AccordionContent className="pt-1.5 pb-0 space-y-3">{detailsContent}</AccordionContent>
-      </AccordionItem>
-    </Accordion>
+          {isDetailsOpen ? "Weniger Details" : "Mehr Details"}
+          <ChevronDown
+            className={cn("h-3 w-3 transition-transform duration-200", isDetailsOpen && "rotate-180")}
+          />
+        </button>
+      )}
+    </div>
   );
 
   const titleBlock = (
@@ -193,8 +212,8 @@ export function DeliverableCard({
     return (
       <li
         className={cn(
-          "bg-light dark:bg-darkmode-light hover:bg-body dark:hover:bg-darkmode-body transition-colors",
-          isEnabled && isActive && "bg-green-500/[0.03]",
+          "border-l-4 border-l-transparent bg-light dark:bg-darkmode-light hover:bg-body dark:hover:bg-darkmode-body transition-colors",
+          isEnabled && isActive && "border-l-green-600 dark:border-l-green-400 bg-green-500/5 dark:bg-green-500/8",
           isDisabled && "opacity-60"
         )}
       >
@@ -220,11 +239,14 @@ export function DeliverableCard({
   return (
     <Card
       className={cn(
-        "transition-colors duration-200 rounded-xl border-border/80",
-        isEnabled && isActive && "border-green-600/30 dark:border-green-400/20",
+        "relative overflow-hidden transition-colors duration-200 rounded-xl",
+        isEnabled && isActive && "bg-green-500/5 dark:bg-green-500/8",
         isDisabled && "opacity-60"
       )}
     >
+      {isEnabled && isActive && (
+        <div className="absolute inset-y-0 left-0 w-1 bg-green-600 dark:bg-green-500" aria-hidden="true" />
+      )}
       <div className="px-3.5 py-2.5 space-y-1.5">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           <div className="flex min-w-0 flex-1 items-center gap-2">

@@ -6,7 +6,7 @@ const steps: { id: FlowStep; label: string }[] = [
   { id: "browse", label: "Produktbeschreibung" },
   { id: "modules", label: "Bausteine" },
   { id: "config", label: "Konfiguration" },
-  { id: "inquiry", label: "Projekt-Sheet" },
+  { id: "inquiry", label: "Projektübersicht" },
 ];
 
 interface CatalogFlowStepsProps {

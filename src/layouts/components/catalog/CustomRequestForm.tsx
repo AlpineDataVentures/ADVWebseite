@@ -26,6 +26,9 @@ interface CustomRequestFormProps {
   prominent?: boolean;
   /** Optionaler Button-Text für die E-Mail-Anfrage. */
   submitButtonLabel?: string;
+  /** "default" (Grün) nur für den alleinigen/primären Pfad; als optionale
+   *  Zusatzaktion neben einem echten "Nächster Schritt"-Button "outline" verwenden. */
+  variant?: "default" | "outline";
 }
 
 const emptyFields: CustomInquiryFields = {
@@ -43,6 +46,7 @@ export function CustomRequestForm({
   embedded = false,
   prominent = false,
   submitButtonLabel,
+  variant = "default",
 }: CustomRequestFormProps) {
   const [fields, setFields] = useState<CustomInquiryFields>(emptyFields);
 
@@ -119,6 +123,7 @@ export function CustomRequestForm({
 
       <Button
         type="button"
+        variant={variant}
         size="lg"
         className="w-full sm:w-auto gap-2"
         onClick={() => {

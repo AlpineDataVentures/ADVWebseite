@@ -14,10 +14,10 @@ const defaultBestForByDomain: Record<string, string[]> = {
 };
 
 const projectScopeByComplexity: Record<string, string> = {
-  xs: "Kompakt – typisch 2–4 Wochen",
-  s: "Standard – typisch 4–8 Wochen",
-  m: "Mittlerer Umfang – typisch 2–3 Monate",
-  l: "Umfangreich – typisch 3+ Monate",
+  xs: "Kompakt: typisch 2–4 Wochen",
+  s: "Standard: typisch 4–8 Wochen",
+  m: "Mittlerer Umfang: typisch 2–3 Monate",
+  l: "Umfangreich: typisch 3+ Monate",
 };
 
 export interface ProductDetailViewModel {

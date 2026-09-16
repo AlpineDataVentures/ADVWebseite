@@ -36,7 +36,7 @@ interface ProjectSheetProps {
 }
 
 /**
- * Vierter Schritt der Journey: das Projekt-Sheet – Kostenübersicht, Details
+ * Vierter Schritt der Journey: die Projektübersicht – Kostenübersicht, Details
  * zu Produkt und Bausteinen (inkl. Lieferumfang/Nicht enthalten) sowie die
  * drei Wege, wie es weitergeht. Die Checkout-Aktionen stehen bewusst am
  * Anfang UND am Ende der Seite.
@@ -163,7 +163,7 @@ export function ProjectSheet({ productId, onBack }: ProjectSheetProps) {
       const safeTitle = (product?.title ?? "ADV").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "");
       const link = document.createElement("a");
       link.href = url;
-      link.download = `Projekt-Sheet-${safeTitle || "ADV"}.pdf`;
+      link.download = `Projektuebersicht-${safeTitle || "ADV"}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -209,7 +209,7 @@ export function ProjectSheet({ productId, onBack }: ProjectSheetProps) {
           ) : (
             <Download className="h-4 w-4 mr-2" />
           )}
-          {isGeneratingPdf ? "PDF wird erstellt…" : "PDF mit Projekt-Sheet herunterladen"}
+          {isGeneratingPdf ? "PDF wird erstellt…" : "PDF mit Projektübersicht herunterladen"}
         </Button>
         <Button variant="default" size="lg" className="w-full" onClick={handleSendInquiryEmail}>
           <Mail className="h-4 w-4 mr-2" />
@@ -244,7 +244,7 @@ export function ProjectSheet({ productId, onBack }: ProjectSheetProps) {
 
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-semibold text-text dark:text-darkmode-text mb-1.5">Projekt-Sheet</h2>
+          <h2 className="text-2xl font-semibold text-text dark:text-darkmode-text mb-1.5">Projektübersicht</h2>
           <p className="text-sm text-text-light dark:text-darkmode-text-light max-w-xl">
             Zusammenfassung Ihrer Auswahl – als Grundlage für Ihre Anfrage oder ein persönliches Gespräch.
           </p>

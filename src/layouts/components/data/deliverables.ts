@@ -78,7 +78,7 @@ export const deliverables: Deliverable[] = [
     key: "kpi_ws",
     family: "BI & Analytics",
     name: "KPI-Workshop und Kennzahlenkonzept",
-    shortDescription: "Gemeinsame Definition Ihrer wichtigsten Kennzahlen – einheitlich, nachvollziehbar und steuerungsrelevant.",
+    shortDescription: "Gemeinsame Definition Ihrer wichtigsten Kennzahlen: einheitlich, nachvollziehbar und steuerungsrelevant.",
     longDescription: "In diesem Workshop erarbeiten wir gemeinsam die für Ihr Unternehmen relevanten Kennzahlen (KPIs). Wir analysieren Ihre Geschäftsziele, identifizieren die wichtigsten Metriken und definieren klare Messgrößen. Sie erhalten ein strukturiertes KPI-Framework, das als Grundlage für alle zukünftigen Berichte und Analysen dient.",
     basePrice: 7600,
     active: true,
@@ -585,7 +585,7 @@ export const deliverables: Deliverable[] = [
     key: "anomaly_detection",
     family: "AI & Data Science",
     name: "Anomalieerkennung (KI)",
-    shortDescription: "Automatische Erkennung ungewöhnlicher Muster in Daten – für Frühwarnung, Qualität und Betrugserkennung.",
+    shortDescription: "Automatische Erkennung ungewöhnlicher Muster in Daten für Frühwarnung, Qualität und Betrugserkennung.",
     longDescription: "Wir entwickeln ein System zur automatischen Erkennung von Anomalien in Ihren Daten. Das System lernt normale Muster und erkennt Abweichungen, die auf Probleme, Betrug oder interessante Entwicklungen hinweisen können. Ideal für Qualitätssicherung, Betrugserkennung oder Prozessoptimierung.",
     basePrice: 25200,
     // Abgelöst durch die Bausteingruppe "KI Entwicklung" (ki_dev_*); kein Produkt empfiehlt diesen Baustein mehr.
@@ -619,7 +619,7 @@ export const deliverables: Deliverable[] = [
     key: "predictive_maintenance",
     family: "AI & Data Science",
     name: "Predictive Maintenance",
-    shortDescription: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig – nicht zu früh, nicht zu spät.",
+    shortDescription: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig: nicht zu früh, nicht zu spät.",
     longDescription: "Wir entwickeln ein Predictive Maintenance System, das Wartungsbedarfe für Ihre Maschinen und Anlagen vorhersagt. Basierend auf Sensordaten und historischen Wartungsdaten sagt das Modell voraus, wann Wartung nötig ist, sodass Sie Ausfälle vermeiden und Wartungskosten optimieren können.",
     basePrice: 29600,
     // Abgelöst durch die Bausteingruppe "KI Entwicklung" (ki_dev_*); kein Produkt empfiehlt diesen Baustein mehr.
@@ -653,7 +653,7 @@ export const deliverables: Deliverable[] = [
     key: "qa_ai",
     family: "AI & Data Science",
     name: "KI-gestützte Qualitätsprüfung",
-    shortDescription: "Automatische Qualitätsprüfung mit KI – z. B. für Bild-, Video- oder Prozessdaten.",
+    shortDescription: "Automatische Qualitätsprüfung mit KI, z. B. für Bild-, Video- oder Prozessdaten.",
     longDescription: "Wir entwickeln ein KI-System zur automatischen Qualitätsprüfung Ihrer Produkte. Basierend auf Bildern, Sensordaten oder anderen Messwerten erkennt das System Fehler und Qualitätsprobleme frühzeitig, sodass Sie Ausschuss reduzieren und Qualität verbessern können.",
     basePrice: 27400,
     // Abgelöst durch die Bausteingruppe "KI Entwicklung" (ki_dev_*); kein Produkt empfiehlt diesen Baustein mehr.
@@ -689,7 +689,7 @@ export const deliverables: Deliverable[] = [
     key: "target_architecture",
     family: "Enterprise Architecture",
     name: "Zielarchitektur für Daten & Analytics",
-    shortDescription: "Zielbild für Ihre Daten- und Analytics-Landschaft – klar, umsetzbar und abgestimmt mit dem Business.",
+    shortDescription: "Zielbild für Ihre Daten- und Analytics-Landschaft: klar, umsetzbar und abgestimmt mit dem Business.",
     longDescription: "Wir entwickeln eine Zielarchitektur für Ihre gesamte Datenlandschaft. Mit klaren Prinzipien, Technologie-Empfehlungen und einem Migrationspfad haben Sie eine Roadmap, wie Ihre Dateninfrastruktur in Zukunft aussehen soll.",
     basePrice: 19700,
     active: true,
@@ -823,7 +823,7 @@ export const deliverables: Deliverable[] = [
     family: "Data Architecture",
     name: "API- & Schnittstellenentwicklung",
     shortDescription: "Entwicklung und Anbindung von APIs und Schnittstellen zwischen Systemen. Stabile Datenflüsse für Automatisierung und Integration.",
-    longDescription: "Wir entwickeln und implementieren APIs und Schnittstellen zwischen Ihren Geschäftssystemen – z. B. ERP, CRM, Helpdesk oder Fachanwendungen. Sie erhalten dokumentierte, wartbare Integrationen als Grundlage für Automatisierung, BI und KI-Use-Cases.",
+    longDescription: "Wir entwickeln und implementieren APIs und Schnittstellen zwischen Ihren Geschäftssystemen, z. B. ERP, CRM, Helpdesk oder Fachanwendungen. Sie erhalten dokumentierte, wartbare Integrationen als Grundlage für Automatisierung, BI und KI-Use-Cases.",
     basePrice: 17500,
     active: true,
     tags: {
@@ -856,7 +856,7 @@ export const deliverables: Deliverable[] = [
     family: "Data Architecture",
     name: "Datenmodellierung",
     shortDescription: "Strukturiertes Datenmodell für Reporting, Analytics und zentrale Datenablage. Konsistente Semantik über Systeme hinweg.",
-    longDescription: "Wir modellieren Ihre Kerndatenbereiche – z. B. Vertrieb, Finanzen oder Stammdaten – in einem belastbaren logischen und technischen Datenmodell. Das Modell bildet die Basis für DWH, BI, Self-Service und spätere KI-Anwendungen.",
+    longDescription: "Wir modellieren Ihre Kerndatenbereiche (z. B. Vertrieb, Finanzen oder Stammdaten) in einem belastbaren logischen und technischen Datenmodell. Das Modell bildet die Basis für DWH, BI, Self-Service und spätere KI-Anwendungen.",
     basePrice: 14200,
     active: true,
     tags: {
@@ -889,7 +889,7 @@ export const deliverables: Deliverable[] = [
     family: "Data Architecture",
     name: "Datenmigration",
     shortDescription: "Geplante Migration von Daten in neue Systeme oder Plattformen. Strukturiert, nachvollziehbar und mit Qualitätssicherung.",
-    longDescription: "Wir migrieren Ihre Daten kontrolliert in Zielsysteme – z. B. beim Wechsel von Excel zu BI, DWH-Aufbau oder Systemkonsolidierung. Mit Migrationsplan, Mapping, Testläufen und Abnahme stellen wir sicher, dass Ihre Daten im Ziel belastbar ankommen.",
+    longDescription: "Wir migrieren Ihre Daten kontrolliert in Zielsysteme, z. B. beim Wechsel von Excel zu BI, DWH-Aufbau oder Systemkonsolidierung. Mit Migrationsplan, Mapping, Testläufen und Abnahme stellen wir sicher, dass Ihre Daten im Ziel belastbar ankommen.",
     basePrice: 16400,
     active: true,
     tags: {
@@ -954,8 +954,8 @@ export const deliverables: Deliverable[] = [
     key: "automation_pilot",
     family: "Data Operations",
     name: "Automatisierungs-Pilot",
-    shortDescription: "Kompakter Proof of Concept für Prozessautomatisierung. Schnell validieren, ob Automatisierung sich lohnt – ohne BI-Zwang.",
-    longDescription: "In einem fokussierten Pilot automatisieren wir einen klar abgegrenzten Geschäftsprozess – z. B. Rechnungseingang, Bestellfreigabe oder Ticket-Routing. Sie erhalten einen funktionsfähigen PoC mit Messgrößen und einer Empfehlung für Skalierung oder Produktivbetrieb.",
+    shortDescription: "Kompakter Proof of Concept für Prozessautomatisierung. Schnell validieren, ob Automatisierung sich lohnt, ohne BI-Zwang.",
+    longDescription: "In einem fokussierten Pilot automatisieren wir einen klar abgegrenzten Geschäftsprozess, z. B. Rechnungseingang, Bestellfreigabe oder Ticket-Routing. Sie erhalten einen funktionsfähigen PoC mit Messgrößen und einer Empfehlung für Skalierung oder Produktivbetrieb.",
     basePrice: 10900,
     active: true,
     tags: {
@@ -1021,8 +1021,8 @@ export const deliverables: Deliverable[] = [
     key: "ai_agent_dev",
     family: "AI & Data Science",
     name: "AI-Agent Entwicklung",
-    shortDescription: "Entwicklung eines fokussierten KI-Agenten für klar definierte Aufgaben – z. B. Coding, Recherche oder Prozessunterstützung.",
-    longDescription: "Wir entwickeln einen KI-Agenten für einen abgegrenzten Use-Case mit klaren Leitplanken, Tool-Anbindungen und Qualitätschecks. Der Agent ist auf Ihre Daten, Systeme und Governance-Anforderungen zugeschnitten – nicht als generische Demo, sondern als belastbarer Prototyp oder erste Produktivversion.",
+    shortDescription: "Entwicklung eines fokussierten KI-Agenten für klar definierte Aufgaben, z. B. Coding, Recherche oder Prozessunterstützung.",
+    longDescription: "Wir entwickeln einen KI-Agenten für einen abgegrenzten Use-Case mit klaren Leitplanken, Tool-Anbindungen und Qualitätschecks. Der Agent ist auf Ihre Daten, Systeme und Governance-Anforderungen zugeschnitten, nicht als generische Demo, sondern als belastbarer Prototyp oder erste Produktivversion.",
     basePrice: 21900,
     // Abgelöst durch die Bausteingruppe "KI Integration" (ki_*); kein Produkt empfiehlt diesen Baustein mehr.
     active: false,
@@ -1056,7 +1056,7 @@ export const deliverables: Deliverable[] = [
     family: "AI & Data Science",
     name: "AI Review & Qualitätskontrolle",
     shortDescription: "Unabhängige Prüfung von KI-Modellen, Architektur und Betriebsreife. Risiken erkennen, Qualität absichern.",
-    longDescription: "Wir prüfen bestehende oder geplante KI-Lösungen auf Modellqualität, Datenbasis, Governance, Sicherheit und Betriebsfähigkeit. Sie erhalten eine strukturierte Bewertung mit priorisierten Maßnahmen – ideal vor Go-Live, nach Piloten oder bei Architekturentscheidungen.",
+    longDescription: "Wir prüfen bestehende oder geplante KI-Lösungen auf Modellqualität, Datenbasis, Governance, Sicherheit und Betriebsfähigkeit. Sie erhalten eine strukturierte Bewertung mit priorisierten Maßnahmen. Ideal vor Go-Live, nach Piloten oder bei Architekturentscheidungen.",
     basePrice: 10900,
     active: true,
     tags: {
@@ -1381,7 +1381,7 @@ export const deliverables: Deliverable[] = [
     family: "AI & Data Science",
     name: "Modellkonzept & Baseline",
     shortDescription: "Geeignete Modellansätze auf Basis der kundenspezifischen Daten vergleichen und eine belastbare Baseline für die weitere Entwicklung erstellen.",
-    longDescription: "Wir vergleichen geeignete Modellansätze, erstellen eine erste Baseline und leiten daraus eine fundierte Empfehlung für das Zielmodell ab – so setzen wir komplexe Modellierung nur dort ein, wo sie messbaren Mehrwert liefert.",
+    longDescription: "Wir vergleichen geeignete Modellansätze, erstellen eine erste Baseline und leiten daraus eine fundierte Empfehlung für das Zielmodell ab. So setzen wir komplexe Modellierung nur dort ein, wo sie messbaren Mehrwert liefert.",
     basePrice: 6000,
     active: true,
     tags: {
@@ -1413,7 +1413,7 @@ export const deliverables: Deliverable[] = [
     family: "AI & Data Science",
     name: "KI-Modellentwicklung & Training",
     shortDescription: "KI-Modell entwickeln, trainieren und auf die definierte Zielperformance optimieren.",
-    longDescription: "Aus Ihren Daten entwickeln wir ein leistungsfähiges Modell für den konkreten Geschäftsprozess – inklusive Feature- und Modellpipeline, Hyperparameter-Optimierung und Performance-Vergleich.",
+    longDescription: "Aus Ihren Daten entwickeln wir ein leistungsfähiges Modell für den konkreten Geschäftsprozess, inklusive Feature- und Modellpipeline, Hyperparameter-Optimierung und Performance-Vergleich.",
     basePrice: 18000,
     active: true,
     tags: {
@@ -1445,7 +1445,7 @@ export const deliverables: Deliverable[] = [
     family: "AI & Data Science",
     name: "Modellvalidierung & Qualitätssicherung",
     shortDescription: "Modellleistung mit realistischen Testdaten prüfen und fachlich bewerten.",
-    longDescription: "Wir stellen durch eine unabhängige Modellevaluation sicher, dass Ihr Modell auch außerhalb der Entwicklungsdaten zuverlässig funktioniert – inklusive Fehler-, Segment- und Robustheitsanalyse.",
+    longDescription: "Wir stellen durch eine unabhängige Modellevaluation sicher, dass Ihr Modell auch außerhalb der Entwicklungsdaten zuverlässig funktioniert, inklusive Fehler-, Segment- und Robustheitsanalyse.",
     basePrice: 3600,
     active: true,
     tags: {
@@ -1476,7 +1476,7 @@ export const deliverables: Deliverable[] = [
     family: "AI & Data Science",
     name: "Modell- & Systemintegration",
     shortDescription: "Trainiertes KI-Modell über APIs oder Datenpipelines in bestehende Systeme integrieren oder eine eigenständige UI.",
-    longDescription: "Wir machen Ihre Modellergebnisse direkt im operativen Geschäftsprozess verfügbar – über eine Inference-Schnittstelle, Systemintegration oder UI, inklusive Datenübergabe, Fehlerbehandlung und technischer Dokumentation.",
+    longDescription: "Wir machen Ihre Modellergebnisse direkt im operativen Geschäftsprozess verfügbar über eine Inference-Schnittstelle, Systemintegration oder UI, inklusive Datenübergabe, Fehlerbehandlung und technischer Dokumentation.",
     basePrice: 12000,
     active: true,
     tags: {
@@ -1543,7 +1543,7 @@ export const deliverables: Deliverable[] = [
     family: "Data Strategy",
     name: "Data & Analytics Maturity Assessment",
     shortDescription: "Strukturierte Reifegradanalyse für Daten, Analytics und KI. Klarheit über Stärken, Lücken und nächste Schritte.",
-    longDescription: "Wir bewerten Ihre Data-&-Analytics-Reife entlang definierter Dimensionen – z. B. Strategie, Governance, Architektur, Analytics und KI. Sie erhalten einen belastbaren Reifegradbericht mit Handlungsfeldern und priorisierten Empfehlungen.",
+    longDescription: "Wir bewerten Ihre Data-&-Analytics-Reife entlang definierter Dimensionen, z. B. Strategie, Governance, Architektur, Analytics und KI. Sie erhalten einen belastbaren Reifegradbericht mit Handlungsfeldern und priorisierten Empfehlungen.",
     basePrice: 14200,
     active: true,
     tags: {
@@ -1575,8 +1575,8 @@ export const deliverables: Deliverable[] = [
     key: "compliance_package",
     family: "Governance & Culture",
     name: "Compliance-Paket",
-    shortDescription: "Gebündeltes Paket für regulatorische Anforderungen – Governance, Kennzahlen und Umsetzungsroadmap.",
-    longDescription: "Wir strukturieren Ihre Compliance-Anforderungen – z. B. NIS2, ISMS oder branchenspezifische Vorgaben – in ein umsetzbares Paket aus Governance-Rahmen, KPIs und priorisierten Maßnahmen. Ideal als Einstieg, wenn Reporting und Verantwortlichkeiten noch nicht klar sind.",
+    shortDescription: "Gebündeltes Paket für regulatorische Anforderungen: Governance, Kennzahlen und Umsetzungsroadmap.",
+    longDescription: "Wir strukturieren Ihre Compliance-Anforderungen (z. B. NIS2, ISMS oder branchenspezifische Vorgaben) in ein umsetzbares Paket aus Governance-Rahmen, KPIs und priorisierten Maßnahmen. Ideal als Einstieg, wenn Reporting und Verantwortlichkeiten noch nicht klar sind.",
     basePrice: 16400,
     active: true,
     tags: {
@@ -1642,7 +1642,7 @@ export const deliverables: Deliverable[] = [
     family: "Enterprise Architecture",
     name: "Architektur-Workshop",
     shortDescription: "Kompakter Workshop für Architekturentscheidungen. Schnelle Klarheit über Zielbild, Optionen und nächste Schritte.",
-    longDescription: "In einem fokussierten Architektur-Workshop klären wir Ihr Zielbild, bewerten Optionen und leiten konkrete nächste Schritte ab – z. B. für Datenplattform, Integration, KI-Infrastruktur oder Data Mesh. Kürzer und operativer als ein vollständiges Target-Architecture-Projekt.",
+    longDescription: "In einem fokussierten Architektur-Workshop klären wir Ihr Zielbild, bewerten Optionen und leiten konkrete nächste Schritte ab, z. B. für Datenplattform, Integration, KI-Infrastruktur oder Data Mesh. Kürzer und operativer als ein vollständiges Target-Architecture-Projekt.",
     basePrice: 9800,
     active: true,
     tags: {
@@ -1678,7 +1678,7 @@ export const deliverables: Deliverable[] = [
     family: "Data Architecture",
     name: "ETL/ELT Pipeline Setup",
     shortDescription: "Aufbau stabiler Datenpipelines für regelmäßige Datenaktualisierung. Brücke zwischen Quellen, DWH und BI.",
-    longDescription: "Wir implementieren ETL- oder ELT-Pipelines für Ihre Kernprozesse – von der Quelle bis zur konsumierbaren Datenschicht. Die Pipelines sind dokumentiert, überwachbar und erweiterbar. Ideal als Baustein zwischen Integrationsanalyse, DWH und Reporting.",
+    longDescription: "Wir implementieren ETL- oder ELT-Pipelines für Ihre Kernprozesse von der Quelle bis zur konsumierbaren Datenschicht. Die Pipelines sind dokumentiert, überwachbar und erweiterbar. Ideal als Baustein zwischen Integrationsanalyse, DWH und Reporting.",
     basePrice: 19700,
     active: true,
     tags: {
@@ -1711,7 +1711,7 @@ export const deliverables: Deliverable[] = [
     family: "Data Operations",
     name: "Prozessanalyse Workshop",
     shortDescription: "Strukturierte Analyse eines Geschäftsprozesses vor Automatisierung oder Optimierung. Klarer Scope, messbare Hebel.",
-    longDescription: "Wir analysieren einen fokussierten Geschäftsprozess gemeinsam mit Fachbereich und IT: Ist-Ablauf, Medienbrüche, Datenquellen und Automatisierungspotenzial. Das Ergebnis ist ein belastbarer Umsetzungs-Scope – ideal vor Automatisierungs-Pilot oder Rollout.",
+    longDescription: "Wir analysieren einen fokussierten Geschäftsprozess gemeinsam mit Fachbereich und IT: Ist-Ablauf, Medienbrüche, Datenquellen und Automatisierungspotenzial. Das Ergebnis ist ein belastbarer Umsetzungs-Scope. Ideal vor Automatisierungs-Pilot oder Rollout.",
     basePrice: 8700,
     active: true,
     tags: {
@@ -1777,7 +1777,7 @@ export const deliverables: Deliverable[] = [
     family: "BI & Analytics",
     name: "Semantic Layer & Kennzahlenmodell",
     shortDescription: "Einheitliches Kennzahlen- und Semantikmodell für BI und Self-Service. Eine Wahrheit, viele Reports.",
-    longDescription: "Wir bauen einen Semantic Layer auf Ihrer Datenbasis: zentrale Metriken, Dimensionen und Berechnungslogik. Damit werden Reports konsistent, Wartung einfacher und Self-Service belastbar – der natürliche Baustein nach KPI-Workshop und vor Management-Reports.",
+    longDescription: "Wir bauen einen Semantic Layer auf Ihrer Datenbasis: zentrale Metriken, Dimensionen und Berechnungslogik. Damit werden Reports konsistent, Wartung einfacher und Self-Service belastbar. Der natürliche Baustein nach KPI-Workshop und vor Management-Reports.",
     basePrice: 13100,
     active: true,
     tags: {
@@ -1810,7 +1810,7 @@ export const deliverables: Deliverable[] = [
     family: "Data Knowledge",
     name: "Self-Service BI Enablement",
     shortDescription: "Befähigung von Fachbereichen zu eigenständigem Reporting. Governance, Templates und Schulung im Paket.",
-    longDescription: "Wir etablieren Self-Service BI für Ihre Fachbereiche: Berechtigungsmodell, Report-Templates, Kurzschulung und Leitplanken. Der Baustein ergänzt BI-Setup und Semantic Layer – für nachhaltige Adoption statt Einzelberichte.",
+    longDescription: "Wir etablieren Self-Service BI für Ihre Fachbereiche: Berechtigungsmodell, Report-Templates, Kurzschulung und Leitplanken. Der Baustein ergänzt BI-Setup und Semantic Layer für nachhaltige Adoption statt Einzelberichte.",
     basePrice: 9800,
     active: true,
     tags: {
@@ -1876,7 +1876,7 @@ export const deliverables: Deliverable[] = [
     family: "Governance & Culture",
     name: "Change & Adoption Begleitung",
     shortDescription: "Begleitung von Daten-, BI- und KI-Initiativen bei Menschen und Organisation. Adoption sicherstellen.",
-    longDescription: "Wir begleiten die organisatorische Seite Ihrer Dateninitiative: Stakeholder, Kommunikation, Rollenklärung und Adoption-Maßnahmen. Ideal ergänzend zu Strategie-, Leadership- und Technikbausteinen – damit Projekte im Alltag ankommen.",
+    longDescription: "Wir begleiten die organisatorische Seite Ihrer Dateninitiative: Stakeholder, Kommunikation, Rollenklärung und Adoption-Maßnahmen. Ideal ergänzend zu Strategie-, Leadership- und Technikbausteinen, damit Projekte im Alltag ankommen.",
     basePrice: 10900,
     active: true,
     tags: {
@@ -1908,7 +1908,7 @@ export const deliverables: Deliverable[] = [
     key: "data_catalog_setup",
     family: "Data Architecture",
     name: "Data Catalog Einrichtung",
-    shortDescription: "Technisches und fachliches Setup eines Data Catalogs – Metadaten, Ownership und Auffindbarkeit.",
+    shortDescription: "Technisches und fachliches Setup eines Data Catalogs: Metadaten, Ownership und Auffindbarkeit.",
     longDescription: "Wir richten einen Data Catalog für Ihre wichtigsten Datenobjekte ein: Metadaten, Ownership, Glossar-Anbindung und Suchfunktion. Der Baustein vervollständigt Governance- und Glossar-Arbeit zu einem nutzbaren Katalog-Produkt.",
     basePrice: 16400,
     active: true,
@@ -1942,7 +1942,7 @@ export const deliverables: Deliverable[] = [
     family: "Governance & Culture",
     name: "Security & Access Review",
     shortDescription: "Prüfung von Zugriffen, Berechtigungen und Sicherheitsrisiken in der Datenlandschaft.",
-    longDescription: "Wir prüfen Zugriffswege, Berechtigungsmodelle und Sicherheitsrisiken rund um Ihre Datenplattform und Fachsysteme. Das Ergebnis ist ein priorisierter Maßnahmenplan – ideal vor IAM-Rollout, Security-Dashboards oder Compliance-Paketen.",
+    longDescription: "Wir prüfen Zugriffswege, Berechtigungsmodelle und Sicherheitsrisiken rund um Ihre Datenplattform und Fachsysteme. Das Ergebnis ist ein priorisierter Maßnahmenplan. Ideal vor IAM-Rollout, Security-Dashboards oder Compliance-Paketen.",
     basePrice: 13100,
     active: true,
     tags: {
@@ -2008,9 +2008,9 @@ export const deliverables: Deliverable[] = [
     family: "Governance & Culture",
     name: "Externer Datenschutzbeauftragter – Retainer",
     shortDescription:
-      "Laufende Betreuung durch einen TÜV-zertifizierten externen Datenschutzbeauftragter auf monatlicher Retainer-Basis – ab 600 € pro Monat (Kleinunternehmen, Basisbetreuung).",
+      "Laufende Betreuung durch einen TÜV-zertifizierten externen Datenschutzbeauftragter auf monatlicher Retainer-Basis, ab 600 € pro Monat (Kleinunternehmen, Basisbetreuung).",
     longDescription:
-      "Ein TÜV-zertifizierter externer Datenschutzbeauftragter begleitet Ihr Unternehmen dauerhaft als Ansprechpartner für Datenschutzfragen. Der monatliche Retainer wird nach Unternehmensgröße und Betreuungsumfang kalkuliert – von 600 € (Kleinunternehmen, Basis) bis 8.000 € (Großunternehmen, intensive Betreuung). Für Unternehmensgruppen, Konzerne oder besondere Anforderungen erstellen wir gerne ein individuelles Angebot.",
+      "Ein TÜV-zertifizierter externer Datenschutzbeauftragter begleitet Ihr Unternehmen dauerhaft als Ansprechpartner für Datenschutzfragen. Der monatliche Retainer wird nach Unternehmensgröße und Betreuungsumfang kalkuliert: von 600 € (Kleinunternehmen, Basis) bis 8.000 € (Großunternehmen, intensive Betreuung). Für Unternehmensgruppen, Konzerne oder besondere Anforderungen erstellen wir gerne ein individuelles Angebot.",
     basePrice: 600,
     active: true,
     pricePeriod: "pro Monat",

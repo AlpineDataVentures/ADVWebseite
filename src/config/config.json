@@ -31,7 +31,7 @@
   },
   "navigation_button": {
     "enable": true,
-    "label": "Fixpreisprojekt konfigurieren",
+    "label": "Preis berechnen",
     "link": "/produktkatalog/"
   },
   "metadata": {

@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import { Mail, Layers } from "lucide-react";
+import { Mail, Layers, ArrowRight } from "lucide-react";
 import { useConfigStore } from "../stores/configStore";
 import { getProductById } from "../data/useCases";
 import { getDeliverableById } from "../data/deliverables";
@@ -88,14 +88,28 @@ export function ModuleSelection({ productId, onNext, onBack }: ModuleSelectionPr
         ))}
       </div>
 
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3">
+        <p className="text-sm text-text-light dark:text-darkmode-text-light text-center sm:text-right">
+          {enabledCount} von {items.length} ausgewählt
+        </p>
+        <Button variant="outline" onClick={handleResetBundle} size="lg">
+          Auswahl zurücksetzen
+        </Button>
+      </div>
+
       <Separator />
 
-      <div className="rounded-xl border border-green-600/25 dark:border-green-400/20 bg-green-500/6 dark:bg-green-500/10 px-5 py-5 space-y-4">
+      <div className="rounded-xl border border-green-600/30 dark:border-green-400/25 bg-green-500/8 dark:bg-green-500/10 shadow-sm px-5 py-6 space-y-4">
         <div className="flex items-start gap-3">
-          <Layers className="h-5 w-5 text-green-700 dark:text-green-400 shrink-0 mt-0.5" />
-          <div className="space-y-1.5">
-            <h3 className="text-sm font-semibold text-text dark:text-darkmode-text">
-              Nächster Schritt: Bausteine konfigurieren
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 dark:bg-green-500 text-white shrink-0">
+            <Layers className="h-5 w-5" />
+          </div>
+          <div className="space-y-1">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-green-700 dark:text-green-400">
+              Nächster Schritt
+            </p>
+            <h3 className="text-base md:text-lg font-semibold text-text dark:text-darkmode-text">
+              Bausteine konfigurieren
             </h3>
             <p className="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed">
               Im nächsten Schritt konfigurieren Sie einzelne Bausteine, damit wir besser die Fixkosten
@@ -103,18 +117,16 @@ export function ModuleSelection({ productId, onNext, onBack }: ModuleSelectionPr
             </p>
           </div>
         </div>
-        <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3">
-          <Button variant="outline" onClick={handleResetBundle} size="lg">
-            Auswahl zurücksetzen
+        <div className="flex justify-center pt-2">
+          <Button
+            onClick={onNext}
+            size="lg"
+            disabled={enabledCount === 0}
+            className="gap-2 h-12 px-8 text-base font-bold min-w-72 justify-center"
+          >
+            Bausteine konfigurieren
+            <ArrowRight className="h-4 w-4" />
           </Button>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <p className="text-sm text-text-light dark:text-darkmode-text-light text-center sm:text-right">
-              {enabledCount} von {items.length} ausgewählt
-            </p>
-            <Button onClick={onNext} size="lg" disabled={enabledCount === 0}>
-              Bausteine konfigurieren
-            </Button>
-          </div>
         </div>
       </div>
 
@@ -136,6 +148,7 @@ export function ModuleSelection({ productId, onNext, onBack }: ModuleSelectionPr
               productId={product.id}
               isAddon
               embedded
+              variant="outline"
               submitButtonLabel={hybridInquiryCopy?.submitButtonLabel}
             />
           </div>

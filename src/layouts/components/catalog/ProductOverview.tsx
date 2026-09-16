@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import { CheckCircle2, Layers } from "lucide-react";
+import { CheckCircle2, Layers, ArrowRight } from "lucide-react";
 import { getProductById } from "../data/useCases";
 import { getRequestMode } from "../data/requestModes";
 import { getProductDetailViewModel } from "../data/productDetailMeta";
@@ -145,23 +145,29 @@ export function ProductOverview({ productId, onNext, onBack }: ProductOverviewPr
       </div>
 
       {hasModules ? (
-        <div className="rounded-xl border border-green-600/25 dark:border-green-400/20 bg-green-500/6 dark:bg-green-500/10 px-5 py-5 space-y-4">
+        <div className="rounded-xl border border-green-600/30 dark:border-green-400/25 bg-green-500/8 dark:bg-green-500/10 shadow-sm px-5 py-6 space-y-4">
           <div className="flex items-start gap-3">
-            <Layers className="h-5 w-5 text-green-700 dark:text-green-400 shrink-0 mt-0.5" />
-            <div className="space-y-1.5">
-              <h3 className="text-sm font-semibold text-text dark:text-darkmode-text">
-                Nächster Schritt: Produktbausteine wählen
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 dark:bg-green-500 text-white shrink-0">
+              <Layers className="h-5 w-5" />
+            </div>
+            <div className="space-y-1">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-green-700 dark:text-green-400">
+                Nächster Schritt
+              </p>
+              <h3 className="text-base md:text-lg font-semibold text-text dark:text-darkmode-text">
+                Produktbausteine wählen
               </h3>
               <p className="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed">
                 Bausteine sind die einzelnen Projektphasen, die für die Umsetzung dieses Produkts nötig sind. Sie
-                wählen frei, welche Sie brauchen – zum Beispiel, wenn Sie einzelne Schritte bereits selbst
+                wählen frei, welche Sie brauchen, z.B., wenn Sie einzelne Schritte bereits selbst
                 erledigt haben.
               </p>
             </div>
           </div>
-          <div className="flex justify-end">
-            <Button onClick={onNext} size="lg">
+          <div className="flex justify-center pt-2">
+            <Button onClick={onNext} size="lg" className="gap-2 h-12 px-8 text-base font-bold min-w-72 justify-center">
               Bausteine wählen
+              <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
         </div>

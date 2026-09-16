@@ -633,17 +633,11 @@ export default function ProductCatalogApp({ initialProductId = null }: ProductCa
     return <ConfigView productId={activeProductId} onBack={handleBack} onNext={handleViewProjectSheet} />;
   };
 
-  // Toolbar (Domänen + Rückweg) in drei Fällen: klassische Browsing-Ansicht,
-  // KI-Such-Startseite selbst (kein Produkt aktiv), oder auf Produktdetail/
-  // Konfiguration, wenn diese aus der klassischen Ansicht heraus geöffnet
-  // wurden (cameFromBrowse). Kommt man aus der KI-Suche zu einem Produkt,
-  // bleibt es beim Produkt/Konfigurieren clean.
+  // Toolbar (Domänen + Rückweg) bleibt über die gesamte Journey hinweg sichtbar,
+  // unabhängig davon, ob man über "Alle Produkte" oder über ein KI-Suchergebnis
+  // eingestiegen ist.
   const isKiLandingView = catalogEntryMode === 'ki-landing' && !activeProduct;
-  const showCatalogToolbar =
-    catalogEntryMode === 'browse' ||
-    isKiLandingView ||
-    ((Boolean(activeProduct) || ((viewMode === 'configure' || viewMode === 'sheet') && cartCount > 0)) &&
-      cameFromBrowse);
+  const showCatalogToolbar = true;
 
   return (
     <div className="min-h-screen flex flex-col bg-body dark:bg-darkmode-body text-text dark:text-darkmode-text">

@@ -1012,7 +1012,7 @@ const rawProducts: Product[] = [
     id: "predictive-maintenance",
     domain: "production",
     title: "Predictive Maintenance",
-    short: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig – nicht zu früh, nicht zu spät.",
+    short: "Vorhersage von Wartungsbedarfen mit KI. Wartung genau dann, wenn nötig: nicht zu früh, nicht zu spät.",
     portfolio_area: "automation_ai",
     solution_cluster: "automation_production_logistics",
     priority: "green",
@@ -1246,7 +1246,7 @@ const rawProducts: Product[] = [
     domain: "risk_compliance",
     title: "Externer Datenschutzbeauftragter",
     short:
-      "TÜV-zertifizierter externer Datenschutzbeauftragter als dauerhafter Ansprechpartner – laufende Unterstützung bei Datenschutzfragen im Retainer-Modell mit Basis- oder Erweitert-Kontingent.",
+      "TÜV-zertifizierter externer Datenschutzbeauftragter als dauerhafter Ansprechpartner: laufende Unterstützung bei Datenschutzfragen im Retainer-Modell mit Basis- oder Erweitert-Kontingent.",
     portfolio_area: "solutions",
     solution_cluster: "orientation_prioritization",
     priority: "green",
