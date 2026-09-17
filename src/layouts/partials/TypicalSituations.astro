@@ -3,24 +3,24 @@ import DynamicIcon from "@/helpers/DynamicIcon";
 
 const situations = [
   {
-    icon: "FaBridgeCircleXmark",
+    icon: "FaMapLocationDot",
     title: "Unklare Datenlandschaft",
-    text: "Die Daten sind vorhanden - aber nicht nutzbar",
+    text: "Ihre Daten sind über mehrere Systeme verstreut ohne, dass jemand weiß, was bereits vorhanden ist, was fehlt oder wie verlässlich sie sind.",
   },
   {
-    icon: "LuListX",
-    title: "Fehlende Priorisierung",
-    text: "Es gibt viele Ideen - aber keinen klaren nächsten Schritt",
+    icon: "FaSignsPost",
+    title: "Mangelnde Priorisierung",
+    text: "Es gibt mehr Ideen für Daten und KI, als Sie umsetzen können, aber niemand weiß, welche davon sich wirklich lohnen.",
   },
   {
-    icon: "FaAnchorCircleXmark",
-    title: "Unklarer Einstieg in KI",
-    text: "Potenziale sind sichtbar, aber es fehlt ein konkreter, umsetzbarer Ansatz",
+    icon: "FaPersonCircleQuestion",
+    title: "Ungeklärte Verantwortlichkeiten",
+    text: "Kundendaten widersprechen sich zwischen Systemen, oft merken Ihre Kunden die Fehler früher als Sie selbst.",
   },
   {
-    icon: "FaSitemap",
-    title: "Fragmentierte Systeme und Prozesse",
-    text: "Insights dauern zu lange oder sind nicht belastbar",
+    icon: "FaBatteryQuarter",
+    title: "Fehlende interne Kapazität",
+    text: "Sie wissen, dass in Ihren Daten mehr steckt, aber im Unternehmen fehlt die Zeit oder das Fachwissen, das selbst umzusetzen.",
   },
 ];
 ---
@@ -68,15 +68,14 @@ const situations = [
       <p
         class="w-full lg:w-1/2 font-secondary text-xl font-normal text-text dark:text-darkmode-text-light text-left"
       >
-        Diese Situationen sind der Ausgangspunkt - nicht das Problem.
-        Entscheidend ist, daraus einen klaren nächsten Schritt zu machen.
+        Die gute Nachricht: Für jede dieser Situationen gibt es eine Lösung.
       </p>
 
       <a
         href="/solutions/"
         class="inline-flex items-center justify-center rounded-md bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-white transition-opacity hover:opacity-90 whitespace-nowrap"
       >
-        Zu jeder Ausgangssituation den richtigen Schritte finden
+        Lösung finden
         <span class="ml-2" aria-hidden="true">&rarr;</span>
       </a>
     </div>
