@@ -12,4 +12,4 @@ social:
     link: https://www.linkedin.com/in/andyklostermann/
 ---
 
-Andreas Klostermann ist Jungunternehmer mit über 10 Jahren Erfahrung in Vertrieb und Strategieberatung. Seine Leidenschaft: Vertrauen aufbauen, das im ganzen Unternehmen anklingt, und neue Wege finden, wie Firmen aus ihren Daten wirklich Wert schöpfen.
+Ist Jungunternehmer mit über 10 Jahren Erfahrung in Vertrieb und Strategieberatung. Seine Leidenschaft: Vertrauen aufbauen, das im ganzen Unternehmen anklingt, und neue Wege finden, wie Firmen aus ihren Daten wirklich Wert schöpfen.

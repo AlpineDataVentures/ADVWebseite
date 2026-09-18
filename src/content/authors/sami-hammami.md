@@ -12,4 +12,4 @@ social:
     link: https://www.linkedin.com/in/sami-hammami-54b090423/
 ---
 
-Sami Hammami ist Türöffner aus Leidenschaft: bei ihm reden auch die, die sonst eher zurückhaltend sind. Sein IT-Hintergrund hilft ihm dabei, Datenprobleme schnell einzuordnen und die richtigen Kollegen ins Spiel zu bringen. Bei ihm können Sie sich sicher sein: Ihr Problem wird verstanden!
+Ist Türöffner aus Leidenschaft: bei ihm reden auch die, die sonst eher zurückhaltend sind. Sein IT-Hintergrund hilft ihm dabei, Datenprobleme schnell einzuordnen und die richtigen Kollegen ins Spiel zu bringen. Bei ihm können Sie sich sicher sein: er versteht Ihr Problem!

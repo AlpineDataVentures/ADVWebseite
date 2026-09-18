@@ -12,4 +12,4 @@ social:
     link: https://www.linkedin.com/in/dr-paul-springer-94a5a817a/
 ---
 
-Paul Springer ist promovierter Physiker und beschäftigt sich seit Jahren mit KI und Data Science. Früh hat er begonnen, mathematische Modelle für unternehmerische Fragestellungen einzusetzen. Seine Kompetenz bringt er auch bei der gemeinnützigen AI4Good-Organisation **MI4People** fürs Gemeinwohl ein.
+Ist promovierter Physiker und beschäftigt sich seit Jahren mit KI und Data Science. Früh hat er begonnen, mathematische Modelle für unternehmerische Fragestellungen einzusetzen. Seine Kompetenz bringt er auch bei der gemeinnützigen AI4Good-Organisation **MI4People** fürs Gemeinwohl ein.

@@ -12,4 +12,4 @@ social:
     link: https://www.linkedin.com/in/julian-koller/
 ---
 
-Julian Koller ist Datenenthusiast und bringt über 6 Jahre Erfahrung in der Beratung für Data Science und Business Intelligence mit. Als Experte für statistische Analyse, BI und KI formt er die nächste Generation von Datenlösungen, als Dozent die nächste Generation von Datenenthusiasten. Für ihn machen der Spaß an der Veränderung und Kreativität den Unterschied bei der Lösung von Problemen. 
+Ist Datenenthusiast und bringt über 6 Jahre Erfahrung in der Beratung für Data Science und Business Intelligence mit. Als Experte für statistische Analyse, BI und KI formt er die nächste Generation von Datenlösungen, als Dozent die nächste Generation von Datenenthusiasten. Für ihn machen der Spaß an der Veränderung und Kreativität den Unterschied bei der Lösung von Problemen. 
