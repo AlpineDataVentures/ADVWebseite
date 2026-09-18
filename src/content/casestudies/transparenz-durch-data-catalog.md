@@ -1,7 +1,7 @@
 ---
 title: "Umsatz heißt jetzt überall dasselbe"
 meta_title: "Data Transparency & Governance: Einführung eines Data Catalogs"
-image: "/images/portfolio/DataCatalog.png"
+image: "/images/casestudies/transparenz-durch-data-catalog.jpg"
 draft: false
 description: "Ein international agierendes FMCG-Unternehmen führte einen Data Catalog ein, um Transparenz, Governance und Zugänglichkeit über alle Datenquellen hinweg zu schaffen – mit klaren Verantwortlichkeiten, integrierten Metadaten und spürbar besserer Zusammenarbeit."
 summary: "Ein international tätiges FMCG-Unternehmen kannte das Problem aus jedem Markt: niemand wusste, wo welche Daten lagen, und Umsatz bedeutete in den USA etwas anderes als vor Ort. Wir haben mit einem Data Catalog eine gemeinsame, durchsuchbare Übersicht über alle Datenquellen geschaffen, mit klaren Verantwortlichen und einheitlichen Kennzahlen-Definitionen."

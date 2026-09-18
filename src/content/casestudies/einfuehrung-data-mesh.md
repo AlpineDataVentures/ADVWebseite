@@ -4,7 +4,7 @@ meta_title: "Einführung eines Data Mesh Ansatzes"
 image: "/images/casestudies/einfuehrung-data-mesh.jpg"
 draft: false
 description: "Wie ein FMCG-Unternehmen die Datenverantwortung aus einer zentralen Fachabteilung heraus- und in die Fachbereiche hineinverlagert hat, gestützt auf Databricks und ein Data-Mesh-Modell."
-summary: "Ein FMCG-Unternehmen kannte das Problem aus jedem Meeting: die eine Abteilung hatte diese Zahl, die andere eine andere, weil sich jeder seine eigene Excel-Tabelle gebaut hatte. Wir haben die Datenverantwortung dahin zurückgegeben, wo die Daten entstehen: in die Fachbereiche selbst."
+summary: "Einer unserer Kunden aus dem FMCG-Bereich kannte das Problem aus jedem Meeting: die eine Abteilung hatte diese Zahl, die andere eine andere, weil sich jeder seine eigene Excel-Tabelle gebaut hatte. Wir haben die Datenverantwortung dahin zurückgegeben, wo die Daten entstehen: in die Fachbereiche selbst."
 ---
 
 ### Ausgangslage
