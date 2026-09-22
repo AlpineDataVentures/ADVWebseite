@@ -18,11 +18,11 @@ const { faq } = Astro.props;
               answer_short: string;
               answer_long: string;
             }) => (
-              <details class="group bg-light px-7 py-4 dark:bg-darkmode-light">
+              <details class="group rounded-2xl border border-black/80 bg-light px-7 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#00CE7E] hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] dark:border-white/70 dark:bg-darkmode-light">
                 <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-primary text-h5 font-bold text-text-dark marker:hidden dark:text-darkmode-text-dark">
                   <span set:html={markdownify(item.question)} />
                   <span
-                    class="shrink-0 text-2xl leading-none transition-transform duration-200 group-open:rotate-45"
+                    class="shrink-0 text-3xl leading-none transition-colors duration-300 transition-transform group-hover:text-[#00CE7E] group-open:rotate-45"
                     aria-hidden="true"
                   >
                     +

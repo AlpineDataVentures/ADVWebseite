@@ -1,6 +1,28 @@
 ---
-import SplitInfoSection from "@/components/SplitInfoSection.astro";
-const { whyAdv } = Astro.props;
+import InsightCardsSection from "@/partials/InsightCardsSection.astro";
+
+const cards = [
+  {
+    icon: "FaEuroSign",
+    titleHighlight: "Fixpreisprojekte",
+    text: "Sie wissen von Anfang an, was Ihr Projekt kostet. Das Risiko einer Kostenexplosion tragen wir.",
+    link: "/fixedprice/",
+  },
+  {
+    icon: "FaClipboardCheck",
+    titleHighlight: "Skin in the Game",
+    text: "Wir empfehlen, was wir als Experten unabhängig vom Volumen für die richtige Wahl halten. Der Umfang richtet sich nach Ihrem Problem, nicht nach dem, was sich gut verkaufen lässt.",
+  },
+  {
+    icon: "FaBatteryFull",
+    titleHighlight: "Durchgängige Abdeckung",
+    text: "Datenstrategie, Data Engineering und AI & Data Science kommen bei uns aus einer Hand. Sie behalten das große Ganze im Blick, ohne mehrere Dienstleister koordinieren zu müssen.",
+  },
+];
 ---
 
-<SplitInfoSection data={whyAdv.data} />
+<InsightCardsSection
+  titleHighlight="Warum"
+  titleEnd=" Alpine Data Ventures"
+  cards={cards}
+/>
