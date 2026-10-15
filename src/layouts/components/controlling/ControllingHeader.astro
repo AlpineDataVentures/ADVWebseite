@@ -5,37 +5,83 @@ import CtaButton from "./CtaButton.astro";
 import { CALENDLY_URL, navLinks } from "./content";
 ---
 
-<header
-  class="header sticky top-0 z-30 border-b border-border py-3! dark:border-darkmode-border"
->
-  <nav class="navbar container gap-4" aria-label="Seitennavigation">
-    <div class="flex items-center gap-3">
+<header class="header sticky top-0 z-30">
+  <nav class="navbar container" aria-label="Seitennavigation">
+    <div class="order-0 flex items-center gap-3">
       <Logo />
-      <span
-        class="hidden font-primary text-lg font-bold text-[#008a55] dark:text-[#00CE7E] sm:inline"
-      >
+      <span class="hidden font-primary text-lg font-bold text-[#008a55] dark:text-[#00CE7E] sm:inline">
         / Controlling
       </span>
     </div>
 
-    <ul class="ml-auto hidden items-center gap-6 lg:flex">
-      {
-        navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="font-secondary text-base font-semibold text-text-light transition hover:text-text-dark dark:text-darkmode-text-light dark:hover:text-darkmode-text-dark"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
+    <input id="controlling-nav-toggle" type="checkbox" class="peer hidden" />
+    <label
+      for="controlling-nav-toggle"
+      class="order-3 flex cursor-pointer items-center text-dark dark:text-white lg:hidden"
+    >
+      <span class="sr-only">Menü öffnen oder schließen</span>
+      <svg
+        class="block h-6 fill-current peer-checked:hidden"
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+      >
+        <path d="M0 3h20v2H0V3z" style="fill: rgb(2, 199, 128);"></path>
+        <path d="M0 9h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg
+        class="hidden h-6 fill-current peer-checked:block"
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+      >
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"
+        ></polygon>
+      </svg>
+    </label>
+
+    <ul
+      id="controlling-nav-menu"
+      class="navbar-nav order-3 hidden w-full pb-6 peer-checked:block lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"
+    >
+      {navLinks.map((link) => (
+        <li class="nav-item">
+          <a href={link.href} class="nav-link block">
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="mt-4 inline-block lg:hidden">
+        <CtaButton href={CALENDLY_URL} small>
+          Erstgespräch vereinbaren
+        </CtaButton>
+      </li>
     </ul>
 
-    <div class="ml-auto flex items-center gap-4 lg:ml-0">
-      <ThemeSwitcher className="" />
-      <CtaButton href={CALENDLY_URL} small>Erstgespräch vereinbaren</CtaButton>
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+      <ThemeSwitcher className="mr-5" />
+      <CtaButton
+        href={CALENDLY_URL}
+        small
+        class="hidden shadow-[0_10px_24px_rgba(2,199,128,0.22)] transition hover:-translate-y-0.5 lg:inline-flex"
+      >
+        Erstgespräch vereinbaren
+      </CtaButton>
     </div>
   </nav>
 </header>
+
+<script>
+  const controllingNavToggle = document.querySelector<HTMLInputElement>(
+    "#controlling-nav-toggle",
+  );
+  const controllingNavLinks = document.querySelectorAll<HTMLAnchorElement>(
+    "#controlling-nav-menu a",
+  );
+
+  controllingNavLinks.forEach((link) =>
+    link.addEventListener("click", () => {
+      if (controllingNavToggle) controllingNavToggle.checked = false;
+    }),
+  );
+</script>
