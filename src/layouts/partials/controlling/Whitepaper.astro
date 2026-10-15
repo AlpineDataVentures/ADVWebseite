@@ -1,4 +1,5 @@
 ---
+import EyebrowTitle from "@/components/EyebrowTitle.astro";
 import Band from "@/components/controlling/Band.astro";
 import Placeholder from "@/components/controlling/Placeholder.astro";
 import WhitepaperForm from "@/components/controlling/WhitepaperForm.astro";
@@ -29,16 +30,7 @@ import { whitepaper as wp } from "@/components/controlling/content";
     </div>
 
     <div class="grid min-w-0 gap-5">
-      <p
-        class="font-secondary text-sm font-bold uppercase tracking-[0.12em] text-[#008a55] dark:text-[#00CE7E]"
-      >
-        {wp.eyebrow}
-      </p>
-      <h2
-        class="max-w-2xl font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
-      >
-        {wp.title}
-      </h2>
+      <EyebrowTitle eyebrow={wp.eyebrow} title={wp.title} />
       <p class="max-w-2xl font-secondary text-base text-text-light dark:text-darkmode-text-light md:text-lg">
         {wp.lead}
       </p>

@@ -1,0 +1,40 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  size?: "h1" | "h2" | "h3" | "h4";
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  as: Tag = "h2",
+  size = "h2",
+  class: className = "",
+} = Astro.props;
+
+// Vollständige Klassennamen, damit Tailwind sie erkennt
+const sizes = {
+  h1: "text-h1-sm md:text-h1",
+  h2: "text-h2-sm md:text-h2",
+  h3: "text-h3-sm md:text-h3",
+  h4: "text-h4-sm md:text-h4",
+};
+---
+
+<div class={className}>
+  {
+    eyebrow && (
+      <p class="mb-3 font-secondary text-lg font-normal! text-[#008a55] dark:text-[#00CE7E]">
+        {eyebrow}
+      </p>
+    )
+  }
+  <Tag
+    class={`font-primary font-bold text-dark dark:text-darkmode-text-dark lg:max-w-[50vw] ${sizes[size as keyof typeof sizes]}`}
+  >
+    {title}
+  </Tag>
+</div>

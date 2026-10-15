@@ -1,4 +1,6 @@
 ---
+import EyebrowTitle from "@/components/EyebrowTitle.astro";
+
 interface Props {
   eyebrow?: string;
   title: string;
@@ -9,22 +11,11 @@ interface Props {
 const { eyebrow, title, lead, class: className = "" } = Astro.props as Props;
 ---
 
-<div class={`mb-10 grid gap-4 md:mb-12 ${className}`}>
-  {
-    eyebrow && (
-      <p class="font-secondary text-sm font-bold uppercase tracking-[0.12em] text-[#008a55] dark:text-[#00CE7E]">
-        {eyebrow}
-      </p>
-    )
-  }
-  <h2
-    class="max-w-3xl font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
-  >
-    {title}
-  </h2>
+<div class={`mb-10 md:mb-12 ${className}`}>
+  <EyebrowTitle eyebrow={eyebrow} title={title} />
   {
     lead && (
-      <p class="max-w-2xl font-secondary text-base text-text-light dark:text-darkmode-text-light md:text-lg">
+      <p class="mt-4 max-w-2xl font-secondary text-base text-text-light dark:text-darkmode-text-light md:text-lg">
         {lead}
       </p>
     )
