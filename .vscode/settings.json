@@ -40,6 +40,7 @@
     "facebook",
     "fixedprice",
     "Fixgehalt",
+    "Fixpreisprojekte",
     "Fixpreisrahmen",
     "Fokusbereiche",
     "Fredi",
@@ -119,6 +120,7 @@
     "Sneakern",
     "Spendmanagement",
     "Spielerstatistiken",
+    "sprojekte",
     "Stammdatenmgmt",
     "Stanzautomaten",
     "Steuerungscadence",
@@ -150,6 +152,7 @@
     "whyadv",
     "wirtschaftlichkeit",
     "wissensorientierten",
+    "Xmark",
     "zusammengedampft"
   ],
   "editor.formatOnSave": true,
