@@ -1,5 +1,11 @@
 # Release Notes 
 
+### 3.0 ADV.Control
+
+- Eigene LandingPage für Controlling 
+- Eigenes Branding ADV.Control
+
+
 ### 2.0 Relaunch
 
 - Komplette Überarbeitung der Webseite

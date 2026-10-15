@@ -1,0 +1,15 @@
+---
+import Band from "@/components/controlling/Band.astro";
+import SavingsCalculator from "@/components/controlling/SavingsCalculator";
+import SectionHead from "@/components/controlling/SectionHead.astro";
+import { calculator } from "@/components/controlling/content";
+---
+
+<Band id="rechner" tone="light">
+  <SectionHead
+    eyebrow={calculator.eyebrow}
+    title={calculator.title}
+    lead={calculator.lead}
+  />
+  <SavingsCalculator client:visible />
+</Band>

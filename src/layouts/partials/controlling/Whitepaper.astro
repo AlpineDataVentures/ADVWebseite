@@ -1,0 +1,52 @@
+---
+import Band from "@/components/controlling/Band.astro";
+import Placeholder from "@/components/controlling/Placeholder.astro";
+import WhitepaperForm from "@/components/controlling/WhitepaperForm.astro";
+import { whitepaper as wp } from "@/components/controlling/content";
+---
+
+<Band id="whitepaper">
+  <div class="grid items-center gap-12 md:grid-cols-[minmax(0,300px)_1fr] md:gap-16">
+    <div
+      aria-hidden="true"
+      class="flex aspect-[210/297] w-full max-w-[300px] -rotate-2 flex-col gap-4 rounded-[2px] bg-light p-7 shadow-[14px_14px_0_#dedede] dark:bg-darkmode-light dark:shadow-[14px_14px_0_#3a3a3a] max-md:max-w-[220px]"
+    >
+      <span
+        class="font-secondary text-sm font-bold uppercase tracking-[0.12em] text-[#008a55] dark:text-[#00CE7E]"
+      >
+        {wp.coverLabel}
+      </span>
+      <strong
+        class="font-primary text-3xl font-bold leading-tight text-text-dark dark:text-darkmode-text-dark"
+      >
+        {wp.coverTitle}
+      </strong>
+      <span
+        class="mt-auto border-t-2 border-[#00CE7E] pt-3 font-secondary text-xs text-text-light dark:text-darkmode-text-light"
+      >
+        {wp.coverFoot}
+      </span>
+    </div>
+
+    <div class="grid min-w-0 gap-5">
+      <p
+        class="font-secondary text-sm font-bold uppercase tracking-[0.12em] text-[#008a55] dark:text-[#00CE7E]"
+      >
+        {wp.eyebrow}
+      </p>
+      <h2
+        class="max-w-2xl font-primary text-h2-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h2"
+      >
+        {wp.title}
+      </h2>
+      <p class="max-w-2xl font-secondary text-base text-text-light dark:text-darkmode-text-light md:text-lg">
+        {wp.lead}
+      </p>
+      <div><Placeholder>{wp.hint}</Placeholder></div>
+      <ul class="list-disc space-y-2 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light">
+        {wp.bullets.map((bullet) => <li>{bullet}</li>)}
+      </ul>
+      <WhitepaperForm />
+    </div>
+  </div>
+</Band>

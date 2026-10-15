@@ -39,6 +39,7 @@ export interface Props {
   image_height?: string;
   noindex?: boolean;
   canonical?: string;
+  showHeader?: boolean;
 }
 
 // destructure frontmatter
@@ -52,6 +53,7 @@ const {
   image_height,
   noindex = false,
   canonical,
+  showHeader = true,
 } = Astro.props;
 ---
 
@@ -314,8 +316,9 @@ const {
     <GTMConsent />
 
     <TwSizeIndicator />
-    <Header />
-    <SearchModal client:load />
+    {showHeader && <Header />}
+    {showHeader && <SearchModal client:load />}
+    <slot name="header" />
     <main id="main-content">
       <slot />
     </main>

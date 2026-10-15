@@ -1,0 +1,23 @@
+---
+import CtaButton from "@/components/controlling/CtaButton.astro";
+import { CALENDLY_URL, finalCta } from "@/components/controlling/content";
+---
+
+<section class="w-full bg-black py-20 dark:bg-white">
+  <div class="container grid gap-6">
+    <h2
+      class="max-w-2xl font-primary text-3xl font-bold text-white dark:text-black md:text-4xl"
+    >
+      {finalCta.title}
+    </h2>
+    <p class="max-w-2xl font-secondary text-base text-[#b4afb6] dark:text-[#5c5a5e] md:text-lg">
+      {finalCta.text}
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <CtaButton href={CALENDLY_URL}>{finalCta.primary}</CtaButton>
+      <CtaButton href="#whitepaper" variant="outline">
+        {finalCta.secondary}
+      </CtaButton>
+    </div>
+  </div>
+</section>

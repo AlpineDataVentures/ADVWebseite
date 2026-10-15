@@ -1,0 +1,18 @@
+---
+import Band from "@/components/controlling/Band.astro";
+import CtaButton from "@/components/controlling/CtaButton.astro";
+import PowerBiDemo from "@/components/controlling/PowerBiDemo";
+import SectionHead from "@/components/controlling/SectionHead.astro";
+import { demo } from "@/components/controlling/content";
+---
+
+<Band id="demo" tone="light">
+  <SectionHead eyebrow={demo.eyebrow} title={demo.title} lead={demo.lead} />
+  <PowerBiDemo client:visible />
+  <div class="mt-7 flex flex-wrap items-center justify-between gap-5">
+    <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
+      {demo.after}
+    </p>
+    <CtaButton href="#einstieg" variant="outline">{demo.afterCta}</CtaButton>
+  </div>
+</Band>

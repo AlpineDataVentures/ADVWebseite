@@ -1,0 +1,26 @@
+---
+import Band from "@/components/controlling/Band.astro";
+import SectionHead from "@/components/controlling/SectionHead.astro";
+import { painPoints } from "@/components/controlling/content";
+---
+
+<Band id="symptome">
+  <SectionHead eyebrow={painPoints.eyebrow} title={painPoints.title} />
+  <div class="grid gap-8 md:grid-cols-3 md:gap-0">
+    {
+      painPoints.items.map((item) => (
+        <article class="grid content-start gap-3 md:border-l md:border-border md:px-8 md:first:border-l-0 md:first:pl-0 dark:md:border-darkmode-border">
+          <code class="font-secondary text-2xl font-bold text-[#c0392b] dark:text-[#ff8a7a]">
+            {item.code}
+          </code>
+          <h3 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+            {item.title}
+          </h3>
+          <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
+            {item.text}
+          </p>
+        </article>
+      ))
+    }
+  </div>
+</Band>

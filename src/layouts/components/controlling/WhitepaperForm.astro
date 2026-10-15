@@ -1,0 +1,54 @@
+---
+import { whitepaper } from "./content";
+
+const { form } = whitepaper;
+---
+
+<form
+  class="grid max-w-lg gap-2.5 border-t border-border pt-5 dark:border-darkmode-border"
+  data-whitepaper-form
+  data-not-active={form.notActive}
+>
+  <label
+    for="whitepaper-email"
+    class="font-secondary text-base font-semibold text-text-dark dark:text-darkmode-text-dark"
+  >
+    {form.label}
+  </label>
+  <div class="flex flex-wrap gap-2.5">
+    <input
+      id="whitepaper-email"
+      type="email"
+      required
+      placeholder={form.placeholder}
+      class="min-w-0 flex-[1_1_180px] rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
+    />
+    <button
+      type="submit"
+      class="rounded-md border border-[#00CE7E] bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-black transition hover:opacity-90"
+    >
+      {form.submit}
+    </button>
+  </div>
+  <small
+    data-whitepaper-message
+    aria-live="polite"
+    class="font-secondary text-sm text-text-light dark:text-darkmode-text-light"
+  >
+    {form.privacy}{" "}
+    <a href="/datenschutz/" class="underline">{form.privacyLink}</a>
+  </small>
+</form>
+
+<script>
+  // Noch ohne Versand: wird an das Newsletter-Tool angebunden, sobald es feststeht
+  document
+    .querySelectorAll<HTMLFormElement>("[data-whitepaper-form]")
+    .forEach((formEl) => {
+      formEl.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const message = formEl.querySelector("[data-whitepaper-message]");
+        if (message) message.textContent = formEl.dataset.notActive ?? "";
+      });
+    });
+</script>

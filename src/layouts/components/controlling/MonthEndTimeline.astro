@@ -1,0 +1,61 @@
+---
+import type { TimelineSegment } from "./content";
+import { timeline } from "./content";
+
+const segmentClasses: Record<TimelineSegment["kind"], string> = {
+  hand: "border-[#c0392b] text-[#c0392b] dark:border-[#ff8a7a] dark:text-[#ff8a7a]",
+  done: "border-[#00CE7E] bg-[#00CE7E] font-bold text-black text-center",
+  free: "border-dashed border-[#008a55] text-[#008a55] dark:border-[#00CE7E] dark:text-[#00CE7E]",
+};
+
+const lanes = [timeline.before, timeline.after];
+---
+
+<div
+  role="img"
+  aria-label={timeline.ariaLabel}
+  class="grid min-w-0 gap-5 rounded-lg border border-border bg-light p-5 dark:border-darkmode-border dark:bg-darkmode-light md:p-6"
+>
+  <div
+    class="flex justify-between gap-3 font-secondary text-sm text-text-light dark:text-darkmode-text-light"
+  >
+    <b class="font-semibold text-text-dark dark:text-darkmode-text-dark">
+      {timeline.title}
+    </b>
+    <span>{timeline.badge}</span>
+  </div>
+
+  <div class="grid grid-cols-8 gap-[3px]" aria-hidden="true">
+    {
+      timeline.days.map((day) => (
+        <span class="text-center font-secondary text-xs text-text-light dark:text-darkmode-text-light">
+          {day}
+        </span>
+      ))
+    }
+  </div>
+
+  {
+    lanes.map((lane) => (
+      <div>
+        <h3 class="mb-1.5 font-secondary text-sm font-bold text-text-dark dark:text-darkmode-text-dark">
+          {lane.title}
+        </h3>
+        <div class="grid grid-cols-8 gap-[3px]">
+          {lane.segments.map((segment) => (
+            <span
+              class={`min-w-0 rounded-[2px] border bg-body px-1.5 py-2.5 font-secondary text-[0.7rem] leading-tight wrap-anywhere dark:bg-darkmode-body sm:text-xs ${segmentClasses[segment.kind]}`}
+              style={`grid-column: span ${segment.span}`}
+            >
+              {segment.label}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+
+  <p class="font-secondary text-sm text-text-light dark:text-darkmode-text-light">
+    {timeline.note}
+  </p>
+</div>

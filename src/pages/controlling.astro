@@ -1,0 +1,36 @@
+---
+import Base from "@/layouts/Base.astro";
+import ControllingHeader from "@/components/controlling/ControllingHeader.astro";
+import { faq } from "@/components/controlling/content";
+import CaseExample from "@/partials/controlling/CaseExample.astro";
+import Calculator from "@/partials/controlling/Calculator.astro";
+import Demo from "@/partials/controlling/Demo.astro";
+import FinalCta from "@/partials/controlling/FinalCta.astro";
+import Hero from "@/partials/controlling/Hero.astro";
+import PainPoints from "@/partials/controlling/PainPoints.astro";
+import QuickStart from "@/partials/controlling/QuickStart.astro";
+import Whitepaper from "@/partials/controlling/Whitepaper.astro";
+import Faq from "@/partials/Faq.astro";
+---
+
+<Base
+  title="BI & Reporting für Controlling"
+  meta_title="Monatsreporting ohne Copy-and-paste | BI & Reporting für Controlling"
+  description="Vom Excel-Monatsbericht zum automatisierten Reporting in Power BI: In zwei Wochen zum Prototyp mit Ihren Zahlen, zum Fixpreis. Für Leiter Controlling und CFOs im Mittelstand."
+  canonical="https://alpinedata.de/controlling/"
+  showHeader={false}
+>
+  <ControllingHeader slot="header" />
+
+  <Hero />
+  <PainPoints />
+  <Calculator />
+  <Demo />
+  <QuickStart />
+  <CaseExample />
+  <Whitepaper />
+  <div id="faq" class="scroll-mt-20">
+    <Faq faq={{ data: { enable: true, ...faq } }} />
+  </div>
+  <FinalCta />
+</Base>

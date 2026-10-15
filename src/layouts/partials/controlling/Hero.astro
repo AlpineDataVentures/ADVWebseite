@@ -1,0 +1,36 @@
+---
+import CtaButton from "@/components/controlling/CtaButton.astro";
+import MonthEndTimeline from "@/components/controlling/MonthEndTimeline.astro";
+import { CALENDLY_URL, hero } from "@/components/controlling/content";
+---
+
+<section class="bg-body py-16 dark:bg-darkmode-body md:py-20">
+  <div class="container">
+    <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div class="grid min-w-0 gap-6">
+        <p
+          class="font-secondary text-sm font-bold uppercase tracking-[0.12em] text-[#008a55] dark:text-[#00CE7E]"
+        >
+          {hero.eyebrow}
+        </p>
+        <h1
+          class="font-primary text-h1-sm font-bold text-text-dark dark:text-darkmode-text-dark md:text-h1"
+        >
+          {hero.title}
+        </h1>
+        <p
+          class="max-w-xl font-secondary text-lg text-text-light dark:text-darkmode-text-light md:text-xl"
+        >
+          {hero.lead}
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <CtaButton href={CALENDLY_URL}>{hero.primaryCta}</CtaButton>
+          <CtaButton href="#rechner" variant="outline">
+            {hero.secondaryCta}
+          </CtaButton>
+        </div>
+      </div>
+      <MonthEndTimeline />
+    </div>
+  </div>
+</section>

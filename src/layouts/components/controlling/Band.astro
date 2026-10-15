@@ -1,0 +1,23 @@
+---
+interface Props {
+  id?: string;
+  tone?: "body" | "light";
+  class?: string;
+}
+
+const { id, tone = "body", class: className = "" } = Astro.props as Props;
+
+const tones = {
+  body: "bg-body dark:bg-darkmode-body",
+  light: "bg-light dark:bg-darkmode-light",
+};
+---
+
+<section
+  id={id}
+  class={`section scroll-mt-20 border-t border-border dark:border-darkmode-border ${tones[tone]} ${className}`}
+>
+  <div class="container">
+    <slot />
+  </div>
+</section>
