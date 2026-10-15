@@ -8,6 +8,11 @@ body {
   position: relative;
 }
 
+::selection {
+  background-color: #00ce7e;
+  color: #000;
+}
+
 p {
   @apply font-secondary;
 }
