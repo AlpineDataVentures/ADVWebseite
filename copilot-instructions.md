@@ -33,6 +33,16 @@ applyTo: "**"
 - Bei Unsicherheit zuerst kleine, reversible Änderungen vorschlagen.
 - **IMMER npm verwenden, NIEMALS yarn!** (package-lock.json ist die Source of Truth)
 
+# Dokumentationsrichtlinien
+- Neu erzeugter oder wesentlich geänderter Code muss so dokumentiert sein, dass sein Zweck und seine Verwendung verständlich sind.
+- Dokumentiere Komponenten, Module und Funktionen dort, wo ihr Zweck oder Zusammenspiel nicht bereits aus dem Code klar hervorgeht.
+- Dokumentiere öffentliche Props, Parameter, Rückgabewerte und Konfigurationsoptionen, wenn ihre Bedeutung oder Einschränkungen nicht offensichtlich sind.
+- Erkläre bei nicht-trivialer Logik, Workarounds und Seiteneffekten vor allem das Warum und relevante Annahmen – nicht lediglich, was die nächste Codezeile tut.
+- Halte Kommentare kurz, aktuell und in Englisch; folge einer bestehenden abweichenden Sprachkonvention in einem Bereich.
+- Kommentiere keinen offensichtlichen Code und nicht jede einzelne Zeile. Einfache Markup- und Styling-Änderungen brauchen keine Kommentare, wenn Zweck und Verhalten klar sind.
+- Aktualisiere README oder passende Projektdokumentation, wenn eine Änderung Einrichtung, Nutzung, Konfiguration oder extern sichtbares Verhalten beeinflusst.
+- Dokumentation muss mit dem tatsächlichen Verhalten übereinstimmen; entferne oder passe veraltete Kommentare an, wenn du den zugehörigen Code änderst.
+
 # Qualitätscheck vor Abschluss
 - Projekt baut erfolgreich mit npm run build.
 - Betroffene Seite funktioniert lokal im Dev-Server.

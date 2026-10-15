@@ -1,7 +1,14 @@
 ---
+/**
+ * Shared section wrapper for the Controlling landing page.
+ * Provides anchor spacing, a selectable background tone, and a centered content container.
+ */
 interface Props {
+  /** Optional section ID for in-page navigation. */
   id?: string;
+  /** Selects the standard page background or the light alternate background. */
   tone?: "body" | "light";
+  /** Additional classes applied to the section element. */
   class?: string;
 }
 
@@ -15,7 +22,7 @@ const tones = {
 
 <section
   id={id}
-  class={`section scroll-mt-20 border-t border-border dark:border-darkmode-border ${tones[tone]} ${className}`}
+  class={`section scroll-mt-20 ${tones[tone]} ${className}`}
 >
   <div class="container">
     <slot />

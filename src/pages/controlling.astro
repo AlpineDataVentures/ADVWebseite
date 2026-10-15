@@ -13,6 +13,7 @@ import Whitepaper from "@/partials/controlling/Whitepaper.astro";
 import Faq from "@/partials/Faq.astro";
 ---
 
+<!-- Base provides the shared page shell, SEO metadata, and global site styles. -->
 <Base
   title="BI & Reporting für Controlling"
   meta_title="Monatsreporting ohne Copy-and-paste | BI & Reporting für Controlling"
@@ -20,17 +21,27 @@ import Faq from "@/partials/Faq.astro";
   canonical="https://alpinedata.de/controlling/"
   showHeader={false}
 >
+  <!-- The page-specific header replaces the default site header in Base's header slot. -->
   <ControllingHeader slot="header" />
 
+  <!-- Introduces the offer and directs visitors to the call booking or savings calculator. -->
   <Hero />
+  <!-- Highlights common pain points in manual controlling reports. -->
   <PainPoints />
+  <!-- Estimates the annual time cost of manual reporting from visitor inputs. -->
   <Calculator />
+  <!-- Presents an interactive Power BI report preview and links to the Quick-Start offer. -->
   <Demo />
+  <!-- Explains the Quick-Start process, fixed price, deliverables, and required commitment. -->
   <QuickStart />
+  <!-- Shows the case-study narrative and outcome metrics; some content is still placeholder data. -->
   <CaseExample />
+  <!-- Promotes the whitepaper and collects download requests. -->
   <Whitepaper />
+  <!-- The shared FAQ component is enabled and populated with this page's FAQ content. -->
   <div id="faq" class="scroll-mt-20">
     <Faq faq={{ data: { enable: true, ...faq } }} />
   </div>
+  <!-- Closes the page with the primary contact action and a link back to the whitepaper. -->
   <FinalCta />
 </Base>
