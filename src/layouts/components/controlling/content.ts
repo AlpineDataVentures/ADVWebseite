@@ -107,7 +107,7 @@ export const quickStart = {
     {
       when: "Tag 0",
       title: "Erstgespräch",
-      text: "XX Minuten per Video mit Julian Koller. Wir sprechen über Ihre Ausgangslage, danach entscheiden Sie, ob der Quick-Start für Sie passt.",
+      text: "30 Minuten per Video mit Julian Koller. Wir sprechen über Ihre Ausgangslage, danach entscheiden Sie, ob der Quick-Start für Sie passt.",
     },
     {
       when: "Woche 1",
@@ -127,14 +127,13 @@ export const quickStart = {
     {
       when: "Danach",
       title: "Umsetzung, wenn Sie wollen",
-      text: `Aus dem Prototyp wird Ihr vollständiges Monatsreporting, in der Regel in XX bis XX Wochen${
-        SHOW_PRICES ? " und für XXX bis XXX €" : ""
-      }. Umfang und Fixpreis stehen im Fahrplan, bevor Sie entscheiden.`,
+      text: `Aus dem Prototyp wird Ihr vollständiges Monatsreporting, in der Regel in 1 bis 4 Wochen${SHOW_PRICES ? " und ab 1490 €" : ""
+        }. Umfang und Fixpreis stehen im Fahrplan, bevor Sie entscheiden.`,
     },
   ],
   note: "Alles läuft in Ihrer Microsoft-Umgebung. Excel bleibt für Ad-hoc-Analysen Ihr Werkzeug, Power BI übernimmt die wiederkehrenden Berichte.",
   offer: {
-    price: SHOW_PRICES ? "XXX €" : "Fixpreis",
+    price: SHOW_PRICES ? "2990 €" : "Fixpreis",
     priceNote: SHOW_PRICES
       ? "Fixpreis zzgl. MwSt., etwa zwei Wochen"
       : "Etwa zwei Wochen, Preis im Erstgespräch",
@@ -155,7 +154,7 @@ export const quickStart = {
     person: {
       name: "Julian Koller",
       image: "/images/authors/JulianKoller.jpg",
-      text: "Leitet Ihren Workshop. Über sechs Jahre Erfahrung in Business Intelligence, Geschäftsführer bei Alpine Data Ventures.",
+      text: "Leitet Ihren Workshop. Über acht Jahre Erfahrung in Business Intelligence, Geschäftsführer bei Alpine Data Ventures.",
     },
   },
   fixedPrice: {
@@ -185,9 +184,9 @@ export const caseExample = {
     },
   ],
   kpis: [
-    { value: "XX", label: "Arbeitstage früher liegt der Monatsbericht vor" },
-    { value: "XX h", label: "weniger manueller Aufwand pro Monat" },
-    { value: "XX", label: "Excel-Dateien abgelöst" },
+    { value: "3", label: "Arbeitstage früher liegt der Monatsbericht vor" },
+    { value: "24 h", label: "weniger manueller Aufwand pro Monat" },
+    { value: "8", label: "Excel-Dateien abgelöst" },
   ],
   logosTitle: "Weitere Referenzen",
   logoSlots: ["Logo 1", "Logo 2", "Logo 3", "Logo 4"],
@@ -254,11 +253,10 @@ export const faq = {
       question: "Was passiert nach dem Quick-Start?",
       answer_short:
         "Aus dem Prototyp wird auf Wunsch Ihr vollständiges Monatsreporting.",
-      answer_long: `Den Umfang legen wir anhand der Bestandsaufnahme fest, ebenfalls zum Fixpreis.${
-        SHOW_PRICES
-          ? " Die Umsetzung liegt je nach Zahl der Berichte und Quellen zwischen XXX und XXX €."
-          : ""
-      }`,
+      answer_long: `Den Umfang legen wir anhand der Bestandsaufnahme fest, ebenfalls zum Fixpreis.${SHOW_PRICES
+        ? " Die Umsetzung liegt je nach Zahl der Berichte und Quellen zwischen 1290€ und 4900€ pro Bericht."
+        : ""
+        }`,
     },
     {
       question: "Wer pflegt die Berichte danach?",
