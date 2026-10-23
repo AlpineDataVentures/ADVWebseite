@@ -1,0 +1,426 @@
+{
+  "stand": "2026-10-22",
+  "hinweis": "Statischer Plan für die Routine. Live-Status siehe https://claude.ai/artifact/TknKaukAna72VWdLp3LiHv",
+  "termine": [
+    {
+      "datum": "2026-10-23",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "Schluss mit Copy & Paste: Excel-Reporting in 5 Stufen automatisieren",
+      "slug": "excel-reporting-controlling-automatisieren",
+      "keyword": "Reporting automatisieren Controlling",
+      "nebenkeywords": [
+        "Excel Reporting automatisieren",
+        "Controlling Reporting Mittelstand",
+        "Monatsreporting automatisieren"
+      ],
+      "schmerzpunkt": "Excel-Abhängigkeit, manuelles Reporting",
+      "cluster": "A Reporting raus aus Excel (Pillar)",
+      "autor": "Julian Koller",
+      "visualisierungen": [
+        "Reifegrad-Treppe 5 Stufen",
+        "Vorher/nachher Zeitaufwand Monatsreporting"
+      ],
+      "quelle": "HubSpot: häufigster Gesprächswunsch 'Automatisierung Excel-basiertes Reporting'",
+      "newsletter_ausgabe": "NL-01",
+      "hinweis": "Erster Artikel – PR muss am 22.10. erstellt werden. Abgrenzen von 'Von Excel zum Data Warehouse' (2024) und darauf verlinken.",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-10-26",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "Management-GuV aus DATEV oder ERP: Von der SuSa zur P&L in Power BI",
+      "slug": "management-guv-power-bi",
+      "keyword": "GuV Power BI",
+      "nebenkeywords": [
+        "P&L Dashboard",
+        "Management Reporting GuV",
+        "DATEV Power BI"
+      ],
+      "schmerzpunkt": "Fehlende Berichte, manuelles Reporting",
+      "cluster": "A Reporting raus aus Excel",
+      "autor": "Julian Koller",
+      "visualisierungen": [
+        "Datenfluss SuSa → Mapping → Power BI",
+        "Wireframe Management-GuV"
+      ],
+      "quelle": "Wunsch Andreas: P&L-Klassiker; HubSpot: BWA-Mapping für Board",
+      "newsletter_ausgabe": "NL-01",
+      "hinweis": "Abgrenzen von 'BI in 45 Minuten'.",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-10-29",
+      "uhrzeit": "08:00",
+      "typ": "tool-vergleich",
+      "titel": "Planungssoftware im Mittelstand: Excel, Jedox, Board und Power BI",
+      "slug": "planungssoftware-mittelstand-vergleich",
+      "keyword": "Planungssoftware Mittelstand",
+      "nebenkeywords": [
+        "Budgetplanung Software",
+        "Unternehmensplanung Tool",
+        "Jedox Alternative"
+      ],
+      "schmerzpunkt": "Planung aufwändig und ungenau",
+      "cluster": "B Planung & Forecast",
+      "autor": "Carsten Hof",
+      "visualisierungen": [
+        "Vergleichstabelle",
+        "Positionierungsmatrix Aufwand vs. Funktionsumfang"
+      ],
+      "quelle": "Budgetsaison 2027; BARC Planning Survey 26; HubSpot: Jedox im Einsatz",
+      "newsletter_ausgabe": "NL-01",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-11-02",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "Plan-Ist-Vergleich auf Knopfdruck: Plan in Excel, Ist im ERP",
+      "slug": "plan-ist-vergleich-excel-erp",
+      "keyword": "Plan-Ist-Vergleich",
+      "nebenkeywords": [
+        "Soll-Ist-Vergleich automatisieren",
+        "Abweichungsanalyse Controlling",
+        "Budget Ist Vergleich Power BI"
+      ],
+      "schmerzpunkt": "Plan in Excel, Ist im ERP; manueller Abgleich",
+      "cluster": "B Planung & Forecast",
+      "autor": "Julian Koller",
+      "visualisierungen": [
+        "Architektur Plan-Excel + ERP → Datenmodell → Bericht",
+        "Wireframe Abweichungsbericht"
+      ],
+      "quelle": "HubSpot: Ist in NetSuite, Plan nur in Excel",
+      "newsletter_ausgabe": "NL-01",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-11-05",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "Deckungsbeitragsrechnung: Welche Kunden wirklich Geld verdienen",
+      "slug": "deckungsbeitragsrechnung-produkte-kunden",
+      "keyword": "Deckungsbeitragsrechnung",
+      "nebenkeywords": [
+        "mehrstufige Deckungsbeitragsrechnung",
+        "Kundendeckungsbeitrag",
+        "DB-Rechnung Excel"
+      ],
+      "schmerzpunkt": "Steuerung im Blindflug, Umsatz ohne Marge",
+      "cluster": "A Reporting raus aus Excel",
+      "autor": "Benjamin Diez",
+      "visualisierungen": [
+        "DB-Stufen-Treppe",
+        "Rechenbeispiel Kunde A vs. B"
+      ],
+      "quelle": "P&L-Cluster; verlinkt '7 KPIs'",
+      "newsletter_ausgabe": "NL-01",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-11-09",
+      "uhrzeit": "08:00",
+      "typ": "tool-vergleich",
+      "titel": "Copilot, ChatGPT oder Claude: KI-Assistenten im Controlling",
+      "slug": "ki-assistenten-controlling-vergleich",
+      "keyword": "KI im Controlling",
+      "nebenkeywords": [
+        "Copilot Excel Controlling",
+        "ChatGPT Controlling",
+        "KI Tools Finanzen"
+      ],
+      "schmerzpunkt": "Erwartungsdruck KI, Datenbasis nicht bereit",
+      "cluster": "E KI im Controlling",
+      "autor": "Carsten Hof",
+      "visualisierungen": [
+        "Vergleichstabelle",
+        "Entscheidungsbaum: welcher Assistent wofür"
+      ],
+      "quelle": "HubSpot: Copilot/Claude bereits im Einsatz; Agent Mode in Excel GA 12/2025",
+      "newsletter_ausgabe": "NL-02",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-11-12",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "Liquiditätsplanung: Die 13-Wochen-Vorschau ohne Excel-Chaos",
+      "slug": "liquiditaetsplanung-13-wochen",
+      "keyword": "Liquiditätsplanung 13 Wochen",
+      "nebenkeywords": [
+        "Liquiditätsvorschau",
+        "Cashflow Planung Mittelstand",
+        "rollierende Liquiditätsplanung"
+      ],
+      "schmerzpunkt": "Liquidität und Risiko, Cashflow in Excel",
+      "cluster": "C Liquidität",
+      "autor": "Benjamin Diez",
+      "visualisierungen": [
+        "Ablauf Wochenzyklus",
+        "Wireframe 13-Wochen-Bericht"
+      ],
+      "quelle": "HubSpot: Cashflow auf Excel-Basis, Finanzierungssicht fehlt",
+      "newsletter_ausgabe": "NL-02",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-11-16",
+      "uhrzeit": "08:00",
+      "typ": "praxisbeispiel",
+      "titel": "Praxisbeispiel 1 (Thema folgt mit Material)",
+      "slug": "praxisbeispiel-1",
+      "keyword": "tbd",
+      "nebenkeywords": [],
+      "schmerzpunkt": "tbd",
+      "cluster": "tbd",
+      "autor": "Julian Koller",
+      "visualisierungen": [],
+      "quelle": "Projektordner",
+      "newsletter_ausgabe": "NL-02",
+      "hinweis": "Material wird von ADV in den Projektordner gelegt.",
+      "ersatzthema": "Projektcontrolling: Soll-Ist der Projektstunden automatisch auswerten (Keyword: Projektcontrolling Soll-Ist; HubSpot: Projektstunden-Auswertung)",
+      "material_deadline": "2026-11-11"
+    },
+    {
+      "datum": "2026-11-19",
+      "uhrzeit": "08:00",
+      "typ": "tool-vergleich",
+      "titel": "Power BI, Tableau oder Qlik: Welches BI-Tool passt zum Controlling?",
+      "slug": "bi-tool-vergleich-controlling",
+      "keyword": "BI Tool Vergleich Controlling",
+      "nebenkeywords": [
+        "Power BI Controlling",
+        "Tableau vs Power BI",
+        "Qlik Controlling"
+      ],
+      "schmerzpunkt": "Toolwahl unklar, BI-Einführung",
+      "cluster": "D Tools & Plattform",
+      "autor": "Julian Koller",
+      "visualisierungen": [
+        "Vergleichstabelle",
+        "Positionierungsmatrix"
+      ],
+      "quelle": "HubSpot: viele Gespräche 'Einführung in BI'",
+      "newsletter_ausgabe": "NL-02",
+      "hinweis": "Abgrenzen von 'BI in 45 Minuten' (dort nur Kurzvergleich).",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-11-23",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "Beiratsreporting: Von der BWA zum Bericht, der in 10 Minuten wirkt",
+      "slug": "beiratsreporting-bwa-management-bericht",
+      "keyword": "Management Reporting Geschäftsführung",
+      "nebenkeywords": [
+        "Beiratsreporting",
+        "Gesellschafterbericht",
+        "Reporting Investoren Mittelstand"
+      ],
+      "schmerzpunkt": "Board-/Investorenreporting manuell in Word/Excel",
+      "cluster": "A Reporting raus aus Excel",
+      "autor": "Benjamin Diez",
+      "visualisierungen": [
+        "Berichtsaufbau 1 Seite",
+        "Vorher/nachher Berichtsseite"
+      ],
+      "quelle": "HubSpot: Investor will board-lesbare BWA; Stakeholder-Reports in Word",
+      "newsletter_ausgabe": "NL-03",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-11-26",
+      "uhrzeit": "08:00",
+      "typ": "tool-vergleich",
+      "titel": "Gruppenreporting ohne Excel-Packages: Tools für den Mittelstand",
+      "slug": "gruppenreporting-konsolidierung-tools",
+      "keyword": "Konzernreporting Software Mittelstand",
+      "nebenkeywords": [
+        "Konsolidierungssoftware",
+        "Reporting Package Töchter",
+        "Gruppenreporting"
+      ],
+      "schmerzpunkt": "Datenzulieferung der Töchter manuell",
+      "cluster": "D Tools & Plattform",
+      "autor": "Carsten Hof",
+      "visualisierungen": [
+        "Architektur Töchter → Zentrale",
+        "Vergleichstabelle"
+      ],
+      "quelle": "HubSpot: Datenzulieferung der Tochtergesellschaften nicht automatisiert",
+      "newsletter_ausgabe": "NL-03",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-11-30",
+      "uhrzeit": "08:00",
+      "typ": "praxisbeispiel",
+      "titel": "Praxisbeispiel 2 (Thema folgt mit Material)",
+      "slug": "praxisbeispiel-2",
+      "keyword": "tbd",
+      "nebenkeywords": [],
+      "schmerzpunkt": "tbd",
+      "cluster": "tbd",
+      "autor": "Carsten Hof",
+      "visualisierungen": [],
+      "quelle": "Projektordner",
+      "newsletter_ausgabe": "NL-03",
+      "hinweis": "",
+      "ersatzthema": "Kostenstellenreporting automatisieren (Keyword: Kostenstellenreporting)",
+      "material_deadline": "2026-11-25"
+    },
+    {
+      "datum": "2026-12-03",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "Fast Close: Den Monatsabschluss von 10 auf 5 Tage verkürzen",
+      "slug": "fast-close-monatsabschluss",
+      "keyword": "Fast Close Monatsabschluss",
+      "nebenkeywords": [
+        "Monatsabschluss beschleunigen",
+        "Abschlussprozess optimieren"
+      ],
+      "schmerzpunkt": "Manueller Monatsabschluss",
+      "cluster": "F Abschluss",
+      "autor": "Benjamin Diez",
+      "visualisierungen": [
+        "Ablauf Tag 1–5 mit Verantwortlichen",
+        "Vorher/nachher Durchlaufzeit"
+      ],
+      "quelle": "Jahresabschluss steht an",
+      "newsletter_ausgabe": "NL-03",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-12-07",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "E-Rechnung ab 2027: Was die kaufmännische Leitung jetzt tun muss",
+      "slug": "e-rechnung-2027-controlling",
+      "keyword": "E-Rechnung 2027",
+      "nebenkeywords": [
+        "E-Rechnungspflicht",
+        "XRechnung ZUGFeRD",
+        "E-Rechnung Mittelstand"
+      ],
+      "schmerzpunkt": "Regulatorik, Prozessumstellung",
+      "cluster": "F Abschluss & Regulatorik",
+      "autor": "Andreas Klostermann",
+      "visualisierungen": [
+        "Zeitstrahl 2025–2028",
+        "Datenfluss E-Rechnung → ERP → Controlling"
+      ],
+      "quelle": "Pflicht ab 1.1.2027 für >800 T€ Vorjahresumsatz (IHK Stuttgart)",
+      "newsletter_ausgabe": "NL-04",
+      "hinweis": "Keine Steuerberatung, auf Fachberatung verweisen.",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-12-10",
+      "uhrzeit": "08:00",
+      "typ": "praxisbeispiel",
+      "titel": "Praxisbeispiel 3 (Thema folgt mit Material)",
+      "slug": "praxisbeispiel-3",
+      "keyword": "tbd",
+      "nebenkeywords": [],
+      "schmerzpunkt": "tbd",
+      "cluster": "tbd",
+      "autor": "Benjamin Diez",
+      "visualisierungen": [],
+      "quelle": "Projektordner",
+      "newsletter_ausgabe": "NL-04",
+      "hinweis": "",
+      "ersatzthema": "KPI-Baum: vom Werttreiber zur Steuerungsgröße (Keyword: Werttreiberbaum)",
+      "material_deadline": "2026-12-05"
+    },
+    {
+      "datum": "2026-12-14",
+      "uhrzeit": "08:00",
+      "typ": "tool-vergleich",
+      "titel": "Microsoft Fabric im Controlling: Nötig oder reicht Power BI?",
+      "slug": "microsoft-fabric-controlling",
+      "keyword": "Microsoft Fabric Mittelstand",
+      "nebenkeywords": [
+        "Fabric vs Power BI",
+        "Microsoft Fabric Kosten",
+        "Data Platform Controlling"
+      ],
+      "schmerzpunkt": "Plattformentscheidung, IT-Abhängigkeit",
+      "cluster": "D Tools & Plattform",
+      "autor": "Carsten Hof",
+      "visualisierungen": [
+        "Architektur Power BI vs. Fabric",
+        "Entscheidungsbaum"
+      ],
+      "quelle": "Plattform-Frage aus BI-Einführungen",
+      "newsletter_ausgabe": "NL-04",
+      "hinweis": "",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-12-17",
+      "uhrzeit": "08:00",
+      "typ": "how-to",
+      "titel": "Rolling Forecast einführen: Schluss mit der Planung von gestern",
+      "slug": "rolling-forecast-einfuehren",
+      "keyword": "Rolling Forecast",
+      "nebenkeywords": [
+        "rollierende Planung",
+        "Forecast Controlling Mittelstand"
+      ],
+      "schmerzpunkt": "Planung veraltet schnell",
+      "cluster": "B Planung & Forecast",
+      "autor": "Benjamin Diez",
+      "visualisierungen": [
+        "Zeitstrahl rollierender Horizont",
+        "Treiberbaum"
+      ],
+      "quelle": "HubSpot: kein Forecasting vorhanden",
+      "newsletter_ausgabe": "NL-04",
+      "hinweis": "Abgrenzen von 'Forecast oder Guesswork' (Absatzprognose/ML).",
+      "ersatzthema": "",
+      "material_deadline": ""
+    },
+    {
+      "datum": "2026-12-21",
+      "uhrzeit": "08:00",
+      "typ": "praxisbeispiel",
+      "titel": "Praxisbeispiel 4 (Thema folgt mit Material)",
+      "slug": "praxisbeispiel-4",
+      "keyword": "tbd",
+      "nebenkeywords": [],
+      "schmerzpunkt": "tbd",
+      "cluster": "tbd",
+      "autor": "Carsten Hof",
+      "visualisierungen": [],
+      "quelle": "Projektordner",
+      "newsletter_ausgabe": "NL-04",
+      "hinweis": "Letzter Termin vor den Weihnachtsferien.",
+      "ersatzthema": "Datenzulieferung aus Fachbereichen absichern (Keyword: Datenqualität Controlling)",
+      "material_deadline": "2026-12-16"
+    }
+  ]
+}
