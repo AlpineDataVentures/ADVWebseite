@@ -6,7 +6,7 @@
       "datum": "2026-10-23",
       "uhrzeit": "08:00",
       "typ": "how-to",
-      "titel": "Schluss mit Copy & Paste: Wie Controlling-Teams ihr Excel-Reporting in fünf Stufen automatisieren",
+      "titel": "Schluss mit Copy & Paste: Excel-Reporting in 5 Stufen automatisieren",
       "slug": "excel-reporting-controlling-automatisieren",
       "keyword": "Reporting automatisieren Controlling",
       "nebenkeywords": [
@@ -31,7 +31,7 @@
       "datum": "2026-10-26",
       "uhrzeit": "08:00",
       "typ": "how-to",
-      "titel": "Die Management-GuV aus DATEV oder ERP: Von der Summen- und Saldenliste zur P&L in Power BI",
+      "titel": "Management-GuV aus DATEV oder ERP: Von der SuSa zur P&L in Power BI",
       "slug": "management-guv-power-bi",
       "keyword": "GuV Power BI",
       "nebenkeywords": [
@@ -56,7 +56,7 @@
       "datum": "2026-10-29",
       "uhrzeit": "08:00",
       "typ": "tool-vergleich",
-      "titel": "Planungssoftware für den Mittelstand: Excel, Jedox, Board und Power-BI-Planung im Vergleich",
+      "titel": "Planungssoftware im Mittelstand: Excel, Jedox, Board und Power BI",
       "slug": "planungssoftware-mittelstand-vergleich",
       "keyword": "Planungssoftware Mittelstand",
       "nebenkeywords": [
@@ -81,7 +81,7 @@
       "datum": "2026-11-02",
       "uhrzeit": "08:00",
       "typ": "how-to",
-      "titel": "Plan-Ist-Vergleich auf Knopfdruck, wenn der Plan in Excel und das Ist im ERP liegt",
+      "titel": "Plan-Ist-Vergleich auf Knopfdruck: Plan in Excel, Ist im ERP",
       "slug": "plan-ist-vergleich-excel-erp",
       "keyword": "Plan-Ist-Vergleich",
       "nebenkeywords": [
@@ -106,7 +106,7 @@
       "datum": "2026-11-05",
       "uhrzeit": "08:00",
       "typ": "how-to",
-      "titel": "Deckungsbeitragsrechnung: Welche Produkte und Kunden wirklich Geld verdienen",
+      "titel": "Deckungsbeitragsrechnung: Welche Kunden wirklich Geld verdienen",
       "slug": "deckungsbeitragsrechnung-produkte-kunden",
       "keyword": "Deckungsbeitragsrechnung",
       "nebenkeywords": [
@@ -131,7 +131,7 @@
       "datum": "2026-11-09",
       "uhrzeit": "08:00",
       "typ": "tool-vergleich",
-      "titel": "Copilot in Excel, ChatGPT oder Claude: Was KI-Assistenten im Controlling heute können",
+      "titel": "Copilot, ChatGPT oder Claude: KI-Assistenten im Controlling",
       "slug": "ki-assistenten-controlling-vergleich",
       "keyword": "KI im Controlling",
       "nebenkeywords": [
@@ -199,7 +199,7 @@
       "datum": "2026-11-19",
       "uhrzeit": "08:00",
       "typ": "tool-vergleich",
-      "titel": "Power BI, Tableau oder Qlik: Welches BI-Tool passt zum Controlling im Mittelstand?",
+      "titel": "Power BI, Tableau oder Qlik: Welches BI-Tool passt zum Controlling?",
       "slug": "bi-tool-vergleich-controlling",
       "keyword": "BI Tool Vergleich Controlling",
       "nebenkeywords": [
@@ -224,7 +224,7 @@
       "datum": "2026-11-23",
       "uhrzeit": "08:00",
       "typ": "how-to",
-      "titel": "Beirats- und Gesellschafterreporting: Von der BWA zum Bericht, den man in 10 Minuten versteht",
+      "titel": "Beiratsreporting: Von der BWA zum Bericht, der in 10 Minuten wirkt",
       "slug": "beiratsreporting-bwa-management-bericht",
       "keyword": "Management Reporting Geschäftsführung",
       "nebenkeywords": [
@@ -249,7 +249,7 @@
       "datum": "2026-11-26",
       "uhrzeit": "08:00",
       "typ": "tool-vergleich",
-      "titel": "Gruppenreporting ohne Excel-Packages: Konsolidierungs- und Reporting-Tools für Mittelständler",
+      "titel": "Gruppenreporting ohne Excel-Packages: Tools für den Mittelstand",
       "slug": "gruppenreporting-konsolidierung-tools",
       "keyword": "Konzernreporting Software Mittelstand",
       "nebenkeywords": [
@@ -316,7 +316,7 @@
       "datum": "2026-12-07",
       "uhrzeit": "08:00",
       "typ": "how-to",
-      "titel": "E-Rechnung ab 2027: Was die kaufmännische Leitung jetzt vorbereiten muss – und welche Daten darin stecken",
+      "titel": "E-Rechnung ab 2027: Was die kaufmännische Leitung jetzt tun muss",
       "slug": "e-rechnung-2027-controlling",
       "keyword": "E-Rechnung 2027",
       "nebenkeywords": [
@@ -359,7 +359,7 @@
       "datum": "2026-12-14",
       "uhrzeit": "08:00",
       "typ": "tool-vergleich",
-      "titel": "Microsoft Fabric für das Controlling: Braucht der Mittelstand das – oder reicht Power BI?",
+      "titel": "Microsoft Fabric im Controlling: Nötig oder reicht Power BI?",
       "slug": "microsoft-fabric-controlling",
       "keyword": "Microsoft Fabric Mittelstand",
       "nebenkeywords": [
@@ -384,7 +384,7 @@
       "datum": "2026-12-17",
       "uhrzeit": "08:00",
       "typ": "how-to",
-      "titel": "Rolling Forecast einführen: Schluss mit der Planung, die im März schon veraltet ist",
+      "titel": "Rolling Forecast einführen: Schluss mit der Planung von gestern",
       "slug": "rolling-forecast-einfuehren",
       "keyword": "Rolling Forecast",
       "nebenkeywords": [

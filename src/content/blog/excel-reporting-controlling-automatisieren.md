@@ -1,17 +1,14 @@
 ---
-title: "Schluss mit Copy & Paste: Wie Controlling-Teams ihr Excel-Reporting in fünf Stufen automatisieren"
+title: "Schluss mit Copy & Paste: Excel-Reporting in 5 Stufen automatisieren"
 meta_title: "Reporting automatisieren im Controlling: 5 Stufen"
 description: "Reporting automatisieren im Controlling ohne Großprojekt: fünf Stufen von der Inventur zum Bericht, der sich selbst aktualisiert. Mit Rechenbeispiel."
 date: 2026-10-23T06:00:00Z
-updated: 2026-10-23T06:00:00Z
 image: "/images/blog/excel-reporting-controlling-automatisieren.png"
 categories: ["Controlling"]
 author: "Julian Koller"
 tags: ["Controlling", "Reporting", "Excel", "Power BI", "Automatisierung", "How To"]
-audience: ["controlling"]
-content_type: "how-to"
 draft: false
-summary: "Viele Controlling-Teams im Mittelstand verbringen den Monatsanfang mit Kopieren statt mit Analysieren. Dieser Fahrplan zeigt in fünf Stufen, wie Sie Ihr Excel-Reporting Schritt für Schritt automatisieren."
+summary: "Viele Controlling-Teams im Mittelstand verbringen den Monatsanfang mit Kopieren statt mit Analysieren. Der Fahrplan zeigt in fünf Stufen, wie Sie Ihr Excel-Reporting automatisieren."
 ---
 
 Arbeitstag drei nach Monatsende, 21:40 Uhr. Die Leiterin Controlling der Thalberg Getränke GmbH hat sieben Exporte aus dem ERP offen, dazu die Umsatzliste aus dem Vertrieb und eine Datei namens „GuV_Monat_v4_FINAL_korr.xlsx“. Morgen um neun will die Geschäftsführung die Zahlen sehen. Analysiert hat sie bisher nichts, sie hat kopiert, verglichen und SVERWEISe repariert. Thalberg ist ein fiktives Unternehmen aus unserer [Serie über den Aufbau eines datengetriebenen Mittelständlers](/blog/kick-off/). Den Abend kennen trotzdem viele Controller aus eigener Erfahrung.

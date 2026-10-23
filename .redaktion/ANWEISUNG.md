@@ -114,7 +114,8 @@ Kein Artikel ist reiner Text. Sobald ein Artikel einen **Ablauf, Prozess, eine A
 
 **SEO:**
 - Ein Haupt-Keyword aus dem Redaktionsplan, dazu 3–5 Neben-Keywords und Fragen. Das Haupt-Keyword steht in `meta_title` (vorne), in `description`, in der ersten H2 und in den ersten 100 Wörtern. Kein Keyword-Stuffing.
-- `title` = Lesertitel (darf verspielt sein). `meta_title` = suchorientiert, max. 60 Zeichen, nie identisch mit `title`. `description` = 140–155 Zeichen mit Nutzenversprechen.
+- `title` = Lesertitel (darf verspielt sein), **max. 70 Zeichen**, damit er in der Blogübersicht nicht zu lang wird. Der Titel im Redaktionsplan ist ein Arbeitstitel und wird bei Bedarf gekürzt. `meta_title` = suchorientiert, max. 60 Zeichen, nie identisch mit `title`. `description` = 140–155 Zeichen mit Nutzenversprechen.
+- `summary` = **max. 200 Zeichen** (die Blogübersicht schneidet nach 200 Zeichen ab), 1–2 vollständige Sätze.
 - Slug: kurz, sprechend, Kleinbuchstaben, ohne Umlaute, Bindestriche (z. B. `rolling-forecast-excel-power-bi`).
 - **Interne Links:** 3–5 Links zu thematisch passenden ADV-Artikeln (Format `/blog/<slug>/`), bevorzugt zur Pillar-Seite des Themenclusters. Ankertexte beschreibend, nie "hier".
 - **Information Gain:** Jeder Artikel enthält etwas, das es woanders nicht gibt: ADV-Erfahrungswert, eigenes Vorgehensmodell, Rechenbeispiel, Vorlage, Checkliste, Praxisbeobachtung.
@@ -138,18 +139,15 @@ title: "Lesertitel"
 meta_title: "Haupt-Keyword vorne – max. 60 Zeichen"
 description: "140–155 Zeichen mit Nutzenversprechen"
 date: 2026-11-02T07:00:00Z          # Erscheinungstermin laut Plan, 07:00 UTC
-updated: 2026-11-02T07:00:00Z       # bei Überarbeitung anpassen
 image: "/images/blog/<slug>.png"
 categories: ["Controlling"]
 author: "Vorname Nachname"          # laut Redaktionsplan; Autoren: Andreas Klostermann, Benjamin Diez, Carsten Hof, Julian Koller
 tags: ["…", "…"]                    # 3–6 Tags, bestehende Tags wiederverwenden
-audience: ["controlling"]           # Zuordnung zu control.alpinedata.de
-content_type: "how-to"              # how-to | tool-vergleich | praxisbeispiel
 draft: false
-summary: "1–2 Sätze, die das Problem und den Nutzen benennen"
+summary: "1–2 Sätze, Problem und Nutzen, max. 200 Zeichen"
 ---
 ```
-Die Felder `updated`, `audience` und `content_type` sind neu. Falls das Content-Schema der Website sie (noch) nicht akzeptiert, weise in der PR darauf hin.
+Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `content_type`). Die Zuordnung zu control.alpinedata.de läuft ausschließlich über `categories: ["Controlling"]`. Der Artikeltyp steht nur in der PR-Beschreibung.
 
 ## 9. Ablauf je Termin (Mo + Do)
 1. Redaktionsplan lesen: Thema, Typ, Keyword, Autor für den nächsten Termin. Fehlt ein Eintrag, wähle das nächste offene Thema und vermerke das.
@@ -162,7 +160,7 @@ Die Felder `updated`, `audience` und `content_type` sind neu. Falls das Content-
 8. In die PR-Beschreibung zusätzlich einen Abschnitt `## Newsletter-Baustein` aufnehmen: Titel, geplante URL `https://www.alpinedata.de/blog/<slug>/`, Kernaussage (2–3 Sätze), 3 Key Takeaways, belegte Zahlen mit Quelle, CTA, Newsletter-Ausgabe laut Plan.
 9. Den Redaktionsplan und andere Dateien unter `.redaktion/` in Artikel-PRs **nicht** ändern. Status, PR-Links und Veröffentlichung pflegt ein separater Prüf-Lauf im Claude-Projekt.
 
-**Zeitpunkt:** Die PR wird am Werktag **vor** dem Erscheinungstermin erstellt (für Montag: am Freitag), damit die Freigabe vor 08:00 Uhr am Erscheinungstag möglich ist. `date` im Frontmatter = Erscheinungstag 08:00 Uhr Europe/Berlin (Sommerzeit 06:00Z, Winterzeit 07:00Z).
+**Zeitpunkt:** Die Routine läuft montags und donnerstags und erstellt die PR für den **nächsten** Erscheinungstermin (Montag → Donnerstag, Donnerstag → folgender Montag). So bleiben für die Freigabe mindestens drei Tage, Frist ist 08:00 Uhr am Erscheinungstag. `date` im Frontmatter = Erscheinungstag 08:00 Uhr Europe/Berlin (Sommerzeit 06:00Z, Winterzeit 07:00Z).
 
 ## 10. Qualitäts-Checkliste vor der PR
 - [ ] Mindestens ein konkreter Schmerz der Zielgruppe ist benannt und wird gelöst
@@ -170,7 +168,7 @@ Die Felder `updated`, `audience` und `content_type` sind neu. Falls das Content-
 - [ ] 1.100–1.700 Wörter Fließtext, Lesezeit 5–8 Minuten
 - [ ] Mindestens 2 Visualisierungen, davon mindestens 1 Grafik; jede mit Alt-Text, Bildunterschrift und Kernaussage im Text
 - [ ] "Das Wichtigste in Kürze", H2/H3-Struktur, FAQ, Fazit, CTA vorhanden
-- [ ] Haupt-Keyword korrekt platziert; `meta_title` ≠ `title`; Längen eingehalten
+- [ ] Haupt-Keyword korrekt platziert; `meta_title` ≠ `title`; Längen eingehalten (`title` ≤ 70, `meta_title` ≤ 60, `description` 140–155, `summary` ≤ 200 Zeichen)
 - [ ] 2–4 belegte Zahlen mit Quelle; keine erfundenen Fakten, Kunden, Zitate oder Preise
 - [ ] 3–5 interne Links, keine kaputten Links
 - [ ] Ton: ADV-Humor dosiert, Sie-Ansprache, fachlich korrekt, fehlerfrei
@@ -184,7 +182,7 @@ Die Felder `updated`, `audience` und `content_type` sind neu. Falls das Content-
 - Bei Unsicherheit lieber eine offene Frage in die PR schreiben als etwas zu behaupten.
 
 ## 12. Termin bestimmen und Doppelungen vermeiden
-- Die Routine läuft am Werktag vor einem Erscheinungstermin. Bestimme den **nächsten Erscheinungstermin** (nächster Montag oder Donnerstag, der in `.redaktion/redaktionsplan.json` steht) und schreibe genau diesen Artikel.
+- Die Routine läuft montags und donnerstags. Bestimme den **nächsten Erscheinungstermin nach heute** (nächster Montag oder Donnerstag, der in `.redaktion/redaktionsplan.json` steht) und schreibe genau diesen Artikel.
 - Bevor du schreibst, prüfe: Gibt es schon einen Remote-Branch `blog/<datum>-*` oder eine Datei in `src/content/blog/` mit demselben Slug oder Thema? Dann nichts erstellen und nur kurz melden.
 - **Praxisbeispiele:** Liegt bis `material_deadline` kein Material unter `.redaktion/praxisbeispiele/`, schreibe das `ersatzthema` und vermerke das in der PR.
 - Weihnachtsferien (24.12.–06.01.) bleiben frei.

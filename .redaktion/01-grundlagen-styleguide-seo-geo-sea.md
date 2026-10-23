@@ -37,8 +37,8 @@ Dateien als `.md` oder `.mdx`; Tabellen, Blockquotes, `mailto:`-CTAs, interne Li
 | Überschriften starten bei H3/H4, kein H2 | Saubere Hierarchie: H1 = title (Template), Abschnitte H2, Unterpunkte H3 |
 | Ansprache wechselt: "Sie" (2024), "du" (BI in 45 Min.), "ihr/euch" (2026) | Eine Ansprache für control.alpinedata.de festlegen (→ offene Frage) |
 | `meta_title` oft identisch mit `title` | Immer getrennt: title = Neugier, meta_title = Suchintention + Keyword vorne, max. ~60 Zeichen |
-| Keine Zielgruppen-Zuordnung im Frontmatter | Neues Feld, z. B. `audience: ["controlling"]` + `content_type: how-to / tool-vergleich / case-study` → IT kann darüber auf control.alpinedata.de ausspielen |
-| Kein `lastmod`/Aktualisierungsdatum | Feld `updated:` ergänzen (Freshness-Signal für Google & KI-Suche) |
+| Keine Zielgruppen-Zuordnung im Frontmatter | Entschieden (23.10.2026): Zuordnung über `categories: ["Controlling"]`, keine zusätzlichen Felder |
+| Kein `lastmod`/Aktualisierungsdatum | Entschieden (23.10.2026): kein eigenes Feld; Aktualität bei Überarbeitungen im Text kenntlich machen |
 | Kaum belegte Zahlen/externe Quellen; Kernaussagen nicht "zitierfähig" | Pro Artikel 2–4 belegte Zahlen mit Quelle, 1 Definitionssatz, 1 "Kurz gesagt"-Box am Anfang |
 | Keine FAQ, kein TL;DR | Kurzantwort (40–60 Wörter) direkt unter dem Einstieg + 3–5 echte FAQ am Ende |
 | Autor nur als Name, keine Autorenseite/Expertise | Autorenboxen mit Rolle, Erfahrung, LinkedIn (E-E-A-T) |
@@ -72,7 +72,7 @@ Dateien als `.md` oder `.mdx`; Tabellen, Blockquotes, `mailto:`-CTAs, interne Li
 **Taktiken mit Evidenz:**
 - **Statistiken, Quellenangaben, Expertenzitate** erhöhen die Sichtbarkeit in generativen Antworten (Princeton-GEO-Studie, KDD 2024: bis zu +40 %; Quellenangaben besonders wirksam für schwächer rankende Seiten). Keyword-Stuffing wirkt null bis negativ. [LLM Pulse, Studienbezug]
 - **Vergleichsinhalte** ("X vs. Y", "beste Tools für …", "Alternativen zu …") gehören zu den meistzitierten Formaten → unser Typ 2 (Tool-Vergleiche) ist GEO-Gold. Bing-Daten bestätigen: Der meistzitierte Copilot-Inhalt einer Analyse war ein detaillierter Tool-Vergleich mit Preisen und Features; vage Übersichten wurden nicht zitiert. [Search Influence]
-- **Aktualität:** KI-Suchen zitieren tendenziell frischere Quellen → Top-Artikel quartalsweise aktualisieren, `updated` pflegen.
+- **Aktualität:** KI-Suchen zitieren tendenziell frischere Quellen → Top-Artikel quartalsweise aktualisieren.
 - **Query Fan-out:** AI Mode zerlegt Fragen in Teilfragen; viele zitierte Seiten stehen außerhalb der organischen Top 10 → Artikel sollten Teilfragen explizit mit eigenen H2/H3 beantworten.
 - **Antwortarchitektur:** Kurze Direktantwort am Anfang, Definitionssätze, Tabellen, nummerierte Schritte, klare Zahlen mit Einheit und Quelle.
 - **Fremdquellen/Erwähnungen:** KI-Systeme stützen sich stark auf Drittquellen (Wikipedia, Reddit, YouTube, Bewertungsportale). Für uns relevant: LinkedIn-Posts der Autoren, Gastbeiträge (z. B. Fachportale für Controller), Konferenzpräsenz, Partner-Listings (Microsoft-Partnerverzeichnis o. ä.).
