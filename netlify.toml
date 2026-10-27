@@ -11,7 +11,7 @@ publish = "dist"
 command = "./netlify-build-setup.sh && npm run build_branch"
 
 [build.environment]
-NODE_VERSION = "22"
+NODE_VERSION = "24"
 
 # Config for the Netlify Build Plugin: netlify-plugin-minify-html
 [[plugins]]

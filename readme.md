@@ -70,6 +70,10 @@
 npm install
 ```
 
+> **Hinweis zu `overrides` in `package.json`:** Der Eintrag `@babel/eslint-parser → eslint: "$eslint"` ist wegen **Klaro** (`klaro@0.7.21`, aktuell neueste Version) notwendig. Klaro hat `@babel/eslint-parser` als normale Dependency, dessen Peer-Dependency erlaubt nur `eslint@<=9`. Ohne Override scheitert `npm install` mit `ERESOLVE`, weil das Projekt `eslint@10` / `@eslint/js@10` nutzt. Der Override kann entfernt werden, sobald Klaro das Paket entfernt oder eslint 10 unterstützt.
+>
+> Zusätzlich ist `eslint-plugin-react → eslint: "$eslint"` nötig, weil `eslint-plugin-react@7.37.5` (aktuell neueste stabile Version) in den Peer-Dependencies noch kein eslint 10 listet. Entfernen, sobald das Plugin eslint 10 offiziell unterstützt.
+
 ### 👉 Development Command
 
 ```bash
