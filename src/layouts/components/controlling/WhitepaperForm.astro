@@ -7,7 +7,7 @@ const { form } = whitepaper;
 <form
   class="grid max-w-lg gap-2.5 border-t border-border pt-5 dark:border-darkmode-border"
   data-whitepaper-form
-  data-not-active={form.notActive}
+  data-error={form.error}
 >
   <label
     for="whitepaper-email"
@@ -17,7 +17,40 @@ const { form } = whitepaper;
   </label>
   <div class="flex flex-wrap gap-2.5">
     <input
+      name="firstname"
+      type="text"
+      required
+      maxlength="100"
+      autocomplete="given-name"
+      placeholder={form.firstnamePlaceholder}
+      class="min-w-0 flex-[1_1_180px] rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
+    />
+    <input
+      name="lastname"
+      type="text"
+      required
+      maxlength="100"
+      autocomplete="family-name"
+      placeholder={form.lastnamePlaceholder}
+      class="min-w-0 flex-[1_1_180px] rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
+    />
+  </div>
+  <input
+    name="company"
+    type="text"
+    required
+    maxlength="200"
+    autocomplete="organization"
+    placeholder={form.companyPlaceholder}
+    class="min-w-0 rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
+  />
+  <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+    <input name="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+  <div class="flex flex-wrap gap-2.5">
+    <input
       id="whitepaper-email"
+      name="email"
       type="email"
       required
       placeholder={form.placeholder}
@@ -25,11 +58,21 @@ const { form } = whitepaper;
     />
     <button
       type="submit"
-      class="rounded-md border border-[#00CE7E] bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-black transition hover:opacity-90"
+      disabled
+      class="rounded-md border border-[#00CE7E] bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
     >
       {form.submit}
     </button>
   </div>
+  <label class="flex items-start gap-2 font-secondary text-sm text-text dark:text-darkmode-text-light">
+    <input
+      name="consent"
+      type="checkbox"
+      required
+      class="mt-1 rounded border-border text-[#00CE7E] focus:ring-[#00CE7E]"
+    />
+    <span>{form.consent}</span>
+  </label>
   <small
     data-whitepaper-message
     aria-live="polite"
@@ -41,14 +84,58 @@ const { form } = whitepaper;
 </form>
 
 <script>
-  // Noch ohne Versand: wird an das Newsletter-Tool angebunden, sobald es feststeht
   document
     .querySelectorAll<HTMLFormElement>("[data-whitepaper-form]")
     .forEach((formEl) => {
-      formEl.addEventListener("submit", (event) => {
+      const button = formEl.querySelector<HTMLButtonElement>("button[type=submit]");
+      const updateButtonState = () => {
+        const firstname = formEl.querySelector<HTMLInputElement>("[name=firstname]");
+        const lastname = formEl.querySelector<HTMLInputElement>("[name=lastname]");
+        const company = formEl.querySelector<HTMLInputElement>("[name=company]");
+        const email = formEl.querySelector<HTMLInputElement>("[name=email]");
+        const consent = formEl.querySelector<HTMLInputElement>("[name=consent]");
+        if (email) email.setCustomValidity(email.validity.typeMismatch ? "Bitte geben Sie eine gültige E-Mail-Adresse ein." : "");
+        const fieldsPresent = [firstname, lastname, company].every((field) => field?.value.trim());
+        if (button) button.disabled = !fieldsPresent || !email?.validity.valid || !consent?.checked;
+      };
+
+      formEl.addEventListener("input", updateButtonState);
+      formEl.addEventListener("change", updateButtonState);
+      updateButtonState();
+
+      formEl.addEventListener("submit", async (event) => {
         event.preventDefault();
+        updateButtonState();
+        if (!formEl.reportValidity() || button?.disabled) return;
         const message = formEl.querySelector("[data-whitepaper-message]");
-        if (message) message.textContent = formEl.dataset.notActive ?? "";
+        const field = (name: string) =>
+          formEl.querySelector<HTMLInputElement>(`[name=${name}]`);
+        if (button) button.disabled = true;
+        try {
+          const response = await fetch("/.netlify/functions/whitepaper-request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: field("email")?.value,
+              firstname: field("firstname")?.value,
+              lastname: field("lastname")?.value,
+              company: field("company")?.value,
+              website: field("website")?.value,
+              consent: field("consent")?.checked === true,
+            }),
+          });
+          const data = await response.json().catch(() => ({}));
+          if (message) {
+            message.textContent = response.ok
+              ? data.msg
+              : (data.error ?? formEl.dataset.error ?? "");
+          }
+          if (response.ok) formEl.reset();
+        } catch {
+          if (message) message.textContent = formEl.dataset.error ?? "";
+        } finally {
+          updateButtonState();
+        }
       });
     });
 </script>

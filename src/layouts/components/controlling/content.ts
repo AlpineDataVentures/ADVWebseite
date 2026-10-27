@@ -212,8 +212,12 @@ export const whitepaper = {
     privacy:
       "Sie melden sich für unseren Newsletter an: gelegentlich Neues aus unseren Controlling-Projekten. Sobald Sie Ihre Anmeldung per E-Mail bestätigt haben, erhalten Sie das Whitepaper. Abmelden mit einem Klick.",
     privacyLink: "Datenschutzhinweise",
-    notActive:
-      "Die Newsletter-Anmeldung ist noch nicht aktiv. Bitte vereinbaren Sie ein Erstgespräch oder versuchen Sie es in Kürze erneut.",
+    firstnamePlaceholder: "Vorname",
+    lastnamePlaceholder: "Nachname",
+    companyPlaceholder: "Firma",
+    consent:
+      "Ich möchte den Newsletter der Alpine Data Ventures erhalten und das Whitepaper per E-Mail bekommen. Meine Einwilligung kann ich jederzeit widerrufen.",
+    error: "Die Anmeldung ist leider fehlgeschlagen. Bitte versuchen Sie es später erneut.",
   },
 };
 
