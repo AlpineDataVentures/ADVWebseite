@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="t d">
+<title id="t">Rechenbeispiel: Aufwand für das Monatsreporting vorher und nachher</title>
+<desc id="d">Vorher 9 Personentage pro Monat, davon 7 für Sammeln und Abgleichen und 2 für Analyse. Nachher 4 Personentage, davon 1 für Sammeln und Abgleichen und 3 für Analyse. Rechenbeispiel mit Annahmen von ADV.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}.l{font-size:20px;font-weight:600}
+.v{font-size:18px;font-weight:600}.m{font-size:16px;fill:#555555}.t{font-size:16px}
+</style>
+<rect width="1200" height="560" fill="#ffffff"/>
+<text x="48" y="64" class="h">Monatsreporting: wohin die Tage gehen</text>
+<text x="48" y="96" class="s">Rechenbeispiel, Controlling-Team mit 3 Personen, Personentage pro Monat</text>
+<line x1="220" y1="140" x2="220" y2="420" stroke="#141414" stroke-width="1.5"/>
+<g stroke="#e3e6e4" stroke-width="1">
+<line x1="320" y1="140" x2="320" y2="420"/><line x1="420" y1="140" x2="420" y2="420"/><line x1="520" y1="140" x2="520" y2="420"/><line x1="620" y1="140" x2="620" y2="420"/><line x1="720" y1="140" x2="720" y2="420"/><line x1="820" y1="140" x2="820" y2="420"/><line x1="920" y1="140" x2="920" y2="420"/><line x1="1020" y1="140" x2="1020" y2="420"/><line x1="1120" y1="140" x2="1120" y2="420"/>
+</g>
+<text x="48" y="222" class="l">Heute</text><text x="48" y="246" class="m">Excel</text>
+<rect x="220" y="180" width="700" height="80" rx="8" fill="#555555"/>
+<text x="240" y="228" class="v" style="fill:#ffffff">Sammeln, kopieren, abgleichen · 7</text>
+<rect x="920" y="180" width="200" height="80" rx="8" fill="#00ce7f"/>
+<text x="940" y="228" class="v">Analyse · 2</text>
+<text x="48" y="352" class="l">Stufe 5</text><text x="48" y="376" class="m">automatisiert</text>
+<rect x="220" y="310" width="100" height="80" rx="8" fill="#555555"/>
+<text x="240" y="358" class="v" style="fill:#ffffff">1</text>
+<rect x="320" y="310" width="300" height="80" rx="8" fill="#00ce7f"/>
+<text x="340" y="358" class="v">Analyse · 3</text>
+<text x="640" y="358" class="t">= 4 Tage statt 9, Analyseanteil von 22 % auf 75 %</text>
+<g class="m"><text x="214" y="446" class="m">0</text><text x="408" y="446" class="m">2</text><text x="608" y="446" class="m">4</text><text x="808" y="446" class="m">6</text><text x="1008" y="446" class="m">8</text></g>
+<text x="48" y="500" class="m">Annahmen (ADV-Rechenbeispiel, keine Studie): 3 Tage Reporting je Person und Monat heute;</text>
+<text x="48" y="522" class="m">nach Automatisierung 1 Tag Datenprüfung, ein Teil der frei werdenden Zeit fließt in Analyse.</text>
+</svg>
