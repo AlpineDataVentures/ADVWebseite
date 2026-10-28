@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="t d">
+<title id="t">Positionierung der Planungslösungen nach Einführungsaufwand und Planungsumfang</title>
+<desc id="d">Matrix: Excel links unten, Power BI mit Add-on in der Mitte, Jedox und Board oben rechts.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}
+.a{font-size:18px;fill:#555555}.l{font-size:22px;font-weight:600}.m{font-size:16px;fill:#555555}
+</style>
+<rect width="1200" height="640" fill="#ffffff"/>
+<text x="48" y="64" class="h">Planungslösungen: Aufwand und Funktionsumfang</text>
+<text x="48" y="96" class="s">ADV-Einschätzung für den Mittelstand, keine Messwerte</text>
+<line x1="120" y1="560" x2="1140" y2="560" stroke="#141414" stroke-width="2"/>
+<line x1="120" y1="560" x2="120" y2="130" stroke="#141414" stroke-width="2"/>
+<text x="1140" y="600" class="a" text-anchor="end">Einführungs- und Betriebsaufwand →</text>
+<text x="48" y="124" class="a">Planungsumfang ↑</text>
+<rect x="160" y="420" width="260" height="100" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="180" y="456" class="l">Excel</text><text x="180" y="484" class="m">Flexibel, aber manuell</text><text x="180" y="506" class="m">Planen ohne Struktur</text>
+<rect x="470" y="290" width="300" height="100" rx="20" fill="#f2f4f3" stroke="#0C8974" stroke-width="2.5"/>
+<text x="490" y="326" class="l">Power BI + Add-on</text><text x="490" y="354" class="m">Baukasten, Planlogik</text><text x="490" y="376" class="m">muss ergänzt werden</text>
+<rect x="820" y="150" width="300" height="100" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="840" y="186" class="l">Jedox</text><text x="840" y="214" class="m" style="fill:#141414">Planungsplattform,</text><text x="840" y="236" class="m" style="fill:#141414">Excel-nahe Bedienung</text>
+<rect x="820" y="290" width="300" height="100" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="840" y="326" class="l">Board</text><text x="840" y="354" class="m" style="fill:#141414">BI, Planung und</text><text x="840" y="376" class="m" style="fill:#141414">Simulation in einem</text>
+</svg>
