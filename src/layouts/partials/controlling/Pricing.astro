@@ -1,0 +1,107 @@
+---
+import Band from "@/components/controlling/Band.astro";
+import CtaButton from "@/components/controlling/CtaButton.astro";
+import Placeholder from "@/components/controlling/Placeholder.astro";
+import SectionHead from "@/components/controlling/SectionHead.astro";
+import { CALENDLY_URL, pricing } from "@/components/controlling/content";
+---
+
+<Band id="preise">
+  <SectionHead
+    eyebrow={pricing.eyebrow}
+    title={pricing.title}
+    lead={pricing.lead}
+  />
+
+  <div class="grid gap-5 md:grid-cols-2 md:pt-6 xl:grid-cols-4">
+    {
+      pricing.tiers.map((tier) => (
+        <article
+          class={`relative flex min-w-0 flex-col gap-5 rounded-lg border bg-light p-6 transition duration-300 hover:-translate-y-1 hover:border-[#00CE7E] hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 dark:bg-darkmode-light dark:hover:shadow-[0_14px_30px_rgba(0,0,0,0.4)] ${
+            tier.highlight
+              ? "border-[1.5px] border-[#00CE7E] md:-mt-6"
+              : "border-border dark:border-darkmode-border"
+          }`}
+        >
+          {tier.badge && (
+            <span class="absolute -top-3 left-6 rounded-full bg-[#00CE7E] px-3 py-0.5 font-secondary text-xs font-bold text-black">
+              {tier.badge}
+            </span>
+          )}
+          <p class="flex justify-between gap-3 font-secondary text-sm font-bold text-[#008a55] dark:text-[#00CE7E]">
+            <span>{tier.step}</span>
+            <span class="text-text-light dark:text-darkmode-text-light">
+              {tier.duration}
+            </span>
+          </p>
+          <div class="grid gap-1.5">
+            <h3 class="font-primary text-h4 font-bold text-text-dark dark:text-darkmode-text-dark">
+              {tier.title}
+            </h3>
+            <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
+              {tier.sub}
+            </p>
+          </div>
+          <div>
+            <p class="font-primary text-3xl font-bold leading-none text-[#008a55] dark:text-[#00CE7E]">
+              {tier.prefix && (
+                <small class="mr-1 text-base font-medium">{tier.prefix}</small>
+              )}
+              {tier.price}
+            </p>
+            <p class="mt-2 font-secondary text-sm text-text-light dark:text-darkmode-text-light">
+              {tier.priceNote}
+            </p>
+          </div>
+          <ul class="list-disc space-y-1.5 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light">
+            {tier.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <CtaButton
+            href={tier.href}
+            variant={tier.highlight ? "primary" : "outline"}
+            class="mt-auto w-full whitespace-normal text-center"
+          >
+            {tier.cta}
+          </CtaButton>
+        </article>
+      ))
+    }
+  </div>
+
+  <div
+    class="mt-8 grid items-center gap-4 rounded-lg bg-[#1c1c1c] p-6 text-white md:grid-cols-[1fr_auto_auto] md:gap-8"
+  >
+    <div class="grid gap-1.5">
+      <h3 class="font-primary text-h5 font-bold text-white">
+        {pricing.run.title}
+      </h3>
+      <p class="font-secondary text-base text-[#b4afb6]">
+        {pricing.run.text}
+      </p>
+    </div>
+    <strong class="font-primary text-xl font-bold text-[#00CE7E]">
+      {pricing.run.price}
+    </strong>
+    <CtaButton href={CALENDLY_URL} small>
+      {pricing.run.cta}
+    </CtaButton>
+  </div>
+
+  <div class="mt-8 grid gap-6 md:grid-cols-3">
+    {
+      pricing.guarantees.map((item) => (
+        <div class="grid content-start gap-1.5 border-l-2 border-[#00CE7E] pl-5">
+          <h3 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+            {item.title}
+          </h3>
+          <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
+            {item.text}
+            {item.hint && <Placeholder>{item.hint}</Placeholder>}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</Band>

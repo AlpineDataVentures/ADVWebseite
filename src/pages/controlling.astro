@@ -2,13 +2,13 @@
 import Base from "@/layouts/Base.astro";
 import ControllingHeader from "@/components/controlling/ControllingHeader.astro";
 import { faq } from "@/components/controlling/content";
+import Pricing from "@/partials/controlling/Pricing.astro";
 import CaseExample from "@/partials/controlling/CaseExample.astro";
 import Calculator from "@/partials/controlling/Calculator.astro";
 import Demo from "@/partials/controlling/Demo.astro";
 import FinalCta from "@/partials/controlling/FinalCta.astro";
 import Hero from "@/partials/controlling/Hero.astro";
 import PainPoints from "@/partials/controlling/PainPoints.astro";
-import QuickStart from "@/partials/controlling/QuickStart.astro";
 import Whitepaper from "@/partials/controlling/Whitepaper.astro";
 import Faq from "@/partials/Faq.astro";
 ---
@@ -30,10 +30,10 @@ import Faq from "@/partials/Faq.astro";
   <PainPoints />
   <!-- Estimates the annual time cost of manual reporting from visitor inputs. -->
   <Calculator />
-  <!-- Presents an interactive Power BI report preview and links to the Quick-Start offer. -->
+  <!-- Shows the stepped fixed-price offers. -->
+  <Pricing />
+  <!-- Presents an interactive Power BI report preview and links to the pricing section. -->
   <Demo />
-  <!-- Explains the Quick-Start process, fixed price, deliverables, and required commitment. -->
-  <QuickStart />
   <!-- Shows the case-study narrative and outcome metrics; some content is still placeholder data. -->
   <CaseExample />
   <!-- Promotes the whitepaper and collects download requests. -->

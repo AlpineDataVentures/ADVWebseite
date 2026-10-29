@@ -1,6 +1,10 @@
 import { useId, useState } from "react";
+import { REPORTING_CHECK_PRICE } from "./content";
 
 const fmt = (n: number) => Math.round(n).toLocaleString("de-DE");
+const fmtMonths = (n: number) =>
+  n.toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const fmtPrice = (n: number) => `${n.toLocaleString("de-DE")} €`;
 
 const inputClass =
   "w-full rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark tabular-nums focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark";
@@ -20,6 +24,13 @@ export default function SavingsCalculator() {
       value: `${fmt(hoursSaved * ratePerHour)} €`,
     },
   ];
+
+  const yearlyValue = hoursSaved * ratePerHour;
+  // Auf eine Nachkommastelle gerundet, kleinster angezeigter Wert: 0,1 Monate
+  const months = Math.max(
+    0.1,
+    Math.round((REPORTING_CHECK_PRICE / (yearlyValue / 12)) * 10) / 10,
+  );
 
   return (
     <div className="grid items-start gap-10 md:grid-cols-2 md:gap-14">
@@ -91,6 +102,23 @@ export default function SavingsCalculator() {
             </div>
           ))}
         </dl>
+        <p className="mt-5 font-secondary text-sm text-[#b4afb6]">
+          {yearlyValue > REPORTING_CHECK_PRICE ? (
+            <>
+              Der Reporting-Check für{" "}
+              <b className="text-white">{fmtPrice(REPORTING_CHECK_PRICE)}</b>{" "}
+              entspricht {fmtMonths(months)} Monaten dieses Aufwands.
+            </>
+          ) : (
+            "Bei diesem Aufwand lohnt sich ein Gespräch, bevor Sie investieren."
+          )}
+        </p>
+        <a
+          href="#preise"
+          className="mt-6 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-[#00CE7E] bg-[#00CE7E] px-6 py-3 font-secondary text-base font-bold text-black transition hover:opacity-90"
+        >
+          Preise ansehen →
+        </a>
       </div>
     </div>
   );

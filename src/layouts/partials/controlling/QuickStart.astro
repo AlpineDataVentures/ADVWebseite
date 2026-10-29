@@ -1,7 +1,6 @@
 ---
 import Band from "@/components/controlling/Band.astro";
 import CtaButton from "@/components/controlling/CtaButton.astro";
-import Placeholder from "@/components/controlling/Placeholder.astro";
 import SectionHead from "@/components/controlling/SectionHead.astro";
 import { CALENDLY_URL, quickStart as qs } from "@/components/controlling/content";
 
@@ -110,7 +109,6 @@ const { offer, fixedPrice } = qs;
       </h3>
       <p class="max-w-3xl font-secondary text-base text-text-light dark:text-darkmode-text-light">
         {fixedPrice.text}
-        <Placeholder>{fixedPrice.hint}</Placeholder>
       </p>
     </div>
   </div>
