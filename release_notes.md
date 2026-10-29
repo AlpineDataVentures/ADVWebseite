@@ -1,5 +1,16 @@
 # Release Notes 
 
+### 3.1.0
+
+- ADV.Control: eigenständige Landingpage mit eigenem Branding und Navigation
+- Controlling-Angebot mit Quick Start, Reporting-Demo, Rechner, Fallbeispiel, Whitepaper und FAQ ergänzt
+- Newsletter-Anmeldung mit Double-Opt-in, Bestätigungsmail und Abmeldelink umgesetzt
+- Newsletter- und Abmeldeprozess über Resend integriert; Datenschutzinformationen ergänzt
+- Newsletter-E-Mails personalisiert
+- ADV-Control-Logo führt zurück zum Seitenanfang von `/controlling/`
+- Fixpreis-, Senior-Expertise- und Tenant-Hinweis unter den Links im Controlling-Hero ergänzt
+- OnePage optimiert und Logos für die ADV-Geschäftsbereiche ergänzt
+
 ### 3.0 ADV.Control
 
 - Eigene LandingPage für Controlling 
