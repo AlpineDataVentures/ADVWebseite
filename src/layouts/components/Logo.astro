@@ -6,9 +6,10 @@ interface Props {
   src?: string;
   srcDarkmode?: string;
   displayWidth?: number;
+  href?: string;
 }
 
-const { src, srcDarkmode, displayWidth } = Astro.props;
+const { src, srcDarkmode, displayWidth, href = "/" } = Astro.props;
 const {
   logo,
   logo_darkmode,
@@ -35,7 +36,7 @@ const imageStyle = displayWidth
   : { height: `${configuredHeight}px`, width: `${configuredWidth}px` };
 ---
 
-<a href="/" class="navbar-brand inline-block">
+<a href={href} class="navbar-brand inline-block">
   {
     src || srcDarkmode || logo || logo_darkmode ? (
       <>
