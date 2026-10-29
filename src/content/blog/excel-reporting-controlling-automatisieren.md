@@ -86,13 +86,17 @@ Nach Stufe 5 bleibt ein Tag für die Datenprüfung, die Analyse wächst auf drei
 
 ## Wo der Selbstbau endet
 
-Stufe 1 bis 3 schaffen viele Teams aus eigener Kraft, vor allem mit Power Query. Schwieriger wird es bei Stufe 4: direkter Zugriff auf ERP-Tabellen, saubere Stammdaten, Berechtigungen und ein Modell, das auch in zwei Jahren noch wartbar ist. Laut einer Interviewstudie des Centre for Performance Management & Controlling der Frankfurt School nutzen inzwischen rund zwei Drittel der befragten Unternehmen BI-Tools, nach etwa der Hälfte in der ersten Befragungswelle. Eine echte „Single Point of Truth“ hat aber nur gut die Hälfte ([CPMC, 2024](https://icv-controlling.com/wp-content/uploads/2025/04/205226_CPMC-Studienbericht_Digitalisierung-im-Controlling_Auszug.pdf)). Das Tool allein löst das Problem also nicht.
+Stufe 1 bis 3 schaffen viele Teams aus eigener Kraft, vor allem mit Power Query. Schwieriger wird es bei Stufe 4: direkter Zugriff auf ERP-Tabellen, saubere Stammdaten, Berechtigungen und ein Modell, das auch in zwei Jahren noch wartbar ist. Laut einer Interviewstudie des Centre for Performance Management & Controlling der Frankfurt School nutzen inzwischen rund zwei Drittel der befragten Unternehmen BI-Tools, nach etwa der Hälfte in der ersten Befragungswelle. Eine echte „Single Point of Truth“ hat aber nur gut die Hälfte ([CPMC, 2024](https://icv-controlling.com/wp-content/uploads/2025/04/205226_CPMC-Studienbericht_Digitalisierung-im-Controlling_Auszug.pdf)). Das Tool allein löst das Problem also nicht. Wie Stufe 4 und 5 am Ende aussehen, zeigt unsere [Live-Demo eines Monatsberichts in Power BI, vom Plan-EBIT bis zum einzelnen Konto](/controlling/).
 
 Und noch ein Grund, jetzt anzufangen: KI-Assistenten in Excel und Power BI werden schnell besser. Laut BARC Planning Survey 26 nutzen bereits 27 Prozent der Unternehmen KI für Planung und Forecasting, ein Jahr zuvor waren es 11 Prozent ([BARC, 06/2026](https://barc.com/de/news/barc-planning-survey-26-ki-in-planning/)). Diese Werkzeuge liefern aber nur auf einer sauberen, definierten Datenbasis brauchbare Ergebnisse. Wer Stufe 2 bis 4 erledigt hat, ist auch für KI vorbereitet.
 
 ## Fazit: Der Abend um 21:40 Uhr ist kein Naturgesetz
 
 Die Thalberg-Controllerin braucht kein neues Tool als Erstes. Sie braucht eine ehrliche Inventur, eine Seite mit Definitionen und ein paar Abfragen, die ihr das Kopieren abnehmen. Danach wird der Monatsabschluss nicht spektakulär, aber er endet zur normalen Zeit. Und am nächsten Morgen spricht die Geschäftsführung über Maßnahmen statt über die Frage, welche Zahl stimmt.
+
+## Wie wird aus Ihrem Monatsbericht einer, der sich selbst aktualisiert?
+
+Die ersten Abfragen laufen, der Abend um 21:40 Uhr wird kürzer. Mühsam wird es ab Stufe 4: ERP-Zugriff, Stammdaten, Berechtigungen und ein Modell, das auch in zwei Jahren noch wartbar ist. Auf unserer Controlling-Seite rechnen Sie aus, was das manuelle Reporting Ihr Team pro Jahr kostet, und sehen, [wie aus Ihrem wichtigsten Excel-Bericht ein Power-BI-Prototyp mit Ihren Zahlen wird](/controlling/), zum Fixpreis.
 
 ## Häufige Fragen
 
