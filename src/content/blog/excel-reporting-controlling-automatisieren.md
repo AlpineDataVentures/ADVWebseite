@@ -96,7 +96,7 @@ Die Thalberg-Controllerin braucht kein neues Tool als Erstes. Sie braucht eine e
 
 ## Wie wird aus Ihrem Monatsbericht einer, der sich selbst aktualisiert?
 
-Die ersten Abfragen laufen, der Abend um 21:40 Uhr wird kürzer. Mühsam wird es ab Stufe 4: ERP-Zugriff, Stammdaten, Berechtigungen und ein Modell, das auch in zwei Jahren noch wartbar ist. Auf unserer Controlling-Seite rechnen Sie aus, was das manuelle Reporting Ihr Team pro Jahr kostet, und sehen, [wie aus Ihrem wichtigsten Excel-Bericht in zwei Wochen ein Power-BI-Prototyp mit Ihren Zahlen wird](/controlling/), zum Fixpreis.
+Die ersten Abfragen laufen, der Abend um 21:40 Uhr wird kürzer. Mühsam wird es ab Stufe 4: ERP-Zugriff, Stammdaten, Berechtigungen und ein Modell, das auch in zwei Jahren noch wartbar ist. Auf unserer Controlling-Seite rechnen Sie aus, was das manuelle Reporting Ihr Team pro Jahr kostet, und sehen, [wie aus Ihrem wichtigsten Excel-Bericht ein Power-BI-Prototyp mit Ihren Zahlen wird](/controlling/), zum Fixpreis.
 
 ## Häufige Fragen
 

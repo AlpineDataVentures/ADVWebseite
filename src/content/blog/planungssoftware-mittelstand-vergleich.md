@@ -105,7 +105,7 @@ Und wenn dabei herauskommt, dass Excel noch zwei Jahre reicht, ist das ein gutes
 
 ## Wie finden Sie heraus, welcher Ast des Entscheidungsbaums für Sie gilt?
 
-17 Rückläufer auf 14 Planungsdateien sind ein Signal, aber noch keine Toolentscheidung. Mit Tabelle und Entscheidungsbaum filtern Sie die Kandidaten selbst. Ob Ihre Datenbasis einen Pilot trägt, zeigt erst der Blick auf Ihre Berichte und Quellsysteme. Auf unserer Controlling-Seite steht, [wie Sie in zwei Wochen zu Berichtsinventar, Prioritäten und einem Power-BI-Prototyp mit Ihren Daten kommen](/controlling/), zum Fixpreis.
+17 Rückläufer auf 14 Planungsdateien sind ein Signal, aber noch keine Toolentscheidung. Mit Tabelle und Entscheidungsbaum filtern Sie die Kandidaten selbst. Ob Ihre Datenbasis einen Pilot trägt, zeigt erst der Blick auf Ihre Berichte und Quellsysteme. Auf unserer Controlling-Seite steht, [wie Sie zu Berichtsinventar, Prioritäten und einem Power-BI-Prototyp mit Ihren Daten kommen](/controlling/), zum Fixpreis.
 
 ## Häufige Fragen
 
