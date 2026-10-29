@@ -99,8 +99,16 @@ Kein Artikel ist reiner Text. Sobald ein Artikel einen **Ablauf, Prozess, eine A
 - Einbindung per Markdown: `![Aussagekräftiger Alt-Text](/images/blog/<slug>/01-monatsabschluss-ablauf.svg)` mit einer Bildunterschrift in kursiv darunter ("*Abbildung 1: …*").
 - Der Alt-Text beschreibt die Kernaussage der Grafik in einem Satz (für Barrierefreiheit, Google-Bildersuche und KI-Systeme). Die zentrale Aussage jeder Grafik steht zusätzlich im Fließtext, denn Wissen in Bildern ist für Suchmaschinen und KI unsichtbar.
 - **Gestaltung nach ADV-Designsystem:** Hintergrund weiß, Text und Linien Charcoal `#141414`, Hauptakzent Alpine-Grün `#00CE7F` (für das eine Wichtigste, Text darauf in Charcoal, nie weiß), Sekundärakzent Teal `#0C8974`, Grau `#555555` für Nebeninformationen. Schrift Poppins (Fallback sans-serif). Abgerundete Kästen (Radius ca. 20 px bei Karten, 8 px bei kleinen Elementen), flach, keine Schatten, keine Verläufe in Diagrammen. Maximal 7–9 Elemente pro Grafik, linksbündige Beschriftung, Lesbarkeit auf dem Smartphone prüfen (Breite 1.200 px, Schrift mindestens 16 px).
-- Zusätzlich erstellst du das Titelbild für `image:` im Frontmatter (`/images/blog/<slug>.png` oder `.svg`, Format 1.200 × 630 px), schlicht, mit Artikelthema und ADV-Farben, ohne Logo-Veränderung.
 - Tabellen in Markdown für alles, was verglichen wird (Kriterien, Kosten, Schritte mit Zeitbedarf).
+
+**Titelbild (Headerbild für `image:`):**
+Kontext ist King: Das Titelbild ist eine eigene Grafik zum Inhalt dieses Artikels, kein Titelplakat. Wer nur das Bild sieht, soll erkennen, worum es geht.
+- **Motiv aus dem Artikel ableiten:** Ausgangspunkt ist die Eingangsszene oder die Kernaussage, z. B. 14 verschickte und 17 zurückgekommene Planungsdateien (Planungssoftware), eine Treppe aus fünf Stufen vom Excel-Export zum automatischen Bericht (Reporting automatisieren), ein Monatskalender mit acht roten Arbeitstagen (Monatsabschluss). Keine generischen Motive wie Balken, Glühbirnen oder Zahnräder, die zu jedem Artikel passen würden. Das Motiv unterscheidet sich vom Titelbild des vorherigen Artikels.
+- **Kein Titeltext im Bild:** kein Artikeltitel, kein Untertitel, keine Kategorie- oder Typzeile, keine Domain. Titel und Kategorie zeigt die Seite selbst. Erlaubt sind nur kurze Beschriftungen, die Teil des Motivs sind (Dateiname, Achse, Kachelwert, Tool-Name), max. 4 Wörter je Beschriftung, Schrift mindestens 28 px.
+- **Format 1.200 × 500 px (2,4 : 1)** als PNG, gerendert aus einer selbst erstellten SVG, Pfad `/images/blog/<slug>.png`. In genau diesem Format zeigt die Artikelseite das Bild. Ein anderes Seitenverhältnis wird beschnitten.
+- **Schutzzone:** Blogübersicht, Kategorieseite und Social-Media-Vorschau (LinkedIn) schneiden links und rechts je ca. 125 px ab. Alles Wichtige, inklusive aller Beschriftungen, liegt deshalb in der mittleren Fläche von 950 × 460 px. Die Ränder füllen nur Hintergrund oder auslaufende Elemente.
+- **Gestaltung** nach ADV-Designsystem (siehe oben), Alpine-Grün nur für das eine zentrale Element. Ruhig und flach, max. 5–7 Elemente, keine Fotos, keine KI-generierten Bilder, kein Logo.
+- **Selbstprüfung vor dem Commit:** PNG in voller Größe und als mittleren Ausschnitt 950 × 500 px ansehen. Nichts darf angeschnitten sein, das Motiv muss auch in Kartengröße (ca. 445 px breit) erkennbar bleiben.
 
 ## 7. SEO, GEO und SEA in jedem Artikel
 **Aufbau (Pflicht):**
@@ -195,6 +203,7 @@ Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `
 - [ ] Mittelstandsperspektive (Größe, Budget, Teamgröße) ist erkennbar
 - [ ] 1.100–1.700 Wörter Fließtext, Lesezeit 5–8 Minuten
 - [ ] Mindestens 2 Visualisierungen, davon mindestens 1 Grafik; jede mit Alt-Text, Bildunterschrift und Kernaussage im Text
+- [ ] Titelbild 1.200 × 500 px zeigt ein Motiv aus diesem Artikel, ohne Titeltext; alles Wichtige liegt in der Schutzzone 950 × 460 px
 - [ ] "Das Wichtigste in Kürze", H2/H3-Struktur, FAQ, Fazit, CTA vorhanden
 - [ ] Haupt-Keyword korrekt platziert; `meta_title` ≠ `title`; Längen eingehalten (`title` ≤ 70, `meta_title` ≤ 60, `description` 140–155, `summary` ≤ 200 Zeichen)
 - [ ] 2–4 belegte Zahlen mit Quelle; keine erfundenen Fakten, Kunden, Zitate oder Preise
