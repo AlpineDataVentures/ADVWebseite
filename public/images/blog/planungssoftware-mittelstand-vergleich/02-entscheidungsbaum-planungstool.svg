@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="t d">
+<title id="t">Entscheidungsbaum zur Vorauswahl der Planungslösung</title>
+<desc id="d">Bis drei Planer und stabile Struktur: Excel. Sonst bei vorhandenem Power-BI-Know-how und überschaubarem Umfang: Power BI mit Add-on. Sonst Jedox und Board im Pilot vergleichen.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}
+.q{font-size:20px;font-weight:600}.l{font-size:20px;font-weight:600}.m{font-size:16px;fill:#555555}.j{font-size:16px;font-weight:600}
+</style>
+<rect width="1200" height="640" fill="#ffffff"/>
+<text x="48" y="64" class="h">Welche Planungslösung passt zuerst?</text>
+<text x="48" y="96" class="s">Vorauswahl, kein Ersatz für einen Pilot</text>
+<rect x="48" y="150" width="440" height="100" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="190" class="q">1 Höchstens drei Planer</text><text x="68" y="220" class="m">und stabile Planstruktur?</text>
+<line x1="488" y1="200" x2="640" y2="200" stroke="#141414" stroke-width="2"/>
+<text x="540" y="188" class="j">Ja</text>
+<rect x="640" y="150" width="512" height="100" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="660" y="190" class="l">Excel behalten</text><text x="660" y="220" class="m" style="fill:#141414">Ist-Daten per Power Query anbinden</text>
+<line x1="268" y1="250" x2="268" y2="330" stroke="#141414" stroke-width="2"/>
+<text x="284" y="296" class="j">Nein</text>
+<rect x="48" y="330" width="440" height="100" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="370" class="q">2 Power-BI-Know-how da und</text><text x="68" y="400" class="m">Planungsumfang überschaubar?</text>
+<line x1="488" y1="380" x2="640" y2="380" stroke="#141414" stroke-width="2"/>
+<text x="540" y="368" class="j">Ja</text>
+<rect x="640" y="330" width="512" height="100" rx="20" fill="#f2f4f3" stroke="#0C8974" stroke-width="2.5"/>
+<text x="660" y="370" class="l">Power BI mit Planungs-Add-on</text><text x="660" y="400" class="m">Zuerst prüfen, dann entscheiden</text>
+<line x1="268" y1="430" x2="268" y2="510" stroke="#141414" stroke-width="2"/>
+<text x="284" y="476" class="j">Nein</text>
+<rect x="48" y="510" width="1104" height="100" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="550" class="l">3 Viele Planer, Szenarien, mehrere Gesellschaften</text><text x="68" y="580" class="m">Jedox und Board mit eigenen Daten im Pilot vergleichen</text>
+</svg>

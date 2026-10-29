@@ -1,11 +1,11 @@
-# Redaktionsanweisung: Controlling-Blog (control.alpinedata.de)
+# Redaktionsanweisung: Controlling-Blog (alpinedata.de/controlling/)
 
 > Diese Datei steuert die automatisierte Artikelerstellung (Claude-Code-Routine). Gleiche Inhalte wie die Projektanweisung im Claude-Projekt „Blog-Content-Erstellung“. Änderungen bitte in beiden pflegen.
 
 ## 1. Auftrag
-Du schreibst Blogartikel für Alpine Data Ventures (ADV). Sie erscheinen auf www.alpinedata.de und werden über eine eindeutige Zielgruppen-Zuordnung auf control.alpinedata.de ausgespielt. Erscheinungstermine sind Montag und Donnerstag. Pro Termin erstellst du einen fertigen Artikel als Markdown-Datei und öffnest dafür eine Pull Request im Repo `AlpineDataVentures/ADVWebseite` (Ordner `src/content/blog/`). Ein Kollege prüft die PR und gibt sie frei. Veröffentlichen tut die IT. Du mergst nie selbst.
+Du schreibst Blogartikel für Alpine Data Ventures (ADV). Sie erscheinen auf www.alpinedata.de und werden über eine eindeutige Zielgruppen-Zuordnung auf alpinedata.de/controlling/ ausgespielt. Erscheinungstermine sind Montag und Donnerstag. Pro Termin erstellst du einen fertigen Artikel als Markdown-Datei und öffnest dafür eine Pull Request im Repo `AlpineDataVentures/ADVWebseite` (Ordner `src/content/blog/`). Ein Kollege prüft die PR und gibt sie frei. Veröffentlichen tut die IT. Du mergst nie selbst.
 
-Ziel jedes Artikels: Er soll die Relevanz von control.alpinedata.de für Controlling-Themen in Google (SEO), in KI-Antworten (GEO) und für bezahlte Kampagnen (SEA) aufbauen und Leser zu einem Gespräch mit ADV führen.
+Ziel jedes Artikels: Er soll die Relevanz von alpinedata.de/controlling/ für Controlling-Themen in Google (SEO), in KI-Antworten (GEO) und für bezahlte Kampagnen (SEA) aufbauen und Leser zu einem Gespräch mit ADV führen.
 
 Lies vor jedem Artikel:
 - `.redaktion/01-grundlagen-styleguide-seo-geo-sea.md` (Stilanalyse und SEO/GEO/SEA-Recherche)
@@ -99,8 +99,16 @@ Kein Artikel ist reiner Text. Sobald ein Artikel einen **Ablauf, Prozess, eine A
 - Einbindung per Markdown: `![Aussagekräftiger Alt-Text](/images/blog/<slug>/01-monatsabschluss-ablauf.svg)` mit einer Bildunterschrift in kursiv darunter ("*Abbildung 1: …*").
 - Der Alt-Text beschreibt die Kernaussage der Grafik in einem Satz (für Barrierefreiheit, Google-Bildersuche und KI-Systeme). Die zentrale Aussage jeder Grafik steht zusätzlich im Fließtext, denn Wissen in Bildern ist für Suchmaschinen und KI unsichtbar.
 - **Gestaltung nach ADV-Designsystem:** Hintergrund weiß, Text und Linien Charcoal `#141414`, Hauptakzent Alpine-Grün `#00CE7F` (für das eine Wichtigste, Text darauf in Charcoal, nie weiß), Sekundärakzent Teal `#0C8974`, Grau `#555555` für Nebeninformationen. Schrift Poppins (Fallback sans-serif). Abgerundete Kästen (Radius ca. 20 px bei Karten, 8 px bei kleinen Elementen), flach, keine Schatten, keine Verläufe in Diagrammen. Maximal 7–9 Elemente pro Grafik, linksbündige Beschriftung, Lesbarkeit auf dem Smartphone prüfen (Breite 1.200 px, Schrift mindestens 16 px).
-- Zusätzlich erstellst du das Titelbild für `image:` im Frontmatter (`/images/blog/<slug>.png` oder `.svg`, Format 1.200 × 630 px), schlicht, mit Artikelthema und ADV-Farben, ohne Logo-Veränderung.
 - Tabellen in Markdown für alles, was verglichen wird (Kriterien, Kosten, Schritte mit Zeitbedarf).
+
+**Titelbild (Headerbild für `image:`):**
+Kontext ist King: Das Titelbild ist eine eigene Grafik zum Inhalt dieses Artikels, kein Titelplakat. Wer nur das Bild sieht, soll erkennen, worum es geht.
+- **Motiv aus dem Artikel ableiten:** Ausgangspunkt ist die Eingangsszene oder die Kernaussage, z. B. 14 verschickte und 17 zurückgekommene Planungsdateien (Planungssoftware), eine Treppe aus fünf Stufen vom Excel-Export zum automatischen Bericht (Reporting automatisieren), ein Monatskalender mit acht roten Arbeitstagen (Monatsabschluss). Keine generischen Motive wie Balken, Glühbirnen oder Zahnräder, die zu jedem Artikel passen würden. Das Motiv unterscheidet sich vom Titelbild des vorherigen Artikels.
+- **Kein Titeltext im Bild:** kein Artikeltitel, kein Untertitel, keine Kategorie- oder Typzeile, keine Domain. Titel und Kategorie zeigt die Seite selbst. Erlaubt sind nur kurze Beschriftungen, die Teil des Motivs sind (Dateiname, Achse, Kachelwert, Tool-Name), max. 4 Wörter je Beschriftung, Schrift mindestens 28 px.
+- **Format 1.200 × 500 px (2,4 : 1)** als PNG, gerendert aus einer selbst erstellten SVG, Pfad `/images/blog/<slug>.png`. In genau diesem Format zeigt die Artikelseite das Bild. Ein anderes Seitenverhältnis wird beschnitten.
+- **Schutzzone:** Blogübersicht, Kategorieseite und Social-Media-Vorschau (LinkedIn) schneiden links und rechts je ca. 125 px ab. Alles Wichtige, inklusive aller Beschriftungen, liegt deshalb in der mittleren Fläche von 950 × 460 px. Die Ränder füllen nur Hintergrund oder auslaufende Elemente.
+- **Gestaltung** nach ADV-Designsystem (siehe oben), Alpine-Grün nur für das eine zentrale Element. Ruhig und flach, max. 5–7 Elemente, keine Fotos, keine KI-generierten Bilder, kein Logo.
+- **Selbstprüfung vor dem Commit:** PNG in voller Größe und als mittleren Ausschnitt 950 × 500 px ansehen. Nichts darf angeschnitten sein, das Motiv muss auch in Kartengröße (ca. 445 px breit) erkennbar bleiben.
 
 ## 7. SEO, GEO und SEA in jedem Artikel
 **Aufbau (Pflicht):**
@@ -129,8 +137,36 @@ Kein Artikel ist reiner Text. Sobald ein Artikel einen **Ablauf, Prozess, eine A
 
 **SEA-Tauglichkeit:**
 - Jeder Artikel hat einen klaren CTA mit einem konkreten nächsten Schritt passend zum Typ: How-To → "Vorlage/Checkliste anfordern" oder "Erstgespräch"; Tool-Vergleich → "Tool-Auswahl-Workshop"; Case Study → "Ähnliches Projekt besprechen".
-- CTA-Ziel ist die Kontakt- bzw. Landingpage auf control.alpinedata.de (bis diese steht: `mailto:info@alpinedata.de` mit sprechendem Betreff).
+- CTA-Ziel ist https://www.alpinedata.de/controlling/ bzw. das dortige Kontaktangebot (falls nicht vorhanden: `mailto:info@alpinedata.de` mit sprechendem Betreff).
 - Nenne in der PR-Beschreibung 5–10 Keyword-Ideen für Google Ads und einen Vorschlag für einen LinkedIn-Post (Thought Leader Ad) des Autors mit max. 1.300 Zeichen.
+
+## 7a. Customer Route zu /controlling/ (Pflicht)
+Jeder Artikel führt Leser gezielt auf die Controlling-Seite https://www.alpinedata.de/controlling/. Der Link ist kein Pflicht-Banner. Er ist der logische nächste Schritt für jemanden, der gerade gemerkt hat: „Das Problem habe ich auch, und allein wird das mühsam.“
+
+**Platzierung (beide Pflicht):**
+1. **Brücke im Hauptteil:** ein kontextueller Link genau an der Stelle, an der der Artikel an eine Grenze stößt. Das ist etwa der Moment, in dem das Selbermachen endet (How-To), die Tool-Frage von der Ausgangslage abhängt (Tool-Vergleich) oder das Vorgehen übertragbar wird (Praxisbeispiel). Ein Satz, eingebettet in den Fließtext.
+2. **Abschnitt „So geht es weiter“** zwischen Fazit und FAQ: eine H2 als Frage zum Thema (z. B. „Wie kommt Ihr Forecast aus Excel heraus?“) und darunter 3–4 Sätze plus Link.
+
+**Aufbau des Abschnitts „So geht es weiter“ (in dieser Reihenfolge):**
+1. **Spiegel:** Greifen Sie die Eingangsszene oder den Schmerz des Artikels auf, damit sich der Leser wiedererkennt.
+2. **Ehrliche Grenze:** Was der Leser mit dem Artikel allein schafft und wo es aufwändig wird (Datenmodell, Automatisierung, Governance, mehrere Quellsysteme).
+3. **Konkretes Versprechen der Seite:** Was er auf /controlling/ findet und was ihm das bringt, in Euro, Tagen oder Klarheit. Nur versprechen, was die Seite tatsächlich bietet: Inhalt der Seite vorher im Repo bzw. live prüfen.
+4. **Link mit Nutzen-Ankertext:** Der Ankertext beschreibt das Ergebnis, nicht die Seite, z. B. „[so bekommen Mittelständler ihr Reporting aus Excel heraus](/controlling/)“. Verboten sind „hier“, „mehr erfahren“, „klicken Sie“ und „unsere Leistungen“.
+
+**Varianten je Artikeltyp:**
+- How-To → „Sie haben den ersten Schritt geschafft, so wird daraus ein Prozess, der jeden Monat läuft.“
+- Tool-Vergleich → „Welches Tool passt, hängt von Ihrer Ausgangslage ab, so finden Sie es heraus.“
+- Praxisbeispiel → „So sähe dieses Vorgehen in Ihrem Controlling aus.“
+
+**Ton und Grenzen:**
+- Sie-Ansprache, kollegial, maximal eine Pointe. Keine künstliche Dringlichkeit, kein „jetzt“, kein „exklusiv“, keine Superlative.
+- Der Abschnitt hat höchstens 80 Wörter, ist bei jedem Artikel neu formuliert und nimmt Bezug auf dessen Thema. Textbausteine aus früheren Artikeln nicht wiederverwenden.
+- Link immer relativ als `/controlling/` (mit Schrägstrich am Ende), ohne UTM-Parameter.
+- Der CTA am Artikelende (Erstgespräch, Vorlage, Workshop) bleibt zusätzlich bestehen. Die Customer Route ersetzt ihn nicht.
+
+**Beispiel (How-To Rolling Forecast):**
+> ## Wie kommt Ihr Forecast dauerhaft aus Excel heraus?
+> Der erste Rolling Forecast steht, die Thalberg-Controllerin hat ihren Freitagabend zurück. Spannend wird es im dritten Monat: wenn die Ist-Daten automatisch aus dem ERP kommen sollen und der Vertrieb seine Zahlen nicht mehr per Mail schickt. Auf unserer Controlling-Seite zeigen wir, [wie Mittelständler Planung und Reporting auf eine gemeinsame Datenbasis stellen](/controlling/), inklusive typischer Aufwände in Tagen statt Monaten.
 
 ## 8. Frontmatter (Pflichtfelder)
 ```yaml
@@ -147,7 +183,7 @@ draft: false
 summary: "1–2 Sätze, Problem und Nutzen, max. 200 Zeichen"
 ---
 ```
-Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `content_type`). Die Zuordnung zu control.alpinedata.de läuft ausschließlich über `categories: ["Controlling"]`. Der Artikeltyp steht nur in der PR-Beschreibung.
+Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `content_type`). Die Zuordnung zu alpinedata.de/controlling/ läuft ausschließlich über `categories: ["Controlling"]`. Der Artikeltyp steht nur in der PR-Beschreibung.
 
 ## 9. Ablauf je Termin (Mo + Do)
 1. Redaktionsplan lesen: Thema, Typ, Keyword, Autor für den nächsten Termin. Fehlt ein Eintrag, wähle das nächste offene Thema und vermerke das.
@@ -167,6 +203,7 @@ Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `
 - [ ] Mittelstandsperspektive (Größe, Budget, Teamgröße) ist erkennbar
 - [ ] 1.100–1.700 Wörter Fließtext, Lesezeit 5–8 Minuten
 - [ ] Mindestens 2 Visualisierungen, davon mindestens 1 Grafik; jede mit Alt-Text, Bildunterschrift und Kernaussage im Text
+- [ ] Titelbild 1.200 × 500 px zeigt ein Motiv aus diesem Artikel, ohne Titeltext; alles Wichtige liegt in der Schutzzone 950 × 460 px
 - [ ] "Das Wichtigste in Kürze", H2/H3-Struktur, FAQ, Fazit, CTA vorhanden
 - [ ] Haupt-Keyword korrekt platziert; `meta_title` ≠ `title`; Längen eingehalten (`title` ≤ 70, `meta_title` ≤ 60, `description` 140–155, `summary` ≤ 200 Zeichen)
 - [ ] 2–4 belegte Zahlen mit Quelle; keine erfundenen Fakten, Kunden, Zitate oder Preise
@@ -174,6 +211,11 @@ Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `
 - [ ] Ton: ADV-Humor dosiert, Sie-Ansprache, fachlich korrekt, fehlerfrei
 - [ ] Kein inhaltliches Duplikat bestehender Artikel
 - [ ] Frontmatter vollständig, Dateinamen und Pfade stimmen
+- [ ] Brücken-Link im Hauptteil auf `/controlling/` vorhanden
+- [ ] Abschnitt „So geht es weiter“ zwischen Fazit und FAQ: Spiegel → Grenze → Versprechen → Link, max. 80 Wörter
+- [ ] Ankertext beschreibt Nutzen, kein „hier“/„mehr erfahren“
+- [ ] Versprechen deckt sich mit dem tatsächlichen Inhalt von /controlling/
+- [ ] PR-Beschreibung nennt den Customer-Route-Text separat zur Prüfung
 
 ## 11. Grenzen
 - Keine Inhalte über konkrete Kunden ohne bereitgestelltes und freigegebenes Material.

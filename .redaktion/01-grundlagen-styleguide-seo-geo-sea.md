@@ -35,14 +35,14 @@ Dateien als `.md` oder `.mdx`; Tabellen, Blockquotes, `mailto:`-CTAs, interne Li
 | Befund | Empfehlung |
 |---|---|
 | Überschriften starten bei H3/H4, kein H2 | Saubere Hierarchie: H1 = title (Template), Abschnitte H2, Unterpunkte H3 |
-| Ansprache wechselt: "Sie" (2024), "du" (BI in 45 Min.), "ihr/euch" (2026) | Eine Ansprache für control.alpinedata.de festlegen (→ offene Frage) |
+| Ansprache wechselt: "Sie" (2024), "du" (BI in 45 Min.), "ihr/euch" (2026) | Eine Ansprache für alpinedata.de/controlling/ festlegen (→ offene Frage) |
 | `meta_title` oft identisch mit `title` | Immer getrennt: title = Neugier, meta_title = Suchintention + Keyword vorne, max. ~60 Zeichen |
 | Keine Zielgruppen-Zuordnung im Frontmatter | Entschieden (23.10.2026): Zuordnung über `categories: ["Controlling"]`, keine zusätzlichen Felder |
 | Kein `lastmod`/Aktualisierungsdatum | Entschieden (23.10.2026): kein eigenes Feld; Aktualität bei Überarbeitungen im Text kenntlich machen |
 | Kaum belegte Zahlen/externe Quellen; Kernaussagen nicht "zitierfähig" | Pro Artikel 2–4 belegte Zahlen mit Quelle, 1 Definitionssatz, 1 "Kurz gesagt"-Box am Anfang |
 | Keine FAQ, kein TL;DR | Kurzantwort (40–60 Wörter) direkt unter dem Einstieg + 3–5 echte FAQ am Ende |
 | Autor nur als Name, keine Autorenseite/Expertise | Autorenboxen mit Rolle, Erfahrung, LinkedIn (E-E-A-T) |
-| CTAs als `mailto:` an Einzelpersonen | Einheitliche CTA-Komponente auf Landingpage control.alpinedata.de (messbar, SEA-tauglich) |
+| CTAs als `mailto:` an Einzelpersonen | Einheitliche CTA-Komponente auf Landingpage alpinedata.de/controlling/ (messbar, SEA-tauglich) |
 | Tippfehler ("Qauasi", "letzen", "Jede Entscheidung zieht kommt mit …") | Lektorats-Check als festen Schritt im PR-Workflow |
 | Gedankenstriche/Halbgeviertstriche gemischt, sehr lange Absätze in älteren Posts | Kurze Absätze (max. 3–4 Sätze), scanbar für Mobile und für KI-Extraktion |
 
@@ -95,13 +95,10 @@ Dateien als `.md` oder `.mdx`; Tabellen, Blockquotes, `mailto:`-CTAs, interne Li
 - Formate: **Thought Leader Ads** (Autoren-Posts der vier Gründer bewerben – passt perfekt zur Blogstrecke), **Document Ads** (z. B. Checkliste/Template aus dem How-To als Lead-Magnet), Lead-Gen-Forms (10–13 % Conversion, Qualität prüfen).
 - Testbudget: ca. 50–100 $/Tag für mind. 7 Tage; typischer B2B-Monat 1.000–5.000 $.
 
-### 2.4 Architektur www.alpinedata.de ↔ control.alpinedata.de (wichtig!)
+### 2.4 Architektur: Verzeichnis www.alpinedata.de/controlling/ (entschieden)
+- **Entschieden:** Die Controlling-Inhalte liegen im Verzeichnis www.alpinedata.de/controlling/ statt auf einer eigenen Subdomain. Das bündelt die Autorität der Hauptdomain; Subdomains werden von Google oft wie eigenständige Websites bewertet.
+- Die Artikel liegen kanonisch unter www.alpinedata.de/blog/<slug>/ und werden über `categories: ["Controlling"]` der Controlling-Seite zugeordnet. /controlling/ ist die Landing- bzw. Pillar-Seite und das CTA-Ziel.
 - Google rät seit 05/2023 bei **domainübergreifender Duplizierung von `rel=canonical` ab** und empfiehlt für Zweitkopien `noindex`; Canonical ist nur ein Hinweis, kein Befehl. [SEJ]
-- **Zielkonflikt:** Wenn der volle Artikel auf www liegt und auf control nur gespiegelt wird (mit canonical/noindex), wandert die gesamte Autorität zu **www** – control.alpinedata.de gewinnt dadurch kaum eigene Relevanz. Subdomains werden von Google oft wie eigenständige Websites bewertet.
-- **Optionen für die IT:**
-  - **A (empfohlen, wenn control eigenständig ranken soll):** Controlling-Artikel liegen kanonisch auf control.alpinedata.de; www zeigt nur Teaser + Link. Schemadaten/Autor bleiben gleich.
-  - **B:** Artikel kanonisch auf www, control.alpinedata.de zeigt Teaser-Kacheln (Titel, Summary, Link) und eigene, einzigartige Landing-/Pillar-Seiten zu Controlling-Themen. control lebt dann von Pillar-Pages + SEA-Landingpages.
-  - **C:** Statt Subdomain ein Verzeichnis www.alpinedata.de/controlling/ – bündelt Autorität, control.alpinedata.de leitet per 301 dorthin. SEO-technisch am stärksten, verliert aber die "eigene Marke".
 - In jedem Fall: **niemals zwei indexierbare Volltext-Kopien** ohne Steuerung.
 
 ---
