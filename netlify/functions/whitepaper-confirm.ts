@@ -2,8 +2,12 @@ import { Resend } from "resend";
 import {
   DOWNLOAD_TOKEN_TTL_MS,
   createToken,
+  createOpaqueToken,
+  deleteToken,
+  getHubspotContact,
   htmlResponse,
   readToken,
+  setHubspotNewsletterSubscription,
   upsertHubspotContact,
 } from "./lib/whitepaper";
 
@@ -21,20 +25,31 @@ export default async (request: Request) => {
       );
     }
 
+    const contact = await getHubspotContact(record.email);
+    const unsubscribeToken = contact?.unsubscribeToken || createOpaqueToken();
+    if (!contact?.unsubscribeToken) {
+      await upsertHubspotContact(record.email, {
+        newsletter_unsubscribe_token: unsubscribeToken,
+      });
+    }
+
+    await setHubspotNewsletterSubscription(record.email, "SUBSCRIBED");
     await upsertHubspotContact(record.email, {
       doi_status: "confirmed",
-      doi_confirmed_at: new Date().toISOString(),
+      doi_confirmed_at: String(Date.now()),
     });
+    await deleteToken(token);
 
     const downloadToken = await createToken("download", record.email, DOWNLOAD_TOKEN_TTL_MS);
     const link = `${new URL(request.url).origin}/.netlify/functions/whitepaper-download?token=${downloadToken}`;
+    const unsubscribeLink = `${new URL(request.url).origin}/.netlify/functions/newsletter-unsubscribe?token=${unsubscribeToken}`;
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: "Alpine Data <info@alpinedata.de>",
       to: [record.email],
       subject: "Ihr Whitepaper von Alpine Data",
-      html: `<p>Danke für die Bestätigung! Hier ist Ihr Whitepaper:</p><p><a href="${link}">Whitepaper herunterladen</a></p><p>Der Link ist 7 Tage gültig.</p>`,
+      html: `<p>Danke für die Bestätigung! Hier ist Ihr Whitepaper:</p><p><a href="${link}">Whitepaper herunterladen</a></p><p>Der Link ist 7 Tage gültig.</p><hr><p>Sie können sich jederzeit <a href="${unsubscribeLink}">vom Newsletter abmelden</a>.</p>`,
     });
     if (error) console.error("whitepaper-confirm: Mailversand fehlgeschlagen", error);
 

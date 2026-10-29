@@ -19,6 +19,10 @@ export interface TokenRecord {
   expiresAt: number;
 }
 
+export function createOpaqueToken(): string {
+  return randomBytes(32).toString("base64url");
+}
+
 export function jsonResponse(status: number, body: unknown) {
   return new Response(JSON.stringify(body), {
     status,
@@ -66,6 +70,11 @@ export async function readToken(token: string, type: TokenRecord["type"]): Promi
   return record;
 }
 
+export async function deleteToken(token: string): Promise<void> {
+  if (!/^[A-Za-z0-9_-]{20,100}$/.test(token)) return;
+  await tokenStore().delete(`token-${token}`);
+}
+
 /** Verhindert Mail-Flooding an fremde Adressen: höchstens eine Mail pro Adresse und Minute. */
 export async function isOnCooldown(email: string): Promise<boolean> {
   const key = `cooldown-${createHash("sha256").update(email).digest("hex")}`;
@@ -82,15 +91,23 @@ function hubspotHeaders() {
   return { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
 }
 
-export async function getHubspotDoiStatus(email: string): Promise<string | null> {
+export async function getHubspotContact(email: string): Promise<{
+  doiStatus: string;
+  unsubscribeToken: string;
+} | null> {
   const res = await fetch(
-    `${HUBSPOT_API}/crm/v3/objects/contacts/${encodeURIComponent(email)}?idProperty=email&properties=doi_status`,
+    `${HUBSPOT_API}/crm/v3/objects/contacts/${encodeURIComponent(email)}?idProperty=email&properties=doi_status%2Cnewsletter_unsubscribe_token`,
     { headers: hubspotHeaders() },
   );
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`HubSpot GET ${res.status}`);
-  const data = (await res.json()) as { properties?: { doi_status?: string } };
-  return data.properties?.doi_status ?? "";
+  const data = (await res.json()) as {
+    properties?: { doi_status?: string; newsletter_unsubscribe_token?: string };
+  };
+  return {
+    doiStatus: data.properties?.doi_status ?? "",
+    unsubscribeToken: data.properties?.newsletter_unsubscribe_token ?? "",
+  };
 }
 
 /** Legt den Kontakt an oder aktualisiert ihn (Upsert über die E-Mail-Adresse). */
@@ -101,4 +118,59 @@ export async function upsertHubspotContact(email: string, properties: Record<str
     body: JSON.stringify({ inputs: [{ id: email, idProperty: "email", properties: { email, ...properties } }] }),
   });
   if (!res.ok) throw new Error(`HubSpot upsert ${res.status}: ${await res.text()}`);
+}
+
+export async function setHubspotNewsletterSubscription(
+  email: string,
+  statusState: "SUBSCRIBED" | "UNSUBSCRIBED",
+) {
+  const subscriptionId = process.env.HUBSPOT_NEWSLETTER_SUBSCRIPTION_ID;
+  if (!subscriptionId || !/^\d+$/.test(subscriptionId)) {
+    throw new Error("HUBSPOT_NEWSLETTER_SUBSCRIPTION_ID fehlt oder ist ungültig.");
+  }
+  const res = await fetch(
+    `${HUBSPOT_API}/communication-preferences/v4/statuses/${encodeURIComponent(email)}`,
+    {
+      method: "POST",
+      headers: hubspotHeaders(),
+      body: JSON.stringify({
+        subscriptionId: Number(subscriptionId),
+        statusState,
+        channel: "EMAIL",
+        legalBasis: "CONSENT_WITH_NOTICE",
+        legalBasisExplanation:
+          statusState === "SUBSCRIBED"
+            ? "Kontakt hat das Double-Opt-in für den Newsletter nach ausdrücklicher Einwilligung bestätigt."
+            : "Kontakt hat die Abmeldung vom Newsletter angefordert.",
+      }),
+    },
+  );
+  if (!res.ok) throw new Error(`HubSpot subscription ${statusState} ${res.status}: ${await res.text()}`);
+}
+
+export async function findHubspotContactByUnsubscribeToken(
+  token: string,
+): Promise<{ email: string; doiStatus: string } | null> {
+  const res = await fetch(`${HUBSPOT_API}/crm/v3/objects/contacts/search`, {
+    method: "POST",
+    headers: hubspotHeaders(),
+    body: JSON.stringify({
+      filterGroups: [{
+        filters: [{
+          propertyName: "newsletter_unsubscribe_token",
+          operator: "EQ",
+          value: token,
+        }],
+      }],
+      properties: ["email", "doi_status"],
+      limit: 1,
+    }),
+  });
+  if (!res.ok) throw new Error(`HubSpot contact search ${res.status}: ${await res.text()}`);
+  const data = (await res.json()) as {
+    results?: Array<{ properties?: { email?: string; doi_status?: string } }>;
+  };
+  const contact = data.results?.[0]?.properties;
+  if (!contact?.email) return null;
+  return { email: contact.email, doiStatus: contact.doi_status ?? "" };
 }

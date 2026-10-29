@@ -4,8 +4,9 @@ import {
   DOWNLOAD_TOKEN_TTL_MS,
   WHITEPAPER_NAME,
   createToken,
+  createOpaqueToken,
   escapeHtml,
-  getHubspotDoiStatus,
+  getHubspotContact,
   isOnCooldown,
   isValidEmail,
   jsonResponse,
@@ -49,22 +50,28 @@ export default async (request: Request) => {
 
     const origin = new URL(request.url).origin;
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const existingStatus = await getHubspotDoiStatus(email);
+    const existingContact = await getHubspotContact(email);
+    const existingStatus = existingContact?.doiStatus ?? null;
+    const unsubscribeToken = existingContact?.unsubscribeToken || createOpaqueToken();
+    const unsubscribeLink = `${origin}/.netlify/functions/newsletter-unsubscribe?token=${unsubscribeToken}`;
 
     // Bereits bestätigte Abonnenten bekommen nur einen neuen Download-Link; der Status bleibt unverändert.
     if (existingStatus === "confirmed") {
+      if (!existingContact?.unsubscribeToken) {
+        await upsertHubspotContact(email, { newsletter_unsubscribe_token: unsubscribeToken });
+      }
       const token = await createToken("download", email, DOWNLOAD_TOKEN_TTL_MS);
       const { error } = await resend.emails.send({
         from: FROM,
         to: [email],
         subject: "Ihr Whitepaper von Alpine Data",
-        html: `<p>Hier ist Ihr Whitepaper:</p><p><a href="${origin}/.netlify/functions/whitepaper-download?token=${token}">Whitepaper herunterladen</a></p><p>Der Link ist 7 Tage gültig.</p>`,
+        html: `<p>Hier ist Ihr Whitepaper:</p><p><a href="${origin}/.netlify/functions/whitepaper-download?token=${token}">Whitepaper herunterladen</a></p><p>Der Link ist 7 Tage gültig.</p><hr><p><a href="${unsubscribeLink}">Vom Newsletter abmelden</a></p>`,
       });
       if (error) throw new Error(`Resend: ${error.message}`);
       return jsonResponse(200, { msg: OK_MESSAGE });
     }
 
-    const now = new Date().toISOString();
+    const now = String(Date.now());
     await upsertHubspotContact(email, {
       ...(firstname && { firstname }),
       ...(lastname && { lastname }),
@@ -72,6 +79,7 @@ export default async (request: Request) => {
       whitepaper_name: WHITEPAPER_NAME,
       whitepaper_consent_at: now,
       doi_status: "pending",
+      newsletter_unsubscribe_token: unsubscribeToken,
     });
 
     const token = await createToken("doi", email, DOI_TOKEN_TTL_MS);

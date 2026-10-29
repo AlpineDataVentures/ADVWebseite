@@ -23,8 +23,8 @@ export const navLinks = [
 
 export const hero = {
   eyebrow: "Für Leiter Controlling und CFOs im Mittelstand",
-  title: "Monatsreporting ohne Copy‑and‑paste",
-  lead: "Jeden Monat dieselben Exporte, Verknüpfungen und Abstimmungsrunden. In zwei Wochen sehen Sie Ihren wichtigsten Bericht als Prototyp in Power BI, mit Ihren eigenen Zahlen und zum Fixpreis.",
+  title: "Monatsreporting ohne Copy-and-paste",
+  lead: "Jeden Monat dieselben Exporte, Verknüpfungen und Abstimmungsrunden. Wir automatisieren Ihr Reporting in Power BI, in Ihrer Microsoft-Umgebung und zum Fixpreis. Der Einstieg ist ein Reporting-Check für 2.900 €.",
   primaryCta: "Erstgespräch vereinbaren",
   secondaryCta: "Kurz durchrechnen",
 };
@@ -61,11 +61,11 @@ export const timeline = {
       },
     ] satisfies TimelineSegment[],
   },
-  note: "Wie viele Tage es bei Ihnen sind, zeigt die Bestandsaufnahme im Quick-Start.",
+  note: "Wie viele Tage Sie einsparen, zeigt die Bestandsaufnahme im Quick-Start.",
 };
 
 export const painPoints = {
-  eyebrow: "Kommt Ihnen bekannt vor",
+  eyebrow: "Kommt Ihnen das bekannt vor",
   title: "Drei Zeichen, dass Excel Ihr Reporting bremst",
   items: [
     {
@@ -95,7 +95,7 @@ export const calculator = {
 export const demo = {
   eyebrow: "Live-Demo",
   title: "So sieht Ihr Monatsbericht in Power BI aus",
-  lead: "Wechseln Sie die Seiten, klappen Sie Kostenstellen auf und folgen Sie der Abweichung vom Plan-EBIT bis zum Konto.",
+  lead: "Wechseln Sie mit einem Klick von Kostenstellen zu Umsatz oder EBIT. Analysieren Sie Kostenstellen auf Abweichung vom Plan-EBIT bis zum Konto.",
   after: "Im Quick-Start bauen wir diese Ansicht mit einem Ihrer Berichte.",
   afterCta: "Zum Quick-Start",
 };
@@ -210,7 +210,7 @@ export const whitepaper = {
     placeholder: "name@unternehmen.de",
     submit: "Newsletter abonnieren",
     privacy:
-      "Sie melden sich für unseren Newsletter an: gelegentlich Neues aus unseren Controlling-Projekten. Sobald Sie Ihre Anmeldung per E-Mail bestätigt haben, erhalten Sie das Whitepaper. Abmelden mit einem Klick.",
+      "Sie melden sich für unseren Newsletter an: gelegentlich Neues aus unseren Controlling-Projekten. Sobald Sie Ihre Anmeldung per E-Mail bestätigt haben, erhalten Sie das Whitepaper. Sie können sich jederzeit über den Abmeldelink in einer Newsletter-E-Mail abmelden.",
     privacyLink: "Datenschutzhinweise",
     firstnamePlaceholder: "Vorname",
     lastnamePlaceholder: "Nachname",
