@@ -1,0 +1,31 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import Band from "@/components/controlling/Band.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import config from "@/config/config.json";
+
+const { preview_items } = config.settings;
+const posts = (await getSinglePage("blog"))
+  .filter((post) =>
+    post.data.categories.some(
+      (category: string) => category.toLowerCase() === "controlling",
+    ),
+  )
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, preview_items);
+---
+
+{
+  posts.length > 0 && (
+    <Band id="blog" tone="body">
+      <h2 class="h3 mb-12 text-center">Blog</h2>
+      <div class="row justify-center">
+        {posts.map((post) => (
+          <div class="mb-14 md:col-6 lg:col-4">
+            <BlogCard data={post} />
+          </div>
+        ))}
+      </div>
+    </Band>
+  )
+}
