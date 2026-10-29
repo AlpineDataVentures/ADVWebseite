@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="t d">
+<title id="t">Wireframe: Abweichungsbericht mit Kennzahlenkacheln und Abweichungsbalken</title>
+<desc id="d">Drei Kacheln für Umsatz, Personalkosten und EBIT mit Plan, Ist und Abweichung sowie ein Balkendiagramm der Abweichung je Kostenart. Beispieldaten.</desc>
+<style>text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}.l{font-size:20px;font-weight:600}.m{font-size:16px;fill:#555555}</style><rect width="1200" height="640" fill="#ffffff"/>
+<text x="48" y="64" class="h">Abweichungsbericht (Wireframe, Beispieldaten)</text>
+<text x="48" y="96" class="s">Erst die Kacheln, dann die Treiber, darunter der Kommentar des Controllings.</text>
+<rect x="48" y="130" width="340" height="150" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="168" class="m">Umsatz YTD</text><text x="68" y="212" class="l" style="font-size:32px">4,82 Mio. €</text><text x="68" y="248" class="m">Plan 5,00 Mio. € · −3,6 %</text>
+<rect x="430" y="130" width="340" height="150" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="450" y="168" class="m">Personalkosten YTD</text><text x="450" y="212" class="l" style="font-size:32px">1,31 Mio. €</text><text x="450" y="248" class="m">Plan 1,25 Mio. € · +4,8 %</text>
+<rect x="812" y="130" width="340" height="150" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="832" y="168" class="m" style="fill:#141414">EBIT YTD</text><text x="832" y="212" class="l" style="font-size:32px">0,41 Mio. €</text><text x="832" y="248" class="m" style="fill:#141414">Plan 0,55 Mio. € · −25,5 %</text>
+<rect x="48" y="310" width="1104" height="270" rx="20" fill="#ffffff" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="346" class="l">Abweichung zum Plan je Kostenart (Tsd. €)</text>
+<line x1="500" y1="365" x2="500" y2="560" stroke="#141414" stroke-width="1.5"/>
+<g class="m"><text x="68" y="392">Material</text><text x="68" y="432">Personal</text><text x="68" y="472">Fracht</text><text x="68" y="512">Marketing</text><text x="68" y="552">Sonstige</text></g>
+<rect x="500" y="376" width="150" height="24" rx="4" fill="#0c8974"/><rect x="500" y="416" width="60" height="24" rx="4" fill="#0c8974"/><rect x="440" y="456" width="60" height="24" rx="4" fill="#555555"/><rect x="470" y="496" width="30" height="24" rx="4" fill="#555555"/><rect x="500" y="536" width="20" height="24" rx="4" fill="#0c8974"/>
+<text x="670" y="394" class="m">+75 (über Plan)</text><text x="580" y="434" class="m">+60</text><text x="330" y="474" class="m">−30 (unter Plan)</text><text x="380" y="514" class="m">−15</text><text x="540" y="554" class="m">+10</text>
+</svg>
