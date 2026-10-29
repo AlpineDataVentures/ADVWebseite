@@ -68,7 +68,6 @@ export class ClaudeSearchProvider implements LlmSearchProvider {
       {
         model: this.model,
         max_tokens: MAX_OUTPUT_TOKENS,
-        temperature: 0,
         system: SYSTEM_PROMPT,
         tools: [RANK_TOOL],
         tool_choice: { type: "tool", name: RANK_TOOL_NAME },
