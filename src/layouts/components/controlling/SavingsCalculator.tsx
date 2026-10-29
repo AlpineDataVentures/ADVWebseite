@@ -13,10 +13,10 @@ export default function SavingsCalculator() {
 
   const hoursSaved = hoursPerMonth * 12 * (automatable / 100);
   const results = [
-    { label: "Freie Zeit pro Jahr", value: `${fmt(hoursSaved)} Stunden` },
-    { label: "Das entspricht", value: `${fmt(hoursSaved / 8)} Arbeitstage` },
+    { label: "Eingesparte Zeit pro Jahr", value: `${fmt(hoursSaved)} Stunden` },
+    { label: "Das entspricht", value: `${fmt(hoursSaved / 8)} eingesparten Arbeitstagen` },
     {
-      label: "Rechnerischer Wert pro Jahr",
+      label: "Kostenreduktion pro Jahr",
       value: `${fmt(hoursSaved * ratePerHour)} €`,
     },
   ];
