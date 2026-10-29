@@ -401,14 +401,14 @@ export const whitepaper = {
   coverLabel: "Whitepaper",
   coverTitle: "Von Excel zu Power BI im Controlling",
   coverFoot: "Alpine Data Ventures, 10 Seiten",
-  eyebrow: "Zum Mitnehmen",
-  title: "Der Leitfaden für die Umstellung, bevor Sie mit jemandem sprechen",
-  lead: "Zehn Seiten aus unseren Controlling-Projekten. Für alle, die das Thema erst intern vorbereiten wollen.",
-
+  eyebrow: "Whitepaper für das Controlling",
+  title: "Der Monatsbericht, der sich selbst schreibt",
+  lead: "Ein Leitfaden für Controller, deren erste Monatshälfte im Zusammentragen von Zahlen verschwindet. Zum Lesen, Selbsttesten und Weitergeben im eigenen Haus.",
   bullets: [
-    "Welche Berichte sich zuerst lohnen und welche in Excel bleiben dürfen",
-    "Der Ablauf einer Umstellung in vier Schritten, mit Aufwand je Schritt",
-    "Fünf Stolpersteine aus Projekten und wie Sie sie umgehen",
+    "Warum der Monatsbericht jeden Monat eine Woche braucht und was das an Zeit und Vertrauen kostet",
+    "Der Test mit drei Zahlen: So finden Sie heraus, wo Ihr Reporting hakt",
+    "Sechs Schritte zu einem Bericht, der am ersten Arbeitstag fertig ist",
+    "Reifegrad-Check und Ausblick: Wo Sie stehen und wie es weitergeht",
   ],
   form: {
     label: "Newsletter abonnieren, Whitepaper gleich mitnehmen",
