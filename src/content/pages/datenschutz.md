@@ -8,7 +8,7 @@ draft: false
 ---
 
 <p>
-  <em>letztes Update:</em> 11. Februar 2026
+  <em>letztes Update:</em> 29. Oktober 2026
 </p>
 
 ### Verantwortliche Stelle
@@ -37,8 +37,8 @@ Je nach Art der Verarbeitung stützen wir uns auf folgende Rechtsgrundlagen:
 - Art. 6 Abs. 1 lit. a DSGVO – Einwilligung
 - Art. 6 Abs. 1 lit. b DSGVO – Erfüllung eines Vertrags oder vorvertragliche Maßnahmen
 - Art. 6 Abs. 1 lit. f DSGVO – Berechtigtes Interesse (z. B. Sicherheit, Stabilität, Reichweitenmessung)
-- § 25 Abs. 1 TTDSG – Einwilligung für Cookies/Speicherung
-- § 25 Abs. 2 Nr. 2 TTDSG – Technische Notwendigkeit für Cookies/Speicherung
+- § 25 Abs. 1 TDDDG – Einwilligung für Cookies/Speicherung
+- § 25 Abs. 2 Nr. 2 TDDDG – Technische Notwendigkeit für Cookies/Speicherung
 
 ### Hosting
 
@@ -73,14 +73,19 @@ Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive a
 
 **Speicherdauer:** Die von Ihnen an uns per Kontaktanfrage übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.
 
+### Newsletter
+
+Wenn Sie sich für unseren Newsletter anmelden, verarbeiten wir die dabei angegebenen Daten (insbesondere Ihre E-Mail-Adresse und gegebenenfalls Ihren Namen und weitere Angaben), um Ihre Anmeldung zu verwalten und Ihnen unseren Newsletter sowie gegebenenfalls angeforderte Inhalte, etwa ein Whitepaper, per E-Mail zuzusenden. Die Anmeldung wird per Double-Opt-in bestätigt.
+
+Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können diese jederzeit mit Wirkung für die Zukunft widerrufen, zum Beispiel über den Abmeldelink in unseren E-Mails. Zum Verwalten der Anmeldungen und Kontaktdaten nutzen wir **HubSpot**, für den Versand von E-Mails **Resend**. Dabei kann eine Verarbeitung in Drittländern nicht ausgeschlossen werden; eine Übermittlung erfolgt nach Maßgabe der Art. 44 ff. DSGVO.
+
 ### Cookies & Consent Management
 
 - **Technisch notwendige Cookies** </br>  Wir setzen selbst keine technisch notwendigen Cookies.
 
-- **Einwilligungspflichtige Cookies** </br> Cookies zu Analyse- und Marketingzwecken (z. B. GA4, Google Ads) werden nur gesetzt, wenn Sie zuvor Ihre ausdrückliche Einwilligung über unseren Consent-Manager erteilt haben. **Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TTDSG.
+- **Einwilligungspflichtige Cookies** </br> Cookies zu Analyse- und Marketingzwecken (z. B. GA4, Google Ads) werden nur gesetzt, wenn Sie zuvor Ihre ausdrückliche Einwilligung über unseren Consent-Manager erteilt haben. **Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TDDDG.
 
 Sie können Ihre Einwilligung jederzeit über die Einstellungen im <a href="#" onclick="return klaro.show();">Consent-Manager</a> widerrufen oder anpassen.
-
 
 ### Google Tag Manager
 
