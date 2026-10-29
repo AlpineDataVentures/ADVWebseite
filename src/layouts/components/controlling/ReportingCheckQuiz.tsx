@@ -80,7 +80,7 @@ export default function ReportingCheckQuiz() {
           lastname: rest.join(" ") || "-",
           email: data.get("email"),
           reason: "Reporting-Check online",
-          website: "Deine Webseite",
+          website: "",
           message: `Auswertung angefordert: ${score} von ${maxScore} Punkten (${result?.title}).`,
         }),
       });

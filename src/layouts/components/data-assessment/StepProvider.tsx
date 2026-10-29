@@ -161,7 +161,7 @@ export const user = map<Record<string, string | null>>({
   email: null,
   unternehmen: null,
   phone: null,
-  webseite: "Deine Webseite"
+  webseite: ""
 });
 
 type AnswersStore = {

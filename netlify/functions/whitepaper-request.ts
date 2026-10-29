@@ -2,6 +2,7 @@ import { Resend } from "resend";
 import {
   DOI_TOKEN_TTL_MS,
   DOWNLOAD_TOKEN_TTL_MS,
+  EMAIL_FOOTER,
   WHITEPAPER_NAME,
   createToken,
   createOpaqueToken,
@@ -65,7 +66,7 @@ export default async (request: Request) => {
         from: FROM,
         to: [email],
         subject: "Ihr Whitepaper von Alpine Data",
-        html: `<p>Hier ist Ihr Whitepaper:</p><p><a href="${origin}/.netlify/functions/whitepaper-download?token=${token}">Whitepaper herunterladen</a></p><p>Der Link ist 7 Tage gültig.</p><hr><p><a href="${unsubscribeLink}">Vom Newsletter abmelden</a></p>`,
+        html: `<p>Hier ist Ihr Whitepaper:</p><p><a href="${origin}/.netlify/functions/whitepaper-download?token=${token}">Whitepaper herunterladen</a></p><p>Der Link ist 7 Tage gültig.</p><hr><p><a href="${unsubscribeLink}">Vom Newsletter abmelden</a></p>${EMAIL_FOOTER}`,
       });
       if (error) throw new Error(`Resend: ${error.message}`);
       return jsonResponse(200, { msg: OK_MESSAGE });
@@ -84,12 +85,12 @@ export default async (request: Request) => {
 
     const token = await createToken("doi", email, DOI_TOKEN_TTL_MS);
     const link = `${origin}/.netlify/functions/whitepaper-confirm?token=${token}`;
-    const greeting = firstname ? `Hallo ${escapeHtml(firstname)},` : "Guten Tag,";
+    const greeting = `Hallo ${escapeHtml(firstname)} ${escapeHtml(lastname)},`;
     const { error } = await resend.emails.send({
       from: FROM,
       to: [email],
       subject: "Bitte bestätigen Sie Ihre Anmeldung",
-      html: `<p>${greeting}</p><p>Sie haben sich auf alpinedata.de für unseren Newsletter angemeldet und das Whitepaper angefordert. Bitte bestätigen Sie Ihre Anmeldung:</p><p><a href="${link}">Anmeldung bestätigen</a></p><p>Der Link ist 48 Stunden gültig. Wenn Sie sich nicht angemeldet haben, ignorieren Sie diese E-Mail einfach; es passiert nichts weiter.</p>`,
+      html: `<p>${greeting}</p><p>Sie haben sich auf alpinedata.de für unseren Newsletter angemeldet und das Whitepaper angefordert. Bitte bestätigen Sie Ihre Anmeldung:</p><p><a href="${link}">Anmeldung bestätigen</a></p><p>Der Link ist 48 Stunden gültig. Wenn Sie sich nicht angemeldet haben, ignorieren Sie diese E-Mail einfach; es passiert nichts weiter.</p>${EMAIL_FOOTER}`,
     });
     if (error) throw new Error(`Resend: ${error.message}`);
 

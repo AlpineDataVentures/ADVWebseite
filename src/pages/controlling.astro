@@ -6,6 +6,7 @@ import Pricing from "@/partials/controlling/Pricing.astro";
 import ReportingCheck from "@/partials/controlling/ReportingCheck.astro";
 import Blog from "@/partials/controlling/Blog.astro";
 import Calculator from "@/partials/controlling/Calculator.astro";
+import Contact from "@/partials/controlling/Contact.astro";
 import Demo from "@/partials/controlling/Demo.astro";
 import FinalCta from "@/partials/controlling/FinalCta.astro";
 import Hero from "@/partials/controlling/Hero.astro";
@@ -41,9 +42,11 @@ import Faq from "@/partials/Faq.astro";
   <Blog />
   <!-- Promotes the whitepaper and collects download requests. -->
   <Whitepaper />
+  <!-- Booking link and contact form (mail to info@alpinedata.de via Netlify function). -->
+  <Contact />
   <!-- The shared FAQ component is enabled and populated with this page's FAQ content. -->
   <div id="faq" class="scroll-mt-20">
-    <Faq faq={{ data: { enable: true, ...faq } }} />
+    <Faq faq={{ data: { enable: true, ...faq } }} compact />
   </div>
   <!-- Closes the page with the primary contact action and a link back to the whitepaper. -->
   <FinalCta />

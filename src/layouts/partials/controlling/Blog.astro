@@ -1,31 +1,109 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
 import Band from "@/components/controlling/Band.astro";
+import SectionHead from "@/components/controlling/SectionHead.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
-import config from "@/config/config.json";
 
-const { preview_items } = config.settings;
+const CATEGORIES = ["controlling", "business intelligence"];
+const MAX_POSTS = 6;
+
 const posts = (await getSinglePage("blog"))
   .filter((post) =>
-    post.data.categories.some(
-      (category: string) => category.toLowerCase() === "controlling",
+    post.data.categories.some((category: string) =>
+      CATEGORIES.includes(category.toLowerCase()),
     ),
   )
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, preview_items);
+  .slice(0, MAX_POSTS);
 ---
 
 {
   posts.length > 0 && (
     <Band id="blog" tone="body">
-      <h2 class="h3 mb-12 text-center">Blog</h2>
-      <div class="row justify-center">
-        {posts.map((post) => (
-          <div class="mb-14 md:col-6 lg:col-4">
-            <BlogCard data={post} />
-          </div>
-        ))}
+      <SectionHead
+        eyebrow="Aus unserem Blog"
+        title="Fachartikel für Controlling und Reporting"
+        lead="Praxiswissen aus unseren Projekten: Reporting automatisieren, die passende Planung finden, Kennzahlen richtig aufbauen."
+      />
+      <div class="controlling-blog-slider swiper cursor-grab overflow-hidden active:cursor-grabbing">
+        <div class="swiper-wrapper">
+          {[0, 1, 2].map((copy) =>
+            posts.map((post) => (
+              <div class="swiper-slide !h-auto pb-2" aria-hidden={copy !== 1}>
+                <BlogCard data={post} />
+              </div>
+            )),
+          )}
+        </div>
       </div>
     </Band>
   )
 }
+
+<script>
+  import { Swiper } from "swiper";
+  import "swiper/css";
+  import { FreeMode } from "swiper/modules";
+
+  const SPEED_PX_PER_SECOND = 60;
+
+  document.addEventListener("astro:page-load", () => {
+    const slider = document.querySelector<HTMLElement>(
+      ".controlling-blog-slider",
+    );
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll<HTMLElement>(".swiper-slide");
+    const setSize = slides.length / 3;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const swiper = new Swiper(slider, {
+      modules: [FreeMode],
+      spaceBetween: 24,
+      slidesPerView: 1,
+      freeMode: { enabled: true, momentum: true, momentumRatio: 0.6 },
+      resistance: false,
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+
+    // The three identical sets allow an endless loop: the middle set is the reference.
+    const setWidth = () =>
+      slides[setSize].offsetLeft - slides[0].offsetLeft;
+    const toMiddleSet = () => swiper.setTranslate(-setWidth());
+    toMiddleSet();
+    swiper.on("resize", toMiddleSet);
+
+    let hovering = false;
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 100) / 1000;
+      last = now;
+
+      const dragging = swiper.touchEventsData.isTouched;
+      if (!dragging && !swiper.animating) {
+        const width = setWidth();
+        let position = swiper.getTranslate();
+        if (!hovering && !reducedMotion) {
+          position -= SPEED_PX_PER_SECOND * dt;
+        }
+        // Keep the position inside the middle set so the loop never runs out.
+        if (position <= -2 * width) position += width;
+        if (position >= 0) position -= width;
+        swiper.setTranslate(position);
+      }
+      requestAnimationFrame(tick);
+    };
+
+    slider.addEventListener("mouseenter", () => (hovering = true));
+    slider.addEventListener("mouseleave", () => (hovering = false));
+    slider.addEventListener("focusin", () => (hovering = true));
+    slider.addEventListener("focusout", () => (hovering = false));
+    requestAnimationFrame(tick);
+  });
+</script>

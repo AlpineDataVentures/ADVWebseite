@@ -274,7 +274,6 @@ export const pricing = {
 export const caseExample = {
   eyebrow: "Projektbeispiel",
   title: "Vom Excel-Bericht zum gemeinsamen Zahlenstand",
-  hint: "Platzhalter: Kunde, Text und Zahlen nach Freigabe",
   story: [
     {
       title: "Ausgangslage",
@@ -405,7 +404,7 @@ export const whitepaper = {
   eyebrow: "Zum Mitnehmen",
   title: "Der Leitfaden für die Umstellung, bevor Sie mit jemandem sprechen",
   lead: "Zehn Seiten aus unseren Controlling-Projekten. Für alle, die das Thema erst intern vorbereiten wollen.",
-  hint: "Platzhalter: Titel und Inhalte nach eurem Whitepaper",
+
   bullets: [
     "Welche Berichte sich zuerst lohnen und welche in Excel bleiben dürfen",
     "Der Ablauf einer Umstellung in vier Schritten, mit Aufwand je Schritt",
@@ -446,12 +445,12 @@ export const faq = {
       question: "Funktioniert das mit unserem ERP und unserer Buchhaltung?",
       answer_short:
         "Power BI liest aus den gängigen ERP- und Finanzsystemen sowie aus Excel- und CSV-Exporten.",
-      answer_long: `Angebunden haben wir bisher unter anderem ${placeholder("Platzhalter: eure Systeme")}. Ob Ihr System dabei ist, klären wir im Erstgespräch.`,
+      answer_long: "Ob Ihr System dabei ist, klären wir im Erstgespräch.",
     },
     {
       question: "Brauchen wir neue Lizenzen?",
       answer_short: "Power BI läuft über Ihren Microsoft-Vertrag.",
-      answer_long: `Welche Lizenzen vorhanden sind und ob etwas fehlt, klären wir vor dem Start. ${placeholder("Annahme: bitte prüfen")}`,
+      answer_long: "Welche Lizenzen vorhanden sind und ob etwas fehlt, klären wir vor dem Start.",
     },
     {
       question: "Wo liegen unsere Daten?",
@@ -480,4 +479,58 @@ export const finalCta = {
   text: "Im Erstgespräch klären wir, ob der Quick-Start zu Ihrer Ausgangslage passt.",
   primary: "Erstgespräch vereinbaren",
   secondary: "Erst das Whitepaper lesen",
+};
+
+export const contact = {
+  eyebrow: "Kontakt",
+  title: "Wie möchten Sie starten?",
+  lead: "Buchen Sie direkt einen Termin oder schreiben Sie uns kurz. Wir melden uns innerhalb eines Werktags.",
+  booking: {
+    title: "Termin direkt buchen",
+    cta: "Termin im Kalender wählen →",
+    points: [
+      "30 Minuten per Video",
+      "Ihre Ausgangslage und welche Stufe passt",
+      "Kein Angebot ohne Ihren Wunsch",
+    ],
+    people: [
+      {
+        name: "Andreas Klostermann",
+        role: "Ihr Ansprechpartner für das Erstgespräch",
+        image: "/images/about/gf_andreas.jpg",
+      },
+      {
+        name: "Julian Koller",
+        role: "Leitet Ihren Reporting-Check. Über acht Jahre Erfahrung in Business Intelligence, Geschäftsführer.",
+        image: "/images/about/gf_julian.jpg",
+      },
+    ],
+  },
+  form: {
+    title: "Anfrage senden",
+    typeLegend: "Worum geht es?",
+    types: [
+      { value: "rueckruf", label: "Rückruf", submit: "Rückruf anfordern →" },
+      { value: "check", label: "Reporting-Check", submit: "Reporting-Check anfragen →" },
+      { value: "demo", label: "Live-Demo", submit: "Live-Demo anfragen →" },
+      { value: "individuell", label: "Individuelles Angebot", submit: "Angebot anfragen →" },
+    ],
+    name: "Name",
+    company: "Unternehmen",
+    email: "E-Mail",
+    phone: "Telefon",
+    phoneHint: "für den Rückruf",
+    when: "Wann passt es Ihnen?",
+    whenOptions: ["Vormittags", "Mittags", "Nachmittags"],
+    message: "Nachricht",
+    optional: "optional",
+    messagePlaceholder:
+      "z. B. Wir erstellen den Monatsbericht aus SAP-Exporten und drei Excel-Dateien.",
+    privacy: "Wir nutzen Ihre Angaben nur zur Bearbeitung dieser Anfrage.",
+    privacyLink: "Datenschutzhinweise",
+    successTitle: "Danke, Ihre Anfrage ist da.",
+    success: "Wir melden uns innerhalb eines Werktags.",
+    error: "Das Senden hat leider nicht geklappt. Bitte versuchen Sie es später erneut.",
+    sending: "Wird gesendet …",
+  },
 };

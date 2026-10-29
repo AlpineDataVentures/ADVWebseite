@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import {
   DOWNLOAD_TOKEN_TTL_MS,
+  EMAIL_FOOTER,
   createToken,
   createOpaqueToken,
   deleteToken,
@@ -69,7 +70,7 @@ export default async (request: Request) => {
       from: "Alpine Data <info@alpinedata.de>",
       to: [record.email],
       subject: "Ihr Whitepaper von Alpine Data",
-      html: `<p>Danke für die Bestätigung! Hier ist Ihr Whitepaper:</p><p><a href="${link}">Whitepaper herunterladen</a></p><p>Der Link ist 7 Tage gültig.</p><hr><p>Sie können sich jederzeit <a href="${unsubscribeLink}">vom Newsletter abmelden</a>.</p>`,
+      html: `<p>Danke für die Bestätigung! Hier ist Ihr Whitepaper:</p><p><a href="${link}">Whitepaper herunterladen</a></p><p>Der Link ist 7 Tage gültig.</p><hr><p>Sie können sich jederzeit <a href="${unsubscribeLink}">vom Newsletter abmelden</a>.</p>${EMAIL_FOOTER}`,
     });
     if (error) console.error("whitepaper-confirm: Mailversand fehlgeschlagen", error);
 

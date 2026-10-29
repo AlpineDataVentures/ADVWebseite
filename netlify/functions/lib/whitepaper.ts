@@ -9,6 +9,15 @@ export const WHITEPAPER_NAME = "controlling-whitepaper";
 export const WHITEPAPER_FILE = "controlling-whitepaper.pdf";
 export const DOI_TOKEN_TTL_MS = 48 * 60 * 60 * 1000;
 export const DOWNLOAD_TOKEN_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+export const EMAIL_FOOTER = `<div>
+<p style="margin:1em 0;font-family:Arial,sans-serif;font-size:16px;color:#000"><b>Ihr Team von Alpine Data Ventures</b></p>
+<p style="margin:1em 0;font-family:Arial,sans-serif;font-size:16px;color:#000"><b>Alpine Data Ventures GmbH</b><br>Leopoldstraße 31 · 80802 München</p>
+<p style="margin:1em 0;font-family:Arial,sans-serif;font-size:16px;color:#000">✉️ <a href="mailto:info@alpinedata.de" style="color:#467886">info@alpinedata.de</a><br>🌐 <a href="https://alpinedata.de/" style="color:#467886">www.alpinedata.de</a></p>
+<hr style="margin:0;width:100%">
+<p style="margin:1em 0;font-family:Arial,sans-serif;font-size:16px;color:#000"><b>Sitz der Gesellschaft:</b> München · Amtsgericht München HRB 300287<br><b>Geschäftsführer:</b> Andreas Klostermann, Benjamin Diez, Dr. Carsten Hof, Julian Koller<br><b>USt-ID:</b> DE453880543</p>
+<hr style="margin:0;width:100%">
+<p style="margin:1em 0;font-family:Arial,sans-serif;font-size:16px;color:#000"><i>Diese E-Mail kann vertrauliche und/oder rechtlich geschützte Informationen enthalten. Wenn Sie nicht der beabsichtigte Empfänger sind, benachrichtigen Sie bitte sofort den Absender und löschen Sie diese Nachricht. Die unbefugte Verwendung, Weitergabe oder Vervielfältigung ist untersagt.</i></p>
+</div>`;
 const RESEND_COOLDOWN_MS = 60_000;
 
 const HUBSPOT_API = "https://api.hubapi.com";
