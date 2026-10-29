@@ -1,0 +1,30 @@
+---
+import Band from "@/components/controlling/Band.astro";
+import EyebrowTitle from "@/components/EyebrowTitle.astro";
+import ReportingCheckQuiz from "@/components/controlling/ReportingCheckQuiz";
+import { reportingCheck as rc } from "@/components/controlling/content";
+---
+
+<Band id="check" tone="light">
+  <div class="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+    <div class="grid min-w-0 gap-6">
+      <EyebrowTitle eyebrow={rc.eyebrow} title={rc.title} />
+      <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light md:text-lg">
+        {rc.lead}
+      </p>
+      <ol class="grid gap-3">
+        {
+          rc.steps.map((step, i) => (
+            <li class="grid grid-cols-[32px_1fr] items-center gap-3 font-secondary text-base text-text dark:text-darkmode-text-light">
+              <b class="flex h-8 w-8 items-center justify-center rounded-full bg-[#00CE7E] text-sm font-bold text-black">
+                {i + 1}
+              </b>
+              {step}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+    <ReportingCheckQuiz client:visible />
+  </div>
+</Band>
