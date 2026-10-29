@@ -3,9 +3,9 @@ import type { TimelineSegment } from "./content";
 import { timeline } from "./content";
 
 const segmentClasses: Record<TimelineSegment["kind"], string> = {
-  hand: "border-[#c0392b] text-[#c0392b] dark:border-[#ff8a7a] dark:text-[#ff8a7a]",
+  hand: "border-[#c0392b] bg-body text-[#c0392b] dark:border-[#ff8a7a] dark:bg-darkmode-body dark:text-[#ff8a7a]",
   done: "border-[#00CE7E] bg-[#00CE7E] font-bold text-black text-center dark:text-white",
-  free: "border-dashed border-[#008a55] text-[#008a55] dark:border-[#00CE7E] dark:text-[#00CE7E]",
+  free: "border-dashed border-[#008a55] bg-body text-[#008a55] dark:border-[#00CE7E] dark:bg-darkmode-body dark:text-[#00CE7E]",
 };
 
 const lanes = [timeline.before, timeline.after];
@@ -39,7 +39,7 @@ const lanes = [timeline.before, timeline.after];
       <div class="grid grid-cols-8 gap-0.75">
         {lane.segments.map((segment) => (
           <span
-            class={`min-w-0 rounded-xs border bg-body px-1.5 py-2.5 font-secondary text-[0.7rem] leading-tight wrap-anywhere dark:bg-darkmode-body sm:text-xs ${segmentClasses[segment.kind]}`}
+            class={`min-w-0 rounded-xs border px-1.5 py-2.5 font-secondary text-[0.7rem] leading-tight wrap-anywhere sm:text-xs ${segmentClasses[segment.kind]}`}
             style={`grid-column: span ${segment.span}`}
           >
             {segment.label}
