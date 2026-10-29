@@ -78,7 +78,7 @@ Nutzen Sie diesen Entscheidungsbaum als Startpunkt. Er ersetzt keinen Workshop, 
 
 *Abbildung 2: Entscheidungsbaum zur Vorauswahl. Die Schwellen sind Richtwerte aus ADV-Projekten.*
 
-Die Logik dahinter: Bis zu drei Planer mit stabiler Struktur bleiben bei Excel, ergänzt um Power Query für die Ist-Daten. Wer bereits Power BI betreibt und einen überschaubaren Planungsumfang hat, prüft zuerst ein Power-BI-Add-on. Wer viele Planer, Szenarien oder mehrere Gesellschaften hat, vergleicht Jedox und Board mit einem echten Pilot.
+Die Logik dahinter: Bis zu drei Planer mit stabiler Struktur bleiben bei Excel, ergänzt um Power Query für die Ist-Daten. Wer bereits Power BI betreibt und einen überschaubaren Planungsumfang hat, prüft zuerst ein Power-BI-Add-on. Wer viele Planer, Szenarien oder mehrere Gesellschaften hat, vergleicht Jedox und Board mit einem echten Pilot. Welcher Ast für Sie gilt, hängt an Ihren Berichten und Datenquellen: Eine [Bestandsaufnahme Ihrer Berichte und Quellsysteme mit priorisiertem Fahrplan](/controlling/) schafft dafür die Grundlage.
 
 ### Jedox oder Board: worauf es im Pilot ankommt
 
@@ -102,6 +102,10 @@ KI-gestützte Forecasts brauchen eine saubere Historie und einheitliche Definiti
 Zurück zu Thalberg. Dort lautet die Antwort nicht „Wir kaufen ab morgen Software X“. Sie lautet: Zuerst die vier Signale prüfen, dann zwei Kandidaten mit echten Daten im Pilot testen und erst dann Lizenzen unterschreiben. Das dauert länger als ein Messebesuch, ist aber billiger als eine falsche Entscheidung.
 
 Und wenn dabei herauskommt, dass Excel noch zwei Jahre reicht, ist das ein gutes Ergebnis. Ehrliche Beratung heißt auch, einen Euro nicht auszugeben.
+
+## Wie finden Sie heraus, welcher Ast des Entscheidungsbaums für Sie gilt?
+
+17 Rückläufer auf 14 Planungsdateien sind ein Signal, aber noch keine Toolentscheidung. Mit Tabelle und Entscheidungsbaum filtern Sie die Kandidaten selbst. Ob Ihre Datenbasis einen Pilot trägt, zeigt erst der Blick auf Ihre Berichte und Quellsysteme. Auf unserer Controlling-Seite steht, [wie Sie in zwei Wochen zu Berichtsinventar, Prioritäten und einem Power-BI-Prototyp mit Ihren Daten kommen](/controlling/), zum Fixpreis.
 
 ## Häufige Fragen
 
