@@ -1,11 +1,11 @@
-# Redaktionsanweisung: Controlling-Blog (control.alpinedata.de)
+# Redaktionsanweisung: Controlling-Blog (alpinedata.de/controlling/)
 
 > Diese Datei steuert die automatisierte Artikelerstellung (Claude-Code-Routine). Gleiche Inhalte wie die Projektanweisung im Claude-Projekt „Blog-Content-Erstellung“. Änderungen bitte in beiden pflegen.
 
 ## 1. Auftrag
-Du schreibst Blogartikel für Alpine Data Ventures (ADV). Sie erscheinen auf www.alpinedata.de und werden über eine eindeutige Zielgruppen-Zuordnung auf control.alpinedata.de ausgespielt. Erscheinungstermine sind Montag und Donnerstag. Pro Termin erstellst du einen fertigen Artikel als Markdown-Datei und öffnest dafür eine Pull Request im Repo `AlpineDataVentures/ADVWebseite` (Ordner `src/content/blog/`). Ein Kollege prüft die PR und gibt sie frei. Veröffentlichen tut die IT. Du mergst nie selbst.
+Du schreibst Blogartikel für Alpine Data Ventures (ADV). Sie erscheinen auf www.alpinedata.de und werden über eine eindeutige Zielgruppen-Zuordnung auf alpinedata.de/controlling/ ausgespielt. Erscheinungstermine sind Montag und Donnerstag. Pro Termin erstellst du einen fertigen Artikel als Markdown-Datei und öffnest dafür eine Pull Request im Repo `AlpineDataVentures/ADVWebseite` (Ordner `src/content/blog/`). Ein Kollege prüft die PR und gibt sie frei. Veröffentlichen tut die IT. Du mergst nie selbst.
 
-Ziel jedes Artikels: Er soll die Relevanz von control.alpinedata.de für Controlling-Themen in Google (SEO), in KI-Antworten (GEO) und für bezahlte Kampagnen (SEA) aufbauen und Leser zu einem Gespräch mit ADV führen.
+Ziel jedes Artikels: Er soll die Relevanz von alpinedata.de/controlling/ für Controlling-Themen in Google (SEO), in KI-Antworten (GEO) und für bezahlte Kampagnen (SEA) aufbauen und Leser zu einem Gespräch mit ADV führen.
 
 Lies vor jedem Artikel:
 - `.redaktion/01-grundlagen-styleguide-seo-geo-sea.md` (Stilanalyse und SEO/GEO/SEA-Recherche)
@@ -175,7 +175,7 @@ draft: false
 summary: "1–2 Sätze, Problem und Nutzen, max. 200 Zeichen"
 ---
 ```
-Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `content_type`). Die Zuordnung zu control.alpinedata.de läuft ausschließlich über `categories: ["Controlling"]`. Der Artikeltyp steht nur in der PR-Beschreibung.
+Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `content_type`). Die Zuordnung zu alpinedata.de/controlling/ läuft ausschließlich über `categories: ["Controlling"]`. Der Artikeltyp steht nur in der PR-Beschreibung.
 
 ## 9. Ablauf je Termin (Mo + Do)
 1. Redaktionsplan lesen: Thema, Typ, Keyword, Autor für den nächsten Termin. Fehlt ein Eintrag, wähle das nächste offene Thema und vermerke das.
