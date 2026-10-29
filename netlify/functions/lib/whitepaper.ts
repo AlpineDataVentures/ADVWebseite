@@ -31,7 +31,25 @@ export function jsonResponse(status: number, body: unknown) {
 }
 
 export function htmlResponse(status: number, title: string, bodyHtml: string) {
-  const page = `<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${escapeHtml(title)}</title></head><body style="font-family:system-ui,sans-serif;max-width:560px;margin:15vh auto;padding:0 1rem;line-height:1.5"><h1>${escapeHtml(title)}</h1>${bodyHtml}<p><a href="/controlling/">Zurück zur Seite</a></p></body></html>`;
+  const css = `
+@font-face{font-family:Outfit;font-weight:700;font-display:swap;src:url(/fonts/outfit-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(/fonts/manrope-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:700;font-display:swap;src:url(/fonts/manrope-latin-700-normal.woff2) format("woff2")}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:#f6f6f6;color:#040404;font-family:Manrope,system-ui,sans-serif;line-height:1.6}
+header{background:#fff;border-bottom:1px solid #eaeaea;padding:1rem 1.5rem}
+header img{display:block;height:44px;width:auto}
+main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:3rem 1rem}
+.card{background:#fff;border:1px solid #eaeaea;border-top:4px solid #00ce7e;border-radius:8px;max-width:560px;width:100%;padding:2rem;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+h1{font-family:Outfit,system-ui,sans-serif;font-weight:700;font-size:1.75rem;line-height:1.2;margin:0 0 1rem}
+p{margin:0 0 1rem}
+a{color:#008000}
+.btn,button{display:inline-block;background:#008000;color:#fff!important;border:0;border-radius:6px;padding:.75rem 1.5rem;font:700 1rem Manrope,system-ui,sans-serif;text-decoration:none;cursor:pointer}
+.btn:hover,button:hover{background:#009000}
+.back{margin:1.5rem 0 0;font-size:.9rem}
+footer{padding:1.25rem;text-align:center;font-size:.85rem;color:#555}
+footer a{color:#555}`;
+  const page = `<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${escapeHtml(title)} | Alpine Data Ventures</title><style>${css}</style></head><body><header><a href="/"><img src="/logos/logo.png" alt="Alpine Data Ventures" width="170" height="44"></a></header><main><div class="card"><h1>${escapeHtml(title)}</h1>${bodyHtml}<p class="back"><a href="/controlling/">Zurück zur Seite</a></p></div></main><footer>© Alpine Data Ventures GmbH · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></footer></body></html>`;
   return new Response(page, {
     status,
     headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
@@ -47,13 +65,14 @@ export function isValidEmail(email: string): boolean {
 }
 
 // Siehe rateLimiter.ts: manche Netlify-Sites erkennen die Blobs-Umgebung nicht automatisch.
-export function blobStore(name: string) {
+export function blobStore(name: string, consistency?: "strong" | "eventual") {
   const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID || process.env.NETLIFY_BLOBS_SITE_ID;
   const token = process.env.NETLIFY_BLOBS_TOKEN;
-  return siteID && token ? getStore({ name, siteID, token }) : getStore(name);
+  return siteID && token ? getStore({ name, siteID, token, consistency }) : getStore({ name, consistency });
 }
 
-export const tokenStore = () => blobStore("whitepaper-tokens");
+// Strong, damit ein bereits eingelöstes Token sofort nicht mehr gelesen wird.
+export const tokenStore = () => blobStore("whitepaper-tokens", "strong");
 export const fileStore = () => blobStore("whitepapers");
 
 export async function createToken(type: TokenRecord["type"], email: string, ttlMs: number): Promise<string> {

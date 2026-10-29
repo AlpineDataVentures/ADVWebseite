@@ -26,6 +26,25 @@ export default async (request: Request) => {
     }
 
     const contact = await getHubspotContact(record.email);
+
+    // Mehrfaches Aufrufen des Links (Reload, Linkscanner, zweiter Klick): keine weitere Mail, kein neuer Status.
+    if (contact?.doiStatus === "confirmed") {
+      await deleteToken(token);
+      return htmlResponse(
+        200,
+        "Anmeldung bereits bestätigt",
+        "<p>Ihre Anmeldung wurde bereits bestätigt. Den Download-Link für das Whitepaper haben wir Ihnen per E-Mail geschickt. Bitte prüfen Sie auch Ihren Spam-Ordner.</p>",
+      );
+    }
+    if (contact?.doiStatus === "unsubscribed") {
+      await deleteToken(token);
+      return htmlResponse(
+        400,
+        "Link ungültig",
+        "<p>Dieser Link ist nicht mehr gültig. Bitte melden Sie sich auf der Seite erneut an.</p>",
+      );
+    }
+
     const unsubscribeToken = contact?.unsubscribeToken || createOpaqueToken();
     if (!contact?.unsubscribeToken) {
       await upsertHubspotContact(record.email, {
@@ -33,12 +52,13 @@ export default async (request: Request) => {
       });
     }
 
+    // Token zuerst entwerten, damit parallele oder wiederholte Aufrufe keine zweite Mail auslösen.
+    await deleteToken(token);
     await setHubspotNewsletterSubscription(record.email, "SUBSCRIBED");
     await upsertHubspotContact(record.email, {
       doi_status: "confirmed",
       doi_confirmed_at: String(Date.now()),
     });
-    await deleteToken(token);
 
     const downloadToken = await createToken("download", record.email, DOWNLOAD_TOKEN_TTL_MS);
     const link = `${new URL(request.url).origin}/.netlify/functions/whitepaper-download?token=${downloadToken}`;
@@ -56,7 +76,7 @@ export default async (request: Request) => {
     return htmlResponse(
       200,
       "Anmeldung bestätigt",
-      `<p>Vielen Dank! Hier können Sie das Whitepaper direkt herunterladen:</p><p><a href="${link}">Whitepaper herunterladen</a></p><p>Den Link haben wir Ihnen zusätzlich per E-Mail geschickt.</p>`,
+      `<p>Vielen Dank! Hier können Sie das Whitepaper direkt herunterladen:</p><p><a class="btn" href="${link}">Whitepaper herunterladen</a></p><p>Den Link haben wir Ihnen zusätzlich per E-Mail geschickt.</p>`,
     );
   } catch (err) {
     console.error("whitepaper-confirm failed", err);

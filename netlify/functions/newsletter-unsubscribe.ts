@@ -11,7 +11,7 @@ function isValidToken(token: string): boolean {
 }
 
 function confirmationForm(token: string) {
-  return `<p>Möchten Sie sich wirklich vom Alpine-Data-Newsletter abmelden?</p><form method="post"><input type="hidden" name="token" value="${escapeHtml(token)}"><button type="submit" style="border:0;border-radius:4px;background:#00ce7e;padding:.75rem 1rem;font-weight:700;cursor:pointer">Jetzt abmelden</button></form>`;
+  return `<p>Möchten Sie sich wirklich vom Alpine-Data-Newsletter abmelden?</p><form method="post"><input type="hidden" name="token" value="${escapeHtml(token)}"><button type="submit">Jetzt abmelden</button></form>`;
 }
 
 export default async (request: Request) => {
