@@ -129,8 +129,36 @@ Kein Artikel ist reiner Text. Sobald ein Artikel einen **Ablauf, Prozess, eine A
 
 **SEA-Tauglichkeit:**
 - Jeder Artikel hat einen klaren CTA mit einem konkreten nächsten Schritt passend zum Typ: How-To → "Vorlage/Checkliste anfordern" oder "Erstgespräch"; Tool-Vergleich → "Tool-Auswahl-Workshop"; Case Study → "Ähnliches Projekt besprechen".
-- CTA-Ziel ist die Kontakt- bzw. Landingpage auf control.alpinedata.de (bis diese steht: `mailto:info@alpinedata.de` mit sprechendem Betreff).
+- CTA-Ziel ist https://www.alpinedata.de/controlling/ bzw. das dortige Kontaktangebot (falls nicht vorhanden: `mailto:info@alpinedata.de` mit sprechendem Betreff).
 - Nenne in der PR-Beschreibung 5–10 Keyword-Ideen für Google Ads und einen Vorschlag für einen LinkedIn-Post (Thought Leader Ad) des Autors mit max. 1.300 Zeichen.
+
+## 7a. Customer Route zu /controlling/ (Pflicht)
+Jeder Artikel führt Leser gezielt auf die Controlling-Seite https://www.alpinedata.de/controlling/. Der Link ist kein Pflicht-Banner. Er ist der logische nächste Schritt für jemanden, der gerade gemerkt hat: „Das Problem habe ich auch, und allein wird das mühsam.“
+
+**Platzierung (beide Pflicht):**
+1. **Brücke im Hauptteil:** ein kontextueller Link genau an der Stelle, an der der Artikel an eine Grenze stößt. Das ist etwa der Moment, in dem das Selbermachen endet (How-To), die Tool-Frage von der Ausgangslage abhängt (Tool-Vergleich) oder das Vorgehen übertragbar wird (Praxisbeispiel). Ein Satz, eingebettet in den Fließtext.
+2. **Abschnitt „So geht es weiter“** zwischen Fazit und FAQ: eine H2 als Frage zum Thema (z. B. „Wie kommt Ihr Forecast aus Excel heraus?“) und darunter 3–4 Sätze plus Link.
+
+**Aufbau des Abschnitts „So geht es weiter“ (in dieser Reihenfolge):**
+1. **Spiegel:** Greifen Sie die Eingangsszene oder den Schmerz des Artikels auf, damit sich der Leser wiedererkennt.
+2. **Ehrliche Grenze:** Was der Leser mit dem Artikel allein schafft und wo es aufwändig wird (Datenmodell, Automatisierung, Governance, mehrere Quellsysteme).
+3. **Konkretes Versprechen der Seite:** Was er auf /controlling/ findet und was ihm das bringt, in Euro, Tagen oder Klarheit. Nur versprechen, was die Seite tatsächlich bietet: Inhalt der Seite vorher im Repo bzw. live prüfen.
+4. **Link mit Nutzen-Ankertext:** Der Ankertext beschreibt das Ergebnis, nicht die Seite, z. B. „[so bekommen Mittelständler ihr Reporting aus Excel heraus](/controlling/)“. Verboten sind „hier“, „mehr erfahren“, „klicken Sie“ und „unsere Leistungen“.
+
+**Varianten je Artikeltyp:**
+- How-To → „Sie haben den ersten Schritt geschafft, so wird daraus ein Prozess, der jeden Monat läuft.“
+- Tool-Vergleich → „Welches Tool passt, hängt von Ihrer Ausgangslage ab, so finden Sie es heraus.“
+- Praxisbeispiel → „So sähe dieses Vorgehen in Ihrem Controlling aus.“
+
+**Ton und Grenzen:**
+- Sie-Ansprache, kollegial, maximal eine Pointe. Keine künstliche Dringlichkeit, kein „jetzt“, kein „exklusiv“, keine Superlative.
+- Der Abschnitt hat höchstens 80 Wörter, ist bei jedem Artikel neu formuliert und nimmt Bezug auf dessen Thema. Textbausteine aus früheren Artikeln nicht wiederverwenden.
+- Link immer relativ als `/controlling/` (mit Schrägstrich am Ende), ohne UTM-Parameter.
+- Der CTA am Artikelende (Erstgespräch, Vorlage, Workshop) bleibt zusätzlich bestehen. Die Customer Route ersetzt ihn nicht.
+
+**Beispiel (How-To Rolling Forecast):**
+> ## Wie kommt Ihr Forecast dauerhaft aus Excel heraus?
+> Der erste Rolling Forecast steht, die Thalberg-Controllerin hat ihren Freitagabend zurück. Spannend wird es im dritten Monat: wenn die Ist-Daten automatisch aus dem ERP kommen sollen und der Vertrieb seine Zahlen nicht mehr per Mail schickt. Auf unserer Controlling-Seite zeigen wir, [wie Mittelständler Planung und Reporting auf eine gemeinsame Datenbasis stellen](/controlling/), inklusive typischer Aufwände in Tagen statt Monaten.
 
 ## 8. Frontmatter (Pflichtfelder)
 ```yaml
@@ -174,6 +202,11 @@ Keine weiteren Felder ergänzen (insbesondere nicht `updated`, `audience` oder `
 - [ ] Ton: ADV-Humor dosiert, Sie-Ansprache, fachlich korrekt, fehlerfrei
 - [ ] Kein inhaltliches Duplikat bestehender Artikel
 - [ ] Frontmatter vollständig, Dateinamen und Pfade stimmen
+- [ ] Brücken-Link im Hauptteil auf `/controlling/` vorhanden
+- [ ] Abschnitt „So geht es weiter“ zwischen Fazit und FAQ: Spiegel → Grenze → Versprechen → Link, max. 80 Wörter
+- [ ] Ankertext beschreibt Nutzen, kein „hier“/„mehr erfahren“
+- [ ] Versprechen deckt sich mit dem tatsächlichen Inhalt von /controlling/
+- [ ] PR-Beschreibung nennt den Customer-Route-Text separat zur Prüfung
 
 ## 11. Grenzen
 - Keine Inhalte über konkrete Kunden ohne bereitgestelltes und freigegebenes Material.
