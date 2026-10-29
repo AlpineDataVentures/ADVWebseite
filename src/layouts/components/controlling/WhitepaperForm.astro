@@ -9,53 +9,91 @@ const { form } = whitepaper;
   data-whitepaper-form
   data-error={form.error}
 >
-  <label
-    for="whitepaper-email"
-    class="font-secondary text-base font-semibold text-text-dark dark:text-darkmode-text-dark"
-  >
+  <p class="font-secondary text-base font-semibold text-text-dark dark:text-darkmode-text-dark">
     {form.label}
-  </label>
+  </p>
+  <p class="font-secondary text-sm text-text-light dark:text-darkmode-text-light">
+    Alle mit * markierten Felder sind Pflichtfelder.
+  </p>
   <div class="flex flex-wrap gap-2.5">
+    <div class="grid min-w-0 flex-[1_1_180px] gap-1">
+      <label
+        for="whitepaper-firstname"
+        class="font-secondary text-sm font-semibold text-text-dark dark:text-darkmode-text-dark"
+      >
+        Vorname *
+      </label>
+      <input
+        id="whitepaper-firstname"
+        name="firstname"
+        type="text"
+        required
+        maxlength="100"
+        autocomplete="given-name"
+        placeholder={form.firstnamePlaceholder}
+        class="min-w-0 rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
+      />
+    </div>
+    <div class="grid min-w-0 flex-[1_1_180px] gap-1">
+      <label
+        for="whitepaper-lastname"
+        class="font-secondary text-sm font-semibold text-text-dark dark:text-darkmode-text-dark"
+      >
+        Nachname *
+      </label>
+      <input
+        id="whitepaper-lastname"
+        name="lastname"
+        type="text"
+        required
+        maxlength="100"
+        autocomplete="family-name"
+        placeholder={form.lastnamePlaceholder}
+        class="min-w-0 rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
+      />
+    </div>
+  </div>
+  <div class="grid gap-1">
+    <label
+      for="whitepaper-company"
+      class="font-secondary text-sm font-semibold text-text-dark dark:text-darkmode-text-dark"
+    >
+      Firma *
+    </label>
     <input
-      name="firstname"
+      id="whitepaper-company"
+      name="company"
       type="text"
       required
-      maxlength="100"
-      autocomplete="given-name"
-      placeholder={form.firstnamePlaceholder}
-      class="min-w-0 flex-[1_1_180px] rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
-    />
-    <input
-      name="lastname"
-      type="text"
-      required
-      maxlength="100"
-      autocomplete="family-name"
-      placeholder={form.lastnamePlaceholder}
-      class="min-w-0 flex-[1_1_180px] rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
+      maxlength="200"
+      autocomplete="organization"
+      placeholder={form.companyPlaceholder}
+      class="min-w-0 rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
     />
   </div>
-  <input
-    name="company"
-    type="text"
-    required
-    maxlength="200"
-    autocomplete="organization"
-    placeholder={form.companyPlaceholder}
-    class="min-w-0 rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
-  />
-  <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+  <div
+    class="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+    aria-hidden="true"
+  >
     <input name="website" type="text" tabindex="-1" autocomplete="off" />
   </div>
   <div class="flex flex-wrap gap-2.5">
-    <input
-      id="whitepaper-email"
-      name="email"
-      type="email"
-      required
-      placeholder={form.placeholder}
-      class="min-w-0 flex-[1_1_180px] rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
-    />
+    <div class="grid min-w-0 flex-[1_1_180px] gap-1">
+      <label
+        for="whitepaper-email"
+        class="font-secondary text-sm font-semibold text-text-dark dark:text-darkmode-text-dark"
+      >
+        E-Mail *
+      </label>
+      <input
+        id="whitepaper-email"
+        name="email"
+        type="email"
+        required
+        placeholder={form.placeholder}
+        class="min-w-0 rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark"
+      />
+    </div>
     <button
       type="submit"
       disabled
@@ -71,7 +109,7 @@ const { form } = whitepaper;
       required
       class="mt-1 rounded border-border text-[#00CE7E] focus:ring-[#00CE7E]"
     />
-    <span>{form.consent}</span>
+    <span>{form.consent} *</span>
   </label>
   <small
     data-whitepaper-message
@@ -79,7 +117,9 @@ const { form } = whitepaper;
     class="font-secondary text-sm text-text-light dark:text-darkmode-text-light"
   >
     {form.privacy}{" "}
-    <a href="/datenschutz/" class="underline">{form.privacyLink}</a>
+    <a href="/datenschutz/" class="underline">
+      {form.privacyLink}
+    </a>
   </small>
 </form>
 
@@ -87,16 +127,31 @@ const { form } = whitepaper;
   document
     .querySelectorAll<HTMLFormElement>("[data-whitepaper-form]")
     .forEach((formEl) => {
-      const button = formEl.querySelector<HTMLButtonElement>("button[type=submit]");
+      const button = formEl.querySelector<HTMLButtonElement>(
+        "button[type=submit]",
+      );
       const updateButtonState = () => {
-        const firstname = formEl.querySelector<HTMLInputElement>("[name=firstname]");
-        const lastname = formEl.querySelector<HTMLInputElement>("[name=lastname]");
-        const company = formEl.querySelector<HTMLInputElement>("[name=company]");
+        const firstname =
+          formEl.querySelector<HTMLInputElement>("[name=firstname]");
+        const lastname =
+          formEl.querySelector<HTMLInputElement>("[name=lastname]");
+        const company =
+          formEl.querySelector<HTMLInputElement>("[name=company]");
         const email = formEl.querySelector<HTMLInputElement>("[name=email]");
-        const consent = formEl.querySelector<HTMLInputElement>("[name=consent]");
-        if (email) email.setCustomValidity(email.validity.typeMismatch ? "Bitte geben Sie eine gültige E-Mail-Adresse ein." : "");
-        const fieldsPresent = [firstname, lastname, company].every((field) => field?.value.trim());
-        if (button) button.disabled = !fieldsPresent || !email?.validity.valid || !consent?.checked;
+        const consent =
+          formEl.querySelector<HTMLInputElement>("[name=consent]");
+        if (email)
+          email.setCustomValidity(
+            email.validity.typeMismatch
+              ? "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+              : "",
+          );
+        const fieldsPresent = [firstname, lastname, company].every((field) =>
+          field?.value.trim(),
+        );
+        if (button)
+          button.disabled =
+            !fieldsPresent || !email?.validity.valid || !consent?.checked;
       };
 
       formEl.addEventListener("input", updateButtonState);
@@ -112,18 +167,21 @@ const { form } = whitepaper;
           formEl.querySelector<HTMLInputElement>(`[name=${name}]`);
         if (button) button.disabled = true;
         try {
-          const response = await fetch("/.netlify/functions/whitepaper-request", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: field("email")?.value,
-              firstname: field("firstname")?.value,
-              lastname: field("lastname")?.value,
-              company: field("company")?.value,
-              website: field("website")?.value,
-              consent: field("consent")?.checked === true,
-            }),
-          });
+          const response = await fetch(
+            "/.netlify/functions/whitepaper-request",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: field("email")?.value,
+                firstname: field("firstname")?.value,
+                lastname: field("lastname")?.value,
+                company: field("company")?.value,
+                website: field("website")?.value,
+                consent: field("consent")?.checked === true,
+              }),
+            },
+          );
           const data = await response.json().catch(() => ({}));
           if (message) {
             message.textContent = response.ok
