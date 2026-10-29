@@ -1,7 +1,6 @@
 ---
 import EyebrowTitle from "@/components/EyebrowTitle.astro";
 import Band from "@/components/controlling/Band.astro";
-import Placeholder from "@/components/controlling/Placeholder.astro";
 import WhitepaperForm from "@/components/controlling/WhitepaperForm.astro";
 import { whitepaper as wp } from "@/components/controlling/content";
 ---
@@ -13,7 +12,6 @@ import { whitepaper as wp } from "@/components/controlling/content";
       <p class="max-w-2xl font-secondary text-base text-text-light dark:text-darkmode-text-light md:text-lg">
         {wp.lead}
       </p>
-      <div><Placeholder>{wp.hint}</Placeholder></div>
       <ul class="list-disc space-y-2 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light">
         {wp.bullets.map((bullet) => <li>{bullet}</li>)}
       </ul>

@@ -399,10 +399,10 @@ export const reportingCheck = {
 
 export const whitepaper = {
   coverLabel: "Whitepaper",
-  coverTitle: "Von Excel zu Power BI im Controlling",
-  coverFoot: "Alpine Data Ventures, 10 Seiten",
+  coverTitle: "Der Monatsbericht, der sich selbst schreibt",
+  coverFoot: "Alpine Data Ventures, 41 Seiten",
   eyebrow: "Whitepaper für das Controlling",
-  title: "Der Monatsbericht, der sich selbst schreibt",
+  title: "Schneller zum Monatsbericht, ohne Copy-und-Paste",
   lead: "Ein Leitfaden für Controller, deren erste Monatshälfte im Zusammentragen von Zahlen verschwindet. Zum Lesen, Selbsttesten und Weitergeben im eigenen Haus.",
   bullets: [
     "Warum der Monatsbericht jeden Monat eine Woche braucht und was das an Zeit und Vertrauen kostet",
@@ -456,7 +456,7 @@ export const faq = {
       question: "Wo liegen unsere Daten?",
       answer_short:
         "Die fertige Lösung läuft in Ihrer eigenen Microsoft-Umgebung.",
-      answer_long: `Für den Prototyp arbeiten wir mit einem Datenexport, den Sie uns auf einem gesicherten Weg bereitstellen. Vertraulichkeit und Auftragsverarbeitung regeln wir vor dem Start schriftlich. ${placeholder("Annahme: bitte prüfen")}`,
+      answer_long: "Für den Prototyp arbeiten wir mit einem Datenexport, den Sie uns auf einem gesicherten Weg bereitstellen. Vertraulichkeit und Auftragsverarbeitung regeln wir vor dem Start schriftlich.",
     },
     {
       question: "Was passiert nach dem Quick-Start?",
