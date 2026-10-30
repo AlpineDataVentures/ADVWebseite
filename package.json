@@ -10,12 +10,13 @@
   "packageManager": "npm@12.2.1",
   "scripts": {
     "dev": "npm run generate-json && astro dev",
-    "build": "npm run generate-json && astro build && node scripts/copy_prod.mjs",
-    "build_branch": "npm run generate-json && astro build && node scripts/copy_branch.mjs",
+    "build": "npm run generate-json && astro build && node scripts/llmsGenerator.mjs && node scripts/copy_prod.mjs",
+    "build_branch": "npm run generate-json && astro build && node scripts/llmsGenerator.mjs && node scripts/copy_branch.mjs",
     "preview": "astro preview",
     "format": "prettier -w ./src",
     "generate-domains": "node scripts/generate-domains-from-strapi.mjs",
     "generate-json": "node scripts/jsonGenerator.js && tsx scripts/generateCatalogSearchCorpus.mjs",
+    "generate-llms": "node scripts/llmsGenerator.mjs",
     "remove-darkmode": "node scripts/removeDarkmode.js && npm run format"
   },
   "dependencies": {
@@ -71,8 +72,11 @@
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "@typescript/native": "npm:typescript@7.0.2",
+    "turndown": "^7.2.4",
     "typescript": "npm:@typescript/typescript6@6.0.2",
-    "typescript-eslint": "^8.72.1"
+    "typescript-eslint": "^8.72.1",
+    "glob": "^13.0.6",
+    "node-html-parser": "^9.0.6"
   },
   "overrides": {
     "@babel/eslint-parser": {

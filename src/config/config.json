@@ -41,5 +41,21 @@
     "meta_image_width": "1200",
     "meta_image_height": "630",
     "meta_description": "Ihr Partner für datengetriebene Innovation und maßgeschneiderte Strategien - basierend auf langjährigen Erfahrungen, starken Kundenbeziehungen und Vertrauen."
+  },
+  "llms": {
+    "generate_llms_txt": true,
+    "generate_llms_full_txt": true,
+    "generate_individual_md": true,
+    "title_selector": "#main-content h1",
+    "content_selector": "#main-content",
+    "include": [],
+    "exclude": [
+      "authors/**",
+      "bestaetigung/**",
+      "blog/page/**",
+      "categories/**",
+      "data-assessment/**",
+      "tags/**"
+    ]
   }
 }
