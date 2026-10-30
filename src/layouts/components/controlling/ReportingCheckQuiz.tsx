@@ -55,6 +55,7 @@ export default function ReportingCheckQuiz({
   const { questions, results, labels, maxScore } = reportingCheck;
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
+  const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
@@ -63,11 +64,14 @@ export default function ReportingCheckQuiz({
   const score = answers.reduce((sum, points) => sum + points, 0);
   const result = [...results].reverse().find((r) => score >= r.min);
 
-  const answer = (points: number) => {
+  const answer = (points: number, label: string) => {
     if (step === 0) pushEvent("quiz_start");
     const next = [...answers];
     next[step] = points;
     setAnswers(next);
+    const nextSelectedAnswers = [...selectedAnswers];
+    nextSelectedAnswers[step] = label;
+    setSelectedAnswers(nextSelectedAnswers);
     setStep(step + 1);
     if (step + 1 === questions.length) {
       pushEvent("quiz_complete", {
@@ -79,6 +83,7 @@ export default function ReportingCheckQuiz({
   const restart = () => {
     setStep(0);
     setAnswers([]);
+    setSelectedAnswers([]);
     setStatus("idle");
   };
 
@@ -102,7 +107,15 @@ export default function ReportingCheckQuiz({
           email: data.get("email"),
           reason: "Reporting-Check online",
           website: "",
-          message: `Auswertung angefordert: ${score} von ${maxScore} Punkten (${result?.title}).`,
+          message: [
+            `Auswertung angefordert: ${score} von ${maxScore} Punkten (${result?.title}).`,
+            "",
+            "Ausgewählte Antworten:",
+            ...questions.map(
+              (question, index) =>
+                `${index + 1}. ${question.q}\n   ${selectedAnswers[index]}`,
+            ),
+          ].join("\n"),
         }),
       });
       if (!response.ok) throw new Error();
@@ -136,7 +149,7 @@ export default function ReportingCheckQuiz({
                   type="button"
                   role="radio"
                   aria-checked={selected}
-                  onClick={() => answer(option.points)}
+                  onClick={() => answer(option.points, option.label)}
                   className="group flex items-center gap-3 rounded-md border border-border px-4 py-3 text-left font-secondary text-base text-text-dark transition hover:border-[#00CE7E] hover:bg-light dark:border-darkmode-border dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
                 >
                   <span
