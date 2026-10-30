@@ -90,7 +90,7 @@ export default async (request: Request) => {
       from: FROM,
       to: [email],
       subject: "Bitte bestätigen Sie Ihre Anmeldung",
-      html: `<p>${greeting}</p><p>Sie haben sich auf alpinedata.de für unseren Newsletter angemeldet und das Whitepaper angefordert. Bitte bestätigen Sie Ihre Anmeldung:</p><p><a href="${link}">Anmeldung bestätigen</a></p><p>Der Link ist 48 Stunden gültig. Wenn Sie sich nicht angemeldet haben, ignorieren Sie diese E-Mail einfach; es passiert nichts weiter.</p>${EMAIL_FOOTER}`,
+      html: `<p>${greeting}</p><p>Sie haben sich auf <a href="https://alpinedata.de">alpinedata.de</a> für unseren Newsletter angemeldet und das Whitepaper angefordert. Bitte bestätigen Sie Ihre Anmeldung:</p><p><a href="${link}">Anmeldung bestätigen</a></p><p>Der Link ist 48 Stunden gültig. Wenn Sie sich nicht angemeldet haben, ignorieren Sie diese E-Mail einfach; es passiert nichts weiter.</p>${EMAIL_FOOTER}`,
     });
     if (error) throw new Error(`Resend: ${error.message}`);
 

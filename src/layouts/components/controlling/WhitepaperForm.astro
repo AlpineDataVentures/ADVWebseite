@@ -188,10 +188,20 @@ const { form } = Astro.props as { form: WhitepaperFormData };
             message.textContent = response.ok
               ? data.msg
               : (data.error ?? formEl.dataset.error ?? "");
+            message.classList.toggle("text-[#008a55]", response.ok);
+            message.classList.toggle("dark:text-[#00CE7E]", response.ok);
+            message.classList.toggle("font-semibold", response.ok);
           }
           if (response.ok) formEl.reset();
         } catch {
-          if (message) message.textContent = formEl.dataset.error ?? "";
+          if (message) {
+            message.textContent = formEl.dataset.error ?? "";
+            message.classList.remove(
+              "text-[#008a55]",
+              "dark:text-[#00CE7E]",
+              "font-semibold",
+            );
+          }
         } finally {
           updateButtonState();
         }

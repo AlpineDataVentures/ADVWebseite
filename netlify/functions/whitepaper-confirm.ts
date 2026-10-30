@@ -14,9 +14,18 @@ import {
 
 // Schritt 2 des Double-Opt-in: Bestätigung in HubSpot speichern und Download-Link bereitstellen.
 export default async (request: Request) => {
-  const token = new URL(request.url).searchParams.get("token") ?? "";
+  if (request.method !== "GET" && request.method !== "POST") {
+    return htmlResponse(405, "Methode nicht erlaubt", "<p>Bitte öffnen Sie den Link aus der Bestätigungsmail.</p>");
+  }
 
   try {
+    let token = new URL(request.url).searchParams.get("token") ?? "";
+    if (request.method === "POST") {
+      const form = await request.formData();
+      const submittedToken = form.get("token");
+      token = typeof submittedToken === "string" ? submittedToken : "";
+    }
+
     const record = await readToken(token, "doi");
     if (!record) {
       return htmlResponse(
@@ -30,7 +39,6 @@ export default async (request: Request) => {
 
     // Mehrfaches Aufrufen des Links (Reload, Linkscanner, zweiter Klick): keine weitere Mail, kein neuer Status.
     if (contact?.doiStatus === "confirmed") {
-      await deleteToken(token);
       return htmlResponse(
         200,
         "Anmeldung bereits bestätigt",
@@ -46,6 +54,14 @@ export default async (request: Request) => {
       );
     }
 
+    if (request.method === "GET") {
+      return htmlResponse(
+        200,
+        "Anmeldung bestätigen",
+        `<p>Bitte bestätigen Sie Ihre Anmeldung für den Newsletter und das Whitepaper.</p><form method="post"><input type="hidden" name="token" value="${token}"><button type="submit">Anmeldung bestätigen</button></form>`,
+      );
+    }
+
     const unsubscribeToken = contact?.unsubscribeToken || createOpaqueToken();
     if (!contact?.unsubscribeToken) {
       await upsertHubspotContact(record.email, {
@@ -53,8 +69,6 @@ export default async (request: Request) => {
       });
     }
 
-    // Token zuerst entwerten, damit parallele oder wiederholte Aufrufe keine zweite Mail auslösen.
-    await deleteToken(token);
     await setHubspotNewsletterSubscription(record.email, "SUBSCRIBED");
     await upsertHubspotContact(record.email, {
       doi_status: "confirmed",

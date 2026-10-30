@@ -9,7 +9,7 @@ booking:
   points:
     - 30 Minuten per Video
     - Ihre Ausgangslage und welche Stufe passt
-    - Kein Angebot ohne Ihren Wunsch
+    - Auf Wunsch ein passendes Angebot
   people:
     - name: Andreas Klostermann
       role: Ihr Ansprechpartner für das Erstgespräch
