@@ -2,7 +2,15 @@
 import EyebrowTitle from "@/components/EyebrowTitle.astro";
 import CtaButton from "@/components/controlling/CtaButton.astro";
 import MonthEndTimeline from "@/components/controlling/MonthEndTimeline.astro";
-import { CALENDLY_URL, hero } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+import { CALENDLY_URL } from "@/components/controlling/settings";
+
+type HeroData = CollectionEntry<"controllingHero">["data"];
+type TimelineData = CollectionEntry<"controllingTimeline">["data"];
+const { hero, timeline } = Astro.props as {
+  hero: HeroData;
+  timeline: TimelineData;
+};
 ---
 
 <section class="bg-body py-16 dark:bg-darkmode-body md:py-20">
@@ -25,7 +33,7 @@ import { CALENDLY_URL, hero } from "@/components/controlling/content";
           Fixpreis pro Stufe · Senior-Expertise · Ihre Daten in Ihrem Tenant
         </p>
       </div>
-      <MonthEndTimeline />
+      <MonthEndTimeline timeline={timeline} />
     </div>
   </div>
 </section>

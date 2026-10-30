@@ -2,8 +2,11 @@
 import Band from "@/components/controlling/Band.astro";
 import SectionHead from "@/components/controlling/SectionHead.astro";
 import CtaButton from "@/components/controlling/CtaButton.astro";
-import { CALENDLY_URL, contact } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+import { CALENDLY_URL } from "@/components/controlling/settings";
 
+type ContactData = CollectionEntry<"controllingContact">["data"];
+const { contact } = Astro.props as { contact: ContactData };
 const { booking, form } = contact;
 const inputClass =
   "mt-1 w-full min-w-0 rounded border border-border bg-body px-3 py-2.5 font-secondary text-base font-normal text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark";

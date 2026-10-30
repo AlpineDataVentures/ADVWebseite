@@ -464,6 +464,296 @@ const resultOverviewSectionCollection = defineCollection({
   }),
 });
 
+const controllingLoader = (filename: string) =>
+  glob({ pattern: `${filename}.md`, base: "src/content/controlling" });
+
+const controllingNavigationCollection = defineCollection({
+  loader: controllingLoader("navigation"),
+  schema: z.object({
+    links: z.array(z.object({ label: z.string(), href: z.string() })),
+  }),
+});
+
+const controllingHeroCollection = defineCollection({
+  loader: controllingLoader("hero"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    lead: z.string(),
+    primaryCta: z.string(),
+    secondaryCta: z.string(),
+  }),
+});
+
+const controllingTimelineCollection = defineCollection({
+  loader: controllingLoader("timeline"),
+  schema: z.object({
+    title: z.string(),
+    badge: z.string(),
+    ariaLabel: z.string(),
+    days: z.array(z.string()),
+    before: z.object({
+      title: z.string(),
+      segments: z.array(
+        z.object({
+          label: z.string(),
+          span: z.number(),
+          kind: z.enum(["hand", "done", "free"]),
+        }),
+      ),
+    }),
+    after: z.object({
+      title: z.string(),
+      segments: z.array(
+        z.object({
+          label: z.string(),
+          span: z.number(),
+          kind: z.enum(["hand", "done", "free"]),
+        }),
+      ),
+    }),
+    note: z.string(),
+  }),
+});
+
+const controllingPainPointsCollection = defineCollection({
+  loader: controllingLoader("pain-points"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    items: z.array(
+      z.object({ code: z.string(), title: z.string(), text: z.string() }),
+    ),
+  }),
+});
+
+const controllingCalculatorCollection = defineCollection({
+  loader: controllingLoader("calculator"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    lead: z.string(),
+  }),
+});
+
+const controllingDemoCollection = defineCollection({
+  loader: controllingLoader("demo"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    lead: z.string(),
+    after: z.string(),
+    afterCta: z.string(),
+  }),
+});
+
+const controllingQuickStartCollection = defineCollection({
+  loader: controllingLoader("quick-start"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    steps: z.array(
+      z.object({
+        when: z.string(),
+        title: z.string(),
+        text: z.string(),
+      }),
+    ),
+    note: z.string(),
+    offer: z.object({
+      price: z.string(),
+      priceNote: z.string(),
+      receiveTitle: z.string(),
+      receive: z.array(z.string()),
+      needTitle: z.string(),
+      need: z.array(z.string()),
+      cta: z.string(),
+      person: z.object({
+        name: z.string(),
+        image: z.string(),
+        text: z.string(),
+      }),
+    }),
+    fixedPrice: z.object({
+      label: z.string(),
+      title: z.string(),
+      text: z.string(),
+    }),
+  }),
+});
+
+const controllingPricingCollection = defineCollection({
+  loader: controllingLoader("pricing"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    lead: z.string(),
+    tiers: z.array(
+      z.object({
+        step: z.string(),
+        duration: z.string(),
+        title: z.string(),
+        sub: z.string(),
+        prefix: z.string().optional(),
+        price: z.string(),
+        priceNote: z.string(),
+        items: z.array(z.string()),
+        cta: z.string(),
+        href: z.string(),
+        highlight: z.boolean().optional(),
+        badge: z.string().optional(),
+      }),
+    ),
+    run: z.object({
+      title: z.string(),
+      text: z.string(),
+      price: z.string(),
+      cta: z.string(),
+    }),
+    guarantees: z.array(
+      z.object({ title: z.string(), text: z.string() }),
+    ),
+  }),
+});
+
+const controllingCaseExampleCollection = defineCollection({
+  loader: controllingLoader("case-example"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    story: z.array(z.object({ title: z.string(), text: z.string() })),
+    kpis: z.array(z.object({ value: z.string(), label: z.string() })),
+    logosTitle: z.string(),
+    logoSlots: z.array(z.string()),
+  }),
+});
+
+const controllingReportingCheckCollection = defineCollection({
+  loader: controllingLoader("reporting-check"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    lead: z.string(),
+    steps: z.array(z.string()),
+    questions: z.array(
+      z.object({
+        q: z.string(),
+        options: z.array(z.object({ label: z.string(), points: z.number() })),
+      }),
+    ),
+    maxScore: z.number(),
+    results: z.array(
+      z.object({
+        min: z.number(),
+        level: z.number(),
+        title: z.string(),
+        text: z.string(),
+        recommendation: z.string(),
+        why: z.string(),
+      }),
+    ),
+    labels: z.record(z.string(), z.string()),
+  }),
+});
+
+const controllingWhitepaperCollection = defineCollection({
+  loader: controllingLoader("whitepaper"),
+  schema: z.object({
+    coverLabel: z.string(),
+    coverTitle: z.string(),
+    coverFoot: z.string(),
+    eyebrow: z.string(),
+    title: z.string(),
+    lead: z.string(),
+    bullets: z.array(z.string()),
+    form: z.object({
+      label: z.string(),
+      placeholder: z.string(),
+      submit: z.string(),
+      privacy: z.string(),
+      privacyLink: z.string(),
+      firstnamePlaceholder: z.string(),
+      lastnamePlaceholder: z.string(),
+      companyPlaceholder: z.string(),
+      consent: z.string(),
+      error: z.string(),
+    }),
+  }),
+});
+
+const controllingFaqCollection = defineCollection({
+  loader: controllingLoader("faq"),
+  schema: z.object({
+    enable: z.boolean(),
+    title: z.string(),
+    items: z.array(
+      z.object({
+        question: z.string(),
+        answer_short: z.string(),
+        answer_long: z.string(),
+      }),
+    ),
+  }),
+});
+
+const controllingFinalCtaCollection = defineCollection({
+  loader: controllingLoader("final-cta"),
+  schema: z.object({
+    title: z.string(),
+    text: z.string(),
+    primary: z.string(),
+    secondary: z.string(),
+  }),
+});
+
+const controllingContactCollection = defineCollection({
+  loader: controllingLoader("contact"),
+  schema: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    lead: z.string(),
+    booking: z.object({
+      title: z.string(),
+      cta: z.string(),
+      points: z.array(z.string()),
+      people: z.array(
+        z.object({
+          name: z.string(),
+          role: z.string(),
+          image: z.string(),
+        }),
+      ),
+    }),
+    form: z.object({
+      title: z.string(),
+      typeLegend: z.string(),
+      types: z.array(
+        z.object({
+          value: z.string(),
+          label: z.string(),
+          submit: z.string(),
+        }),
+      ),
+      name: z.string(),
+      company: z.string(),
+      email: z.string(),
+      phone: z.string(),
+      phoneHint: z.string(),
+      when: z.string(),
+      whenOptions: z.array(z.string()),
+      message: z.string(),
+      optional: z.string(),
+      messagePlaceholder: z.string(),
+      privacy: z.string(),
+      privacyLink: z.string(),
+      successTitle: z.string(),
+      success: z.string(),
+      error: z.string(),
+      sending: z.string(),
+    }),
+  }),
+});
+
 // About ADV collection
 const aboutAdvCollection = defineCollection({
   loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/about-adv" }),
@@ -499,4 +789,20 @@ export const collections = {
   servicesSection: servicesSectionCollection,
   testimonialSection: testimonialSectionCollection,
   whyAdvSection: whyAdvSectionCollection,
+
+  // Controlling landing page sections
+  controllingNavigation: controllingNavigationCollection,
+  controllingHero: controllingHeroCollection,
+  controllingTimeline: controllingTimelineCollection,
+  controllingPainPoints: controllingPainPointsCollection,
+  controllingCalculator: controllingCalculatorCollection,
+  controllingDemo: controllingDemoCollection,
+  controllingQuickStart: controllingQuickStartCollection,
+  controllingPricing: controllingPricingCollection,
+  controllingCaseExample: controllingCaseExampleCollection,
+  controllingReportingCheck: controllingReportingCheckCollection,
+  controllingWhitepaper: controllingWhitepaperCollection,
+  controllingFaq: controllingFaqCollection,
+  controllingFinalCta: controllingFinalCtaCollection,
+  controllingContact: controllingContactCollection,
 };

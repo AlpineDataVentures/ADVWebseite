@@ -2,7 +2,10 @@
 import EyebrowTitle from "@/components/EyebrowTitle.astro";
 import Band from "@/components/controlling/Band.astro";
 import WhitepaperForm from "@/components/controlling/WhitepaperForm.astro";
-import { whitepaper as wp } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+
+type WhitepaperData = CollectionEntry<"controllingWhitepaper">["data"];
+const { whitepaper: wp } = Astro.props as { whitepaper: WhitepaperData };
 ---
 
 <Band id="whitepaper">
@@ -17,7 +20,7 @@ import { whitepaper as wp } from "@/components/controlling/content";
           <li>{bullet}</li>
         ))}
       </ul>
-      <WhitepaperForm />
+      <WhitepaperForm form={wp.form} />
     </div>
 
     <div

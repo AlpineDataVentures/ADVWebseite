@@ -1,7 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { getEntry } from "astro:content";
 import ControllingHeader from "@/components/controlling/ControllingHeader.astro";
-import { faq } from "@/components/controlling/content";
 import Pricing from "@/partials/controlling/Pricing.astro";
 import ReportingCheck from "@/partials/controlling/ReportingCheck.astro";
 import Blog from "@/partials/controlling/Blog.astro";
@@ -13,6 +13,21 @@ import Hero from "@/partials/controlling/Hero.astro";
 import PainPoints from "@/partials/controlling/PainPoints.astro";
 import Whitepaper from "@/partials/controlling/Whitepaper.astro";
 import Faq from "@/partials/Faq.astro";
+
+const navigation = (await getEntry("controllingNavigation", "navigation"))!;
+const hero = (await getEntry("controllingHero", "hero"))!;
+const timeline = (await getEntry("controllingTimeline", "timeline"))!;
+const painPoints = (await getEntry("controllingPainPoints", "pain-points"))!;
+const calculator = (await getEntry("controllingCalculator", "calculator"))!;
+const pricing = (await getEntry("controllingPricing", "pricing"))!;
+const reportingCheck = (
+  await getEntry("controllingReportingCheck", "reporting-check")
+)!;
+const demo = (await getEntry("controllingDemo", "demo"))!;
+const whitepaper = (await getEntry("controllingWhitepaper", "whitepaper"))!;
+const contact = (await getEntry("controllingContact", "contact"))!;
+const faq = (await getEntry("controllingFaq", "faq"))!;
+const finalCta = (await getEntry("controllingFinalCta", "final-cta"))!;
 ---
 
 <!-- Base provides the shared page shell, SEO metadata, and global site styles. -->
@@ -24,30 +39,30 @@ import Faq from "@/partials/Faq.astro";
   showHeader={false}
 >
   <!-- The page-specific header replaces the default site header in Base's header slot. -->
-  <ControllingHeader slot="header" />
+  <ControllingHeader slot="header" navigation={navigation.data} />
 
   <!-- Introduces the offer and directs visitors to the call booking or savings calculator. -->
-  <Hero />
+  <Hero hero={hero.data} timeline={timeline.data} />
   <!-- Highlights common pain points in manual controlling reports. -->
-  <PainPoints />
+  <PainPoints painPoints={painPoints.data} />
   <!-- Estimates the annual time cost of manual reporting from visitor inputs. -->
-  <Calculator />
+  <Calculator calculator={calculator.data} />
   <!-- Shows the stepped fixed-price offers. -->
-  <Pricing />
+  <Pricing pricing={pricing.data} />
   <!-- Interactive maturity quiz with result and optional e-mail evaluation request. -->
-  <ReportingCheck />
+  <ReportingCheck reportingCheck={reportingCheck.data} />
   <!-- Presents an interactive Power BI report preview and links to the pricing section. -->
-  <Demo />
+  <Demo demo={demo.data} />
   <!-- Latest blog posts from the category "Controlling". -->
   <Blog />
   <!-- Promotes the whitepaper and collects download requests. -->
-  <Whitepaper />
+  <Whitepaper whitepaper={whitepaper.data} />
   <!-- Booking link and contact form (mail to info@alpinedata.de via Netlify function). -->
-  <Contact />
+  <Contact contact={contact.data} />
   <!-- The shared FAQ component is enabled and populated with this page's FAQ content. -->
   <div id="faq" class="scroll-mt-20">
-    <Faq faq={{ data: { enable: true, ...faq } }} compact />
+    <Faq faq={faq} compact />
   </div>
   <!-- Closes the page with the primary contact action and a link back to the whitepaper. -->
-  <FinalCta />
+  <FinalCta finalCta={finalCta.data} />
 </Base>

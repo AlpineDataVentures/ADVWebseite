@@ -2,8 +2,11 @@
 import Band from "@/components/controlling/Band.astro";
 import CtaButton from "@/components/controlling/CtaButton.astro";
 import SectionHead from "@/components/controlling/SectionHead.astro";
-import { CALENDLY_URL, quickStart as qs } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+import { CALENDLY_URL } from "@/components/controlling/settings";
 
+type QuickStartData = CollectionEntry<"controllingQuickStart">["data"];
+const { quickStart: qs } = Astro.props as { quickStart: QuickStartData };
 const { offer, fixedPrice } = qs;
 ---
 

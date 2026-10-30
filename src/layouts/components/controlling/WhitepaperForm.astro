@@ -1,7 +1,8 @@
 ---
-import { whitepaper } from "./content";
+import type { CollectionEntry } from "astro:content";
 
-const { form } = whitepaper;
+type WhitepaperFormData = CollectionEntry<"controllingWhitepaper">["data"]["form"];
+const { form } = Astro.props as { form: WhitepaperFormData };
 ---
 
 <form

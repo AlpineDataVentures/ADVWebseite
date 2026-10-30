@@ -1,7 +1,23 @@
 import { useState } from "react";
-import { CALENDLY_URL, reportingCheck } from "./content";
+import { CALENDLY_URL } from "./settings";
 
-const { questions, results, labels, maxScore } = reportingCheck;
+type ReportingCheckData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  steps: string[];
+  questions: { q: string; options: { label: string; points: number }[] }[];
+  maxScore: number;
+  results: {
+    min: number;
+    level: number;
+    title: string;
+    text: string;
+    recommendation: string;
+    why: string;
+  }[];
+  labels: Record<string, string>;
+};
 
 const inputClass =
   "w-full rounded border border-border bg-body px-3 py-2.5 font-secondary text-base text-text-dark focus:border-[#00CE7E] focus:ring-[#00CE7E] dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark";
@@ -31,7 +47,12 @@ function ProgressBar({ label, percent }: { label: string; percent: number }) {
   );
 }
 
-export default function ReportingCheckQuiz() {
+export default function ReportingCheckQuiz({
+  reportingCheck,
+}: {
+  reportingCheck: ReportingCheckData;
+}) {
+  const { questions, results, labels, maxScore } = reportingCheck;
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(

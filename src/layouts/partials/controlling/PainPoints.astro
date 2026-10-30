@@ -1,7 +1,10 @@
 ---
 import Band from "@/components/controlling/Band.astro";
 import SectionHead from "@/components/controlling/SectionHead.astro";
-import { painPoints } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+
+type PainPointsData = CollectionEntry<"controllingPainPoints">["data"];
+const { painPoints } = Astro.props as { painPoints: PainPointsData };
 ---
 
 <Band id="symptome">

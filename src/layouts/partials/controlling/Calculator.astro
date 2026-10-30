@@ -2,7 +2,10 @@
 import Band from "@/components/controlling/Band.astro";
 import SavingsCalculator from "@/components/controlling/SavingsCalculator";
 import SectionHead from "@/components/controlling/SectionHead.astro";
-import { calculator } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+
+type CalculatorData = CollectionEntry<"controllingCalculator">["data"];
+const { calculator } = Astro.props as { calculator: CalculatorData };
 ---
 
 <Band id="rechner" tone="light">

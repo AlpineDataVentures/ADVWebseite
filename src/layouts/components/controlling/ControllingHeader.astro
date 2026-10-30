@@ -1,8 +1,12 @@
 ---
 import Logo from "@/components/Logo.astro";
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
+import type { CollectionEntry } from "astro:content";
 import CtaButton from "./CtaButton.astro";
-import { CALENDLY_URL, navLinks } from "./content";
+import { CALENDLY_URL } from "./settings";
+
+type NavigationData = CollectionEntry<"controllingNavigation">["data"];
+const { navigation } = Astro.props as { navigation: NavigationData };
 ---
 
 <header class="header sticky top-0 z-30">
@@ -46,7 +50,7 @@ import { CALENDLY_URL, navLinks } from "./content";
       id="controlling-nav-menu"
       class="navbar-nav order-3 hidden w-full pb-6 peer-checked:block lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"
     >
-      {navLinks.map((link) => (
+      {navigation.links.map((link) => (
         <li class="nav-item">
           <a href={link.href} class="nav-link block">
             {link.label}

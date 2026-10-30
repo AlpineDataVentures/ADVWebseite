@@ -1,6 +1,9 @@
 ---
-import type { TimelineSegment } from "./content";
-import { timeline } from "./content";
+import type { CollectionEntry } from "astro:content";
+
+type TimelineData = CollectionEntry<"controllingTimeline">["data"];
+type TimelineSegment = TimelineData["before"]["segments"][number];
+const { timeline } = Astro.props as { timeline: TimelineData };
 
 const segmentClasses: Record<TimelineSegment["kind"], string> = {
   hand: "border-[#c0392b] bg-body text-[#c0392b] dark:border-[#ff8a7a] dark:bg-darkmode-body dark:text-[#ff8a7a]",

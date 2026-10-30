@@ -3,7 +3,10 @@ import Band from "@/components/controlling/Band.astro";
 import CtaButton from "@/components/controlling/CtaButton.astro";
 import PowerBiDemo from "@/components/controlling/PowerBiDemo";
 import SectionHead from "@/components/controlling/SectionHead.astro";
-import { demo } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+
+type DemoData = CollectionEntry<"controllingDemo">["data"];
+const { demo } = Astro.props as { demo: DemoData };
 ---
 
 <Band id="demo" tone="light">

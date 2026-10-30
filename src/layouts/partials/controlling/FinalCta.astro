@@ -1,6 +1,10 @@
 ---
 import CtaButton from "@/components/controlling/CtaButton.astro";
-import { CALENDLY_URL, finalCta } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+import { CALENDLY_URL } from "@/components/controlling/settings";
+
+type FinalCtaData = CollectionEntry<"controllingFinalCta">["data"];
+const { finalCta } = Astro.props as { finalCta: FinalCtaData };
 ---
 
 <section class="w-full bg-black py-20 dark:bg-white">

@@ -1,7 +1,10 @@
 ---
 import Band from "@/components/controlling/Band.astro";
 import SectionHead from "@/components/controlling/SectionHead.astro";
-import { caseExample as c } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+
+type CaseExampleData = CollectionEntry<"controllingCaseExample">["data"];
+const { caseExample: c } = Astro.props as { caseExample: CaseExampleData };
 ---
 
 <Band id="beispiel" tone="light">

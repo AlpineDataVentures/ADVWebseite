@@ -2,7 +2,12 @@
 import Band from "@/components/controlling/Band.astro";
 import EyebrowTitle from "@/components/EyebrowTitle.astro";
 import ReportingCheckQuiz from "@/components/controlling/ReportingCheckQuiz";
-import { reportingCheck as rc } from "@/components/controlling/content";
+import type { CollectionEntry } from "astro:content";
+
+type ReportingCheckData = CollectionEntry<"controllingReportingCheck">["data"];
+const { reportingCheck: rc } = Astro.props as {
+  reportingCheck: ReportingCheckData;
+};
 ---
 
 <Band id="check" tone="light">
@@ -25,6 +30,6 @@ import { reportingCheck as rc } from "@/components/controlling/content";
         }
       </ol>
     </div>
-    <ReportingCheckQuiz client:visible />
+    <ReportingCheckQuiz reportingCheck={rc} client:visible />
   </div>
 </Band>

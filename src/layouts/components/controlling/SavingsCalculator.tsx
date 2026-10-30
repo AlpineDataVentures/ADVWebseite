@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { REPORTING_CHECK_PRICE } from "./content";
+import { REPORTING_CHECK_PRICE } from "./settings";
 
 const fmt = (n: number) => Math.round(n).toLocaleString("de-DE");
 const fmtMonths = (n: number) =>
