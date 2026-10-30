@@ -94,7 +94,8 @@ const boxClass =
 
         <div class="grid gap-4 sm:grid-cols-2">
           <label class={labelClass}>
-            {form.name}
+            {form.name}{" "}
+            <span aria-hidden="true" class="text-[#c0392b]">*</span>
             <input
               class={inputClass}
               name="name"
@@ -104,7 +105,8 @@ const boxClass =
             />
           </label>
           <label class={labelClass}>
-            {form.company}
+            {form.company}{" "}
+            <span aria-hidden="true" class="text-[#c0392b]">*</span>
             <input
               class={inputClass}
               name="company"
@@ -116,7 +118,8 @@ const boxClass =
         </div>
         <div class="grid gap-4 sm:grid-cols-2">
           <label class={labelClass}>
-            {form.email}
+            {form.email}{" "}
+            <span aria-hidden="true" class="text-[#c0392b]">*</span>
             <input
               class={inputClass}
               name="email"
@@ -132,7 +135,8 @@ const boxClass =
               class="font-normal not-italic text-text-light dark:text-darkmode-text-light"
               data-phone-hint
             >
-              ({form.phoneHint})
+              ({form.phoneHint}{" "}
+              <span aria-hidden="true" class="text-[#c0392b]">*</span>)
             </em>
             <input
               class={inputClass}

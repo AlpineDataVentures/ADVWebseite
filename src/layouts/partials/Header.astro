@@ -182,6 +182,14 @@ const { pathname } = Astro.url;
       }
     });
 
+    menu.querySelectorAll("a:not(.mobile-toggle)").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (!toggle.checked) return;
+        toggle.checked = false;
+        toggle.dispatchEvent(new Event("change"));
+      });
+    });
+
     // Submenu click on mobile
     dropdownToggles.forEach((btn) => {
       btn.addEventListener("click", (e) => {

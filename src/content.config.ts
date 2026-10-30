@@ -668,13 +668,9 @@ const controllingWhitepaperCollection = defineCollection({
     bullets: z.array(z.string()),
     form: z.object({
       label: z.string(),
-      placeholder: z.string(),
       submit: z.string(),
       privacy: z.string(),
       privacyLink: z.string(),
-      firstnamePlaceholder: z.string(),
-      lastnamePlaceholder: z.string(),
-      companyPlaceholder: z.string(),
       consent: z.string(),
       error: z.string(),
     }),

@@ -15,16 +15,12 @@ bullets:
   - "Reifegrad-Check und Ausblick: Wo Sie stehen und wie es weitergeht"
 form:
   label: Newsletter abonnieren, Whitepaper gleich mitnehmen
-  placeholder: name@unternehmen.de
   submit: Newsletter abonnieren
   privacy: "Sie melden sich für unseren Newsletter an: gelegentlich Neues aus
     unseren Controlling-Projekten. Sobald Sie Ihre Anmeldung per E-Mail
     bestätigt haben, erhalten Sie das Whitepaper. Sie können sich jederzeit über
     den Abmeldelink in einer Newsletter-E-Mail abmelden."
   privacyLink: Datenschutzhinweise
-  firstnamePlaceholder: Vorname
-  lastnamePlaceholder: Nachname
-  companyPlaceholder: Firma
   consent: Ich möchte den Newsletter der Alpine Data Ventures erhalten und das
     Whitepaper per E-Mail bekommen. Meine Einwilligung kann ich jederzeit
     widerrufen.
