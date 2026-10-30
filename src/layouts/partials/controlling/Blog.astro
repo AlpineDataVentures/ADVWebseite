@@ -17,28 +17,26 @@ const posts = (await getSinglePage("blog"))
   .slice(0, MAX_POSTS);
 ---
 
-{
-  posts.length > 0 && (
-    <Band id="blog" tone="body">
-      <SectionHead
-        eyebrow="Aus unserem Blog"
-        title="Fachartikel für Controlling und Reporting"
-        lead="Praxiswissen aus unseren Projekten: Reporting automatisieren, die passende Planung finden, Kennzahlen richtig aufbauen."
-      />
-      <div class="controlling-blog-slider swiper cursor-grab overflow-hidden active:cursor-grabbing">
-        <div class="swiper-wrapper">
-          {[0, 1, 2].map((copy) =>
-            posts.map((post) => (
-              <div class="swiper-slide !h-auto pb-2" aria-hidden={copy !== 1}>
-                <BlogCard data={post} />
-              </div>
-            )),
-          )}
-        </div>
+{posts.length > 0 && (
+  <Band id="blog" tone="body">
+    <SectionHead
+      eyebrow="Aus unserem Blog"
+      title="Fachartikel für Controlling und Reporting"
+      lead="Praxiswissen aus unseren Projekten: Reporting automatisieren, die passende Planung finden, Kennzahlen richtig aufbauen."
+    />
+    <div class="controlling-blog-slider swiper cursor-grab overflow-hidden active:cursor-grabbing">
+      <div class="swiper-wrapper">
+        {[0, 1, 2].map((copy) =>
+          posts.map((post) => (
+            <div class="swiper-slide h-auto! pb-2" aria-hidden={copy !== 1}>
+              <BlogCard data={post} />
+            </div>
+          )),
+        )}
       </div>
-    </Band>
-  )
-}
+    </div>
+  </Band>
+)}
 
 <script>
   import { Swiper } from "swiper";
@@ -72,8 +70,7 @@ const posts = (await getSinglePage("blog"))
     });
 
     // The three identical sets allow an endless loop: the middle set is the reference.
-    const setWidth = () =>
-      slides[setSize].offsetLeft - slides[0].offsetLeft;
+    const setWidth = () => slides[setSize].offsetLeft - slides[0].offsetLeft;
     const toMiddleSet = () => swiper.setTranslate(-setWidth());
     toMiddleSet();
     swiper.on("resize", toMiddleSet);

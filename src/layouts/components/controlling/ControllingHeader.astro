@@ -11,7 +11,7 @@ import { CALENDLY_URL, navLinks } from "./content";
       <Logo
         src="/logos/ADV-Control_Logo.webp"
         srcDarkmode="/logos/ADV-Control_Logo_dark.webp"
-        displayWidth={190}
+        displayWidth={160}
         href="/controlling/"
       />
     </div>
@@ -62,13 +62,15 @@ import { CALENDLY_URL, navLinks } from "./content";
 
     <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
       <ThemeSwitcher className="mr-5" />
-      <CtaButton
-        href={CALENDLY_URL}
-        small
-        class="hidden shadow-[0_10px_24px_rgba(2,199,128,0.22)] transition hover:-translate-y-0.5 lg:inline-flex"
-      >
-        Erstgespräch vereinbaren
-      </CtaButton>
+      <div class="hidden lg:block">
+        <CtaButton
+          href={CALENDLY_URL}
+          small
+          class="shadow-[0_10px_24px_rgba(2,199,128,0.22)] transition hover:-translate-y-0.5"
+        >
+          Erstgespräch vereinbaren
+        </CtaButton>
+      </div>
     </div>
   </nav>
 </header>

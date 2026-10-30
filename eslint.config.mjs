@@ -2,7 +2,6 @@ import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 import astro from "eslint-plugin-astro";
-import astroParser from "astro-eslint-parser";
 
 export default [
   // Basis ESLint Regeln
@@ -33,21 +32,6 @@ export default [
       react: {
         version: "detect",
       },
-    },
-  },
-
-  // Regeln für Astro-Dateien
-  {
-    files: ["**/*.astro"],
-    languageOptions: {
-      parser: astroParser,
-      parserOptions: {
-        parser: tseslint.parser,
-        extraFileExtensions: [".astro"],
-      },
-    },
-    rules: {
-      // Astro-spezifische Regeln hier
     },
   },
 ];

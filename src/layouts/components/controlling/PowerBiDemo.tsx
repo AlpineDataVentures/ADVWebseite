@@ -34,17 +34,17 @@ function CostCenterTable() {
 
   return (
     <>
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[420px] border-collapse text-[0.94rem]">
+      <div>
+        <table className="w-full table-fixed border-collapse text-xs sm:text-[0.94rem]">
           <thead>
             <tr className="text-[#b4afb6]">
-              <th className="border-b border-[#3a3a3a] p-2 text-left font-medium">
+              <th className="w-[40%] border-b border-[#3a3a3a] p-1 text-left font-medium sm:p-2">
                 Kostenstelle
               </th>
               {["Ist", "Plan", "Abw."].map((h) => (
                 <th
                   key={h}
-                  className="border-b border-[#3a3a3a] p-2 text-right font-medium"
+                  className="w-[20%] border-b border-[#3a3a3a] p-1 text-right font-medium sm:p-2"
                 >
                   {h}
                 </th>
@@ -68,38 +68,41 @@ function CostCenterTable() {
                     }}
                     className="cursor-pointer font-semibold hover:bg-[#262626]"
                   >
-                    <td className="border-b border-[#3a3a3a] p-2.5 text-left">
+                    <td className="wrap-break-word border-b border-[#3a3a3a] p-1 text-left sm:p-2.5">
                       <span
-                        className="inline-block w-[18px] text-[#00CE7E]"
+                        className="inline-block w-3 text-[#00CE7E] sm:w-4.5"
                         aria-hidden="true"
                       >
                         {isOpen ? "−" : "+"}
                       </span>
-                      {cc.name}
+                      <span className="wrap-break-word">{cc.name}</span>
                     </td>
-                    <td className="border-b border-[#3a3a3a] p-2.5 text-right">
+                    <td className="border-b border-[#3a3a3a] p-1 text-right sm:p-2.5">
                       {fmt(cc.actual)}
                     </td>
-                    <td className="border-b border-[#3a3a3a] p-2.5 text-right">
+                    <td className="border-b border-[#3a3a3a] p-1 text-right sm:p-2.5">
                       {fmt(cc.plan)}
                     </td>
-                    <td className="border-b border-[#3a3a3a] p-2.5 text-right">
+                    <td className="border-b border-[#3a3a3a] p-1 text-right sm:p-2.5">
                       <Delta value={cc.actual - cc.plan} isCost />
                     </td>
                   </tr>
                   {isOpen &&
                     cc.accounts.map((acc) => (
-                      <tr key={acc.name} className="text-sm text-[#b4afb6]">
-                        <td className="border-b border-[#3a3a3a] p-2 pl-7 text-left">
+                      <tr
+                        key={acc.name}
+                        className="text-xs text-[#b4afb6] sm:text-sm"
+                      >
+                        <td className="wrap-break-word border-b border-[#3a3a3a] p-1 pl-4 text-left sm:p-2 sm:pl-7">
                           {acc.name}
                         </td>
-                        <td className="border-b border-[#3a3a3a] p-2 text-right">
+                        <td className="border-b border-[#3a3a3a] p-1 text-right sm:p-2">
                           {fmt(acc.actual)}
                         </td>
-                        <td className="border-b border-[#3a3a3a] p-2 text-right">
+                        <td className="border-b border-[#3a3a3a] p-1 text-right sm:p-2">
                           {fmt(acc.plan)}
                         </td>
-                        <td className="border-b border-[#3a3a3a] p-2 text-right">
+                        <td className="border-b border-[#3a3a3a] p-1 text-right sm:p-2">
                           <Delta value={acc.actual - acc.plan} isCost />
                         </td>
                       </tr>
@@ -124,15 +127,15 @@ function RevenueChart() {
   const pct = (v: number) => `calc((100% - ${BAR_LABEL_SPACE}) * ${v / BAR_SCALE_MAX})`;
   return (
     <>
-      <div className="flex h-[250px] gap-3.5">
+      <div className="flex h-62.5 gap-3.5">
         {months.map((m, i) => (
           <div key={m} className="relative min-w-0 flex-1">
             <i
-              className="absolute left-[20%] right-[20%] rounded-t-[2px] bg-[#00CE7E]"
+              className="absolute left-[20%] right-[20%] rounded-t-xs bg-[#00CE7E]"
               style={{ bottom: "26px", height: pct(revenueActual[i]) }}
             />
             <u
-              className="absolute left-[8%] right-[8%] h-[3px] bg-white no-underline"
+              className="absolute left-[8%] right-[8%] h-0.75 bg-white no-underline"
               style={{ bottom: `calc(26px + ${pct(revenuePlan[i])})` }}
             />
             <em
@@ -179,9 +182,9 @@ function EbitBridge() {
               className="grid grid-cols-[92px_1fr_52px] items-center gap-3 text-[0.94rem] sm:grid-cols-[130px_1fr_64px]"
             >
               <span>{step.label}</span>
-              <span className="relative h-[22px] border-l border-[#3a3a3a]">
+              <span className="relative h-5.5 border-l border-[#3a3a3a]">
                 <b
-                  className={`absolute bottom-0 top-0 rounded-[2px] ${color}`}
+                  className={`absolute bottom-0 top-0 rounded-xs ${color}`}
                   style={{ left: `${left}%`, width: `${width}%` }}
                 />
               </span>
@@ -221,18 +224,17 @@ export default function PowerBiDemo() {
               role="tab"
               aria-selected={v.name === active}
               onClick={() => setActive(v.name)}
-              className={`rounded border px-3.5 py-1.5 text-sm transition ${
-                v.name === active
+              className={`rounded border px-3.5 py-1.5 text-sm transition ${v.name === active
                   ? "border-[#00CE7E] bg-[#00CE7E] font-semibold text-black"
                   : "border-[#3a3a3a] text-[#b4afb6] hover:text-white"
-              }`}
+                }`}
             >
               {v.name}
             </button>
           ))}
         </div>
       </div>
-      <div className="min-h-[300px] px-5 py-7 md:px-6">
+      <div className="min-h-75 px-5 py-7 md:px-6">
         <ActiveView />
       </div>
     </div>

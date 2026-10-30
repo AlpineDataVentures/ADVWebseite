@@ -1,6 +1,5 @@
 ---
 import Band from "@/components/controlling/Band.astro";
-import Placeholder from "@/components/controlling/Placeholder.astro";
 import SectionHead from "@/components/controlling/SectionHead.astro";
 import { caseExample as c } from "@/components/controlling/content";
 ---
@@ -10,34 +9,29 @@ import { caseExample as c } from "@/components/controlling/content";
 
   <div class="grid items-start gap-10 md:grid-cols-2 md:gap-14">
     <div class="grid min-w-0 gap-6">
-      <div><Placeholder>{c.hint}</Placeholder></div>
-      {
-        c.story.map((part) => (
-          <div class="grid gap-1.5">
-            <h3 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
-              {part.title}
-            </h3>
-            <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
-              {part.text}
-            </p>
-          </div>
-        ))
-      }
+      {c.story.map((part) => (
+        <div class="grid gap-1.5">
+          <h3 class="font-primary text-h5 font-bold text-text-dark dark:text-darkmode-text-dark">
+            {part.title}
+          </h3>
+          <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
+            {part.text}
+          </p>
+        </div>
+      ))}
     </div>
 
     <div class="min-w-0 border-t border-border dark:border-darkmode-border">
-      {
-        c.kpis.map((kpi) => (
-          <div class="grid grid-cols-[auto_1fr] items-baseline gap-5 border-b border-border py-5 dark:border-darkmode-border">
-            <b class="min-w-[4ch] font-primary text-3xl font-bold tabular-nums text-[#008a55] md:text-4xl dark:text-[#00CE7E]">
-              {kpi.value}
-            </b>
-            <span class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
-              {kpi.label}
-            </span>
-          </div>
-        ))
-      }
+      {c.kpis.map((kpi) => (
+        <div class="grid grid-cols-[auto_1fr] items-baseline gap-5 border-b border-border py-5 dark:border-darkmode-border">
+          <b class="min-w-[4ch] font-primary text-3xl font-bold tabular-nums text-[#008a55] md:text-4xl dark:text-[#00CE7E]">
+            {kpi.value}
+          </b>
+          <span class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
+            {kpi.label}
+          </span>
+        </div>
+      ))}
     </div>
   </div>
 
@@ -45,12 +39,10 @@ import { caseExample as c } from "@/components/controlling/content";
     <p class="mr-3 font-secondary text-sm text-text-light dark:text-darkmode-text-light">
       {c.logosTitle}
     </p>
-    {
-      c.logoSlots.map((slot) => (
-        <span class="grid h-11 min-w-28 flex-1 place-items-center rounded border-[1.5px] border-dashed border-border font-secondary text-xs text-text-light dark:border-darkmode-border dark:text-darkmode-text-light">
-          {slot}
-        </span>
-      ))
-    }
+    {c.logoSlots.map((slot) => (
+      <span class="grid h-11 min-w-28 flex-1 place-items-center rounded border-[1.5px] border-dashed border-border font-secondary text-xs text-text-light dark:border-darkmode-border dark:text-darkmode-text-light">
+        {slot}
+      </span>
+    ))}
   </div>
 </Band>

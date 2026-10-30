@@ -14,7 +14,11 @@ const boxClass =
 ---
 
 <Band id="kontakt">
-  <SectionHead eyebrow={contact.eyebrow} title={contact.title} lead={contact.lead} />
+  <SectionHead
+    eyebrow={contact.eyebrow}
+    title={contact.title}
+    lead={contact.lead}
+  />
 
   <div class="grid gap-6 lg:grid-cols-2">
     <div class={boxClass}>
@@ -22,32 +26,34 @@ const boxClass =
         {booking.title}
       </h3>
       <ul class="list-disc space-y-2 pl-5 font-secondary text-base text-text dark:text-darkmode-text-light">
-        {booking.points.map((point) => <li>{point}</li>)}
+        {booking.points.map((point) => (
+          <li>{point}</li>
+        ))}
       </ul>
-      <div><CtaButton href={CALENDLY_URL}>{booking.cta}</CtaButton></div>
+      <div>
+        <CtaButton href={CALENDLY_URL}>{booking.cta}</CtaButton>
+      </div>
       <div class="grid gap-4 border-t border-border pt-5 dark:border-darkmode-border">
-        {
-          booking.people.map((person) => (
-            <div class="flex items-center gap-4">
-              <img
-                src={person.image}
-                alt={person.name}
-                width="64"
-                height="64"
-                loading="lazy"
-                class="h-16 w-16 shrink-0 rounded-full object-cover"
-              />
-              <div class="grid gap-0.5">
-                <b class="font-secondary text-base text-text-dark dark:text-darkmode-text-dark">
-                  {person.name}
-                </b>
-                <span class="font-secondary text-sm text-text-light dark:text-darkmode-text-light">
-                  {person.role}
-                </span>
-              </div>
+        {booking.people.map((person) => (
+          <div class="flex items-center gap-4">
+            <img
+              src={person.image}
+              alt={person.name}
+              width="64"
+              height="64"
+              loading="lazy"
+              class="h-16 w-16 shrink-0 rounded-full object-cover"
+            />
+            <div class="grid gap-0.5">
+              <b class="font-secondary text-base text-text-dark dark:text-darkmode-text-dark">
+                {person.name}
+              </b>
+              <span class="font-secondary text-sm text-text-light dark:text-darkmode-text-light">
+                {person.role}
+              </span>
             </div>
-          ))
-        }
+          </div>
+        ))}
       </div>
     </div>
 
@@ -55,69 +61,120 @@ const boxClass =
       <h3 class="font-primary text-h4 font-bold text-text-dark dark:text-darkmode-text-dark">
         {form.title}
       </h3>
-      <form class="grid gap-4" data-contact-form data-error={form.error} data-sending={form.sending}>
+      <form
+        class="grid gap-4"
+        data-contact-form
+        data-error={form.error}
+        data-sending={form.sending}
+      >
         <fieldset class="border-0 p-0">
           <legend class={`${labelClass} mb-2`}>{form.typeLegend}</legend>
           <div class="flex flex-wrap gap-2">
-            {
-              form.types.map((type, index) => (
-                <label class="cursor-pointer">
-                  <input
-                    type="radio"
-                    name="type"
-                    value={type.value}
-                    data-label={type.label}
-                    data-submit={type.submit}
-                    checked={index === 0}
-                    class="peer sr-only"
-                  />
-                  <span class="block rounded-md border border-border px-3 py-2 font-secondary text-sm text-text-dark transition peer-checked:border-[#00CE7E] peer-checked:bg-[#00CE7E] peer-checked:font-bold peer-checked:text-black peer-focus-visible:ring-2 peer-focus-visible:ring-[#00CE7E] dark:border-darkmode-border dark:text-darkmode-text-dark">
-                    {type.label}
-                  </span>
-                </label>
-              ))
-            }
+            {form.types.map((type, index) => (
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="type"
+                  value={type.value}
+                  data-label={type.label}
+                  data-submit={type.submit}
+                  checked={index === 0}
+                  class="peer sr-only"
+                />
+                <span class="block rounded-md border border-border px-3 py-2 font-secondary text-sm text-text-dark transition peer-checked:border-[#00CE7E] peer-checked:bg-[#00CE7E] peer-checked:font-bold peer-checked:text-black peer-focus-visible:ring-2 peer-focus-visible:ring-[#00CE7E] dark:border-darkmode-border dark:text-darkmode-text-dark">
+                  {type.label}
+                </span>
+              </label>
+            ))}
           </div>
         </fieldset>
 
         <div class="grid gap-4 sm:grid-cols-2">
           <label class={labelClass}>
             {form.name}
-            <input class={inputClass} name="name" required maxlength="200" autocomplete="name" />
+            <input
+              class={inputClass}
+              name="name"
+              required
+              maxlength="200"
+              autocomplete="name"
+            />
           </label>
           <label class={labelClass}>
             {form.company}
-            <input class={inputClass} name="company" required maxlength="200" autocomplete="organization" />
+            <input
+              class={inputClass}
+              name="company"
+              required
+              maxlength="200"
+              autocomplete="organization"
+            />
           </label>
         </div>
         <div class="grid gap-4 sm:grid-cols-2">
           <label class={labelClass}>
             {form.email}
-            <input class={inputClass} name="email" type="email" required maxlength="200" autocomplete="email" />
+            <input
+              class={inputClass}
+              name="email"
+              type="email"
+              required
+              maxlength="200"
+              autocomplete="email"
+            />
           </label>
           <label class={labelClass}>
-            {form.phone} <em class="font-normal not-italic text-text-light dark:text-darkmode-text-light" data-phone-hint>({form.phoneHint})</em>
-            <input class={inputClass} name="phone" type="tel" maxlength="50" autocomplete="tel" />
+            {form.phone}{" "}
+            <em
+              class="font-normal not-italic text-text-light dark:text-darkmode-text-light"
+              data-phone-hint
+            >
+              ({form.phoneHint})
+            </em>
+            <input
+              class={inputClass}
+              name="phone"
+              type="tel"
+              maxlength="50"
+              autocomplete="tel"
+            />
           </label>
         </div>
         <label class={labelClass} data-when-wrap>
           {form.when}
           <select class={inputClass} name="when">
-            {form.whenOptions.map((option) => <option>{option}</option>)}
+            {form.whenOptions.map((option) => (
+              <option>{option}</option>
+            ))}
           </select>
         </label>
         <label class={labelClass}>
-          {form.message} <em class="font-normal not-italic text-text-light dark:text-darkmode-text-light">({form.optional})</em>
+          {form.message}{" "}
+          <em class="font-normal not-italic text-text-light dark:text-darkmode-text-light">
+            ({form.optional})
+          </em>
           <textarea
             class={inputClass}
             name="message"
             rows="4"
             maxlength="3000"
-            placeholder={form.messagePlaceholder}></textarea>
+            placeholder={form.messagePlaceholder}
+          ></textarea>
         </label>
 
-        <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
-          <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+        <div
+          class="absolute left-[-9999px] h-0 w-0 overflow-hidden"
+          aria-hidden="true"
+        >
+          <label>
+            Website{" "}
+            <input
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </label>
         </div>
 
         <div>
@@ -135,80 +192,96 @@ const boxClass =
           class="font-secondary text-sm text-text-light dark:text-darkmode-text-light"
         >
           {form.privacy}{" "}
-          <a href="/datenschutz/" class="underline">{form.privacyLink}</a>
+          <a href="/datenschutz/" class="underline">
+            {form.privacyLink}
+          </a>
         </small>
       </form>
       <div hidden data-contact-success aria-live="polite" class="grid gap-1">
-        <b class="font-secondary text-lg text-text-dark dark:text-darkmode-text-dark">{form.successTitle}</b>
-        <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light">{form.success}</p>
+        <b class="font-secondary text-lg text-text-dark dark:text-darkmode-text-dark">
+          {form.successTitle}
+        </b>
+        <p class="font-secondary text-base text-text-light dark:text-darkmode-text-light">
+          {form.success}
+        </p>
       </div>
     </div>
   </div>
 </Band>
 
 <script>
-  document.querySelectorAll<HTMLFormElement>("[data-contact-form]").forEach((formEl) => {
-    const button = formEl.querySelector<HTMLButtonElement>("[data-submit-button]")!;
-    const message = formEl.querySelector<HTMLElement>("[data-contact-message]")!;
-    const success = formEl.parentElement!.querySelector<HTMLElement>("[data-contact-success]")!;
-    const phone = formEl.querySelector<HTMLInputElement>("[name=phone]")!;
-    const phoneHint = formEl.querySelector<HTMLElement>("[data-phone-hint]")!;
-    const whenWrap = formEl.querySelector<HTMLElement>("[data-when-wrap]")!;
-    const field = (name: string) =>
-      formEl.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
-        `[name=${name}]`,
+  document
+    .querySelectorAll<HTMLFormElement>("[data-contact-form]")
+    .forEach((formEl) => {
+      const button = formEl.querySelector<HTMLButtonElement>(
+        "[data-submit-button]",
       )!;
-    const selectedType = () =>
-      formEl.querySelector<HTMLInputElement>("[name=type]:checked")!;
+      const message = formEl.querySelector<HTMLElement>(
+        "[data-contact-message]",
+      )!;
+      const success = formEl.parentElement!.querySelector<HTMLElement>(
+        "[data-contact-success]",
+      )!;
+      const phone = formEl.querySelector<HTMLInputElement>("[name=phone]")!;
+      const phoneHint = formEl.querySelector<HTMLElement>("[data-phone-hint]")!;
+      const whenWrap = formEl.querySelector<HTMLElement>("[data-when-wrap]")!;
+      const field = (name: string) =>
+        formEl.querySelector<
+          HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+        >(`[name=${name}]`)!;
+      const selectedType = () =>
+        formEl.querySelector<HTMLInputElement>("[name=type]:checked")!;
 
-    const updateType = () => {
-      const type = selectedType();
-      button.textContent = type.dataset.submit ?? "";
-      const callback = type.value === "rueckruf";
-      phone.required = callback;
-      phoneHint.hidden = !callback;
-      whenWrap.hidden = !(callback || type.value === "demo");
-    };
-    formEl.addEventListener("change", updateType);
-    updateType();
+      const updateType = () => {
+        const type = selectedType();
+        button.textContent = type.dataset.submit ?? "";
+        const callback = type.value === "rueckruf";
+        phone.required = callback;
+        phoneHint.hidden = !callback;
+        whenWrap.hidden = !(callback || type.value === "demo");
+      };
+      formEl.addEventListener("change", updateType);
+      updateType();
 
-    formEl.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      if (!formEl.reportValidity()) return;
+      formEl.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!formEl.reportValidity()) return;
 
-      const [firstname, ...rest] = field("name").value.trim().split(/\s+/);
-      const type = selectedType();
-      const lines = [
-        `Unternehmen: ${field("company").value}`,
-        !whenWrap.hidden ? `Wunschzeit: ${field("when").value}` : "",
-        field("message").value.trim() ? `\n${field("message").value.trim()}` : "",
-      ].filter(Boolean);
+        const [firstname, ...rest] = field("name").value.trim().split(/\s+/);
+        const type = selectedType();
+        const lines = [
+          `Unternehmen: ${field("company").value}`,
+          !whenWrap.hidden ? `Wunschzeit: ${field("when").value}` : "",
+          field("message").value.trim()
+            ? `\n${field("message").value.trim()}`
+            : "",
+        ].filter(Boolean);
 
-      const originalLabel = button.textContent;
-      button.disabled = true;
-      button.textContent = formEl.dataset.sending ?? "";
-      try {
-        const response = await fetch("/.netlify/functions/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            firstname,
-            lastname: rest.join(" ") || "-",
-            email: field("email").value,
-            phone: field("phone").value,
-            reason: `${type.dataset.label} (ADV.Control)`,
-            website: field("website").value,
-            message: lines.join("\n"),
-          }),
-        });
-        if (!response.ok) throw new Error();
-        formEl.hidden = true;
-        success.hidden = false;
-      } catch {
-        message.textContent = formEl.dataset.error ?? "";
-        button.textContent = originalLabel;
-        button.disabled = false;
-      }
+        const originalLabel = button.textContent;
+        button.disabled = true;
+        button.textContent = formEl.dataset.sending ?? "";
+        try {
+          const response = await fetch("/.netlify/functions/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              firstname,
+              lastname: rest.join(" ") || "-",
+              email: field("email").value,
+              phone: field("phone").value,
+              reason: `${type.dataset.label} (ADV.Control)`,
+              website: field("website").value,
+              message: lines.join("\n"),
+            }),
+          });
+          if (!response.ok) throw new Error();
+          formEl.hidden = true;
+          success.hidden = false;
+        } catch {
+          message.textContent = formEl.dataset.error ?? "";
+          button.textContent = originalLabel;
+          button.disabled = false;
+        }
+      });
     });
-  });
 </script>

@@ -268,7 +268,7 @@ export const pricing = {
       title: "Alles in Ihrer Umgebung",
       text: "Power BI läuft über Ihren Microsoft-Vertrag. Excel bleibt Ihr Werkzeug für Ad-hoc-Analysen.",
     },
-  ] as { title: string; text: string; hint?: string }[],
+  ] as { title: string; text: string; }[],
 };
 
 export const caseExample = {
