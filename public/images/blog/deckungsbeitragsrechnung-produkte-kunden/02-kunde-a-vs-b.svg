@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="t d">
+<title id="t">Kunde A gegen Kunde B: Umsatz und Deckungsbeitrag II</title>
+<desc id="d">Kunde B hat 1,5 Mio. Euro Bruttoumsatz, aber nur 210.000 Euro Deckungsbeitrag II. Kunde A hat 1,2 Mio. Euro Bruttoumsatz und 288.000 Euro Deckungsbeitrag II. Beispieldaten.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}.l{font-size:22px;font-weight:600}.v{font-size:18px;font-weight:600}.m{font-size:16px;fill:#555555}
+</style>
+<rect width="1200" height="560" fill="#ffffff"/>
+<text x="48" y="64" class="h">Mehr Umsatz, weniger Ertrag</text>
+<text x="48" y="96" class="s">Beispieldaten (fiktiv), Jahreswerte in Tausend Euro, Grün = Deckungsbeitrag II</text>
+<text x="48" y="190" class="l">Kunde A</text><text x="48" y="216" class="m">Gastro-Großhändler</text>
+<rect x="240" y="160" width="480" height="64" rx="8" fill="#555555"/>
+<text x="260" y="200" class="v" style="fill:#ffffff">Bruttoumsatz 1.200</text>
+<rect x="740" y="160" width="115" height="64" rx="8" fill="#00ce7f"/>
+<text x="875" y="200" class="v">DB II 288</text>
+<text x="48" y="340" class="l">Kunde B</text><text x="48" y="366" class="m">Handelskonzern</text>
+<rect x="240" y="310" width="600" height="64" rx="8" fill="#555555"/>
+<text x="260" y="350" class="v" style="fill:#ffffff">Bruttoumsatz 1.500</text>
+<rect x="860" y="310" width="84" height="64" rx="8" fill="#00ce7f"/>
+<text x="964" y="350" class="v">DB II 210</text>
+<text x="48" y="450" class="t" style="font-size:20px">Marge nach Stufe II: Kunde A 26,7 %, Kunde B 17,5 %</text>
+</svg>
