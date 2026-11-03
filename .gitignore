@@ -37,3 +37,8 @@ public/images/search-thumbnails/
 
 # Local Netlify folder
 .netlify
+
+# Agent Skills (lokal installiert)
+.agents
+.claude
+skills-lock.json

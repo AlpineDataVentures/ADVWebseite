@@ -86,6 +86,8 @@ npm run dev
 npm run build
 ```
 
+Beim Build erzeugt `scripts/llmsGenerator.mjs` aus den gerenderten HTML-Seiten `dist/llms.txt`, `dist/llms-full.txt` und – sofern aktiviert – Markdown-Dateien für einzelne Seiten. Die Erzeugung ist in `npm run build` und `npm run build_branch` eingebunden. Über den `llms`-Abschnitt in `src/config/config.json` lassen sich die Ausgaben, CSS-Selektoren sowie ein- und ausgeschlossene Pfade steuern. Für eine separate Ausführung nach `astro build` steht `npm run generate-llms` bereit.
+
 ### 👉 Build and Run With Docker
 
 ```bash
@@ -145,7 +147,7 @@ Pflegeregel:
 - Neue oder geänderte Use Cases sollen nur diese Labels in `outputs` verwenden.
 - Pro Use Case werden weiterhin genau 3 Outputs gepflegt.
 
-<!-- licence -->
+<!-- license -->
 ## 📝 License
 
 Copyright (c) 2024 - Present, Alpine Data Ventures
