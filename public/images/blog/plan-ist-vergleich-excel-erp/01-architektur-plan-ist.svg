@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="t d">
+<title id="t">Architektur: Plan-Excel und ERP-Ist fließen in ein gemeinsames Datenmodell und einen Bericht</title>
+<desc id="d">Links die Quellen Plan-Excel und ERP-Ist, in der Mitte Power Query mit Mapping-Tabelle, dann das Datenmodell mit Plan- und Ist-Faktentabelle, rechts der Abweichungsbericht.</desc>
+<style>text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}.l{font-size:20px;font-weight:600}.m{font-size:16px;fill:#555555}</style><rect width="1200" height="640" fill="#ffffff"/>
+<text x="48" y="64" class="h">Plan-Ist-Vergleich: Architektur im Überblick</text>
+<text x="48" y="96" class="s">Zwei Quellen, ein Mapping, ein Datenmodell, ein Bericht.</text>
+<rect x="48" y="170" width="260" height="130" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="212" class="l">Plan in Excel</text><text x="68" y="242" class="m">Tabelle: Konto, Monat,</text><text x="68" y="264" class="m">Kostenstelle, Betrag</text>
+<rect x="48" y="360" width="260" height="130" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="402" class="l">Ist im ERP</text><text x="68" y="432" class="m">ODBC, Schnittstelle oder</text><text x="68" y="454" class="m">geplanter Export</text>
+<rect x="388" y="250" width="240" height="140" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="408" y="292" class="l">Power Query</text><text x="408" y="322" class="m">Laden, bereinigen,</text><text x="408" y="344" class="m">Mapping-Tabelle</text><text x="408" y="366" class="m">Konto ↔ Planposition</text>
+<rect x="708" y="230" width="200" height="180" rx="20" fill="#0c8974" stroke="#141414" stroke-width="1.5"/>
+<text x="728" y="272" class="l" style="fill:#ffffff">Datenmodell</text><text x="728" y="304" class="m" style="fill:#ffffff">Fakt Plan</text><text x="728" y="328" class="m" style="fill:#ffffff">Fakt Ist</text><text x="728" y="352" class="m" style="fill:#ffffff">Dimensionen:</text><text x="728" y="376" class="m" style="fill:#ffffff">Konto, Zeit, KST</text>
+<rect x="988" y="250" width="164" height="140" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="1008" y="292" class="l">Bericht</text><text x="1008" y="322" class="m" style="fill:#141414">Plan, Ist,</text><text x="1008" y="344" class="m" style="fill:#141414">Abweichung</text>
+<g stroke="#141414" stroke-width="2" fill="none"><path d="M308 235 L348 235 L348 300 L388 300"/><path d="M308 425 L348 425 L348 345 L388 345"/><path d="M628 320 L708 320"/><path d="M908 320 L988 320"/></g>
+<text x="48" y="580" class="m">Schlüssel für den Vergleich: Konto, Monat, Kostenstelle – in beiden Quellen gleich geschrieben.</text>
+</svg>
