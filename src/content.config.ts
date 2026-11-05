@@ -599,7 +599,6 @@ const controllingPricingCollection = defineCollection({
         priceNote: z.string(),
         items: z.array(z.string()),
         cta: z.string(),
-        href: z.string(),
         highlight: z.boolean().optional(),
         badge: z.string().optional(),
       }),
