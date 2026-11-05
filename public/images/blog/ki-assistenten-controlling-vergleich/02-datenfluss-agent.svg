@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" role="img" aria-labelledby="t d">
+<title id="t">Datenfluss für KI-Agents im Controlling</title>
+<desc id="d">Quellen ERP, DATEV und Excel laufen automatisch in ein zentrales Datenmodell mit Kennzahlenkatalog. Der KI-Agent liest daraus, die Ergebnisse gehen durch eine Prüfung mit Kontrollwerten.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}.q{font-size:20px;font-weight:600}.m{font-size:16px;fill:#555555}
+</style>
+<rect width="1200" height="460" fill="#ffffff"/>
+<text x="48" y="64" class="h">Der Agent liest aus dem Modell, nicht aus Dateien</text>
+<text x="48" y="96" class="s">Definitionen liegen im Modell, Ergebnisse laufen durch eine Prüfung</text>
+<g stroke="#141414" stroke-width="1.5" fill="#f2f4f3">
+<rect x="48" y="150" width="220" height="64" rx="8"/><rect x="48" y="236" width="220" height="64" rx="8"/><rect x="48" y="322" width="220" height="64" rx="8"/></g>
+<text x="68" y="190" class="q">ERP</text><text x="68" y="276" class="q">DATEV</text><text x="68" y="362" class="q">Excel</text>
+<g stroke="#141414" stroke-width="2"><line x1="268" y1="182" x2="340" y2="260"/><line x1="268" y1="268" x2="340" y2="268"/><line x1="268" y1="354" x2="340" y2="276"/></g>
+<rect x="340" y="150" width="280" height="236" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="360" y="192" class="q">Datenmodell</text><text x="360" y="228" class="m">Kennzahlenkatalog</text><text x="360" y="252" class="m">Rechte und Rollen</text><text x="360" y="276" class="m">Automatische</text><text x="360" y="300" class="m">Aktualisierung</text>
+<line x1="620" y1="268" x2="690" y2="268" stroke="#141414" stroke-width="2"/>
+<rect x="690" y="190" width="220" height="156" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="710" y="232" class="q">KI-Agent</text><text x="710" y="266" class="m" style="fill:#141414">Lesezugriff</text><text x="710" y="290" class="m" style="fill:#141414">auf das Modell</text>
+<line x1="910" y1="268" x2="960" y2="268" stroke="#141414" stroke-width="2"/>
+<rect x="960" y="190" width="192" height="156" rx="20" fill="#ffffff" stroke="#0c8974" stroke-width="2"/>
+<text x="980" y="232" class="q">Prüfung</text><text x="980" y="266" class="m">5 Kontrollwerte</text><text x="980" y="290" class="m">Freigabe</text>
+</svg>

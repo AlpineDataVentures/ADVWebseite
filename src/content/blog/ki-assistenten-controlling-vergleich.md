@@ -1,124 +1,140 @@
 ---
-title: "Copilot, ChatGPT oder Claude: Welcher KI-Assistent hilft Controllern?"
-meta_title: "KI im Controlling: Copilot, ChatGPT, Claude im Vergleich"
-description: "KI im Controlling: Copilot, ChatGPT und Claude im Vergleich mit Tabelle und Entscheidungsbaum. Welcher Assistent passt zu Ihrer Ausgangslage im Mittelstand"
+title: "Bevor der KI-Agent ins Controlling darf: Das Fundament"
+meta_title: "KI im Controlling: Voraussetzungen für KI-Agents"
+description: "KI im Controlling braucht Governance, Datenqualität, Zugriff und stabile Wartung. Prüftabelle und Checkliste für den Mittelstand vor dem ersten KI-Agenten."
 date: 2026-11-09T07:00:00Z
 image: "/images/blog/ki-assistenten-controlling-vergleich.png"
 categories: ["Controlling"]
 author: "Carsten Hof"
-tags: ["Controlling", "KI", "GenAI", "Excel", "Tool-Vergleich"]
+tags: ["Controlling", "KI", "Data Governance", "Datenqualität", "Excel"]
 draft: false
-summary: "Dieselbe Frage, drei Assistenten, drei Antworten. Wir vergleichen Copilot, ChatGPT und Claude für das Controlling im Mittelstand und zeigen, wofür sich welcher eignet und wo die Datenbasis bremst."
+summary: "Dieselbe Frage, drei KI-Assistenten, drei Zahlen. Das Tool war nicht schuld. Das Controlling braucht erst ein Fundament: Governance, Datenqualität, Zugriff und stabile Wartung."
 ---
 
 Dienstag, 16:40 Uhr bei der Thalberg Getränke GmbH, einem fiktiven Mittelständler aus unserer [Thalberg-Serie](/blog/kick-off/). Die Controlling-Leitung soll bis morgen sagen, wie hoch der Rabattanteil im Großhandel zuletzt war. Aus Neugier stellt sie dieselbe Frage samt Excel-Export drei KI-Assistenten. Die Antworten: 4,2, 4,8 und 3,9 Prozent vom Umsatz. Alle drei klingen überzeugend.
 
-Das ist die eigentliche Frage hinter dem Vergleich: Nicht „Welcher Assistent ist der klügste?“, sondern „Welcher passt zu unserer Ausgangslage, und wie prüfen wir, was er sagt?“ Dieser Artikel ordnet **KI im Controlling** für den Mittelstand ein.
+Welcher Assistent der beste ist, war hier nicht die Frage. Die Zahlen unterschieden sich, weil der Export Gutschriften, Boni und Skonti in einer Spalte mischte und jedes Modell „Rabatt“ anders las. Dieser Artikel beantwortet deshalb die Frage davor: Was braucht das Controlling, damit **KI im Controlling** überhaupt verlässlich arbeitet?
 
 ## Das Wichtigste in Kürze
 
-- **Ein KI-Assistent im Controlling** ist ein Sprachmodell, das Fragen zu Zahlen beantwortet, Formeln und Berichte entwirft und Texte zusammenfasst. Er rechnet nicht verlässlich von selbst, sondern nur so gut wie Daten und Prüfung.
-- Copilot passt, wenn Ihr Team ohnehin in Microsoft 365 arbeitet. ChatGPT und Claude eignen sich für Analyse, Texte und Ad-hoc-Fragen, sofern Datenschutz und Freigabe geklärt sind.
-- Alle drei liefern erst mit sauberer, einheitlicher Datenbasis brauchbare Antworten.
+- **Ein KI-Agent** ist ein Sprachmodell, das mehrstufig arbeitet, auf Daten und Werkzeuge zugreift und Aufgaben selbstständig ausführt. Je mehr Freiheit er hat, desto mehr Fundament braucht er.
+- Vier Voraussetzungen entscheiden: Governance (wer darf was), Datenqualität (eine Definition je Kennzahl), Zugänglichkeit (Daten maschinenlesbar, nicht im Dateiordner) und Stabilität in der Wartung (Änderungen ohne Kopfmonopol).
+- Die Tool-Wahl kommt danach. Mit einem sauberen Fundament funktionieren Copilot, ChatGPT, Claude und andere ähnlich gut, ohne Fundament keiner.
 
-## Welcher KI-Assistent passt zum Controlling?
+## Welches Fundament braucht KI im Controlling?
 
-Die Antwort hängt an drei Fragen: Wo liegen Ihre Daten, wer darf sie in welches Tool geben, und wofür soll der Assistent genutzt werden? Der Druck, überhaupt etwas zu tun, ist real. Laut BARC Planning Survey 26 nutzen erst 27 Prozent der Unternehmen KI für Predictive Planning, 75 Prozent erwarten davon Entlastung von manueller Planungsarbeit ([BARC, 2026](https://barc.com/de/news/barc-planning-survey-26-ki-in-planning/)). Laut Horváth CFO-Studie 2026 halten 63 Prozent der CFOs Digitalisierung und Prozessautomatisierung für hoch wirksam ([Horváth, 2026](https://www.horvath-partners.com/en/media-center/studies/cfo-study-2026-control-meets-complexity)).
+Die Erwartung ist größer als die Praxis. Laut BARC Planning Survey 26 nutzen erst 27 Prozent der Unternehmen KI für Predictive Planning, 75 Prozent erhoffen sich davon Entlastung von manueller Planungsarbeit ([BARC, 2026](https://barc.com/de/news/barc-planning-survey-26-ki-in-planning/)). Laut Horváth CFO-Studie 2026 halten 63 Prozent der CFOs Digitalisierung und Prozessautomatisierung für hoch wirksam ([Horváth, 2026](https://www.horvath-partners.com/en/media-center/studies/cfo-study-2026-control-meets-complexity)).
 
-Die Erwartung ist also größer als die Praxis. Genau dort entstehen Schnellschüsse: Jemand testet privat ein Tool, lädt eine Kostenstellenauswertung hoch, und Datenschutz und Geschäftsführung erfahren es später.
+Dazwischen liegt das Fundament. Die folgende Tabelle fasst die vier Voraussetzungen mit Prüffrage und Mindeststandard zusammen. Die Mindeststandards sind ADV-Erfahrungswerte aus Projekten, keine Normen.
 
-### Die drei Assistenten im Vergleich
-
-Die Tabelle nutzt feste Kriterien. Preise nennen wir nur, wo wir sie auf der Anbieterseite geprüft haben. Stand: 05.11.2026.
-
-| Kriterium | Microsoft 365 Copilot | ChatGPT (Business) | Claude (Team) |
+| Voraussetzung | Prüffrage | Mindeststandard vor dem ersten Agenten | Typischer Aufwand |
 |---|---|---|---|
-| Einsatzzweck | KI direkt in Excel, Word, Outlook, Teams | Allgemeiner Assistent für Analyse, Texte, Recherche | Allgemeiner Assistent, stark bei langen Dokumenten und Texten |
-| Stärken | Arbeitet in Ihren Microsoft-Dateien, Rechte aus Ihrem Tenant | Breiter Funktionsumfang, viele Anwendungsbeispiele | Gut für Auswertungen und Erläuterungen längerer Unterlagen |
-| Grenzen | Qualität hängt an Dateistruktur; Funktionen je nach Region und Lizenz unterschiedlich | Kein Zugriff auf Ihr ERP ohne Anbindung; Export per Hand | Kein Zugriff auf Ihr ERP ohne Anbindung; Export per Hand |
-| Typische Größe | Unternehmen mit Microsoft-365-Umgebung | Einzelne Teams bis Gesamtunternehmen | Einzelne Teams bis Gesamtunternehmen |
-| Lizenz / Preisrahmen | Copilot Business: 15,60 € je Nutzer und Monat bei Jahresabrechnung (Aktionspreis bis 31.12.2026, danach 18,20 €), 21,84 € monatlich, zzgl. MwSt. | Auf der Anbieterseite zu prüfen (für diesen Artikel nicht abrufbar) | Standard-Platz 20 US-Dollar je Monat bei Jahresabrechnung, 25 US-Dollar monatlich |
-| Integration ERP/DATEV/Excel | Excel nativ; ERP über Power BI oder Export | Datei-Upload, Anbindungen je nach Plan | Datei-Upload, Anbindungen je nach Plan |
-| Einführungsaufwand | Gering bis mittel (Lizenz, Rechte, Schulung) | Gering technisch, mittel für Regeln und Datenschutz | Gering technisch, mittel für Regeln und Datenschutz |
-| Für wen geeignet | Teams, die in Excel und Microsoft 365 leben | Teams mit vielen freien Analyse- und Textaufgaben | Teams mit vielen Dokumenten, Berichtskommentaren und Erläuterungen |
+| Governance | Wer darf welche Daten in welches Tool geben? | Datenklassen, Rollen, freigegebene Tools, Vertragsprüfung | 2–3 Tage |
+| Datenqualität | Hat jede Kennzahl genau eine Definition? | Kennzahlenkatalog mit Formel, Quelle, Verantwortlichem | 3–5 Tage für 10–15 Kennzahlen |
+| Zugänglichkeit | Kommt ein Agent an die Zahlen, ohne dass jemand exportiert? | Zentrales Datenmodell mit Lesezugriff statt Dateiablage | 1–2 Wochen je Quelle |
+| Stabilität in der Wartung | Was passiert, wenn sich ein Konto, ein Export oder eine Formel ändert? | Versionierung, Änderungsprozess, feste Testfragen | 2–3 Tage, danach laufend |
 
-*Tabelle 1: Vergleich der KI-Assistenten. Quellen: [Microsoft 365 Copilot Preise](https://www.microsoft.com/de-de/microsoft-365-copilot/pricing) und [Claude Preise](https://claude.com/pricing), beide abgerufen am 05.11.2026. Für Claude Team nennt der Anbieter „No model training on your content by default“. Einführungsaufwand und Größenangaben sind ADV-Einschätzungen.*
+*Tabelle 1: Die vier Voraussetzungen für KI-Agents im Controlling (Aufwände sind ADV-Schätzungen für ein Controlling mit 3–6 Personen).*
 
-Zwei Hinweise dazu. Erstens: Die Lizenz ist selten der größte Posten. Zehn Copilot-Business-Lizenzen kosten bei Jahresabrechnung 1.872 Euro im Jahr (10 × 15,60 € × 12, Aktionspreis im ersten Jahr). Teurer sind die Stunden für Regeln, Schulung und Prüfung.
+![Vier Säulen Governance, Datenqualität, Zugänglichkeit und Wartungsstabilität tragen die Ebene KI-Agent, darunter liegen die Quellsysteme ERP, DATEV und Excel](/images/blog/ki-assistenten-controlling-vergleich/01-fundament-ki-agent.svg)
 
-Zweitens: Funktionen und Verfügbarkeit ändern sich bei allen Anbietern im Quartalstakt. Das gilt besonders für Excel-Agenten und Modellauswahl. Prüfen Sie vor einer Entscheidung, was in Ihrem Tenant und Ihrer Region tatsächlich freigeschaltet ist.
+*Abbildung 1: Das Fundament für KI-Agents im Controlling. Der Agent steht oben, getragen von vier Säulen über den Quellsystemen.*
 
-### Wie lässt sich die Wahl visualisieren?
+Die Aussage der Grafik in einem Satz: Der Agent ist die oberste Ebene, nicht die erste. Wer oben anfängt, baut auf Sand.
 
-Der Entscheidungsbaum zeigt, welcher Assistent zu welcher Ausgangslage passt.
+## Governance: Wer darf was in welches Tool geben?
 
-![Entscheidungsbaum: Erst Datenschutz und Freigabe klären, dann bei Arbeit in Excel und Microsoft 365 Copilot, bei Analyse und Texten außerhalb von Microsoft ChatGPT oder Claude im Pilot vergleichen](/images/blog/ki-assistenten-controlling-vergleich/01-entscheidungsbaum-ki-assistent.svg)
+Governance klingt nach Konzern, ist im Mittelstand aber eine halbe Seite Papier. Ohne sie landen Kostenstellenauswertungen und Kundenlisten in privaten Accounts, weil niemand gesagt hat, dass es ein Problem ist.
 
-*Abbildung 1: Entscheidungsbaum zur Vorauswahl (ADV-Einschätzung, kein Ersatz für einen Pilot).*
+Drei Dinge regeln Sie vorab:
 
-Die Logik: Ohne Freigabe der Geschäftsführung und des Datenschutzes landen keine Echtdaten im Tool. Danach entscheidet die Arbeitsumgebung. Wer in Excel arbeitet, startet mit Copilot. Wer vor allem Texte, Erläuterungen und freie Analysen braucht, vergleicht ChatGPT und Claude mit denselben Testaufgaben.
+1. **Datenklassen:** Was ist öffentlich, intern, vertraulich (Personal, Kundenpreise, Konditionen)? Vertrauliche Daten bleiben draußen, bis Vertrag und Schutzmaßnahmen geklärt sind.
+2. **Freigegebene Tools und Konten:** Firmenkonten mit Vertrag statt privater Tarife. Prüfen Sie, ob Eingaben für Modelltraining genutzt werden.
+3. **Verantwortung:** Wer gibt Berichte frei, die mit KI-Unterstützung entstanden sind? Der Controller bleibt verantwortlich, nicht der Agent.
 
-## Wofür taugen die Assistenten im Controlling tatsächlich?
+Beziehen Sie Datenschutz früh ein, wie in unserem Beitrag zum [Datenschutzbeauftragten](/blog/datenschutzbeauftragter/) beschrieben. Rechtliche Details klären Sie mit Fachberatung, das ersetzt dieser Artikel nicht. Zur Datenklassifizierung im größeren Rahmen passt unser Beitrag zu [Data Governance](/blog/data-governance/).
 
-Aus unseren Gesprächen und Projekten sehen wir vier Einsatzfelder, geordnet nach Risiko:
+## Datenqualität: Warum liefern drei Assistenten drei Zahlen?
 
-1. **Formeln und Excel-Hilfe** (niedriges Risiko): Eine SVERWEIS-Kette erklären oder eine Pivot-Struktur vorschlagen. Ergebnisse sind sofort prüfbar.
-2. **Kommentare und Texte** (niedriges Risiko): Aus einer Abweichungstabelle einen Entwurf für den Kommentar im Monatsbericht erzeugen. Der Controller ändert und verantwortet den Text.
-3. **Analyse-Entwürfe** (mittleres Risiko): Auffälligkeiten in einer Auswertung finden. Hier braucht es Gegenrechnung, denn Sprachmodelle rechnen nicht wie ein Taschenrechner.
-4. **Zahlen für die Geschäftsführung** (hohes Risiko): Ungeprüfte Kennzahlen gehören nicht in ein Management-Reporting. Das gilt für jedes Tool.
+Weil die Daten es erlauben. Ein Agent liest, was er bekommt, und füllt Lücken mit plausiblen Annahmen. Liegen Rabatte, Boni und Skonti in einer Spalte, liefert jedes Modell eine stimmige, aber andere Antwort.
 
-Die Thalberg-Controllerin kam übrigens auf drei verschiedene Zahlen, weil die drei Assistenten drei verschiedene Definitionen von „Rabatt“ unterstellten. Der Export enthielt Gutschriften, Boni und Skonti in einer Spalte. Das Problem saß in der Datei, nicht im Modell.
+Ein **Kennzahlenkatalog** ist der günstigste Hebel. Er enthält je Kennzahl Name, Formel, Quelle, Zeitbezug und Verantwortlichen. Für „Rabattanteil“ steht dort zum Beispiel: Summe aus Gutschriften und Rabatten laut Konto X, geteilt durch Nettoumsatz, ohne Skonti. Das dauert für 10 bis 15 Kennzahlen drei bis fünf Tage und beendet nebenbei so manches Meeting über Zahlenabgleich.
 
-### Welche Prüfschleife hilft?
+Ergänzen Sie fünf **Kontrollwerte**, die jeder kennt und die der Agent reproduzieren muss, etwa Umsatz Vormonat oder Deckungsbeitrag eines Produkts. Stimmt ein Kontrollwert nicht, braucht niemand die Antwort auf die eigentliche Frage zu lesen.
 
-Eine einfache Schleife macht aus jedem Assistenten ein brauchbares Werkzeug.
+### Wie sieht ein Test mit Kontrollwerten aus?
 
-![Vierstufige Prüfschleife: Frage und Definition festlegen, Daten bereinigt bereitstellen, Antwort stichprobenartig nachrechnen, Ergebnis dokumentieren und freigeben](/images/blog/ki-assistenten-controlling-vergleich/02-pruefschleife.svg)
+Stellen Sie dem Agenten die Kontrollfrage zuerst. „Wie hoch war der Nettoumsatz im Oktober im Segment Großhandel?“ Weicht die Antwort vom Bericht ab, liegt es an Definition oder Daten, nicht am Modell. Erst wenn alle fünf Kontrollwerte passen, lohnt sich die offene Analyse.
 
-*Abbildung 2: Prüfschleife für KI-Antworten im Controlling.*
+## Zugänglichkeit: Kommt der Agent überhaupt an die Daten?
 
-Schritt 1: Definieren Sie Kennzahl und Zeitraum schriftlich. Schritt 2: Geben Sie nur bereinigte Daten mit eindeutigen Spaltennamen frei. Schritt 3: Rechnen Sie mindestens zwei Werte selbst nach. Schritt 4: Dokumentieren Sie Frage, Datenstand und Prüfung, damit der Bericht nachvollziehbar bleibt. Der Aufwand liegt bei etwa 15 Minuten je Auswertung (ADV-Erfahrungswert).
+Die meisten Controlling-Daten liegen verteilt: ERP, DATEV, Excel auf einem Laufwerk, dazu Exporte per Mail. Ein Agent kann nur lesen, was erreichbar und eindeutig beschrieben ist. Wenn jemand vor jeder Frage manuell exportieren muss, ist das keine Automatisierung, sondern ein Zusatzjob.
 
-## Warum entscheidet die Datenbasis mehr als das Tool?
+Das Ziel ist ein zentrales Datenmodell mit Lesezugriff: Quellen laufen automatisch zusammen, Definitionen aus dem Kennzahlenkatalog sind dort hinterlegt, und Rechte regeln, wer was sieht. Der Agent greift dann auf das Modell zu und nicht auf Dateien. Wie dieser Weg aus Excel heraus Stufe für Stufe aussieht, beschreibt unser Fahrplan zum [Excel-Reporting in fünf Stufen](/blog/excel-reporting-controlling-automatisieren/).
 
-Ein Assistent liest, was Sie ihm geben. Liegen Rabatte, Boni und Skonti in einer Spalte, liefert jedes Modell eine plausible, aber unscharfe Antwort. Liegen dieselben Zahlen in einem Datenmodell mit klaren Definitionen, werden die Antworten reproduzierbar.
+Genau hier stoßen Teams allein oft an Grenzen: mehrere Quellsysteme, Berechtigungen, tägliche Aktualisierung. Eine [Bestandsaufnahme Ihrer Berichte und Quellen mit priorisiertem Fahrplan](/controlling/) zeigt, welche Daten zuerst ins Modell gehören.
 
-Das ist die Brücke zu Ihrem Reporting: Bevor ein Assistent verlässlich auf Berichte zugreift, braucht er eine gemeinsame Datenbasis aus ERP und Buchhaltung. Wie Sie dahin kommen, zeigt unser Fahrplan zum [Excel-Reporting in fünf Stufen](/blog/excel-reporting-controlling-automatisieren/). Warum saubere Daten Voraussetzung für KI sind, beschreibt unser Beitrag [KI trifft BI](/blog/ki-bi/). Und wenn Sie parallel die Planung auf neue Beine stellen, hilft der [Vergleich von Planungssoftware im Mittelstand](/blog/planungssoftware-mittelstand-vergleich/).
+![Datenfluss: Quellen ERP, DATEV und Excel laufen in ein zentrales Datenmodell mit Kennzahlenkatalog, darauf greift der KI-Agent lesend zu, Ergebnisse gehen durch eine Prüfung mit Kontrollwerten](/images/blog/ki-assistenten-controlling-vergleich/02-datenfluss-agent.svg)
 
-Die Frage nach einem verbindlichen Datenmodell ist oft der Punkt, an dem Teams allein nicht weiterkommen. Eine [Bestandsaufnahme Ihrer Berichte und Quellen mit priorisiertem Fahrplan](/controlling/) klärt, welche Daten ein Assistent überhaupt sehen sollte.
+*Abbildung 2: Datenfluss für KI-Agents. Der Agent liest aus dem Datenmodell, nicht aus Dateien, und seine Ergebnisse laufen durch eine Prüfung.*
 
-### Was ist beim Datenschutz zu klären?
+## Stabilität in der Wartung: Was passiert beim nächsten Kontenrahmen-Update?
 
-Kurz und ohne Rechtsberatung: Klären Sie vor dem Einsatz, welche Datenkategorien (Kunden, Personal, Preise) in das Tool dürfen, welcher Vertrag gilt und ob Eingaben für Modelltraining genutzt werden. Bei Claude Team nennt der Anbieter kein Training auf Ihren Inhalten als Standard, bei den anderen Anbietern sollten Sie die jeweiligen Vertragsbedingungen prüfen. Beziehen Sie Datenschutzbeauftragte früh ein, wie in unserem Beitrag zum [Datenschutzbeauftragten](/blog/datenschutzbeauftragter/) beschrieben, und lassen Sie sich bei rechtlichen Fragen fachlich beraten.
+Ein Agent, der im Oktober funktioniert, kann im Januar falsche Zahlen liefern. Ein Konto wird umgezogen, ein Export bekommt eine neue Spalte, jemand baut die Formel um. Ohne Wartungsprozess merken Sie es erst, wenn die Geschäftsführung nachfragt.
 
-## Fazit: Drei Zahlen, eine Prüfschleife
+Fünf Regeln halten das stabil:
 
-Zurück zu Thalberg: Die Controllerin hat am Ende keinen Gewinner gekürt. Sie hat die Rabatt-Definition geklärt, die Spalten getrennt und die Frage erneut gestellt. Diesmal kamen drei gleiche Zahlen.
+1. **Versionierung:** Datenmodell, Kennzahlenkatalog und Anweisungen an den Agenten liegen versioniert und nachvollziehbar vor.
+2. **Änderungsprozess:** Jede Änderung an Definitionen hat einen Verantwortlichen und ein Datum.
+3. **Feste Testfragen:** 5 bis 10 Fragen mit bekannter Antwort laufen nach jeder Änderung und monatlich.
+4. **Zwei Personen:** Mindestens zwei Personen verstehen das Setup. Das Kopfmonopol gilt auch für KI-Konfigurationen.
+5. **Monitoring:** Fehlgeschlagene Datenaktualisierungen werden gemeldet, nicht erst bemerkt.
 
-Das ist die Kernaussage: Welchen Assistenten Sie wählen, ist wichtig. Wichtiger sind Datenbasis, Freigabe und die Prüfschleife. Mit einem Pilot von zwei Wochen und drei echten Aufgaben finden Sie heraus, was bei Ihnen funktioniert.
+Der Aufwand liegt nach der Einrichtung bei etwa einem halben Tag im Monat (ADV-Schätzung). Das ist weniger als eine einzige Nachtschicht vor dem Beiratstermin.
 
-## Wie wird aus dem KI-Test ein belastbarer Controlling-Prozess?
+## Wie prüfen Sie Ihr Controlling auf Agent-Reife?
 
-Drei Assistenten, drei Zahlen: Das passiert, wenn die Definitionen nicht im Datenmodell liegen. Mit Tabelle, Entscheidungsbaum und Prüfschleife kommen Sie bis zu einem sauberen Pilot. Schwieriger wird es, wenn mehrere Quellsysteme, Rechte und Definitionen zusammenkommen. Auf unserer Controlling-Seite steht, [wie Mittelständler ihr Reporting auf eine gemeinsame Datenbasis stellen](/controlling/), mit festen Stufen und Fixpreisen.
+Beantworten Sie diese acht Fragen mit Ja oder Nein. Jedes Nein ist eine Aufgabe vor dem Agenten.
+
+1. Gibt es eine schriftliche Regel, welche Daten in KI-Tools dürfen?
+2. Nutzt das Team nur freigegebene Firmenkonten?
+3. Hat jede Kernkennzahl genau eine dokumentierte Definition?
+4. Gibt es fünf Kontrollwerte, die jeder kennt?
+5. Laufen die Quellen automatisch in ein gemeinsames Datenmodell?
+6. Hat der Agent Lesezugriff auf das Modell statt auf Dateien?
+7. Gibt es feste Testfragen nach jeder Änderung?
+8. Verstehen mindestens zwei Personen das Setup?
+
+Bei null bis drei Ja gehört das Fundament zuerst. Bei vier bis sechs lohnt ein Pilot mit einem klar begrenzten Bericht. Bei sieben bis acht können Sie Agenten gezielt einsetzen und dabei die Tool-Wahl mit zwei Kandidaten und denselben Testaufgaben entscheiden.
+
+## Fazit: Erst das Fundament, dann der Agent
+
+Zurück zu Thalberg: Die Controllerin hat keinen Gewinner gekürt. Sie hat „Rabatt“ definiert, die Spalten getrennt und dieselbe Frage erneut gestellt. Diesmal kamen drei gleiche Zahlen.
+
+Das Muster ist übertragbar. Ein Agent verstärkt, was da ist: saubere Definitionen genauso wie Unschärfen. Wer zuerst Governance, Datenqualität, Zugriff und Wartung klärt, kann danach jedes Tool nutzen und wechseln, ohne die Grundlagen neu zu bauen.
+
+## Wie bekommt Ihr Controlling die Datenbasis für KI-Agents?
+
+Drei Zahlen auf dieselbe Frage sind ein Hinweis auf fehlende Definitionen, nicht auf das falsche Tool. Den Kennzahlenkatalog und die Kontrollwerte schaffen Sie selbst. Schwieriger wird es, wenn mehrere Quellsysteme, Rechte und die tägliche Aktualisierung dazukommen. Auf unserer Controlling-Seite steht, [wie Mittelständler ihr Reporting auf eine gemeinsame Datenbasis stellen](/controlling/), mit festen Stufen und Fixpreisen.
 
 ## Häufige Fragen
 
-**Kann ein KI-Assistent das Controlling ersetzen?**
-Nein. Er beschleunigt Entwürfe, Formeln und Texte, verantwortet aber keine Zahlen. Die Prüfung und die Interpretation für die Geschäftsführung bleiben Aufgabe der Controller.
+**Was braucht ein KI-Agent im Controlling mindestens?**
+Klare Regeln, welche Daten er nutzen darf, eine eindeutige Definition je Kennzahl, Lesezugriff auf ein zentrales Datenmodell und einen Wartungsprozess mit festen Testfragen. Ohne diese vier Punkte sind seine Antworten nicht reproduzierbar.
 
-**Welcher KI-Assistent ist für Excel am besten?**
-Wenn Ihr Team in Microsoft 365 arbeitet, ist Copilot der naheliegende Startpunkt, weil er direkt in Excel sitzt. Prüfen Sie vorab, welche Funktionen in Ihrer Region und Ihrem Lizenzplan verfügbar sind.
+**Kann ich einen KI-Agenten direkt auf meine Excel-Dateien loslassen?**
+Für Experimente mit bereinigten Beispieldaten ja. Für Berichte, auf die sich die Geschäftsführung verlässt, nicht, denn Dateien haben keine einheitlichen Definitionen, Rechte und Versionen. Dafür ist ein zentrales Datenmodell nötig.
 
-**Dürfen wir Kostenstellen- oder Kundendaten in ChatGPT oder Claude geben?**
-Das hängt an Vertrag, Datenkategorie und interner Regelung. Klären Sie das vorab mit Datenschutz und Geschäftsführung und starten Sie mit nicht personenbezogenen, bereinigten Daten.
+**Welches KI-Tool sollen wir im Controlling nehmen?**
+Das entscheiden Sie am besten nach dem Fundament, mit zwei Kandidaten, denselben Testaufgaben und bereinigten Daten. Passt der Agent in Ihre Arbeitsumgebung, etwa Microsoft 365, spricht das für den entsprechenden Anbieter. Preise und Funktionen ändern sich häufig, prüfen Sie sie beim Anbieter.
 
-**Was kostet der Einstieg?**
-Die Lizenzen liegen je Nutzer im zweistelligen Euro-Bereich pro Monat. Der größere Posten sind Regeln, Schulung und Prüfung, in einem Pilot grob zwei bis fünf Personentage (ADV-Schätzung).
+**Wie lange dauert es, bis das Fundament steht?**
+Governance-Regeln und Kennzahlenkatalog schaffen Teams mit 3 bis 6 Personen in etwa zwei Wochen nebenher. Das zentrale Datenmodell dauert je nach Quellen 6 bis 10 Wochen (ADV-Erfahrungswert).
 
 ---
 
-Sie überlegen, welcher Assistent zu Ihrem Controlling passt und welche Daten Sie ihm anvertrauen können? In einem Tool-Auswahl-Workshop vergleichen wir Ihre Anforderungen mit den Kandidaten und planen einen Pilot, herstellerneutral und mit klarer Empfehlung.
+Sie wollen wissen, ob Ihr Controlling bereit für KI-Agents ist und welche Voraussetzung zuerst fehlt? In einem Erstgespräch gehen wir die acht Fragen gemeinsam durch und priorisieren die nächsten Schritte.
 
 <div class="col-12 flex justify-center">
-  <a class="btn btn-adv" href="mailto:info@alpinedata.de?subject=Tool-Auswahl-Workshop%20KI-Assistenten%20Controlling">Tool-Auswahl-Workshop anfragen →</a>
+  <a class="btn btn-adv" href="mailto:info@alpinedata.de?subject=Erstgespr%C3%A4ch%20KI-Fundament%20Controlling">Erstgespräch vereinbaren →</a>
 </div>
