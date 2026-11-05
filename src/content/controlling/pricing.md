@@ -16,7 +16,6 @@ tiers:
       - Ergebnisbericht mit drei priorisierten Use Cases
       - Fahrplan mit Fixpreis für die nächste Stufe
     cta: Check anfragen
-    href: https://calendly.com/andreas-klostermann-alpinedata/ersttermin
     highlight: true
     badge: Einstieg
   - step: Stufe 2
@@ -32,7 +31,6 @@ tiers:
       - Abnahme mit Ihrem Team
       - Entscheidungsvorlage für den Rollout
     cta: Erstgespräch vereinbaren
-    href: https://calendly.com/andreas-klostermann-alpinedata/ersttermin
   - step: Stufe 3
     duration: 6–10 Wochen
     title: Rollout
@@ -46,7 +44,6 @@ tiers:
       - Automatische Aktualisierung
       - Schulung Ihrer Controller:innen
     cta: Erstgespräch vereinbaren
-    href: https://calendly.com/andreas-klostermann-alpinedata/ersttermin
   - step: Individuell
     duration: nach Umfang
     title: Enterprise BI
@@ -59,7 +56,6 @@ tiers:
       - Self-Service BI mit Rollen und Berechtigungen
       - Konzernkonsolidierung und Planung
     cta: Individuelles Angebot anfragen
-    href: https://calendly.com/andreas-klostermann-alpinedata/ersttermin
 run:
   title: Betrieb und Weiterentwicklung
   text: "Nach jeder Stufe möglich: Monitoring der Datenaktualisierung, Anpassungen
