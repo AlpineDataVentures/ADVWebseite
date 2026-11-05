@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="t d">
+<title id="t">Fundament für KI-Agents im Controlling</title>
+<desc id="d">Oben der KI-Agent, getragen von vier Säulen: Governance, Datenqualität, Zugänglichkeit und Wartungsstabilität. Darunter die Quellsysteme ERP, DATEV und Excel.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}.q{font-size:20px;font-weight:600}.m{font-size:16px;fill:#555555}
+</style>
+<rect width="1200" height="640" fill="#ffffff"/>
+<text x="48" y="64" class="h">Der Agent steht oben, nicht unten</text>
+<text x="48" y="96" class="s">Vier Voraussetzungen tragen ihn</text>
+<rect x="48" y="130" width="1104" height="90" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="72" y="170" class="q">KI-Agent im Controlling</text><text x="72" y="198" class="m" style="fill:#141414">Fragen beantworten, Berichte entwerfen, Abweichungen erklären</text>
+<g stroke="#141414" stroke-width="1.5" fill="#f2f4f3">
+<rect x="48" y="250" width="258" height="230" rx="20"/><rect x="330" y="250" width="258" height="230" rx="20"/><rect x="612" y="250" width="258" height="230" rx="20"/><rect x="894" y="250" width="258" height="230" rx="20"/></g>
+<text x="68" y="292" class="q">1 Governance</text><text x="68" y="326" class="m">Wer darf was</text><text x="68" y="350" class="m">in welches Tool?</text>
+<text x="350" y="292" class="q">2 Datenqualität</text><text x="350" y="326" class="m">Eine Definition</text><text x="350" y="350" class="m">je Kennzahl</text>
+<text x="632" y="292" class="q">3 Zugänglichkeit</text><text x="632" y="326" class="m">Datenmodell mit</text><text x="632" y="350" class="m">Lesezugriff</text>
+<text x="914" y="292" class="q">4 Wartung</text><text x="914" y="326" class="m">Änderungen ohne</text><text x="914" y="350" class="m">Kopfmonopol</text>
+<rect x="48" y="510" width="1104" height="90" rx="20" fill="#ffffff" stroke="#0c8974" stroke-width="2"/>
+<text x="72" y="550" class="q">Quellsysteme</text><text x="72" y="578" class="m">ERP, DATEV, Excel, Vertriebsdaten</text>
+</svg>
