@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-labelledby="t d">
+<title id="t">Prüfschleife für KI-Antworten im Controlling</title>
+<desc id="d">Vier Schritte: Kennzahl definieren, bereinigte Daten freigeben, zwei Werte nachrechnen, Frage, Datenstand und Prüfung dokumentieren. Aufwand etwa 15 Minuten je Auswertung.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}.q{font-size:20px;font-weight:600}.m{font-size:16px;fill:#555555}
+</style>
+<rect width="1200" height="420" fill="#ffffff"/>
+<text x="48" y="64" class="h">So prüfen Sie jede KI-Antwort</text>
+<text x="48" y="96" class="s">Etwa 15 Minuten je Auswertung (ADV-Erfahrungswert)</text>
+<g>
+<rect x="48" y="140" width="250" height="200" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="182" class="q">1 Definieren</text><text x="68" y="214" class="m">Kennzahl und</text><text x="68" y="236" class="m">Zeitraum schriftlich</text>
+<rect x="330" y="140" width="250" height="200" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="350" y="182" class="q">2 Bereitstellen</text><text x="350" y="214" class="m">Nur bereinigte Daten,</text><text x="350" y="236" class="m">eindeutige Spalten</text>
+<rect x="612" y="140" width="250" height="200" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="632" y="182" class="q">3 Nachrechnen</text><text x="632" y="214" class="m" style="fill:#141414">Mindestens zwei</text><text x="632" y="236" class="m" style="fill:#141414">Werte selbst prüfen</text>
+<rect x="894" y="140" width="258" height="200" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="914" y="182" class="q">4 Dokumentieren</text><text x="914" y="214" class="m">Frage, Datenstand,</text><text x="914" y="236" class="m">Prüfung, Freigabe</text>
+</g>
+<g stroke="#141414" stroke-width="2"><line x1="298" y1="240" x2="330" y2="240"/><line x1="580" y1="240" x2="612" y2="240"/><line x1="862" y1="240" x2="894" y2="240"/></g>
+<text x="48" y="386" class="m">Schritt 3 ist der wichtigste: Er findet Definitionsfehler, bevor sie im Bericht stehen.</text>
+</svg>
