@@ -186,5 +186,6 @@
   "files.associations": {
     "*.scss": "postcss",
     "*.mdx": "markdown"
-  }
+  },
+  "python.terminal.useEnvFile": true
 }
