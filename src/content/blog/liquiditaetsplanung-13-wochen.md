@@ -1,132 +1,102 @@
 ---
-title: "Liquiditätsplanung: Die 13-Wochen-Vorschau ohne Excel-Chaos"
+title: "13-Wochen-Liquiditätsplanung: Von Excel zum automatischen Bericht"
 meta_title: "Liquiditätsplanung 13 Wochen: Aufbau und Wochenzyklus"
-description: "Liquiditätsplanung 13 Wochen im Mittelstand: Aufbau, Wochenzyklus und Rechenbeispiel. So erkennen Sie Engpässe früh, ohne Excel-Chaos und ohne Großprojekt."
-date: 2026-11-12T07:00:00Z
-image: "/images/blog/liquiditaetsplanung-13-wochen.png"
+description: "13-Wochen-Liquiditätsplanung im Mittelstand: Aufbau in Excel, Wochenzyklus, Rechenbeispiel und was sich automatisieren lässt. Engpässe früh erkennen."
+date: 2026-11-09T07:00:00Z
+image: "/images/blog/liquiditaetsplanung-13-wochen.jpeg"
 categories: ["Controlling"]
 author: "Benjamin Diez"
-tags: ["Controlling", "Liquiditätsplanung", "Cashflow", "Excel", "Planung", "How To"]
+tags: ["Controlling", "Liquiditätsplanung", "Cashflow", "Automatisierung", "How To"]
 draft: false
-summary: "Der Kontostand sagt, wo Sie stehen, nicht wo Sie in acht Wochen stehen. Die 13-Wochen-Vorschau zeigt Engpässe früh: mit Aufbau, Wochenzyklus und Rechenbeispiel für den Mittelstand."
+summary: "Der Kontostand zeigt, wo Sie heute stehen. Die 13-Wochen-Vorschau zeigt Engpässe früh. Mit Aufbau in Excel, Rechenbeispiel und dem Weg zur automatischen Aktualisierung."
 ---
 
-Freitag, 16:40 Uhr bei der Thalberg Getränke GmbH. Der Kontostand sieht gut aus, die Leiterin Controlling will ins Wochenende. Dann ruft die Hausbank an: Ob man für die Liquiditätsplanung der nächsten 13 Wochen eine wochengenaue Vorschau bekommen könne. Sie öffnet die Datei „Cashflow_neu_v7.xlsx“, die zuletzt im Sommer jemand gepflegt hat. Thalberg ist ein fiktives Unternehmen aus unserer [Serie über den Aufbau eines datengetriebenen Mittelständlers](/blog/kick-off/). Die Datei kennen trotzdem viele Controller aus eigener Erfahrung.
+Bei der Thalberg Getränke GmbH steht die Verlängerung der Kreditlinie an. Der Kontostand sieht gut aus, die Hausbank möchte dafür aber eine wochengenaue Vorschau der nächsten 13 Wochen sehen. Die Leiterin Controlling öffnet die Datei „Cashflow_neu_v7_final_jetz-aber-echt.xlsx“, die zuletzt im Sommer jemand gepflegt hat. Die Zahlen dafür liegen in ERP und Buchhaltung und müssten wie immer von Hand zusammenkopiert werden. 
+
+Thalberg ist zwar das fiktive Unternehmen aus unserer [Serie über den Aufbau eines datengetriebenen Mittelständlers](/blog/kick-off/), diese wenig fiktive Datei sucht jedoch seit Jahrzehnten Generationen von Controllern in ihren Träumen heim.
 
 ## Das Wichtigste in Kürze
 
-- Eine **Liquiditätsplanung über 13 Wochen** zeigt wochengenau, wann Geld ein- und ausgeht und ob der Kontostand einen Mindestpuffer unterschreitet.
-- Sie brauchen dafür nur vier Quellen: Kontostand, offene Forderungen, offene Verbindlichkeiten und die festen Zahlungstermine wie Löhne, Steuern und Miete.
-- Der Wochenzyklus kostet nach dem Aufsetzen rund 2,5 Stunden. Der erste Aufbau gelingt in Excel in ein bis zwei Tagen.
-- Der Engpass in Woche 12 ist heute sichtbar und lässt sich mit Vorlauf lösen, statt im Notfall mit der Bank zu verhandeln.
+- Eine **Liquiditätsplanung über 13 Wochen** zeigt auf Wochenbasis, wann Geld ein- und ausgeht und ob der Kontostand einen Mindestpuffer unterschreitet
+- Benötigt werden für die Erstellung in der Regel vier Quellen: Kontostände (auch die aus der Schweiz), offene Kundenrechnungen (Forderungen), offene Lieferantenrechnungen (Verbindlichkeiten) und feste Zahlungstermine wie Löhne, Steuern und Miete
+- Der erste Aufbau gelingt in Excel in ein bis zwei Tagen, danach kostet das wöchentliche Update rund 2,5 Stunden
+- Das Zusammentragen der Zahlen aus ERP und Buchhaltung ist oft händische Fleißarbeit und lässt sich automatisieren. Die Bewertung der Ergebnisse bleibt beim Controller
 
 ## Was ist eine Liquiditätsplanung über 13 Wochen und warum genau 13?
 
-Eine 13-Wochen-Liquiditätsplanung ist eine rollierende, wochengenaue Vorschau aller erwarteten Ein- und Auszahlungen für ein Quartal. Jede Woche wird die abgelaufene Woche gegen den Ist-Stand abgeglichen und eine neue Woche ans Ende angefügt. Der Horizont bleibt also immer 13 Wochen lang.
+Eine 13-Wochen-Liquiditätsplanung ist eine wochengenaue Vorschau aller erwarteten Ein- und Auszahlungen für ein Quartal. Jede Woche wird die abgelaufene Woche gegen den Ist-Stand abgeglichen und eine neue Woche ans Ende angefügt (rollierende Planung). Der Horizont bleibt immer 13 Wochen lang.
 
-Der Zeitraum ist ein Kompromiss. Ein Quartal deckt die meisten Zahlungsrhythmen ab: Lohnläufe, Umsatzsteuer-Vorauszahlungen, Quartalsmieten, Tilgungen. Gleichzeitig ist es kurz genug, dass Sie Forderungen und Bestellungen noch einzeln kennen und nicht auf Hochrechnungen angewiesen sind. Die Jahresplanung beantwortet dagegen die Frage, was am Ende übrig bleibt, nicht ob in Woche 9 der Lohn bezahlt werden kann.
+13 Wochen sind ein Mittelweg. Ein kürzerer Zeitraum, etwa vier Wochen, übersieht Zahlungen, die nur alle drei Monate anfallen, zum Beispiel eine Quartalsmiete. Bei einem längeren Zeitraum kennen Sie Forderungen und Bestellungen nicht mehr einzeln und müssen schätzen, sodass die Vorschau mit jeder Woche ungenauer wird. Ein Quartal deckt die meisten Zahlungsrhythmen ab: Lohnläufe, Umsatzsteuer-Vorauszahlungen, Quartalsmieten, Kreditraten. Gleichzeitig bleibt es überschaubar genug, um mit einzelnen Zahlungen zu planen.
 
-Warum das gerade jetzt Gewicht hat, zeigen zwei Zahlen. Laut Creditreform lag das durchschnittliche Zahlungsziel im B2B-Geschäft in Deutschland im ersten Halbjahr 2026 bei 32,21 Tagen, dem höchsten Stand seit 2019. Rechnet man den tatsächlichen Verzug dazu, wartet man im Schnitt rund 40 Tage auf sein Geld ([Creditreform Debitorenregister, H1 2026, zitiert bei retail-news.de](https://retail-news.de/creditreform-zahlungsziele-kmu-hj-2026/)). Und das Statistische Bundesamt meldet für Juni 2026 15,8 Prozent mehr beantragte Unternehmensinsolvenzen als im Vorjahresmonat ([Destatis, Pressemitteilung vom September 2026](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/09/PD26_325_52411.html)). Wer 40 Tage auf Zahlungen wartet, aber Löhne und Lieferanten pünktlich zahlt, braucht eine Vorschau, die weiter reicht als der Kontoauszug.
+Dazu kommt, dass Geld im Moment langsamer fließt. Laut [Creditreform Debitorenregister, H1 2026, berichtet im Handwerksblatt,](https://www.handwerksblatt.de/betriebsfuehrung/zahlungsziele-steigen-aber-nur-fuer-grosskunden) lag das durchschnittliche Zahlungsziel im B2B-Geschäft im ersten Halbjahr 2026 bei 32,21 Tagen, dem höchsten Stand seit 2019. Mit Verzug dauert es im Schnitt 40,35 Tage, bis eine Rechnung bezahlt ist. Wer so lange auf Geld wartet, aber Löhne und Lieferanten pünktlich zahlen muss, braucht einen Blick nach vorn.
 
 ## Wie bauen Sie die 13-Wochen-Vorschau in Excel auf?
 
-Excel ist für den Einstieg völlig in Ordnung. Wichtig ist die Struktur: Spalten sind Kalenderwochen, Zeilen sind Zahlungsarten. Sie planen ausschließlich Zahlungen, keine Erträge und Aufwände. Eine Rechnung zählt erst in der Woche, in der das Geld tatsächlich fließt.
+Für den Einsteig ist Excel völlig ausreichend. Spalten sind Kalenderwochen, Zeilen sind Zahlungsarten. Sie planen ausschließlich Zahlungen: Eine Rechnung zählt erst in der Woche, in der das Geld tatsächlich fließt und das mit dem **Bruttowert**.
 
 ### Schritt 1: Anfangsbestand festlegen (ca. 30 Minuten)
 
-Nehmen Sie den Kontostand aller Konten zum Wochenanfang, inklusive Tagesgeld und nutzbarer Kreditlinien in einer getrennten Zeile. Der Anfangsbestand ist die einzige Zahl, die Sie nicht schätzen müssen.
+Tragen Sie den Kontostand aller Konten zum Wochenanfang ein, inklusive Tagesgeld und Co. Eine vereinbarte, aber ungenutzte Kreditlinie führen Sie in einer eigenen Zeile. Von diesem Stand aus rechnet die Vorschau Woche für Woche weiter.
 
-### Schritt 2: Einzahlungen aus den offenen Posten ableiten (ca. 2 Stunden)
+### Schritt 2: Einzahlungen eintragen (ca. 2 Stunden)
 
-Exportieren Sie die Debitoren-OP-Liste und verteilen Sie jede offene Rechnung auf die Woche, in der Sie die Zahlung erwarten. Orientieren Sie sich nicht am Fälligkeitsdatum, sondern am tatsächlichen Zahlungsverhalten des Kunden. Wer erfahrungsgemäß zehn Tage nach Fälligkeit zahlt, landet zehn Tage später in der Planung. Für noch nicht fakturierte Umsätze reicht eine grobe Zeile „Erwartete Neuaufträge“ aus dem Vertriebsforecast.
+Exportieren Sie aus der Buchhaltung die Liste der offenen Kundenrechnungen (Debitoren-OP-Liste, OP steht für offene Posten) und tragen Sie jede Rechnung in der Woche ein, in der Sie die Zahlung erwarten. Maßgeblich ist das tatsächliche Zahlungsverhalten des Kunden. Wer erfahrungsgemäß zehn Tage nach Fälligkeit zahlt, landet zehn Tage später in der Planung. Für Umsätze, die noch nicht in Rechnung gestellt sind, reicht eine grobe Zeile „Erwartete Neuaufträge“ auf Basis der Umsatzprognose Ihres Vertriebs.
 
-### Schritt 3: Auszahlungen aus Verbindlichkeiten und Fixterminen füllen (ca. 3 Stunden)
+### Schritt 3: Auszahlungen eintragen (ca. 3,5 Stunden)
 
-Aus der Kreditoren-OP-Liste kommen die Lieferantenzahlungen, ebenfalls nach tatsächlichem Zahlungslauf. Dazu die festen Termine: Löhne und Gehälter, Sozialabgaben, Umsatzsteuer-Vorauszahlung, Miete, Leasing, Tilgung, Versicherungen. Genau hier lohnt sich ein Gespräch mit der Buchhaltung, denn sie kennt die Zahlungsläufe.
+Aus der Liste der offenen Lieferantenrechnungen (Kreditoren-OP-Liste) kommen die Lieferantenzahlungen, ebenfalls nach tatsächlichem Zahlungslauf. Dazu die festen Termine: Löhne, Sozialabgaben, Umsatzsteuer-Vorauszahlung, Miete, Leasing, Kreditraten und Versicherungen. Termine, die nicht jede Woche anfallen, etwa Quartalsmiete oder Jahresversicherung, gehen am leichtesten unter. Ein Gespräch mit der Buchhaltung lohnt sich, denn sie kennt die Zahlungsläufe - und oft den besten firmeninternen Tratsch.
 
-### Schritt 4: Mindestpuffer definieren (ca. 30 Minuten)
+### Schritt 4: Mindestpuffer festlegen (ca. 30 Minuten)
 
-Legen Sie fest, welcher Kontostand nie unterschritten werden soll. Eine gängige Faustregel ist ein Puffer in Höhe eines Wochen-Personalaufwands zuzüglich der größten anstehenden Einzelzahlung. Das ist eine ADV-Erfahrung und keine Norm. Ihre Hausbank, Ihre Kreditvereinbarungen und Ihr Steuerberater können hier andere Vorgaben machen.
+Legen Sie fest, welcher Kontostand nie unterschritten werden soll. Die Höhe entscheidet die Geschäftsführung. Wichtige Anhaltspunkte sind die größten anstehenden Zahlungen, etwa der monatliche Lohnlauf, sowie die Vorgaben Ihrer Hausbank, Ihrer Kreditvereinbarungen und Ihres Steuerberaters.
 
-| Zeile | Quelle | Aufwand beim Aufsetzen |
-|---|---|---|
-| Anfangsbestand | Kontoauszüge, Onlinebanking | 30 Min |
-| Einzahlungen Kunden | Debitoren-OP-Liste, Vertriebsforecast | 2 Std |
-| Auszahlungen Lieferanten | Kreditoren-OP-Liste, Bestellobligo | 2 Std |
-| Personal, Steuern, Fixkosten | Lohnlauf, Steuerkalender, Verträge | 1 Std |
-| Kredite, Investitionen | Kreditverträge, Investitionsplan | 30 Min |
-| Mindestpuffer | Abstimmung mit Geschäftsführung | 30 Min |
+Zusammen sind das etwa 6,5 Stunden reine Arbeitszeit. Weil Sie Zahlungsziele und Verträge nachschlagen und Rückfragen mit der Buchhaltung klären müssen, verteilt sich der Aufbau meist auf ein bis zwei Arbeitstage.
 
-Zusammen sind das etwa 6,5 Stunden. Rechnen Sie mit ein bis zwei Arbeitstagen, weil Sie dabei vermutlich Zahlungsziele und Verträge nachschlagen müssen.
+## Wie sieht das Ergebnis aus?
 
-## Wie sieht das Ergebnis aus, und was zeigt es?
+Die Auswertung braucht eine Grafik und vier Kennzahlen: Kontostand heute, tiefster Stand, Mindestpuffer und Anzahl der Wochen unter Puffer. Die Abbildung zeigt Beispieldaten der Thalberg GmbH.
 
-Die Auswertung braucht nur eine Grafik und vier Kennzahlen: Kontostand heute, tiefster Stand, Mindestpuffer und Anzahl der Wochen unter Puffer. Die Abbildung zeigt einen Bericht mit Beispieldaten der fiktiven Thalberg Getränke GmbH.
+![Säulendiagramm des Kontostands über 13 Wochen mit gestrichelter Pufferlinie bei 100 Tausend Euro; in den Wochen 7, 9, 10, 12 & 13 liegt der Stand darunter](/images/blog/liquiditaetsplanung-13-wochen/02-wireframe-13-wochen-bericht.svg)
 
-![Säulendiagramm des Kontostands über 13 Wochen mit gestrichelter Pufferlinie bei 100 Tausend Euro; in den Wochen 7, 9, 10 und 12 liegt der Stand darunter](/images/blog/liquiditaetsplanung-13-wochen/02-wireframe-13-wochen-bericht.svg)
+*Abbildung 1: Der 13-Wochen-Bericht mit Beispieldaten. Fünf von 13 Wochen liegen unter dem Mindestpuffer von 100 Tsd. €, in Woche 12 sogar knapp unter null.*
 
-*Abbildung 1: Der 13-Wochen-Bericht mit Beispieldaten. Vier von 13 Wochen liegen unter dem Mindestpuffer von 100 Tsd. €, in Woche 12 sogar knapp unter null.*
+Der Anfangsbestand beträgt 380k€. Bis Woche 6 sieht alles komfortabel aus. In Woche 7 fällt der Kontostand auf 80k€, weil Lohnlauf und eine große Lieferantenzahlung zusammenfallen. In Woche 9 sind es nur noch 10k€, in Woche 12 sogar minus 5k€, Peter Zwegat scharrt bereits mit den Hufen. Ohne Vorschau fiele das wahrscheinlich erst am Tag der Überweisung auf. Mit 13-Wochen-Vorschau bleiben mindestens sechs Wochen Reaktionszeit bis zum ersten Engpass.
 
-Der Anfangsbestand beträgt 420 Tsd. Euro. Bis Woche 6 sieht alles komfortabel aus. Dann fällt in Woche 7 der Kontostand auf 80 Tsd. Euro, weil Lohnlauf und eine große Lieferantenzahlung zusammenfallen. In Woche 9 sind es nur noch 10 Tsd. Euro, in Woche 12 minus 5 Tsd. Euro. Ohne Vorschau fiele das am Tag der Überweisung auf. Mit Vorschau haben die Controllerin und die Geschäftsführung zwölf Wochen Zeit.
-
-Welche Hebel dann bleiben, lässt sich konkret durchspielen: Ein Kunde soll früher zahlen, eine Investition rutscht um zwei Wochen, ein Lieferant gewährt ein längeres Ziel oder die Kreditlinie wird rechtzeitig mit der Bank besprochen. Diese Szenarien kosten in einer sauberen Vorschau Minuten, sonst Nerven.
-
-Der Kontostand ist ein Rückspiegel. Die Vorschau ist der Blick durch die Windschutzscheibe.
+In dieser Zeit lässt sich einiges klären: Ein Kunde zahlt früher, eine Investition rutscht um zwei Wochen nach hinten oder ein Lieferant gewährt ein längeres Zahlungsziel. In einer sauberen Vorschau kostet das Durchspielen solcher Szenarien Minuten.
 
 ## Wie läuft die Vorschau jede Woche, ohne zum Dauerjob zu werden?
 
-Der Aufbau ist einmalig, der Nutzen entsteht durch den Rhythmus. Wird die Vorschau nur bei Bankgesprächen aktualisiert, ist sie bei jedem Gespräch veraltet.
+Eine Vorschau hilft nur, solange sie aktuell ist. Wird sie bloß vor Bankgesprächen überarbeitet, stimmen die Zahlen beim nächsten Termin nicht mehr. Deshalb bekommt sie einen festen Wochentermin und einen Verantwortlichen, der sie pflegt - Freiwillige vor.
 
 ![Fünf Kästen von Montag bis Freitag: Ist abgleichen, Quellen holen, Abweichungen klären, Woche 14 planen, entscheiden, mit insgesamt 2,5 Stunden Wochenaufwand](/images/blog/liquiditaetsplanung-13-wochen/01-wochenzyklus.svg)
 
 *Abbildung 2: Der Wochenzyklus mit rund 2,5 Stunden Aufwand. Die Zeitangaben sind ADV-Erfahrungswerte.*
 
-Der Zyklus besteht aus fünf kurzen Schritten. Montags gleichen Sie Kontostand und Zahlungseingänge der Vorwoche mit dem Plan ab. Dienstags holt die Buchhaltung aktuelle OP-Listen und Termine. Mittwochs klären Sie Abweichungen: Welche Zahlung kam später, welche früher, und warum? Donnerstags rollen Sie den Plan um eine Woche nach vorn. Freitags prüfen Sie den Puffer und entscheiden, ob Maßnahmen nötig sind.
+Der Zyklus verteilt sich auf fünf Wochentage. Montags gleichen Sie Kontostand und Zahlungseingänge der Vorwoche mit dem Plan ab. Dienstags liefert die Buchhaltung die aktuellen Listen der offenen Rechnungen und die Termine. Mittwochs klären Sie Abweichungen: welche Zahlung später kam, welche früher und warum. Donnerstags rollen Sie den Plan um eine Woche nach vorn. Freitags prüfen Sie den Puffer und entscheiden, ob Maßnahmen nötig sind. Ob am Samstag das Sams kommt, konnten wir bisher nicht feststellen.
 
-Der wichtigste Lerneffekt steckt im Mittwoch. Wer jede Woche notiert, welcher Kunde wie viele Tage später zahlt als geplant, verbessert die Prognose von allein. Nach drei bis vier Wochen kennen Sie die tatsächlichen Zahlungsgewohnheiten Ihrer zehn größten Kunden besser als das Vertriebssystem.
+Der Zyklus steht und fällt mit zwei Terminen. Liefert die Buchhaltung am Dienstag zu spät oder bleiben die Rückfragen am Mittwoch liegen, ist die Vorschau am Donnerstag schon wieder veraltet. Legen Sie beide Termine deshalb fest in den Kalender.
 
-### Welche Fehler treten in der Praxis am häufigsten auf?
+Der Mittwoch zahlt sich besonders aus. Wer jede Woche festhält, welcher Kunde wie viele Tage später gezahlt hat als geplant, kann diesen Verzug bei der nächsten Planung für denselben Kunden berücksichtigen.
 
-1. **Erträge statt Zahlungen planen.** Der Umsatz einer Woche ist nicht ihr Zahlungseingang.
-2. **Fälligkeit statt Zahlungsverhalten.** Wer jeden Kunden pünktlich einplant, plant zu optimistisch.
-3. **Fixtermine vergessen.** Umsatzsteuer, Quartalsmiete oder Jahresversicherung fehlen gern, weil sie nur einmal im Quartal anfallen.
-4. **Kein Owner.** Wenn niemand namentlich zuständig ist, ist die Datei nach drei Monaten veraltet. Dazu mehr in unserem Beitrag zur [Data Governance](/blog/data-governance/).
-5. **Nur eine Version der Wahrheit im Kopf.** Die Liquiditätsplanung muss mit dem Rest des Reportings übereinstimmen, sonst gibt es wieder [mehrere Zahlen für dieselbe Frage](/blog/7-zeichen-datenbasis/).
+## Was lässt sich automatisieren, und wann lohnt es sich?
 
-## Wo stößt die Excel-Lösung an Grenzen?
+Die Wochenroutine besteht aus zwei Teilen. Montag und Dienstag sind Fleißarbeit: Listen exportieren, in die Datei kopieren, Formeln prüfen, Zahlen abgleichen. Mittwoch bis Freitag ist Denkarbeit: Abweichungen bewerten, Hebel abwägen, entscheiden.
 
-Für ein Unternehmen mit einem Hauptkonto, ein bis zwei Banken und überschaubarem Zahlungsvolumen trägt Excel lange. Schwierig wird es, wenn mehrere Gesellschaften, Währungen oder Bankkonten zusammenkommen, wenn die OP-Listen nicht mehr von Hand exportiert werden sollen oder wenn Plan und Ist in verschiedenen Systemen liegen. Dann kostet der Dienstag keine 45 Minuten mehr, sondern einen halben Tag, und die Fehlerquote steigt.
+Die Fleißarbeit kann ein automatisierter Bericht übernehmen. Er liest die offenen Posten direkt aus ERP und Buchhaltung ein und schreibt die Vorschau jede Woche selbst fort. Dem Controller bleibt die Denkarbeit, und für die hat er dann mehr Zeit. Eine Liquiditätsvorschau ist dafür ein guter Kandidat, weil sie jede Woche in derselben Form entsteht.
 
-Dieselbe Mechanik kennen Sie vom [Plan-Ist-Vergleich mit Excel und ERP](/blog/plan-ist-vergleich-excel-erp/) und vom [Monatsreporting](/blog/excel-reporting-controlling-automatisieren/): Die Logik ist schnell gebaut, die dauerhafte Datenversorgung ist die eigentliche Arbeit. Wie ein automatisierter Bericht auf Basis von ERP und Bank aussieht, zeigt unsere [Live-Demo eines Monatsberichts in Power BI](/controlling/). Welche Software für Planung und Liquidität grundsätzlich infrage kommt, vergleichen wir in [Excel, Jedox, Board oder Power BI](/blog/planungssoftware-mittelstand-vergleich/).
+Spätestens wenn mehrere Gesellschaften, Währungen oder Bankkonten zusammenkommen, wenn Plan und Ist in verschiedenen Systemen liegen oder wenn die Exporte nicht mehr von Hand laufen sollen, lohnt sich dieser Schritt.
+ Dann dauert die Datenbeschaffung deutlich länger, und mit jedem manuellen Schritt wächst das Fehlerrisiko. Wie der Weg von der Excel-Datei zum automatischen Bericht aussieht, zeigt unser Fahrplan zum [Excel-Reporting in fünf Stufen](/blog/excel-reporting-controlling-automatisieren/).
 
-Eine Abgrenzung: Dieser Beitrag ist eine betriebswirtschaftliche Anleitung. Bei drohender Zahlungsunfähigkeit, Covenants oder insolvenzrechtlichen Fragen sind Steuerberater, Rechtsanwälte und Ihre Bank die richtigen Ansprechpartner.
+## Fazit: Das Bankgespräch wird zum Routinetermin
 
-## Fazit: Der Anruf der Bank ist kein Notfall mehr
+Die Thalberg-Controllerin hat mit vier Quellen, einem Wochenrhythmus von rund 2,5 Stunden und einem definierten Puffer alles, was sie für das Bankgespräch braucht. Zum Termin legt sie der Bank eine Vorschau vor, die jede Woche gegen die Realität geprüft wurde, und die Geschäftsführung kennt in Woche 1 den drohenden Engpass in Woche 7. Den nächsten Schritt kennt sie auch: die Arbeit vom Montag und Dienstag dem Rechner überlassen.
 
-Die Thalberg-Controllerin braucht am Freitag um 16:40 Uhr keine Nachtschicht. Sie braucht eine Struktur mit vier Quellen, einen Wochenrhythmus von rund 2,5 Stunden und einen definierten Puffer. Dann schickt sie der Bank am Montag eine Vorschau, die jede Woche gegen die Realität geprüft wurde. Und die Geschäftsführung erfährt von Woche 12 in Woche 1.
-
-## Wie wird aus Ihrer Liquiditätsvorschau ein Bericht, der sich selbst aktualisiert?
-
-Die Vorschau läuft, der Freitagabend gehört wieder Ihnen. Mühsam wird es, sobald OP-Listen, Bankdaten und Lohnläufe automatisch zusammenfließen sollen. Auf unserer Controlling-Seite sehen Sie, [wie aus Ihrem wichtigsten Excel-Bericht ein automatisierter Power-BI-Bericht zum Fixpreis wird](/controlling/). Der Einstieg ist ein Reporting-Check für 2.900 Euro, der Ihre manuellen Schritte und Quellen erfasst.
-
-## Häufige Fragen
-
-**Was ist der Unterschied zwischen Liquiditätsplanung und Cashflow-Rechnung?**
-Die Cashflow-Rechnung blickt zurück und erklärt, woher das Geld kam und wohin es ging. Die Liquiditätsplanung blickt nach vorn und zeigt, ob in den kommenden Wochen genug Geld auf dem Konto ist. Beide arbeiten mit Zahlungsströmen, aber mit anderem Zweck und Zeitraum.
-
-**Wie genau muss die Planung sein?**
-Genau genug, um Engpässe rechtzeitig zu sehen, nicht auf den Euro. In den ersten vier Wochen sollten Sie einzelne Zahlungen planen, danach reichen Summen je Zahlungsart. Entscheidend ist, dass Sie Abweichungen jede Woche auswerten.
-
-**Reicht Excel für die 13-Wochen-Planung aus?**
-Für ein Unternehmen mit einer Gesellschaft, wenigen Konten und überschaubarem Zahlungsvolumen ja. Grenzen zeigen sich bei mehreren Gesellschaften, Währungen oder dem Wunsch, OP-Listen und Bankdaten automatisch einzulesen.
-
-**Wer im Unternehmen sollte die Planung verantworten?**
-In der Regel das Controlling oder die Finanzleitung, mit klarer Zuarbeit der Buchhaltung. Entscheidend ist ein namentlich benannter Verantwortlicher und ein fester Termin pro Woche.
+*Disclaimer: Dieser Beitrag ist eine betriebswirtschaftliche Anleitung. Bei drohender Zahlungsunfähigkeit sind Steuerberater, Rechtsanwälte und Ihre Bank die richtigen Ansprechpartner.*
 
 ---
 
-Sie möchten wissen, welche Ihrer Berichte sich zuerst automatisieren lassen, und wie viel Zeit das Ihrem Team bringt? In einem kostenlosen Erstgespräch gehen wir Ihre Berichtslandschaft gemeinsam durch.
+Ob sich Ihre Liquiditätsvorschau als erster automatisierter Bericht eignet, klären wir im kostenlosen Erstgespräch anhand Ihrer Berichte und Quellen. Auf unserer [Controlling-Seite](/controlling/) sehen Sie, wie wir einen Bericht zum Fixpreis automatisieren.
 
 <div class="col-12 flex justify-center">
-  <a class="btn btn-adv" href="https://calendly.com/andreas-klostermann-alpinedata/ersttermin">Erstgespräch vereinbaren →</a>
+  <a class="btn btn-adv" href="https://calendly.com/andreas-klostermann-alpinedata/besprechung-controlling-finance">Erstgespräch vereinbaren →</a>
 </div>
