@@ -11,29 +11,30 @@ draft: false
 summary: "Dieselbe Frage, drei KI-Assistenten, drei Zahlen. Das Tool war nicht schuld. Das Controlling braucht erst ein Fundament: Governance, Datenqualität, Zugriff und stabile Wartung."
 ---
 
-Dienstag, 16:40 Uhr bei der Thalberg Getränke GmbH, einem fiktiven Mittelständler aus unserer [Thalberg-Serie](/blog/kick-off/). Die Controlling-Leitung soll bis morgen sagen, wie hoch der Rabattanteil im Großhandel zuletzt war. Aus Neugier stellt sie dieselbe Frage samt Excel-Export drei KI-Assistenten. Die Antworten: 4,2, 4,8 und 3,9 Prozent vom Umsatz. Alle drei klingen überzeugend.
+Dienstag, 16:40 Uhr bei der Thalberg Getränke GmbH, dem fiktiven Mittelständler aus unserer [aktuellen Blog-Serie](/blog/kick-off/). Seit ein paar Wochen lässt die Controlling-Leitung Standardauswertungen von einem KI-Assistenten vorbereiten, das spart ihr jede Woche Stunden. Kurz vor Feierabend meldet sich der Geschäftsführer und MUSS bis morgen früh wissen, wie hoch der Rabattanteil im Großhandel im letzten Quartal war (genervt Eltern nickend hier wissend und denken: "Das fällt dir ja früh ein"). 
 
-Welcher Assistent der beste ist, war hier nicht die Frage. Die Zahlen unterschieden sich, weil der Export Gutschriften, Boni und Skonti in einer Spalte mischte und jedes Modell „Rabatt“ anders las. Dieser Artikel beantwortet deshalb die Frage davor: Was braucht das Controlling, damit **KI im Controlling** überhaupt verlässlich arbeitet?
+Der Assistent liefert 4,2% vom Umsatz, sauber begründet. Die Zahl weicht allerdings von dem ab, was sie aus dem Vorquartal im Kopf hat, und bei einer Zahl für den Geschäftsführer sollte man sich sicher sein. Also stellt sie dieselbe Frage mit demselben Export zwei weiteren Agenten. Die Antworten: 4,8% und 3,9%. Beide begründen ihre Zahl genauso schlüssig.
+
+Die Controlling-Leitung legt die drei Rechenwege nebeneinander und findet die Ursache nach einer kurzen Nachtschicht. Der Export aus der Buchhaltung führt Rabatte, Boni, Gutschriften und Skonti auf einem gemeinsamen Erlösschmälerungskonto, und jeder Agent hat dadurch den Begriff "Rabatt" etwas anders ausgelegt. Die Daten lassen also (mindestens) drei Lesarten zu. Welcher Agent der beste ist, spielt an dieser Stelle deshalb keine Rolle. Zuerst muss geklärt sein, was das Controlling braucht, damit **KI im Controlling** überhaupt verlässlich arbeitet.
 
 ## Das Wichtigste in Kürze
 
-- **Ein KI-Agent** ist ein Sprachmodell, das mehrstufig arbeitet, auf Daten und Werkzeuge zugreift und Aufgaben selbstständig ausführt. Je mehr Freiheit er hat, desto mehr Fundament braucht er.
-- Vier Voraussetzungen entscheiden: Governance (wer darf was), Datenqualität (eine Definition je Kennzahl), Zugänglichkeit (Daten maschinenlesbar, nicht im Dateiordner) und Stabilität in der Wartung (Änderungen ohne Kopfmonopol).
-- Die Tool-Wahl kommt danach. Mit einem sauberen Fundament funktionieren Copilot, ChatGPT, Claude und andere ähnlich gut, ohne Fundament keiner.
+- Einen **KI-Agenten** kann man sich wie einen Assistenten vorstelle, der mehr kann als nur zu Fragen beantworten. Er liest selbstständig Daten, rechnet damit und erledigt Aufgaben in mehreren Schritten weitgehend allein. Im Controlling zum Beispiel holt er sich die Zahlen aus dem Export, berechnet den Rabattanteil und schreibt die Auswertung. Je mehr Freiheit er hat, desto wichtiger sind saubere Daten und klare Regeln.
+- Vier Voraussetzungen entscheiden, ob ein KI-Agent im Controlling verlässliche Zahlen liefert: Regeln, wer welche Daten nutzen darf (Governance), vollständige und eindeutig definierte Daten (Datenqualität) (Datenqualität), Daten an einer zentralen Stelle statt verstreut in Dateiordnern (Zugänglichkeit) und eine geregelte Wartung, damit Änderungen nicht an einer einzelnen Person hängen (Stabilität).
+- Die Wahl des Tools darf niemals der erste Schritt sein: Mit einem sauberen Fundament funktionieren Copilot, ChatGPT, Claude und andere nach unserer Erfahrung vergleichbar gut, ohne Fundament keiner.
 
 ## Welches Fundament braucht KI im Controlling?
 
-Die Erwartung ist größer als die Praxis. Laut BARC Planning Survey 26 nutzen erst 27 Prozent der Unternehmen KI für Predictive Planning, 75 Prozent erhoffen sich davon Entlastung von manueller Planungsarbeit ([BARC, 2026](https://barc.com/de/news/barc-planning-survey-26-ki-in-planning/)). Laut Horváth CFO-Studie 2026 halten 63 Prozent der CFOs Digitalisierung und Prozessautomatisierung für hoch wirksam ([Horváth, 2026](https://www.horvath-partners.com/en/media-center/studies/cfo-study-2026-control-meets-complexity)).
+Die Erwartungen an Automatisierung und KI im Controlling sind hoch. Laut der [Horváth CFO-Studie 2026](https://www.horvath-partners.com/en/media-center/studies/cfo-study-2026-control-meets-complexity) halten 63 Prozent der CFOs Prozessautomatisierung für hoch oder sehr hoch wirksam, in der [BARC Planning Survey 26](https://barc.com/de/news/barc-planning-survey-26-ki-in-planning/) nennen 75 Prozent die Entlastung von manueller Planungsarbeit als wichtigsten erwarteten Nutzen von KI. Genutzt wird KI für Predictive Planning bisher aber erst von 27 Prozent der befragten Unternehmen.
 
-Dazwischen liegt das Fundament. Die folgende Tabelle fasst die vier Voraussetzungen mit Prüffrage und Mindeststandard zusammen. Die Mindeststandards sind ADV-Erfahrungswerte aus Projekten, keine Normen.
+Zwischen hoher Erwartung und geringer Nutzung liegt das Fundament. Die Tabelle zeigt die vier Voraussetzungen, die erfüllt sein müssen, damit ein KI-Agent im Controlling richtige Zahlen liefert. Zu jeder gibt es eine Prüffrage, den Mindeststandard vor dem ersten Einsatz und den typischen Aufwand. Die Mindeststandards sind ADV-Erfahrungswerte aus Projekten, keine Normen.
 
-| Voraussetzung | Prüffrage | Mindeststandard vor dem ersten Agenten | Typischer Aufwand |
+| Voraussetzung | Prüffrage | Mindeststandard vor dem ersten Einsatz | Typischer Aufwand |
 |---|---|---|---|
-| Governance | Wer darf welche Daten in welches Tool geben? | Datenklassen, Rollen, freigegebene Tools, Vertragsprüfung | 2–3 Tage |
-| Datenqualität | Hat jede Kennzahl genau eine Definition? | Kennzahlenkatalog mit Formel, Quelle, Verantwortlichem | 3–5 Tage für 10–15 Kennzahlen |
-| Zugänglichkeit | Kommt ein Agent an die Zahlen, ohne dass jemand exportiert? | Zentrales Datenmodell mit Lesezugriff statt Dateiablage | 1–2 Wochen je Quelle |
-| Stabilität in der Wartung | Was passiert, wenn sich ein Konto, ein Export oder eine Formel ändert? | Versionierung, Änderungsprozess, feste Testfragen | 2–3 Tage, danach laufend |
-
+| Governance | Wer darf welche Daten in welches KI-Tool eingeben? | Eine schriftliche Regel, welche Daten vertraulich sind, wer was nutzen darf und welche Tools erlaubt sind, dazu ein geprüfter Vertrag mit dem Anbieter | 2 bis 3 Tage |
+| Datenqualität | Ist für jede Kennzahl eindeutig festgelegt, wie sie berechnet wird? | Eine Liste der wichtigen Kennzahlen mit Berechnung, Datenquelle und einem Verantwortlichen | 3 bis 5 Tage für 10 bis 15 Kennzahlen |
+| Zugänglichkeit | Kommt der KI-Agent an die Zahlen, ohne dass vorher jemand eine Datei exportieren muss? | Alle Zahlen liegen an einer zentralen Stelle, die der Agent lesen, aber nicht verändern kann, statt verstreut in Excel-Dateien | 1 bis 2 Wochen je Datenquelle |
+| Stabilität in der Wartung | Was passiert, wenn sich ein Konto, ein Export oder eine Formel ändert? | Jede Änderung wird festgehalten und hat einen Verantwortlichen. Feste Kontrollfragen mit bekannter Antwort zeigen, ob der Agent noch richtig rechnet | 2 bis 3 Tage, danach laufend |
 *Tabelle 1: Die vier Voraussetzungen für KI-Agents im Controlling (Aufwände sind ADV-Schätzungen für ein Controlling mit 3–6 Personen).*
 
 ![Vier Säulen Governance, Datenqualität, Zugänglichkeit und Wartungsstabilität tragen die Ebene KI-Agent, darunter liegen die Quellsysteme ERP, DATEV und Excel](/images/blog/ki-assistenten-controlling-vergleich/01-fundament-ki-agent.svg)
