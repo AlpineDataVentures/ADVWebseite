@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="t d">
+<title id="t">Wochenzyklus der 13-Wochen-Liquiditätsplanung</title>
+<desc id="d">Fünf Schritte von Montag bis Freitag: Ist abgleichen, Quellen aktualisieren, Abweichungen klären, Woche 14 ergänzen, entscheiden. Gesamtaufwand rund zweieinhalb Stunden pro Woche.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}
+.n{font-size:20px;font-weight:600}.l{font-size:20px;font-weight:600}.m{font-size:16px;fill:#555555}.k{font-size:30px;font-weight:600}
+</style>
+<rect width="1200" height="560" fill="#ffffff"/>
+<text x="48" y="64" class="h">Der Wochenzyklus: rund 2,5 Stunden pro Woche</text>
+<text x="48" y="96" class="s">Einmal sauber aufgesetzt, läuft die Vorschau im festen Rhythmus.</text>
+<rect x="48" y="150" width="208" height="270" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="190" class="n">1</text><text x="96" y="190" class="m" style="fill:#141414">Montag</text>
+<text x="68" y="236" class="l">Ist abgleichen</text>
+<text x="68" y="274" class="m" style="fill:#141414">Kontostand und</text><text x="68" y="296" class="m" style="fill:#141414">Zahlungseingänge</text>
+<line x1="68" y1="340" x2="236" y2="340" stroke="#141414" stroke-width="1"/>
+<text x="68" y="372" class="m" style="fill:#141414">ca. 30 Min</text><text x="68" y="396" class="m" style="fill:#141414">Controlling</text>
+<rect x="274" y="150" width="208" height="270" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="294" y="190" class="n">2</text><text x="322" y="190" class="m" style="fill:#141414">Dienstag</text>
+<text x="294" y="236" class="l">Quellen holen</text>
+<text x="294" y="274" class="m" style="fill:#141414">Offene Posten, Löhne,</text><text x="294" y="296" class="m" style="fill:#141414">Steuertermine</text>
+<line x1="294" y1="340" x2="462" y2="340" stroke="#141414" stroke-width="1"/>
+<text x="294" y="372" class="m" style="fill:#141414">ca. 45 Min</text><text x="294" y="396" class="m" style="fill:#141414">Buchhaltung</text>
+<rect x="500" y="150" width="208" height="270" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="520" y="190" class="n">3</text><text x="548" y="190" class="m" style="fill:#141414">Mittwoch</text>
+<text x="520" y="236" class="l">Abweichungen</text>
+<text x="520" y="274" class="m" style="fill:#141414">Was kam später oder</text><text x="520" y="296" class="m" style="fill:#141414">früher als geplant?</text>
+<line x1="520" y1="340" x2="688" y2="340" stroke="#141414" stroke-width="1"/>
+<text x="520" y="372" class="m" style="fill:#141414">ca. 30 Min</text><text x="520" y="396" class="m" style="fill:#141414">Controlling</text>
+<rect x="726" y="150" width="208" height="270" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="746" y="190" class="n">4</text><text x="774" y="190" class="m" style="fill:#141414">Donnerstag</text>
+<text x="746" y="236" class="l">Woche 14 planen</text>
+<text x="746" y="274" class="m" style="fill:#141414">Plan um eine Woche</text><text x="746" y="296" class="m" style="fill:#141414">nach vorn rollen</text>
+<line x1="746" y1="340" x2="914" y2="340" stroke="#141414" stroke-width="1"/>
+<text x="746" y="372" class="m" style="fill:#141414">ca. 15 Min</text><text x="746" y="396" class="m" style="fill:#141414">Controlling</text>
+<rect x="952" y="150" width="208" height="270" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="972" y="190" class="n">5</text><text x="1000" y="190" class="m" style="fill:#141414">Freitag</text>
+<text x="972" y="236" class="l">Entscheiden</text>
+<text x="972" y="274" class="m" style="fill:#141414">Puffer prüfen, Szenario</text><text x="972" y="296" class="m" style="fill:#141414">rechnen, GF informieren</text>
+<line x1="972" y1="340" x2="1140" y2="340" stroke="#141414" stroke-width="1"/>
+<text x="972" y="372" class="m" style="fill:#141414">ca. 30 Min</text><text x="972" y="396" class="m" style="fill:#141414">Leitung</text>
+<text x="48" y="470" class="m">Zeitangaben: ADV-Erfahrungswerte für ein Unternehmen mit einem Hauptkonto und ein bis zwei Banken.</text>
+<text x="48" y="494" class="m">Je mehr Konten, Gesellschaften und Währungen, desto länger der Dienstag.</text></svg>

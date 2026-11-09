@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="t d">
+<title id="t">Wireframe: 13-Wochen-Liquiditätsbericht mit Mindestpuffer</title>
+<desc id="d">Säulendiagramm des erwarteten Kontostands für 13 Wochen mit gestrichelter Linie bei 100 Tausend Euro Mindestliquidität. In den Wochen 7, 9, 10 und 12 liegt der Stand darunter, in Woche 12 knapp unter null.</desc>
+<style>
+text{font-family:Poppins,"Segoe UI",Arial,sans-serif;fill:#141414}
+.h{font-size:30px;font-weight:600}.s{font-size:18px;fill:#555555}
+.n{font-size:20px;font-weight:600}.l{font-size:20px;font-weight:600}.m{font-size:16px;fill:#555555}.k{font-size:30px;font-weight:600}
+</style>
+<rect width="1200" height="640" fill="#ffffff"/>
+<text x="48" y="56" class="h">13-Wochen-Bericht (Beispieldaten)</text>
+<text x="48" y="86" class="s">Thalberg Getränke GmbH (fiktiv) · Stand Kalenderwoche 46 · Beträge in Tsd. €</text>
+<rect x="48" y="116" width="262" height="92" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="68" y="146" class="m" style="fill:#141414">Kontostand heute</text><text x="68" y="187" class="k">420</text>
+<rect x="330" y="116" width="262" height="92" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="350" y="146" class="m" style="fill:#141414">Tiefster Stand</text><text x="350" y="187" class="k">−5 in Wo. 12</text>
+<rect x="612" y="116" width="262" height="92" rx="20" fill="#f2f4f3" stroke="#141414" stroke-width="1.5"/>
+<text x="632" y="146" class="m" style="fill:#141414">Mindestpuffer</text><text x="632" y="187" class="k">100</text>
+<rect x="894" y="116" width="262" height="92" rx="20" fill="#00ce7f" stroke="#141414" stroke-width="1.5"/>
+<text x="914" y="146" class="m" style="fill:#141414">Wochen unter Puffer</text><text x="914" y="187" class="k">4 von 13</text>
+<line x1="96" y1="538.2608695652174" x2="1152" y2="538.2608695652174" stroke="#141414" stroke-width="1.5"/>
+<text x="48" y="543.2608695652174" class="m">0</text>
+<text x="48" y="425.86956521739125" class="m">200</text>
+<text x="48" y="308.4782608695652" class="m">400</text>
+<rect x="96" y="326.9565217391304" width="50" height="211.304347826087" rx="6" fill="#0C8974"/>
+<text x="121.0" y="582" class="m" text-anchor="middle">1</text>
+<rect x="175" y="303.4782608695652" width="50" height="234.7826086956522" rx="6" fill="#0C8974"/>
+<text x="200.0" y="582" class="m" text-anchor="middle">2</text>
+<rect x="254" y="409.13043478260863" width="50" height="129.13043478260875" rx="6" fill="#0C8974"/>
+<text x="279.0" y="582" class="m" text-anchor="middle">3</text>
+<rect x="333" y="356.30434782608694" width="50" height="181.95652173913044" rx="6" fill="#0C8974"/>
+<text x="358.0" y="582" class="m" text-anchor="middle">4</text>
+<rect x="412" y="385.65217391304344" width="50" height="152.60869565217394" rx="6" fill="#0C8974"/>
+<text x="437.0" y="582" class="m" text-anchor="middle">5</text>
+<rect x="491" y="368.0434782608695" width="50" height="170.21739130434787" rx="6" fill="#0C8974"/>
+<text x="516.0" y="582" class="m" text-anchor="middle">6</text>
+<rect x="570" y="491.30434782608694" width="50" height="46.95652173913044" rx="6" fill="#141414"/>
+<text x="595.0" y="582" class="m" text-anchor="middle">7</text>
+<rect x="649" y="450.2173913043478" width="50" height="88.04347826086956" rx="6" fill="#0C8974"/>
+<text x="674.0" y="582" class="m" text-anchor="middle">8</text>
+<rect x="728" y="532.3913043478261" width="50" height="5.869565217391255" rx="6" fill="#141414"/>
+<text x="753.0" y="582" class="m" text-anchor="middle">9</text>
+<rect x="807" y="497.17391304347825" width="50" height="41.086956521739125" rx="6" fill="#141414"/>
+<text x="832.0" y="582" class="m" text-anchor="middle">10</text>
+<rect x="886" y="470.7608695652174" width="50" height="67.5" rx="6" fill="#0C8974"/>
+<text x="911.0" y="582" class="m" text-anchor="middle">11</text>
+<rect x="965" y="538.2608695652174" width="50" height="3" rx="6" fill="#141414"/>
+<text x="990.0" y="582" class="m" text-anchor="middle">12</text>
+<rect x="1044" y="494.23913043478257" width="50" height="44.02173913043481" rx="6" fill="#141414"/>
+<text x="1069.0" y="582" class="m" text-anchor="middle">13</text>
+<line x1="86" y1="479.5652173913043" x2="1152" y2="479.5652173913043" stroke="#00ce7f" stroke-width="4" stroke-dasharray="12 8"/>
+<text x="1152" y="469.5652173913043" class="n" text-anchor="end">Mindestpuffer 100</text>
+<text x="96" y="610" class="m">Woche</text>
+<rect x="300" y="596" width="16" height="16" rx="3" fill="#0C8974"/><text x="324" y="610" class="m">über Puffer</text>
+<rect x="440" y="596" width="16" height="16" rx="3" fill="#141414"/><text x="464" y="610" class="m">unter Puffer: Maßnahme prüfen</text>
+</svg>
